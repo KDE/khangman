@@ -182,8 +182,8 @@ in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></
 game by closing the main window and writing the actual settings in the configuration file.
 </para>
 <para>
-The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has five menu items: Danish, English, French, Spanish and Swedish.
-As default, if your KDE language is one of those five, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
+The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has six menu items: Danish, English, Finnish, French, Spanish and Swedish.
+As default, if your KDE language is one of those six, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
 </para>
 <para>
 If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language, "&aacute;" are displayed when
@@ -198,7 +198,9 @@ choose different shortcut keys for different actions. For example, Ctrl+Q is the
 <menuchoice><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice> is also a standard KDE menu item that allows you to add or suppress items from the toolbar.
 <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 </para>
-
+<para>
+Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background.
+</para>
 <screenshot>
 <screeninfo>&khangman; blue theme</screeninfo>
 	<mediaobject>
