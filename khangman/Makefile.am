@@ -24,6 +24,7 @@ rc_DATA = khangmanui.rc
 rcdir = $(kde_datadir)/khangman
 
 messages:  rc.cpp
+	$(EXTRACTRC) *.ui *.rc > rc.cpp
 	LIST=`find . -name \*.h -o -name \*.hh -o -name \*.H -o -name \*.hxx -o -name \*.hpp -o -name \*.cpp -o -name \*.cc -o -name \*.cxx -o -name \*.ecpp -o -name \*.C`; \
 	if test -n "$$LIST"; then \
 	 $(XGETTEXT) $$LIST -o $(podir)/khangman.pot; \
