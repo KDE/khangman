@@ -199,7 +199,7 @@ void KHangManView::replaceLetters(QString sChar)
     goodWord.replace((2*index), 1,sChar);
     index++;
   }
-  if (m_accent && accent_b)
+  if (m_accent && !accent_b)
   {
   //characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
     if (sChar=="i") replaceLetters(QString("í"));
@@ -221,7 +221,7 @@ bool KHangManView::containsChar(QString &sChar)
 {
   bool b = false;
 
-  if (m_accent && accent_b)
+  if (m_accent && !accent_b)
   {
     if (sChar=="i") b = word.contains(QString("í")) > 0;
     if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
@@ -283,7 +283,7 @@ void KHangManView::game()
 				temp=word;
 			}//end of test
 			word = word.lower(); //because of German
-		}//end else if lanlanguage=fr
+		}//end else if language=fr
 	//kdDebug() << word << endl;
 	goodWord ="";
 	mainLabel->setText(goodWord);
