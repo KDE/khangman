@@ -76,6 +76,7 @@ KHangMan::KHangMan()
 	loadLangToolBar();
 	setupLangMenu();
 	slotHint();
+	slotAccents();
 	newGame();
 }
 
@@ -330,13 +331,7 @@ void KHangMan::changeLanguage(int newLanguage)
     	slotHint();
     	setAccentBool();
 	m_bCharToolbar = Prefs::showCharToolbar();
-   	 if (m_view->m_accent) 
-    		slotAccents();
-    	else {
-    		changeStatusbar("", IDS_ACCENTS);
-		loadLangToolBar();
-		newGame();
-    	}
+	slotAccents();
 }
 
 void KHangMan::setLanguage(QString lang)
@@ -766,11 +761,9 @@ void KHangMan::setLanguages()
 	m_languages.clear();
 	m_languageNames.clear();
 	m_sortedNames.clear();
-	kdDebug() << "in SetLanguages "<< endl;
 	//the program scans in khangman/data/ to see what languages data is found
 	QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
 	if (mdirs.isEmpty()) return;
-	kdDebug() << "mdirs= "<< mdirs << endl;
 	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
 		QDir dir(*it);
 		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
@@ -789,7 +782,6 @@ void KHangMan::setLanguages()
 	//write the present languages in config so they cannot be downloaded
 	KConfig *config=kapp->config();
 	config->setGroup("KNewStuffStatus");
-	kdDebug() << "------- Number : " << m_languages.count() << endl;
 	for (uint i=0;  i<m_languages.count(); i++)
 	{
 		QString tmp = m_languages[i];
