@@ -25,6 +25,7 @@
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <qregexp.h>
+#include <qtimer.h>
 #include <qtooltip.h>
 //KDE headers
 #include <kapplication.h>
@@ -159,10 +160,16 @@ void KHangManView::slotTry()
 						if (soundFile != 0) 
   							KAudioPlayer::play(soundFile);
 					}
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-						slotNewGame();
-					else
-						kapp->quit();
+					if (Prefs::wonDialog())
+					{
+						QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
+					}
+					else{
+						if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+							slotNewGame();
+						else
+							kapp->quit();
+					}
 				}
 
 			}
