@@ -45,12 +45,7 @@ KHangMan::KHangMan()
 {
     levelString = "";
     modeString = "";
-    // set up the status bar
-    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
-    statusBar( )->insertItem("   ",IDS_LANG, 0);
-    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ",IDS_HINT, 0);
-    statusBar()->show();
+
     //the program scans in khangman/data/ to see what languages data is found
     QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
     for (QStringList::Iterator it = dirs.begin(); it != dirs.end(); ++it ) {
@@ -71,11 +66,13 @@ KHangMan::KHangMan()
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-    //setLanguage(selectedLanguage); //seems useless 20/05
     // then, setup our actions, must be done after the language search
-
     setupActions();
-    
+    // set up the status bar
+    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
+    statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
+    statusBar( )->insertItem("   ",IDS_HINT, 0);
     //toolbar for special characters
     secondToolbar = toolBar("Special characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
@@ -129,7 +126,7 @@ void KHangMan::setupActions()
     modeAct->setItems(modes);
     modeAct->setToolTip(i18n( "Choose the look and feel" ));
     modeAct->setWhatsThis(i18n( "Check the look and feel" ));
-
+    setAutoSaveSettings("General");
     createGUI("khangmanui.rc");
 }
 
