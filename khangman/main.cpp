@@ -1,5 +1,18 @@
 /*
  * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of version 2 of the GNU General Public
+    License as published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
 #include "khangman.h"
@@ -22,7 +35,7 @@ int main(int argc, char **argv)
 {
     KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
                               KHM_VERSION, description, KAboutData::License_GPL,
-                              "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
+                              "(c) 2001-2003, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     //write the names with accents and all and this file save with utf8 encoding
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
