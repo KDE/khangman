@@ -10,6 +10,7 @@
 #include <qstring.h>
 
 #include "pref1ui.h"
+#include "pref2ui.h"
 
 class KHangManPrefPageOne;
 class KHangManPrefPageTwo;
@@ -21,8 +22,10 @@ public:
     KHangManPreferences();
 
 	QString levelString, modeString;
+	int langNum;
 	bool cancelBool;
 	bool levelChanged;
+	bool langChanged;
 
 private:
     KHangManPrefPageOne *m_pageOne;
@@ -41,6 +44,7 @@ private slots:
 	void slotMode(int);
 	void slotLevel(int);
 	void slotChanged();
+	void slotLang(int);
 
 signals:
 	void aClicked();
@@ -51,13 +55,9 @@ class KHangManPrefPageOne : public pref1ui
     Q_OBJECT
 public:
         KHangManPrefPageOne(QWidget *parent = 0);
-	QString modeString;
-
-private slots:
-
 };
 
-class KHangManPrefPageTwo : public QFrame
+class KHangManPrefPageTwo : public pref2ui
 {
     Q_OBJECT
 public:

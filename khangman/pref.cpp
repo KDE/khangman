@@ -24,15 +24,13 @@ KHangManPreferences::KHangManPreferences()
 {
      //disable the Apply button before any changes are made
      enableButton( Apply, false);
-     configChanged = false;
-     levelChanged = true;
 
     QFrame *frame;
-    frame = addPage(i18n("Game"), i18n("Look & Feel and Level"));
+    frame = addPage(i18n("General"), i18n("General"));
     m_pageOne = new KHangManPrefPageOne(frame);
 
-     // frame = addPage(i18n("Your own file"), i18n("Choose a new file"));
-     // m_pageTwo = new KHangManPrefPageTwo(frame);
+     frame = addPage(i18n("Language"), i18n("Data language"));
+     m_pageTwo = new KHangManPrefPageTwo(frame);
 
     readConfig();
     //set the values read in config file
@@ -42,6 +40,8 @@ KHangManPreferences::KHangManPreferences()
     QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotChanged()));
     QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
     QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotChanged()));
+    QObject::connect(m_pageTwo->langGroup, SIGNAL(clicked(int)), this, SLOT(slotLang(int)));
+    QObject::connect(m_pageTwo->langGroup, SIGNAL(clicked(int)), this, SLOT(slotChanged()));
 }
 
 KHangManPrefPageOne::KHangManPrefPageOne(QWidget *parent)
@@ -51,12 +51,9 @@ KHangManPrefPageOne::KHangManPrefPageOne(QWidget *parent)
 }
 
 KHangManPrefPageTwo::KHangManPrefPageTwo(QWidget *parent)
-    : QFrame(parent)
+    : pref2ui(parent)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setAutoAdd(true);
-
-    new QLabel(i18n("Add something here"), this);
+	adjustSize();
 }
 
 void KHangManPreferences::readConfig()
@@ -65,8 +62,12 @@ void KHangManPreferences::readConfig()
 	if (conf)
 	{
   		conf->setGroup("Settings");
-   		levelString=conf->readEntry("level");
-		modeString=conf->readEntry("mode");
+   		levelString = conf->readEntry("level");
+		modeString = conf->readEntry("mode");
+		conf->setGroup("Language");
+   		langNum = conf->readNumEntry("myLanguage");
+		if (langNum<0 || langNum >2)
+			langNum = 0;
 	}
 	if( !levelString )
   		slotDefault();
@@ -77,6 +78,7 @@ void KHangManPreferences::slotDefault()
 {
 	levelString="easy";
 	modeString="nobg";
+	langNum = 0;
 	slotSet();
 }
 
@@ -123,21 +125,36 @@ void KHangManPreferences::slotSet()
 		m_pageOne->noBgBox->setChecked(true);
 	if (modeString=="nature")
 		m_pageOne->natureBox->setChecked(true);
+	if (langNum==0)
+		m_pageTwo->enBox->setChecked(true);
+	if (langNum==1)
+		m_pageTwo->frBox->setChecked(true);
+	if (langNum==3)
+		m_pageTwo->spBox->setChecked(true);
 }
 
 void KHangManPreferences::slotMode(int id)
 {
 	switch(id){
 	case 0:
-		modeString="nobg";
+		modeString = "nobg";
 		break;
 	case 1:
-		modeString="blue";
+		modeString = "blue";
 		break;
 	case 2:
-		modeString="nature";
+		modeString = "nature";
 		break;
 	}
+	enableButton( Apply, false );
+        configChanged = false;
+}
+
+void KHangManPreferences::slotLang(int id)
+{
+	langNum = id;
+	slotSet();
+	langChanged = true;
 	enableButton( Apply, false );
         configChanged = false;
 }
@@ -160,10 +177,10 @@ void KHangManPreferences::slotLevel(int id)
 	/*case 4:
 		levelString="own";
 		break;*/
+	}
 	enableButton( Apply, false );
         configChanged = false;
 	levelChanged = true;
-	}
 }
 
 //Write settings in config
@@ -176,6 +193,8 @@ void KHangManPreferences::writeConfig()
 		conf->writeEntry( "level", levelString);
 		conf->writeEntry( "mode", modeString);
 		conf->writeEntry("levelFile", levelString+".txt");
+		conf->setGroup("Language");
+		conf->writeEntry("myLanguage", langNum);
 		conf->sync();
 	}
 }

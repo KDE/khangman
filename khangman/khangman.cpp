@@ -61,12 +61,6 @@ KHangMan::KHangMan()
     // then, setup our actions, must be done after the language search
     setupActions();
 
-    // allow the view to change the statusbar and caption
-    connect(m_view, SIGNAL(signalChangeStatusbar(const QString&)),
-            this,   SLOT(changeStatusbar(const QString&)));
-    connect(m_view, SIGNAL(signalChangeCaption(const QString&)),
-            this,   SLOT(changeCaption(const QString&)));
-
 	toolBar()->insertSeparator(-1, 1); //id=1 for separator
 	toolBar()->insertCombo(i18n("Easy"), 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
 	combo = toolBar()->getCombo(2);
@@ -257,6 +251,8 @@ void KHangMan::readSettings()
     modeString=config->readEntry("mode");
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("myLanguage");
+    if ( selectedLanguage > 2)
+    	selectedLanguage = 0;
     if (m_view->levelFile.isEmpty()) //if no config file
     {
 	levelString = "easy";
@@ -379,6 +375,10 @@ void KHangMan::slotClickApply()
 {
 	KHangManPreferences dlg;
 	modeString = dlg.modeString;
+	setLanguage(dlg.langNum);
+	((KToggleAction*) actionCollection()->action(languageActions[selectedLanguage].latin1()))->setChecked(false);
+	((KToggleAction*) actionCollection()->action(languageActions[dlg.langNum].latin1()))->setChecked(true);
+	selectedLanguage = dlg.langNum;
 	isMode();
 	if (dlg.levelChanged)
 	{
@@ -386,7 +386,8 @@ void KHangMan::slotClickApply()
 		isLevel();
 		m_view->levelFile = levelString+".txt";
 	}
-	if (dlg.cancelBool==false || dlg.levelChanged == true) fileNew();
+	if (dlg.cancelBool == false || dlg.levelChanged == true || dlg.langChanged == true)
+		fileNew();
 }
 
 #include "khangman.moc"

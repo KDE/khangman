@@ -58,17 +58,6 @@ private:
 	//the hangman pictures
 	QPixmap px[11];
 
-signals:
-    /**
-     * Use this signal to change the content of the statusbar
-     */
-    void signalChangeStatusbar(const QString& text);
-
-    /**
-     * Use this signal to change the content of the caption
-     */
-    void signalChangeCaption(const QString& text);
-
 public slots:
 
 	void slotNewGame();
@@ -78,7 +67,6 @@ public slots:
 
 private slots:
 
-    void slotSetTitle(const QString& title);
     void game();
     void wipeout();
 };

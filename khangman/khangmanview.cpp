@@ -56,12 +56,6 @@ KHangManView::~KHangManView()
 {
 }
 
-
-void KHangManView::slotSetTitle(const QString& title)
-{
-    emit signalChangeCaption(title);
-}
-
 void KHangManView::slotNewGame()
 {
 	wipeout();
@@ -277,12 +271,12 @@ void KHangManView::game()
 		while (word==temp)
 			word = allData[random.getLong(objects)];
 		temp=word;
-	}
+	}//end of test
 	kdDebug() << word << endl;
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
 	{
 		slotNewGame();
-	}//end of test
+	}
         goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
