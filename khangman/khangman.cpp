@@ -17,6 +17,7 @@
 #include "khangman.h"
 #include <klocale.h>
 #include <kdebug.h>
+#include <stdlib.h>
 #include "khangman.moc"
 
 KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
@@ -63,7 +64,6 @@ pixImage->setPixmap(px[10]);
 //code from previous KHM....
 	switch(boxLevel->currentItem())
 	{
-		default: 0;
 		case 0: //easy
 			kdDebug() << "Easy!" << endl;
 			levelFile="easy.txt";
@@ -228,3 +228,4 @@ void KHangMan::wipeout()
 	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ _");
 	allWords.clear();
 }
+
