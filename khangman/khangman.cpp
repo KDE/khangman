@@ -34,7 +34,9 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
-    // and a status bar
+    levelString = "";
+    modeString = "";
+    // set up the status bar
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
     statusBar( )->insertItem("   ",IDS_LANG, 0);
     statusBar()->show();
@@ -56,7 +58,6 @@ KHangMan::KHangMan()
     m_sortedNames = m_languageNames;
     m_sortedNames.sort();
 
-    readSettings();
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
@@ -64,12 +65,9 @@ KHangMan::KHangMan()
 
      // then, setup our actions, must be done after the language search
     setupActions();
-    setupLangMenu();
+    loadSettings();
 
-    isLevel();
-    isMode();
-    fileNew();
-    m_view->slotTransparent();
+    setupLangMenu();
 }
 
 KHangMan::~KHangMan()
@@ -78,8 +76,9 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-    newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(fileNew()), actionCollection(), "file_new");
-    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
+    newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+    KStdAction::quit(this, SLOT(close()), actionCollection());
+    //KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
@@ -91,11 +90,9 @@ void KHangMan::setupActions()
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
     transAct = new KToggleAction(i18n("&Transparent pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
-     transAct->setChecked(m_view->transparent);
-    //KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
     QStringList levels;
-    levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(slotLevel()), actionCollection(), "combo_level");
+    levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levels += i18n("Easy");
     levels += i18n("Medium");
     levels += i18n("Hard");
@@ -106,7 +103,7 @@ void KHangMan::setupActions()
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
     QStringList modes;
-    modeAct = new KSelectAction(i18n("Look and Feel"), 0, this, SLOT(slotMode()),  actionCollection(), "combo_mode");
+    modeAct = new KSelectAction(i18n("Look and Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
     modes += i18n("No Background");
     modes += i18n("Blue Theme");
     modes += i18n("Nature Theme");
@@ -141,13 +138,11 @@ void KHangMan::readProperties(KConfig *)
     // in 'saveProperties'
 }
 
-void KHangMan::fileNew()
+void KHangMan::newGame()
 {
-    // create a new window  (new KHangMan)->show();
-	/**we want the game to be reset*/
-	m_view->slotNewGame();
+  // Start a new game
+  m_view->slotNewGame();
 }
-
 
 void KHangMan::optionsConfigureKeys()
 {
@@ -186,7 +181,7 @@ void KHangMan::changeCaption(const QString& text)
 
 //when combo is changed, levelString is changed
 //and written in config
-void KHangMan::slotLevel()
+void KHangMan::changeLevel()
 {
 	static const char *levelStrings[] = {
 		I18N_NOOP("easy"),
@@ -199,12 +194,17 @@ void KHangMan::slotLevel()
 
 	m_view->levelFile = QString(levelStrings[id])+".txt";
 	changeStatusbar(i18n("Level: ") + i18n(levelStrings[id]), IDS_LEVEL);
-	writeSettings();
-	fileNew();
+        KConfigBase *conf = kapp->config();
+        if( conf ) {
+     	  conf->setGroup( "General" );
+     	  conf->writeEntry("level", id);// levelStrings[id]);
+	  conf->writeEntry("levelFile", m_view->levelFile);
+	}
+	newGame();
 }
 
 //When changing background, the game stays as it is
-void KHangMan::slotMode()
+void KHangMan::changeMode()
 {
 	switch (modeAct->currentItem()) {
     	case 0:
@@ -222,45 +222,74 @@ void KHangMan::slotMode()
    			break;
 	}
         transAct->setEnabled( modeAct->currentItem() != 0 );
-	writeSettings();
+	KConfigBase *conf = kapp->config();
+        if( conf ) {
+     	  conf->setGroup( "General" );
+	  conf->writeEntry( "mode", modeString);
+        }
 }
 
 //read settings from config file khangmanrc
-void KHangMan::readSettings()
+void KHangMan::loadSettings()
 {
+    bool startNewGame = false;
+
     KConfig *config = kapp->config();
-    config->setGroup( "Settings" );
-    levelString = config->readEntry( "level");
-    m_view->levelFile = config->readEntry( "levelFile");
-    modeString=config->readEntry("mode");
-    //default background mode
-    if (modeString.isEmpty())
-    	modeString = "nobg";
-    m_view->transparent = config->readBoolEntry( "transparent", true);
-    config->setGroup("Language");
-    selectedLanguage = config->readNumEntry("myLanguage");
-    if (m_view->levelFile.isEmpty()) //if no config file
-    {
-	levelString = "easy";
-	m_view->levelFile = "easy.txt";
+    config->setGroup( "General" );
+    // Level
+    currentLevel = config->readNumEntry("level", 0);
+    QString oldLevel = levelString;
+    switch(currentLevel){
+      default:
+	currentLevel=0;
+      case 0:
+        levelString="easy";
+        break;
+      case 1:
+        levelString="medium";
+        break;
+      case 2:
+        levelString="hard";
+        break;
+      case 3:
+        levelString="animals";
     }
+    m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
+    m_view->levelFile = QString("%1.%1").arg(levelString).arg("txt");
+    if (oldLevel!=levelString) {
+      setLevel_WindowState();
+      startNewGame = true;
+    }
+
+     // Background
+    QString oldMode = modeString;
+    modeString = config->readEntry("mode", "nobg");
+    if(oldMode != modeString)
+      setMode_WindowState();
+
+       // Transparency
+     config->setGroup("Settings");
+      if(m_view->transparent != config->readBoolEntry( "transparent", true)){
+      m_view->transparent = config->readBoolEntry( "transparent", true);
+      m_view->slotTransparent();
+    }
+    transAct->setChecked(m_view->transparent);
     //load the kdeglobals config file
-    //safer way would be to load tht one read-only
+    //safer way would be to load that one read-only
     KConfigBase *globalConf = KGlobal::config();
     globalConf->setGroup("Locale");
-    userLanguage = config->readEntry("Language");//, QString::fromLatin1(""), true, true);
+    userLanguage = globalConf->readEntry("Language");
     //keep only the first 2 characters
     userLanguage = userLanguage.left(2);
     setSelectedLanguage(userLanguage);
-    //don't get confused between the 2 config files
-    config->setGroup( "Language" );
-    if (config->hasKey("myLanguage")==false)
-    selectedLanguage = defaultLang;
-    else
-	if (selectedLanguage >= (int) m_languages.count())
-    		selectedLanguage = 0;
-    writeSettings();
-}
+
+    config->setGroup("Language");
+    selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
+     if (selectedLanguage >= (int) m_languages.count())
+                selectedLanguage = 0;
+     setLanguage(selectedLanguage);
+     if(startNewGame) newGame();
+ }
 
 void KHangMan::setSelectedLanguage(QString mLanguage)
 {
@@ -269,27 +298,9 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 	defaultLang = 0;
 }
 
-//write current settings to config file
-void KHangMan::writeSettings()
-{
-   KConfigBase *conf = kapp->config();
-   if( conf )
-   {
-     	conf->setGroup( "Settings" );
-     	conf->writeEntry( "level", levelString);
-	conf->writeEntry("levelFile",m_view->levelFile);
-	conf->writeEntry( "mode", modeString);
-	conf->writeEntry( "transparent", m_view->transparent);
-	conf->setGroup("Language");
-	conf->writeEntry("myLanguage", selectedLanguage);
-	conf->writeEntry("defaultLang", defaultLang);
-     	conf->sync();
-  }
-}
-
 //when config is read, set the KComboBox to the right level
 //and update statusbar
-void KHangMan::isLevel()
+void KHangMan::setLevel_WindowState()
 {
     if (levelString=="easy")
  	levelAct->setCurrentItem(0);
@@ -299,26 +310,24 @@ void KHangMan::isLevel()
  	levelAct->setCurrentItem(2);
     if (levelString=="animals")
  	levelAct->setCurrentItem(3);
-    //if (levelString=="own")
-    //    levelAct->setCurrentItem(4);
     changeStatusbar(i18n("Level: ") + i18n(levelString.latin1()), IDS_LEVEL);
 }
 
 //when config is read, set the KComboBox to the right background
 //and call the corresponding slot in the main view to set the background
-void KHangMan::isMode()
+void KHangMan::setMode_WindowState()
 {
     if (modeString=="nobg")
     {
 	modeAct->setCurrentItem(0);
 	m_view->slotNoBkgd();
     }
-    if (modeString=="blue")
+    else if (modeString=="blue")
     {
 	modeAct->setCurrentItem(1);
 	m_view->slotBlue(m_view->bluePix);
     }
-    if (modeString=="nature")
+    else if (modeString=="nature")
     {
 	modeAct->setCurrentItem(2);
 	m_view->slotBlue(m_view->naturePix);
@@ -345,36 +354,35 @@ void KHangMan::changeLanguage(int newLanguage)
 
     // Change language in the config file
     selectedLanguage = newLanguage;
-    writeSettings();
+    // Change language in the config file
+    KConfigBase *conf = kapp->config();
+    if( conf ) {
+	conf->setGroup("Language");
+	conf->writeEntry("selectedLanguage", selectedLanguage);
+        conf->writeEntry("defaultLang", defaultLang);
+    }
     setLanguage(newLanguage);
-    fileNew();
+    newGame();
 }
 
 void KHangMan::setLanguage(int lang)
 {
-    if (lang >= 0 && lang < (int) m_languages.count()) {
-	m_view->language = m_languages[lang];
-	changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
-    }
-}
-
-void KHangMan::slotQuit()
-{
-	writeSettings();
-	kapp->quit();
+    	if (lang >= 0 && lang < (int) m_languages.count()) {
+		m_view->language = m_languages[lang];
+		changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
+    	}
 }
 
 void KHangMan::slotTransparent()
 {
-	switch (transAct->isChecked()){
-	case false:
-		m_view->transparent = false;
-       		break;
-	case true:
-       		m_view->transparent = true;
-                break;
-        }
+        m_view->transparent = transAct->isChecked();
         m_view->slotTransparent();
+        //write transparent in the config file
+        KConfigBase *conf = kapp->config();
+    	if( conf ) {
+        	conf->setGroup( "Settings" );
+        	conf->writeEntry( "transparent", m_view->transparent);
+        }
 }
 
 #include "khangman.moc"

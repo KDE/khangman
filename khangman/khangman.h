@@ -44,6 +44,8 @@ public:
      */
     virtual ~KHangMan();
 
+    uint currentLevel;
+
 private:
     QString levelString, modeString;
     //the language used in KDE for the user
@@ -65,27 +67,35 @@ protected:
     void readProperties(KConfig *);
 
 private slots:
-    void fileNew();
-    void slotQuit();
+    ///Start a new game i.e. repaint and set a new word
+    void newGame();
 
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
     void newToolbarConfig();
-
+    ///Update the text in the Statusbar
     void changeStatusbar(const QString& text, int id);
     void changeCaption(const QString& text);
-    void slotLevel();
-    void slotMode();
-    void isLevel();
-    void isMode();
+    void changeLevel();
+    void changeMode();
+    /**
+      *When config is read, set the level KComboBox to the right level
+      *and update the statusbar
+      */
+    void setLevel_WindowState();
+     /**
+      *When config is read, set the mode KComboBox to the right background
+      *and call the corresponding slot in the main view to set the background
+      */
+    void setMode_WindowState();
     void setSelectedLanguage(QString);
-
-    void readSettings();
-    void writeSettings();
-
+    ///Read settings from config file khangmanrc or set defaults if none
+    void loadSettings();
+    ///Switch to another language using the Languages menu
     void changeLanguage(int newLanguage);
     void slotLanguage();
     void setLanguage(int lang);
+    ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
 
 private:
@@ -94,18 +104,23 @@ private:
     void setupLangMenu();
 
 private:
+    ///Main view
     KHangManView *m_view;
-
+    ///Action in the Game menu to start a new word
     KAction *newAct;
     ///Action in the Settings menu to enable/disable transparency pictures
     KToggleAction *transAct;
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
 
-    int selectedLanguage;        // Number of selected language
-    QStringList m_languages;     // Language codes of available languages
-    QStringList m_languageNames; // Translated names of languages
-    QStringList m_sortedNames;   // Translated and sorted names of languages
+    ///Number of the selected language
+    int selectedLanguage;
+    ///Language codes of available languages
+    QStringList m_languages;
+    ///Translated names of languages
+    QStringList m_languageNames;
+    ///Translated and sorted names of languages
+    QStringList m_sortedNames;
 };
 
 #endif // _KHANGMAN_H_
