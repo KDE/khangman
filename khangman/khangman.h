@@ -33,6 +33,7 @@ class KToggleAction;
 class KToggleToolBarAction;
 class QPopupMenu;
 class KToolBar;
+class KHNewStuff;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -59,7 +60,16 @@ public:
     uint currentLevel;
     ///Create the Special Characters Toolbar
     KToolBar *secondToolbar;
-
+    ///Language codes of available languages
+    QStringList m_languages;
+     ///Translated and sorted names of languages
+    QStringList m_sortedNames;
+    
+    void setLanguages();
+	
+    KSelectAction *langAct;
+    ///Build the Languages menu
+    void setupLangMenu();
 private:
     ///hold the current level
     QString levelString;
@@ -162,12 +172,12 @@ private slots:
     void slotHint();
     ///if the data file is a kvtml one then Enable Hint must be enabled
     void enableHint(bool);
+    ///access the KNewStuff class to install new data
+    void downloadNewStuff();
 
   private:
     ///Set up the actions for the menus
     void setupActions();
-    ///Build the Languages menu
-    void setupLangMenu();
     ///Build the Level combobox menu dynamically depending of the data for each language
     void loadDataFiles();
     ///Set a bool to true for languages that allow Typing Accented Letters
@@ -189,19 +199,17 @@ private:
     ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
     KToggleAction *accentsAct;
     //KToggleToolBarAction *secondAct;
-    KSelectAction *langAct, *levelAct, *modeAct;
+    KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;
     ///Full-Screen mode action
     KToggleAction* m_pFullScreen;
     ///Selected language
     QString selectedLanguage;
-    ///Language codes of available languages
-    QStringList m_languages;
     ///Translated names of languages
     QStringList m_languageNames;
-    ///Translated and sorted names of languages
-    QStringList m_sortedNames;
+    
+    KHNewStuff *mNewStuff;
 };
 
 #endif // _KHANGMAN_H_

@@ -27,6 +27,7 @@
 #include "mainw.h"
 
 class KPassivePopup;
+class KHangMan;
 
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
@@ -39,7 +40,7 @@ class KHangManView : public MainW
     Q_OBJECT
 public:
 
-    KHangManView(QWidget *parent=0, const char *name=0);
+    KHangManView(KHangMan *parent=0, const char *name=0);
 
     virtual ~KHangManView();
 
@@ -86,7 +87,7 @@ public:
 	KPassivePopup * myPopup;
 	///tmp is to check if not twice the same random number
 	int tmp;
-	
+	KHangMan *khangman;
 signals:
 	/**
 	* Use this signal to change the content of the statusbar

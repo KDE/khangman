@@ -35,12 +35,13 @@
 #include <kstandarddirs.h>
 //standard C++ headers
 #include <stdlib.h>
-
+#include "khangman.h"
 //#include "prefs.h"
 
-KHangManView::KHangManView(QWidget *parent, const char *name)
+KHangManView::KHangManView(KHangMan*parent, const char *name)
     : MainW(parent, name)
 {
+	khangman = parent;
 	//set the usuall stuff...
 	setIcon(locate("icon","hicolor/16x16/apps/khangman.png"));
 	setCaption(i18n("KHangMan %1").arg(KHM_VERSION));
@@ -240,6 +241,7 @@ void KHangManView::game()
 	pixImage->setPixmap(px[10]);
 	//if the data files are not installed in the correct dir
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
+	kdDebug() << "in game, file: " << myString << endl;
 	QFile myFile;
 	myFile.setName(locate("data",myString));
         if (!myFile.exists())
@@ -252,7 +254,8 @@ void KHangManView::game()
 	}
 	update();
 	//we open the file and store info into the stream...
-	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
+	QFile openFileStream(myFile.name());//locate("data","khangman/data/"+language+"/"+levelFile));
+	kdDebug() << locate("data","khangman/data/"+language+"/"+levelFile) << endl;
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(QTextStream::UnicodeUTF8);

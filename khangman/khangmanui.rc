@@ -4,6 +4,7 @@
 <MenuBar>
 	<Menu name="file" noMerge="1"><text>&amp;Game</text>
 		<Action name="file_new"/>
+		<Action name="downloadnewstuff"/>
 		<Action name="file_quit"/>
 	</Menu>
 	<Menu name="languages" noMerge="1"><text>&amp;Languages</text>

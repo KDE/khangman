@@ -14,14 +14,20 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
+ /************************************/
+ //Please save as utf8 encoding
+ /************************************/
+ 
 //Qt headers
 #include <qdir.h>
 #include <qlineedit.h>
+#include <qstringlist.h>
 //KDE headers
 #include <kactionclasses.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
+#include <kglobal.h>
+#include <kiconloader.h>
 #include <kkeydialog.h>
 #include <klocale.h>
 #include <kmenubar.h>
@@ -30,7 +36,8 @@
 //Project headers
 #include "khangman.h"
 #include "prefs.h"
-//Please save as utf8 encoding
+#include "khnewstuff.h"
+
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
 const int IDS_ACCENTS = 102;
@@ -42,26 +49,14 @@ KHangMan::KHangMan()
 {
     levelString = "";
     modeString = "";
-
-    //the program scans in khangman/data/ to see what languages data is found
-    QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
-    for (QStringList::Iterator it = dirs.begin(); it != dirs.end(); ++it ) {
-	QDir dir(*it);
-	m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-    }
-    m_languages.remove(m_languages.find("."));
-    m_languages.remove(m_languages.find(".."));
-    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
-    //to find the name of the country
-    //corresponding to the code and the language the user set
-    KConfig entry(locate("locale", "all_languages"));
-    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
-	entry.setGroup(*it);
-	m_languageNames.append(entry.readEntry("Name"));
-    }
-    m_sortedNames = m_languageNames;
-    m_sortedNames.sort();
-
+    mNewStuff = 0;
+    KConfig *cfg = KGlobal::config();
+    cfg->setGroup("KNewStuff");
+    cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
+    cfg->sync();
+    kdDebug() << "before  dirs " << endl;
+    setLanguages();
+    
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
@@ -91,6 +86,8 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+    KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
+    new KAction( i18n("Get  data in a new language..."), "knewstuff", this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
     KStdAction::quit(this, SLOT(slotClose()), actionCollection());
 
     createStandardStatusBarAction();
@@ -128,6 +125,7 @@ void KHangMan::setupActions()
 void KHangMan::setupLangMenu()
 {
     langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
+    langPopup->clear();
     for (uint index = 0; index < m_sortedNames.count(); index++)
 	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
     langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
@@ -222,6 +220,8 @@ void KHangMan::loadSettings()
 {
     	// Language
     	selectedLanguage = Prefs::selectedLanguage();
+	if (m_languages.grep(selectedLanguage).isEmpty())
+		selectedLanguage = "en";
      	setLanguage(selectedLanguage);
     	// Level
     	currentLevel = Prefs::level(); //default is easy
@@ -740,6 +740,40 @@ void KHangMan::setAccentBool()
 	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
     		m_view->m_accent = true;
     	else m_view->m_accent = false;
+}
+
+void KHangMan::downloadNewStuff()
+{
+	if ( !mNewStuff ) 
+		mNewStuff = new KHNewStuff( m_view );
+ 	mNewStuff->download();
+}
+
+void KHangMan::setLanguages()
+{
+    m_languages.clear();
+    m_languageNames.clear();
+    m_sortedNames.clear();
+    kdDebug() << "in SetLanguages "<< endl;
+   //the program scans in khangman/data/ to see what languages data is found
+    QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    kdDebug() << "mdirs= " << mdirs << endl;
+    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+	QDir dir(*it);
+	m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+	m_languages.remove(m_languages.find("."));
+	m_languages.remove(m_languages.find(".."));
+    }	
+    kdDebug() << "mlanguages= " << m_languages << endl;    
+    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
+    //to find the name of the country
+    //corresponding to the code and the language the user set
+    KConfig entry(locate("locale", "all_languages"));
+    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+	entry.setGroup(*it);
+	m_languageNames.append(entry.readEntry("Name"));
+    }
+    m_sortedNames = m_languageNames;
 }
 
 #include "khangman.moc"

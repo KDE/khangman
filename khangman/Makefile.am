@@ -1,11 +1,11 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc
-khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la
+khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc khnewstuff.cpp
+khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la -lknewstuff
 
-SUBDIRS = data pics icons sounds
+SUBDIRS = data pics icons sounds 
 
-EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h
+EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h khnewstuff.h
 
 KDE_ICON = AUTO
 
