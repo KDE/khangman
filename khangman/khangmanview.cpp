@@ -107,8 +107,25 @@ void KHangManView::slotTry()
 				//we replace it...
 				goodWord.replace((2*index), 1,sChar);
 				index++;
-				}
-				}
+				}//end of for
+				if (sChar=="í") sChar="i";
+				if (sChar=="á") sChar="a";
+				if (sChar=="ú") sChar="u";
+				if (sChar=="ó") sChar="o";
+				if (sChar=="é") sChar="e";
+				if (sChar=="ü") sChar="u";
+				if (sChar=="a") sChar="à";
+				index=0;
+				for (int count=0; count <word.contains(sChar); count++)
+				{
+				//searching for letter location
+				index = word.find(sChar,index);
+				//we replace it...
+				goodWord.replace((2*index), 1,sChar);
+				index++;
+				}//end of for
+				if (sChar=="à") sChar="a";
+				}//end of if (language=="sp")
 
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
@@ -127,7 +144,7 @@ void KHangManView::slotTry()
 						kapp->quit();
 					}
 				}
-			}
+			}//if the word contains more than zero
 			else //if the char is missed...
 			{
 				allWords << sChar; //appends the list...
