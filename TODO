@@ -1,10 +1,10 @@
 TODO:
-- Maybe change GUI a bit... Will have to see the response...
-- New splashscreen?
-- few new images to replace current (bad ones...)
+- allow the user to open his/her own file of words
 - design a GUI to allow the teacher to enter his own words. [it will be 'till 1.0...]
 
 DONE
+- 23/02/2003: cleaned the GUI, added menubar, toolbar and statusbar, removed the buttons
+fixed the layout, added code to prevent loop if file of words not found (in case of install in the wrong KDEDIR)
 - 27/07/2001 splash screen
 - a label just on top of the guessed letters maybe to indicate that these are the guessed letters. [me]
 - a label indicating the word to guess [me]
