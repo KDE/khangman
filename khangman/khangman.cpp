@@ -327,7 +327,7 @@ void KHangMan::changeLanguage(int newLanguage)
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
 	
-    	if (m_view->hintBool && m_view->kvtmlBool&& dialog) 
+    	if (m_view->kvtmlBool&& dialog) 
 	      mNormal->kcfg_Hint->setEnabled( true);
     	slotHint();
     	setAccentBool();
@@ -729,16 +729,14 @@ void KHangMan::slotAccents()
 
 void KHangMan::slotHint()
 {
-	if (m_view->hintBool && m_view->kvtmlBool) 
-		kdDebug() << "yepeeeeeee" << endl;
-	     // mNormal->kcfg_Hint->setEnabled( true);
-	//else mNormal->kcfg_Hint->setEnabled( false);
+	kdDebug() << "kvtmlBool: " << m_view->kvtmlBool << endl;
+	if (m_view->kvtmlBool)
+		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
+        m_view->hintBool=Prefs::hint();
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
-		//hintAct->setChecked(true);
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
 	else if (m_view->hintBool==false) {
-		//hintAct->setChecked(false);
 		changeStatusbar("", IDS_HINT);
 	}
 }
@@ -747,11 +745,13 @@ void KHangMan::enableHint(bool m_bool)
 {
 	if (m_bool) {
 		m_view->kvtmlBool = true;
+		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
 	}
 	else
 	{
 		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
+		if(dialog) mNormal->kcfg_Hint->setEnabled(false);
 	}
 	slotHint();
 }
@@ -828,7 +828,7 @@ void KHangMan::optionsPreferences()
 	mNormal =  new normal( 0, "Kids Settings" ); 
 	dialog->addPage(mNormal, i18n("Kids Settings"), "configure");
 	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
-	if (m_view->hintBool && m_view->kvtmlBool) 
+	if (m_view->kvtmlBool) 
 	      mNormal->kcfg_Hint->setEnabled( true);
 	if (m_view->m_accent) mNormal->kcfg_AccentedLetters->setEnabled(true);
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
@@ -853,6 +853,7 @@ void KHangMan::updateSettings()
 	
 	//Enable hint or not
     	m_view->hintBool= Prefs::hint();
+	slotHint();
 	//hintBool=true if the user has choosen to have hints
 	if (Prefs::hint())  {
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
