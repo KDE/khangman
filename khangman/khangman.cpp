@@ -27,12 +27,21 @@
 #include "khangman.h"
 #include "pref.h"
 
+const int IDS_LEVEL     = 100;
+const int IDS_LANG       = 101;
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
     languages = 0;
+
+    // and a status bar
+    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
+    statusBar( )->insertItem("   ", 102, 0);
+    statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar()->show();
+
     readSettings();
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
@@ -44,14 +53,13 @@ KHangMan::KHangMan()
     //the program scans in khangman/data/ to see what languages data is found
     enabled = locate("data", "khangman/data/en/") != 0;
     registerLanguage("English", "data_en", enabled);
+    enabled = locate("data", "khangman/data/fr/") != 0;
+    registerLanguage("French", "data_fr", enabled);
     enabled = locate("data", "khangman/data/sp/") != 0;
     registerLanguage("Spanish", "data_sp", enabled);
 
     // then, setup our actions
     setupActions();
-
-    // and a status bar
-    statusBar()->show();
 
     // allow the view to change the statusbar and caption
     connect(m_view, SIGNAL(signalChangeStatusbar(const QString&)),
@@ -66,15 +74,15 @@ KHangMan::KHangMan()
 	combo->insertItem(i18n("Hard"), 2);
 	combo->insertItem(i18n("Animals"), 3);
 	//combo->insertItem("own", 4);
-    QToolTip::add( combo, i18n( "Choose the level" ) );
-    QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
+       QToolTip::add( combo, i18n( "Choose the level" ) );
+       QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
 	toolBar()->insertSeparator(-1, 3);
 	toolBar()->insertCombo(i18n("No Background"), 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
 	comboMode = toolBar()->getCombo(4);
 	comboMode->insertItem(i18n("Blue Theme"), 1);
 	comboMode->insertItem(i18n("Nature Theme"), 2);
 	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
-    QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
+        QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
 
 	//kdDebug()<<"modeString = " << modeString <<endl;
 
@@ -112,6 +120,8 @@ void KHangMan::registerLanguage(const QString &menuItem, const char *actionId, b
   	case 0: t = new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language0()), actionCollection(), actionId);
 		break;
   	case 1: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language1()), actionCollection(), actionId);
+		break;
+	case 2: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language2()), actionCollection(), actionId);
 		break;
   }
 
@@ -182,10 +192,10 @@ void KHangMan::optionsPreferences()
 	if (dlg.cancelBool==false) fileNew();
 }
 
-void KHangMan::changeStatusbar(const QString& text)
+void KHangMan::changeStatusbar(const QString& text, int id)
 {
     // display the text on the statusbar
-    statusBar()->message(text);
+    statusBar()->changeItem(text, id);
 }
 
 void KHangMan::changeCaption(const QString& text)
@@ -216,7 +226,7 @@ void KHangMan::slotLevel(int id)
 		break;*/
 	}
 	m_view->levelFile = levelString+".txt";
-	changeStatusbar("level: "+levelString);
+	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
 	writeSettings();
 	fileNew();
 }
@@ -290,7 +300,7 @@ void KHangMan::isLevel()
  	combo->setCurrentItem(3);
     //if (levelString=="own")
  //	combo->setCurrentItem(4);
-    changeStatusbar("level: "+levelString);
+    changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
 }
 
 void KHangMan::isMode()
@@ -322,6 +332,11 @@ void KHangMan::language1()
     changeLanguage(1);
 }
 
+void KHangMan::language2()
+{
+    changeLanguage(2);
+}
+
 // Switch to another language
 void KHangMan::changeLanguage(uint newLanguage)
 {
@@ -344,14 +359,22 @@ void KHangMan::changeLanguage(uint newLanguage)
 
 void KHangMan::setLanguage(int lang)
 {
+    QString language;
     switch ( lang ) {
     	case 0:
 	m_view->language="en";
+	language = i18n("English");
 	break;
 	case 1:
+	m_view->language="fr";
+	language = i18n("French");
+	break;
+	case 2:
 	m_view->language="sp";
+	language = i18n("Spanish");
 	break;
 	}
+    changeStatusbar(i18n("Language: ")+language, IDS_LANG);
 }
 
 #include "khangman.moc"

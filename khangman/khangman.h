@@ -46,7 +46,7 @@ public:
     KComboBox *combo;
     KComboBox *comboMode;
     QString levelString, modeString;
-    QString languageActions[3];
+    QString languageActions[4];
     void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
     void changeLanguage(uint newLanguage);
 
@@ -73,7 +73,7 @@ private slots:
     void optionsPreferences();
     void newToolbarConfig();
 
-    void changeStatusbar(const QString& text);
+    void changeStatusbar(const QString& text, int id);
     void changeCaption(const QString& text);
     void slotLevel(int);
     void slotMode(int index);
@@ -85,6 +85,7 @@ private slots:
 
     void language0();
     void language1();
+    void language2();
 
     void setLanguage(int lang);
 
