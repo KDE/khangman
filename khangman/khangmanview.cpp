@@ -386,7 +386,10 @@ void KHangManView::slotSofter()
 		px[9].load(locate("data","khangman/pics/hg10.png"));
 	}
 	//update the pic immediatly
-	pixImage->setPixmap(px[missedChar]);
+	if (missedChar==0)
+		pixImage->setPixmap(px[10]);
+	else
+		pixImage->setPixmap(px[missedChar]);
 
 }
 
