@@ -145,7 +145,7 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in nine languages: Catalan, Danish, English, Finnish, French, German, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in ten languages: Catalan, Danish, English, Finnish, French, German, Brazilian Portuguese, Italian, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
@@ -206,7 +206,8 @@ choose different shortcut keys for different actions. For example, Ctrl+Q is the
 When <menuchoice><guimenuitem>Full-Screen Mode</guimenuitem></menuchoice> is checked, it brings you in full-screen mode, with only the toolbar on top and KHangMan occupies the whole screen. On the main toolbar, the icon Back to Normal Size allows you to come back from full-screen mode to the window size you had before.
 <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 <menuchoice><guimenuitem>Softer Hangman Pictures</guimenuitem></menuchoice> gives you the choice of having the last of the hangman pictures softer. That means that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children.
-<menuchoice><guimenuitem>Enable Accented Letters</guimenuitem></menuchoice> is a mode only available in Catalan, Brazilian-Portuguese and Spanish. If it is checked, then the user has to type accented letters like &atilde; to get them shown in the word. If that option is not checked, then a normal vowell will discover all the accented ones, for example trying a will discover &atilde; and other accented a if present in the word.
+<menuchoice><guimenuitem>Type Accented Letters</guimenuitem></menuchoice> is a mode only available in Catalan, Brazilian-Portuguese and Spanish. If it is checked, then the user has to type accented letters like &atilde; to get them shown in the word. If that option is not checked, then a normal vowell will discover all the accented ones, for example trying a will discover &atilde; and other accented a if present in the word.
+<menuchoice><guimenuitem>Enable Hint</guimenuitem></menuchoice> is available only in French and Italian. If you check that option in those two languages, you can right-click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word.
 </para>
 <para>
 Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background. By default, transparency is enabled.
@@ -388,7 +389,7 @@ Only letters are allowed to be typed in the field.
 <keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
-<guimenuitem>Enable Accented Letters</guimenuitem>
+<guimenuitem>Type Accented Letters</guimenuitem>
 </menuchoice></term>
 <listitem><para>Allow to type accented letters on their own
 </para></listitem>
@@ -401,7 +402,7 @@ Only letters are allowed to be typed in the field.
 <guimenu>Settings</guimenu>
 <guimenuitem>Enable Hint</guimenuitem>
 </menuchoice></term>
-<listitem><para>Allow to view a hint on right-click (only in French)
+<listitem><para>Allow to view a hint on right-click (only in French and Italian)
 </para></listitem>
 </varlistentry>
 </variablelist>
@@ -569,6 +570,9 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Catalan data files: Antoni Bella
 <email>bella5 AT teleline DOT es
+</email></para> </listitem>
+<listitem><para>Italian data files: Giovanni Venturi
+<email>jumpyj AT libero DOT it
 </email></para> </listitem>
 <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
