@@ -299,10 +299,10 @@ if (ind==1)choice1();
         else choice3();
 
 line->setFocus();  //enable keyboard focus for 'line'
-strncpy(name,st,19);//put the word into 'name'
+strncpy(name,st.latin1(),19);//put the word into 'name'
 QString sg;
 sg.sprintf("_");
-i=strlen(st);   //i = lenght of the word
+i=strlen(st.latin1());   //i = lenght of the word
 for (int j=0; j<i;j++)
 {
 QString s[20];
@@ -337,11 +337,11 @@ void KHangMan::slotTreat()
 let1 = line->text();
 line->selectAll();
 line->cut();
-a1.sprintf(let1);
+a1.sprintf(let1.latin1());
 //if (a1="")
 drap=1;
 char name[20];
-strncpy(name,st,19);
+strncpy(name,st.latin1(),19);
 c1=0; b=0;
 for (int j=0; j<20;j++)
  {
