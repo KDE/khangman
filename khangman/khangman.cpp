@@ -46,6 +46,7 @@ KHangMan::KHangMan()
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
+    kdDebug() << "selected in ctr khm: " <<  selectedLanguage << endl;
     setLanguage(selectedLanguage);
 
     bool enabled;
@@ -254,41 +255,41 @@ void KHangMan::readSettings()
     modeString=config->readEntry("mode");
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("myLanguage");
-    if ( selectedLanguage > 2)
-    	selectedLanguage = 0;
+    //default background mode
+    if (config->hasKey("mode") == false)
+    	modeString = "nobg";
     if (m_view->levelFile.isEmpty()) //if no config file
     {
 	levelString = "easy";
 	m_view->levelFile = "easy.txt";
-	//selectedLanguage = 0;
     }
-    //see what language the user has set for kde
-    //if fr or en or sp, set that as default at first run
+    //load the kdeglobals config file
+    //safer way would be to load tht one read-only
+    KConfigBase *globalConf = KGlobal::config();
+    globalConf->setGroup("Locale");
+    userLanguage = config->readEntry("Language");//, QString::fromLatin1(""), true, true);
+    //keep only the first 2 characters
+    userLanguage = userLanguage.left(2);
+    setSelectedLanguage(userLanguage);
+    //don't get confused between the 2 config files
+    config->setGroup( "Language" );
     if (config->hasKey("myLanguage")==false)
-    {
-	 //load the kdeglobals config file
-	 KConfigBase *config = KGlobal::config();
-	 config->setGroup("Locale");
-         userLanguage = config->readEntry("Language");//, QString::fromLatin1(""), true, true);
-	 //keep only the first 2 characters
-	 userLanguage = userLanguage.left(2);
-	 setSelectedLanguage(userLanguage);
-    }
-    if (modeString.isEmpty())
-    	modeString = "nobg";
+    selectedLanguage = defaultLang;
+    else
+        if ( selectedLanguage > 2)
+    		selectedLanguage = 0;
+    writeSettings();
 }
 
 void KHangMan::setSelectedLanguage(QString mLanguage)
 {
 	if (mLanguage == "en")
-		selectedLanguage = 0;
+		defaultLang = 0;
 	else if (mLanguage == "fr")
-		selectedLanguage  = 1;
+		defaultLang = 1;
 	else if (mLanguage == "sp")
-		selectedLanguage = 2;
-	else selectedLanguage = 0;
-	defaultLang = selectedLanguage;
-	writeSettings();
+		defaultLang = 2;
+	else defaultLang = 0;
 }
 
 //write current settings to config file
@@ -411,7 +412,7 @@ void KHangMan::slotClickApply()
 	((KToggleAction*) actionCollection()->action(languageActions[dlg.langNum].latin1()))->setChecked(true);
 	selectedLanguage = dlg.langNum;
 	isMode();
-	if (dlg.levelChanged)
+	if (dlg.levelString!=levelString)
 	{
 		levelString = dlg.levelString;
 		isLevel();

@@ -78,6 +78,7 @@ void KHangManPreferences::readConfig()
 void KHangManPreferences::slotDefault()
 {
 	readConfig();
+	levelChanged = true;
 	levelString="easy";
 	modeString="nobg";
 	langNum = defaultLang;
