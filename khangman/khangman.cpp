@@ -410,7 +410,7 @@ void KHangMan::loadLangToolBar()
 	if (!myFile.exists())
 	{
 		QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found!\n"
-					"Check your installation, please!").arg(m_view->language);
+					"Check your installation.").arg(m_view->language);
 		KMessageBox::sorry( this, mString,
 					i18n("Error") );
 		exit(1);
