@@ -17,7 +17,6 @@
 #include "khangman.h"
 #include <klocale.h>
 #include <kdebug.h>
-#include <stdlib.h>
 #include "khangman.moc"
 
 KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
@@ -32,9 +31,6 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
 	helpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData(), true);
 	btnHelp->setPopup(helpMenu->menu());
 
-//focus is now set to the letter pad...
-	charWrite->setFocus();
-	
 //now we preload the pixmaps...
 	px[0].load(locate("data","khangman/pics/hg1.jpg"));
 	px[1].load(locate("data","khangman/pics/hg2.jpg"));
@@ -54,8 +50,7 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
 	pixImage->setPixmap(px[10]);
 
 //start with the game...
-	goodWord="";
-	game();
+	slotNewGame();
 }
 
 void KHangMan::game()
@@ -120,6 +115,8 @@ void KHangMan::slotNewGame()
 {
 	wipeout();
 	game();
+//focus is now set to the letter pad...
+	charWrite->setFocus();
 }
 
 void  KHangMan::slotClose()
@@ -160,7 +157,7 @@ void KHangMan::slotTry()
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
 				allWords << sChar; //appends the list...
-				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you are hanged!
+				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[12]);
@@ -177,9 +174,16 @@ void KHangMan::slotTry()
 			else //if the char is missed...
 			{
 				allWords << sChar; //appends the list...
+				if (missedChar<6)
 				missedL=missedL.replace(2*missedChar,1, sChar);
-				if (missedChar==6)
-				missedL=missedL.replace(2*missedChar,1, sChar+"\n");
+				else if(missedChar>6)
+				missedL=missedL.replace((2*missedChar)+1,1, sChar);
+				
+				if (missedChar==6) //we actually need to relace one underscore too much..
+				{
+					missedL=missedL.replace(2*missedChar,1, "\n"+sChar+" ");
+					missedL=missedL.replace(24,2, "");
+				}
 				
 				missedLetters->setText(missedL);
 				pixImage->setPixmap(px[missedChar]);
@@ -188,6 +192,11 @@ void KHangMan::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[11]);
+					//um... The word is not guessed... Let's show it...
+					QStringList charList=QStringList::split("",word);
+					QString theWord=charList.join(" ");
+					mainLabel->setText(theWord);
+					
 					if (KMessageBox::questionYesNo(this, i18n("You are dead... Wanna play again?")) == 3)
 					{
 						slotNewGame();
@@ -225,7 +234,6 @@ void KHangMan::wipeout()
 	//this is odd... This won't work in front of the game() function :(
 	goodWord="";
 	missedChar=0;
-	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ _");
+	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ ");
 	allWords.clear();
 }
-
