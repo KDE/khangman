@@ -101,7 +101,7 @@ a letter after another. The word is picked in random and it is not the same word
 <important><para>All words are nouns (no verbs, no adjectives).</para></important>
 
 <para>
-It is not important wether you type in lower or upper case. The program converts all input in lower case.
+It is not important wether you type in lower or upper case. The program converts all input in lower case except for German words which begin with an uppercase letter. The program does that automatically.
 </para>
 
 <para>
@@ -145,11 +145,11 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in eight languages: Catalan, Danish, English, Finnish, French, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in nine languages: Catalan, Danish, English, Finnish, French, German, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
-Please note that you need the keyboard layout corresponding to the language in order to display correctly special characters like for example accented letters.
+Please note that you can now type the special characters in a language by displaying the Special Characters Toolbar.  You can of course also use the keyboard layout corresponding to the language.
 </para>
 
 </sect1>
@@ -162,7 +162,7 @@ Try to guess the vowels first. Then have a go with the most common consonants : 
 When you see io, try n after that, in French and English.
 </para>
 <para>
-In Spanish and Portuguese, the accented vowels are discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a".
+In Catalan, Spanish and Portuguese, the accented vowels can be discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a". This is when Settings-> Enable Accented Letters is not checked.
 </para>
 <para>
 Did you know?
@@ -183,12 +183,8 @@ in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></
 game by closing the main window and writing the actual settings in the configuration file.
 </para>
 <para>
-The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has eight menu items: Catalan, Danish, English, Finnish, French, Portuguese, Spanish and Swedish.
+The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has nine menu items: Catalan, Danish, English, Finnish, French, German, Portuguese, Spanish and Swedish.
 As default, if your KDE language is one of those eight, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
-</para>
-<para>
-If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language and in Catalan, "&aacute;" are displayed when
-"a" is typed and same for "i", "e", "u" and "o". Furthermore, "&agrave;" are displayed when "a" is typed for Catalan users. In Portuguese, "&atilde;" and "&aacute;" are displayed when "a" is typed.
 </para>
 <para>
 The <menuchoice><guimenuitem>Settings</guimenuitem></menuchoice> menu allows you to configure &khangman; easily.
@@ -210,6 +206,7 @@ choose different shortcut keys for different actions. For example, Ctrl+Q is the
 When <menuchoice><guimenuitem>Full-Screen Mode</guimenuitem></menuchoice> is checked, it brings you in full-screen mode, with only the toolbar on top and KHangMan occupies the whole screen. On the main toolbar, the icon Back to Normal Size allows you to come back from full-screen mode to the window size you had before.
 <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 <menuchoice><guimenuitem>Softer Hangman Pictures</guimenuitem></menuchoice> gives you the choice of having the last of the hangman pictures softer. That means that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children.
+<menuchoice><guimenuitem>Enable Accented Letters</guimenuitem></menuchoice> is a mode only available in Catalan, Brazilian-Portuguese and Spanish. If it is checked, then the user has to type accented letters like &atilde; to get them shown in the word. If that option is not checked, then a normal vowell will discover all the accented ones, for example trying a will discover &atilde; and other accented a if present in the word.
 </para>
 <para>
 Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background. By default, transparency is enabled.
