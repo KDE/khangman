@@ -307,13 +307,19 @@ void KHangManView::wipeout()
 
 void KHangManView::slotBlue(QPixmap& bgPix)
 {
-	setBackgroundPixmap(bgPix);
-	TextLabel1->setBackgroundPixmap(bgPix);
-	TextLabel2->setBackgroundPixmap(bgPix);
-	TextLabel3->setBackgroundPixmap(bgPix);
-	mainLabel->setBackgroundPixmap(bgPix);
-	missedLetters->setBackgroundPixmap(bgPix);
-	Frame11->setBackgroundPixmap(bgPix);
+	setPaletteBackgroundPixmap(bgPix);
+	TextLabel1->setBackgroundOrigin(WindowOrigin);
+	TextLabel2->setBackgroundOrigin(WindowOrigin);
+	TextLabel3->setBackgroundOrigin(WindowOrigin);
+	Frame11->setBackgroundOrigin(WindowOrigin);
+	mainLabel->setBackgroundOrigin(WindowOrigin);
+	missedLetters->setBackgroundOrigin(WindowOrigin);
+	TextLabel1->setPaletteBackgroundPixmap(bgPix);
+	TextLabel2->setPaletteBackgroundPixmap(bgPix);
+	TextLabel3->setPaletteBackgroundPixmap(bgPix);
+	mainLabel->setPaletteBackgroundPixmap(bgPix);
+	missedLetters->setPaletteBackgroundPixmap(bgPix);
+	Frame11->setPaletteBackgroundPixmap(bgPix);
 	charWrite->setFocus();
 }
 
