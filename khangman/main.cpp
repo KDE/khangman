@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     aboutData.addCredit("Antoni Bella",
                             I18N_NOOP("Catalan data files"), "bella5@teleline.es");
     aboutData.addCredit("Giovanni Venturi",
-                            I18N_NOOP("Italian data files"), "jumpyj@libero.it");
+                            I18N_NOOP("Italian data files"), "jumpyj@tiscali.it");
     aboutData.addCredit("Rinse",
                             I18N_NOOP("Dutch data files"), "rinse@kde.nl");
     aboutData.addCredit("Matt Howe",

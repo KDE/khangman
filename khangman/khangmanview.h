@@ -55,7 +55,9 @@ public:
 	QString word;
 	///goodWord is the hidden word that is filled in
 	QString goodWord;
+	///the text on the MissedLetters label
 	QString missedL;
+	///how many times you missed, when it reaches 10, you are hanged
 	int missedChar;
 	///allWords contains all letters already guessed
 	QStringList allWords;
@@ -67,7 +69,9 @@ public:
 	QPixmap naturePix;
 	///store temporarily the previous word to check it's not the same twice
 	QString temp;
+	///store the hint when there is one
 	QString tip;
+	
 	QString stripWord, sword;
 	int c, d;
 	///true if Type accents is enabled for the languages that support it
