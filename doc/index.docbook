@@ -168,10 +168,10 @@ In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.
 </sect1>
 </chapter>
 
-<chapter id="commands">
+<chapter id="menus">
 <title>Menubar and toolbar</title>
 
-<sect1 id="khangman-mainwindow">
+<sect1 id="mainwindow">
 <title>The Main &khangman; Window</title>
 
 <para>The <menuchoice><guimenuitem>Game</guimenuitem></menuchoice> menu has 2 items: New and Quit.
@@ -180,8 +180,8 @@ in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></
 game by closing the main window and writing the actual settings in the configuration file.
 </para>
 <para>
-The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has three menu items: English, French and Spanish.
-As default, English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
+The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has five menu items: Danish, English, French, Spanish and Swedish.
+As default, if your KDE language is one of those five, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
 </para>
 <para>
 If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language, "&aacute;" are displayed when
@@ -219,6 +219,121 @@ Medium regards nouns a bit more challenging, hard is quite difficult and animals
 <para>
  All words are nouns. No verbs, no adjectives. The chosen level is then displayed on the statusbar.
 </para>
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title>Command Reference</title>
+
+<sect1 id="khangman-mainwindow">
+<title>Menus and shortcut keys</title>
+
+<sect2>
+<title>The <guimenu>Game</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>New</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>New</action> game (i.e. new word)</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Quits</action> &khangman;</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Languages</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>L</keycap></keycombo>
+</shortcut>
+<guimenu>Languages</guimenu>
+<guimenuitem>Languages</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Choose</action> the language for the words</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Settings</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap></keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the Toolbar</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>A</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Statusbar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the Statusbar</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>H</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Configure</action> the keyboard keys you use to access the different actions.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>B</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Toolbars...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Configure</action> the items you want to put in the toolbar
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>T</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Transparent Pictures</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the transparency for the hangman pictures
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
 </sect1>
 </chapter>
 
@@ -295,7 +410,9 @@ are stored in 4 separate files, one for each level. The files are in
     <userinput><command>
      cvs commit -m "Added new language &lt;name_of_your_language&gt;"
      </command></userinput>
-
+</para>
+<para>
+Please don't commit the Makefile and Makefile.in, only the Makefile.am is necessary.
 </para>
 
 </sect1>
@@ -355,6 +472,9 @@ Contributors:
 <email>jbolin AT users DOT sourceforge DOT net</email></para> </listitem>
 <listitem><para>Spanish data files: eXParTaKus
 <email>expartakus AT expartakus DOT com
+</email></para> </listitem>
+<listitem><para>Danish data files: Erik Kjaer Pedersen
+<email>erik AT mpim-bonn DOT mpg DOT de
 </email></para> </listitem>
  <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>

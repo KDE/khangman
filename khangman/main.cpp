@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
     aboutData.addCredit("Renaud Blanchard",
-                            I18N_NOOP("Graphics"), "kisukuma.chez.com");
+                            I18N_NOOP("Graphics"), "kisukuma@chez.com");
     aboutData.addCredit("Stefan Asserhall",
                             I18N_NOOP("Swedish data files, coding help, transparent pictures and i18n fixes"), "stefan.asserhall@telia.com");
     aboutData.addCredit("Joe Bolin",
@@ -36,7 +36,9 @@ int main(int argc, char **argv)
     aboutData.addCredit("Whitehawk Stormchaser",
                             I18N_NOOP("Blue theme background, icons"), "zerokode@gmx.net");
     aboutData.addCredit("eXParTaKus",
-                            I18N_NOOP("Spanish data files"), "expartakus.expartakus.com");
+                            I18N_NOOP("Spanish data files"), "expartakus@expartakus.com");
+    aboutData.addCredit("Erik Kjaer Pedersen",
+                            I18N_NOOP("Danish data files"), "erik@mpim-bonn.mpg.de" );
     aboutData.addCredit("Benjamin Meyer",
                             I18N_NOOP("Coding help"), "ben@meyerhome.net");
     aboutData.addCredit("Robert Gogolok",
