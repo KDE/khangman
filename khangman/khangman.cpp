@@ -481,13 +481,13 @@ void KHangMan::enableHint(bool m_bool)
 {
 	if (m_bool) {
 		m_view->kvtmlBool = true;
+		slotHint();
 	}
 	else
 	{
 		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
-	slotHint();
 }
 
 void KHangMan::setAccentBool()
