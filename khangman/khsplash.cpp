@@ -27,7 +27,7 @@
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)
 {
 //before anything; We have to check for the images, if they are installed correctly...
-	if (locate("data","khangman/pics/khm_splash.png")=="")
+	if (locate("data","khangman/pics/khm_splash.png").isEmpty())
 	{
 		KMessageBox::error(this,"Sorry... KHangMan is not installed correctly\nPlease install it properly with --prefix=/your/KDE/dir...");
 		exit(0);
