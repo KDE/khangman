@@ -715,6 +715,7 @@ void KHangMan::slotHint()
 		hintAct->setEnabled(true);
 	else
 	{
+		hintAct->setChecked(false);
 		hintAct->setEnabled(false);
 		m_view->hintBool = false;
 	}
