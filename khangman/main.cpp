@@ -80,7 +80,9 @@ int main(int argc, char **argv)
     aboutData.addCredit("Mehmet Özel",
                             I18N_NOOP("Turkish data files"), "mehmet_ozel2003@hotmail.com");
      aboutData.addCredit("Черепанов Андрей",
-                            I18N_NOOP("Russian data files"), "sibskull@mail.ru");                           
+                            I18N_NOOP("Russian data files"), "sibskull@mail.ru"); 
+     aboutData.addCredit("Radostin Radnev",
+			 I18N_NOOP("Bulgarian data files"), "radnev@yahoo.com");                 
     aboutData.addCredit("Matt Howe",
                             I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
     aboutData.addCredit("Benjamin Meyer",
