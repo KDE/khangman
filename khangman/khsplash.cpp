@@ -34,7 +34,7 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 	}
 	setBackgroundPixmap( QPixmap( locate("data","khangman/pics/khm_splash.png") ) ); //preload is senseless here...
 	QRect desk = KGlobalSettings::splashScreenDesktopGeometry();
-	setGeometry ( desk.width()/2-160, desk.height()/2-120, 349, 173 );
+	setGeometry ( desk.center().x()-160, desk.center().y()-120, 349, 173 );
 	setFrameStyle( QFrame::Box | QFrame::Raised );
 	setLineWidth(1);
 	KAudioPlayer::play(locate("data","khangman/sounds/splash.ogg"));
