@@ -66,15 +66,15 @@ public:
     QStringList m_languages;
      ///Translated and sorted names of languages
     QStringList m_sortedNames;
-    
+    ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
     ///Build the Level combobox menu dynamically depending of the data for each language
     void loadDataFiles();
-    
+    ///Action for building the Languages menu
     KSelectAction *langAct;
     ///Build the Languages menu
     void setupLangMenu();
-    
+    ///A normal settings page instance of the Configure dialog
     normal* mNormal;
     
     KConfigDialog* dialog;
@@ -188,13 +188,12 @@ private slots:
     void enableHint(bool);
     ///access the KNewStuff class to install new data
     void downloadNewStuff();
-    
+    ///update settings after Settings->Configure KHangMan dialog is closed
     void updateSettings();
 
   private:
     ///Set up the actions for the menus
     void setupActions();
-
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
      
@@ -203,7 +202,7 @@ private:
     KHangManView *m_view;
     ///Action in the Game menu to start a new word
     KAction *newAct;
-    
+    ///Actions for the level combobox and the mode combobox
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;
@@ -213,7 +212,7 @@ private:
     QString selectedLanguage;
     ///Translated names of languages
     QStringList m_languageNames;
-    
+    ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;
     
 };

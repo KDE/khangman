@@ -109,7 +109,7 @@ private:
 	QPixmap px[11];
         ///the background image
 	QPixmap bgPixmap;
-
+	///If true, the word contains the QString
  	bool containsChar(QString &);
 	void replaceLetters(QString);
 
