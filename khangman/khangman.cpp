@@ -340,6 +340,12 @@ void KHangMan::loadLangToolBar()
 		myString=QString("khangman/pt.txt");
 	QFile myFile;
 	myFile.setName(locate("data",myString));
+	//let's look in local KDEHOME dir then
+	if (!myFile.exists()) {
+		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
+		myFile.setName(locate("data",myString));
+		kdDebug() << myString << endl;
+	}
 	if (!myFile.exists())
 	{
 		QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
