@@ -24,9 +24,9 @@
                 <string>Hangman Pictures</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>These settings allow you to choose how you want your hangman pictures.
+                <string>&lt;qt&gt;These settings allow you to choose how you want your hangman pictures.
 &lt;b&gt;Mild&lt;/b&gt; is default and the hangman holds the rope with the hand.
-&lt;b&gt;Normal&lt;/b&gt; is when the man is hanged by the neck.</string>
+&lt;b&gt;Normal&lt;/b&gt; is when the man is hanged by the neck.&lt;/qt&gt;</string>
             </property>
             <grid>
                 <property name="name">

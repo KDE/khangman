@@ -61,6 +61,13 @@
                             <property name="name">
                                 <cstring>kcfg_LanguageCombobox</cstring>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Change the language for the words</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;Here you can change the data languages, i.e. the language for the words to guess. Only available languages are displayed.
+You can add new languages using the &lt;b&gt;Game&lt;/b&gt; menu &lt;b&gt;Get Data in New language..&lt;/b&gt;.&lt;/qt&gt;</string>
+                            </property>
                         </widget>
                         <spacer>
                             <property name="name">
@@ -110,7 +117,7 @@ Default is that accented letters will be shown when the corresponding unaccented
                         <string>&amp;Show hints</string>
                     </property>
                     <property name="toolTip" stdset="0">
-                        <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, a hint will be displayed by right-clicking on the game window.</string>
+                        <string>If you check it, a hint will be displayed by right-clicking on the game window.</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language.
