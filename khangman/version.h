@@ -1,1 +1,1 @@
-#define KHM_VERSION "1.4"
+#define KHM_VERSION "1.5"
