@@ -102,13 +102,6 @@ private slots:
     void newGame();
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
-    ///Configure toolbars standard KDE dialog
-    void optionsConfigureToolbars();
-    /**
-     *this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
-     *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
-     */
-    void newToolbarConfig();
     /**Update the text in the caption in the main window
     @param text the new text that will be written as caption in the window
     */

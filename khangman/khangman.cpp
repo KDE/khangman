@@ -132,25 +132,6 @@ void KHangMan::newGame()
   	m_view->slotNewGame();
 }
 
-
-void KHangMan::optionsConfigureToolbars()
-{
-	// use the standard toolbar editor
-	saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
-	KEditToolbar dlg(actionCollection());
-	connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
-	dlg.exec();
-}
-
-void KHangMan::newToolbarConfig()
-{
-	// this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
-	// recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
-	createGUI();
-	setupLangMenu();
-	applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
-}
-
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
 	// display the text on the statusbar
