@@ -214,7 +214,12 @@ void KHangManView::slotTry()
 					mainLabel->setText(theWord);
 					
 					//usability: change that
-					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
+					QString newGameString;
+					if (Prefs::milder()) 
+						newGameString = i18n("You lost. Do you want to play again?");
+					else
+						newGameString = i18n("You are dead. Do you want to play again?");
+					if (KMessageBox::questionYesNo(this, newGameString) == 3)
 						slotNewGame();
 					else
 						kapp->quit();
