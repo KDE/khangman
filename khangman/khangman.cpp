@@ -269,7 +269,7 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 {
     defaultLang = m_languages.findIndex(mLanguage);
     if (defaultLang == -1)
-	defaultLang = 0;
+	defaultLang = 1; //if no default, set it to English
 }
 
 //when config is read, set the KComboBox to the right level
