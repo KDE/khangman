@@ -385,6 +385,17 @@ Only letters are allowed to be typed in the field.
 <listitem><para><action>Toggle</action> softer/original hangman pictures
 </para></listitem>
 </varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Enable Accented Letters</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Allow</action> to type accented letters on their own
+</para></listitem>
+</varlistentry>
 </variablelist>
 
 </sect2>
@@ -547,6 +558,8 @@ Contributors:
 <email>ben AT meyerhome DOT net</email></para> </listitem>
 <listitem><para>Code fixes: Lubos Lun&agrave;k
 <email>l.lunak AT kde DOT org</email></para> </listitem>
+<listitem><para>Code fixes: Albert Astals Cid
+<email>tsdgeos AT terra DOT es</email></para> </listitem>
 </itemizedlist>
 </para>
 
