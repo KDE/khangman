@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
 <class>MainW</class>
 <widget class="QWidget">
     <property name="name">
@@ -123,6 +123,12 @@
                         <property name="sizeType">
                             <enum>Expanding</enum>
                         </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
                     </spacer>
                     <widget class="QPushButton">
                         <property name="name">
@@ -141,6 +147,12 @@
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
                         </property>
                     </spacer>
                     <widget class="QFrame">
@@ -249,62 +261,6 @@
             <bool>true</bool>
         </property>
     </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>missedLetters</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>40</x>
-                <y>30</y>
-                <width>138</width>
-                <height>58</height>
-            </rect>
-        </property>
-        <property name="font">
-            <font>
-                <family>Helvetica [Adobe]</family>
-                <pointsize>24</pointsize>
-                <bold>1</bold>
-            </font>
-        </property>
-        <property name="text">
-            <string>_ _ _ _ _ _ 
-_ _ _ _ _ _</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TextLabel1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>10</x>
-                <y>0</y>
-                <width>65</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Misses:</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TextLabel2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>210</y>
-                <width>36</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Word:</string>
-        </property>
-    </widget>
     <widget class="QFrame">
         <property name="name">
             <cstring>Frame11</cstring>
@@ -365,6 +321,12 @@ _ _ _ _ _ _</string>
                         <property name="sizeType">
                             <enum>Expanding</enum>
                         </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
                     </spacer>
                     <widget class="QLineEdit">
                         <property name="name">
@@ -401,6 +363,12 @@ _ _ _ _ _ _</string>
                         <property name="sizeType">
                             <enum>Expanding</enum>
                         </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
                     </spacer>
                     <widget class="QPushButton">
                         <property name="name">
@@ -434,6 +402,65 @@ _ _ _ _ _ _</string>
         </property>
         <property name="toolTip" stdset="0">
             <string>Switch back to the "adult" mode</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TextLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>6</x>
+                <y>210</y>
+                <width>380</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Word:</string>
+        </property>
+        <property name="alignment">
+            <set>AlignCenter</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>missedLetters</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>30</x>
+                <y>40</y>
+                <width>160</width>
+                <height>60</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <family>Helvetica [Adobe]</family>
+                <pointsize>24</pointsize>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="text">
+            <string>_ _ _ _ _ _ 
+_ _ _ _ _ _</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TextLabel1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>0</y>
+                <width>110</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Misses:</string>
         </property>
     </widget>
 </widget>
