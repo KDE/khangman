@@ -84,7 +84,7 @@ void KHangManView::slotTry()
 
 			if (containsChar(sChar)) 
 			{
-        replaceLetters(sChar); 
+				replaceLetters(sChar); 
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);

@@ -7,6 +7,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
+#include <kiconloader.h>
 #include <klocale.h>
 //Qt headers
 #include <qbuttongroup.h>
@@ -19,17 +20,17 @@
 
 
 KHangManPreferences::KHangManPreferences()
-    : KDialogBase(TreeList, i18n("KHangMan Preferences"),
+    : KDialogBase(IconList, i18n("KHangMan Preferences"),
                   Help|Default|Ok|Apply|Cancel, Ok)
 {
      //disable the Apply button before any changes are made
      enableButton( Apply, false);
 
     QFrame *frame;
-    frame = addPage(i18n("General"), i18n("General"));
+    frame = addPage(i18n("General"), i18n("General"), BarIcon("gear", KIcon::SizeMedium));
     m_pageOne = new KHangManPrefPageOne(frame);
 
-     frame = addPage(i18n("Language"), i18n("Data language"));
+     frame = addPage(i18n("Language"), i18n("Data language"), BarIcon ("locale", KIcon::SizeMedium));
      m_pageTwo = new KHangManPrefPageTwo(frame);
 
     readConfig();
