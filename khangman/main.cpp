@@ -65,6 +65,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Coding help"), "robertgogolok@gmx.de");
     aboutData.addCredit("Lubos Lunàk",
                             I18N_NOOP("Coding help"), "l.lunak@kde.org");
+    aboutData.addCredit("Albert Astals Cid",
+                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");			 
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;

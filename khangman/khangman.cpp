@@ -111,7 +111,7 @@ void KHangMan::setupActions()
 #endif
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
-    accentsAct = new KToggleAction(i18n("&Enable accented letters"), CTRL+Key_E, this, SLOT(slotAccents()), actionCollection(), "accents");
+    accentsAct = new KToggleAction(i18n("&Enable Accented Letters"), CTRL+Key_E, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
