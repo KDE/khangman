@@ -8,8 +8,8 @@ SUBDIRS = data sounds pics
 EXTRA_DIST = main.cpp khangman.cpp khangman.h khangman.desktop lo32-app-khangman.png lo16-app-khangman.png khsplash.cpp khsplash.h 
 
 install-data-local:
-	$(mkinstalldirs) $(kde_appsdir)/Applications/
-	$(INSTALL_DATA) $(srcdir)/khangman.desktop $(kde_appsdir)/Applications/khangman.desktop
+	$(mkinstalldirs) $(kde_appsdir)/Edutainment/
+	$(INSTALL_DATA) $(srcdir)/khangman.desktop $(kde_appsdir)/Edutainment/khangman.desktop
 	$(mkinstalldirs) $(kde_icondir)/locolor/32x32/apps/
 	$(INSTALL_DATA) $(srcdir)/lo32-app-khangman.png $(kde_icondir)/locolor/32x32/apps/khangman.png
 	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
