@@ -54,9 +54,6 @@
     <property name="backgroundOrigin">
         <enum>WidgetOrigin</enum>
     </property>
-    <property name="caption">
-        <string>MainW</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -717,9 +714,6 @@ _ _ _ _ _</string>
                             </property>
                             <property name="text">
                                 <string>G&amp;uess</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+U</string>
                             </property>
                             <property name="flat">
                                 <bool>false</bool>
