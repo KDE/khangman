@@ -47,6 +47,8 @@ public:
 	QString mode;
 	QPixmap bluePix;
 	QPixmap naturePix;
+	//store the previous word to check it's not the same twice
+	QString temp;
 
 	bool sp_flag;
 

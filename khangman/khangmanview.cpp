@@ -47,6 +47,8 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	mainLabel->setMinimumSize(380, 95);
 	//setMinimumSize(560, 430);
 
+	temp="";
+
 	QObject::connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
 }
 
@@ -267,11 +269,20 @@ void KHangManView::game()
 	int objects = allData.count();//number of words in the file
 	//picks a random word from allData
 	word = allData[random.getLong(objects)]; //gives us a single word...
+	//test if the word is not the same than the previous one
+	if (temp=="")
+		temp=word;
+	else
+	{
+		while (word==temp)
+			word = allData[random.getLong(objects)];
+		temp=word;
+	}
 	kdDebug() << word << endl;
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
 	{
 		slotNewGame();
-	}
+	}//end of test
         goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
