@@ -393,6 +393,17 @@ Only letters are allowed to be typed in the field.
 <listitem><para>Allow to type accented letters on their own
 </para></listitem>
 </varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Enable Hint</guimenuitem>
+</menuchoice></term>
+<listitem><para>Allow to view a hint on right-click (only in French)
+</para></listitem>
+</varlistentry>
 </variablelist>
 
 </sect2>
@@ -503,6 +514,16 @@ game. An easy way is to configure &khangman; with the option
 $<envar>KDEDIR</envar> is where the rest of &kde; is installed.  This
 could vary widely, depending on the distribution and operating system
 you.</para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para>KHangMan does not start correctly after I upgraded to one of the KDE-3.2 versions</para>
+</question>
+<answer>
+<para>
+There might be a problem due to the change of the configuration file. Please remove the <filename>khangmanrc</filename> file in your <filename class="directory">$HOME/.kde/share/config</filename> directory.
+</para>
 </answer>
 </qandaentry>
 </qandaset>
