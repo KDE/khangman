@@ -73,134 +73,36 @@ void KHangManView::slotNewGame()
 
 void KHangManView::slotTry()
 {
-	es_flag=false;
 	QString sChar = charWrite->text();
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
+
 	if (!sChar.isEmpty() && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...
 	{
 		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
-			if (language=="es")
+
+			if (word.contains(sChar) > 0) // FIX ME
 			{
-				if (sChar=="i") sChar="í";
-				if (sChar=="a") sChar="á";
-				if (sChar=="u") sChar="ú";
-				if (sChar=="o") sChar="ó";
-				if (sChar=="e") sChar="é";
-				if (sChar=="u") sChar="ü";
-				if (word.contains(sChar) > 0)
-				{
-					int index=0;
-					es_flag=true;
-					for (int count=0; count <word.contains(sChar); count++)
-					{
-						index = word.find(sChar,index);
-						goodWord.replace((2*index), 1,sChar);
-						index++;
-					}//end of for
-
-					QStringList rightChars=QStringList::split(" ", goodWord, true);
-					QString rightWord= rightChars.join("");
-					mainLabel->setText(goodWord);
-					allWords << sChar; //appends the list...
-					if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
-					{
-					//we reset everything...
-					pixImage->setPixmap(px[10]);
-
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-					{
-						sChar="";
-						slotNewGame();
-					}
-					else
-					{
-						kapp->quit();
-					}
-					charWrite->setText("");
-					return;
-					}
-				}//end if word.contains(sChar)
-				if (sChar=="í") sChar="i";
-				//if (sChar=="á") sChar="a";
-				if (sChar=="ú") sChar="u";
-				if (sChar=="ó") sChar="o";
-				if (sChar=="é") sChar="e";
-				if (sChar=="ü") sChar="u";
-
-				if (sChar=="á") sChar="à";
-				if (word.contains(sChar) > 0)
-				{
-					int index=0;
-					es_flag=true;
-					for (int count=0; count <word.contains(sChar); count++)
-					{
-						index = word.find(sChar,index);
-						goodWord.replace((2*index), 1,sChar);
-						index++;
-					}//end of for
-
-					QStringList rightChars=QStringList::split(" ", goodWord, true);
-					QString rightWord= rightChars.join("");
-					mainLabel->setText(goodWord);
-					allWords << sChar; //appends the list...
-					if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
-					{
-					//we reset everything...
-					pixImage->setPixmap(px[10]);
-
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-					{
-						sChar="";
-						slotNewGame();
-					}
-					else
-					{
-						kapp->quit();
-					}
-					charWrite->setText("");
-					return;
-					}
-				}
-				if (sChar=="à") sChar="a";
-				allWords << sChar; //appends the list...
-			}
-
-			if (word.contains(sChar) > 0)
-			{
-				//replace letter in the word
-				int index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-					//searching for letter location
-					 index = word.find(sChar,index);
-					//we replace it...
-					goodWord.replace((2*index), 1,sChar);
-					index++;
-				}
-
+        replaceLetters(sChar); 
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
-				allWords << sChar; //appends the list...
+        
 				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
 
 					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-					{
 						slotNewGame();
-					}
 					else
-					{
 						kapp->quit();
-					}
 				}
-			}//end if (word.contains(sChar) > 0)
+        
+			}  //end if (word.contains(sChar) > 0)
 			else //if the char is missed...
-			if (es_flag==false)
+			//if (es_flag==false)
 			{
 				allWords << sChar; //appends the list...
 				if (missedChar<5)
@@ -217,31 +119,52 @@ void KHangManView::slotTry()
 				missedLetters->setText(missedL);
 				pixImage->setPixmap(px[missedChar+1]);
 				missedChar++;
+
 				if (missedChar >= 10) //you are hanged!
 				{
 					//we reset everything...
-				        pixImage->setPixmap(px[9]);
+				  pixImage->setPixmap(px[9]);
 					//um... The word is not guessed... Let's show it...
 					QStringList charList=QStringList::split("",word);
 					QString theWord=charList.join(" ");
 					mainLabel->setText(theWord);
 
 					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
-					{
 						slotNewGame();
-					}
 					else
-					{
 						kapp->quit();
-					}
 				}
 			}
-		}//end if (allWords.contains(sChar) == 0)
+		} 
 		else
 			KMessageBox::information (this, i18n("The letter has already been guessed."));
 	}
 	//reset after guess...
 	charWrite->setText("");
+}
+
+void KHangManView::replaceLetters(QString sChar)
+{
+  //replace letter in the word
+  int index=0;
+  for (int count=0; count <word.contains(sChar); count++)
+  {
+    //searching for letter location
+    index = word.find(sChar,index);
+    //we replace it...
+    goodWord.replace((2*index), 1,sChar);
+    index++;
+  }
+  if (language=="es")
+  {
+    if (sChar=="i") replaceLetters(QString("í"));
+    if (sChar=="a") replaceLetters(QString("á"));
+    if (sChar=="u") replaceLetters(QString("ú"));
+    if (sChar=="o") replaceLetters(QString("ó"));
+    if (sChar=="e") replaceLetters(QString("é"));
+    if (sChar=="u") replaceLetters(QString("ü"));
+  }
+	allWords << sChar; //appends the list...
 }
 
 void KHangManView::game()
@@ -282,10 +205,8 @@ void KHangManView::game()
 	}//end of test
 	kdDebug() << word << endl;
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
-	{
 		slotNewGame();
-	}
-        goodWord ="";
+  goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)

@@ -50,13 +50,13 @@ public:
 	//store the previous word to check it's not the same twice
 	QString temp;
 
-	bool es_flag;
-
 private:
 
 	KRandomSequence random;
 	//the hangman pictures
 	QPixmap px[11];
+
+  void replaceLetters(QString);
 
 public slots:
 
