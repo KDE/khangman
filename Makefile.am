@@ -1,6 +1,6 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 
-SUBDIRS = khangman po doc 
+SUBDIRS = khangman  
 
 EXTRA_DIST = khangman.kdevprj AUTHORS COPYING ChangeLog INSTALL README TODO khangman.lsm 
 

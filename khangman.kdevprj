@@ -27,7 +27,7 @@ email=a-m.mahfouf@lineone.net
 kdevprj_version=1.3
 lfv_open_groups=GNU,Headers,Others,Sources
 make_options= -j1
-makefiles=Makefile.am,khangman/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am
+makefiles=Makefile.am,khangman/Makefile.am
 modifyMakefiles=true
 project_name=KHangMan
 project_type=mini_kde2
@@ -52,7 +52,7 @@ User Interface=*.kdevdlg,*.ui,*.rc
 groups=Headers,Sources,User Interface,Translations,GNU,Others
 [Makefile.am]
 files=khangman.kdevprj,AUTHORS,COPYING,ChangeLog,INSTALL,README,TODO,khangman.lsm
-sub_dirs=khangman,po,doc
+sub_dirs=khangman
 type=normal
 [README]
 dist=true
