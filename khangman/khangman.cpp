@@ -718,8 +718,6 @@ void KHangMan::slotClose()
 void KHangMan::slotAccents()
 {
  	m_view->accent_b = Prefs::accentedLetters();
-        if (dialog)
-	mNormal->kcfg_AccentedLetters->setEnabled(true);
 	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
@@ -758,9 +756,16 @@ void KHangMan::enableHint(bool m_bool)
 
 void KHangMan::setAccentBool()
 {
-	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
+	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") {
     		m_view->m_accent = true;
-    	else m_view->m_accent = false;
+		if (dialog)
+			mNormal->kcfg_AccentedLetters->setEnabled(true);
+	}	
+    	else {
+		m_view->m_accent = false;
+		if (dialog)
+			mNormal->kcfg_AccentedLetters->setEnabled(false);
+	}
 }
 
 void KHangMan::downloadNewStuff()
@@ -848,6 +853,7 @@ void KHangMan::updateSettings()
 	else {
 		changeStatusbar("", IDS_HINT);
 	}
+	m_view->b_oneLetter = Prefs::oneLetter();
 }
 
 #include "khangman.moc"

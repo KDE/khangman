@@ -88,6 +88,8 @@ public:
 	///tmp is to check if not twice the same random number
 	int tmp;
 	KHangMan *khangman;
+	
+	bool b_oneLetter;
 signals:
 	/**
 	* Use this signal to change the content of the statusbar

@@ -37,6 +37,9 @@
                     <property name="text">
                         <string>Only One Letter Instance</string>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Check this if you want not to display each instance of a same letter</string>
+                    </property>
                     <property name="whatsThis" stdset="0">
                         <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there is no more instance of this letter. </string>
                     </property>
@@ -44,6 +47,9 @@
                 <widget class="QCheckBox">
                     <property name="name">
                         <cstring>kcfg_Fortune</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Allow Fortune Cookies instead of words</string>
