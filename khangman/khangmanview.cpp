@@ -87,9 +87,11 @@ KHangManView::~KHangManView()
 
 void KHangManView::slotNewGame()
 {
-	QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
-	if (soundFile != 0) 
-  		KAudioPlayer::play(soundFile);
+	if (b_sound) {
+		QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+		if (soundFile != 0) 
+  			KAudioPlayer::play(soundFile);
+	}
 	
 	wipeout();
 	//language=Prefs::selectedLanguage();
@@ -150,7 +152,11 @@ void KHangManView::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
-
+					if (b_sound) {
+						QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+						if (soundFile != 0) 
+  							KAudioPlayer::play(soundFile);
+					}
 					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 						slotNewGame();
 					else

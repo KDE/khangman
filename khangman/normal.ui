@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>200</width>
-            <height>182</height>
+            <height>247</height>
         </rect>
     </property>
     <property name="caption">
@@ -123,6 +123,33 @@
                     </vbox>
                 </widget>
             </vbox>
+        </widget>
+        <widget class="QGroupBox" row="2" column="0">
+            <property name="name">
+                <cstring>groupBox3_2</cstring>
+            </property>
+            <property name="title">
+                <string>Sounds</string>
+            </property>
+            <widget class="QCheckBox">
+                <property name="name">
+                    <cstring>kcfg_Sound</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>20</y>
+                        <width>104</width>
+                        <height>19</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Enable Sounds</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>If checked, sounds will be played for New Game and Win Game</string>
+                </property>
+            </widget>
         </widget>
     </grid>
 </widget>

@@ -49,6 +49,10 @@
       <label>Enable Hint mode if available</label>
       <default code="true">false</default>
     </entry>
+    <entry name="Sound" type="Bool">
+      <label>Enable Sounds on New Game and Win Game</label>
+      <default code="true">false</default>
+    </entry>
   </group>
     <group name="advanced">
      <entry name="OneLetter" type="Bool">

@@ -860,6 +860,10 @@ void KHangMan::updateSettings()
 		m_view->b_oneLetter = Prefs::oneLetter();
 		newGame();
 	}
+	if (m_view->b_sound != Prefs::sound())  {
+		kdDebug() << "Change Sound mode   " << endl;
+		m_view->b_sound = Prefs::sound();
+	}
 }
 
 #include "khangman.moc"
