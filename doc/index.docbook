@@ -171,8 +171,8 @@ Future improvement will allow you to create your own words file or to load a fil
 <sect1 id="languages">
 <title>Playing in different languages</title>
 <para>
-You can play &khangman; in eighteen languages: Brazilian Portuguese, Catalan, Czech, Danish, Dutch, English,
-Finnish, French, German, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and
+You can play &khangman; in nineteen languages: Brazilian Portuguese, Catalan, Czech, Danish, Dutch, English,
+Finnish, French, German, Hungarian, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and
 Swedish. 
 </para>
 
@@ -212,8 +212,7 @@ button will write the corresponding letter in the input line and you validate yo
 </para>
 
 <important><para>
-Please note that for Czech special characters you will need a font that supports these characters so you can see them displayed.
-Choosing Arial in KDE Control Center as a general font and adjusting all fonts will work fine.
+Please note that you need Arial and URW Bookman fonts in order to correctly display the special characters in some languages. Provided you have those fonts installed, KHangMan will automatically use them. If you see small rectangles instead of letters, then you migh miss one of these fonts.
 </para></important>
 
 </sect1>
@@ -264,7 +263,7 @@ are. <guimenuitem>Get data in a new language</guimenuitem> will display the Get 
 main window and writing the actual settings in the configuration
 file.</para>
 
-<para>The <guimenu>Languages</guimenu> menu has one or two languages as default: English and your kde language if available (if your &kde; language is one of the following seventeen: Czech, Brazilian Portuguese, Catalan, Danish, Dutch, Finnish, French, German, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish , Slovenian, Serbian Latin, Serbian Cyrillic, Swedish and Tajik and if you have the corresponding i18n package installed then it will be the default. After your first game, the language you set up the
+<para>The <guimenu>Languages</guimenu> menu has one or two languages as default: English and your kde language if available (if your &kde; language is one of the following eighteen: Czech, Brazilian Portuguese, Catalan, Danish, Dutch, Finnish, French, German, Hungarian, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish , Slovenian, Serbian Latin, Serbian Cyrillic, Swedish and Tajik and if you have the corresponding i18n package installed then it will be the default. After your first game, the language you set up the
 last time you used &khangman; is restored.
 </para>
 <para>
@@ -770,6 +769,9 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Norwegian (Bokm&#229;l) data files: Torger &#197;ge Sinnes
 <email>torg-a-s AT online DOT no
+</email></para> </listitem>
+<listitem><para>Hungarian data files: Tamas Szanto
+<email>tszanto@mol.hu
 </email></para> </listitem>
 <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
