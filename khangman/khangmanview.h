@@ -74,7 +74,7 @@ public:
 	bool accent_b;
 	
 	bool hintBool;
-	
+	bool kvtmlBool;
 	///for tip to be seen
 	KPassivePopup * myPopup;
 	///tmp is to check if not twice the same random number
@@ -85,7 +85,8 @@ signals:
 	* Use this signal to change the content of the statusbar
 	*/
 	void signalChangeLanguage(int);
-
+	//emit this signal to say if this is a kvtml file or not (hints enabled or not)
+	void signalKvtml(bool);
 private:
 	///necessary to have it all resize correctly
 	void resizeEvent(QResizeEvent *);
@@ -98,6 +99,7 @@ private:
 
  	 bool containsChar(QString &);
 	void replaceLetters(QString);
+
   
 protected:
    virtual void mousePressEvent(QMouseEvent *mouse);

@@ -258,6 +258,7 @@ void KHangManView::game()
 	openFileStream.close();
 	//detects if file is a kvtml file so that it's a hint enable file
 	if (allData.first() == "<?xml version=\"1.0\"?>") {
+		emit(signalKvtml(true));
 		readFile();
 		}
 	else {
@@ -265,6 +266,7 @@ void KHangManView::game()
 			emit(signalChangeLanguage(3));
 			return;
 			}
+		emit(signalKvtml(false));
 		//now the calculations...
 		int objects = allData.count();//number of words in the file
 		word ="";
@@ -391,7 +393,7 @@ void KHangManView::slotSofter()
 //Tip on right-click
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-	if ((hintBool == true) && (mouse->button() == RightButton))
+	if (kvtmlBool && hintBool && (mouse->button() == RightButton))
 	{
 		myPopup = new KPassivePopup(TextLabel3);
 		myPopup->setView(i18n("Hint"), tip );

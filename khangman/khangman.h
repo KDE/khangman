@@ -82,6 +82,8 @@ private:
     QStringList levels;
 
     bool m_bCharToolbar;
+    ///if the data file is a kvtml file thus has hints
+    bool kvtmlBool;
 
 protected:
     /**
@@ -172,7 +174,12 @@ private slots:
     void slotPasteSzlig();
     void slotClose();
     void slotAccents();
+    ///when Enabled Hint is checked or not by the user
+    void slotChooseHint();
+    ///Whether Enabled Hint  is checked or not
     void slotHint();
+    ///if the data file is a kvtml one then Enable Hint must be enabled
+    void enableHint(bool);
 
   private:
     void setupAccel();

@@ -74,6 +74,7 @@ KHangMan::KHangMan()
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
     connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
+    connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
     loadSettings();
     loadLangToolBar();
     setupLangMenu();
@@ -108,7 +109,7 @@ void KHangMan::setupActions()
 #endif
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
-    hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotHint()), actionCollection(), "hint");
+    hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
     accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
@@ -279,7 +280,7 @@ void KHangMan::loadSettings()
 	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);}
     loadDataFiles();
     //Enable hint or not
-    m_view->hintBool = config->readBoolEntry( "hint", true);
+    m_view->hintBool= config->readBoolEntry( "hint", true);
     if (m_view->hintBool) hintAct->setChecked(true);
     else hintAct->setChecked(false);
     
@@ -378,7 +379,7 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
-    if (m_view->hintBool && (m_view->language == "fr" || m_view->language == "it")) 
+    if (m_view->hintBool && kvtmlBool) 
     	hintAct->setChecked(true);
     slotHint();
     if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
@@ -680,7 +681,7 @@ void KHangMan::slotClose()
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
 	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
 	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
-	  if (m_view->language=="fr" || m_view->language=="it")
+	  if (kvtmlBool)
 	  	conf->writeEntry( "hint", m_view->hintBool);
         }
 	// then close the main window
@@ -700,21 +701,42 @@ void KHangMan::slotAccents()
 
 void KHangMan::slotHint()
 {
-	if (m_view->language == "fr" || m_view->language == "it")	{
+	if ((kvtmlBool) && (m_view->hintBool)) {
+		hintAct->setChecked(true);
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
+		}	
+	else if (m_view->hintBool==false) {
+		hintAct->setChecked(false);
+		changeStatusbar("", IDS_HINT);
+	}
+}
+
+void KHangMan::enableHint(bool m_bool)
+{
+	if (m_bool) {
 		hintAct->setEnabled(true);
-		}
+		kvtmlBool = true;
+	}
 	else
 	{
 		hintAct->setChecked(false);
 		hintAct->setEnabled(false);
+		kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
-	if ((m_view->language == "fr" || m_view->language == "it") && (hintAct->isChecked()==true)) {
-		m_view->hintBool = true;
+	m_view->kvtmlBool = kvtmlBool;
+	slotHint();
+}
+
+void KHangMan::slotChooseHint()
+{
+	//hintBool says if the user has choosen to have hints
+	if (hintAct->isChecked())  {
+		m_view->hintBool=true;
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
-		}	
-	else if (hintAct->isChecked()==false) {
-		m_view->hintBool = false;
+	}
+	else {
+		m_view->hintBool =false;
 		changeStatusbar("", IDS_HINT);
 	}
 }
