@@ -31,9 +31,9 @@ install-data-local:
 	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
 	$(INSTALL_DATA) $(srcdir)/hg9.jpg $(kde_datadir)/khangman/pics/hg9.jpg
 	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
-	$(INSTALL_DATA) $(srcdir)/c_bg.png $(kde_datadir)/khangman/pics/blue.png
+	$(INSTALL_DATA) $(srcdir)/blue.png $(kde_datadir)/khangman/pics/blue.png
 	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
-	$(INSTALL_DATA) $(srcdir)/c_bg.png $(kde_datadir)/khangman/pics/nature.png
+	$(INSTALL_DATA) $(srcdir)/nature.png $(kde_datadir)/khangman/pics/nature.png
 
 uninstall-local:
 	-rm -f $(kde_datadir)/khangman/pics/khm_splash.png
