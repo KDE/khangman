@@ -15,9 +15,17 @@ the game to your language. There are 175 words to translate.
    that the exact meaning is preserved, but try to keep the length and
    level of difficulty roughly the same.
 
+   You can just translate the words but you can also adapt them following the level
+   and add new words if you want. For example, "table" is in level easy in English but
+   in your language, it can be level medium. Feel free to adapt the files to your
+   language needs. The number of words in a file is not important, you can add some if you
+   want.
+
    Note that you must use UTF-8 encoding when editing the files. If your
    editor can't do this, try using kwrite or kate. When opening a file in
    kwrite or kate you can select utf8 encoding with the top right combo box.
+
+   Please keep the actual english filenames in your language_code dir.
 
 3. Enter the following command to install the new data files:
 
