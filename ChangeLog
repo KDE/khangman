@@ -1,6 +1,11 @@
-version 0.4
+version 0.5
+31 July 2001
+began the first improvements suggested by danimo. Rewrote the layout for the
+game. Still some improvement possible.
+
+version0.4
 29 July 2001
-fixed path and install dir for the pics (no more hard kode)
+suppress the hard code for the pics
 
 version 0.3
 27 July 2001
