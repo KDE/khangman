@@ -264,7 +264,7 @@ are. <guimenuitem>Get data in a new language</guimenuitem> will display the Get 
 main window and writing the actual settings in the configuration
 file.</para>
 
-<para>The <guimenu>Languages</guimenu> menu has one or two languages as default: English and your kde language if available (if your &kde; language is one of the following seventeen: Czech, Brazilian Portuguese, Catalan, Danish, Dutch, Finnish, French, German, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish , Slovenian, Serbian Latin, Serbian Cyrillic, Swedish and Tajike and if you have the corresponding i18n package installed then it will be the default. After your first game, the language you set up the
+<para>The <guimenu>Languages</guimenu> menu has one or two languages as default: English and your kde language if available (if your &kde; language is one of the following seventeen: Czech, Brazilian Portuguese, Catalan, Danish, Dutch, Finnish, French, German, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish , Slovenian, Serbian Latin, Serbian Cyrillic, Swedish and Tajik and if you have the corresponding i18n package installed then it will be the default. After your first game, the language you set up the
 last time you used &khangman; is restored.
 </para>
 <para>
@@ -366,7 +366,7 @@ picture background. By default, transparency is enabled.
 </para>
 
 <para>
-For some languages, you can have special settings. These settings are not enabled if they are not available in the language you are currently playing. The first setting, Type Accented Letters, is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check Type Accented Letters then you will have to type all accented vowelles (like &atilde;). If this remains unchecked, when you type any vowelle, all accented vowelles will be displayed as well.
+For some languages, you can have special settings. These settings are not enabled if they are not available in the language you are currently playing. The first setting, Type Accented Letters, is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check Type Accented Letters then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
 </para>
 <para>
 Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if  you check that option, you can &RMB; click anywhere on the game and get a hint shown for four
@@ -590,7 +590,7 @@ files. If your editor cannot do this, try using &kwrite; or &kate;. When
 opening a file in &kwrite; or &kate; you can select utf8 encoding with
 the combo box at the top of the file open dialog.</para>
 
-<para>Please keep the actual english filenames in your
+<para>Please keep the actual English filenames in your
 <replaceable>language_code</replaceable> dir.</para>
 </step>
 
@@ -647,7 +647,7 @@ class="directory">$~/.kde/share/apps/khangman/data</filename> in the language co
 The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
 </para>
 <para>
-The english language (default) and the user language from his i18n package (if available) are stored in <filename class="directory">$KDEDIR/share/apps/kahngman</filename>.
+The English language (default) and the user language from his i18n package (if available) are stored in <filename class="directory">$KDEDIR/share/apps/khangman</filename>.
 </para>
 <para>
 In the configuration file, stored for each user in his <filename>~/.kde/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
@@ -656,7 +656,7 @@ In the configuration file, stored for each user in his <filename>~/.kde/share/co
 <sect1 id="planned-features">
 <title>Planned Features for &khangman;</title>
 <para>
-A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the english words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>.
+A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the English words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>.
 </para>
 <para>
 What can also be done is to use other kvtml files like the ones that are on the
