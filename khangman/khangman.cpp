@@ -182,7 +182,7 @@ void KHangMan::changeLevel()
 	m_view->levelFile = levelString +".txt";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
-		changeStatusbar(i18n("First letters must be upper case"), IDS_ACCENTS);	
+		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);	
 	else
 		changeStatusbar(i18n(""), IDS_ACCENTS);
 	Prefs::setLevel( currentLevel);
@@ -245,9 +245,9 @@ void KHangMan::loadSettings()
 		currentLevel = 0;
 		}
 	m_view->levelFile = Prefs::levelFile();
-	kdDebug() << "--------- LevelFile -------- " << m_view->levelFile << endl;
-    	levelString = levels[currentLevel];
+   	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
+	kdDebug() << "------levelFile: " << m_view->levelFile << endl;
     	setLevel_WindowState();
 
      	// Background
@@ -722,6 +722,8 @@ void KHangMan::slotAccents()
 	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
+	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
+		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);	
 	loadLangToolBar();
 	newGame();
 }
@@ -731,14 +733,14 @@ void KHangMan::slotHint()
 	kdDebug() << "kvtmlBool: " << m_view->kvtmlBool << endl;
 	if (m_view->kvtmlBool)  {
 		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
-		changeStatusbar(i18n("You can enable hints in Settings"), IDS_HINT);
+		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 	}
         m_view->hintBool=Prefs::hint();
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) 
-		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);	
+		changeStatusbar(i18n("Hint on right-click"), IDS_HINT);	
 	kdDebug() << Prefs::hint() << "hint" << endl;
 	if (!Prefs::hint())
-		changeStatusbar(i18n("You can enable hints in Settings"), IDS_HINT);
+		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 }
 
 void KHangMan::enableHint(bool m_bool)
