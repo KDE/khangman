@@ -225,20 +225,19 @@ void KHangMan::setLevel_WindowState()
 
 void KHangMan::setMode_WindowState()
 {
-	if (Prefs::mode() == Prefs::EnumMode::nobg)
-	{
-		modeAct->setCurrentItem(0);
-		m_view->slotNoBkgd();
-	}
-	else if (Prefs::mode() == Prefs::EnumMode::blue)
-	{
-		modeAct->setCurrentItem(1);
-		m_view->slotSetPixmap(m_view->bluePix);
-	}
-	else if (Prefs::mode() == Prefs::EnumMode::nature)
-	{
-		modeAct->setCurrentItem(2);
-		m_view->slotSetPixmap(m_view->naturePix);
+	switch (Prefs::mode())  {
+		case Prefs::EnumMode::nobg:
+			modeAct->setCurrentItem(0);
+			m_view->slotNoBkgd();
+			break;
+		case Prefs::EnumMode::blue:
+			modeAct->setCurrentItem(1);
+			m_view->slotSetPixmap(m_view->bluePix);
+			break;
+		case Prefs::EnumMode::nature:
+			modeAct->setCurrentItem(2);
+			m_view->slotSetPixmap(m_view->naturePix);
+			break;
 	}
 }
 
@@ -417,8 +416,7 @@ void KHangMan::enableHint(bool m_bool)
 		m_view->kvtmlBool = true;
 		slotHint();
 	}
-	else
-	{
+	else 	{
 		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
