@@ -45,7 +45,7 @@ int main(int argc, char **argv)
                             I18N_NOOP("Swedish data files, coding help, transparent pictures and i18n fixes"), "stefan.asserhall@telia.com");
     aboutData.addCredit("Joe Bolin",
                             I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
-    aboutData.addCredit("Whitehawk Stormchaser",
+    aboutData.addCredit("Primoz Anzur",
                             I18N_NOOP("Blue theme background, icons"), "zerokode@gmx.net");
     aboutData.addCredit("eXParTaKus",
                             I18N_NOOP("Spanish data files"), "expartakus@expartakus.com");
@@ -65,8 +65,16 @@ int main(int argc, char **argv)
                             I18N_NOOP("Czech data files"), "lukas@kde.org");
     aboutData.addCredit("Tamas Szanto",
                             I18N_NOOP("Hungarian data files"), "tszanto@mol.hu");
-    aboutData.addCredit("Torger Ååge Sinnes",
+    aboutData.addCredit("Torger Åge Sinnes",
                             I18N_NOOP("Norwegian (Bokmål) data files"), "org-a-s@online.no");
+    aboutData.addCredit("Roger Kovacs",
+                            I18N_NOOP("Tajik data files"), "rkovacs@khujand.org");
+    aboutData.addCredit("Chusslove Illich",
+                            I18N_NOOP("Serbian (Cyrillic and Latin) data files"), "chaslav@sezampro.yu");
+    aboutData.addCredit("Jure Repinc",
+                            I18N_NOOP("Slovenian data files"), "jlp@holodeck1.com");
+    aboutData.addCredit("Pedro Morais",
+                            I18N_NOOP("Portuguese data files"), "Morais@kde.org");
     aboutData.addCredit("Matt Howe",
                             I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
     aboutData.addCredit("Benjamin Meyer",
