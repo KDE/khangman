@@ -74,8 +74,6 @@ private:
     QString modeString;
     ///the language used in KDE for the user
     QString userLanguage;
-    ///the language that is set to default: either userLanguage or en if userLanguage is not available
-    int defaultLang;
     ///the different data files in each language dir
     QStringList levels;
     ///true if the Special Characters toolbar is checked to be shown
@@ -101,7 +99,7 @@ private slots:
     void changeCaption(const QString& text);
     ///this slot is called when the user changes level with the level combobox in the toolbar
     void changeLevel();
-    ///this slot is called when the user changes background mode with the mode combobox in the toolbar
+    ///This slot is called when the user changes background mode with the mode combobox in the toolbar
     void changeMode();
     /**
       *When config is read, set the level KComboBox to the right level
@@ -113,7 +111,6 @@ private slots:
       *and call the corresponding slot in the main view to set the background
       */
     void setMode_WindowState();
-    //void setSelectedLanguage(QString);
     ///Read settings from config file khangmanrc or set defaults if none
     void loadSettings();
     ///Switch to another language using the Languages menu
@@ -174,6 +171,7 @@ private slots:
     void setupActions();
     void setupLangMenu();
     void loadDataFiles();
+    ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
     void restoreAccentConfig();
     

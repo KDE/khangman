@@ -98,7 +98,6 @@ void KHangMan::setupActions()
     setStandardToolBarMenuEnabled(true);
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
-    langAct->setCurrentItem(m_sortedNames.findIndex(selectedLanguage));
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
@@ -136,13 +135,12 @@ void KHangMan::setupLangMenu()
     langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
     for (uint index = 0; index < m_sortedNames.count(); index++)
 	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
-    langPopup->setItemChecked(m_languageNames.findIndex(selectedLanguage), true);
+    langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
     connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
 void KHangMan::newGame()
 {
- 	// Start a new game
   	m_view->slotNewGame();
 }
 
@@ -181,8 +179,6 @@ void KHangMan::changeCaption(const QString& text)
     setCaption(text);
 }
 
-//when combo is changed, levelString is changed
-//and written in config
 void KHangMan::changeLevel()
 {
 	static const char *levelStrings[] = {
@@ -203,7 +199,6 @@ void KHangMan::changeLevel()
         newGame();
 }
 
-//When changing background, the game stays as it is
 void KHangMan::changeMode()
 {
 	switch (modeAct->currentItem()) {
@@ -228,20 +223,11 @@ void KHangMan::changeMode()
         transAct->setEnabled( modeAct->currentItem() != 0 );
 }
 
-//read settings from config file khangmanrc
 void KHangMan::loadSettings()
 {
     	// Language
-    	//setSelectedLanguage(Prefs::userLanguage());
-
-    	//KConfig *config = kapp->config();
-    	//config->setGroup("Language");
     	selectedLanguage = Prefs::selectedLanguage();
-	/* config->readNumEntry("selectedLanguage", defaultLang);
-    	if (selectedLanguage >= (int) m_languages.count())
-                selectedLanguage = 3;*/
      	setLanguage(selectedLanguage);
-
     	// Level
     	currentLevel = Prefs::level(); //default is easy
 
@@ -249,7 +235,7 @@ void KHangMan::loadSettings()
    	m_bCharToolbar = Prefs::showCharToolbar();
    	if (m_bCharToolbar) 
 		secondToolbar->show();
-  	else 
+  	else
 		secondToolbar->hide();
     	//see if language has special accented letters
     	setAccentBool();
@@ -292,15 +278,6 @@ void KHangMan::loadSettings()
     	}
  }
 
-/*void KHangMan::setSelectedLanguage(QString mLanguage)
-{
-    defaultLang = m_languages.findIndex(mLanguage);
-    if (defaultLang == -1)
-	defaultLang = 3; //if no default, set it to English
-}*/
-
-//when config is read, set the KComboBox to the right level
-//and update statusbar
 void KHangMan::setLevel_WindowState()
 {
     if (currentLevel>levels.count())
@@ -309,8 +286,6 @@ void KHangMan::setLevel_WindowState()
     changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 }
 
-//when config is read, set the KComboBox to the right background
-//and call the corresponding slot in the main view to set the background
 void KHangMan::setMode_WindowState()
 {
     if (modeString=="nobg")
@@ -336,7 +311,6 @@ void KHangMan::slotLanguage()
     changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
 }
 
-// Switch to another language using Languages menu
 void KHangMan::changeLanguage(int newLanguage)
 {
     	// Do not accept to switch to same language
@@ -349,9 +323,8 @@ void KHangMan::changeLanguage(int newLanguage)
     		langPopup->setItemChecked(id, id == newLanguage);
 
     	selectedLanguage = m_languages[newLanguage];
-	kdDebug() << "2" << selectedLanguage << endl;
-	 Prefs::setSelectedLanguage(selectedLanguage);
-	 Prefs::writeConfig();
+	Prefs::setSelectedLanguage(selectedLanguage);
+	Prefs::writeConfig();
     	//load the different data files in the Level combo for the new language
    	 loadDataFiles();
     	bool fileExistBool = false;
@@ -387,10 +360,6 @@ void KHangMan::changeLanguage(int newLanguage)
 
 void KHangMan::setLanguage(QString lang)
 {
-    	//if (lang >= 0 && lang < (int) m_languages.count()) {
-	//	m_view->language = m_languages[lang];
-	//	changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
-    	//}
 	m_view->language = lang;
 	changeStatusbar(i18n("Language: ")+m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
 }
@@ -470,9 +439,6 @@ void KHangMan::loadLangToolBar()
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
 
-	//if (m_view->m_accent)
-     	//	accentsAct->setEnabled(true);
-    	//else
 	 accentsAct->setEnabled(m_view->m_accent);
 	 
 	if (m_view->language == "ca")	{
@@ -778,7 +744,6 @@ void KHangMan::slotChooseHint()
 	}
 }
 
-//set a bool to true for languages that allow Typing Accented Letters
 void KHangMan::setAccentBool()
 {
 	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
