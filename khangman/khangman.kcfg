@@ -53,18 +53,15 @@
       <label>Normal Hangman Pictures</label>
       <default code="true">false</default>
     </entry>
-   <entry name="Nobg" type="Bool">
-      <label>No background picture for the main window</label>
-      <default code="true">true</default>
-    </entry>  
-       <entry name="Blue" type="Bool">
-      <label>Choose the Blue Theme as background picture</label>
-      <default code="true">false</default>
-    </entry>  
-       <entry name="Nature" type="Bool">
-      <label>Choose the Nature Theme as background picture</label>
-      <default code="true">false</default>
-    </entry>  
+    <entry name="Mode" type="Enum">
+      <label>Background theme</label>
+      <choices>
+        <choice name="nobg"/>
+        <choice name="blue"/>
+	<choice name="nature"/>
+      </choices>
+      <default>nobg</default>
+    </entry>
     <entry name="Sound" type="Bool">
       <label>Enable Sounds on New Game and Win Game</label>
       <default code="true">false</default>

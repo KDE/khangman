@@ -12,6 +12,9 @@
             <height>279</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>normal</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -68,7 +71,7 @@
         </widget>
         <widget class="QButtonGroup" row="1" column="0">
             <property name="name">
-                <cstring>buttonGroup2</cstring>
+                <cstring>kcfg_Mode</cstring>
             </property>
             <property name="title">
                 <string>Background Picture</string>
@@ -83,10 +86,16 @@ The chosen background will be restored at KHangMan next run.</string>
                 </property>
                 <widget class="QRadioButton" row="1" column="0">
                     <property name="name">
-                        <cstring>kcfg_Blue</cstring>
+                        <cstring>blue</cstring>
                     </property>
                     <property name="text">
                         <string>&amp;Blue theme</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+B</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>1</number>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Background is blue and green</string>
@@ -94,10 +103,16 @@ The chosen background will be restored at KHangMan next run.</string>
                 </widget>
                 <widget class="QRadioButton" row="2" column="0">
                     <property name="name">
-                        <cstring>kcfg_Nature</cstring>
+                        <cstring>nature</cstring>
                     </property>
                     <property name="text">
                         <string>&amp;Nature theme</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+N</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Background is a picture of nature</string>
@@ -105,10 +120,19 @@ The chosen background will be restored at KHangMan next run.</string>
                 </widget>
                 <widget class="QRadioButton" row="0" column="0">
                     <property name="name">
-                        <cstring>kcfg_Nobg</cstring>
+                        <cstring>nobg</cstring>
                     </property>
                     <property name="text">
                         <string>No back&amp;ground</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+G</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>0</number>
                     </property>
                 </widget>
             </grid>

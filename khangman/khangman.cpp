@@ -157,24 +157,18 @@ void KHangMan::changeMode()
 {
 	switch (modeAct->currentItem()) {
     	case 0:
-			Prefs::setNobg(true);
-			Prefs::setBlue(false);
-			Prefs::setNature(false);
+			Prefs::setMode(Prefs::EnumMode::nobg);
 			Prefs::writeConfig();
 			m_view->slotNoBkgd();
     		break;
 
     	case 1:
-			Prefs::setBlue(true);
-			Prefs::setNature(false);
-			Prefs::setNobg(false);
+			Prefs::setMode(Prefs::EnumMode::blue);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->bluePix);
    			break;
     	case 2:
-			Prefs::setNature(true);
-			Prefs::setNobg(false);
-			Prefs::setBlue(false);
+			Prefs::setMode(Prefs::EnumMode::nature);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->naturePix);
    			break;
@@ -231,17 +225,17 @@ void KHangMan::setLevel_WindowState()
 
 void KHangMan::setMode_WindowState()
 {
-	if (Prefs::nobg())
+	if (Prefs::mode() == Prefs::EnumMode::nobg)
 	{
 		modeAct->setCurrentItem(0);
 		m_view->slotNoBkgd();
 	}
-	else if (Prefs::blue())
+	else if (Prefs::mode() == Prefs::EnumMode::blue)
 	{
 		modeAct->setCurrentItem(1);
 		m_view->slotSetPixmap(m_view->bluePix);
 	}
-	else if (Prefs::nature())
+	else if (Prefs::mode() == Prefs::EnumMode::nature)
 	{
 		modeAct->setCurrentItem(2);
 		m_view->slotSetPixmap(m_view->naturePix);
