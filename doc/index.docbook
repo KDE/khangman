@@ -103,7 +103,7 @@ toolbar.
 <!-- FIXME: A word can't really be displayed and hidden at the same time, -->
 <!-- although I can't think of a better way to phrase this -->
 <para>A word is displayed and its letters are hidden. You know how many letters there are in the
-word. You have to guess the word by trying one letter after another. You enter the letter in the field and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
+word. You have to guess the word by trying one letter after another. You enter the letter in the text box and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
 
 <para>The word
 is picked at random and it is not the same as the previous word.
@@ -150,9 +150,8 @@ yes or no. If you say <guilabel>No</guilabel>, the game quits. If you
 say <guilabel>Yes</guilabel>, another word is ready to be guessed.
 </para>
 
-<!-- FIXME: should we call it 'field' or 'text edit' or...? -->
-<para>You type the letter you want to try in the field (the mouse cursor is
-ready in the field) and you hit the &Enter; key. If the letter belongs to the
+<para>You type the letter you want to try in the text box (the mouse cursor is
+ready in the text box) and you hit the &Enter; key. If the letter belongs to the
 word, it takes its place, as many times as it appears in the word. If the
 letter does not belong to the word, it goes in the Misses field and a further
 part of the hangman is drawn on the right. You have ten tries and after that
@@ -178,7 +177,7 @@ Finnish, French, German, Hungarian, Italian, Norwegian (Bokm&#229;l), Norwegian 
 </para>
 
 <para>
-By default, after the first installation of &khangman; for KDE 3.3, only English and your &kde; language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have &kde; in Danish, &khangman; and in <guimenu>Settings</guimenu> <guimenuitem>Configure KHangMan..</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> you will see two items: English and Danish and Danish will be the default.
+By default, after the first installation of &khangman; for KDE 3.3, only English and your &kde; language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have &kde; in Danish, &khangman; and in <guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;..</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> you will see two items: English and Danish and Danish will be the default.
 </para>
 
 <para>
@@ -203,7 +202,7 @@ Click on the language name you want to install and then on the Install button. A
 </para>
 
 <para>
-You can then easily change the language by going in the <guimenu>Settings</guimenu> <guimenuitem>Configure KHangMan..</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> and choosing another language.
+You can then easily change the language by going in the <guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;...</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> and choosing another language.
 </para>
 
 <para>
@@ -335,7 +334,7 @@ quite difficult and animals is only animals nouns. </para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen level
  is  then displayed on the status bar.</para>
-<para>Only letters are allowed to be typed in the field.</para>
+<para>Only letters are allowed to be typed in the text box.</para>
 </sect1>
 
 <sect1 id="settings">
@@ -356,7 +355,7 @@ quite difficult and animals is only animals nouns. </para>
 </screenshot>
 
 <para>
-A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 drop down boxes on the toolbar.
+A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 combo boxes on the toolbar.
 </para>
 <para>
 In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for Look And Feel. <guimenuitem>Transparent Pictures</guimenuitem> gives you the choice of having the hangman pictures transparent or not. <guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the choice of having the last of the hangman pictures milder. Milder pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children. Transparent and milder pictures are the defaults.
