@@ -167,8 +167,8 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play &khangman; in twelve languages: Catalan, Danish, Dutch, English,
-Finnish, French, German, Brazilian Portuguese, Italian, Portuguese, Spanish and
+You can play &khangman; in thirteen languages: Brazilian Portuguese, Catalan, Czech, Danish, Dutch, English,
+Finnish, French, German, Italian, Portuguese, Spanish and
 Swedish. You can easily change the Language by going in the
 <guimenu>Languages</guimenu> menu and choosing another language.
 </para>
@@ -184,6 +184,11 @@ keyboard layout corresponding to the language. This toolbar can be
 shown or hidden. The setting is restored next time you
 play &khangman;.
 </para>
+
+<important><para>
+Please note that for Czech special characters you will need a font that supports these characters so you can see them displayed.
+Choosing Arial in KDE Control Center as a general font and adjusting all fonts will work fine.
+</para></important>
 
 </sect1>
 <sect1 id="few-tips">
@@ -231,16 +236,17 @@ are. <guimenuitem>Quit</guimenuitem> quits the game by closing the
 main window and writing the actual settings in the configuration
 file.</para>
 
-<para>The <guimenu>Languages</guimenu> menu has twelve menu items:
+<para>The <guimenu>Languages</guimenu> menu has thirteen menu items:
 <guimenuitem>Brazilian Portuguese</guimenuitem>,
-<guimenuitem>Catalan</guimenuitem>, <guimenuitem>Danish</guimenuitem>,
+<guimenuitem>Catalan</guimenuitem>, <guimenuitem>Czech</guimenuitem>, 
+<guimenuitem>Danish</guimenuitem>,
 <guimenuitem>Dutch</guimenuitem>, <guimenuitem>English</guimenuitem>,
 <guimenuitem>Finnish</guimenuitem>, <guimenuitem>French</guimenuitem>,
 <guimenuitem>German</guimenuitem>, <guimenuitem>Italian</guimenuitem>,
 <guimenuitem>Portuguese</guimenuitem>,
 <guimenuitem>Spanish</guimenuitem> and
-<guimenuitem>Swedish</guimenuitem>..  As default, if your &kde;
-language is one of those twelve, then it is set as default otherwise
+<guimenuitem>Swedish</guimenuitem>.  As default, if your &kde;
+language is one of those thirteen, then it is set as default otherwise
 English is chosen. After your first game, the language you set up the
 last time you used &khangman; is restored.
 </para>
@@ -513,7 +519,7 @@ quite difficult and animals is only animals nouns. </para>
 directly to the game. The procedure described here can also be
 found in the <filename class="directory">khangman</filename> source folder
 in the file <filename>README.languages</filename>. However, as there
-are already twelve languages, it will be difficult to add others as the
+are already thirteen languages, it will be difficult to add others as the
 menu will be too long. So please follow the procedure below but
 instead of committing your files you send them to me tarred and
 gzipped. That way I'll make your language available on the &khangman;
