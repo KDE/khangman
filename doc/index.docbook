@@ -25,19 +25,19 @@
 
 
 <copyright>
-<year>2001</year>
+<year>2001</year><year>2002</year>
 <holder>Anne-Marie Mahfouf</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2001-10-31</date>
-<releaseinfo>0.07.01</releaseinfo>
+<date>2002-10-08</date>
+<releaseinfo>0.8</releaseinfo>
 
 <abstract>
 <para>
-&khangman; is the classical hangman game for children adapted for &kde;.
+&khangman; is the classical hangman game for children, adapted for &kde;.
 </para>
 </abstract>
 
@@ -87,7 +87,7 @@ June 2000. </para>
 <title>General usage</title>
 
 <para>A word is displayed, hidden. You have to guess what the word is by trying
-a letter after another. The word id picked in random. There are 44 different
+a letter after another. The word is picked in random. There are 44 different
 words in each level.</para>
 
 <important><para>All words are nouns and in small letters.</para></important>
@@ -139,14 +139,10 @@ In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.
 <sect1 id="khangman-mainwindow">
 <title>The Main &khangman; Window</title>
 
-<para><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> or
- <keycombo action="simul">&Alt;<keycap>Q</keycap></keycombo> enables you to quit the
- game (as well as clicking on the <guibutton>Quit</guibutton> button),
- <keycap>F1</keycap> or <keycombo action="simul">&Alt;<keycap>H</keycap></keycombo>
- gives you this Help (or click on the <guibutton>Help</guibutton>
- button) and <keycombo action="simul">&Alt;<keycap>I</keycap></keycombo> brings you
- the quick info screen. To choose the level, click on the
- <guibutton>Level</guibutton> button.</para>
+<para>Clicking on the <guibutton>Close</guibutton> button) allows you
+to exit the game.  Click on the <guibutton>Help</guibutton> to access
+this handbook.  To choose the level, choose from the drop down box
+labelled <guibutton>Level</guibutton> button.</para>
 
 </sect1>
 </chapter>
@@ -187,7 +183,7 @@ int wordsnum=your_new_number_of_words;
 class="username">root</systemitem> to install the file correctly if
 you already compiled the game. If not,
 <userinput><command>./configure</command>
-<option>--prefix=<replaceable>/your_kde_dir</replaceable></option></userinput>,
+<option>--prefix=$<envar>KDEDIR</envar></option></userinput>,
 <userinput><command>make</command></userinput> and
 <userinput><command>make</command>
 <parameter>install</parameter></userinput> in a terminal.</para>
@@ -208,11 +204,18 @@ you already compiled the game. If not,
 <para>I have an error message telling me the pictures cannot be found.</para>
 </question>
 <answer>
-<para>The game installs by default in /usr/local/kde so add
-/usr/local/kde/bin to your path and set the KDEDIR variable to
-/usr/local/kde before running the game. An easiest way is to configure
-KHangman with the option --prefix=/your_kde_dir where /your_kde_dir can be
-/opt/kde or /usr, depending of the distribution. </para> </answer> </qandaentry>
+<para>The game installs by default in <filename
+class="directory">/usr/local/kde</filename> so add <filename
+class="directory">/usr/local/kde/bin</filename> to your path and set
+the <envar>KDEDIR</envar> variable to <filename
+class="directory">/usr/local/kde</filename> before running the
+game. An easy way is to configure &khangman; with the option
+<option>--prefix</option>=$<envar>$KDEDIR</envar> where
+$<envar>KDEDIR</envar> is where the rest of &kde; is installed.  This
+could vary widely, depending on the distribution and operating system
+you.</para>
+</answer> 
+</qandaentry>
 </qandaset>
 </chapter>
 
@@ -244,13 +247,6 @@ Documentation copyright 2001 Anne-Marie Mahfouf <email>annma@kde.org</email>
 
 
 &underFDL;               <!-- FDL: do not remove -->
-
-<!-- Determine which license your application is licensed under, 
-     and delete all the remaining licenses below:
-
-     (NOTE:  All documentation are licensed under the FDL, 
-     regardless of what license the application uses) -->
-
 &underGPL;        	 <!-- GPL License -->
 
 </chapter>
