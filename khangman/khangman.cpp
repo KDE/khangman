@@ -197,15 +197,7 @@ void KHangMan::loadSettings()
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     	loadDataFiles();
 
-	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
-		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
-		Prefs::writeConfig();
-		currentLevel = 0;
-		}
-	m_view->levelFile = Prefs::levelFile();
-   	levelString = levels[currentLevel];
-    	levelString.replace(0, 1, levelString.left(1).lower());
-    	setLevel_WindowState();
+	setLevel();
 
      	// Background
 	setMode_WindowState();
@@ -257,23 +249,32 @@ void KHangMan::changeLanguage(int newLanguage)
     	//check if the name of the file exists in the new language. If not, set it to levels[0].
     	//TODO: save level per language
 
-	if (currentLevel > (uint) levels.count()) currentLevel= 0;
-	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
-	kdDebug() <<"LevelString " << levelString << endl;
-	m_view->levelFile = levelString +".kvtml";
-	kdDebug() << "Level " << m_view->levelFile  << endl;
-	Prefs::setLevel(currentLevel);
-        Prefs::setLevelFile(m_view->levelFile);
-	Prefs::writeConfig();
-
-	//update the Levels in Level combobox as well
-    	setLevel_WindowState();
-    	setLanguage(selectedLanguage);
-
+	setLevel();
+	setLanguage(selectedLanguage);
     	slotHint();
     	setAccentBool();
 	m_bCharToolbar = Prefs::showCharToolbar();
 	slotAccents();
+}
+
+void KHangMan::setLevel()
+{
+	if (currentLevel > (uint) levels.count()) currentLevel= 0;
+	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
+		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
+		Prefs::writeConfig();
+		currentLevel = 0;
+		}
+	m_view->levelFile = Prefs::levelFile();
+   	levelString = levels[currentLevel];
+    	levelString.replace(0, 1, levelString.left(1).lower());
+	//levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
+	m_view->levelFile = levelString +".kvtml";
+	Prefs::setLevel(currentLevel);
+        Prefs::setLevelFile(m_view->levelFile);
+	Prefs::writeConfig();
+	//update the Levels in Level combobox as well
+    	setLevel_WindowState();
 }
 
 void KHangMan::setLanguage(const QString& lang)

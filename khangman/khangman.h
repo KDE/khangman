@@ -155,6 +155,8 @@ private slots:
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
     
+    void setLevel();
+    
 private:
     ///Main view
     KHangManView *m_view;
