@@ -251,7 +251,6 @@ void KHangMan::changeLanguage(int newLanguage)
     	selectedLanguage = m_languages[newLanguage];
 	Prefs::setSelectedLanguage(selectedLanguage);
 	Prefs::writeConfig();
-	kdDebug() << "------ in changeLanguage() --" << endl;
     	//load the different data files in the Level combo for the new language
    	loadDataFiles();
 	//at the moment, check if currentLevel exists (< levels.count()) if not, set it to 0
@@ -506,13 +505,12 @@ void KHangMan::optionsPreferences()
 	normal *mNormal =  new normal( 0, "Normal Settings" );
 	dialog->addPage(mNormal, i18n("Look And Feel"), "colorize");
 	mAdvanced=  new advanced( 0, "Advanced" );
-	dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
 	mAdvanced->kcfg_Hint->setEnabled( m_view->kvtmlBool);
 	mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
 	mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
 	mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
+	dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
-	connect(dialog, SIGNAL(okClicked()), dialog, SLOT(close()));
 	dialog->show();
 }
 
@@ -530,12 +528,10 @@ void KHangMan::updateSettings()
 	//Enable hint or not
 	if (m_view->hintBool != Prefs::hint())  {
     		m_view->hintBool= Prefs::hint();
-		kdDebug() << "Change Hint mode   " << endl;
 		slotHint();
 	}
 	//One letter only mode
 	if (m_view->b_oneLetter != Prefs::oneLetter())  {
-		kdDebug() << "Change One Letter mode   " << endl;
 		m_view->b_oneLetter = Prefs::oneLetter();
 		newGame();
 	}
