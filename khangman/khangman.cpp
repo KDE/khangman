@@ -238,13 +238,12 @@ void KHangMan::loadSettings()
     	//see if language has special accented letters
     	setAccentBool();
     	m_view->accent_b = Prefs::accentedLetters();
-   	// accentsAct->setChecked(m_view->accent_b);
     	if (m_view->m_accent && m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     
     	loadDataFiles();
  
-	if (locate("data", "khangman/data/%1/%2").arg(selectedLanguage).arg(Prefs::levelFile()).isEmpty())
+	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty())
 		Prefs::setLevelFile("easy.txt");
 	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
