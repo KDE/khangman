@@ -32,8 +32,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-10-15</date>
-<releaseinfo>1.3</releaseinfo>
+<date>2004-04-20</date>
+<releaseinfo>1.4</releaseinfo>
 
 <abstract>
 <para>
@@ -368,6 +368,16 @@ quite difficult and animals is only animals nouns. </para>
 <varlistentry>
 <term><menuchoice>
 <shortcut>
+<keycombo action="simul">&Ctrl;<keycap>G</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Get data in a new language...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the KNewStuff dialog which lists all the data available in the different languages. </para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
@@ -517,13 +527,7 @@ quite difficult and animals is only animals nouns. </para>
 <para>Thanks to Stefan Asserhäll, it is very easy to add a new language
 directly to the game. The procedure described here can also be
 found in the <filename class="directory">khangman</filename> source folder
-in the file <filename>README.languages</filename>. However, as there
-are already thirteen languages, it will be difficult to add others as the
-menu will be too long. So please follow the procedure below but
-instead of committing your files you send them to me tarred and
-gzipped. That way I'll make your language available on the &khangman;
-web page. Next &khangman; release (with &kde; 3.3) will have a wizard
-to easily download and install new languages.
+in the file <filename>README.languages</filename>. Please follow the procedure and then send me the files tarred and gzipped to annemarie.mahfouf@free.fr.
 </para>
 
 <para>Download the latest cvs version of &khangman;. The words
@@ -579,8 +583,7 @@ install</command>, depending on your installation.</para>
 <para>Run the game and check that your language has been added:</para>
 <screen><userinput><command>khangman</command></userinput></screen>
 </step>
-<step><para>Commit the new language files with the following command:</para>
-<screen><userinput><command>cvs commit -m "Added new language <replaceable>name_of_your_language</replaceable>"</command></userinput></screen>
+<step><para>Then tar the files and send them so I can add them to the Get New Stuff server and also in the corresponding kde-i18n module in cvs.</para>
 </step>
 </procedure>
 
@@ -662,7 +665,7 @@ you.</para>
 <qandaentry>
 <question>
 <para>&khangman; does not start correctly after I upgraded to one of
-the &kde; 3.2 versions</para>
+the &kde; 3.3 versions</para>
 </question>
 <answer>
 <para>
@@ -681,7 +684,7 @@ There might be a problem due to the change of the configuration file. Please rem
 &khangman;
 </para>
 <para>
-Program copyright 2001-2003 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
+Program copyright 2001-2004 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
 </para>
 <para>
 Contributors:
@@ -723,6 +726,21 @@ Contributors:
 <listitem><para>Portuguese data files: Pedro Morais
 <email>morais AT kde DOT org
 </email></para> </listitem>
+<listitem><para>Serbian (Cyrillic and Latin) data files: Chusslove Illich
+<email>chaslav AT sezampro DOT yu
+</email></para> </listitem>
+<listitem><para>Slovenian data files: Jure Repinc
+<email>jlp AT holodeck1 DOT com
+</email></para> </listitem>
+<listitem><para>Czech data files: Luk&aacute;&scaron; Tinkl
+<email>lukas AT kde DOT org
+</email></para> </listitem>
+<listitem><para>Tajik data files: Roger Kovacs
+<email>rkovacs AT khujand DOT org
+</email></para> </listitem>
+<listitem><para>Norwegian (Bokm&#229;l) data files: Torger &#197;ge Sinnes
+<email>torg-a-s AT online DOT no
+</email></para> </listitem>
 <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
 <listitem><para>Coding help: Benjamin Meyer
@@ -735,7 +753,7 @@ Contributors:
 </para>
 
 <para>
-Documentation copyright 2001-2003 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
+Documentation copyright 2001-2004 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
 </para>
 
 
