@@ -104,12 +104,6 @@ void KHangManView::slotTry()
 					{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
-					/*
-					pixImage->setPixmap(px[12]);
-        				QPainter paint;                         // our painter
-					 paint.begin(&px[12]);                   // begin painting onto picture
-        				slotPaintWin(&paint );                    // paint!
-        				 paint.end();*/
 
 					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 					{
@@ -125,26 +119,47 @@ void KHangManView::slotTry()
 					}
 				}//end if word.contains(sChar)
 				if (sChar=="í") sChar="i";
-				if (sChar=="á") sChar="a";
+				//if (sChar=="á") sChar="a";
 				if (sChar=="ú") sChar="u";
 				if (sChar=="ó") sChar="o";
 				if (sChar=="é") sChar="e";
 				if (sChar=="ü") sChar="u";
 
-				/*if (sChar=="á") sChar="à";
+				if (sChar=="á") sChar="à";
 				if (word.contains(sChar) > 0)
 				{
-				int index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-				//searching for letter location
-				index = word.find(sChar,index);
-				//we replace it...
-				goodWord.replace((2*index), 1,sChar);
-				index++;
-				}//end of for
+					int index=0;
+					sp_flag=true;
+					for (int count=0; count <word.contains(sChar); count++)
+					{
+						index = word.find(sChar,index);
+						goodWord.replace((2*index), 1,sChar);
+						index++;
+					}//end of for
+
+					QStringList rightChars=QStringList::split(" ", goodWord, true);
+					QString rightWord= rightChars.join("");
+					mainLabel->setText(goodWord);
+					allWords << sChar; //appends the list...
+					if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
+					{
+					//we reset everything...
+					pixImage->setPixmap(px[10]);
+
+					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+					{
+						sChar="";
+						slotNewGame();
+					}
+					else
+					{
+						kapp->quit();
+					}
+					charWrite->setText("");
+					return;
+					}
 				}
-				if (sChar=="à") sChar="a";*/
+				if (sChar=="à") sChar="a";
 				allWords << sChar; //appends the list...
 			}
 
