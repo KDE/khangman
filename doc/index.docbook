@@ -294,8 +294,7 @@ icon <guiicon>Back to Normal Size</guiicon> allows you to come back
 from full-screen mode to the window size you had before.</para>
 
 <para><guimenuitem>Transparent Pictures</guimenuitem> gives you the
-choice of having the hangman pictures transparent or not, depending on
-whether it is checked or not.</para>
+choice of having the hangman pictures transparent or not.</para>
 
 <para><guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the
 choice of having the last of the hangman pictures softer. That means
