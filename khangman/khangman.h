@@ -64,12 +64,21 @@ public:
     QStringList m_languages;
      ///Translated and sorted names of languages
     QStringList m_sortedNames;
-    
+    ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
-	
+    ///Build the Level combobox menu dynamically depending of the data for each language
+    void loadDataFiles();
+    ///Action for building the Languages menu
     KSelectAction *langAct;
     ///Build the Languages menu
-    void setupLangMenu();
+    void setupLangMenu();   
+    /**
+    Update the text in the Statusbar
+    @param text the text that will be written in the statusbar
+    @param id the label in which the text will be written
+    */
+    void changeStatusbar(const QString& text, int id);
+
 private:
     ///hold the current level
     QString levelString;
@@ -89,6 +98,8 @@ private slots:
     void newGame();
     ///Configure shortcut keys standard KDE dialog
     void optionsConfigureKeys();
+    ///In Settings menu, Configure KHangMan... menu item
+    void optionsPreferences();
     ///Configure toolbars standard KDE dialog
     void optionsConfigureToolbars();
     /**
@@ -96,9 +107,9 @@ private slots:
      *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
      */
     void newToolbarConfig();
-    ///Update the text in the Statusbar
-    void changeStatusbar(const QString& text, int id);
-    ///Update the text in the caption in the main window
+    /**Update the text in the caption in the main window
+    @param text the new text that will be written as caption in the window
+    */
     void changeCaption(const QString& text);
     ///this slot is called when the user changes level with the level combobox in the toolbar
     void changeLevel();
@@ -116,18 +127,23 @@ private slots:
     void setMode_WindowState();
     ///Read settings from config file khangmanrc or set defaults if none
     void loadSettings();
-    ///Switch to another language using the Languages menu
+    /**Switch to another language using the Languages menu
+    @param newLanguage the index of the new selected language in the menu
+    */
     void changeLanguage(int newLanguage);
     ///Convenient slot to call changeLanguage slot
     void slotLanguage();
-    ///Set the current language in the view and update the statusbar
+    /**Set the current language in the view and update the statusbar
+    @param lang the code of the currently selected language
+    */
     void setLanguage(QString lang);
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
-    ///Slot to get softer hangman pictures when the action is checked
-    void slotSofter();
-    ///Slot to toggle the full screen mode	
-    void slotSetFullScreen( bool );
+    /**
+    Slot to toggle the full screen mode	
+    @param set the state of the Full Screen Mode ToggleMenu, true if toggled
+    */
+    void slotSetFullScreen( bool set);
     ///Populate the second toolbar with the correct buttons if the current language has special characters
     void loadLangToolBar();
     ///When the a tilde button is clicked, a tilde is written in the lineedit
@@ -174,39 +190,27 @@ private slots:
     void slotClose();
     ///Check if the language has special characters and load the second toolbar if so
     void slotAccents();
-    ///when Enabled Hint is checked or not by the user
-    void slotChooseHint();
     ///Whether Enabled Hint  is checked or not
     void slotHint();
     ///if the data file is a kvtml one then Enable Hint must be enabled
     void enableHint(bool);
     ///access the KNewStuff class to install new data
     void downloadNewStuff();
+    ///update settings after Settings->Configure KHangMan dialog is closed
+    void updateSettings();
 
-  private:
+  protected:
     ///Set up the actions for the menus
     void setupActions();
-    ///Build the Level combobox menu dynamically depending of the data for each language
-    void loadDataFiles();
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
-    ///Set the Accented Letters action correctly
-    void restoreAccentConfig();
     
 private:
     ///Main view
     KHangManView *m_view;
     ///Action in the Game menu to start a new word
     KAction *newAct;
-    ///Action in the Settings menu to enable/disable transparency pictures
-    KToggleAction *transAct;
-    ///Action in the Settings menu to enable/disable softer hangman pictures
-    KToggleAction *softAct;
-    ///Action in the Settings menu to enable/disable hints for the languages that allow hints
-    KToggleAction *hintAct;
-    ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
-    KToggleAction *accentsAct;
-    //KToggleToolBarAction *secondAct;
+    ///Actions for the level combobox and the mode combobox
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;
@@ -216,8 +220,9 @@ private:
     QString selectedLanguage;
     ///Translated names of languages
     QStringList m_languageNames;
-    
+    ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;
+    
 };
 
 #endif // _KHANGMAN_H_

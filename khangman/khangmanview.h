@@ -74,7 +74,7 @@ public:
 	QString tip;
 	
 	QString stripWord, sword;
-	int c, d;
+	int c, d, f, g;
 	///true if Type accents is enabled for the languages that support it
 	bool accent_b;
 	///true if language = es, ca, pt or pt_BR
@@ -88,6 +88,11 @@ public:
 	///tmp is to check if not twice the same random number
 	int tmp;
 	KHangMan *khangman;
+	//true if only one instance of each letter is displayed
+	bool b_oneLetter;
+	//If true, the uppercase and lower case are disctincts (world capitals)
+	bool upperBool;
+	
 signals:
 	/**
 	* Use this signal to change the content of the statusbar
@@ -104,7 +109,7 @@ private:
 	QPixmap px[11];
         ///the background image
 	QPixmap bgPixmap;
-
+	///If true, the word contains the QString
  	bool containsChar(QString &);
 	void replaceLetters(QString);
 

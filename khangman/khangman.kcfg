@@ -5,7 +5,7 @@
   <group name="General">
     <entry name="Level" type="Int">
       <label>Level</label>
-      <default code="true">1</default>
+      <default code="true">0</default>
     </entry>
     <entry name="LevelFile" type="String">
       <default>"easy.txt"</default>
@@ -16,14 +16,6 @@
     </entry>
     <entry name="ShowCharToolbar" type="Bool">
       <label>Show the characters toolbar</label>
-      <default code="true">false</default>
-    </entry>
-    <entry name="AccentedLetters" type="Bool">
-      <label>The language has special accented letters</label>
-      <default code="true">false</default>
-    </entry>
-    <entry name="Hint" type="Bool">
-      <label>Enable Hint mode if available</label>
       <default code="true">false</default>
     </entry>
     </group>
@@ -40,7 +32,7 @@
       <default code="true">userLanguage</default>
     </entry> 
     </group>
-  <group name="Settings">
+  <group name="normal">
      <entry name="Softer" type="Bool">
       <label>Softer Hangman Pictures</label>
       <default code="true">true</default>
@@ -49,5 +41,37 @@
       <label>Transparent Hangman Pictures</label>
       <default code="true">true</default>
     </entry>  
+    <entry name="AccentedLetters" type="Bool">
+      <label>The language has special accented letters</label>
+      <default code="true">false</default>
+    </entry>
+    <entry name="Hint" type="Bool">
+      <label>Enable Hint mode if available</label>
+      <default code="true">false</default>
+    </entry>
+    <entry name="Sound" type="Bool">
+      <label>Enable Sounds on New Game and Win Game</label>
+      <default code="true">false</default>
+    </entry>
+  </group>
+    <group name="advanced">
+     <entry name="OneLetter" type="Bool">
+      <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
+      <default code="true">false</default>
+    </entry>
+   <entry name="Fortune" type="Bool">
+      <label>Guess fortune cookies instead of words</label>
+      <default code="true">false</default>
+    </entry>  
+       <entry name="WonDialog" type="Bool">
+      <label>Do not display the 'Congratulations You won!' dialog</label>
+      <default code="true">false</default>
+    </entry> 
+  </group>
+  <group name="KNewStuff">
+  <entry name="ProvidersUrl" type="Path">
+      <label>The Providers path for KHangMan</label>
+       <!-- <default code="true">"http://edu.kde.org/khangman/downloads/providers.xml"</default>-->
+    </entry> 
   </group>
 </kcfg>

@@ -16,18 +16,21 @@
  */
 
 //project headers
+#include "khangman.h"
 #include "khangmanview.h"
 #include "version.h"
+#include "prefs.h"
 //Qt headers
 #include <qfile.h>
 #include <qimage.h>
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <qregexp.h>
+#include <qtimer.h>
 #include <qtooltip.h>
-//#include <qwhatsthis.h>
 //KDE headers
 #include <kapplication.h>
+#include <kaudioplayer.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
@@ -35,8 +38,7 @@
 #include <kstandarddirs.h>
 //standard C++ headers
 #include <stdlib.h>
-#include "khangman.h"
-//#include "prefs.h"
+
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
     : MainW(parent, name)
@@ -88,6 +90,12 @@ KHangManView::~KHangManView()
 
 void KHangManView::slotNewGame()
 {
+	if (Prefs::sound()) {
+		QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+		if (soundFile != 0) 
+  			KAudioPlayer::play(soundFile);
+	}
+	
 	wipeout();
 	//language=Prefs::selectedLanguage();
 	if (language =="tg")  {
@@ -98,6 +106,10 @@ void KHangManView::slotNewGame()
 		charWrite->setFont(tFont);
 		mainLabel->setFont(tFont);
 	}
+	//distinction between upper and lower case letters
+	if (levelFile == "world_capitals.txt" || levelFile == "departements.txt")
+		upperBool = true;
+	 else upperBool = false;
 	game();
 	charWrite->setFocus();
 }
@@ -116,6 +128,7 @@ void KHangManView::slotValidate(const QString &text)
 void KHangManView::slotTry()
 {
 	QString sChar = charWrite->text();
+	if (!upperBool)
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
 
@@ -147,11 +160,21 @@ void KHangManView::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
-
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-						slotNewGame();
-					else
-						kapp->quit();
+					if (Prefs::sound()) {
+						QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+						if (soundFile != 0) 
+  							KAudioPlayer::play(soundFile);
+					}
+					if (Prefs::wonDialog())
+					{
+						QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
+					}
+					else{
+						if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+							slotNewGame();
+						else
+							kapp->quit();
+					}
 				}
 
 			}
@@ -200,48 +223,69 @@ void KHangManView::slotTry()
 
 void KHangManView::replaceLetters(QString sChar)
 {
-  //replace letter in the word
-  int index=0;
-  for (int count=0; count <word.contains(sChar); count++)
-  {
-    //searching for letter location
-    index = word.find(sChar,index);
-    //we replace it...
-    goodWord.replace((2*index), 1,sChar);
-    index++;
-  }
-  if (m_accent && !accent_b)
-  {
-  //characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
-    if (sChar=="i") replaceLetters(QString("í"));
-    if (sChar=="a") replaceLetters(QString("à"));
-    if (sChar=="a") replaceLetters(QString("á"));
-    if (sChar=="a") replaceLetters(QString("ã"));
-    if (sChar=="u") replaceLetters(QString("ü"));
-    if (sChar=="o") replaceLetters(QString("ò"));
-    if (sChar=="o") replaceLetters(QString("ó"));
-    if (sChar=="o") replaceLetters(QString("õ"));
-    if (sChar=="e") replaceLetters(QString("è"));
-    if (sChar=="e") replaceLetters(QString("é¨"));
-    if (sChar=="u") replaceLetters(QString("ù"));
-  }
-	allWords << sChar; //appends the list...
+	//replace letter in the word
+	int index=0;
+	bool b_end = false;
+	if (b_oneLetter) //we just replace the next instance
+	{
+		for (int count=0; count <word.contains(sChar); count++)
+		{
+			index = word.find(sChar,index);
+			if (goodWord.at(2*index)=='_') {
+				goodWord.replace((2*index), 1,sChar);
+				if (count == word.contains(sChar)-1)
+					b_end = true;
+				break;
+				}
+			else index ++;
+			if (count == word.contains(sChar)-1)
+				b_end = true;
+		}
+	}
+	else {
+		for (int count=0; count <word.contains(sChar); count++)
+		{
+			//searching for letter location
+			index = word.find(sChar,index);
+			//we replace it...
+			goodWord.replace((2*index), 1,sChar);
+			index++;
+		}
+	}
+	if (m_accent && !accent_b)
+	{
+		//characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
+		if (sChar=="i") replaceLetters(QString("í"));
+		if (sChar=="a") replaceLetters(QString("à"));
+		if (sChar=="a") replaceLetters(QString("á"));
+		if (sChar=="a") replaceLetters(QString("ã"));
+		if (sChar=="u") replaceLetters(QString("ü"));
+		if (sChar=="o") replaceLetters(QString("ò"));
+		if (sChar=="o") replaceLetters(QString("ó"));
+		if (sChar=="o") replaceLetters(QString("õ"));
+		if (sChar=="e") replaceLetters(QString("è"));
+		if (sChar=="e") replaceLetters(QString("é¨"));
+		if (sChar=="u") replaceLetters(QString("ù"));
+	}
+	if (!b_oneLetter) allWords << sChar; //appends the list only if not in One Letter only mode...
+	if (word.contains(sChar)==1) allWords << sChar; //append if only one instance
+	if (b_oneLetter && b_end) allWords << sChar; 
 }
 
 bool KHangManView::containsChar(QString &sChar)
 {
-  bool b = false;
-
-  if (m_accent && !accent_b)
-  {
-    if (sChar=="i") b = word.contains(QString("í")) > 0;
-    if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
-    if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
-    if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
-    if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
-  }
-
-  return ((word.contains(sChar) > 0) || b);
+	bool b = false;
+	
+	if (m_accent && !accent_b)
+	{
+		if (sChar=="i") b = word.contains(QString("í")) > 0;
+		if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
+		if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
+		if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
+		if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
+	}
+	
+	return ((word.contains(sChar) > 0) || b);
 }
 
 void KHangManView::game()
@@ -249,7 +293,6 @@ void KHangManView::game()
 	pixImage->setPixmap(px[10]);
 	//if the data files are not installed in the correct dir
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
-	kdDebug() << "in game, file: " << myString << endl;
 	QFile myFile;
 	myFile.setName(locate("data",myString));
         if (!myFile.exists())
@@ -263,7 +306,6 @@ void KHangManView::game()
 	update();
 	//we open the file and store info into the stream...
 	QFile openFileStream(myFile.name());
-	kdDebug() << locate("data","khangman/data/"+language+"/"+levelFile) << endl;
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
@@ -273,7 +315,6 @@ void KHangManView::game()
 	//detects if file is a kvtml file so that it's a hint enable file
 	if (allData.first() == "<?xml version=\"1.0\"?>") {
 		emit(signalKvtml(true));
-		kdDebug() << "---- Kvtml detected ------\n" << endl;
 		readFile();
 		}
 	else {
@@ -296,9 +337,11 @@ void KHangManView::game()
 				word = allData[random.getLong(objects)];
 				temp=word;
 			}//end of test
-			word = word.lower(); //because of German
+			if (!upperBool)
+				word = word.lower(); //because of German
 		}//end else if language=fr
-	//kdDebug() << word << endl;
+	kdDebug() << word << endl;
+	kdDebug() << "length: " <<  word.length() << endl;
 	goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -307,11 +350,20 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
+	kdDebug() << goodWord << endl;
 	stripWord=goodWord;
 	//if needed, display white space or - if in word or semi dot
-	c = word.find( "-" );
-	if (c>0)
-		goodWord.replace(2*c, 1, "-");
+	f = word.find( "-" );
+	if (f>0)
+	{
+		g=0;
+		goodWord.replace(2*f, 1, "-");
+		g = word.find( "-", f+1);
+		if (g>0) 
+			goodWord.replace(2*g, 3, "-");
+		if (g>1)
+			goodWord.append("_");
+	}
 	c = word.find( " " );
 	if (c>0) //find another white space
 	{
@@ -322,6 +374,8 @@ void KHangManView::game()
 	}
 	int e = word.find( "·" );
 	if (e>0) goodWord.replace(2*e, 1, "·");
+	int h = word.find( "'" );
+	if (h>0) goodWord.replace(2*h, 1, "'");
 	mainLabel-> setText(goodWord);//display the _
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
 }
@@ -426,7 +480,6 @@ void KHangManView::readFile()
 	///TODO: be sure it's opened in UNICODE
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
 	myString= locate("data", myString);
-	kdDebug() << "in kvtml: " << myString << endl;
 	KEduVocDataItemList verbs = KEduVocData::parse(myString);
 	//how many words in the file
 	int NumberOfWords = verbs.count();

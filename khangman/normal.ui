@@ -1,0 +1,170 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>normal</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>normal</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>207</width>
+            <height>250</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="0" column="0">
+            <property name="name">
+                <cstring>groupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>Graphics</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout1</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_Transparent</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Transparent Pictures</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Check it if you want transparent hangman pictures</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>When checked, the hangman pictures are transparent, they have no grey background. By default, this box is checked and thus transparent pictures are enabled as default.</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_Softer</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="text">
+                                <string>Softer Hangman Pictures</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>When this box is checked, softer hangman pictures will be used.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>KHangMan comes with 2 sets of hangman pictures. The set by default is the softer pictures: the man is not hung by the neck but by the hand. If you uncheck this option, you will get the usual hangman pictures: the man is hung by the neck.
+For younger kids, it is prefered to leave this box checked and thus use the softer pictures. This is the default.</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox" row="1" column="0">
+            <property name="name">
+                <cstring>groupBox3</cstring>
+            </property>
+            <property name="title">
+                <string>Language Settings</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_AccentedLetters</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Type Accented Letters</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>In some languages, if this is checked, you have to type yourself accented letters. They are differencied from the normal letter if this is checked.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If this is &lt;b&gt;disabled&lt;/b&gt;, then the selected language does not support it. If this is &lt;b&gt;enabled&lt;/b&gt; and if you check it, then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.
+Default is that accented letters will be shown when the corresponding letter is guessed.</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_Hint</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Enable Hints</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, hint will be displayed by right clicking on the game.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language. 
+If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get them by checking this box. You will then see the hint for the word to guess by right-clicking somewhere on KHangMan window.</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox" row="2" column="0">
+            <property name="name">
+                <cstring>groupBox3_2</cstring>
+            </property>
+            <property name="title">
+                <string>Sounds</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_Sound</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Enable Sounds</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If checked, sounds will be played for New Game and Win Game</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
+Default is no sound.</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

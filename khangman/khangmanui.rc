@@ -14,15 +14,11 @@
 		<Merge name="second_act" />
 		<Action name="options_show_statusbar"/>
         	<Separator />
-		<Action name="transparent"/>
-		<Action name="softer"/>
-		<Action name="accents"/>
-		<Action name="hint"/>
-		<Separator />
         	<Action name="fullscreen"/>
 		<Separator/>
 		<Action name="options_configure_keybinding"/>
 		<Action name="options_configure_toolbars"/>
+		<Action name="options_configure"/>
         </Menu>
 </MenuBar>
 
