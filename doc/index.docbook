@@ -84,8 +84,7 @@ must guess the word before being hanged! You have 10 tries.
 
 <para>
 Here you can see &khangman; as it is the first time you run it. Level is Animals,
-language is default (English here), there is no background theme and the
-hangman pictures are not transparent. Any changes in level, language or
+language is default (English here, the default is your current KDE language), there is no background theme and the hangman pictures are not transparent. Any changes in level, language or
 background mode are written in the configuration file and restored in your next
 game.
 </para>
@@ -772,6 +771,9 @@ Contributors:
 <email>mdhowe AT bigfoot DOT com</email></para> </listitem>
 <listitem><para>Spanish data files: eXParTaKus
 <email>expartakus AT expartakus DOT com
+</email></para> </listitem>
+<listitem><para>Spanish data hints: Rafael Beccar
+<email>rafael DOT beccar AT kdemail DOT net
 </email></para> </listitem>
 <listitem><para>Danish data files: Erik Kjaer Pedersen
 <email>erik AT mpim-bonn DOT mpg DOT de
