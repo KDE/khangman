@@ -99,10 +99,10 @@
                     </widget>
                     <widget class="QPushButton">
                         <property name="name">
-                            <cstring>btnInfo</cstring>
+                            <cstring>btnOptions</cstring>
                         </property>
                         <property name="text">
-                            <string>&amp;Info</string>
+                            <string>&amp;Child mode</string>
                         </property>
                     </widget>
                     <widget class="QPushButton">
@@ -114,7 +114,7 @@
                         </property>
                     </widget>
                     <spacer>
-                        <property name="name" stdset="0">
+                        <property name="name">
                             <cstring>Spacer1</cstring>
                         </property>
                         <property name="orientation">
@@ -122,12 +122,6 @@
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>20</height>
-                            </size>
                         </property>
                     </spacer>
                     <widget class="QPushButton">
@@ -139,7 +133,7 @@
                         </property>
                     </widget>
                     <spacer>
-                        <property name="name" stdset="0">
+                        <property name="name">
                             <cstring>Spacer2</cstring>
                         </property>
                         <property name="orientation">
@@ -147,12 +141,6 @@
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>20</height>
-                            </size>
                         </property>
                     </spacer>
                     <widget class="QFrame">
@@ -211,128 +199,6 @@
                         </grid>
                     </widget>
                 </vbox>
-            </widget>
-        </grid>
-    </widget>
-    <widget class="QFrame">
-        <property name="name">
-            <cstring>Frame11</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>50</x>
-                <y>290</y>
-                <width>430</width>
-                <height>53</height>
-            </rect>
-        </property>
-        <property name="frameShape">
-            <enum>StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-            <enum>Raised</enum>
-        </property>
-        <grid>
-            <property name="name">
-                <cstring>unnamed</cstring>
-            </property>
-            <property name="margin">
-                <number>11</number>
-            </property>
-            <property name="spacing">
-                <number>6</number>
-            </property>
-            <widget class="QLayoutWidget" row="0" column="0">
-                <property name="name">
-                    <cstring>Layout3</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>0</number>
-                    </property>
-                    <property name="spacing">
-                        <number>6</number>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>TextLabel3</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Letter:</string>
-                        </property>
-                    </widget>
-                    <spacer>
-                        <property name="name" stdset="0">
-                            <cstring>Spacer7</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>20</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QLineEdit">
-                        <property name="name">
-                            <cstring>charWrite</cstring>
-                        </property>
-                        <property name="font">
-                            <font>
-                                <family>Helvetica [Adobe]</family>
-                                <pointsize>12</pointsize>
-                            </font>
-                        </property>
-                        <property name="frameShape">
-                            <enum>LineEditPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                            <enum>Sunken</enum>
-                        </property>
-                        <property name="maxLength">
-                            <number>1</number>
-                        </property>
-                        <property name="frame">
-                            <bool>true</bool>
-                        </property>
-                        <property name="alignment">
-                            <set>AlignHCenter</set>
-                        </property>
-                    </widget>
-                    <spacer>
-                        <property name="name" stdset="0">
-                            <cstring>Spacer8</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>20</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QPushButton">
-                        <property name="name">
-                            <cstring>PushButton16</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Try...</string>
-                        </property>
-                    </widget>
-                </hbox>
             </widget>
         </grid>
     </widget>
@@ -439,19 +305,150 @@ _ _ _ _ _ _</string>
             <string>Word:</string>
         </property>
     </widget>
+    <widget class="QFrame">
+        <property name="name">
+            <cstring>Frame11</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>300</y>
+                <width>430</width>
+                <height>53</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Raised</enum>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QLayoutWidget" row="0" column="0">
+                <property name="name">
+                    <cstring>Layout3</cstring>
+                </property>
+                <hbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>0</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>TextLabel3</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Letter:</string>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>Spacer7</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                    </spacer>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>charWrite</cstring>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Helvetica [Adobe]</family>
+                                <pointsize>12</pointsize>
+                            </font>
+                        </property>
+                        <property name="frameShape">
+                            <enum>LineEditPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Sunken</enum>
+                        </property>
+                        <property name="maxLength">
+                            <number>1</number>
+                        </property>
+                        <property name="frame">
+                            <bool>true</bool>
+                        </property>
+                        <property name="alignment">
+                            <set>AlignHCenter</set>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>Spacer8</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                    </spacer>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>PushButton16</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Try...</string>
+                        </property>
+                    </widget>
+                </hbox>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QToolButton">
+        <property name="name">
+            <cstring>modeAdult</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>510</x>
+                <y>310</y>
+                <width>40</width>
+                <height>40</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string></string>
+        </property>
+        <property name="iconSet">
+            <iconset>image0</iconset>
+        </property>
+        <property name="toolTip" stdset="0">
+            <string>Switch back to the "adult" mode</string>
+        </property>
+    </widget>
 </widget>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="3921">789c5596d9521b471486ef790a95cf9d2b752c8df64ae54242a005091b1b0599542ea4d136830402b400a9bc7bfeb374bb5263613e9deeffacddc397cf85c9b751e1f397b3d7fd749fa585743d7d297c9e1fb6dbf7bffefee39fb34fe5a4807fa562ad907cfaedec137d14d202151ba5e2b4a2fc2e5c2a46ce9d2bc65c756eb8fd3172aa9c2937a27d1a59edfcd339753b4536fb9571e2fef93eb2d99f849362607a750ef13d46b6f543e710dfda39f82b2a37a3fd29f0ccf476ce61fd36b0db9f8dcb219ef3c066a717e17229dab7817d7fcd39c43b08ecfbdf9c43fd36817dff44b919b9ef1ce2ab1b5782bf9270a514f925f25cf9ced9fdf34364b3379cdd1f9d229b5dfb816604ee39a7ceb97135f84b84ab49e43f03a755e5b273d5edfbc06e3f3837cd4ec7c066a799f234ac27760eebd3c0ae37729ebbbf5360df3f34ae95dc7e1dd8f7abff5a1239730efe37ce213e9d9fda343057225b7c2d67f7cfddc8665f19d7dd1fb5239b5dcf53bd1cd71f8cc37a1e47b67cd6ce55e74be7108fce437d16ec74e11cec9dc073d3bf750efef781cd4ea63f6b847897c28d72605e05f6f503e710df4560b72f9c433cbdc06ed7fa3566613d2f9d43bc1de710dfceb819fcebf96a5602f322f242ed73e7a07f1e59edfc43390d4c23e7e07f1ed9d6b79de7ce3aafd3cad4fd7133f0a2a63c730efe5ace53e7efcae9b4eaeb6f9cdd7eb30fecf60fe785efa7c06e7f339e25ce7adfcf2ad1fe6e1ced5f9d6bcedf94e760abc7b5f374e1f130f1543ff273c629cf79c14b5ef19a33cef98137bce5473c4fbce3677ee157def3818f7cc273b018f99d3ff07983420b1a6d3ee70e5ff02577b1b2c77d1ea8c2153486f87d03d51cbb4750b9e693c58de71b6278e71bfe0e851f5058f22d8fb1ee4fbee309bc3ff24fbe874a11bff7b9c40997a170e40a1fad16fecca021312c55a10b1f6528f45da18ae75eb3a9719d1b50916cb2a841f8b4b8e97558a20e15628dc11588b84a53283d6a367d64d3a319a5928df51c556d739be6dca1052d6905f532ea50e709ad5521a39c72a89066f30c8d3bd8734ae1c9ea217dc07e282ce98136a8420f95efd3163e4501fbe95115ee4972d940e3156ba43727623b5b5a43f4819e51eb3272edd30bfc5d614f6e118802bd4273a77db98346198ff4c6e28002ede9800c4227bd06a620316835b7f87ea2fb7b74d4ce1e633dc67832e9029de80dd90eb15e3ce7f44e1f160362da21b6580728649c216efcb47b9e8ff836f71ac834a107f4a1314c29430c437cbff1f9940c32ee524b3f15d73820b25cfb6059547fd500dd0c35900c52448b9dd446efd6c87e1ce723d1a7013f36914f3a933ff1ff239d937c5b8207a957c663eceff02d49072ea051f17a34b0a2a771f4b51a763686f16c481747f0be92bd7449721a4565ad71585f5025649920daba5484ced1d72dd4ac0789e63fc68e15e6a78b1958ea24dc221bd494528f23d16ef7e0533a5bd3cf447b8093850864c7927a328798c49e4c232259d133e634b1bf47d0d514abf7aa32c1b34144779ce0db0c0a7b12cf1d5e501fe7a9a3674a32e9623af6dcf038caaa927b4d3650e9eb241e11eda5c400cf7d519099a61e3292bb65240a5cf77a9469e6d9bce86998c82c481458297590e8771a83dc4d2b288c65a6e824eb7fc5a10a52d5096ab1d1d39d63dd061a97d8854ad2001fa9c301dfdab92a61e5c0eb21ddcb5159b92fa4a20328d5bda21bbac2543ce83ca006c8eea8fe4a1a333cbac6fffbb243676bae92cbf986d250efce23a88c2c4f5817ead6f77a24da97c4f2838accc640efcd579f3f7b1af06255efebf9a9c3fe6a1ae8f241557264f3a035351fb2fe05df95f43bd409932f1e06da7da9e3c1cfdc5e2731d3f7c55e9475671d1fc9d9149121ce6e51ef10a996761e7bd67c6b7fa36ae55a7a1b8c1093ccbd452e7d42ed69ebe768e837b2286438b72bf4aa637f67a257721ed63a7b12d1496fdbbd765b7af5ac77eb4eeb54d21334c6e475708ba76ce7056712e7e7c2bbb746442dbda538dccec8a546d22bdc633a7972761734c21ba975b3b7bf5fe55491ccdfadbe63e54c77119bc6038d07ad6ec9de90727e30ad6d4440fa6623cb056fa4839e4dbf17a028b1488d656aa457f10c4b0e7893cc5c01ef59d7d0fb4162818f4bfcb6d2ba1cf55d679361efd731bc480c33d94fd7fa9eb63872ed5257abb2d2ff33bdf56d767b7e47590c4bbcd1258b377dd37fe50fd4e3dfdfcffe03f7f9969b</data>
+    </image>
+</images>
 <connections>
     <connection>
         <sender>btnClose</sender>
         <signal>clicked()</signal>
         <receiver>MainW</receiver>
         <slot>slotClose()</slot>
-    </connection>
-    <connection>
-        <sender>btnInfo</sender>
-        <signal>clicked()</signal>
-        <receiver>MainW</receiver>
-        <slot>slotInfo()</slot>
     </connection>
     <connection>
         <sender>btnNew</sender>
@@ -477,13 +474,27 @@ _ _ _ _ _ _</string>
         <receiver>MainW</receiver>
         <slot>slotTry()</slot>
     </connection>
+    <connection>
+        <sender>btnOptions</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotOptions()</slot>
+    </connection>
+    <connection>
+        <sender>modeAdult</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>getOptions()</slot>
+    </connection>
 </connections>
 <slots>
-    <slot>slotTry()</slot>
+    <slot>getOptions()</slot>
     <slot>slotClose()</slot>
     <slot>slotGetLevel(int level)</slot>
     <slot>slotInfo()</slot>
     <slot>slotNewGame()</slot>
+    <slot>slotOptions()</slot>
+    <slot>slotTry()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

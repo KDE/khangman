@@ -211,9 +211,15 @@ install_location=
 type=SOURCE
 
 [khangman/pics/Makefile.am]
-files=khangman/pics/khm_splash.png,khangman/pics/hg10.jpg,khangman/pics/hg12.jpg,khangman/pics/hg13.jpg,khangman/pics/hg14.jpg,khangman/pics/hg1.jpg,khangman/pics/hg2.jpg,khangman/pics/hg3.jpg,khangman/pics/hg4.jpg,khangman/pics/hg5.jpg,khangman/pics/hg6.jpg,khangman/pics/hg7.jpg,khangman/pics/hg8.jpg,khangman/pics/hg9.jpg,
+files=khangman/pics/khm_splash.png,khangman/pics/hg10.jpg,khangman/pics/hg12.jpg,khangman/pics/hg13.jpg,khangman/pics/hg14.jpg,khangman/pics/hg1.jpg,khangman/pics/hg2.jpg,khangman/pics/hg3.jpg,khangman/pics/hg4.jpg,khangman/pics/hg5.jpg,khangman/pics/hg6.jpg,khangman/pics/hg7.jpg,khangman/pics/hg8.jpg,khangman/pics/hg9.jpg,khangman/pics/c_bg.png
 sub_dirs=
 type=normal
+
+[khangman/pics/c_bg.png]
+dist=true
+install=true
+install_location=$$(kde_datadir)/khangman/pics/c_bg.png
+type=DATA
 
 [khangman/pics/hg1.jpg]
 dist=true

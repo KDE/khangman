@@ -17,6 +17,7 @@
 #include "khangman.h"
 #include <klocale.h>
 #include <kdebug.h>
+#include <qtoolbutton.h>
 #include "khangman.moc"
 
 KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
@@ -25,10 +26,14 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
 	setIcon(locate("icon","hicolor/16x16/apps/khangman.png"));
 	setCaption(i18n("KHangMan %1").arg(KHM_VERSION));
 	missedChar = 0;
+	modeAdult->hide();
 
 	
 //plugs in the Help menu...
 	helpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData(), true);
+	helpMenu->menu()->insertSeparator(-1);
+	helpMenu->menu()->insertItem(QPixmap( locate("icon","hicolor/16x16/actions/info.png") ), "&Info",this,SLOT(slotInfo()) );
+	//kdDebug() << locate("icon","hicolor/16x16/actions/info.png") << endl;
 	btnHelp->setPopup(helpMenu->menu());
 
 //now we preload the pixmaps...
@@ -91,7 +96,7 @@ pixImage->setPixmap(px[10]);
 //now the calculations...
 	int objects = allData.count();
 	word = allData[random.getLong(objects)]; //gives us a single word...
-	int wrdLen=word.length(); //the length of the word...
+	// int wrdLen=word.length(); //the length of the word...
 	if (word.stripWhiteSpace() == "") //prevents to display the empty places...
 	{
 		slotNewGame();
@@ -235,4 +240,52 @@ void KHangMan::wipeout()
 	missedChar=0;
 	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ ");
 	allWords.clear();
+}
+
+void KHangMan::slotOptions()
+{
+//child mode...
+		Frame6_2->hide();
+		QPixmap bgPix;
+		bgPix=QPixmap(QPixmap(locate("data","khangman/pics/c_bg.png") ) );
+		
+		this->setBackgroundPixmap(bgPix);
+		pixImage->setGeometry(400, 20, 150, 170);
+		Frame11->setGeometry(70, 300, 430, 53);
+		mainLabel->setGeometry(90,240,380,27);
+		
+		mainLabel->setBackgroundOrigin( QLabel::ParentOrigin );
+		mainLabel->setBackgroundPixmap(bgPix);
+		
+		TextLabel1->setBackgroundOrigin( QLabel::ParentOrigin );
+		TextLabel1->setBackgroundPixmap(bgPix);
+	
+		TextLabel2->setBackgroundOrigin( QLabel::ParentOrigin );
+		TextLabel2->setBackgroundPixmap(bgPix);
+
+		missedLetters->setBackgroundOrigin( QLabel::ParentOrigin );
+		missedLetters->setBackgroundPixmap(bgPix);
+
+		modeAdult->show();
+}
+
+void KHangMan::getOptions()
+{
+//back to the 'normal' mode...
+	setBackgroundColor("#DCDCDC");
+
+		Frame6_2->show();
+		
+		pixImage->setGeometry(240, 20, 150, 170);
+		Frame11->setGeometry(10, 300, 430, 53);
+		mainLabel->setGeometry(10,240,380,27);
+		
+		mainLabel->setBackgroundColor("#DCDCDC");
+		
+		TextLabel1->setBackgroundColor("#DCDCDC");
+	
+		TextLabel2->setBackgroundColor("#DCDCDC");
+
+		missedLetters->setBackgroundColor("#DCDCDC");
+		modeAdult->hide();
 }

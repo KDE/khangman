@@ -46,7 +46,7 @@ METASOURCES = AUTO
 khangman_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 # Uncomment the following two lines if you add a ui.rc file for your application to make use of
-# KDE´s XML GUI builing
+# KDE
 #rcdir = $(kde_datadir)/khangman
 #rc_DATA = khangmanui.rc
 

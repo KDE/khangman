@@ -67,7 +67,7 @@ public:
 	QString goodWord;
 	QString missedL;
 	int missedChar;
-	QStringList allWords;
+	QStringList allWords;	
 
 public slots:
 	virtual void slotClose();
@@ -75,8 +75,10 @@ public slots:
 	virtual void slotInfo();
 	virtual void slotNewGame();
 	virtual void slotTry();
+	virtual void slotOptions();
 	void game();
 	void wipeout();
+	virtual void getOptions();
 
 private:
 	KRandomSequence random;
