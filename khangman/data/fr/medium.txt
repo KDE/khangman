@@ -47,7 +47,7 @@
  </e>
  <e>
 <o>possession</o>
- <t>Fait de posséder un bien</t>
+ <t>Fait d'avoir un bien</t>
  </e>
  <e>
 <o>tropique</o>
@@ -87,7 +87,7 @@
  </e>
  <e>
 <o>magistrat</o>
- <t></t>
+ <t>On le trouve au tribunal</t>
  </e>
  <e>
 <o>travailleur</o>

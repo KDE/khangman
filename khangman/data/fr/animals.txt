@@ -55,11 +55,11 @@
  </e>
   <e>
  <o>girafe</o>
- <t>son cou est long</t>
+ <t>Son cou est long</t>
  </e>
   <e>
  <o>éléphant</o>
- <t>gros et gris</t>
+ <t>Gros et gris</t>
  </e>
   <e>
  <o>souris</o>
@@ -95,7 +95,7 @@
  </e>
   <e>
  <o>pieuvre</o>
- <t>Plusieurs pattes</t>
+ <t>Plusieurs pattes, vit dans la mer</t>
  </e>
   <e>
  <o>rhinocéros</o>
@@ -107,7 +107,7 @@
  </e>
   <e>
  <o>écureuil</o>
- <t>Agile, grimpe aux arbres</t>
+ <t>Petit, agile, grimpe aux arbres</t>
  </e>
   <e>
  <o>cerf</o>
@@ -119,7 +119,7 @@
  </e>
   <e>
  <o>hippopotame</o>
- <t></t>
+ <t>Gros mammifère d'Afrique</t>
  </e>
   <e> 
   <o>dinosaure</o>
