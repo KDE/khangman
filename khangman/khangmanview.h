@@ -50,7 +50,7 @@ public:
 	//store the previous word to check it's not the same twice
 	QString temp;
 
-	bool sp_flag;
+	bool es_flag;
 
 private:
 

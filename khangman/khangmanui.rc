@@ -9,7 +9,7 @@
 	<Menu name="languages" noMerge="1"><text>&amp;Languages</text>
 		<Action name="data_en"/>
 		<Action name="data_fr"/>
-		<Action name="data_sp"/>
+		<Action name="data_es"/>
 	</Menu>
 </MenuBar>
 

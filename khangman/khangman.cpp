@@ -55,8 +55,8 @@ KHangMan::KHangMan()
     registerLanguage(i18n("English"), "data_en", enabled);
     enabled = locate("data", "khangman/data/fr/") != 0;
     registerLanguage(i18n("French"), "data_fr", enabled);
-    enabled = locate("data", "khangman/data/sp/") != 0;
-    registerLanguage(i18n("Spanish"), "data_sp", enabled);
+    enabled = locate("data", "khangman/data/es/") != 0;
+    registerLanguage(i18n("Spanish"), "data_es", enabled);
 
     // then, setup our actions, must be done after the language search
     setupActions();
@@ -286,7 +286,7 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 		defaultLang = 0;
 	else if (mLanguage == "fr")
 		defaultLang = 1;
-	else if (mLanguage == "sp")
+	else if (mLanguage == "es")
 		defaultLang = 2;
 	else defaultLang = 0;
 }
@@ -394,7 +394,7 @@ void KHangMan::setLanguage(int lang)
 	language = i18n("French");
 	break;
 	case 2:
-	m_view->language="sp";
+	m_view->language="es";
 	language = i18n("Spanish");
 	break;
 	}

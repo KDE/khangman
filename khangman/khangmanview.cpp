@@ -73,7 +73,7 @@ void KHangManView::slotNewGame()
 
 void KHangManView::slotTry()
 {
-	sp_flag=false;
+	es_flag=false;
 	QString sChar = charWrite->text();
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
@@ -81,7 +81,7 @@ void KHangManView::slotTry()
 	{
 		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
-			if (language=="sp")
+			if (language=="es")
 			{
 				if (sChar=="i") sChar="í";
 				if (sChar=="a") sChar="á";
@@ -92,7 +92,7 @@ void KHangManView::slotTry()
 				if (word.contains(sChar) > 0)
 				{
 					int index=0;
-					sp_flag=true;
+					es_flag=true;
 					for (int count=0; count <word.contains(sChar); count++)
 					{
 						index = word.find(sChar,index);
@@ -133,7 +133,7 @@ void KHangManView::slotTry()
 				if (word.contains(sChar) > 0)
 				{
 					int index=0;
-					sp_flag=true;
+					es_flag=true;
 					for (int count=0; count <word.contains(sChar); count++)
 					{
 						index = word.find(sChar,index);
@@ -200,7 +200,7 @@ void KHangManView::slotTry()
 				}
 			}//end if (word.contains(sChar) > 0)
 			else //if the char is missed...
-			if (sp_flag==false)
+			if (es_flag==false)
 			{
 				allWords << sChar; //appends the list...
 				if (missedChar<5)

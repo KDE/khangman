@@ -1,1 +1,1 @@
-SUBDIRS = en fr sp
+SUBDIRS = en es fr
