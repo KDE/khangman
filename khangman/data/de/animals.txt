@@ -1,8 +1,8 @@
 Katze
-Bär 
+Bär
 Delphin 
 Zebra 
-Känguru 
+Känguru
 Wal 
 Pferd 
 Affe 
@@ -15,9 +15,9 @@ Wurm
 Libelle
 Pinguin 
 Hase 
-ferkel 
+Ferkel
 Wolf 
-Löwe 
+Löwe
 Tiger 
 Igel 
 Rentier 
