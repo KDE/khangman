@@ -172,8 +172,8 @@ Future improvement (in KDE 4) will allow you to create your own words file or to
 <sect1 id="languages">
 <title>Playing in different languages</title>
 <para>
-You can play &khangman; in twenty-one languages: Brazilian Portuguese, Bulgarian, Catalan, Czech, Danish, Dutch, English,
-Finnish, French, German, Hungarian, Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and Swedish. 
+You can play &khangman; in twenty-two languages: Brazilian Portuguese, Bulgarian, Catalan, Czech, Danish, Dutch, English,
+Finnish, French, German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and Swedish. 
 </para>
 
 <para>
@@ -581,7 +581,7 @@ found in the <filename class="directory">khangman</filename> source folder
 in the file <filename>README.languages</filename>. Please follow the procedure and then send me the files tarred and gzipped to annemarie.mahfouf@free.fr.
 </para>
 <para>
-The twenty three available languages so far by code are: bg ca cs da de en es fr fi hu it nb nl nn pt pt_BR ru sl sr sr@Ltn sv tg and tr. If your language code is not among those, you can proceed further. 
+The twenty four available languages so far by code are: bg ca cs da de en es fr fi ga hu it nb nl nn pt pt_BR ru sl sr sr@Ltn sv tg and tr. If your language code is not among those, you can proceed further. 
 </para>
 <para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg fr en it only have hints so the other above languages must be updated as soon as possible.
 </para>
@@ -820,6 +820,9 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Bulgarian data files: Radostin Radnev
       <email>radnev AT yahoo DOT com
+</email></para> </listitem>
+<listitem><para>Irish (Gaelic) data files: Kevin Patrick Scannell
+    <email>scannell AT slu DOT edu
 </email></para> </listitem>
 
 <listitem><para>Coding help: Robert Gogolok
