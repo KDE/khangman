@@ -725,7 +725,7 @@ void KHangMan::slotHint()
 		}	
 	else  {
 		m_view->hintBool = false;
-		changeStatusbar(i18n(""), IDS_HINT);
+		changeStatusbar("", IDS_HINT);
 	}
 }
 
