@@ -230,7 +230,6 @@ void KHangMan::loadSettings()
      	setLanguage(selectedLanguage);
     	// Level
     	currentLevel = Prefs::level(); //default is easy
-
      	// Show/hide characters toolbar
    	m_bCharToolbar = Prefs::showCharToolbar();
    	if (m_bCharToolbar) 
@@ -320,14 +319,15 @@ void KHangMan::changeLanguage(int newLanguage)
 	//but if medium in tg -> hard in other so 
     	//check if the name of the file exists in the new language. If not, set it to levels[0].
     	//TODO: save level per language
+
 	if (currentLevel > (uint) levels.count()) currentLevel= 0;
 	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
-	m_view->levelFile = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) +".txt";
+	m_view->levelFile = levelString +".txt";
 	Prefs::setLevel(currentLevel);
         Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
-    	//}
-    	//update the Levels in Level combobox as well
+    	
+	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
 	

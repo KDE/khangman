@@ -150,6 +150,14 @@ void KHangManView::slotTry()
 					stripWord.replace(2*(d-1), 1, "");
 					stripWord.replace(2*(d-1)-1, 1, "");
 				}
+				if (g>0)  {
+					stripWord.replace(2*f, 1, "");
+					stripWord.replace(2*f-1, 1, "");
+				}
+				if (g>0)  {
+					stripWord.replace(2*(g-1), 1, "");
+					stripWord.replace(2*(g-1)-1, 1, "");
+				}
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				if (language =="de")
@@ -354,11 +362,18 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
+	kdDebug() << "GoodWord " << goodWord << endl;
 	stripWord=goodWord;
 	//if needed, display white space or - if in word or semi dot
-	c = word.find( "-" );
-	if (c>0)
-		goodWord.replace(2*c, 1, "-");
+	f = word.find( "-" );
+	if (f>0)
+	{
+		g=0;
+		goodWord.replace(2*f, 1, "-");
+		g = word.find( "-", f+1);
+		if (g>0)  goodWord.replace(2*g, f, "-");
+	}
+		
 	c = word.find( " " );
 	if (c>0) //find another white space
 	{
@@ -369,6 +384,8 @@ void KHangManView::game()
 	}
 	int e = word.find( "·" );
 	if (e>0) goodWord.replace(2*e, 1, "·");
+	int h = word.find( "'" );
+	if (h>0) goodWord.replace(2*h, 1, "'");
 	mainLabel-> setText(goodWord);//display the _
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
 }

@@ -74,7 +74,7 @@ public:
 	QString tip;
 	
 	QString stripWord, sword;
-	int c, d;
+	int c, d, f, g;
 	///true if Type accents is enabled for the languages that support it
 	bool accent_b;
 	///true if language = es, ca, pt or pt_BR
