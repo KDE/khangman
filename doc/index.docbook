@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
  "dtd/kdex.dtd" [
-  <!ENTITY kappname "&khangman;">
+  <!ENTITY kapp "&khangman;">
   <!ENTITY package "kdeedu">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -212,7 +212,7 @@ button will write the corresponding letter in the input line and you validate yo
 </para>
 
 <important><para>
-Please note that you need Arial and URW Bookman fonts in order to correctly display the special characters in some languages. Provided you have those fonts installed, KHangMan will automatically use them. If you see small rectangles instead of letters, then you migh miss one of these fonts.
+Please note that you need Arial and URW Bookman fonts in order to correctly display the special characters in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small rectangles instead of letters, then you migh miss one of these fonts.
 </para></important>
 
 </sect1>
@@ -230,7 +230,7 @@ In Brazilian Portuguese, Catalan, Spanish and Portuguese, the accented
 vowels can be discovered when you type the non accented corresponding
 vowel. For example, all the accented <quote>a</quote> are displayed in
 the word when you type <quote>a</quote>. This is when
-<menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure KHangMan</guimenuitem> <guimenuitem>Type Accented
+<menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &khangman;</guimenuitem> <guimenuitem>Type Accented
 Letters</guimenuitem></menuchoice> is not checked. When
 <guimenuitem>Type Accented
 Letters</guimenuitem> is checked, then you have to type
@@ -353,7 +353,7 @@ quite difficult and animals is only animals nouns. </para>
 </screenshot>
 
 <para>
-A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the KHangMan handbook icon. The level and the background are easily changed via 2 drop down boxes on the toolbar.
+A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 drop down boxes on the toolbar.
 </para>
 <para>
 In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for normal settings. <guimenuitem>Transparent Pictures</guimenuitem> gives you the choice of having the hangman pictures transparent or not. <guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the choice of having the last of the hangman pictures softer. Softer pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children. Transparent and softer pictures are the defaults.
@@ -524,9 +524,9 @@ If you check <guimenu>Do not display the "Congratulations! You Won" dialog</guim
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure KHangMan...</guimenuitem>
+<guimenuitem>Configure &khangman;...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Display</action> the KHangMan settings dialog
+<listitem><para><action>Display</action> the &khangman; settings dialog
 </para></listitem>
 </varlistentry>
 
@@ -655,7 +655,7 @@ In the configuration file, stored for each user in his <filename>~/.kde/share/co
 <sect1 id="planned-features">
 <title>Planned Features for &khangman;</title>
 <para>
-A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the English words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>.
+A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the English words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>).
 </para>
 <para>
 What can also be done is to use other kvtml files like the ones that are on the
