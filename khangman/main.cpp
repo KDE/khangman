@@ -27,6 +27,8 @@ int main(int argc, char **argv)
                               "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
+    aboutData.addCredit("Robert Gogolok",
+                            I18N_NOOP("Coding help"), "mail AT robert-gogolok DOT de");
     aboutData.addCredit("Joe Bolin",
                             I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
     aboutData.addCredit("Whitehawk Stormchaser",
