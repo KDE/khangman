@@ -38,6 +38,8 @@
 #include <kdialog.h>
 #include <qlayout.h>
 #include <qvariant.h>
+#include <qtextstream.h>
+#include <qfile.h>
 
 class KHangMan : public QWidget
 {
@@ -53,15 +55,12 @@ class KHangMan : public QWidget
     void slotNext();
     void choice(int index);
     void choice1();
-    void choice2();
-    void choice3();
     void slotInfo();
     void slotNewgame();
     void game();
     void warning();
     void slotHelp();
     void test1();
-    void animals();
 
  private:
     QComboBox*level;
@@ -85,6 +84,7 @@ class KHangMan : public QWidget
     QPushButton *exit1;
     QLabel *helpla1;
     KDialog *helpla;
+    QString file1;
 
   protected:
     void keyPressEvent(QKeyEvent *);

@@ -40,6 +40,7 @@
 int  rd, k, z, y1, te, length, inc, b, u, ind=0, c0, c1, drap, drap2;
 QString let1, a1, s[20],st, str[45], sto[26];
 
+
 KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 {
     setCaption(i18n("KHangMan - v%1").arg(KHM_VERSION));
@@ -215,7 +216,7 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
     lab6->hide();
     Layout10->addWidget(lab6);
 
-     QSpacerItem* spacer_4 = new QSpacerItem( 20, 100, QSizePolicy::Expanding, QSizePolicy::Maximum );
+    QSpacerItem* spacer_4 = new QSpacerItem( 20, 100, QSizePolicy::Expanding, QSizePolicy::Maximum );
     Layout10->addItem( spacer_4 );
 
     Layout11->addLayout( Layout10 );
@@ -225,20 +226,20 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
     QObject::connect (line, SIGNAL(returnPressed()), this, SLOT(slotTreat()));
     QObject::connect (help, SIGNAL(clicked()), this, SLOT(slotHelp()));
 
-    px[0].load(locate("data","hg1.gif"));
-    px[1].load(locate("data","hg2.gif"));
-    px[2].load(locate("data","hg3.gif"));
-    px[3].load(locate("data","hg4.gif"));
-    px[4].load(locate("data","hg5.gif"));
-    px[5].load(locate("data","hg6.gif"));
-    px[6].load(locate("data","hg7.gif"));
-    px[7].load(locate("data","hg8.gif"));
-    px[8].load(locate("data","hg9.gif"));
-    px[9].load(locate("data","hg10.gif"));
-    px[10].load(locate("data","hg11.gif"));
-    px[11].load(locate("data","hg12.gif"));
-    px[12].load(locate("data","hg13.gif"));
-    px[13].load(locate("data","hg14.gif"));
+    px[0].load(locate("data","khangman/pics/hg1.gif"));
+    px[1].load(locate("data","khangman/pics/hg2.gif"));
+    px[2].load(locate("data","khangman/pics/hg3.gif"));
+    px[3].load(locate("data","khangman/pics/hg4.gif"));
+    px[4].load(locate("data","khangman/pics/hg5.gif"));
+    px[5].load(locate("data","khangman/pics/hg6.gif"));
+    px[6].load(locate("data","khangman/pics/hg7.gif"));
+    px[7].load(locate("data","khangman/pics/hg8.gif"));
+    px[8].load(locate("data","khangman/pics/hg9.gif"));
+    px[9].load(locate("data","khangman/pics/hg10.gif"));
+    px[10].load(locate("data","khangman/pics/hg11.gif"));
+    px[11].load(locate("data","khangman/pics/hg12.gif"));
+    px[12].load(locate("data","khangman/pics/hg13.gif"));
+    px[13].load(locate("data","khangman/pics/hg14.gif"));
     ind=1;
 
     lab8->setPixmap(px[11]);//display the presentation picture
@@ -249,7 +250,10 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 void KHangMan::choice(int index)
 {
     for (int jj=0; jj<length;jj++)
-        but[jj]->hide();
+        if (but[jj]->isVisible()==true)
+            {but[jj]->hide();
+            but[jj]->setText("");
+            guess[jj]->setText("");}
 
     if  (drap==1) //te
     {
@@ -299,14 +303,23 @@ void KHangMan::game()
 
     //02 char name[20];  //store the letters of the word
     QString name;  //store the letters of the word
-    if (ind==1)
-        choice1();
-     else if (ind==2)
-         animals();
-     else if (ind==3)
-         choice2();
-     else
-         choice3();
+    switch (ind)
+    {
+        case 1:
+        file1="khangman/easy.txt";
+        break;
+        case 2:
+        file1="khangman/level3.txt";
+        break;
+        case 3:
+        file1="khangman/level2.txt";
+        break;
+        case 4:
+        file1="khangman/level4.txt";
+        break;
+      }
+      choice1();
+
 
     line->setFocus();  //enable keyboard focus for 'line'
     //02 strncpy(name,st.latin1(),19);//put the word into 'name'
@@ -475,19 +488,22 @@ void KHangMan::slotNewgame()
         but[j]->setText("");
         guess[j]->setText("");
     }
-    if  (drap==1)  //(te!=0)
-    {
-        for (int js=0; js<inc;js++)  ////
-            lab3[js]->setText("");
-        lab8->hide();
-    }
 
-    if (drap2==1)  //(lab4->isVisible()==true)
+    switch (drap)
     {
-         lab4->hide();
-         lab6->hide();
-         lab7->hide();
-     }
+        case 1:
+          {
+          for (int js=0; js<inc;js++)
+              lab3[js]->setText("");
+          lab8->hide();
+          }
+          case 2:  //(lab4->isVisible()==true
+          {
+             lab4->hide();
+             lab6->hide();
+             lab7->hide();
+           }
+    }
 
     for (int y=0;y<inc;y++)
         sto[y]="";
@@ -559,116 +575,20 @@ void KHangMan::test1()
 //store the words for level 'easy'
 void KHangMan::choice1()
 {
-    str[1]="playtime"; str[2]="furniture";
-    str[3]="garden";  str[4]="pupil";
-    str[5]="vegetables"; str[6]="apple";
-    str[7]="plate"; str[8]="sweet";
-    str[9]="kitchen"; str[10]="chocolat";
-    str[11]="computer"; str[12]="carrot";
-    str[13]="indication"; str[14]="banana";
-    str[15]="information"; str[16]="money";
-    str[17]="adventure"; str[18]="driver";
-    str[19]="policeman"; str[20]="pineapple";
-    str[21]="stamp"; str[22]="lunch";
-    str[23]="limousine"; str[24]="escalator";
-    str[25]="breakfast"; str[26]="flower";
-    str[27]="education"; str[28]="table";
-    str[29]="classroom"; str[30]="television";
-    str[31]="mistake"; str[32]="yesterday";
-    str[33]="people"; str[34]="children";
-    str[35]="surprise"; str[36]="jacket";
-    str[37]="cheese"; str[38]="chicken";
-    str[39]="dinner"; str[40]="mountain";
-    str[41]="forest"; str[42]="potato";
-    str[43]="water"; str[44]="river";
-
-    st=str[rd]; //store the choosen word in variable st
-}
-
-//store the words for level 'medium'
-void KHangMan::choice2()
-{
-    str[1]="machine"; str[2]="bedroom";
-    str[3]="magistrate";  str[4]="gymnasium";
-    str[5]="appointment"; str[6]="antibiotic";
-    str[7]="delegation"; str[8]="pharmacist";
-    str[9]="cheeseburger"; str[10]="assessment";
-    str[11]="surrounding"; str[12]="supermarket";
-    str[13]="indication"; str[14]="radiography";
-    str[15]="information"; str[16]="mincemeat";
-    str[17]="signature"; str[18]="enthusiasm";
-    str[19]="asparagus"; str[20]="vocabulary";
-    str[21]="government"; str[22]="conservatory";
-    str[23]="bookshelf"; str[24]="photograph";
-    str[25]="intelligence"; str[26]="lawnmower";
-    str[27]="arithmetic"; str[28]="membership";
-    str[29]="tranquility"; str[30]="contribution";
-    str[31]="amusement"; str[32]="umbrella";
-    str[33]="illumination"; str[34]="millimetre";
-    str[35]="milligramme"; str[36]="aquarium";
-    str[37]="intelligence"; str[38]="appointment";
-    str[39]="population"; str[40]="innovation";
-    str[41]="strawberry"; str[42]="nephew";
-    str[43]="countryside"; str[44]="collection";
-
-    st=str[rd]; //store the choosen word in variable st
-
-}
-
-void KHangMan::choice3()
-{
-    str[1]="knuckle"; str[2]="catalysis";
-    str[3]="jewelry";  str[4]="lighthouse";
-    str[5]="enhancement"; str[6]="federalism";
-    str[7]="dogmatism"; str[8]="dilettantism";
-    str[9]="chloroform"; str[10]="ethnography";
-    str[11]="calligraphy"; str[12]="brainstorm";
-    str[13]="belladonna"; str[14]="boomerang";
-    str[15]="accordionist"; str[16]="afterthought";
-    str[17]="ornithology"; str[18]="osteopathy";
-    str[19]="rattlesnake"; str[20]="exhibition";
-    str[21]="radiography"; str[22]="surrealism";
-    str[23]="syllogism"; str[24]="symposium";
-    str[25]="theologian"; str[26]="taxidermist";
-    str[27]="trigonometry"; str[28]="translucence";
-    str[29]="truthfulness"; str[30]="troposphere";
-    str[31]="uprightness"; str[32]="upholstery";
-    str[33]="workaholic"; str[34]="withdrawal";
-    str[35]="zoology";str[36]="wheelbarrow";
-    str[37]="xenophobia"; str[38]="yachtsman";
-    str[39]="astonishment"; str[40]="xylophone";
-    str[41]="pseudonym";str[42]="prosperity";
-    str[43]="psychiatrist"; str[44]="protagonist";
-
-    st=str[rd]; //store the choosen word in variable st
-}
-
-void KHangMan::animals()
-{
-    str[1]="kitten"; str[2]="bear";
-    str[3]="dolphin";  str[4]="zebra";
-    str[5]="kangaroo"; str[6]="whale";
-    str[7]="horse"; str[8]="monkey";
-    str[9]="woodpecker"; str[10]="kingfisher";
-    str[11]="snake"; str[12]="giraffe";
-    str[13]="elephant"; str[14]="mouse";
-    str[15]="worm"; str[16]="dragonfly";
-    str[17]="penguin"; str[18]="rabbit";
-    str[19]="hamster"; str[20]="piglet";
-    str[21]="wolf"; str[22]="lion";
-    str[23]="tiger"; str[24]="octopus";
-    str[25]="rhinoceros"; str[26]="hedgehog";
-    str[27]="reindeer"; str[28]="squirrel";
-    str[29]="tortoise"; str[30]="hippopotamus";
-    str[31]="dinosaur"; str[32]="turkey";
-    str[33]="eagle"; str[34]="shark";
-    str[35]="duck";str[36]="fish";
-    str[37]="parrot"; str[38]="frog";
-    str[39]="snail"; str[40]="camel";
-    str[41]="alligator";str[42]="mosquitoe";
-    str[43]="sheep"; str[44]="shellfish";
-
-st=str[rd]; //store the choosen word in variable st
+     int count=0;
+    QFile easyFile(locate("data",file1));
+    easyFile.open(IO_ReadOnly);
+    QTextStream namesStream( &easyFile);
+    QString nameString;
+    while (namesStream.atEnd()==0)
+    {
+        count=count+1;
+        //read one line from the text
+        nameString=namesStream.readLine();
+        if (count==rd)
+            st=nameString; //store the choosen word in variable st
+    }
+    easyFile.close();
 }
 
 //allow the guess labels to resize exactly the same as the but labels

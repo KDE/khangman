@@ -30,12 +30,15 @@
 
 class KhSplash : public QFrame  {
    Q_OBJECT
+
 public: 
 	KhSplash(QWidget *parent=0, const char *name=0);
+    ~KhSplash();
+
 public slots: // Public slots
   /** No descriptions */
   void slotHide();
-    ~KhSplash();
+
 };
 
 #endif

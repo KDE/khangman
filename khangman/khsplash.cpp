@@ -18,11 +18,12 @@
 #include "khsplash.h"
 #include "khsplash.moc"
 #include <kstddirs.h>
+#include <kaudioplayer.h>
 
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)
 {
    QPixmap pm;
-   pm.load(locate("data","beta.png"));
+   pm.load(locate("data","khangman/pics/beta.png"));
 	setBackgroundPixmap(pm);
 	setGeometry( QApplication::desktop()->width ()/2-160,
 				QApplication::desktop()->height()/2-120,
@@ -30,6 +31,10 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
    setFrameStyle( QFrame::Box | QFrame::Raised );
 	setLineWidth(1);
 	show();
+   QString string1;
+   string1=locate("data","khangman/sounds/splash.wav");
+   KAudioPlayer::play(string1);
+
     //allow the splash screen to be displayed 400 seconds
     QTimer *timer = new QTimer(this);
     connect( timer, SIGNAL(timeout()),
