@@ -1,28 +1,32 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = info.cpp infodlg.ui mainw.ui khangman.cpp main.cpp khsplash.cpp 
-khangman_LDADD   =  $(LIB_KDEUI) 
+khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc khnewstuff.cpp
+khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la -lknewstuff
 
-SUBDIRS = data pics sounds 
+SUBDIRS = data pics icons sounds 
 
-EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop hi16-app-khangman.png hi32-app-khangman.png mainw.ui infodlg.ui info.cpp info.h 
+EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h khnewstuff.h
 
-KDE_ICON = khangman
+KDE_ICON = AUTO
 
-appsdir = $(kde_appsdir)/Edutainment/Languages
-apps_DATA = khangman.desktop
+xdg_apps_DATA = khangman.desktop
+kde_kcfg_DATA = khangman.kcfg
 
 # set the include path for X, qt and KDE
-INCLUDES= $(all_includes)
+INCLUDES= -I$(top_srcdir)/libkdeedu/kdeeducore $(all_includes)
 
 METASOURCES = AUTO
 
-# the library search path. 
+# the library search path.
 khangman_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
+rc_DATA = khangmanui.rc
+rcdir = $(kde_datadir)/khangman
+
 messages:  rc.cpp
+	$(EXTRACTRC) *.ui *.rc > rc.cpp
 	LIST=`find . -name \*.h -o -name \*.hh -o -name \*.H -o -name \*.hxx -o -name \*.hpp -o -name \*.cpp -o -name \*.cc -o -name \*.cxx -o -name \*.ecpp -o -name \*.C`; \
 	if test -n "$$LIST"; then \
-	 $(XGETTEXT) $$LIST -o $(podir)/khangman.pot; \
+	 $(XGETTEXT) data.i18n $$LIST -o $(podir)/khangman.pot; \
 	fi
 

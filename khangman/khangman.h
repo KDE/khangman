@@ -1,93 +1,223 @@
-/***************************************************************************
-                          khangman.h  -  description
-                             -------------------
-    begin                : Thu Jul 19 16:42:53 EDT 2001
-    copyright            : (C) 2001 by Anne-Marie Mahfouf
-    email                : a-m.mahfouf@lineone.net
- ***************************************************************************/
+/*
+ * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of version 2 of the GNU General Public
+    License as published by the Free Software Foundation.
 
-#ifndef KHANGMAN_H
-#define KHANGMAN_H
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-#define KHM_VERSION "0.8"
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+
+#ifndef _KHANGMAN_H_
+#define _KHANGMAN_H_
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-//standard C++ connections...
-#include <stdlib.h>
 
-//extern GUI...
-#include "mainw.h"
-#include "info.h"
-
-//Qt headers
-#include <qcombobox.h>
-#include <qfile.h>
-#include <qlabel.h>
-#include <qlineedit.h>
-#include <qpixmap.h>
-#include <qpushbutton.h>
-#include <qmainwindow.h>
-#include <qwidget.h>
-#include <qstringlist.h>
-#include <qtextstream.h>
-
-//KDE headers
 #include <kapplication.h>
-#include <kaudioplayer.h>
-#include <kdialog.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kpopupmenu.h>
-#include <khelpmenu.h>
-#include <krandomsequence.h>
+#include <kmainwindow.h>
 
+#include "khangmanview.h"
 
-class KHangMan : public MainW
+class KSelectAction;
+class KToggleAction;
+class KToggleToolBarAction;
+class QPopupMenu;
+class KToolBar;
+class KHNewStuff;
+
+/**
+ * This class serves as the main window for KHangMan.  It handles the
+ * menus, toolbars, and status bars.
+ *
+ * @short Main window class
+ * @author Anne-Marie Mahfouf <annma@kde.org>
+ * @version 1.3
+ */
+class KHangMan : public KMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-    /** construtor */
-    KHangMan(QWidget* parent=0, const char *name=0);
-     /** destructor */
-    ~KHangMan();
-	QString levelFile;
-	QString word;
-	QString goodWord;
-	QString missedL;
-	int missedChar;
-	QStringList allWords;	
+    /**
+     * Default Constructor
+     */
+    KHangMan();
 
-public slots:
-	virtual void slotClose();
-	virtual void slotGetLevel(int level);
-	virtual void slotInfo();
-	virtual void slotNewGame();
-	virtual void slotTry();
-	virtual void slotOptions();
-	void game();
-	void wipeout();
-	virtual void getOptions();
-
+    /**
+     * Default Destructor
+     */
+    virtual ~KHangMan();
+    ///Current level ID
+    uint currentLevel;
+    ///Create the Special Characters Toolbar
+    KToolBar *secondToolbar;
+    ///Language codes of available languages
+    QStringList m_languages;
+     ///Translated and sorted names of languages
+    QStringList m_sortedNames;
+    
+    void setLanguages();
+	
+    KSelectAction *langAct;
+    ///Build the Languages menu
+    void setupLangMenu();
 private:
-	KRandomSequence random;
-	QPixmap px[13];
+    ///hold the current level
+    QString levelString;
+    ///hold the current mode
+    QString modeString;
+    ///the language used in KDE for the user
+    QString userLanguage;
+    ///the different data files in each language dir
+    QStringList levels;
+    ///true if the Special Characters toolbar is checked to be shown
+    bool m_bCharToolbar;
+    ///true if the language has no special char as en, it and nl
+    bool noCharBool;
 
-protected:
-	KHelpMenu *helpMenu;
-	void closeEvent(QCloseEvent *);
+private slots:
+    ///Start a new game i.e. repaint and set a new word
+    void newGame();
+    ///Configure shortcut keys standard KDE dialog
+    void optionsConfigureKeys();
+    ///Configure toolbars standard KDE dialog
+    void optionsConfigureToolbars();
+    /**
+     *this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
+     *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
+     */
+    void newToolbarConfig();
+    ///Update the text in the Statusbar
+    void changeStatusbar(const QString& text, int id);
+    ///Update the text in the caption in the main window
+    void changeCaption(const QString& text);
+    ///this slot is called when the user changes level with the level combobox in the toolbar
+    void changeLevel();
+    ///This slot is called when the user changes background mode with the mode combobox in the toolbar
+    void changeMode();
+    /**
+      *When config is read, set the level KComboBox to the right level
+      *and update the statusbar
+      */
+    void setLevel_WindowState();
+     /**
+      *When config is read, set the mode KComboBox to the right background
+      *and call the corresponding slot in the main view to set the background
+      */
+    void setMode_WindowState();
+    ///Read settings from config file khangmanrc or set defaults if none
+    void loadSettings();
+    ///Switch to another language using the Languages menu
+    void changeLanguage(int newLanguage);
+    ///Convenient slot to call changeLanguage slot
+    void slotLanguage();
+    ///Set the current language in the view and update the statusbar
+    void setLanguage(QString lang);
+    ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
+    void slotTransparent();
+    ///Slot to get softer hangman pictures when the action is checked
+    void slotSofter();
+    ///Slot to toggle the full screen mode	
+    void slotSetFullScreen( bool );
+    ///Populate the second toolbar with the correct buttons if the current language has special characters
+    void loadLangToolBar();
+    ///When the a tilde button is clicked, a tilde is written in the lineedit
+    void slotPasteAtilde();
+    void slotPasteAgrave();
+    void slotPasteAacute();
+    void slotPasteAumlaut();
+    void slotPasteAwithe();
+    void slotPasteAcircle();
+    void slotPasteCacute();
+    void slotPasteCcaron();
+    void slotPasteCcedil();
+    void slotPasteDapos();
+    void slotPasteDbar();
+    void slotPasteEcaron();
+    void slotPasteEacute();
+    void slotPasteEgrave();
+    void slotPasteEcirc();
+    void slotPasteIgrave();
+    void slotPasteIacute();
+    void slotPasteNcaron();
+    void slotPasteNtilde();
+    void slotPasteOgrave();
+    void slotPasteOacute();
+    void slotPasteOcirc();
+    void slotPasteOcross();
+    void slotPasteOtilde();
+    void slotPasteOumlaut();
+    void slotPasteRcaron();
+    void slotPasteScaron();
+    void slotPasteUumlaut();
+    void slotPasteUacute();
+    void slotPasteUdot();
+    void slotPasteSzlig();
+    void slotPasteYacute();
+    void slotPasteZcaron();
+    void slotPasteXdesc();
+    void slotPasteYmacron();
+    void slotPasteChedesc();
+    void slotPasteImacron();
+    void slotPasteGhestroke();
+    void slotPasteKadesc();
+    ///Write some config settings and close the main window
+    void slotClose();
+    ///Check if the language has special characters and load the second toolbar if so
+    void slotAccents();
+    ///when Enabled Hint is checked or not by the user
+    void slotChooseHint();
+    ///Whether Enabled Hint  is checked or not
+    void slotHint();
+    ///if the data file is a kvtml one then Enable Hint must be enabled
+    void enableHint(bool);
+    ///access the KNewStuff class to install new data
+    void downloadNewStuff();
 
+  private:
+    ///Set up the actions for the menus
+    void setupActions();
+    ///Build the Level combobox menu dynamically depending of the data for each language
+    void loadDataFiles();
+    ///Set a bool to true for languages that allow Typing Accented Letters
+    void setAccentBool();
+    ///Set the Accented Letters action correctly
+    void restoreAccentConfig();
+    
+private:
+    ///Main view
+    KHangManView *m_view;
+    ///Action in the Game menu to start a new word
+    KAction *newAct;
+    ///Action in the Settings menu to enable/disable transparency pictures
+    KToggleAction *transAct;
+    ///Action in the Settings menu to enable/disable softer hangman pictures
+    KToggleAction *softAct;
+    ///Action in the Settings menu to enable/disable hints for the languages that allow hints
+    KToggleAction *hintAct;
+    ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
+    KToggleAction *accentsAct;
+    //KToggleToolBarAction *secondAct;
+    KSelectAction *levelAct, *modeAct;
+    ///Populate the Languages menu
+    QPopupMenu *langPopup;
+    ///Full-Screen mode action
+    KToggleAction* m_pFullScreen;
+    ///Selected language
+    QString selectedLanguage;
+    ///Translated names of languages
+    QStringList m_languageNames;
+    
+    KHNewStuff *mNewStuff;
 };
 
-#endif
+#endif // _KHANGMAN_H_

@@ -1,0 +1,48 @@
+#!/bin/sh
+# Script to add a new language to khangman
+
+# Check parameters
+if test $# = 0 || test $# -gt 1 || test $1 = "--help" ; then
+  echo "usage: add_language <language_code>"
+  exit
+fi
+echo "As it is now feature freeze and adding a new language can generates new problems, it would be better if you send your files tarred and zipped to annma@kde.org and note anything specific to your language such as special characters. Thanks a lot.
+
+The script will carry on, please just do not commit the files."
+
+# Check for valid language code
+all_langs=$KDEDIR/share/locale/all_languages
+if test -e $all_langs ; then
+  grep -q "^\[$1\]$" $all_langs
+  if test $? != 0 ; then
+    echo "add_language: error: \"$1\" is not a valid language code"
+    exit
+  fi
+fi
+
+# Set up variables
+code=$1
+dir=khangman/data
+lang=$dir/$code
+en=$dir/en
+
+# Check if directory already exists
+if test -e $lang ; then
+  echo "add_language: error: \"$1\" already exists"
+  exit
+fi
+
+# Create the directory and copy files to it
+mkdir $lang
+cp $dir/en/*.txt $lang
+sed -e "s/\/en/\/$code/" $en/Makefile.am > $lang/Makefile.am
+touch $dir/Makefile.am
+
+# Tell user what to do
+echo "The language $code has been successfully added!"
+echo ""
+echo "Please edit the following files and translate the english words:"
+ls $lang/*.txt
+echo ""
+echo "If you want to enable hints in your language, please edit these files and use the kvtml format."
+echo "See http://edu.kde.org/khangman/add_language.php for more information."

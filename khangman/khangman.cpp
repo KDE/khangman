@@ -1,291 +1,846 @@
-/***************************************************************************
-                          khangman.cpp  -  description
-                             -------------------
-    begin                : Thu Jul 19 16:42:53 EDT 2001
-    copyright            : (C) 2001 by Anne-Marie Mahfouf
-    email                : a-m.mahfouf@lineone.net
- ***************************************************************************/
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+/*
+ * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
 
-#include "khangman.h"
-#include <klocale.h>
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of version 2 of the GNU General Public
+    License as published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+ /************************************/
+ //Please save as utf8 encoding
+ /************************************/
+ 
+//Qt headers
+#include <qdir.h>
+#include <qlineedit.h>
+#include <qstringlist.h>
+//KDE headers
+#include <kactionclasses.h>
 #include <kdebug.h>
-#include <qtoolbutton.h>
-#include "khangman.moc"
+#include <kedittoolbar.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+#include <kkeydialog.h>
+#include <klocale.h>
+#include <kmenubar.h>
+#include <kstatusbar.h>
+#include <kstandarddirs.h>
+//Project headers
+#include "khangman.h"
+#include "prefs.h"
+#include "khnewstuff.h"
 
-KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
+const int IDS_LEVEL      = 100;
+const int IDS_LANG       = 101;
+const int IDS_ACCENTS = 102;
+const int IDS_HINT =         103;
+
+KHangMan::KHangMan()
+    : KMainWindow( 0, "KHangMan" ),
+      m_view(new KHangManView(this))
 {
-//set the usuall stuff...
-	setIcon(locate("icon","hicolor/16x16/apps/khangman.png"));
-	setCaption(i18n("KHangMan %1").arg(KHM_VERSION));
-	missedChar = 0;
-	modeAdult->hide();
-
-	
-//plugs in the Help menu...
-	helpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData(), true);
-	helpMenu->menu()->insertSeparator(-1);
-	helpMenu->menu()->insertItem(QPixmap( locate("icon","hicolor/16x16/actions/info.png") ), "&Info",this,SLOT(slotInfo()) );
-	//kdDebug() << locate("icon","hicolor/16x16/actions/info.png") << endl;
-	btnHelp->setPopup(helpMenu->menu());
-
-//now we preload the pixmaps...
-	px[0].load(locate("data","khangman/pics/hg1.jpg"));
-	px[1].load(locate("data","khangman/pics/hg2.jpg"));
-	px[2].load(locate("data","khangman/pics/hg3.jpg"));
-	px[3].load(locate("data","khangman/pics/hg4.jpg"));
-	px[4].load(locate("data","khangman/pics/hg5.jpg"));
-	px[5].load(locate("data","khangman/pics/hg6.jpg"));
-	px[6].load(locate("data","khangman/pics/hg7.jpg"));
-	px[7].load(locate("data","khangman/pics/hg8.jpg"));
-	px[8].load(locate("data","khangman/pics/hg9.jpg"));
-	px[9].load(locate("data","khangman/pics/hg10.jpg"));
-	px[10].load(locate("data","khangman/pics/hg12.jpg"));
-	px[11].load(locate("data","khangman/pics/hg13.jpg"));
-	px[12].load(locate("data","khangman/pics/hg14.jpg"));
-
-//...and we se the first image into the pixmap container...
-	pixImage->setPixmap(px[10]);
-
-//start with the game...
-	slotNewGame();
-}
-
-void KHangMan::game()
-{
-pixImage->setPixmap(px[10]);
-//code from previous KHM....
-	switch(boxLevel->currentItem())
-	{
-		case 0: //easy
-			kdDebug() << "Easy!" << endl;
-			levelFile="easy.txt";
-		break;
-
-		case 1: //animals
-			kdDebug() << "Animals" << endl;
-			levelFile="animals.txt";
-		break;
-
-		case 2: //medium
-			kdDebug() << "Medium!" << endl;
-			levelFile="medium.txt";
-		break;
-
-		case 3://hard
-			kdDebug() << "Hard!" << endl;
-			levelFile="hard.txt";
-		break;
-	}
-
-//we open the file and store info into the stream...
-	QFile openFileStream(locate("data","khangman/data/")+levelFile);
-	openFileStream.open(IO_ReadOnly);
-	QTextStream readFileStr(&openFileStream);
-//	kdDebug() << readFileStr.read() << endl;
-	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
-	openFileStream.close();
-
-//now the calculations...
-	int objects = allData.count();
-	word = allData[random.getLong(objects)]; //gives us a single word...
-	// int wrdLen=word.length(); //the length of the word...
-	if (word.stripWhiteSpace() == "") //prevents to display the empty places...
-	{
-		slotNewGame();
-	}
-//engine...
-	for(unsigned int i = 0; i < word.length(); i++)
-	{
-		goodWord.append("_ ");
-	}
-
-	//kdDebug() << word << endl;
-	mainLabel-> setText(goodWord);
-}
-
-void KHangMan::slotGetLevel(int level)
-{
-	slotNewGame();
-}
-
-void KHangMan::slotNewGame()
-{
-	wipeout();
-	game();
-//focus is now set to the letter pad...
-	charWrite->setFocus();
-}
-
-void  KHangMan::slotClose()
-{
-	kapp->quit(); //this closes ONLY this widget... QCloseEvent kills the app...
-}
-
-//display a screen with a quick information
-void KHangMan::slotInfo()
-{
-	Info * info = new Info();
-	info->show();
-}
-
-void KHangMan::slotTry()
-{
-	QString sChar = charWrite->text();
-	missedL=missedLetters->text();
-
-//if contains more than 1 character...
-	if (sChar!="" && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...
-	{
-		if (allWords.contains(sChar) == 0)
-		{
-			if (word.contains(sChar) > 0)
-			{
-				int index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-					//searching for letter location
-					index = word.find(sChar,index);
-					//we replace it...
-					goodWord.replace((2*index), 1,sChar);
-					index++;
-				}
-				QStringList rightChars=QStringList::split(" ", goodWord, true);
-				QString rightWord= rightChars.join("");
-				mainLabel->setText(goodWord);
-				allWords << sChar; //appends the list...
-				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
-				{
-					//we reset everything...
-					pixImage->setPixmap(px[12]);
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won!... Wanna play again?")) == 3)
-					{
-						slotNewGame();
-					}
-					else
-					{
-						close();
-					}
-				}
-			}
-			else //if the char is missed...
-			{
-				allWords << sChar; //appends the list...
-				if (missedChar<6)
-				missedL=missedL.replace(2*missedChar,1, sChar);
-				else if(missedChar>6)
-				missedL=missedL.replace((2*missedChar)+1,1, sChar);
-				
-				if (missedChar==6) //we actually need to relace one underscore too much..
-				{
-					missedL=missedL.replace(2*missedChar,1, "\n"+sChar+" ");
-					missedL=missedL.replace(24,2, "");
-				}
-				
-				missedLetters->setText(missedL);
-				pixImage->setPixmap(px[missedChar]);
-				missedChar++;
-				if (missedChar >= 11) //you are hanged!
-				{
-					//we reset everything...
-					pixImage->setPixmap(px[11]);
-					//um... The word is not guessed... Let's show it...
-					QStringList charList=QStringList::split("",word);
-					QString theWord=charList.join(" ");
-					mainLabel->setText(theWord);
-					
-					if (KMessageBox::questionYesNo(this, i18n("You are dead... Wanna play again?")) == 3)
-					{
-						slotNewGame();
-					}
-					else
-					{
-						close();
-					}
-				}
-				kdDebug() << missedChar << endl;
-			}
-		}
-		else //do something drastic... Word has already been guessed...
-		{
-			KMessageBox::information (this, i18n("The letter has already been guessed..."));
-		}
-	}
-	kdDebug() <<word.contains(sChar) << endl;
-
-//reset after guess...
-	charWrite->setText("");
+    levelString = "";
+    modeString = "";
+    mNewStuff = 0;
+    KConfig *cfg = KGlobal::config();
+    cfg->setGroup("KNewStuff");
+    cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
+    cfg->sync();
+    kdDebug() << "before  dirs " << endl;
+    setLanguages();
+    
+    // tell the KMainWindow that this is indeed the main widget
+    setCentralWidget(m_view);
+    //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
+    // then, setup our actions, must be done after the language search
+    setupActions();
+    // set up the status bar
+    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
+    statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
+    statusBar( )->insertItem("   ",IDS_HINT, 0);
+    //toolbar for special characters
+    secondToolbar = toolBar("Special Characters");
+    secondToolbar->setBarPos(KToolBar::Bottom);
+    connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
+    connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
+    loadSettings();
+    loadLangToolBar();
+    setupLangMenu();
+    slotHint();
+    newGame();
 }
 
 KHangMan::~KHangMan()
 {
 }
 
-void KHangMan::closeEvent(QCloseEvent *)
+void KHangMan::setupActions()
 {
-	exit(0);
+    newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+    KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
+    new KAction( i18n("Get data in a new language..."), "knewstuff", 0, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+    KStdAction::quit(this, SLOT(slotClose()), actionCollection());
+
+    createStandardStatusBarAction();
+    setStandardToolBarMenuEnabled(true);
+    langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
+    langAct->setItems(m_sortedNames);
+
+    KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+    KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+
+    m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
+    connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
+    
+    transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
+    softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
+    hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
+    accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
+
+    levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
+    levelAct->setToolTip(i18n( "Choose the level" ));
+    levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
+
+    QStringList modes;
+    modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
+    modes += i18n("No Background");
+    modes += i18n("Blue Theme");
+    modes += i18n("Nature Theme");
+    modeAct->setItems(modes);
+    modeAct->setToolTip(i18n( "Choose the look and feel" ));
+    modeAct->setWhatsThis(i18n( "Check the look and feel" ));
+    setAutoSaveSettings("General");
+    createGUI("khangmanui.rc");
 }
 
-void KHangMan::wipeout()
+void KHangMan::setupLangMenu()
 {
-	//this is odd... This won't work in front of the game() function :(
-	goodWord="";
-	missedChar=0;
-	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ ");
-	allWords.clear();
+    langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
+    langPopup->clear();
+    for (uint index = 0; index < m_sortedNames.count(); index++)
+	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
+    langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
+    connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
-void KHangMan::slotOptions()
+void KHangMan::newGame()
 {
-//child mode...
-		Frame6_2->hide();
-		QPixmap bgPix;
-		bgPix=QPixmap(QPixmap(locate("data","khangman/pics/c_bg.png") ) );
-		
-		this->setBackgroundPixmap(bgPix);
-		pixImage->setGeometry(400, 20, 150, 170);
-		Frame11->setGeometry(70, 300, 430, 53);
-		mainLabel->setGeometry(90,240,380,27);
-		
-		mainLabel->setBackgroundOrigin( QLabel::ParentOrigin );
-		mainLabel->setBackgroundPixmap(bgPix);
-		
-		TextLabel1->setBackgroundOrigin( QLabel::ParentOrigin );
-		TextLabel1->setBackgroundPixmap(bgPix);
+  	m_view->slotNewGame();
+}
+
+void KHangMan::optionsConfigureKeys()
+{
+    KKeyDialog::configure(actionCollection());
+}
+
+void KHangMan::optionsConfigureToolbars()
+{
+    // use the standard toolbar editor
+    saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+    KEditToolbar dlg(actionCollection());
+    connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
+    dlg.exec();
+}
+
+void KHangMan::newToolbarConfig()
+{
+    // this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
+    // recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
+    createGUI();
+    setupLangMenu();
+    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+}
+
+void KHangMan::changeStatusbar(const QString& text, int id)
+{
+    // display the text on the statusbar
+    statusBar()->changeItem(text, id);
+}
+
+void KHangMan::changeCaption(const QString& text)
+{
+    // display the text on the caption
+    setCaption(text);
+}
+
+void KHangMan::changeLevel()
+{
+	static const char *levelStrings[] = {
+		I18N_NOOP("Easy"),
+		I18N_NOOP("Medium"),
+		I18N_NOOP("Hard"),
+		I18N_NOOP("Animals"),
+	};
+	currentLevel = levelAct->currentItem();
+	levelString = levels[currentLevel];
+	levelString.replace(0, 1, levelString.left(1).lower());
 	
-		TextLabel2->setBackgroundOrigin( QLabel::ParentOrigin );
-		TextLabel2->setBackgroundPixmap(bgPix);
-
-		missedLetters->setBackgroundOrigin( QLabel::ParentOrigin );
-		missedLetters->setBackgroundPixmap(bgPix);
-
-		modeAdult->show();
+	m_view->levelFile = levelString +".txt";
+	changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+	Prefs::setLevel( currentLevel);
+	Prefs::setLevelFile(m_view->levelFile);
+	Prefs::writeConfig();
+        newGame();
 }
 
-void KHangMan::getOptions()
+void KHangMan::changeMode()
 {
-//back to the 'normal' mode...
-	setBackgroundColor("#DCDCDC");
+	switch (modeAct->currentItem()) {
+    	case 0:
+	 		modeString="nobg";
+			m_view->slotNoBkgd();
+			Prefs::setMode("nobg");
+    		break;
 
-		Frame6_2->show();
-		
-		pixImage->setGeometry(240, 20, 150, 170);
-		Frame11->setGeometry(10, 300, 430, 53);
-		mainLabel->setGeometry(10,240,380,27);
-		
-		mainLabel->setBackgroundColor("#DCDCDC");
-		
-		TextLabel1->setBackgroundColor("#DCDCDC");
-	
-		TextLabel2->setBackgroundColor("#DCDCDC");
-
-		missedLetters->setBackgroundColor("#DCDCDC");
-		modeAdult->hide();
+    	case 1:
+      			modeString="blue";
+			m_view->slotSetPixmap(m_view->bluePix);
+			Prefs::setMode("blue");
+   			break;
+    	case 2:
+      		modeString="nature";
+			m_view->slotSetPixmap(m_view->naturePix);
+			Prefs::setMode("nature");
+   			break;
+	}
+	Prefs::writeConfig();
+        transAct->setEnabled( modeAct->currentItem() != 0 );
 }
+
+void KHangMan::loadSettings()
+{
+    	// Language
+    	selectedLanguage = Prefs::selectedLanguage();
+	if (m_languages.grep(selectedLanguage).isEmpty())
+		selectedLanguage = "en";
+     	setLanguage(selectedLanguage);
+    	// Level
+    	currentLevel = Prefs::level(); //default is easy
+
+     	// Show/hide characters toolbar
+   	m_bCharToolbar = Prefs::showCharToolbar();
+   	if (m_bCharToolbar) 
+		secondToolbar->show();
+  	else
+		secondToolbar->hide();
+    	//see if language has special accented letters
+    	setAccentBool();
+    	m_view->accent_b = Prefs::accentedLetters();
+   	 accentsAct->setChecked(m_view->accent_b);
+    	if (m_view->m_accent && m_view->accent_b)
+		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+    
+    	loadDataFiles();
+    	//Enable hint or not
+    	m_view->hintBool= Prefs::hint();
+    	if (m_view->hintBool) 
+		hintAct->setChecked(true);
+    	else 
+		hintAct->setChecked(false);
+    
+    	m_view->levelFile = Prefs::levelFile();
+    	levelString = levels[currentLevel];
+    	levelString.replace(0, 1, levelString.left(1).lower());
+    	setLevel_WindowState();
+
+     	// Background
+    	QString oldMode = modeString;
+    	modeString = Prefs::mode();
+   	if(oldMode != modeString)
+    		setMode_WindowState();
+
+     	 // Transparency
+     	 if(m_view->transparent != Prefs::transparent()) {
+      		m_view->transparent = Prefs::transparent();
+      		m_view->slotTransparent();
+       	}
+    	transAct->setChecked(m_view->transparent);
+
+    	// Softer Pictures
+    	if(m_view->softer != Prefs::softer()) {
+    		m_view->softer = Prefs::softer();
+    		softAct->setChecked(m_view->softer);
+    		m_view->slotSofter();
+    	}
+ }
+
+void KHangMan::setLevel_WindowState()
+{
+    if (currentLevel>levels.count())
+        currentLevel = levels.count();
+    levelAct->setCurrentItem(currentLevel);
+    changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+}
+
+void KHangMan::setMode_WindowState()
+{
+    if (modeString=="nobg")
+    {
+	modeAct->setCurrentItem(0);
+	m_view->slotNoBkgd();
+    }
+    else if (modeString=="blue")
+    {
+	modeAct->setCurrentItem(1);
+	m_view->slotSetPixmap(m_view->bluePix);
+    }
+    else if (modeString=="nature")
+    {
+	modeAct->setCurrentItem(2);
+	m_view->slotSetPixmap(m_view->naturePix);
+    }
+    transAct->setEnabled( modeAct->currentItem() != 0 );
+}
+
+void KHangMan::slotLanguage()
+{
+    changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
+}
+
+void KHangMan::changeLanguage(int newLanguage)
+{
+    	// Do not accept to switch to same language
+   	 if (newLanguage == m_languageNames.findIndex(selectedLanguage))
+		return;
+
+    	// Unselect preceding language
+    	langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
+   	for (int id = 0; id < (int) m_languageNames.count(); id++)
+    		langPopup->setItemChecked(id, id == newLanguage);
+
+    	selectedLanguage = m_languages[newLanguage];
+	Prefs::setSelectedLanguage(selectedLanguage);
+	Prefs::writeConfig();
+    	//load the different data files in the Level combo for the new language
+   	 loadDataFiles();
+    	bool fileExistBool = false;
+    	//check if the name of the file exists in the new language. If not, set it to Easy.
+    	//TODO: save level per language
+    	for (int id = 0; id < (int) levels.count(); id++)
+    	if (levels[id].lower()==levelString)
+    		fileExistBool = true;
+    	if (!fileExistBool) {
+    		levelString = "easy";
+		m_view->levelFile = levelString +".txt";
+		currentLevel = 1;
+		Prefs::setLevel(currentLevel);
+        	Prefs::setLevelFile(m_view->levelFile);
+		Prefs::writeConfig();
+    	}
+    	//update the Levels in Level combobox as well
+    	setLevel_WindowState();
+    	setLanguage(selectedLanguage);
+    	if (m_view->hintBool && m_view->kvtmlBool) 
+    		hintAct->setChecked(true);
+    	slotHint();
+    	setAccentBool();
+	m_bCharToolbar = Prefs::showCharToolbar();
+   	 if (m_view->m_accent) 
+    		slotAccents();
+    	else {
+    		changeStatusbar("", IDS_ACCENTS);
+		loadLangToolBar();
+		newGame();
+    	}
+}
+
+void KHangMan::setLanguage(QString lang)
+{
+	m_view->language = lang;
+	changeStatusbar(i18n("Language: ")+m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
+}
+
+void KHangMan::slotTransparent()
+{
+        m_view->transparent = transAct->isChecked();
+        m_view->slotTransparent();
+        //write transparent in the config file
+	Prefs::setTransparent(m_view->transparent);
+	Prefs::writeConfig();
+}
+
+void KHangMan::loadDataFiles()
+{
+    //build the Level combobox menu dynamically depending of the data for each language
+    levels.clear();//initialize QStringList levels
+    KStandardDirs *dirs = KGlobal::dirs();
+    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
+    if (!mfiles.isEmpty())
+    {
+    for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+        QFile f( *it);
+	//find the last / in the file name
+	int location = f.name().findRev("/");
+	//strip the string to keep only the filename and not the path
+	QString mString = f.name().right(f.name().length()-location-1);
+	mString = mString.left(mString.length()-4);
+	//Put the first letter in Upper case
+	mString = mString.replace(0, 1, mString.left(1).upper());
+        levels+=mString;
+    }
+    //TODO else tell no files had been found
+    }
+    levels.sort();
+    levelAct->setItems(levels);
+    QStringList translatedLevels;
+    for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+        translatedLevels+=i18n((*it).utf8());
+    levelAct->setItems(translatedLevels);
+}
+
+void KHangMan::slotSetFullScreen( bool set )
+{
+   if( set ){
+      showFullScreen();
+      menuBar()->hide();
+      m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
+      m_pFullScreen->setIcon( "window_nofullscreen" );
+   } else {
+      showNormal();
+      menuBar()->show();
+      m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
+      m_pFullScreen->setIcon( "window_fullscreen" );
+   }
+}
+
+void KHangMan::slotSofter()
+{
+	m_view->softer = softAct->isChecked();
+        m_view->slotSofter();
+        //write softer in the config file
+        Prefs::setSofter(m_view->softer);
+	Prefs::writeConfig();
+}
+
+void KHangMan::loadLangToolBar()
+{
+	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" )
+	noCharBool = true;
+	else noCharBool = false;
+	if (secondToolbar->isVisible() && !noCharBool)
+	    m_bCharToolbar=true;
+	secondToolbar->clear();
+
+	 accentsAct->setEnabled(m_view->m_accent);
+	 
+	if (m_view->language == "ca")	{
+		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true,  i18n("Try ")+ QString::fromUtf8("à", -1), 1 );
+		secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true,  i18n("Try ")+ QString::fromUtf8("ç", -1), 2 );
+		secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("è", -1), 3 );
+		secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("í", -1), 4 );
+		secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true,  i18n("Try ")+ QString::fromUtf8("ò", -1), 5 );
+		secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("ó", -1), 6 );
+		secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true,  i18n("Try ")+ QString::fromUtf8("ú", -1), 7 );
+		secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ü", -1) ,8);
+	}
+	else if (m_view->language == "es")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("á", -1), 1 );
+		secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 2 );
+		secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("í", -1), 3 );
+		secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true,  i18n("Try ")+ QString::fromUtf8("ñ", -1), 4 );
+		secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("ó", -1), 5 );
+		secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n("Try ")+ QString::fromUtf8("ú", -1), 6 );
+		secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ü", -1), 7 );
+	}
+	else if (m_view->language == "da")	{
+		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true,  i18n("Try ")+ QString::fromUtf8("ø", -1), 1 );
+		secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true,  i18n("Try ")+ QString::fromUtf8("æ", -1), 2 );
+		secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true,  i18n("Try ")+ QString::fromUtf8("å", -1), 3 );
+	}
+	else if (m_view->language == "fi")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ä", -1), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ö", -1), 2 );
+	}
+	else if (m_view->language == "sv")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ä", -1), 1 );
+		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true,  i18n("Try ")+ QString::fromUtf8("å", -1), 2 );
+		secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ö", -1), 3 );
+	}
+	else if (m_view->language == "pt" || m_view->language == "pt_BR")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("á", -1), 1 );
+		secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true,  i18n("Try ")+ QString::fromUtf8("ã", -1), 2 );
+		secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true,  i18n("Try ")+ QString::fromUtf8("ç", -1), 3 );
+		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 4 );
+		secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true,  i18n("Try ")+ QString::fromUtf8("ê", -1), 5 );
+		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("í", -1), 6 );
+		secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("ó", -1), 7 );
+		secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true,  i18n("Try ")+ QString::fromUtf8("ô", -1), 8 );
+		secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true,  i18n("Try ")+ QString::fromUtf8("õ", -1), 9 );
+	}
+	else if (m_view->language == "fr")	{
+		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 1 );
+		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("è", -1), 2 );
+	}
+	else if (m_view->language == "de")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ä", -1), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ö", -1), 2);  
+		secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ü", -1), 3 );
+		secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true,  i18n("Try ")+ QString::fromUtf8("ß", -1), 4 );
+	}
+	else if (m_view->language == "cs")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("á", -1), 1 );
+		secondToolbar->insertButton ("c_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("č", -1), 2 );
+		secondToolbar->insertButton ("d_apos.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteDapos()), true,  i18n("Try ")+ QString::fromUtf8("ď", -1), 3);  
+		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 4 );
+		secondToolbar->insertButton ("e_caron.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcaron()), true,  i18n("Try ")+ QString::fromUtf8("ĕ", -1), 5 );
+		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("í", -1), 6 );
+		secondToolbar->insertButton ("n_caron.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteNcaron()), true,  i18n("Try ")+ QString::fromUtf8("ň", -1), 7 );
+		secondToolbar->insertButton ("o_acute.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("ó", -1), 8 );
+		secondToolbar->insertButton ("o_umlaut.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ö", -1), 9); 
+		secondToolbar->insertButton ("u_umlaut.png", 100, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ü", -1), 10 );
+		secondToolbar->insertButton ("r_caron.png", 110, SIGNAL( clicked() ), this, SLOT( slotPasteRcaron()), true,  i18n("Try ")+ QString::fromUtf8("ř", -1), 11 );
+		secondToolbar->insertButton ("s_caron.png", 120, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 12 );
+		secondToolbar->insertButton ("u_dot.png", 130, SIGNAL( clicked() ), this, SLOT( slotPasteUdot()), true,  i18n("Try ")+ QString::fromUtf8("ů", -1), 13 );
+		secondToolbar->insertButton ("y_acute.png", 140, SIGNAL( clicked() ), this, SLOT( slotPasteYacute()), true,  i18n("Try ")+ QString::fromUtf8("ý", -1), 14 );
+		secondToolbar->insertButton ("z_caron.png", 150, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 15 );
+	}
+	else if (m_view->language == "tg")	{
+		secondToolbar->insertButton ("x_desc.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteXdesc()), true,  i18n("Try ")+ QString::fromUtf8("ҳ", -1), 1 );
+		secondToolbar->insertButton ("y_macron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteYmacron()), true,  i18n("Try ")+ QString::fromUtf8("ӯ", -1), 2 );
+		secondToolbar->insertButton ("che_desc.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteChedesc()), true,  i18n("Try ")+ QString::fromUtf8("ҷ", -1), 3);  
+		secondToolbar->insertButton ("i_macron.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteImacron()), true,  i18n("Try ")+ QString::fromUtf8("ӣ", -1), 4 );
+		secondToolbar->insertButton ("ghe_stroke.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteGhestroke()), true,  i18n("Try ")+ QString::fromUtf8("ғ", -1), 5 );
+		secondToolbar->insertButton ("ka_desc.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteKadesc()), true,  i18n("Try ")+ QString::fromUtf8("қ", -1), 6 );
+	}
+	else if (m_view->language == "sl")	{
+		secondToolbar->insertButton ("c_caron.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("č", -1), 1 );
+		secondToolbar->insertButton ("s_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 2 );
+		secondToolbar->insertButton ("z_caron.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 3 );
+	}
+	else if (m_view->language == "sr@Latn")	{
+		secondToolbar->insertButton ("c_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteCacute()), true,  i18n("Try ")+ QString::fromUtf8("ć", -1), 1 );
+		secondToolbar->insertButton ("c_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("č", -1), 2 );
+		secondToolbar->insertButton ("d_bar.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteDbar()), true,  i18n("Try ")+ QString::fromUtf8("đ", -1), 3); 
+		secondToolbar->insertButton ("s_caron.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 4 );
+		secondToolbar->insertButton ("z_caron.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 5 );
+	}
+	if (m_bCharToolbar) {
+		secondToolbar->show();
+	}
+	else secondToolbar->hide();
+	Prefs::setShowCharToolbar( !secondToolbar->isVisible());
+	Prefs::writeConfig();
+	if (noCharBool)//no special chars in those languages
+		secondToolbar->hide();
+}
+
+void KHangMan::slotPasteAacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("á", -1));
+}
+
+void KHangMan::slotPasteAcircle()
+{
+	m_view->charWrite->setText(QString::fromUtf8("å", -1));
+}
+
+void KHangMan::slotPasteAgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("à", -1));
+}
+
+void KHangMan::slotPasteAtilde()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ã", -1));
+}
+
+void KHangMan::slotPasteAumlaut()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ä", -1));
+}
+
+void KHangMan::slotPasteAwithe()
+{
+	m_view->charWrite->setText(QString::fromUtf8("æ", -1));
+}
+
+void KHangMan::slotPasteCacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ć", -1));
+}
+
+void KHangMan::slotPasteCcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("č", -1));
+}
+
+void KHangMan::slotPasteCcedil()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ç", -1));
+}
+
+void KHangMan::slotPasteDapos()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ď", -1));
+}
+
+void KHangMan::slotPasteDbar()
+{
+	m_view->charWrite->setText(QString::fromUtf8("đ", -1));
+}
+
+void KHangMan::slotPasteEacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("é", -1));
+}
+
+void KHangMan::slotPasteEcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ĕ", -1));
+}
+
+void KHangMan::slotPasteEcirc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ê", -1));
+}
+
+void KHangMan::slotPasteEgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("è", -1));
+}
+
+void KHangMan::slotPasteIacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("í", -1));
+}
+
+void KHangMan::slotPasteIgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ì", -1));
+}
+
+void KHangMan::slotPasteNcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ň", -1));
+}
+
+void KHangMan::slotPasteNtilde()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ñ", -1));
+}
+
+void KHangMan::slotPasteOgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ò", -1));
+}
+
+void KHangMan::slotPasteOacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ó", -1));
+}
+
+void KHangMan::slotPasteOcross()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ø", -1));
+}
+
+void KHangMan::slotPasteOumlaut()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ö", -1));
+}
+
+void KHangMan::slotPasteOtilde()
+{
+	m_view->charWrite->setText(QString::fromUtf8("õ", -1));
+}
+
+void KHangMan::slotPasteOcirc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ô", -1));
+}
+
+void KHangMan::slotPasteRcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ř", -1));
+}
+
+void KHangMan::slotPasteScaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("š", -1));
+}
+
+void KHangMan::slotPasteUacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ú", -1));
+}
+
+void KHangMan::slotPasteUdot()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ů", -1));
+}
+
+void KHangMan::slotPasteUumlaut()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ü", -1));
+}
+
+void KHangMan::slotPasteSzlig()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ß", -1));
+}
+
+void KHangMan::slotPasteYacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ý", -1));
+}
+
+void KHangMan::slotPasteZcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ž", -1));
+}
+
+void KHangMan::slotPasteXdesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ҳ", -1));
+}
+
+void KHangMan::slotPasteYmacron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ӯ", -1));
+}
+
+void KHangMan::slotPasteChedesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ҷ", -1));
+}
+
+void KHangMan::slotPasteImacron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ӣ", -1));
+}
+
+void KHangMan::slotPasteGhestroke()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ғ", -1));
+}
+
+void KHangMan::slotPasteKadesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("қ", -1));
+}
+
+void KHangMan::slotClose()
+{
+	Prefs::setShowCharToolbar(secondToolbar->isVisible());
+	Prefs::setAccentedLetters(m_view->accent_b);
+	Prefs::setHint(m_view->hintBool);
+	Prefs::writeConfig();
+	close();
+}
+
+void KHangMan::slotAccents()
+{
+ 	m_view->accent_b = accentsAct->isChecked();
+
+	if (m_view->accent_b)
+		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+	else changeStatusbar("", IDS_ACCENTS);
+	loadLangToolBar();
+	newGame();
+}
+
+void KHangMan::restoreAccentConfig()
+{
+	accentsAct->setChecked(!m_view->accent_b);
+	slotAccents();
+}
+
+void KHangMan::slotHint()
+{
+	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
+		hintAct->setChecked(true);
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
+		}	
+	else if (m_view->hintBool==false) {
+		hintAct->setChecked(false);
+		changeStatusbar("", IDS_HINT);
+	}
+}
+
+void KHangMan::enableHint(bool m_bool)
+{
+	if (m_bool) {
+		hintAct->setEnabled(true);
+		m_view->kvtmlBool = true;
+	}
+	else
+	{
+		hintAct->setChecked(false);
+		hintAct->setEnabled(false);
+		m_view->kvtmlBool = false;
+		changeStatusbar("", IDS_HINT);
+	}
+	slotHint();
+}
+
+void KHangMan::slotChooseHint()
+{
+	//hintBool=true if the user has choosen to have hints
+	if (hintAct->isChecked())  {
+		m_view->hintBool=true;
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
+	}
+	else {
+		m_view->hintBool =false;
+		changeStatusbar("", IDS_HINT);
+	}
+}
+
+void KHangMan::setAccentBool()
+{
+	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
+    		m_view->m_accent = true;
+    	else m_view->m_accent = false;
+}
+
+void KHangMan::downloadNewStuff()
+{
+	if ( !mNewStuff ) 
+		mNewStuff = new KHNewStuff( m_view );
+ 	mNewStuff->download();
+}
+
+void KHangMan::setLanguages()
+{
+    m_languages.clear();
+    m_languageNames.clear();
+    m_sortedNames.clear();
+    kdDebug() << "in SetLanguages "<< endl;
+   //the program scans in khangman/data/ to see what languages data is found
+    QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    kdDebug() << "mdirs= " << mdirs << endl;
+    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+	QDir dir(*it);
+	m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+	m_languages.remove(m_languages.find("."));
+	m_languages.remove(m_languages.find(".."));
+    }	
+    kdDebug() << "mlanguages= " << m_languages << endl;    
+    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
+    //to find the name of the country
+    //corresponding to the code and the language the user set
+    KConfig entry(locate("locale", "all_languages"));
+    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+	entry.setGroup(*it);
+	if (*it == "sr")
+		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+	else if (*it == "sr@Latn") {
+		entry.setGroup("sr");
+		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+		}
+	else
+	m_languageNames.append(entry.readEntry("Name"));
+    }
+    m_sortedNames = m_languageNames;
+}
+
+#include "khangman.moc"
