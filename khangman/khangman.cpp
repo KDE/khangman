@@ -86,7 +86,7 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-	newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+	newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
 	newAct->setToolTip(i18n( "Play with a new word" ));
 	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
 	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
