@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-04-28</date>
+<date>2003-05-16</date>
 <releaseinfo>1.0</releaseinfo>
 
 <abstract>
@@ -45,6 +45,8 @@
 <keyword>KDE</keyword>
 <keyword>kdeedu</keyword>
 <keyword>KHangMan</keyword>
+<keyword>hangman</keyword>
+<keyword>game</keyword>
 <keyword>child</keyword>
 <keyword>words</keyword>
 </keywordset>
@@ -142,7 +144,7 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in four languages: English, French, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in six languages: Danish, English, Finnish, French, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
@@ -193,18 +195,18 @@ First, <menuchoice><guimenuitem>Show Toolbar</guimenuitem></menuchoice> and
 <menuchoice><guimenuitem>Show Statusbar</guimenuitem></menuchoice> give you the possibility to hide/show the Toolbar and Statusbar.
 <menuchoice><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> is a standard KDE setting that allows you to
 choose different shortcut keys for different actions. For example, Ctrl+Q is the standard shortcut for Quit.
-<menuchoice><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice> is also a standard KDE menu item that allows you to add or suppress
-items from the toolbar. <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
+<menuchoice><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice> is also a standard KDE menu item that allows you to add or suppress items from the toolbar.
+<menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 </para>
 
 <screenshot>
-<screeninfo>&khangman; configuration dialog</screeninfo>
+<screeninfo>&khangman; blue theme</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="khangman2.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>&khangman; configuration dialog</phrase>
+	    <phrase>&khangman; blue theme</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
@@ -350,7 +352,7 @@ in the file <filename>README.languages</filename>.
 
 <para>Download the latest cvs version of &khangman;. The words
 are stored in 4 separate files, one for each level. The files are in
-<filename class="directory">/khangman/data</filename>. The file
+<filename class="directory">/khangman/data/language_code</filename>. The file
 <filename>easy.txt</filename> is for level easy, the file
 <filename>medium.txt</filename> is for level medium, the file
 <filename>animals.txt</filename> is for level animals and the file
@@ -475,6 +477,9 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Danish data files: Erik Kjaer Pedersen
 <email>erik AT mpim-bonn DOT mpg DOT de
+</email></para> </listitem>
+<listitem><para>Finnish data files: Niko Lewman
+<email>niko DOT leman AT edu DOT hel DOT fi
 </email></para> </listitem>
  <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
