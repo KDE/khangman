@@ -66,6 +66,8 @@ public:
 	QString temp;
 	QString stripWord, sword;
 	int c, d;
+	
+	bool accent_b;
 
 private:
 	///necessary to have it all resize correctly

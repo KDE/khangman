@@ -38,6 +38,7 @@
 //class KToggleToolBarAction;
 class KSelectAction;
 class KToggleAction;
+class KToggleToolBarAction;
 class QPopupMenu;
 class KToolBar;
 
@@ -168,6 +169,7 @@ private slots:
     void slotPasteUacute();
     void slotPasteSzlig();
     void slotClose();
+    void slotAccents();
 
   private:
     void setupAccel();
@@ -184,8 +186,9 @@ private:
     ///Action in the Settings menu to enable/disable transparency pictures
     KToggleAction *transAct;
     KToggleAction *softAct;
+    KToggleAction *accentsAct;
+    KToggleToolBarAction *secondAct;
     KSelectAction *langAct, *levelAct, *modeAct;
-
     QPopupMenu *langPopup;
     ///Full-Screen mode action
 #ifdef KHANGMAN_KDE_3_2_0

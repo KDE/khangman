@@ -10,6 +10,7 @@
 	</Menu>
         <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
 		<Merge name="StandardToolBarMenuHandler" />
+		<Merge name="second_act" />
 		<Action name="options_show_statusbar"/>
 		<Separator/>
 		<Action name="options_configure_keybinding"/>
@@ -19,6 +20,7 @@
         	<Separator />
 		<Action name="transparent"/>
 		<Action name="softer"/>
+		<Action name="accents"/>
         </Menu>
 </MenuBar>
 
@@ -35,7 +37,7 @@
         <Action name="combo_mode"/>
 </ToolBar>
 
-<ToolBar name="secondToolbar" position="bottom" noMerge="1"><text>Characters</text>
-</ToolBar>
+<!--<ToolBar name="secondToolbar" position="bottom" noMerge="1"><text>Characters</text>
+</ToolBar>-->
 
 </kpartgui>

@@ -20,6 +20,7 @@
 #include <qlineedit.h>
 //KDE headers
 #include <kaction.h>
+#include <kactionclasses.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
@@ -33,8 +34,9 @@
 //Project headers
 #include "khangman.h"
 
-const int IDS_LEVEL     = 100;
-const int IDS_LANG      = 101;
+const int IDS_LEVEL      = 100;
+const int IDS_LANG       = 101;
+const int IDS_ACCENTS = 102;
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
@@ -45,8 +47,8 @@ KHangMan::KHangMan()
     // set up the status bar
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
     statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
     statusBar()->show();
-
     //the program scans in khangman/data/ to see what languages data is found
     QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
     for (QStringList::Iterator it = dirs.begin(); it != dirs.end(); ++it ) {
@@ -69,13 +71,15 @@ KHangMan::KHangMan()
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
     //setLanguage(selectedLanguage); //seems useless 20/05
     // then, setup our actions, must be done after the language search
-    setupActions();
 
+    setupActions();
+    
     //toolbar for special characters
     secondToolbar = toolBar("secondToolbar");
-
+    secondToolbar->setBarPos(KToolBar::Bottom);
+    m_bCharToolbar=true;
     loadSettings();
-    loadLangToolBar();
+    slotAccents();
     setupLangMenu();
 }
 
@@ -90,7 +94,8 @@ void KHangMan::setupActions()
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
-
+    secondAct = new KToggleToolBarAction(secondToolbar,"secondToolbar", actionCollection(), "second_act");
+    
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
     langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
@@ -106,6 +111,7 @@ void KHangMan::setupActions()
 #endif
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
+    accentsAct = new KToggleAction(i18n("&Enable accented letters"), CTRL+Key_E, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
@@ -372,8 +378,7 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
-    loadLangToolBar();
-    newGame();
+    slotAccents();
 }
 
 void KHangMan::setLanguage(int lang)
@@ -479,9 +484,12 @@ void KHangMan::slotSofter()
 void KHangMan::loadLangToolBar()
 {
 	secondToolbar->clear();
-	if (m_bCharToolbar) secondToolbar->show();
-	else secondToolbar->hide();
-
+ 	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
+    	{
+     		accentsAct->setEnabled(true);
+    	}
+    	else accentsAct->setEnabled(false);
+	 
 	if (m_view->language == "ca")
 	{
 	secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true, i18n(QString("Try à").utf8()), 1 );
@@ -492,6 +500,7 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 6 );
 	secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 7 );
 	secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()),8);
+        //m_bCharToolbar = true;
 	}
 	else if (m_view->language == "es")
 	{
@@ -502,23 +511,27 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 5 );
 	secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 6 );
 	secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 7 );
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "da")
 	{
 	secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n(QString("Try ø").utf8()), 1 );
 	secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n(QString("Try æ").utf8()), 2 );
 	secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 3 );
+	m_bCharToolbar = true;
 	}
 	else if (m_view->language == "fi")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
 	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2 );
+	m_bCharToolbar = true;
 	}
 	else if (m_view->language == "sv")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
 	secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
 	secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
+	m_bCharToolbar = true;
 	}
 	else if (m_view->language == "pt")
 	{
@@ -531,23 +544,30 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 7 );
 	secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true, i18n(QString("Try ô").utf8()), 8 );
 	secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true, i18n(QString("Try õ").utf8()), 9 );
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "fr")
 	{
 	secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
 	secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
+	m_bCharToolbar = true;
 	}
 	else if (m_view->language == "de")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2); secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
+	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2);  secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
 	secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
+	m_bCharToolbar = true;
 	}
 	else
 	{
-	secondToolbar->hide();
-	//KAction::secondToolbar->setEnabled(false);
+	//secondToolbar->hide();
+	m_bCharToolbar=false;
 	}
+	if (m_bCharToolbar) {
+	secondToolbar->show();
+	secondAct->setChecked(true);}
+	else secondToolbar->hide();
 }
 
 void KHangMan::slotPasteCcedil()
@@ -671,5 +691,15 @@ void KHangMan::slotClose()
 	// then close the main window
 	close();
 }
+
+void KHangMan::slotAccents()
+{
+ 	m_view->accent_b = !accentsAct->isChecked();
+	secondAct->setChecked(accentsAct->isChecked());
+	m_bCharToolbar = accentsAct->isChecked();
+	loadLangToolBar();
+	newGame();
+}
+
 
 #include "khangman.moc"
