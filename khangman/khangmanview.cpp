@@ -6,7 +6,9 @@
 #include "khangmanview.h"
 #include "version.h"
 //Qt headers
+#include <qbitmap.h>
 #include <qfile.h>
+#include <qimage.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
@@ -27,17 +29,17 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	setIcon(locate("icon","hicolor/16x16/apps/khangman.png"));
 	setCaption(i18n("KHangMan %1").arg(KHM_VERSION));
 	//now we preload the pixmaps...
-	px[0].load(locate("data","khangman/pics/hg1.jpg"));
-	px[1].load(locate("data","khangman/pics/hg2.jpg"));
-	px[2].load(locate("data","khangman/pics/hg3.jpg"));
-	px[3].load(locate("data","khangman/pics/hg4.jpg"));
-	px[4].load(locate("data","khangman/pics/hg5.jpg"));
-	px[5].load(locate("data","khangman/pics/hg6.jpg"));
-	px[6].load(locate("data","khangman/pics/hg7.jpg"));
-	px[7].load(locate("data","khangman/pics/hg8.jpg"));
-	px[8].load(locate("data","khangman/pics/hg9.jpg"));
-	px[9].load(locate("data","khangman/pics/hg10.jpg"));
-	px[10].load(locate("data","khangman/pics/hg12.jpg"));
+	px[0].load(locate("data","khangman/pics/hg1.png"));
+	px[1].load(locate("data","khangman/pics/hg2.png"));
+	px[2].load(locate("data","khangman/pics/hg3.png"));
+	px[3].load(locate("data","khangman/pics/hg4.png"));
+	px[4].load(locate("data","khangman/pics/hg5.png"));
+	px[5].load(locate("data","khangman/pics/hg6.png"));
+	px[6].load(locate("data","khangman/pics/hg7.png"));
+	px[7].load(locate("data","khangman/pics/hg8.png"));
+	px[8].load(locate("data","khangman/pics/hg9.png"));
+	px[9].load(locate("data","khangman/pics/hg10.png"));
+	px[10].load(locate("data","khangman/pics/hg12.png"));
 
 	bluePix = QPixmap(QPixmap(locate("data","khangman/pics/blue.png") ) );
 	naturePix = QPixmap(QPixmap(locate("data","khangman/pics/nature.png") ) );
@@ -49,11 +51,8 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 		                    i18n("KHangMan - Error") );
 		exit(1);
 	}
-	//put some warning if background file is not found
 
-	pixImage->setFixedSize(190, 230);
-	mainLabel->setMinimumSize(380, 95);
-	//setMinimumSize(560, 430);
+	setMinimumSize(380, 410); /* Selected to get px aspect ratio */
 
 	temp="";
 
@@ -241,22 +240,31 @@ void KHangManView::wipeout()
 	allWords.clear();
 }
 
+void KHangManView::resizeEvent(QResizeEvent *)
+{
+	if(!bgPixmap.isNull())
+		slotBlue(bgPixmap);
+}
+
 void KHangManView::slotBlue(QPixmap& bgPix)
 {
-	setPaletteBackgroundPixmap(bgPix);
-	TextLabel1->setBackgroundOrigin(WindowOrigin);
-	TextLabel2->setBackgroundOrigin(WindowOrigin);
-	TextLabel3->setBackgroundOrigin(WindowOrigin);
-	Frame11->setBackgroundOrigin(WindowOrigin);
-	mainLabel->setBackgroundOrigin(WindowOrigin);
-	missedLetters->setBackgroundOrigin(WindowOrigin);
-	TextLabel1->setPaletteBackgroundPixmap(bgPix);
-	TextLabel2->setPaletteBackgroundPixmap(bgPix);
-	TextLabel3->setPaletteBackgroundPixmap(bgPix);
-	mainLabel->setPaletteBackgroundPixmap(bgPix);
-	missedLetters->setPaletteBackgroundPixmap(bgPix);
-	Frame11->setPaletteBackgroundPixmap(bgPix);
+	QImage img = bgPix.convertToImage();
+	QPixmap bg(size());
+
+	bg.convertFromImage(img.smoothScale( width(), height()));
+	setPaletteBackgroundPixmap(bg);
+	Frame11->setPaletteBackgroundPixmap(bg);
+	TextLabel1->setPaletteBackgroundPixmap(bg);
+	TextLabel2->setPaletteBackgroundPixmap(bg);
+	TextLabel3->setPaletteBackgroundPixmap(bg);
+	mainLabel->setPaletteBackgroundPixmap(bg);
+	missedLetters->setPaletteBackgroundPixmap(bg);
+	if (transparent)
+		pixImage->setPaletteBackgroundPixmap(bg);
+	else
+		pixImage->setBackgroundColor("#ECECEC");
 	charWrite->setFocus();
+	bgPixmap = bgPix;
 }
 
 void KHangManView::slotNoBkgd()
@@ -268,7 +276,17 @@ void KHangManView::slotNoBkgd()
 	mainLabel->setBackgroundColor("#DCDCDC");
 	missedLetters->setBackgroundColor("#DCDCDC");
 	Frame11->setBackgroundColor("#DCDCDC");
+	pixImage->setBackgroundColor("#ECECEC");
 	charWrite->setFocus();
+	bgPixmap.resize(0,0);
+}
+
+void KHangManView::slotTransparent()
+{
+	if (bgPixmap.isNull())
+		slotNoBkgd();
+	else
+		slotBlue(bgPixmap);
 }
 
 #include "khangmanview.moc"
