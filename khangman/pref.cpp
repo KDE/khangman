@@ -68,7 +68,7 @@ void KHangManPreferences::readConfig()
 void KHangManPreferences::slotDefault()
 {
 	levelString="easy";
-	modeString="adult";
+	modeString="nobg";
 	slotSet();
 }
 
@@ -104,21 +104,25 @@ void KHangManPreferences::slotSet()
 		m_pageOne->levelBox->setCurrentItem(3);
 	//if (levelString=="own")
 	//	m_pageOne->levelBox->setCurrentItem(4);
-	if (modeString=="child")
-		m_pageOne->childBox->setChecked(true);
-	if (modeString=="adult")
-		m_pageOne->adultBox->setChecked(true);
+	if (modeString=="blue")
+		m_pageOne->blueBox->setChecked(true);
+	if (modeString=="nobg")
+		m_pageOne->noBgBox->setChecked(true);
+	if (modeString=="nature")
+		m_pageOne->natureBox->setChecked(true);
 }
 
 void KHangManPreferences::slotMode(int id)
 {
-	//adult id=0 child id=1
 	switch(id){
 	case 0:
-		modeString="child";
+		modeString="nobg";
 		break;
 	case 1:
-		modeString="adult";
+		modeString="blue";
+		break;
+	case 2:
+		modeString="nature";
 		break;
 	}
 }

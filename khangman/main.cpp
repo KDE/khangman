@@ -28,7 +28,9 @@ int main(int argc, char **argv)
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
     aboutData.addCredit("Joe Bolin",
-                            I18N_NOOP("New children\'s background"), "jbolin@zoominternet.net");
+                            I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
+    aboutData.addCredit("Whitehawk Stormchaser",
+                            I18N_NOOP("Blue theme background"), "zerokode@gmx.net");
     aboutData.addCredit("Renaud Blanchard",
                             I18N_NOOP("Graphics"), "kisukuma AT chez DOT com");
     //aboutData.addCredit("Whitehawk Stormchaser",

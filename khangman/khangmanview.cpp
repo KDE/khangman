@@ -41,10 +41,13 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	px[11].load(locate("data","khangman/pics/hg13.jpg"));
 	px[12].load(locate("data","khangman/pics/hg14.jpg"));
 
-	bgPix=QPixmap(QPixmap(locate("data","khangman/pics/c_bg.png") ) );
+	bluePix = QPixmap(QPixmap(locate("data","khangman/pics/blue.png") ) );
+	naturePix = QPixmap(QPixmap(locate("data","khangman/pics/nature.png") ) );
+	//put some warning if background file is not found
 
 	pixImage->setFixedSize(190, 230);
 	mainLabel->setMinimumSize(380, 95);
+	//setMinimumSize(560, 430);
 
 	QObject::connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
 }
@@ -199,7 +202,7 @@ void KHangManView::wipeout()
 	allWords.clear();
 }
 
-void KHangManView::slotBlue()
+void KHangManView::slotBlue(QPixmap& bgPix)
 {
 	setBackgroundPixmap(bgPix);
 	TextLabel1->setBackgroundPixmap(bgPix);
@@ -222,6 +225,7 @@ void KHangManView::slotNoBkgd()
 	Frame11->setBackgroundColor("#DCDCDC");
 	charWrite->setFocus();
 }
+
 
 
 #include "khangmanview.moc"

@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>259</width>
-            <height>201</height>
+            <width>222</width>
+            <height>235</height>
         </rect>
     </property>
     <property name="caption">
@@ -21,7 +21,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout4</cstring>
+                <cstring>layout10</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -37,49 +37,75 @@
                     <property name="exclusive">
                         <bool>true</bool>
                     </property>
-                    <grid>
+                    <property name="radioButtonExclusive">
+                        <bool>true</bool>
+                    </property>
+                    <widget class="QRadioButton">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>noBgBox</cstring>
                         </property>
-                        <widget class="QLayoutWidget" row="0" column="0">
-                            <property name="name">
-                                <cstring>layout3</cstring>
-                            </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QRadioButton">
-                                    <property name="name">
-                                        <cstring>childBox</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Blue Theme</string>
-                                    </property>
-                                    <property name="toolTip" stdset="0">
-                                        <string>Set the "child" Look and Feel</string>
-                                    </property>
-                                    <property name="whatsThis" stdset="0">
-                                        <string>Check that if youwant the "child" Look and Feel</string>
-                                    </property>
-                                </widget>
-                                <widget class="QRadioButton">
-                                    <property name="name">
-                                        <cstring>adultBox</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>No Background</string>
-                                    </property>
-                                    <property name="toolTip" stdset="0">
-                                        <string>Set the "adult" Look and Feel</string>
-                                    </property>
-                                    <property name="whatsThis" stdset="0">
-                                        <string>Check that if you want the "adult" Look and Feel</string>
-                                    </property>
-                                </widget>
-                            </vbox>
-                        </widget>
-                    </grid>
+                        <property name="geometry">
+                            <rect>
+                                <x>12</x>
+                                <y>21</y>
+                                <width>134</width>
+                                <height>23</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>No Background</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Set the "adult" Look and Feel</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Check that if you want the "adult" Look and Feel</string>
+                        </property>
+                    </widget>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>blueBox</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>12</x>
+                                <y>50</y>
+                                <width>134</width>
+                                <height>23</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Blue Theme</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Set the "blue" Look and Feel</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Check that if youwant the "blue" Look and Feel</string>
+                        </property>
+                    </widget>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>natureBox</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>12</x>
+                                <y>79</y>
+                                <width>134</width>
+                                <height>23</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Nature Theme</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Set the "nature" Look and Feel</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Check that if youwant the "nature" Look and Feel</string>
+                        </property>
+                    </widget>
                 </widget>
                 <spacer>
                     <property name="name">

@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>400</width>
-            <height>407</height>
+            <width>394</width>
+            <height>335</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -44,6 +44,16 @@
             <height>0</height>
         </size>
     </property>
+    <property name="paletteBackgroundColor">
+        <color>
+            <red>234</red>
+            <green>233</green>
+            <blue>232</blue>
+        </color>
+    </property>
+    <property name="backgroundOrigin">
+        <enum>AncestorOrigin</enum>
+    </property>
     <property name="caption">
         <string>MainW</string>
     </property>
@@ -59,6 +69,12 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>0</number>
+                </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
                         <cstring>layout14</cstring>
@@ -67,6 +83,12 @@
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>0</number>
+                        </property>
                         <widget class="QLayoutWidget">
                             <property name="name">
                                 <cstring>layout13</cstring>
@@ -74,6 +96,12 @@
                             <vbox>
                                 <property name="name">
                                     <cstring>unnamed</cstring>
+                                </property>
+                                <property name="margin">
+                                    <number>0</number>
+                                </property>
+                                <property name="spacing">
+                                    <number>0</number>
                                 </property>
                                 <spacer>
                                     <property name="name">
@@ -168,6 +196,9 @@ _ _ _ _ _ _</string>
                             <property name="name">
                                 <cstring>mainLabel</cstring>
                             </property>
+                            <property name="backgroundOrigin">
+                                <enum>WindowOrigin</enum>
+                            </property>
                             <property name="font">
                                 <font>
                                     <pointsize>22</pointsize>
@@ -190,6 +221,9 @@ _ _ _ _ _ _</string>
                         <widget class="QFrame">
                             <property name="name">
                                 <cstring>Frame11</cstring>
+                            </property>
+                            <property name="backgroundOrigin">
+                                <enum>WindowOrigin</enum>
                             </property>
                             <property name="frameShape">
                                 <enum>StyledPanel</enum>

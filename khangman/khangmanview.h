@@ -38,7 +38,8 @@ public:
 	int missedChar;
 	QStringList allWords;
 	QString mode;
-	QPixmap bgPix;
+	QPixmap bluePix;
+	QPixmap naturePix;
 
 private:
 
@@ -60,7 +61,7 @@ public slots:
 
 	void slotNewGame();
 	void slotTry();
-	void slotBlue();
+	void slotBlue(QPixmap& );
 	void slotNoBkgd();
 
 private slots:

@@ -49,21 +49,23 @@ KHangMan::KHangMan()
             this,   SLOT(changeCaption(const QString&)));
 
 	toolBar()->insertSeparator(-1, 1); //id=1 for separator
-	toolBar()->insertCombo("easy", 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
+	toolBar()->insertCombo(i18n("Easy"), 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
 	combo = toolBar()->getCombo(2);
-	combo->insertItem("medium", 1);
-	combo->insertItem("hard", 2);
-	combo->insertItem("animals", 3);
+	combo->insertItem(i18n("Medium"), 1);
+	combo->insertItem(i18n("Hard"), 2);
+	combo->insertItem(i18n("Animals"), 3);
 	//combo->insertItem("own", 4);
     QToolTip::add( combo, i18n( "Choose the level" ) );
     QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
 	toolBar()->insertSeparator(-1, 3);
-	toolBar()->insertCombo("No Background", 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
+	toolBar()->insertCombo(i18n("No Background"), 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
 	comboMode = toolBar()->getCombo(4);
-	comboMode->insertItem("Blue Theme", 1);
+	comboMode->insertItem(i18n("Blue Theme"), 1);
+	comboMode->insertItem(i18n("Nature Theme"), 2);
 	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
     QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
 	readSettings();
+	kdDebug()<<"modeString = " << modeString <<endl;
 	isLevel();
 	isMode();
 	fileNew();
@@ -210,13 +212,17 @@ void KHangMan::slotMode(int index)
 {
  	switch ( index ) {
     	case 0:
-	 		modeString="adult";
+	 		modeString="nobg";
 			m_view->slotNoBkgd();
     		break;
 
     	case 1:
-      		modeString="child";
-			m_view->slotBlue();
+      		modeString="blue";
+			m_view->slotBlue(m_view->bluePix);
+   			break;
+    	case 2:
+      		modeString="nature";
+			m_view->slotBlue(m_view->naturePix);
    			break;
 	}
 	writeSettings();
@@ -234,7 +240,7 @@ void KHangMan::readSettings()
     {
 		levelString="easy";
 		m_view->levelFile="easy.txt";
-		kdDebug()<<"in no config file routine"<<endl;
+		//kdDebug()<<"in no config file routine"<<endl;
     }
 }
 
@@ -271,12 +277,21 @@ void KHangMan::isLevel()
 
 void KHangMan::isMode()
 {
-	if (modeString=="adult")
- 		{comboMode->setCurrentItem(0);
-		m_view->slotNoBkgd();}
- 	if (modeString=="child")
- 		{comboMode->setCurrentItem(1);
-		m_view->slotBlue();}
+	if (modeString=="nobg")
+ 	{
+		comboMode->setCurrentItem(0);
+		m_view->slotNoBkgd();
+	}
+ 	if (modeString=="blue")
+	{
+		comboMode->setCurrentItem(1);
+		m_view->slotBlue(m_view->bluePix);
+	}
+ 	if (modeString=="nature")
+	{
+		comboMode->setCurrentItem(2);
+		m_view->slotBlue(m_view->naturePix);
+	}
 }
 
 #include "khangman.moc"
