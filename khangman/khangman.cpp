@@ -39,6 +39,8 @@ QString let1, a1, s[20],st, str[45], sto[26];
 
 KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 {
+setCaption(i18n("KHangMan - v0.3"));
+
 QString sl1;
 sl1.sprintf(i18n(" Please enter a letter :"));
 lab1 = new QLabel(this);
@@ -175,6 +177,7 @@ game();
 
 void KHangMan::game()
 {
+//delete splash;
 lab8->setPixmap(px[11]);//display the presentation picture
 lab8->show();
 

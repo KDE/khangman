@@ -1,7 +1,13 @@
-July 2001
-KHangMan version 0.2
-KDE2 and qt-2.3.*
+version 0.3
+27 July 2001
+add a splash screen (drawn by Cable)
 
+version 0.2
+24 July 2001
+porting to KDE2  (KDE2 and qt-2.3.*)
+commit in KDE CVS (module kdeedu)
+creation of a webpage within the edu.kde.org website.
+
+version 0.1
 June 2000
-KHangman version 0.1
 KDE1.2 and qt-1.45

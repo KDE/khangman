@@ -6,10 +6,14 @@ TO DO
 to install in $KDEDIR?
  - suppress all hard code like the path for the pictures 
 (use kde standard dirs) - change the pics format from GIF to png
-- accerated keys?
+- accerated keys?  Y does not work (URGENT)
 - invoke help (HTML) is deprecated
 - write the doc
 - icons
+- new game seems buggy (URGENT)
 
 - read the words for each level from a file
 - design a GUI to allow the teacher to enter his own words.
+
+DONE
+- 27/07/2001 splash screen

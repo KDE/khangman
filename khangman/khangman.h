@@ -63,7 +63,8 @@ class KHangMan : public QWidget
     KAccel *accel2;
     QMainWindow *helpla;
     QPushButton *exit1;
-     QLabel *helpla1;
+    QLabel *helpla1;
+//    KhSplash *splash;
 
   public slots:
     void slotquit();
@@ -81,6 +82,9 @@ class KHangMan : public QWidget
     void slotHelp();
     void test1();
     void animals();
+  /** No descriptions */
+ // void slotDel();
+//void slotGo();
 
   protected:
     void keyPressEvent(QKeyEvent *);
