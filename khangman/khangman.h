@@ -162,6 +162,12 @@ private slots:
     void slotPasteSzlig();
     void slotPasteYacute();
     void slotPasteZcaron();
+    void slotPasteXdesc();
+    void slotPasteYmacron();
+    void slotPasteChedesc();
+    void slotPasteImacron();
+    void slotPasteGhestroke();
+    void slotPasteKadesc();
     ///Write some config settings and close the main window
     void slotClose();
     ///Check if the language has special characters and load the second toolbar if so

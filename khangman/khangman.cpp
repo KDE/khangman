@@ -503,6 +503,14 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->insertButton ("y_acute.png", 140, SIGNAL( clicked() ), this, SLOT( slotPasteYacute()), true,  i18n("Try ")+ QString::fromUtf8("ý", -1), 14 );
 		secondToolbar->insertButton ("z_caron.png", 150, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 15 );
 	}
+	else if (m_view->language == "tg")	{
+		secondToolbar->insertButton ("x_desc.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteXdesc()), true,  i18n("Try ")+ QString::fromUtf8("ҳ", -1), 1 );
+		secondToolbar->insertButton ("y_macron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteYmacron()), true,  i18n("Try ")+ QString::fromUtf8("ӯ", -1), 2 );
+		secondToolbar->insertButton ("che_desc.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteChedesc()), true,  i18n("Try ")+ QString::fromUtf8("ҷ", -1), 3);  
+		secondToolbar->insertButton ("i_macron.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteImacron()), true,  i18n("Try ")+ QString::fromUtf8("ӣ", -1), 4 );
+		secondToolbar->insertButton ("ghe_stroke.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteGhestroke()), true,  i18n("Try ")+ QString::fromUtf8("ғ", -1), 5 );
+		secondToolbar->insertButton ("ka_desc.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteKadesc()), true,  i18n("Try ")+ QString::fromUtf8("қ", -1), 6 );
+	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 	}
@@ -666,6 +674,36 @@ void KHangMan::slotPasteYacute()
 void KHangMan::slotPasteZcaron()
 {
 	m_view->charWrite->setText(QString::fromUtf8("ž", -1));
+}
+
+void KHangMan::slotPasteXdesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ҳ", -1));
+}
+
+void KHangMan::slotPasteYmacron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ӯ", -1));
+}
+
+void KHangMan::slotPasteChedesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ҷ", -1));
+}
+
+void KHangMan::slotPasteImacron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ӣ", -1));
+}
+
+void KHangMan::slotPasteGhestroke()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ғ", -1));
+}
+
+void KHangMan::slotPasteKadesc()
+{
+	m_view->charWrite->setText(QString::fromUtf8("қ", -1));
 }
 
 void KHangMan::slotClose()

@@ -90,6 +90,14 @@ void KHangManView::slotNewGame()
 {
 	wipeout();
 	//language=Prefs::selectedLanguage();
+	if (language =="tg")  {
+		QFont tFont;
+    		tFont.setFamily( "URW Bookman" );
+    		tFont.setPointSize( 22 );
+		missedLetters->setFont(tFont);
+		charWrite->setFont(tFont);
+		mainLabel->setFont(tFont);
+	}
 	game();
 	charWrite->setFocus();
 }
