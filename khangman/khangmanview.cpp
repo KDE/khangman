@@ -106,6 +106,14 @@ void KHangManView::slotNewGame()
 		charWrite->setFont(tFont);
 		mainLabel->setFont(tFont);
 	}
+	if (language =="cs")  {
+		QFont tFont;
+    		tFont.setFamily( "Arial" );
+    		tFont.setPointSize( 22 );
+		missedLetters->setFont(tFont);
+		charWrite->setFont(tFont);
+		mainLabel->setFont(tFont);
+	}
 	//distinction between upper and lower case letters
 	if (levelFile == "world_capitals.txt" || levelFile == "departements.txt")
 		upperBool = true;
@@ -477,7 +485,6 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 
 void KHangManView::readFile()
 {
-	///TODO: be sure it's opened in UNICODE
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
 	myString= locate("data", myString);
 	KEduVocDataItemList verbs = KEduVocData::parse(myString);

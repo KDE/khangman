@@ -70,6 +70,8 @@ public:
     void loadDataFiles();
     ///Action for building the Languages menu
     KSelectAction *langAct;
+    
+    QStringList allData;
     ///Build the Languages menu
     void setupLangMenu();   
     /**
@@ -92,6 +94,8 @@ private:
     bool m_bCharToolbar;
     ///true if the language has no special char as en, it and nl
     bool noCharBool;
+    
+    QString charIcon(const QChar &);
 
 private slots:
     ///Start a new game i.e. repaint and set a new word
@@ -146,46 +150,8 @@ private slots:
     void slotSetFullScreen( bool set);
     ///Populate the second toolbar with the correct buttons if the current language has special characters
     void loadLangToolBar();
-    ///When the a tilde button is clicked, a tilde is written in the lineedit
-    void slotPasteAtilde();
-    void slotPasteAgrave();
-    void slotPasteAacute();
-    void slotPasteAumlaut();
-    void slotPasteAwithe();
-    void slotPasteAcircle();
-    void slotPasteCacute();
-    void slotPasteCcaron();
-    void slotPasteCcedil();
-    void slotPasteDapos();
-    void slotPasteDbar();
-    void slotPasteEcaron();
-    void slotPasteEacute();
-    void slotPasteEgrave();
-    void slotPasteEcirc();
-    void slotPasteIgrave();
-    void slotPasteIacute();
-    void slotPasteNcaron();
-    void slotPasteNtilde();
-    void slotPasteOgrave();
-    void slotPasteOacute();
-    void slotPasteOcirc();
-    void slotPasteOcross();
-    void slotPasteOtilde();
-    void slotPasteOumlaut();
-    void slotPasteRcaron();
-    void slotPasteScaron();
-    void slotPasteUumlaut();
-    void slotPasteUacute();
-    void slotPasteUdot();
-    void slotPasteSzlig();
-    void slotPasteYacute();
-    void slotPasteZcaron();
-    void slotPasteXdesc();
-    void slotPasteYmacron();
-    void slotPasteChedesc();
-    void slotPasteImacron();
-    void slotPasteGhestroke();
-    void slotPasteKadesc();
+    ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
+    void slotPasteChar();
     ///Write some config settings and close the main window
     void slotClose();
     ///Check if the language has special characters and load the second toolbar if so
