@@ -1,6 +1,6 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp
+khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc
 khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la
 
 SUBDIRS = data pics icons sounds
@@ -10,6 +10,7 @@ EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png k
 KDE_ICON = AUTO
 
 xdg_apps_DATA = khangman.desktop
+kde_kcfg_DATA = khangman.kcfg
 
 # set the include path for X, qt and KDE
 INCLUDES= -I$(top_srcdir)/libkdeedu/kdeeducore $(all_includes)

@@ -36,6 +36,7 @@
 //standard C++ headers
 #include <stdlib.h>
 
+//#include "prefs.h"
 
 KHangManView::KHangManView(QWidget *parent, const char *name)
     : MainW(parent, name)
@@ -87,6 +88,7 @@ KHangManView::~KHangManView()
 void KHangManView::slotNewGame()
 {
 	wipeout();
+	//language=Prefs::selectedLanguage();
 	game();
 	charWrite->setFocus();
 }

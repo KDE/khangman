@@ -30,6 +30,7 @@
 #include <kstandarddirs.h>
 //Project headers
 #include "khangman.h"
+#include "prefs.h"
 //Please save as utf8 encoding
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
@@ -137,21 +138,6 @@ void KHangMan::setupLangMenu()
 	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
     langPopup->setItemChecked(selectedLanguage, true);
     connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
-}
-
-void KHangMan::saveProperties(KConfig *)
-{
-    // the 'config' object points to the session managed
-    // config file.  anything you write here will be available
-    // later when this app is restored
-}
-
-void KHangMan::readProperties(KConfig *)
-{
-    // the 'config' object points to the session managed
-    // config file.  this function is automatically called whenever
-    // the app is being restored.  read in here whatever you wrote
-    // in 'saveProperties'
 }
 
 void KHangMan::newGame()
@@ -280,38 +266,36 @@ void KHangMan::loadSettings()
     if (m_view->m_accent && m_view->accent_b)
 	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     
-    loadDataFiles();
-    //Enable hint or not
-    m_view->hintBool= config->readBoolEntry( "hint", true);
-    if (m_view->hintBool) hintAct->setChecked(true);
-    else hintAct->setChecked(false);
+    	loadDataFiles();
+    	//Enable hint or not
+    	m_view->hintBool= config->readBoolEntry( "hint", true);
+    	if (m_view->hintBool) hintAct->setChecked(true);
+    	else hintAct->setChecked(false);
     
-    m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
-    levelString = levels[currentLevel];
-    levelString.replace(0, 1, levelString.left(1).lower());
-    setLevel_WindowState();
+    	m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
+    	levelString = levels[currentLevel];
+    	levelString.replace(0, 1, levelString.left(1).lower());
+    	setLevel_WindowState();
 
-     // Background
-    QString oldMode = modeString;
-    modeString = config->readEntry("mode", "nobg");
-    if(oldMode != modeString)
+     	// Background
+    	QString oldMode = modeString;
+    	modeString = config->readEntry("mode", "nobg");
+   	if(oldMode != modeString)
     	setMode_WindowState();
 
-      // Transparency
-     config->setGroup("Settings");
-      if(m_view->transparent != config->readBoolEntry( "transparent", true)) {
-      m_view->transparent = config->readBoolEntry( "transparent", true);
-      m_view->slotTransparent();
-    }
-    transAct->setChecked(m_view->transparent);
+     	 // Transparency
+     	 if(m_view->transparent != Prefs::transparent()) {
+      		m_view->transparent = Prefs::transparent();
+      		m_view->slotTransparent();
+       	}
+    	transAct->setChecked(m_view->transparent);
 
-    // Softer Pictures
-    config->setGroup("Settings");
-    if(m_view->softer != config->readBoolEntry( "softer", true)) {
-    m_view->softer = config->readBoolEntry( "softer", true);
-    softAct->setChecked(m_view->softer);
-    m_view->slotSofter();
-    }
+    	// Softer Pictures
+    	if(m_view->softer != Prefs::softer()) {
+    		m_view->softer = Prefs::softer();
+    		softAct->setChecked(m_view->softer);
+    		m_view->slotSofter();
+    	}
  }
 
 void KHangMan::setSelectedLanguage(QString mLanguage)
@@ -431,11 +415,8 @@ void KHangMan::slotTransparent()
         m_view->transparent = transAct->isChecked();
         m_view->slotTransparent();
         //write transparent in the config file
-        KConfigBase *conf = kapp->config();
-    	if( conf ) {
-        	conf->setGroup( "Settings" );
-        	conf->writeEntry( "transparent", m_view->transparent);
-        }
+	Prefs::setTransparent(m_view->transparent);
+	Prefs::writeConfig();
 }
 
 void KHangMan::loadDataFiles()
@@ -491,11 +472,8 @@ void KHangMan::slotSofter()
 	m_view->softer = softAct->isChecked();
         m_view->slotSofter();
         //write softer in the config file
-        KConfigBase *conf = kapp->config();
-    	if( conf ) {
-        	conf->setGroup( "Settings" );
-        	conf->writeEntry( "softer", m_view->softer);
-        }
+        Prefs::setSofter(m_view->softer);
+	Prefs::writeConfig();
 }
 
 void KHangMan::loadLangToolBar()

@@ -83,22 +83,6 @@ private:
     ///true if the language has no special char as en, it and nl
     bool noCharBool;
 
-protected:
-    /**
-     * This function is called when it is time for the app to save its
-     * properties for session management purposes.
-     */
-    void saveProperties(KConfig *);
-
-    /**
-     * This function is called when this app is restored.  The KConfig
-     * object points to the session management config file that was saved
-     * with @ref saveProperties
-     */
-    void readProperties(KConfig *);
-
-   //  virtual void mousePressEvent( QMouseEvent *mouse );
-
 private slots:
     ///Start a new game i.e. repaint and set a new word
     void newGame();
