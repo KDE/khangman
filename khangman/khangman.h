@@ -166,6 +166,7 @@ private slots:
     void slotPasteOumlaut();
     void slotPasteUumlaut();
     void slotPasteUacute();
+    void slotPasteSzlig();
     void slotClose();
 
   private:

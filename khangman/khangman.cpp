@@ -502,7 +502,6 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 5 );
 	secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 6 );
 	secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 7 );
-
 	}
 	else if (m_view->language == "da")
 	{
@@ -537,6 +536,12 @@ void KHangMan::loadLangToolBar()
 	{
 	secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
 	secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
+	}
+	else if (m_view->language == "de")
+	{
+	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
+	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2); secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
+	secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
 	}
 	else
 	{
@@ -648,6 +653,11 @@ void KHangMan::slotPasteOtilde()
 void KHangMan::slotPasteOcirc()
 {
 	m_view->charWrite->setText("ô");
+}
+
+void KHangMan::slotPasteSzlig()
+{
+	m_view->charWrite->setText("ß");
 }
 
 void KHangMan::slotClose()
