@@ -104,7 +104,6 @@ void KHangMan::setupActions()
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
 
-   // hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
     //accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
@@ -216,6 +215,7 @@ void KHangMan::changeMode()
    			break;
 	}
 	Prefs::writeConfig();
+	if (dialog)
 	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0 );
 }
 
@@ -243,13 +243,7 @@ void KHangMan::loadSettings()
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     
     	loadDataFiles();
-    	//Enable hint or not
-    	m_view->hintBool= Prefs::hint();
-    	//if (m_view->hintBool) 
-		//hintAct->setChecked(true);
-    	//else 
-		//hintAct->setChecked(false);
-    
+ 
     	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
@@ -311,11 +305,13 @@ void KHangMan::changeLanguage(int newLanguage)
     	selectedLanguage = m_languages[newLanguage];
 	Prefs::setSelectedLanguage(selectedLanguage);
 	Prefs::writeConfig();
+	kdDebug() << "After write config " << endl;
     	//load the different data files in the Level combo for the new language
-   	 loadDataFiles();
+   	loadDataFiles();
     	bool fileExistBool = false;
     	//check if the name of the file exists in the new language. If not, set it to Easy.
     	//TODO: save level per language
+	kdDebug() << "After fileExistBool " << endl;
     	for (int id = 0; id < (int) levels.count(); id++)
     	if (levels[id].lower()==levelString)
     		fileExistBool = true;
@@ -330,14 +326,17 @@ void KHangMan::changeLanguage(int newLanguage)
     	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
-    	//if (m_view->hintBool && m_view->kvtmlBool) 
-    		//hintAct->setChecked(true);
+	
+    	if (m_view->hintBool && m_view->kvtmlBool&& dialog) 
+	      mNormal->kcfg_Hint->setEnabled( true);
     	slotHint();
     	setAccentBool();
 	m_bCharToolbar = Prefs::showCharToolbar();
    	 if (m_view->m_accent) 
     		slotAccents();
     	else {
+		if (dialog)
+			mNormal->kcfg_AccentedLetters->setEnabled(false);
     		changeStatusbar("", IDS_ACCENTS);
 		loadLangToolBar();
 		newGame();
@@ -718,8 +717,9 @@ void KHangMan::slotClose()
 
 void KHangMan::slotAccents()
 {
- 	m_view->accent_b = Prefs::accentedLetters();//accentsAct->isChecked();
-
+ 	m_view->accent_b = Prefs::accentedLetters();
+        if (dialog)
+	mNormal->kcfg_AccentedLetters->setEnabled(true);
 	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
@@ -727,15 +727,12 @@ void KHangMan::slotAccents()
 	newGame();
 }
 
-void KHangMan::restoreAccentConfig()
-{
-	//accentsAct->setChecked(!m_view->accent_b);
-	//mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
-	slotAccents();
-}
-
 void KHangMan::slotHint()
 {
+	if (m_view->hintBool && m_view->kvtmlBool) 
+		kdDebug() << "yepeeeeeee" << endl;
+	     // mNormal->kcfg_Hint->setEnabled( true);
+	//else mNormal->kcfg_Hint->setEnabled( false);
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
 		//hintAct->setChecked(true);
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
@@ -826,14 +823,17 @@ void KHangMan::optionsPreferences()
         	return; 
  
 	//KConfigDialog didn't find an instance of this dialog, so lets create it : 
-	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
+	dialog = new KConfigDialog( this, "settings",  Prefs::self() );
 	//dialog->setModal(true); //makes it modal even if it's not the default
 	mNormal =  new normal( 0, "Kids Settings" ); 
 	dialog->addPage(mNormal, i18n("Kids Settings"), "configure");
 	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
-	//mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
+	if (m_view->hintBool && m_view->kvtmlBool) 
+	      mNormal->kcfg_Hint->setEnabled( true);
+	if (m_view->m_accent) mNormal->kcfg_AccentedLetters->setEnabled(true);
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+	
 	dialog->show();
 	
 }
@@ -847,6 +847,19 @@ void KHangMan::updateSettings()
     	// Softer Pictures
     	m_view->softer = Prefs::softer();		
 	m_view->slotSofter();
+	
+	//Accented Letters
+	slotAccents();
+	
+	//Enable hint or not
+    	m_view->hintBool= Prefs::hint();
+	//hintBool=true if the user has choosen to have hints
+	if (Prefs::hint())  {
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
+	}
+	else {
+		changeStatusbar("", IDS_HINT);
+	}
 }
 
 #include "khangman.moc"

@@ -35,6 +35,7 @@ class KToggleToolBarAction;
 class QPopupMenu;
 class KToolBar;
 class KHNewStuff;
+class KConfigDialog;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -73,6 +74,8 @@ public:
     void setupLangMenu();
     
     normal* mNormal;
+    
+    KConfigDialog* dialog;
 private:
     ///hold the current level
     QString levelString;
@@ -195,9 +198,7 @@ private slots:
     void loadDataFiles();
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
-    ///Set the Accented Letters action correctly
-    void restoreAccentConfig();
-    
+     
 private:
     ///Main view
     KHangManView *m_view;
