@@ -256,10 +256,10 @@ void KHangManView::wipeout()
 void KHangManView::resizeEvent(QResizeEvent *)
 {
 	if(!bgPixmap.isNull())
-		slotBlue(bgPixmap);
+		slotSetPixmap(bgPixmap);
 }
 
-void KHangManView::slotBlue(QPixmap& bgPix)
+void KHangManView::slotSetPixmap(QPixmap& bgPix)
 {
 	QImage img = bgPix.convertToImage();
 	QPixmap bg(size());
@@ -299,7 +299,7 @@ void KHangManView::slotTransparent()
 	if (bgPixmap.isNull())
 		slotNoBkgd();
 	else
-		slotBlue(bgPixmap);
+		slotSetPixmap(bgPixmap);
 }
 
 #include "khangmanview.moc"

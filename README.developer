@@ -1,7 +1,6 @@
-This application is now developed under KDevelop IDE...
-If you are adding some files, please use the KDevelop to add them;
-I don't want neither of two things: Make problems for someone, and neither for me to have problems...
+1) Please don't change unwisely the Makefile.am in each dir as they were reworked by David Faure
+on 28th April 2003.
+http://lists.kde.org/?l=kde-cvs&m=105151850900957&w=2
+If you use KDevelop, make sure you don't overwrite these Makefile.am with the ones from KDevelop.
 
-Thanks :)
 
-~W

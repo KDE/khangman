@@ -31,33 +31,37 @@ public:
 
     virtual ~KHangManView();
 
-  //levelFile is the text file containing the data
+        //levelFile is the text file containing the data
 	QString levelFile;
-	//transparent indicates if pictures should be transparent
+	///transparent=true indicates that pictures should be transparent
 	bool transparent;
-	//language is the current language for data file
+	///language is the current language for data file
 	QString language;
-	//word is the random word to be guessed
+	////word is the random word to be guessed
 	QString word;
-	//goodWord is the hidden word that is filled in
+	///goodWord is the hidden word that is filled in
 	QString goodWord;
 	QString missedL;
 	int missedChar;
-	//allWords contains all letters already guessed
+	///allWords contains all letters already guessed
 	QStringList allWords;
-	//mode
+	///mode is the background mode: "nobg", "blue" or "nature"
 	QString mode;
+        ///contains the pixmap for the blue background mode
 	QPixmap bluePix;
+        ///contains the pixmap for the nature background mode
 	QPixmap naturePix;
-	//store the previous word to check it's not the same twice
+	///store temporarily the previous word to check it's not the same twice
 	QString temp;
 
 private:
+	///necessary to have it all resize correctly
 	void resizeEvent(QResizeEvent *);
-
+	///KDE random generator
 	KRandomSequence random;
-	//the hangman pictures
+	///the hangman pictures
 	QPixmap px[11];
+        ///the background image
 	QPixmap bgPixmap;
 
   bool containsChar(QString &);
@@ -67,7 +71,8 @@ public slots:
 
 	void slotNewGame();
 	void slotTry();
-	void slotBlue(QPixmap& );
+        ///set the background pixmap to the QPixmap argument
+	void slotSetPixmap(QPixmap& );
 	void slotNoBkgd();
 	void slotTransparent();
 

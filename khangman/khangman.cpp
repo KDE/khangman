@@ -214,11 +214,11 @@ void KHangMan::changeMode()
 
     	case 1:
       			modeString="blue";
-			m_view->slotBlue(m_view->bluePix);
+			m_view->slotSetPixmap(m_view->bluePix);
    			break;
     	case 2:
       		modeString="nature";
-			m_view->slotBlue(m_view->naturePix);
+			m_view->slotSetPixmap(m_view->naturePix);
    			break;
 	}
         transAct->setEnabled( modeAct->currentItem() != 0 );
@@ -325,12 +325,12 @@ void KHangMan::setMode_WindowState()
     else if (modeString=="blue")
     {
 	modeAct->setCurrentItem(1);
-	m_view->slotBlue(m_view->bluePix);
+	m_view->slotSetPixmap(m_view->bluePix);
     }
     else if (modeString=="nature")
     {
 	modeAct->setCurrentItem(2);
-	m_view->slotBlue(m_view->naturePix);
+	m_view->slotSetPixmap(m_view->naturePix);
     }
     transAct->setEnabled( modeAct->currentItem() != 0 );
 }
