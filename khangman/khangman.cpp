@@ -37,7 +37,6 @@ KHangMan::KHangMan()
     languages = 0;
     // and a status bar
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
-    statusBar( )->insertItem("   ", 102, 0);
     statusBar( )->insertItem("   ",IDS_LANG, 0);
     statusBar()->show();
 
@@ -56,6 +55,8 @@ KHangMan::KHangMan()
     registerLanguage(i18n("French"), "data_fr", enabled);
     enabled = locate("data", "khangman/data/es/") != 0;
     registerLanguage(i18n("Spanish"), "data_es", enabled);
+    enabled = locate("data", "khangman/data/sv/") != 0;
+    registerLanguage(i18n("Swedish"), "data_sv", enabled);
      // then, setup our actions, must be done after the language search
     setupActions();
 
@@ -79,6 +80,7 @@ KHangMan::KHangMan()
     isLevel();
     isMode();
     fileNew();
+    m_view->slotTransparent();
 }
 
 KHangMan::~KHangMan()
@@ -112,6 +114,8 @@ void KHangMan::registerLanguage(const QString &menuItem, const char *actionId, b
   	case 1: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language1()), actionCollection(), actionId);
 		break;
 	case 2: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language2()), actionCollection(), actionId);
+		break;
+	case 3: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language3()), actionCollection(), actionId);
 		break;
   }
 
@@ -198,25 +202,16 @@ void KHangMan::changeCaption(const QString& text)
 //and written in config
 void KHangMan::slotLevel(int id)
 {
-	switch(id){
-	case 0:
-		levelString="easy";
-		break;
-	case 1:
-		levelString="medium";
-		break;
-	case 2:
-		levelString="hard";
-		break;
-	case 3:
-		levelString="animals";
-		break;
-	/*case 4:
-		levelString="own";
-		break;*/
-	}
-	m_view->levelFile = levelString+".txt";
-	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
+	static const char *levelStrings[] = {
+		I18N_NOOP("easy"),
+		I18N_NOOP("medium"),
+		I18N_NOOP("hard"),
+		I18N_NOOP("animals"),
+		/* I18N_NOOP("own"), */
+	};
+
+	m_view->levelFile = QString(levelStrings[id])+".txt";
+	changeStatusbar(i18n("Level: ") + i18n(levelStrings[id]), IDS_LEVEL);
 	writeSettings();
 	fileNew();
 }
@@ -250,11 +245,12 @@ void KHangMan::readSettings()
     levelString = config->readEntry( "level");
     m_view->levelFile = config->readEntry( "levelFile");
     modeString=config->readEntry("mode");
-    config->setGroup("Language");
-    selectedLanguage = config->readNumEntry("myLanguage");
     //default background mode
     if (modeString.isEmpty())
     	modeString = "nobg";
+    m_view->transparent = config->readBoolEntry( "transparent", true);
+    config->setGroup("Language");
+    selectedLanguage = config->readNumEntry("myLanguage");
     if (m_view->levelFile.isEmpty()) //if no config file
     {
 	levelString = "easy";
@@ -273,7 +269,7 @@ void KHangMan::readSettings()
     if (config->hasKey("myLanguage")==false)
     selectedLanguage = defaultLang;
     else
-        if ( selectedLanguage > 2)
+        if ( selectedLanguage > 3)
     		selectedLanguage = 0;
     writeSettings();
 }
@@ -286,6 +282,8 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 		defaultLang = 1;
 	else if (mLanguage == "es")
 		defaultLang = 2;
+	else if (mLanguage == "sv")
+		defaultLang = 3;
 	else defaultLang = 0;
 }
 
@@ -299,6 +297,7 @@ void KHangMan::writeSettings()
      	conf->writeEntry( "level", levelString);
 	conf->writeEntry("levelFile",m_view->levelFile);
 	conf->writeEntry( "mode", modeString);
+	conf->writeEntry( "transparent", m_view->transparent);
 	conf->setGroup("Language");
 	conf->writeEntry("myLanguage", selectedLanguage);
 	conf->writeEntry("defaultLang", defaultLang);
@@ -320,7 +319,7 @@ void KHangMan::isLevel()
  	combo->setCurrentItem(3);
     //if (levelString=="own")
  //	combo->setCurrentItem(4);
-    changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
+    changeStatusbar(i18n("Level: ") + i18n(levelString.latin1()), IDS_LEVEL);
 }
 
 //when config is read, set the KComboBox to the right background
@@ -359,6 +358,11 @@ void KHangMan::language2()
     changeLanguage(2);
 }
 
+void KHangMan::language3()
+{
+    changeLanguage(3);
+}
+
 // Switch to another language using Languages menu
 void KHangMan::changeLanguage(uint newLanguage)
 {
@@ -395,6 +399,10 @@ void KHangMan::setLanguage(int lang)
 	m_view->language="es";
 	language = i18n("Spanish");
 	break;
+	case 3:
+	m_view->language="sv";
+	language = i18n("Swedish");
+	break;
 	}
     changeStatusbar(i18n("Language: ")+language, IDS_LANG);
 }
@@ -409,6 +417,10 @@ void KHangMan::slotClickApply()
 	((KToggleAction*) actionCollection()->action(languageActions[dlg.langNum].latin1()))->setChecked(true);
 	selectedLanguage = dlg.langNum;
 	isMode();
+	if (dlg.transparent!=m_view->transparent) {
+		m_view->transparent = dlg.transparent;
+		m_view->slotTransparent();
+	}
 	if (dlg.levelString!=levelString)
 	{
 		levelString = dlg.levelString;
