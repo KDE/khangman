@@ -54,9 +54,6 @@
     <property name="backgroundOrigin">
         <enum>WidgetOrigin</enum>
     </property>
-    <property name="caption">
-        <string>MainW</string>
-    </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
