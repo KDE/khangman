@@ -274,7 +274,7 @@ void KHangMan::loadSettings()
     if (m_bCharToolbar) secondToolbar->show();
     else secondToolbar->hide();
     
-    if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
+    if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR")
     {m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
     accentsAct->setChecked(!m_view->accent_b);
     if (!m_view->accent_b)
@@ -401,7 +401,7 @@ void KHangMan::changeLanguage(int newLanguage)
     if (m_view->hintBool && m_view->kvtmlBool) 
     	hintAct->setChecked(true);
     slotHint();
-    if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
+    if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
     	slotAccents();
     else {
     	changeStatusbar("", IDS_ACCENTS);
@@ -497,7 +497,7 @@ void KHangMan::loadLangToolBar()
 	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
- 	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
+ 	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
      		accentsAct->setEnabled(true);
     	else accentsAct->setEnabled(false);
 	 
@@ -534,7 +534,7 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
 		secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
 	}
-	else if (m_view->language == "pt")	{
+	else if (m_view->language == "pt" || m_view->language == "pt_BR")	{
 		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
 		secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true, i18n(QString("Try ã").utf8()), 2 );
 		secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 3 );
