@@ -25,7 +25,7 @@
 #include <ktoolbar.h>
 //Project headers
 #include "khangman.h"
-//#include "pref.h"
+#include "pref.h"
 
 const int IDS_LEVEL     = 100;
 const int IDS_LANG       = 101;
@@ -178,6 +178,7 @@ void KHangMan::newToolbarConfig()
 
 void KHangMan::optionsPreferences()
 {
+    KHangManPreferences dlg;
     dlg.resize(450, 340);
     QObject::connect(&dlg, SIGNAL(aClicked()), this, SLOT(slotClickApply()));
     if (dlg.exec())
@@ -333,7 +334,7 @@ void KHangMan::language2()
     changeLanguage(2);
 }
 
-// Switch to another language
+// Switch to another language using Languages menu
 void KHangMan::changeLanguage(uint newLanguage)
 {
    // Do not accept to switch to same language
@@ -346,7 +347,7 @@ void KHangMan::changeLanguage(uint newLanguage)
     // Unselect preceeding language
     ((KToggleAction*) actionCollection()->action(languageActions[selectedLanguage].latin1()))->setChecked(false);
 
-    // Change language in the remembered options
+    // Change language in the config file
     selectedLanguage = newLanguage;
     writeSettings();
     setLanguage(newLanguage);
@@ -376,7 +377,7 @@ void KHangMan::setLanguage(int lang)
 //when Apply button in Preferences dialog is clicked, refresh view
 void KHangMan::slotClickApply()
 {
-	kdDebug() << modeString << endl;
+	KHangManPreferences dlg;
 	modeString = dlg.modeString;
 	isMode();
 	if (dlg.levelChanged)
