@@ -71,7 +71,6 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     tmp = 0;
     accent_b = false;
     m_accent = true;
-    miss_bool = false;
     //tip="";
     missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
 
@@ -172,11 +171,18 @@ void KHangManView::paintEvent( QPaintEvent * )
     paint.setFont(QFont("Arial", height()/15, QFont::Bold));
     paint.drawText(width()/50, height()-height()/10, goodWord);*/
     paintHangman();
+    paintWord();
 }
 
-void KHangManView::paintMisses()
+void KHangManView::paintWord()
 {
-
+    QPainter paint;
+    paint.begin(paletteBackgroundPixmap());
+    paint.setPen( QColor(148, 156, 167));
+    paint.setFont(QFont("Arial", height()/15, QFont::Bold));
+    paint.drawText(width()/50, height()-height()/10, goodWord);
+    paint.end();
+    bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
 void KHangManView::resizeEvent(QResizeEvent *)
@@ -189,7 +195,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite_font.setPointSize( height()/12 );
     charWrite_font.setFamily( "Arial Narrow" );
     charWrite->setFont( charWrite_font ); 
-    guessButton->setFont(QFont("Bitstream Charter", height()/15, QFont::Bold));
+    guessButton->setFont(QFont("Bitstream Charter", height()/20, QFont::Bold));
     guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -220,8 +226,8 @@ void KHangManView::paintHangman()
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
     paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
     //below should be painted outside this
-    paint.setFont(QFont("Arial", height()/15, QFont::Bold));
-    paint.drawText(width()/50, height()-height()/10, goodWord);
+    //paint.setFont(QFont("Arial", height()/15, QFont::Bold));
+    //paint.drawText(width()/50, height()-height()/10, goodWord);
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -258,8 +264,7 @@ void KHangManView::slotTry()
                     //if (language =="de") {
                         //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
                        // }
-                    miss_bool = false;
-                    update();
+                    paintWord();;
                     //paintHangman();
                     sword.remove(QRegExp(" "));
                     if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
@@ -296,9 +301,8 @@ void KHangManView::slotTry()
                                 missedL=missedL.replace(22,2, "");
                         }
                        
-                        //paintHangman();
-                        miss_bool = true;
-                        update();
+                        paintHangman();
+                        //update();
                         missedChar++;
 
                         if (missedChar >= 10) //you are hanged!

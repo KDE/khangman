@@ -48,7 +48,6 @@ private:
     QColor m_fillColor;
 
     KPushButton *guessButton;
-    bool miss_bool;
 
 protected:
 
@@ -90,7 +89,7 @@ protected:
     void replaceLetters(const QString &);
     QPixmap px[11];
     
-    void paintMisses();
+    void paintWord();
 
 public slots:
 
