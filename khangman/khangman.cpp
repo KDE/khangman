@@ -187,7 +187,11 @@ void KHangMan::changeLevel()
 	levelString.replace(0, 1, levelString.left(1).lower());
 	
 	m_view->levelFile = levelString +".txt";
-	changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+	if (m_view->levelFile == "world_capitals.txt")
+		changeStatusbar(i18n("First letters must be upper case"), IDS_ACCENTS);	
+	else
+		changeStatusbar(i18n(""), IDS_ACCENTS);
 	Prefs::setLevel( currentLevel);
 	Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
@@ -269,7 +273,7 @@ void KHangMan::setLevel_WindowState()
     if (currentLevel>levels.count())
         currentLevel = levels.count();
     levelAct->setCurrentItem(currentLevel);
-    changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+    changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 }
 
 void KHangMan::setMode_WindowState()
@@ -351,7 +355,7 @@ void KHangMan::changeLanguage(int newLanguage)
 void KHangMan::setLanguage(QString lang)
 {
 	m_view->language = lang;
-	changeStatusbar(i18n("Language: ")+m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
+	changeStatusbar(m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
 }
 
 void KHangMan::slotTransparent()
@@ -733,15 +737,16 @@ void KHangMan::slotAccents()
 void KHangMan::slotHint()
 {
 	kdDebug() << "kvtmlBool: " << m_view->kvtmlBool << endl;
-	if (m_view->kvtmlBool)
+	if (m_view->kvtmlBool)  {
 		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
+		
+	}
         m_view->hintBool=Prefs::hint();
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
-	else if (m_view->hintBool==false) {
-		changeStatusbar("", IDS_HINT);
-	}
+	else if (m_view->hintBool==false) 
+		changeStatusbar(i18n("You can enable hints in Settings"), IDS_HINT);
 }
 
 void KHangMan::enableHint(bool m_bool)

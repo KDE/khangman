@@ -66,7 +66,9 @@
                         <string>If checked, the dialog 'You won' is not displayed. After 3 seconds, a new game automatically start.</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>When a game is won, a dialog appear saying 'Congratulations, you won!'. This is the default, this case is not checked. If this case is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
+                        <string>When a game is won, a dialog appear saying 'Congratulations, you won!'. 
+This is the default, this case is not checked. 
+If this case is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
                     </property>
                 </widget>
             </vbox>

@@ -88,8 +88,10 @@ public:
 	///tmp is to check if not twice the same random number
 	int tmp;
 	KHangMan *khangman;
-	
+	//true if only one instance of each letter is displayed
 	bool b_oneLetter;
+	//If true, the uppercase and lower case are disctincts (world capitals)
+	bool upperBool;
 	
 signals:
 	/**

@@ -106,6 +106,10 @@ void KHangManView::slotNewGame()
 		charWrite->setFont(tFont);
 		mainLabel->setFont(tFont);
 	}
+	//distinction between upper and lower case letters
+	if (levelFile == "world_capitals.txt")
+		upperBool = true;
+	 else upperBool = false;
 	game();
 	charWrite->setFocus();
 }
@@ -124,6 +128,7 @@ void KHangManView::slotValidate(const QString &text)
 void KHangManView::slotTry()
 {
 	QString sChar = charWrite->text();
+	if (!upperBool)
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
 
@@ -336,7 +341,8 @@ void KHangManView::game()
 				word = allData[random.getLong(objects)];
 				temp=word;
 			}//end of test
-			word = word.lower(); //because of German
+			if (!upperBool)
+				word = word.lower(); //because of German
 		}//end else if language=fr
 	//kdDebug() << word << endl;
 	goodWord ="";
