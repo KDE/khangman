@@ -70,7 +70,9 @@ int main(int argc, char **argv)
     aboutData.addCredit("Lubos Lunàk",
                             I18N_NOOP("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit("Albert Astals Cid",
-                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");	
+                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");
+   aboutData.addCredit("Chris Luetchford",
+                             I18N_NOOP("svg icon"), "chris@os11.com");
 		 
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
