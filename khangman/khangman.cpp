@@ -93,14 +93,8 @@ void KHangMan::setupActions()
 	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 	KStdAction::quit(this, SLOT(slotClose()), actionCollection());
 	
-	createStandardStatusBarAction();
-	setStandardToolBarMenuEnabled(true);
 	langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
 	langAct->setItems(m_sortedNames);
-	
-	KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
-actionCollection());
-	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 	
 	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
 	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
@@ -119,8 +113,8 @@ actionCollection());
 	modeAct->setItems(modes);
 	modeAct->setToolTip(i18n( "Choose the look and feel" ));
 	modeAct->setWhatsThis(i18n( "Check the look and feel" ));
-	setAutoSaveSettings("General");
-	createGUI("khangmanui.rc");
+
+	setupGUI();
 }
 
 void KHangMan::setupLangMenu()
@@ -603,47 +597,47 @@ void KHangMan::updateSettings()
 
 QString KHangMan::charIcon(const QChar & c)
 {
-  ///Create a name and path for the icon
-  QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
-  
-  ///No need to redraw if it already exists
- // if (KStandardDirs::exists(s))
-   // return s;
-  
-  QRect r(4, 4, 120, 120);
-
-  ///A font to draw the character with
-  QFont font;
-  if (m_view->language=="cs" || m_view->language=="hu" )
-  	font.setFamily( "Arial" );
-  else
-   	font.setFamily( "URW Bookman" );
-  font.setPixelSize(120);
-  font.setWeight(QFont::Normal);
-  
-  ///Create the pixmap        
-  QPixmap pm(128, 128);
-  pm.fill(Qt::white);
-  QPainter p(&pm);
-  p.setFont(font);
-  p.setPen(Qt::black);
-  p.drawText(r, Qt::AlignCenter, (QString) c);
-  
-  ///Create transparency mask
-  QBitmap bm(128, 128);
-  bm.fill(Qt::color0);
-  QPainter b(&bm);
-  b.setFont(font);
-  b.setPen(Qt::color1);
-  b.drawText(r, Qt::AlignCenter, (QString) c);
-  
-  ///Mask the pixmap
-  pm.setMask(bm); 
-  
-  ///Save the icon to disk
-  pm.save(s, "PNG");
-  
-  return s;
+	///Create a name and path for the icon
+	QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
+	
+	///No need to redraw if it already exists
+	// if (KStandardDirs::exists(s))
+	// return s;
+	
+	QRect r(4, 4, 120, 120);
+	
+	///A font to draw the character with
+	QFont font;
+	if (m_view->language=="cs" || m_view->language=="hu" )
+		font.setFamily( "Arial" );
+	else
+		font.setFamily( "URW Bookman" );
+	font.setPixelSize(120);
+	font.setWeight(QFont::Normal);
+	
+	///Create the pixmap        
+	QPixmap pm(128, 128);
+	pm.fill(Qt::white);
+	QPainter p(&pm);
+	p.setFont(font);
+	p.setPen(Qt::black);
+	p.drawText(r, Qt::AlignCenter, (QString) c);
+	
+	///Create transparency mask
+	QBitmap bm(128, 128);
+	bm.fill(Qt::color0);
+	QPainter b(&bm);
+	b.setFont(font);
+	b.setPen(Qt::color1);
+	b.drawText(r, Qt::AlignCenter, (QString) c);
+	
+	///Mask the pixmap
+	pm.setMask(bm); 
+	
+	///Save the icon to disk
+	pm.save(s, "PNG");
+	
+	return s;
 }
 
 #include "khangman.moc"
