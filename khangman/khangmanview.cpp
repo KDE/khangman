@@ -261,6 +261,10 @@ void KHangManView::game()
 	//allData contains all the words from the file
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
+	if (allData.count()<=1) {
+		emit(signalChangeLanguage(3));
+		return;
+	}
 	//now the calculations...
 	int objects = allData.count();//number of words in the file
 	word ="";

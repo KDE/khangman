@@ -79,6 +79,12 @@ public:
 	KPassivePopup * myPopup;
 	///tmp is to check if not twice the same random number
 	int tmp;
+	
+signals:
+	/**
+	* Use this signal to change the content of the statusbar
+	*/
+	void signalChangeLanguage(int);
 
 private:
 	///necessary to have it all resize correctly
@@ -90,8 +96,8 @@ private:
         ///the background image
 	QPixmap bgPixmap;
 
-  bool containsChar(QString &);
-  void replaceLetters(QString);
+ 	 bool containsChar(QString &);
+	void replaceLetters(QString);
   
 protected:
    virtual void mousePressEvent(QMouseEvent *mouse);
@@ -109,9 +115,9 @@ public slots:
 
 private slots:
 
-    void slotValidate(const QString &);
-    void game();
-    void wipeout();
+    	void slotValidate(const QString &);
+    	void game();
+    	void wipeout();
 };
 
 #endif // _KHANGMANVIEW_H_

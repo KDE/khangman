@@ -76,6 +76,7 @@ KHangMan::KHangMan()
     //toolbar for special characters
     secondToolbar = toolBar("Special characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
+    connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
     m_bCharToolbar=true;
     loadSettings();
     loadLangToolBar();
@@ -262,7 +263,7 @@ void KHangMan::loadSettings()
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
      if (selectedLanguage >= (int) m_languages.count())
-                selectedLanguage = 1;
+                selectedLanguage = 3;
      setLanguage(selectedLanguage);
 
     config->setGroup( "General" );
@@ -316,7 +317,7 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 {
     defaultLang = m_languages.findIndex(mLanguage);
     if (defaultLang == -1)
-	defaultLang = 1; //if no default, set it to English
+	defaultLang = 3; //if no default, set it to English
 }
 
 //when config is read, set the KComboBox to the right level
