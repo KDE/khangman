@@ -832,29 +832,34 @@ void KHangMan::optionsPreferences()
 
 void KHangMan::updateSettings()
 {
-     	 // Transparency
-      	m_view->transparent = Prefs::transparent();
-      	m_view->slotTransparent();
-
+     	// Transparency
+	if (m_view->transparent != Prefs::transparent())  {
+      		m_view->transparent = Prefs::transparent();
+		kdDebug() << "Change Transparent mode   " << endl;
+      		m_view->slotTransparent();
+	}
     	// Softer Pictures
-    	m_view->softer = Prefs::softer();		
-	m_view->slotSofter();
-	
+	if (m_view->softer != Prefs::softer()) {
+    		m_view->softer = Prefs::softer();	
+		kdDebug() << "Change Softer mode   " << endl;	
+		m_view->slotSofter();
+	}	
 	//Accented Letters
-	slotAccents();
+	if (m_view->accent_b != Prefs::accentedLetters())
+		slotAccents();
 	
 	//Enable hint or not
-    	m_view->hintBool= Prefs::hint();
-	slotHint();
-	if (Prefs::hint())  {
-		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
-	}
-	else {
-		changeStatusbar("", IDS_HINT);
+	if (m_view->hintBool= Prefs::hint())  {
+    		m_view->hintBool= Prefs::hint();
+		kdDebug() << "Change Hint mode   " << endl;
+		slotHint();
 	}
 	//One letter only mode
-	m_view->b_oneLetter = Prefs::oneLetter();
-	newGame();
+	if (m_view->b_oneLetter != Prefs::oneLetter())  {
+		kdDebug() << "Change One Letter mode   " << endl;
+		m_view->b_oneLetter = Prefs::oneLetter();
+		newGame();
+	}
 }
 
 #include "khangman.moc"
