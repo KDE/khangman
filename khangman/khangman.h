@@ -22,18 +22,22 @@
 #include <config.h>
 #endif
 
-#include <kapp.h>
-#include <qwidget.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qstring.h>
-#include <qlineedit.h>
-#include <qtooltip.h>
 #include <qcombobox.h>
-#include <qpixmap.h>
 #include <qevent.h>
-#include <kaccel.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qlineedit.h>
 #include <qmainwindow.h>
+#include <qpixmap.h>
+#include <qpushbutton.h>
+#include <qstring.h>
+#include <qtooltip.h>
+#include <qvariant.h>
+#include <qwidget.h>
+
+#include <kaccel.h>
+#include <kapp.h>
+#include <kdialog.h>
 #include <kstddirs.h>
 
 class KHangMan : public QWidget
@@ -62,10 +66,10 @@ class KHangMan : public QWidget
     QPixmap px[14];
     KAccel *accel1;
     KAccel *accel2;
-    QMainWindow *helpla;
     QPushButton *exit1;
     QLabel *helpla1;
 //    KhSplash *splash;
+     KDialog *helpla;
 
   public slots:
     void slotquit();
@@ -87,8 +91,10 @@ class KHangMan : public QWidget
  // void slotDel();
 //void slotGo();
 
+
   protected:
     void keyPressEvent(QKeyEvent *);
+     void resizeEvent(QResizeEvent *);
      /** destructor */
     ~KHangMan();
 };

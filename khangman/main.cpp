@@ -35,7 +35,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
 
-  KAboutData aboutData( "khangman - v0.2", I18N_NOOP("KHangMan"),
+    KAboutData aboutData( "khangman - v0.2", I18N_NOOP("KHangMan"),
     VERSION, description, KAboutData::License_GPL,
     "(c) 2001, Anne-Marie Mahfouf", 0, 0, "a-m.mahfouf@lineone.net");
   aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Maintainer, Author"), "a-m.mahfouf@lineone.net");
