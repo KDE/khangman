@@ -254,7 +254,7 @@ void KHangManView::game()
 	}
 	update();
 	//we open the file and store info into the stream...
-	QFile openFileStream(myFile.name());//locate("data","khangman/data/"+language+"/"+levelFile));
+	QFile openFileStream(myFile.name());
 	kdDebug() << locate("data","khangman/data/"+language+"/"+levelFile) << endl;
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
@@ -265,6 +265,7 @@ void KHangManView::game()
 	//detects if file is a kvtml file so that it's a hint enable file
 	if (allData.first() == "<?xml version=\"1.0\"?>") {
 		emit(signalKvtml(true));
+		kdDebug() << "---- Kvtml detected ------\n" << endl;
 		readFile();
 		}
 	else {
@@ -399,7 +400,6 @@ void KHangManView::slotSofter()
 
 }
 
-///Hint on right-click
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
 	if (kvtmlBool && hintBool && (mouse->button() == RightButton))
@@ -413,15 +413,19 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         update();//this is nice!
 }
 
-///enable tips
 void KHangManView::readFile()
 {
 	///TODO: be sure it's opened in UNICODE
-	KEduVocDataItemList verbs = KEduVocData::parse(locate("data","khangman/data/")+language+"/"+levelFile);
-	///how many words in the file
+	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
+	myString= locate("data", myString);
+	kdDebug() << "in kvtml: " << myString << endl;
+	KEduVocDataItemList verbs = KEduVocData::parse(myString);
+	//how many words in the file
 	int NumberOfWords = verbs.count();
 	//pick a number in random
 	int wordNumber = random.getLong(NumberOfWords);
+	if (wordNumber<=0) 
+		return;
 	//test if not twice the same
 	if (tmp==0)
 		temp=wordNumber;
