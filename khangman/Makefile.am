@@ -1,24 +1,24 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = khsplash.cpp khangman.cpp main.cpp 
-khangman_LDADD   =  $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) -lX11 $(LIBSOCKET)
 
-SUBDIRS = data sounds pics 
+## INCLUDES were found outside kdevelop specific part
 
-EXTRA_DIST = main.cpp khangman.cpp khangman.h khangman.desktop lo32-app-khangman.png lo16-app-khangman.png khsplash.cpp khsplash.h 
+khangman_SOURCES = khangman.cpp main.cpp khsplash.cpp 
+khangman_LDADD   =  $(LIBSOCKET)
+
+SUBDIRS = data pics sounds 
+
+EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop 
 
 install-data-local:
-	$(mkinstalldirs) $(kde_appsdir)/Edutainment/
-	$(INSTALL_DATA) $(srcdir)/khangman.desktop $(kde_appsdir)/Edutainment/khangman.desktop
-	$(mkinstalldirs) $(kde_icondir)/locolor/32x32/apps/
-	$(INSTALL_DATA) $(srcdir)/lo32-app-khangman.png $(kde_icondir)/locolor/32x32/apps/khangman.png
 	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
 	$(INSTALL_DATA) $(srcdir)/lo16-app-khangman.png $(kde_icondir)/locolor/16x16/apps/khangman.png
+	$(mkinstalldirs) $(kde_icondir)/locolor/32x32/apps/
+	$(INSTALL_DATA) $(srcdir)/lo32-app-khangman.png $(kde_icondir)/locolor/32x32/apps/khangman.png
 
 uninstall-local:
-	-rm -f $(kde_appsdir)/Applications/khangman.desktop
-	-rm -f $(kde_icondir)/locolor/32x32/apps/khangman.png
 	-rm -f $(kde_icondir)/locolor/16x16/apps/khangman.png
+	-rm -f $(kde_icondir)/locolor/32x32/apps/khangman.png
 
 ####### kdevelop will overwrite this part!!! (end)############
 # this 10 paths are KDE specific. Use them:

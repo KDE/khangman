@@ -18,6 +18,8 @@
 #ifndef KHANGMAN_H
 #define KHANGMAN_H
 
+#define KHM_VERSION "0.72"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -45,6 +47,10 @@
 #include <kdialog.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
+#include <kpopupmenu.h>
+#include <khelpmenu.h>
+#include <krandomsequence.h>
+
 
 class KHangMan : public QWidget
 {
@@ -52,6 +58,9 @@ class KHangMan : public QWidget
   public:
     /** construtor */
     KHangMan(QWidget* parent=0, const char *name=0);
+     /** destructor */
+    ~KHangMan();
+
      QString file1;
 
   public slots:
@@ -65,10 +74,10 @@ class KHangMan : public QWidget
     void slotNewgame();
     void game();
     void warning();
-    void slotHelp();
     void test1();
 
  private:
+	KRandomSequence random;
     QComboBox*level;
     QLabel *but[20];
     QLabel *guess[20];
@@ -93,11 +102,11 @@ class KHangMan : public QWidget
 
 
   protected:
+	KHelpMenu *helpMenu;
     void keyPressEvent(QKeyEvent *);
      void resizeEvent(QResizeEvent *);
+     void closeEvent(QCloseEvent *);
 
-     /** destructor */
-    ~KHangMan();
 };
 
 #endif

@@ -1,8 +1,8 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 
-SUBDIRS = khangman  
+SUBDIRS = khangman 
 
-EXTRA_DIST = khangman.kdevprj AUTHORS COPYING ChangeLog INSTALL README TODO khangman.lsm 
+EXTRA_DIST = TODO README AUTHORS khangman.lsm INSTALL ChangeLog COPYING khangman.kdevprj 
 
 ####### kdevelop will overwrite this part!!! (end)############
 # not a GNU package. You can remove this line, if 

@@ -33,7 +33,7 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 	setLineWidth(1);
 	show();
 	QString string1;
-	string1=locate("data","khangman/sounds/splash.wav");
+	string1=locate("data","khangman/sounds/splash.ogg");
 	KAudioPlayer::play(string1);
 
 	//allow the splash screen to be displayed 400 seconds

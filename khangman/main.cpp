@@ -20,12 +20,11 @@
 #include <klocale.h>
 
 #include "khsplash.h"
+#include "khangman.h"
 
 static const char *description =
     I18N_NOOP("Hangman Game");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
-
-static const char *version = "0.71";
 
 
 static KCmdLineOptions options[] =
@@ -38,12 +37,13 @@ int main(int argc, char *argv[])
 {
 
 	KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
-	                      version, description, KAboutData::License_GPL,
+	                      KHM_VERSION, description, KAboutData::License_GPL,
 	                      "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
-	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Maintainer, Author"), "annma@kde.org");
+	aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Current maintainer"), "zerokode@yahoo.com");
+	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Old maintainer, author"), "annma@kde.org");
 	aboutData.addCredit("Renaud Blanchard",
 	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
-    aboutData.addCredit("Primoz Primoz Anzur",
+    aboutData.addCredit("Primoz Anzur",
 	                    I18N_NOOP("Splash screen"), "zerokode@yahoo.com");
 	KCmdLineArgs::init( argc, argv, &aboutData );
 	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.

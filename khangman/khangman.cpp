@@ -24,7 +24,6 @@
 #include <qabstractlayout.h>
 
 #include "khangman.moc"
-#define KHM_VERSION 0.71
 //rd=random number <=30
 //k to position the labels with letters
 //z and y1 to positionne the labels with guesses letters
@@ -38,7 +37,7 @@
 //str[30] : store the words for level 'easy'
 //sto[26] store the already guessed letters
 
-int wordsnum=44;     //number of words/lines per data text files
+int wordsnum=44;     //number of words/lines per data text files  <-- is BAD idea... Needs to be dynamic...
 int  rd, k, z, y1, te, length, inc, b, u, ind=0, c0, c1, drap, drap2;
 QString let1, a1, s[20],st, str[45], sto[26];
 
@@ -47,6 +46,8 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 {
 	setCaption(i18n("KHangMan - v%1").arg(KHM_VERSION));
 	//main layout
+	//in 0.8 most of the code will go to /dev/null
+	
 	QGridLayout *Form1Layout = new QGridLayout( this );
 	Form1Layout->setSpacing( 6 );
 	Form1Layout->setMargin( 11 );
@@ -58,15 +59,18 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	help = new QPushButton(i18n( "&Help"), this,"help" );
 	help->setGeometry
 	(10,350, 60, 40);
-	help->setFont(QFont("Helvetica", 20, QFont::Bold));
-	QToolTip::add( help,i18n( "The KHangMan HandBook") );
+	help->setFont(QFont("Helvetica", 12, QFont::Normal));
+	QToolTip::add( help,i18n( "Help on KHangMan") );
 	//accel2 : enable F1 for 'Help'
-	accel2=new KAccel(this);
-	accel2->connectItem(KStdAccel::Help, this , SLOT(slotHelp()));
+//	accel2=new KAccel(this);
+//	accel2->connectItem(KStdAccel::Help, this , SLOT(slotHelp()));
 	Layout4->addWidget( help );
 
+	helpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData(), true);
+	help->setPopup(helpMenu->menu());
+
 	info = new QPushButton(i18n( "&Info"), this,"info" );
-	info->setFont(QFont("Helvetica", 20, QFont::Bold));
+	info->setFont(QFont("Helvetica", 12, QFont::Normal));
 	QToolTip::add( info,i18n( "Quick Information") );
 	QObject::connect (info, SIGNAL(clicked()), this, SLOT(slotInfo()));
 	Layout4->addWidget( info);
@@ -77,16 +81,17 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	level->insertItem( i18n("Animals"));
 	level->insertItem( i18n("Medium" ));
 	level->insertItem( i18n("Hard" ));
-	QFont f("Helvetica", 20, QFont::Bold);
+	QFont f("Helvetica", 12, QFont::Normal);
 	level->setGeometry
 	(80,350, 110, 40);
 	level->setFont( f );
+	level->setEditable(false);
 	QToolTip::add( level,i18n( "Choose easy, animals, medium or hard") );
 	QObject::connect( level, SIGNAL(activated(int)),SLOT(choice(int)));
 	Layout4->addWidget( level );
 
 	quit = new QPushButton(i18n( "&Quit"), this,"quit" );
-	quit->setFont(QFont("Helvetica", 20, QFont::Bold));
+	quit->setFont(QFont("Helvetica", 12, QFont::Normal));
 	QToolTip::add( quit,i18n( "Quit the game") );
 	QObject::connect (quit, SIGNAL(clicked()), this, SLOT(slotquit()));
    QAccel *a = new QAccel( quit );        // create accels for comb1
@@ -229,8 +234,9 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	Form1Layout->addLayout( Layout11, 0, 0 );
 
 	QObject::connect (line, SIGNAL(returnPressed()), this, SLOT(slotTreat()));
-	QObject::connect (help, SIGNAL(clicked()), this, SLOT(slotHelp()));
+	//QObject::connect (help, SIGNAL(clicked()), this, SLOT(slotHelp()));
 
+	//OK... We can leave the images to preload...
 	px[0].load(locate("data","khangman/pics/hg1.jpg"));
 	px[1].load(locate("data","khangman/pics/hg2.jpg"));
 	px[2].load(locate("data","khangman/pics/hg3.jpg"));
@@ -324,9 +330,8 @@ void KHangMan::game()
 	drap=0;
 	drap2=0;
 	//seed random function
-	srand((unsigned int)time((time_t *)NULL));
-	rd=rand()%wordsnum;  //pick a random number
-
+	rd=random.getLong(wordsnum);
+	
 	//02 char name[20];  //store the letters of the word
 	QString name;  //store the letters of the word
 	switch (ind)
@@ -537,7 +542,7 @@ void KHangMan::slotNewgame()
 	for (int y=0;y<inc;y++)
 		sto[y]="";
 	QString string1;
-	string1=locate("data","khangman/sounds/new_game.wav");
+	string1=locate("data","khangman/sounds/new_game.ogg");
 	KAudioPlayer::play(string1);
 	game();
 }
@@ -558,13 +563,7 @@ void KHangMan::keyPressEvent(QKeyEvent *ke)
 
 void  KHangMan:: slotquit()
 {
-	kapp->quit();
-}
-
-//display the KHangMan HandBook
-void KHangMan::slotHelp()
-{
-	kapp->invokeHelp("","");
+	kapp->quit(); //after this the KHM is still running...
 }
 
 //display a screen with a quick information
@@ -638,4 +637,10 @@ void KHangMan::resizeEvent(QResizeEvent*)
 }
 
 KHangMan::~KHangMan()
-{}
+{
+}
+
+void KHangMan::closeEvent(QCloseEvent *)
+{
+	exit(0);
+}

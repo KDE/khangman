@@ -1,3 +1,12 @@
+version 0.72
+14.April 2002
+New maintainer :)
+converted .wav to .ogg
+made the application actually close
+some UI rewrite (complete will be in 0.8)
+replaced the randomization code with KRandomSequence
+made a REAL help menu
+
 version 0.5
 31 July 2001
 began the first improvements suggested by danimo. Rewrote the layout for the
