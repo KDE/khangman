@@ -512,7 +512,7 @@ void KHangMan::optionsPreferences()
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
 	normal *mNormal =  new normal( 0, "Normal Settings" );
-	dialog->addPage(mNormal, i18n("Look And Feel"), "colorize");
+	dialog->addPage(mNormal, i18n("Look & Feel"), "colorize");
 	mAdvanced=  new advanced( 0, "Advanced" );
 	mAdvanced->kcfg_Hint->setEnabled( m_view->kvtmlBool);
 	mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
