@@ -41,6 +41,7 @@
 #include "prefs.h"
 #include "khnewstuff.h"
 #include "advanced.h"
+#include "normal.h"
 
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
@@ -53,10 +54,11 @@ KHangMan::KHangMan()
 {
 	levelString = "";
 	modeString = "";
-	mNewStuff = 0;
-	setLanguages();
+	mNewStuff = 0;	
 	// tell the KMainWindow that this is indeed the main widget
 	setCentralWidget(m_view);
+	
+	setLanguages();
 	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
 	// then, setup our actions, must be done after the language search
 	setupActions();
@@ -212,8 +214,6 @@ void KHangMan::changeMode()
    			break;
 	}
 	Prefs::writeConfig();
-	if (dialog)
-	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0 );
 }
 
 void KHangMan::loadSettings()
@@ -236,7 +236,6 @@ void KHangMan::loadSettings()
     	m_view->accent_b = Prefs::accentedLetters();
     	if (m_view->m_accent && m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
-    
     	loadDataFiles();
  
 	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
@@ -327,17 +326,13 @@ void KHangMan::changeLanguage(int newLanguage)
 	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
-	
-    	if (m_view->kvtmlBool&& dialog) 
-	      mNormal->kcfg_Hint->setEnabled( true);
+
     	slotHint();
     	setAccentBool();
 	m_bCharToolbar = Prefs::showCharToolbar();
    	 if (m_view->m_accent) 
     		slotAccents();
     	else {
-		if (dialog)
-			mNormal->kcfg_AccentedLetters->setEnabled(false);
     		changeStatusbar("", IDS_ACCENTS);
 		loadLangToolBar();
 		newGame();
@@ -364,16 +359,16 @@ void KHangMan::loadDataFiles()
 	QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
 	if (!mfiles.isEmpty())
 	{
-	for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
-		QFile f( *it);
-		//find the last / in the file name
-		int location = f.name().findRev("/");
-		//strip the string to keep only the filename and not the path
-		QString mString = f.name().right(f.name().length()-location-1);
-		mString = mString.left(mString.length()-4);
-		//Put the first letter in Upper case
-		mString = mString.replace(0, 1, mString.left(1).upper());
-		levels+=mString;
+		for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+			QFile f( *it);
+			//find the last / in the file name
+			int location = f.name().findRev("/");
+			//strip the string to keep only the filename and not the path
+			QString mString = f.name().right(f.name().length()-location-1);
+			mString = mString.left(mString.length()-4);
+			//Put the first letter in Upper case
+			mString = mString.replace(0, 1, mString.left(1).upper());
+			levels+=mString;
 	}
 	//TODO else tell no files had been found
 	}
@@ -408,8 +403,6 @@ void KHangMan::loadLangToolBar()
 	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
-
-	 //accentsAct->setEnabled(m_view->m_accent);
 	 
 	if (m_view->language == "ca")	{
 		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true,  i18n("Try ")+ QString::fromUtf8("à", -1), 1 );
@@ -730,15 +723,12 @@ void KHangMan::slotAccents()
 
 void KHangMan::slotHint()
 {
-	kdDebug() << "kvtmlBool: " << m_view->kvtmlBool << endl;
 	if (m_view->kvtmlBool)  {
-		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
 		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 	}
         m_view->hintBool=Prefs::hint();
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) 
 		changeStatusbar(i18n("Hint on right-click"), IDS_HINT);	
-	kdDebug() << Prefs::hint() << "hint" << endl;
 	if (!Prefs::hint())
 		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 }
@@ -747,29 +737,21 @@ void KHangMan::enableHint(bool m_bool)
 {
 	if (m_bool) {
 		m_view->kvtmlBool = true;
-		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
 	}
 	else
 	{
 		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
-		if(dialog) mNormal->kcfg_Hint->setEnabled(false);
 	}
 	slotHint();
 }
 
 void KHangMan::setAccentBool()
 {
-	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") {
-    		m_view->m_accent = true;
-		if (dialog)
-			mNormal->kcfg_AccentedLetters->setEnabled(true);
-	}	
-    	else {
+	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
+    		m_view->m_accent = true;	
+    	else 
 		m_view->m_accent = false;
-		if (dialog)
-			mNormal->kcfg_AccentedLetters->setEnabled(false);
-	}
 }
 
 void KHangMan::downloadNewStuff()
@@ -807,6 +789,7 @@ void KHangMan::setLanguages()
 	//write the present languages in config so they cannot be downloaded
 	KConfig *config=kapp->config();
 	config->setGroup("KNewStuffStatus");
+	kdDebug() << "------- Number : " << m_languages.count() << endl;
 	for (uint i=0;  i<m_languages.count(); i++)
 	{
 		QString tmp = m_languages[i];
@@ -837,14 +820,12 @@ void KHangMan::optionsPreferences()
         	return; 
  
 	//KConfigDialog didn't find an instance of this dialog, so lets create it : 
-	dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-	//dialog->setModal(true); //makes it modal even if it's not the default
-	mNormal =  new normal( 0, "Kids Settings" ); 
+	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
+	normal *mNormal =  new normal( 0, "Kids Settings" ); 
 	dialog->addPage(mNormal, i18n("Kids Settings"), "configure");
 	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
-	if (m_view->kvtmlBool) 
-	      mNormal->kcfg_Hint->setEnabled( true);
-	if (m_view->m_accent) mNormal->kcfg_AccentedLetters->setEnabled(true);
+        mNormal->kcfg_Hint->setEnabled( m_view->kvtmlBool);
+	mNormal->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
 	

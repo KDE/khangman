@@ -26,7 +26,6 @@
 #include <kapplication.h>
 #include <kmainwindow.h>
 
-#include "normal.h"
 #include "khangmanview.h"
 
 class KSelectAction;
@@ -35,7 +34,6 @@ class KToggleToolBarAction;
 class QPopupMenu;
 class KToolBar;
 class KHNewStuff;
-class KConfigDialog;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -73,13 +71,7 @@ public:
     ///Action for building the Languages menu
     KSelectAction *langAct;
     ///Build the Languages menu
-    void setupLangMenu();
-
-    ///A normal settings page instance of the Configure dialog
-    normal* mNormal;
-    
-    KConfigDialog* dialog;
-    
+    void setupLangMenu();   
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -212,7 +204,7 @@ private slots:
     void setupActions();
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
-     
+    
 private:
     ///Main view
     KHangManView *m_view;
