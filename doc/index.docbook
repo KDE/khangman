@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-04-03</date>
+<date>2003-04-28</date>
 <releaseinfo>1.0</releaseinfo>
 
 <abstract>
@@ -86,15 +86,15 @@ June 2000. </para>
 <sect1 id="general-usage">
 <title>General usage</title>
 
-<para>A word is displayed, hidden. You have to guess what the word is by trying
+<para>A word is displayed, hidden. You know how many letters there are in the word. You have to guess the word by trying
 a letter after another. The word is picked in random and it is not the same word twice consecutively.</para>
 
 <important><para>All words are nouns (no verbs, no adjectives).</para></important>
 
 <para>
 The first time you start the game, the default is easy, the language is English and there is no background picture.
-After your first game, your actual configuration is saved. Next time you play, your background, your choosen language and
-level will be restored.The level is displayed on the statusbar.
+After your first game, your current configuration is saved. Next time you play, your background, your choosen language and
+level will be restored. The level is displayed on the statusbar as well as the language.
 </para>
 <para>
 Each time you guess a letter that is not in the word, the hangman is drawn a
@@ -102,7 +102,7 @@ little further. You have 10 tries to guess the word. After that, the correct ans
 displayed.
 </para>
 <para>
-There are 4 levels : easy, medium, hard and animals :
+There are 4 levels : easy, medium, hard and animals.
 </para>
 <para>
 In the easy level, the words are quite simple, related to everyday life. It is
@@ -121,16 +121,19 @@ yes or not. If you say No, the game quits. If you say Yes, another word is ready
 
 <para>You type the letter you want to try in the field (the mouse cursor is ready in the field) and you hit the Enter key.
 If the letter belongs to the word, it takes its place, several times if necessary. If the letter does not belong to the
-word, it goes in the Misses field and a further part of the hangman is drawn on the right. You have ten tries and after that you loose and the correct
-word is displayed.
+word, it goes in the Misses field and a further part of the hangman is drawn on the right. You have ten tries and after that you loose and the correct word is displayed.
 </para>
 
 <para>During the Game, you can choose to start a new game by going in the Game menu and choose New or clicking
 on the New icon on the toolbar. You can also change the level with the level button on the toolbar (this will bring you
-a new word for the new level) or using the Settings menu and the Configure KHangman.. menu item in the menubar.</para>
+a new word for the new level).</para>
 
 <para>
 Future improvement will allow you to create your own words file or to load a file different from the four included ones.
+</para>
+
+<para>
+You can play KHangMan in four languages: English, French, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 </sect1>
@@ -140,7 +143,10 @@ Future improvement will allow you to create your own words file or to load a fil
 Try to guess the vowels first. Then have a go with the most common consonants : l, t, r, n, s
 </para>
 <para>
-When you see io, try n after that.
+When you see io, try n after that, in French and English.
+</para>
+<para>
+In Spanish, the accented vowels are discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a".
 </para>
 <para>
 Did you know?
@@ -175,7 +181,7 @@ First, <menuchoice><guimenuitem>Show Toolbar</guimenuitem></menuchoice> and
 <menuchoice><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> is a standard KDE setting that allows you to
 choose different shortcut keys for different actions. For example, Ctrl+Q is the standard shortcut for Quit.
 <menuchoice><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice> is also a standard KDE menu item that allows you to add or suppress
-items from the toolbar. <menuchoice><guimenuitem>Configure KHangMan...</guimenuitem></menuchoice> brings you a configuration dialog like the following:
+items from the toolbar. <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 </para>
 
 <screenshot>
@@ -190,12 +196,6 @@ items from the toolbar. <menuchoice><guimenuitem>Configure KHangMan...</guimenui
 	</mediaobject>
 </screenshot>
 
-<para>This dialog allows you to configure the background theme and the level.
-This two settings are also available on the toolbar with comboboxes. For the background theme, you can choose between No Background which brings you the usual gray palette, Blue Theme which is a blue and green picture and Nature Theme created by the father of 2 &khangman; users. You just click on the one you would like.
-</para>
-<para>
-Please note that the Apply button is only enabled after you make a change. If you click it, your new changes are taken in account and the main window is refreshed accordingly. The Cancel button cancels all changes that occured after Apply was clicked.
-</para>
 <para>
 The level is chosen with a combobox and you have easy, medium, animals and hard. Easy is related to common objects a child aged six or seven knows.
 Medium regards nouns a bit more challenging, hard is quite difficult and animals is only animals nouns.
@@ -210,7 +210,12 @@ Medium regards nouns a bit more challenging, hard is quite difficult and animals
 <title>Developer's Guide to &khangman;</title>
 
 <sect1 id="changing-words">
-<title>How to change the words for the game</title>
+<title>How to add words in a new language for the game</title>
+<para>
+Thanks to Stefan Asserh&#228;ll, it is very easy to add a new language directly to
+the game. The procedure which is written here can also be found in <filename class="directory">khangman</filename> source dir
+in the file <filename>README.languages</filename>.
+</para>
 
 <para>Download the <literal role="extension">tar.gz</literal> file of
 the latest version of &khangman;. Unpack it in a directory (<filename
@@ -222,24 +227,52 @@ are stored in 4 separate files, one for each level. The files are in
 <filename>animals.txt</filename> is for level animals and the file
 <filename>hard.txt</filename> is for level hard.</para>
 
-<para> Edit one of the file with your favorite editor (&eg; &kwrite; or
-&kate; or <application>Emacs</application>). Change the words by
-putting one word a line, the maximum letters in the word should be
-12. </para>
+<para>1. Enter the following commands in a konsole to create the directory
+   and files for the new language:
+  <userinput><command>
+     ./add_language &lt;language_code&gt;
+   </command></userinput>
 
-<para>Create your own files with one word per line and no white spaces.
+   Here you must replace &lt;language_code&gt; with your language code.</para>
+
+<para>2. Edit all indicated text files in the new directory with a text editor,
+   and replace each word with a translated word. It is not really important
+   that the exact meaning is preserved, but try to keep the length and
+   level of difficulty roughly the same.</para>
+
+<para>  You can just translate the words but you can also adapt them following the level
+   and add new words if you want. For example, "table" is in level easy in English but
+   in your language, it can be level medium. Feel free to adapt the files to your
+   language needs. The number of words in a file is not important, you can add some if you
+   want.</para>
+
+  <para> Note that you must use UTF-8 encoding when editing the files. If your
+   editor can't do this, try using kwrite or kate. When opening a file in
+   kwrite or kate you can select utf8 encoding with the top right combo box.
+
+   Please keep the actual english filenames in your language_code dir.</para>
+
+<para>3. Enter the following command to install the new data files:
+
+    <userinput><command> make</command></userinput>
+     <userinput><command>make install</command></userinput>
+
+   You may have to become root to run 'make install', depending on your
+   installation.</para>
+
+<para>4. Run the game and check that your language has been added:
+
+     <userinput><command>khangman</command></userinput>
+
+ </para>
+
+<para>5. Commit the new language files with the following command:
+
+    <userinput><command>
+     cvs commit -m "Added new language &lt;name_of_your_language&gt;"
+     </command></userinput>
 
 </para>
-
-<para> Save the file and do a <userinput><command>make</command>
-<option>install</option></userinput> as <systemitem
-class="username">root</systemitem> to install the file correctly if
-you already compiled the game. If not,
-<userinput><command>./configure</command>
-<option>--prefix=$<envar>KDEDIR</envar></option></userinput>,
-<userinput><command>make</command></userinput> and
-<userinput><command>make</command>
-<parameter>install</parameter></userinput> in a terminal.</para>
 
 </sect1>
 
