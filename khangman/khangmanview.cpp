@@ -71,16 +71,79 @@ void KHangManView::slotNewGame()
 
 void KHangManView::slotTry()
 {
+	sp_flag=false;
 	QString sChar = charWrite->text();
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
-	//if contains more than 1 character...
 	if (!sChar.isEmpty() && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...
 	{
-		if (allWords.contains(sChar) == 0)
+		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
+			if (language=="sp")
+			{
+				if (sChar=="i") sChar="í";
+				if (sChar=="a") sChar="á";
+				if (sChar=="u") sChar="ú";
+				if (sChar=="o") sChar="ó";
+				if (sChar=="e") sChar="é";
+				if (sChar=="u") sChar="ü";
+				if (word.contains(sChar) > 0)
+				{
+					int index=0;
+					sp_flag=true;
+					for (int count=0; count <word.contains(sChar); count++)
+					{
+						index = word.find(sChar,index);
+						goodWord.replace((2*index), 1,sChar);
+						index++;
+					}//end of for
+
+					QStringList rightChars=QStringList::split(" ", goodWord, true);
+					QString rightWord= rightChars.join("");
+					mainLabel->setText(goodWord);
+					allWords << sChar; //appends the list...
+					if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
+					{
+					//we reset everything...
+					pixImage->setPixmap(px[12]);
+					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+					{
+						sChar="";
+						slotNewGame();
+					}
+					else
+					{
+						kapp->quit();
+					}
+					}
+				}//end if word.contains(sChar)
+				if (sChar=="í") sChar="i";
+				if (sChar=="á") sChar="a";
+				if (sChar=="ú") sChar="u";
+				if (sChar=="ó") sChar="o";
+				if (sChar=="é") sChar="e";
+				if (sChar=="ü") sChar="u";
+
+				/*if (sChar=="á") sChar="à";
+				if (word.contains(sChar) > 0)
+				{
+				int index=0;
+				for (int count=0; count <word.contains(sChar); count++)
+				{
+				//searching for letter location
+				index = word.find(sChar,index);
+				//we replace it...
+				goodWord.replace((2*index), 1,sChar);
+				index++;
+				}//end of for
+				}
+				if (sChar=="à") sChar="a";*/
+				allWords << sChar; //appends the list...
+			}
+
 			if (word.contains(sChar) > 0)
 			{
+				//replace letter in the word
 				int index=0;
 				for (int count=0; count <word.contains(sChar); count++)
 				{
@@ -90,42 +153,6 @@ void KHangManView::slotTry()
 					goodWord.replace((2*index), 1,sChar);
 					index++;
 				}
-
-				if (language=="sp")
-				{
-				if (sChar=="i") sChar="í";
-				if (sChar=="a") sChar="á";
-				if (sChar=="u") sChar="ú";
-				if (sChar=="o") sChar="ó";
-				if (sChar=="e") sChar="é";
-				if (sChar=="u") sChar="ü";
-				index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-				//searching for letter location
-				index = word.find(sChar,index);
-				//we replace it...
-				goodWord.replace((2*index), 1,sChar);
-				index++;
-				}//end of for
-				if (sChar=="í") sChar="i";
-				if (sChar=="á") sChar="a";
-				if (sChar=="ú") sChar="u";
-				if (sChar=="ó") sChar="o";
-				if (sChar=="é") sChar="e";
-				if (sChar=="ü") sChar="u";
-				if (sChar=="a") sChar="à";
-				index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-				//searching for letter location
-				index = word.find(sChar,index);
-				//we replace it...
-				goodWord.replace((2*index), 1,sChar);
-				index++;
-				}//end of for
-				if (sChar=="à") sChar="a";
-				}//end of if (language=="sp")
 
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
@@ -144,8 +171,9 @@ void KHangManView::slotTry()
 						kapp->quit();
 					}
 				}
-			}//if the word contains more than zero
+			}//end if (word.contains(sChar) > 0)
 			else //if the char is missed...
+			if (sp_flag==false)
 			{
 				allWords << sChar; //appends the list...
 				if (missedChar<5)
@@ -181,16 +209,12 @@ void KHangManView::slotTry()
 					}
 				}
 			}
-		}
-		else //do something drastic... Word has already been guessed...
-		{
+		}//end if (allWords.contains(sChar) == 0)
+		else
 			KMessageBox::information (this, i18n("The letter has already been guessed."));
-		}
 	}
-
-//reset after guess...
+	//reset after guess...
 	charWrite->setText("");
-
 }
 
 void KHangManView::game()
@@ -226,13 +250,20 @@ void KHangManView::game()
 	{
 		slotNewGame();
 	}
+        goodWord ="";
+	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
 	{
-		goodWord.append("_ ");
+		goodWord.append("_");
+		goodWord.append(" ");
 	}
+
+	kdDebug() << "GoodWord: " << goodWord << endl;
 	mainLabel-> setText(goodWord);//display the _
-	setMinimumSize(480, 430);
+	//mainLabel->adjustSize();
+	mainLabel->setAlignment(AlignCenter|AlignCenter);
+	//setMinimumSize(480, 430);
 }
 
 void KHangManView::wipeout()

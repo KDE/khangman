@@ -31,20 +31,29 @@ public:
 
     virtual ~KHangManView();
 
+    	//levelFile is the text file containing the data
 	QString levelFile;
+	//language is the current language for data file
 	QString language;
-	QString word, word1;
+	//word is the random word to be guessed
+	QString word;
+	//goodWord is the hidden word that is filled in
 	QString goodWord;
 	QString missedL;
 	int missedChar;
+	//allWords contains all letters already guessed
 	QStringList allWords;
+	//mode
 	QString mode;
 	QPixmap bluePix;
 	QPixmap naturePix;
 
+	bool sp_flag;
+
 private:
 
 	KRandomSequence random;
+	//the hangman pictures
 	QPixmap px[13];
 
 signals:
@@ -68,8 +77,8 @@ public slots:
 private slots:
 
     void slotSetTitle(const QString& title);
-	void game();
-	void wipeout();
+    void game();
+    void wipeout();
 };
 
 #endif // _KHANGMANVIEW_H_

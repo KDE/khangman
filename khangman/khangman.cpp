@@ -286,7 +286,7 @@ void KHangMan::writeSettings()
   }
 }
 
-//when config is read, set the KComboBox to the right item
+//when config is read, set the KComboBox to the right level
 //and update statusbar
 void KHangMan::isLevel()
 {
@@ -303,6 +303,8 @@ void KHangMan::isLevel()
     changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
 }
 
+//when config is read, set the KComboBox to the right background
+//and call the corresponding slot in the main view to set the background
 void KHangMan::isMode()
 {
     if (modeString=="nobg")
