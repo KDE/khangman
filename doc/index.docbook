@@ -82,6 +82,13 @@ June 2000. </para>
 	</mediaobject>
 </screenshot>
 
+<para>
+Here you can see KHangMan as it is the first time you run it. Level is Easy, language is default (English here), there is no background theme and the hangman pictures are not transparent. Any changes in level, language or background mode are written in the configuration file and restored in your next game.
+</para>
+
+<para>
+Please note how easy it is to change the level and the background mode, just click on the comboboxes on the toolbar. Getting a new word and quitting the game are also easily done by clicking on the corresponding buttons on the toolbar.
+</para>
 
 <sect1 id="general-usage">
 <title>General usage</title>
@@ -92,9 +99,11 @@ a letter after another. The word is picked in random and it is not the same word
 <important><para>All words are nouns (no verbs, no adjectives).</para></important>
 
 <para>
-The first time you start the game, the default is easy, the language is English and there is no background picture.
-After your first game, your current configuration is saved. Next time you play, your background, your choosen language and
-level will be restored. The level is displayed on the statusbar as well as the language.
+It is not important wether you type in lower or upper case. The program converts all input in lower case.
+</para>
+
+<para>
+The current level and current language are displayed in the statusbar.
 </para>
 <para>
 Each time you guess a letter that is not in the word, the hangman is drawn a
@@ -134,6 +143,10 @@ Future improvement will allow you to create your own words file or to load a fil
 
 <para>
 You can play KHangMan in four languages: English, French, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+</para>
+
+<para>
+Please note that you need the keyboard layout corresponding to the language in order to display correctly special characters like for example accented letters.
 </para>
 
 </sect1>
@@ -197,6 +210,9 @@ items from the toolbar. <menuchoice><guimenuitem>Transparent Pictures</guimenuit
 </screenshot>
 
 <para>
+ Here you have KHangMan with the Blue theme, transparent  hangman pictures, Spanish language and level Hard.
+</para>
+<para>
 The level is chosen with a combobox and you have easy, medium, animals and hard. Easy is related to common objects a child aged six or seven knows.
 Medium regards nouns a bit more challenging, hard is quite difficult and animals is only animals nouns.
 </para>
@@ -217,9 +233,7 @@ the game. The procedure which is written here can also be found in <filename cla
 in the file <filename>README.languages</filename>.
 </para>
 
-<para>Download the <literal role="extension">tar.gz</literal> file of
-the latest version of &khangman;. Unpack it in a directory (<filename
-class="directory">/usr/local/bin</filename> for example). The words
+<para>Download the latest cvs version of &khangman;. The words
 are stored in 4 separate files, one for each level. The files are in
 <filename class="directory">/khangman/data</filename>. The file
 <filename>easy.txt</filename> is for level easy, the file
@@ -228,11 +242,13 @@ are stored in 4 separate files, one for each level. The files are in
 <filename>hard.txt</filename> is for level hard.</para>
 
 <para>1. Enter the following commands in a konsole to create the directory
-   and files for the new language:
+   and files for the new language:</para>
+ <para>
   <userinput><command>
      ./add_language &lt;language_code&gt;
    </command></userinput>
-
+</para>
+<para>
    Here you must replace &lt;language_code&gt; with your language code.</para>
 
 <para>2. Edit all indicated text files in the new directory with a text editor,
@@ -249,25 +265,33 @@ are stored in 4 separate files, one for each level. The files are in
   <para> Note that you must use UTF-8 encoding when editing the files. If your
    editor can't do this, try using kwrite or kate. When opening a file in
    kwrite or kate you can select utf8 encoding with the top right combo box.
+   </para>
 
+<para>
    Please keep the actual english filenames in your language_code dir.</para>
 
 <para>3. Enter the following command to install the new data files:
-
+</para>
+<para>
     <userinput><command> make</command></userinput>
+</para>
+<para>
      <userinput><command>make install</command></userinput>
-
+</para>
+<para>
    You may have to become root to run 'make install', depending on your
    installation.</para>
 
 <para>4. Run the game and check that your language has been added:
-
+</para>
+<para>
      <userinput><command>khangman</command></userinput>
 
  </para>
 
 <para>5. Commit the new language files with the following command:
-
+</para>
+<para>
     <userinput><command>
      cvs commit -m "Added new language &lt;name_of_your_language&gt;"
      </command></userinput>
@@ -324,11 +348,18 @@ Contributors:
 <email>ludovic.grossard AT libertysurf DOT fr</email></para> </listitem>
 <listitem><para>Blue theme, icons and code: Primoz Anzur
 <email>zerokode AT yahoo DOT com</email></para> </listitem>
+<listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserh&#228;ll
+<email>stefan DOT asserhall AT telia DOT com
+</email></para> </listitem>
 <listitem><para>Nature theme: Joe Bolin
 <email>jbolin AT users DOT sourceforge DOT net</email></para> </listitem>
-<listitem><para>spanish data files: eXParTaKus
+<listitem><para>Spanish data files: eXParTaKus
 <email>expartakus AT expartakus DOT com
 </email></para> </listitem>
+ <listitem><para>Coding help: Robert Gogolok
+<email>robertgogolok AT gmx DOT de</email></para> </listitem>
+ <listitem><para>Coding help: Benjamin Meyer
+<email>ben AT meyerhome DOT net</email></para> </listitem>
 </itemizedlist>
 </para>
 
