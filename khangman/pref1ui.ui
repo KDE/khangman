@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>222</width>
+            <width>228</width>
             <height>235</height>
         </rect>
     </property>
@@ -53,7 +53,7 @@
                             </rect>
                         </property>
                         <property name="text">
-                            <string>No Background</string>
+                            <string>No background</string>
                         </property>
                         <property name="toolTip" stdset="0">
                             <string>Set the "adult" Look and Feel</string>
@@ -75,7 +75,7 @@
                             </rect>
                         </property>
                         <property name="text">
-                            <string>Blue Theme</string>
+                            <string>Blue theme</string>
                         </property>
                         <property name="toolTip" stdset="0">
                             <string>Set the "blue" Look and Feel</string>
@@ -97,7 +97,7 @@
                             </rect>
                         </property>
                         <property name="text">
-                            <string>Nature Theme</string>
+                            <string>Nature theme</string>
                         </property>
                         <property name="toolTip" stdset="0">
                             <string>Set the "nature" Look and Feel</string>
@@ -195,4 +195,7 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>qwidget.h</includehint>
+</includehints>
 </UI>
