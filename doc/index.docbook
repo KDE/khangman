@@ -118,7 +118,7 @@ uppercase letter. The program does that automatically.
 </para>
 
 <para> 
-The current level and current language are displayed in the status bar.
+The current level and current language are displayed in the statusbar.
 </para>
 
 <para>
@@ -272,8 +272,8 @@ The <guimenu>Levels</guimenu> menu allows you to choose the level, &ie; the diff
 <para>
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
-<guimenuitem>Show Status bar</guimenuitem> give you the possibility to
-hide/show the Toolbars and Status bar.
+<guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
+hide/show the toolbars and statusbar.
 </para>
 
 <para>There are two toolbars: the main one which is the one on top
@@ -333,12 +333,19 @@ or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen level
- is  then displayed on the status bar.</para>
+ is  then displayed on the statusbar.</para>
 <para>Only letters are allowed to be typed in the text box.</para>
 </sect1>
 
 <sect1 id="settings">
 <title>Available Settings</title>
+<para>
+A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 combo boxes on the toolbar.
+</para>
+<para>
+In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for Look And Feel. 
+</para>
+
 <sect2 id="normal-settings">
 <title>Look And Feel</title>
 
@@ -354,29 +361,16 @@ quite difficult and animals is only animals nouns. </para>
 	</mediaobject>
 </screenshot>
 
-<para>
-A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 combo boxes on the toolbar.
-</para>
-<para>
-In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for Look And Feel. <guimenuitem>Transparent Pictures</guimenuitem> gives you the choice of having the hangman pictures transparent or not. <guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the choice of having the last of the hangman pictures milder. Milder pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children. Transparent and milder pictures are the defaults.
+<para>The HangMan Pictures section gives you the choice of having the hangman pictures <guimenuitem>Mild</guimenuitem> or <guimenuitem>Normal</guimenuitem>. <guimenuitem>Mild</guimenuitem> gives you the choice of having the last of the hangman pictures milder. Milder pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children and is the default. If you choose <guimenuitem>Normal</guimenuitem>, the man is hanged by the neck.
 </para>
 
-<para>Please note that transparent pictures for the hangman are not
-enabled in No Background mode. Transparency is only available with a
-picture background. By default, transparency is enabled.
+<para>You can also set the background picture. <guimenu>No background</guimenu> leaves everything gray while if you check <guimenu>Blue theme</guimenu> or <guimenu>Nature theme</guimenu>, you will have a nice background pictures. 
 </para>
 
 <para>
-For some languages, you can have special settings. These settings are not enabled if they are not available in the language you are currently playing. The first setting, Type Accented Letters, is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check Type Accented Letters then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
-</para>
-<para>
-Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if  you check that option, you can &RMB; click anywhere on the game and get a hint shown for four
-seconds. This hint should help you to guess the word
+In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a sound will be played on new game and another sound will be played when you win a game.
 </para>
 
-<para>
-In the Sounds section, if you check <guimenu>Enable Sound</guimenu> then a sound will be played on new game and another sound will be played when you win a game.
-</para>
 </sect2>
 <sect2 id="advanced-settings">
 <title>Advanced Settings</title>
@@ -394,7 +388,21 @@ In the Sounds section, if you check <guimenu>Enable Sound</guimenu> then a sound
 </screenshot>
 
 <para>
-If it is checked, <guimenu>Only One Letter Instance</guimenu> will display only the first instance of a letter if there are several same letters in the word. For example, if the word is 'potato' and you type 'o', then only the first 'o' will be displayed. You will have to type 'o' again to display the second instance of 'o' and a third 'o' will go to the missed letters. This increases the difficulty.
+The second tab deals with more advanced settings. Some settings are only available for a few languages and if not available in the language you are currently playing, these settings will then be disabled.
+</para>
+
+<para>The first setting let you choose the language for the words. This language will be your KDE language by default if available. Otherwise it will be English. English is shipped for everyone and all other data is shipped in the corresponding i18n module. Additionally you can download new languages using the <guimenu>Game</guimenu> <guimenuitem>Get Data in New Language...</guimenuitem> menu.
+</para>
+
+<para><guimenu>Type Accented Letters</guimenu> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check <guimenu> Type Accented Letters</guimenu>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
+</para>
+
+<para>
+Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if you check the option <guimenu>Show hints</guimenu>, you can &RMB; click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word more easily.
+</para>
+
+<para>
+If it is checked, <guimenu>Require more guesses for duplicate letters</guimenu> will display only the first hidden instance of a letter if there are several same letters in the word. For example, if the word is 'potato' and you type 'o', then only the first 'o' will be displayed. You will have to type 'o' again to display the second instance of 'o' and a third 'o' will go to the missed letters. This increases the difficulty.
 </para>
 
 <para>
@@ -510,9 +518,9 @@ If you check <guimenu>Do not display the "Congratulations! You Won" dialog</guim
 <term><menuchoice>
 
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Status bar</guimenuitem>
+<guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the Status bar</para></listitem>
+<listitem><para><action>Toggle</action> the statusbar</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -575,7 +583,11 @@ directly to the game. The procedure described here can also be
 found in the <filename class="directory">khangman</filename> source folder
 in the file <filename>README.languages</filename>. Please follow the procedure and then send me the files tarred and gzipped to annemarie.mahfouf@free.fr.
 </para>
-
+<para>
+The twenty available languages so far by code are: ca cs da de en es fr fi hu it nb nl nn pt pt_BR sl sr sr@Ltn sv and tg. If your language code is not among those, you can proceed further. 
+</para>
+<para>Among those languages, only fr, en and it have hints, please check the bottom of this page if you want to add hints in your language.
+</para>
 <para>Download the latest cvs version of &khangman;. The words
 are stored in 4 separate files, one for each level. The files are in
 <filename class="directory">/khangman/data/language_code</filename>. The file
