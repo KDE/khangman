@@ -1,9 +1,7 @@
 
-EXTRA_DIST = khm_splash.png hg10.jpg hg12.jpg hg1.jpg hg2.jpg hg3.jpg hg4.jpg hg5.jpg hg6.jpg hg7.jpg hg8.jpg hg9.jpg blue.png nature.png
+EXTRA_DIST = hg10.jpg hg12.jpg hg1.jpg hg2.jpg hg3.jpg hg4.jpg hg5.jpg hg6.jpg hg7.jpg hg8.jpg hg9.jpg blue.png nature.png
 
 install-data-local:
-	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
-	$(INSTALL_DATA) $(srcdir)/khm_splash.png $(kde_datadir)/khangman/pics/khm_splash.png
 	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
 	$(INSTALL_DATA) $(srcdir)/hg10.jpg $(kde_datadir)/khangman/pics/hg10.jpg
 	$(mkinstalldirs) $(kde_datadir)/khangman/pics/
@@ -32,7 +30,6 @@ install-data-local:
 	$(INSTALL_DATA) $(srcdir)/nature.png $(kde_datadir)/khangman/pics/nature.png
 
 uninstall-local:
-	-rm -f $(kde_datadir)/khangman/pics/khm_splash.png
 	-rm -f $(kde_datadir)/khangman/pics/hg10.jpg
 	-rm -f $(kde_datadir)/khangman/pics/hg12.jpg
 	-rm -f $(kde_datadir)/khangman/pics/hg1.jpg

@@ -41,6 +41,14 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 
 	bluePix = QPixmap(QPixmap(locate("data","khangman/pics/blue.png") ) );
 	naturePix = QPixmap(QPixmap(locate("data","khangman/pics/nature.png") ) );
+	if (bluePix.isNull() || naturePix.isNull())
+	{
+		QString mString=i18n("The backgrounds files are not found.\n"
+                                     "Check your installation, please!");
+		KMessageBox::sorry( this, mString,
+		                    i18n("KHangMan - Error") );
+		exit(1);
+	}
 	//put some warning if background file is not found
 
 	pixImage->setFixedSize(190, 230);

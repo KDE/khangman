@@ -1,11 +1,11 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = info.cpp infodlg.ui mainw.ui pref1ui.ui pref2ui.ui khangman.cpp main.cpp khangmanview.cpp pref.cpp
+khangman_SOURCES = mainw.ui pref1ui.ui pref2ui.ui khangman.cpp main.cpp khangmanview.cpp pref.cpp
 khangman_LDADD   =  $(LIB_KDEUI)
 
 SUBDIRS = data pics sounds
 
-EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui infodlg.ui pref1ui.ui pref2ui.ui info.cpp info.h khangmanview.h pref.h version.h
+EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui pref1ui.ui pref2ui.ui khangmanview.h pref.h version.h
 
 KDE_ICON = khangman
 
