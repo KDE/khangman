@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@kde.org>
+ * Copyright (C) 2003 Anne-Marie Mahfouf <annma@kde.org>
  */
 
 #ifndef _KHANGMANVIEW_H_
@@ -10,11 +10,9 @@
 #include <qstring.h>
 #include <qstringlist.h>
 #include <qwidget.h>
-//#include <qwidgetstack.h>
 
 #include <krandomsequence.h>
 
-//#include "mainviewadult.h"
 #include "mainw.h"
 
 
@@ -44,7 +42,6 @@ public:
 
 private:
 
-	//mainViewAdult *adultW;
 	KRandomSequence random;
 	QPixmap px[13];
 

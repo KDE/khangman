@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@laptop>
+ * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
  */
 
 #include <kapplication.h>

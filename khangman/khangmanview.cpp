@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@kde.org>
+ * Copyright (C) 2003 Anne-Marie Mahfouf <annma@kde.org>
  */
 
 //project headers
@@ -139,7 +139,6 @@ void KHangManView::slotTry()
 						kapp->quit();
 					}
 				}
-				//kdDebug() << missedChar << endl;
 			}
 		}
 		else //do something drastic... Word has already been guessed...
@@ -147,7 +146,6 @@ void KHangManView::slotTry()
 			KMessageBox::information (this, i18n("The letter has already been guessed."));
 		}
 	}
-	//kdDebug() <<word.contains(sChar) << endl;
 
 //reset after guess...
 	charWrite->setText("");
@@ -190,8 +188,6 @@ void KHangManView::game()
 	{
 		goodWord.append("_ ");
 	}
-
-	//kdDebug() << word << endl;
 	mainLabel-> setText(goodWord);
 }
 
