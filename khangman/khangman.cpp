@@ -158,17 +158,23 @@ void KHangMan::changeMode()
 	switch (modeAct->currentItem()) {
     	case 0:
 			Prefs::setNobg(true);
+			Prefs::setBlue(false);
+			Prefs::setNature(false);
 			Prefs::writeConfig();
 			m_view->slotNoBkgd();
     		break;
 
     	case 1:
 			Prefs::setBlue(true);
+			Prefs::setNature(false);
+			Prefs::setNobg(false);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->bluePix);
    			break;
     	case 2:
 			Prefs::setNature(true);
+			Prefs::setNobg(false);
+			Prefs::setBlue(false);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->naturePix);
    			break;
