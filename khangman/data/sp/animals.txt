@@ -6,8 +6,6 @@ canguro
 ballena
 caballo
 mono
-pájaro carpintero
-martín pescador
 serpiente
 girafa
 elefante
