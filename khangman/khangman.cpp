@@ -538,7 +538,7 @@ void KHangMan::updateSettings()
 	//Accented Letters
 	if (m_view->accent_b != Prefs::accentedLetters())
 		slotAccents();
-
+	m_view->readFile();
 	//Enable hint or not
 	if (m_view->hintBool != Prefs::hint())  {
     		m_view->hintBool= Prefs::hint();

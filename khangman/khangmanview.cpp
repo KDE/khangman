@@ -577,6 +577,8 @@ void KHangManView::readFile()
 	kdDebug() << "tip : " << tip << endl;
 	if (tip.isEmpty()) {
 		hintBool = false;
+		Prefs::setHint(false);
+		Prefs::writeConfig();
 		khangman ->changeStatusbar("", 103);}
 }
 
