@@ -150,6 +150,14 @@ void KHangManView::slotTry()
 					stripWord.replace(2*(d-1), 1, "");
 					stripWord.replace(2*(d-1)-1, 1, "");
 				}
+				/*if (g>0)  {
+					stripWord.replace(2*f, 1, "_");
+					stripWord.replace(2*f-1, 1, "_");
+				}*/
+				if (g>0)  {
+					stripWord.replace(2*(g-1), 1, "");
+					stripWord.replace(2*(g-1)-1, 1, "");
+				}
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				if (language =="de")

@@ -447,6 +447,10 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 1 );
 		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("è", -1), 2 );
 	}
+	else if (m_view->language == "nb")	{
+		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true,  i18n("Try ")+ QString::fromUtf8("ø", -1), 1 );;
+		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true,  i18n("Try ")+ QString::fromUtf8("å", -1), 2 );
+	}
 	else if (m_view->language == "de")	{
 		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ä", -1), 1 );
 		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("ö", -1), 2);  
