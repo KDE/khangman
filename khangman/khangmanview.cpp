@@ -159,20 +159,20 @@ void KHangManView::game()
 {
 	pixImage->setPixmap(px[10]);
 	//if the data files are not installed in the correct dir
-	QString myString=QString("khangman/data/%1").arg(levelFile);
+	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
 	QFile myFile;
 	myFile.setName(locate("data",myString));
-    if (!myFile.exists())
-    {
-		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1 not found!\n"
-                                     "Check your installation, please!").arg(levelFile);
+        if (!myFile.exists())
+        {
+		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+                                     "Check your installation, please!").arg(language).arg(levelFile);
 		KMessageBox::sorry( this, mString,
 		                    i18n("KHangMan - Error") );
 		exit(1);
 	}
 
 	//we open the file and store info into the stream...
-	QFile openFileStream(locate("data","khangman/data/")+levelFile);
+	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);

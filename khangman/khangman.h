@@ -17,7 +17,9 @@
 
 #include "khangmanview.h"
 
+class KToggleAction;
 class KComboBox;
+
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -41,9 +43,12 @@ public:
      */
     virtual ~KHangMan();
 
-	KComboBox *combo;
-	KComboBox *comboMode;
-	QString levelString, modeString;
+    KComboBox *combo;
+    KComboBox *comboMode;
+    QString levelString, modeString;
+    QString languageActions[3];
+    void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
+    void changeLanguage(uint newLanguage);
 
 protected:
     /**
@@ -63,6 +68,8 @@ protected:
 private slots:
     void fileNew();
 
+    void optionsShowToolbar();
+    void optionsShowStatusbar();
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
     void optionsPreferences();
@@ -70,13 +77,18 @@ private slots:
 
     void changeStatusbar(const QString& text);
     void changeCaption(const QString& text);
-	void slotLevel(int);
-	void slotMode(int index);
-	void isLevel();
-	void isMode();
+    void slotLevel(int);
+    void slotMode(int index);
+    void isLevel();
+    void isMode();
 
-	void readSettings();
-	void writeSettings();
+    void readSettings();
+    void writeSettings();
+
+    void language0();
+    void language1();
+
+    void setLanguage(int lang);
 
 private:
     void setupAccel();
@@ -84,7 +96,13 @@ private:
 
 private:
     KHangManView *m_view;
+
+    KToggleAction *m_toolbarAction;
+    KToggleAction *m_statusbarAction;
     KAction *newAct;
+
+   uint selectedLanguage,	// Number of selected language
+   languages;		// Total number of languages
 };
 
 #endif // _KHANGMAN_H_

@@ -32,6 +32,7 @@ public:
     virtual ~KHangManView();
 
 	QString levelFile;
+	QString language;
 	QString word;
 	QString goodWord;
 	QString missedL;

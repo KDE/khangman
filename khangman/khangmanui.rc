@@ -1,18 +1,22 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khangman" version="0.9">
+<kpartgui name="khangman" version="1">
 
 <MenuBar>
 	<Menu name="file" noMerge="1"><text>&amp;Game</text>
-	<Action name="file_new"/>
-	<Action name="file_quit"/>
-</Menu>
+		<Action name="file_new"/>
+		<Action name="file_quit"/>
+	</Menu>
+	<Menu name="languages" noMerge="1"><text>&amp;Languages</text>
+		<Action name="data_en"/>
+		<Action name="data_sp"/>
+	</Menu>
 </MenuBar>
 
-<ToolBar name="mainToolBar" noMerge="1"><Text>Main</Text>
+<ToolBar name="mainToolBar" noMerge="1"><text>Main</text>
 	<Action name="file_new"/>
 	<Action name="file_quit"/>
-    <Separator/>
-    <Action name="help_contents"/>
+        <Separator/>
+        <Action name="help_contents"/>
 </ToolBar>
 
 </kpartgui>
