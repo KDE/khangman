@@ -39,6 +39,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     //get background from config file - default is sea
     seaPicture = QPixmap(locate("data","khangman/pics/sea_theme.png") );
     bluePic = QPixmap(locate("data","khangman/pics/blue.png") );
+    miss_bluePic = QPixmap(locate("data","khangman/pics/miss_blue.png") );
     //now we preload the pixmaps...
     px[0].load(locate("data","khangman/pics/animation0.png"));
     px[1].load(locate("data","khangman/pics/animation1.png"));
@@ -212,6 +213,7 @@ void KHangManView::paintHangman()
     p.end();
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
+    paint.drawPixmap(QRect(width()-width()*200/700, 0, width()*222/700, height()*116/535), miss_bluePic);
     paint.setPen( QColor(148, 156, 167));
     QFont f = QFont("Domestic Manners");
     f.setPointSize(height()/14);
