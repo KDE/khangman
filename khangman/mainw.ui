@@ -407,7 +407,7 @@ _ _ _ _ _ _</string>
                             <cstring>PushButton16</cstring>
                         </property>
                         <property name="text">
-                            <string>Try...</string>
+                            <string>Try</string>
                         </property>
                     </widget>
                 </hbox>
