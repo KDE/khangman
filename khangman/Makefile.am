@@ -5,7 +5,7 @@ khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeduc
 
 SUBDIRS = data pics icons sounds 
 
-EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h khnewstuff.h
+EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h khnewstuff.h khangmanrc
 
 KDE_ICON = AUTO
 
@@ -20,7 +20,7 @@ METASOURCES = AUTO
 # the library search path.
 khangman_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-rc_DATA = khangmanui.rc
+rc_DATA = khangmanrc khangmanui.rc
 rcdir = $(kde_datadir)/khangman
 
 messages:  rc.cpp

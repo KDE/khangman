@@ -53,18 +53,16 @@ KHangMan::KHangMan()
 	levelString = "";
 	modeString = "";
 	mNewStuff = 0;
-	KConfig *cfg = KGlobal::config();
-	cfg->setGroup("KNewStuff");
-	cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
-	cfg->sync();
+	KConfig conf(locate("data", "khangman/khangmanrc"));
+	conf.setGroup("KNewStuff");
+	Prefs::setProvidersUrl(conf.readEntry("ProvidersUrl"));
+	Prefs::writeConfig();
 	setLanguages();
-	kdDebug() << "--------- before setCentralWidget -------- " <<  endl;
 	// tell the KMainWindow that this is indeed the main widget
 	setCentralWidget(m_view);
 	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
 	// then, setup our actions, must be done after the language search
 	setupActions();
-	kdDebug() << "--------- before StatusBar -------- " <<  endl;
 	// set up the status bar
 	statusBar( )->insertItem("   ",IDS_LEVEL, 0);
 	statusBar( )->insertItem("   ",IDS_LANG, 0);
@@ -75,7 +73,6 @@ KHangMan::KHangMan()
 	secondToolbar->setBarPos(KToolBar::Bottom);
 	connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
 	connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
-	kdDebug() << "--------- before LoadSettings -------- " <<  endl;
 	loadSettings();
 	loadLangToolBar();
 	setupLangMenu();

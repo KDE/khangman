@@ -74,14 +74,19 @@ public:
     KSelectAction *langAct;
     ///Build the Languages menu
     void setupLangMenu();
+
     ///A normal settings page instance of the Configure dialog
     normal* mNormal;
     
     KConfigDialog* dialog;
     
-    ///Update the text in the Statusbar
+    /**
+    Update the text in the Statusbar
+    @param text the text that will be written in the statusbar
+    @param id the label in which the text will be written
+    */
     void changeStatusbar(const QString& text, int id);
-    
+
 private:
     ///hold the current level
     QString levelString;
@@ -110,8 +115,9 @@ private slots:
      *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
      */
     void newToolbarConfig();
-
-    ///Update the text in the caption in the main window
+    /**Update the text in the caption in the main window
+    @param text the new text that will be written as caption in the window
+    */
     void changeCaption(const QString& text);
     ///this slot is called when the user changes level with the level combobox in the toolbar
     void changeLevel();
@@ -129,16 +135,23 @@ private slots:
     void setMode_WindowState();
     ///Read settings from config file khangmanrc or set defaults if none
     void loadSettings();
-    ///Switch to another language using the Languages menu
+    /**Switch to another language using the Languages menu
+    @param newLanguage the index of the new selected language in the menu
+    */
     void changeLanguage(int newLanguage);
     ///Convenient slot to call changeLanguage slot
     void slotLanguage();
-    ///Set the current language in the view and update the statusbar
+    /**Set the current language in the view and update the statusbar
+    @param lang the code of the currently selected language
+    */
     void setLanguage(QString lang);
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
-    ///Slot to toggle the full screen mode	
-    void slotSetFullScreen( bool );
+    /**
+    Slot to toggle the full screen mode	
+    @param set the state of the Full Screen Mode ToggleMenu, true if toggled
+    */
+    void slotSetFullScreen( bool set);
     ///Populate the second toolbar with the correct buttons if the current language has special characters
     void loadLangToolBar();
     ///When the a tilde button is clicked, a tilde is written in the lineedit

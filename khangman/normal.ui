@@ -52,7 +52,7 @@
                                 <string>Check it if you want transparent hangman pictures</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>When checked, the hangman pictures are transparent, they have no grey background</string>
+                                <string>When checked, the hangman pictures are transparent, they have no grey background. By default, this box is checked and thus transparent pictures are enabled as default.</string>
                             </property>
                         </widget>
                         <widget class="QCheckBox">
@@ -70,7 +70,7 @@
                             </property>
                             <property name="whatsThis" stdset="0">
                                 <string>KHangMan comes with 2 sets of hangman pictures. The set by default is the softer pictures: the man is not hung by the neck but by the hand. If you uncheck this option, you will get the usual hangman pictures: the man is hung by the neck.
-For younger kids, it is prefered to leave this box checked and thus use the softer pictures.</string>
+For younger kids, it is prefered to leave this box checked and thus use the softer pictures. This is the default.</string>
                             </property>
                         </widget>
                     </vbox>
@@ -110,7 +110,8 @@ For younger kids, it is prefered to leave this box checked and thus use the soft
                                 <string>In some languages, if this is checked, you have to type yourself accented letters. They are differencied from the normal letter if this is checked.</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If this is disabled, then the selected language does not support it. If this is enabled and if you check it. then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.</string>
+                                <string>If this is &lt;b&gt;disabled&lt;/b&gt;, then the selected language does not support it. If this is &lt;b&gt;enabled&lt;/b&gt; and if you check it, then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.
+Default is that accented letters will be shown when the corresponding letter is guessed.</string>
                             </property>
                         </widget>
                         <widget class="QCheckBox">
@@ -157,7 +158,8 @@ If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get 
                         <string>If checked, sounds will be played for New Game and Win Game</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.</string>
+                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
+Default is no sound.</string>
                     </property>
                 </widget>
             </vbox>
