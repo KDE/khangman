@@ -472,6 +472,7 @@ void KHangMan::setLanguages()
 		if (!config->readEntry(tmp))
 			config->writeEntry(tmp, QDate::currentDate().toString());
 	}
+	m_languages.sort();
 	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
 	//to find the name of the country
 	//corresponding to the code and the language the user set
@@ -487,16 +488,19 @@ void KHangMan::setLanguages()
 		else
 		m_languageNames.append(entry.readEntry("Name"));
 	}
+	//never sort m_languageNames as it's m_languages translated 
 	m_sortedNames = m_languageNames;
-	kdDebug() << m_sortedNames << endl;
 }
 
 void KHangMan::optionsPreferences()
 {
 	setLanguages(); //so the KNewStuff is taken into account
-	if ( KConfigDialog::showDialog( "settings" ) )
+	if ( KConfigDialog::showDialog( "settings" ) )  {
+		mAdvanced->kcfg_LanguageCombobox->clear();
+		mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
+		mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
         	return;
-
+	}
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
 	normal *mNormal =  new normal( 0, "Normal Settings" );
@@ -508,6 +512,7 @@ void KHangMan::optionsPreferences()
 	mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
 	mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+	connect(dialog, SIGNAL(okClicked()), dialog, SLOT(close()));
 	dialog->show();
 }
 
