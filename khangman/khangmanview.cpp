@@ -169,15 +169,9 @@ void KHangManView::paintWord()
     paint.begin(paletteBackgroundPixmap());
     paint.setPen( QColor(148, 156, 167));
     paint.setFont(QFont("Arial", 32));
-    paint.drawPixmap(QRect(width()/50-100, height()-height()/10-80, width()*366/700, height()*126/535), bluePic);
-       //QRect aux;
-    //TODO the rectangle does not adapt correctly to the word size
-       // aux = paint.boundingRect(QRect(), AlignLeft, goodWord);
-        //aux.moveBy(width()/50, height()-height()/10);
-    //TODO fill it so it blends into the background
-        //paint.fillRect(aux, QColor(41, 60, 123));
+    //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
+    paint.drawPixmap(QRect(0, height()-height()*126/535, width()*366/700, height()*126/535), bluePic);
     paint.drawText(width()/50, height()-height()/10, goodWord);
-    //paint.setPen( QColor(148, 156, 167));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -192,7 +186,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite_font.setPointSize( height()/18 );
     charWrite_font.setFamily( "Dustimo Roman" );
     charWrite->setFont( charWrite_font ); 
-    guessButton->setFont(QFont("Dustimo Roman", height()/20, QFont::Bold));
+    guessButton->setFont(QFont("Dustimo Roman", height()/22));
     guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
     //bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -218,9 +212,8 @@ void KHangManView::paintHangman()
     QFont f = QFont("Domestic Manners");
     f.setPointSize(height()/14);
     paint.setFont(f);
-    //paint.setFont(QFont("Steve", height()/14));
     QString misses = i18n("Misses");
-    paint.drawText(width()/2+width()/30, height()/12, misses);
+    paint.drawText(width()/2+30, height()/13, misses);
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
     paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
     paint.end();
@@ -233,8 +226,8 @@ void KHangManView::slotTry()
     kdDebug() << "sChar as entered: " << sChar << endl;
 //    if (language=="de")
       //  upperBool = true;
-  //  if ((!upperBool))
-   //     sChar = sChar.lower();
+    //if ((!upperBool))
+    sChar = sChar.lower();
     if (sChar.at(0).isLetter()) {//if the char is a letter
         if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
                 if (containsChar(sChar)) {
