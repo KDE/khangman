@@ -504,6 +504,8 @@ void KHangMan::setLanguages()
 void KHangMan::optionsPreferences()
 {
 	setLanguages(); //so the KNewStuff is taken into account
+	Prefs::setLanguageCombobox(m_languages.findIndex(Prefs::selectedLanguage()));
+	Prefs::writeConfig();
 	if ( KConfigDialog::showDialog( "settings" ) )  {
 		mAdvanced->kcfg_LanguageCombobox->clear();
 		mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
