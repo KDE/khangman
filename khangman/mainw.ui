@@ -1,0 +1,457 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>MainW</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>MainW</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>560</width>
+            <height>360</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>0</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>560</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="maximumSize">
+        <size>
+            <width>560</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="sizeIncrement">
+        <size>
+            <width>560</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="baseSize">
+        <size>
+            <width>560</width>
+            <height>360</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>MainW</string>
+    </property>
+    <widget class="QFrame">
+        <property name="name">
+            <cstring>Frame6_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>400</x>
+                <y>10</y>
+                <width>158</width>
+                <height>270</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Raised</enum>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QLayoutWidget" row="0" column="0">
+                <property name="name">
+                    <cstring>Layout3</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>0</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>btnClose</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&amp;Close</string>
+                        </property>
+                    </widget>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>btnInfo</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&amp;Info</string>
+                        </property>
+                    </widget>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>btnHelp</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&amp;Help</string>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name" stdset="0">
+                            <cstring>Spacer1</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>btnNew</cstring>
+                        </property>
+                        <property name="text">
+                            <string>New game</string>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name" stdset="0">
+                            <cstring>Spacer2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QFrame">
+                        <property name="name">
+                            <cstring>Frame6</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QComboBox" row="1" column="0">
+                                <item>
+                                    <property name="text">
+                                        <string>Easy</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Animals</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Medium</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Hard</string>
+                                    </property>
+                                </item>
+                                <property name="name">
+                                    <cstring>boxLevel</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel1_2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Level:</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                </vbox>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QFrame">
+        <property name="name">
+            <cstring>Frame11</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>50</x>
+                <y>290</y>
+                <width>430</width>
+                <height>53</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Raised</enum>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QLayoutWidget" row="0" column="0">
+                <property name="name">
+                    <cstring>Layout3</cstring>
+                </property>
+                <hbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>0</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>TextLabel3</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Letter:</string>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name" stdset="0">
+                            <cstring>Spacer7</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>charWrite</cstring>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Helvetica [Adobe]</family>
+                                <pointsize>12</pointsize>
+                            </font>
+                        </property>
+                        <property name="frameShape">
+                            <enum>LineEditPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Sunken</enum>
+                        </property>
+                        <property name="maxLength">
+                            <number>1</number>
+                        </property>
+                        <property name="frame">
+                            <bool>true</bool>
+                        </property>
+                        <property name="alignment">
+                            <set>AlignHCenter</set>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name" stdset="0">
+                            <cstring>Spacer8</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>PushButton16</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Try...</string>
+                        </property>
+                    </widget>
+                </hbox>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>mainLabel</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>240</y>
+                <width>380</width>
+                <height>27</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <pointsize>22</pointsize>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="frameShape">
+            <enum>NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Plain</enum>
+        </property>
+        <property name="text">
+            <string>Word goes here...</string>
+        </property>
+        <property name="alignment">
+            <set>AlignCenter</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>pixImage</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>240</x>
+                <y>20</y>
+                <width>150</width>
+                <height>170</height>
+            </rect>
+        </property>
+        <property name="scaledContents">
+            <bool>true</bool>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>missedLetters</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>40</x>
+                <y>30</y>
+                <width>138</width>
+                <height>58</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <family>Helvetica [Adobe]</family>
+                <pointsize>24</pointsize>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="text">
+            <string>_ _ _ _ _ _ 
+_ _ _ _ _ _ _</string>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>btnClose</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotClose()</slot>
+    </connection>
+    <connection>
+        <sender>btnInfo</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotInfo()</slot>
+    </connection>
+    <connection>
+        <sender>btnNew</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotNewGame()</slot>
+    </connection>
+    <connection>
+        <sender>boxLevel</sender>
+        <signal>activated(int)</signal>
+        <receiver>MainW</receiver>
+        <slot>slotGetLevel(int)</slot>
+    </connection>
+    <connection>
+        <sender>PushButton16</sender>
+        <signal>clicked()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotTry()</slot>
+    </connection>
+    <connection>
+        <sender>charWrite</sender>
+        <signal>returnPressed()</signal>
+        <receiver>MainW</receiver>
+        <slot>slotTry()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotTry()</slot>
+    <slot>slotClose()</slot>
+    <slot>slotGetLevel(int level)</slot>
+    <slot>slotInfo()</slot>
+    <slot>slotNewGame()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

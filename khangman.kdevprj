@@ -28,13 +28,13 @@ libtool_dir=
 path_to_bin_program=./khangman
 
 [General]
-AMChanged=true
+AMChanged=false
 author=Whitehawk Stormchaser
 configure_args=\s--build=i386-linux --host=i386-linux --target=i386-linux\s
 dir_where_make_will_be_called=./
 email=zerokode@yahoo.com
 kdevprj_version=1.3
-lfv_open_groups=Headers
+lfv_open_groups=Headers,Sources
 make_options=\s-j1
 makefiles=Makefile.am,khangman/Makefile.am,khangman/sounds/Makefile.am,khangman/pics/Makefile.am,khangman/data/Makefile.am,
 modifyMakefiles=true
@@ -93,14 +93,20 @@ install_location=
 type=DATA
 
 [khangman/Makefile.am]
-files=khangman/khsplash.h,khangman/khsplash.cpp,khangman/main.cpp,khangman/lo16-app-khangman.png,khangman/khangman.cpp,khangman/lo32-app-khangman.png,khangman/khangman.h,khangman/khangman.desktop,khangman/hi16-app-khangman.png,khangman/hi32-app-khangman.png
+files=khangman/khsplash.h,khangman/khsplash.cpp,khangman/main.cpp,khangman/lo16-app-khangman.png,khangman/khangman.cpp,khangman/lo32-app-khangman.png,khangman/khangman.h,khangman/khangman.desktop,khangman/hi16-app-khangman.png,khangman/hi32-app-khangman.png,khangman/mainw.ui,khangman/infodlg.ui,khangman/info.cpp,khangman/info.h
 sub_dirs=data,pics,sounds,
 type=prog_main
 
 [khangman/data/Makefile.am]
-files=khangman/data/level2.txt,khangman/data/level3.txt,khangman/data/level4.txt,khangman/data/easy.txt,
+files=khangman/data/easy.txt,khangman/data/animals.txt,khangman/data/hard.txt,khangman/data/medium.txt
 sub_dirs=
 type=normal
+
+[khangman/data/animals.txt]
+dist=true
+install=true
+install_location=$$(kde_datadir)/khangman/data/animals.txt
+type=DATA
 
 [khangman/data/easy.txt]
 dist=true
@@ -108,22 +114,16 @@ install=true
 install_location=$$(kde_datadir)/khangman/data/easy.txt
 type=DATA
 
-[khangman/data/level2.txt]
+[khangman/data/hard.txt]
 dist=true
 install=true
-install_location=$$(kde_datadir)/khangman/data/level2.txt
+install_location=$$(kde_datadir)/khangman/data/hard.txt
 type=DATA
 
-[khangman/data/level3.txt]
+[khangman/data/medium.txt]
 dist=true
 install=true
-install_location=$$(kde_datadir)/khangman/data/level3.txt
-type=DATA
-
-[khangman/data/level4.txt]
-dist=true
-install=true
-install_location=$$(kde_datadir)/khangman/data/level4.txt
+install_location=$$(kde_datadir)/khangman/data/medium.txt
 type=DATA
 
 [khangman/hi16-app-khangman.png]
@@ -137,6 +137,24 @@ dist=true
 install=true
 install_location=$$(kde_icondir)/hicolor/32x32/apps/khangman.png
 type=DATA
+
+[khangman/info.cpp]
+dist=true
+install=false
+install_location=
+type=SOURCE
+
+[khangman/info.h]
+dist=true
+install=false
+install_location=
+type=HEADER
+
+[khangman/infodlg.ui]
+dist=true
+install=false
+install_location=
+type=SOURCE
 
 [khangman/khangman.cpp]
 dist=true
@@ -181,6 +199,12 @@ install_location=$$(kde_icondir)/locolor/32x32/apps/khangman.png
 type=DATA
 
 [khangman/main.cpp]
+dist=true
+install=false
+install_location=
+type=SOURCE
+
+[khangman/mainw.ui]
 dist=true
 install=false
 install_location=

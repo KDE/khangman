@@ -1,11 +1,11 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = khangman.cpp main.cpp khsplash.cpp 
+khangman_SOURCES = info.cpp infodlg.ui mainw.ui khangman.cpp main.cpp khsplash.cpp 
 khangman_LDADD   =  $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
 
 SUBDIRS = data pics sounds 
 
-EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop hi16-app-khangman.png hi32-app-khangman.png 
+EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop hi16-app-khangman.png hi32-app-khangman.png mainw.ui infodlg.ui info.cpp info.h 
 
 install-data-local:
 	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/

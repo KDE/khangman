@@ -18,30 +18,29 @@
 #ifndef KHANGMAN_H
 #define KHANGMAN_H
 
-#define KHM_VERSION "0.72"
+#define KHM_VERSION "0.79"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
+//extern GUI...
+#include "mainw.h"
+#include "info.h"
+
 //Qt headers
 #include <qcombobox.h>
-#include <qevent.h>
 #include <qfile.h>
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <qpixmap.h>
 #include <qpushbutton.h>
-#include <qlayout.h>
 #include <qmainwindow.h>
-#include <qstring.h>
-#include <qtextstream.h>
-#include <qtooltip.h>
-#include <qvariant.h>
 #include <qwidget.h>
+#include <qstringlist.h>
+#include <qtextstream.h>
 
 //KDE headers
-#include <kaccel.h>
 #include <kapplication.h>
 #include <kaudioplayer.h>
 #include <kdialog.h>
@@ -52,60 +51,36 @@
 #include <krandomsequence.h>
 
 
-class KHangMan : public QWidget
+class KHangMan : public MainW
 {
   Q_OBJECT
-  public:
+public:
     /** construtor */
     KHangMan(QWidget* parent=0, const char *name=0);
      /** destructor */
     ~KHangMan();
+	QString levelFile;
+	QString word;
+	QString goodWord;
+	QString missedL;
+	int missedChar;
+	QStringList allWords;
 
-     QString file1;
+public slots:
+	virtual void slotClose();
+	virtual void slotGetLevel(int level);
+	virtual void slotInfo();
+	virtual void slotNewGame();
+	virtual void slotTry();
+	void game();
 
-  public slots:
-    void slotquit();
-    void slotTreat();
-    void slotShow();
-    void slotNext();
-    void choice(int index);
-    void choice1();
-    void slotInfo();
-    void slotNewgame();
-    void game();
-    void warning();
-    void test1();
-
- private:
+private:
 	KRandomSequence random;
-    QComboBox*level;
-    QLabel *but[20];
-    QLabel *guess[20];
-    QLabel *lab1;
-    QLabel *lab2;
-    QLabel *lab3[26];
-    QLabel *lab4;
-    QLabel *lab8;
-    QLineEdit *line;
-    QPushButton *help;
-    QPushButton *info;
-    QPushButton *lab5;
-    QPushButton *lab6;
-    QPushButton *lab7;
-    QPushButton *quit;
-    QPixmap px[14];
-    KAccel *accel1;
-    KAccel *accel2;
-    QPushButton *exit1;
-    QLabel *helpla1;
-    KDialog *helpla;
+	QPixmap px[13];
 
-
-  protected:
+protected:
 	KHelpMenu *helpMenu;
-    void keyPressEvent(QKeyEvent *);
-     void resizeEvent(QResizeEvent *);
-     void closeEvent(QCloseEvent *);
+	void closeEvent(QCloseEvent *);
 
 };
 
