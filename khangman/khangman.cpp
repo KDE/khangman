@@ -355,7 +355,7 @@ void KHangMan::loadLangToolBar()
 					"check your installation.").arg(m_view->language);
 		KMessageBox::sorry( this, mString,
 					i18n("Error") );
-		exit(1);
+		qApp->exit(1);
 	}
 	update();
 	//we open the file and store info into the stream...
