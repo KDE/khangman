@@ -191,7 +191,7 @@ private:
     KToggleAction *softAct;
     KToggleAction *hintAct;
     KToggleAction *accentsAct;
-    KToggleToolBarAction *secondAct;
+    //KToggleToolBarAction *secondAct;
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
     ///Full-Screen mode action

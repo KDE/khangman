@@ -77,7 +77,6 @@ KHangMan::KHangMan()
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
     connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
-    m_bCharToolbar=true;
     loadSettings();
     loadLangToolBar();
     setupLangMenu();
@@ -96,7 +95,7 @@ void KHangMan::setupActions()
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
-    secondAct = new KToggleToolBarAction(secondToolbar, i18n("Special Characters"), actionCollection(), "second_act");
+    //secondAct = new KToggleToolBarAction(secondToolbar, i18n("Special Characters"), actionCollection(), "second_act");
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
     langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
@@ -272,7 +271,7 @@ void KHangMan::loadSettings()
     QString oldLevel = levelString;
 
     // Show/hide characters toolbar
-    m_bCharToolbar = config->readBoolEntry( "showCharToolbar", true);
+    m_bCharToolbar = config->readBoolEntry( "showCharToolbar", false);
     if (m_bCharToolbar) secondToolbar->show();
     else secondToolbar->hide();
     
@@ -490,6 +489,8 @@ void KHangMan::slotSofter()
 
 void KHangMan::loadLangToolBar()
 {
+	if (secondToolbar->isVisible() && (m_view->language != "en" || m_view->language != "it"))
+	    m_bCharToolbar=true;
 	secondToolbar->clear();
  	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
      		accentsAct->setEnabled(true);
@@ -551,10 +552,9 @@ void KHangMan::loadLangToolBar()
 	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
-		secondAct->setChecked(true);
 	}
 	else secondToolbar->hide();
-	if (m_view->language == "en" || m_view->language == "it")
+	if (m_view->language == "en" || m_view->language == "it")//no special chars in those languages
 		secondToolbar->hide();
 }
 

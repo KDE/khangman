@@ -37,5 +37,4 @@
         <Separator/>
         <Action name="combo_mode"/>
 </ToolBar>
-
 </kpartgui>
