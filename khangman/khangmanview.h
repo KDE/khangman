@@ -20,7 +20,9 @@
 
 class KPushButton;
 class KHangMan;
-
+#include <krandomsequence.h>
+//from libkdeedu
+#include <keduvocdata.h>
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
  * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
@@ -57,8 +59,7 @@ protected:
     void resizeEvent(QResizeEvent *);
     ///set the background pixmap to the QPixmap argument
     void slotSetPixmap(QPixmap& );
-
-    void game();
+    
     QString missedL;
 
     QString temp;
@@ -90,12 +91,33 @@ protected:
     QPixmap px[11];
     
     void paintWord();
+    
+    void reset();
+    
+    void game();
 
+    void readFile();
+    ///If true, the uppercase and lower case are disctincts (world capitals)
+    bool upperBool;
+    ///KDE random generator
+    KRandomSequence random;
+    ///true if hint is enabled for the fiels that support it
+    bool hintBool;
+    //QRect aux;
 public slots:
 
-
+    void slotNewGame();
 private slots:
     void slotTry();
+
+    
+signals:
+    /**
+    * Use this signal to change the content of the statusbar
+    */
+    void signalChangeLanguage(int);
+    ///emit this signal to say if this is a kvtml file or not (hints enabled or not)
+    void signalKvtml(bool);
 };
 
 #endif // KHANGMANVIEW_H

@@ -10,7 +10,7 @@
             <default code="true">0</default>
         </entry>-->
         <entry name="LevelFile" type="String">
-            <default>"Animals.kvtml"</default>
+            <default code="true">"animals.kvtml"</default>
         </entry>
         <!--<entry name="ShowCharToolbar" type="Bool">
             <label>Show the characters toolbar</label>
@@ -78,10 +78,6 @@
             <label>The language has special accented letters</label>
             <default code="true">false</default>
         </entry>
-        <entry name="Hint" type="Bool">
-            <label>Enable Hint mode if available</label>
-            <default code="true">false</default>
-        </entry>
         <entry name="OneLetter" type="Bool">
             <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
             <default code="true">false</default>
@@ -101,4 +97,10 @@
              <default code="true">"http://edu.kde.org/khangman/downloads/providers.xml"</default>
         </entry> 
     </group>-->
+    <group name="advanced">
+            <entry name="Hint" type="Bool">
+            <label>Enable Hint mode if available</label>
+            <default code="true">false</default>
+        </entry>
+        </group>
 </kcfg>

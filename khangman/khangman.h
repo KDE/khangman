@@ -43,14 +43,21 @@ class KHangMan : public KMainWindow
     Q_OBJECT
 public:
     /**
-     * Default Constructor
-     */
+    * Default Constructor
+    */
     KHangMan();
 
     /**
-     * Default Destructor
-     */
+    * Default Destructor
+    */
     virtual ~KHangMan();
+    
+    /**
+    Update the text in the Statusbar
+    @param text the text that will be written in the statusbar
+    @param id the label in which the text will be written
+    */
+    void changeStatusbar(const QString& text, int id);
 
 protected:
     ///Main view
@@ -67,12 +74,7 @@ protected:
     void setupActions();
 
     void setupStatusbar();
-    /**
-    Update the text in the Statusbar
-    @param text the text that will be written in the statusbar
-    @param id the label in which the text will be written
-    */
-    void changeStatusbar(const QString& text, int id);
+
     ///Selected language
     QString selectedLanguage;
     ///Translated names of languages
@@ -95,6 +97,7 @@ protected:
     QString levelString;
 
     void loadLevels();
+private:
 
 protected slots:
 

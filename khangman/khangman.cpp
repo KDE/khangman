@@ -50,10 +50,10 @@ KHangMan::KHangMan()
     setupActions();
 
     loadSettings();
-    loadLevels();
+    //loadLevels();
     //setupToolbars();
-    
-
+    connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
+    m_view->slotNewGame();
 }
 
 KHangMan::~KHangMan()
@@ -62,7 +62,7 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-    newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , this, SLOT(slotNewGame()), actionCollection(), "file_new");
+    newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
     newAct->setToolTip(i18n( "Play with a new word" ));
     new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
     KStdAction::quit(kapp, SLOT(quit()), actionCollection());
@@ -123,7 +123,7 @@ void KHangMan::slotChangeLevel()
     //Prefs::setLevel( currentLevel);
     //Prefs::setLevelFile(m_view->levelFile);
     //Prefs::writeConfig();
-    //newGame();
+    m_view->slotNewGame();
 }
 
 void KHangMan::setLanguages()
@@ -200,13 +200,17 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     if (currentLevel > (uint) levels.count()) currentLevel= 0;
-    if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
+    kdDebug() << "language " << Prefs::selectedLanguage() << endl;
+    kdDebug() << "level in setLevel() 1 " << Prefs::levelFile() << endl;
+    /*TODO see if necessary if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
         //set first file in the levels StringList
         Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
         Prefs::writeConfig();
         currentLevel = 0;
-        }
+}*/
 //    m_view->levelFile = Prefs::levelFile();
+        
+        kdDebug() << "level in setLevel() 2 " << Prefs::levelFile() << endl;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
     //levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
