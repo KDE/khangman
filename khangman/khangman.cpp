@@ -77,6 +77,9 @@ void KHangMan::setupActions()
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+    m_bFullScreen = false;
+    m_pFullScreen = new KAction( i18n( "&Full-Screen Mode" ), "window_fullscreen", CTRL+SHIFT+Key_F, this,
+        SLOT( slotToggleFullScreen() ), actionCollection(), "fullscreen" );
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
@@ -382,6 +385,25 @@ void KHangMan::loadDataFiles()
     }
     levels.sort();
     levelAct->setItems(levels);
+}
+
+void KHangMan::slotToggleFullScreen( )
+{
+   m_bFullScreen = !m_bFullScreen;
+   if( m_bFullScreen ){
+      menuBar()->hide();
+      showFullScreen();
+
+      m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
+      m_pFullScreen->setIcon( "window_nofullscreen" );
+   } else {
+      menuBar()->show();
+
+      showNormal();
+
+      m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
+      m_pFullScreen->setIcon( "window_fullscreen" );
+   }
 }
 
 #include "khangman.moc"

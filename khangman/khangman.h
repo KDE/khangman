@@ -109,6 +109,8 @@ private slots:
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
 
+    void slotToggleFullScreen();
+
 private:
     void setupAccel();
     void setupActions();
@@ -124,7 +126,10 @@ private:
     KToggleAction *transAct;
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
+    ///Full-Screen mode action
+    KAction* m_pFullScreen;
 
+    bool m_bFullScreen;
     ///Number of the selected language
     int selectedLanguage;
     ///Language codes of available languages
