@@ -250,7 +250,6 @@ void KHangMan::changeMode()
 //read settings from config file khangmanrc
 void KHangMan::loadSettings()
 {
-    bool startNewGame = false;
     // Language
     //load the kdeglobals config file - safer way would be to load that one read-only
     KConfigBase *globalConf = KGlobal::config();
@@ -287,14 +286,10 @@ void KHangMan::loadSettings()
     m_view->hintBool = config->readBoolEntry( "hint", true);
     if (m_view->hintBool) hintAct->setChecked(true);
     else hintAct->setChecked(false);
-    
-    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
+
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
-    m_view->levelFile = QString("%1.%1").arg(levelString).arg("txt");
-    if (oldLevel!=levelString) {
-      setLevel_WindowState();
-      startNewGame = true;
-    }
+    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
+    setLevel_WindowState();
 
      // Background
     QString oldMode = modeString;
@@ -316,9 +311,6 @@ void KHangMan::loadSettings()
     m_view->softer = config->readBoolEntry( "softer", true);
     m_view->slotSofter();
     }
-    softAct->setChecked(m_view->softer);
-
-     if(startNewGame) newGame();
  }
 
 void KHangMan::setSelectedLanguage(QString mLanguage)

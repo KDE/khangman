@@ -262,6 +262,7 @@ void KHangManView::game()
 	openFileStream.close();
 	//now the calculations...
 	int objects = allData.count();//number of words in the file
+	word ="";
 	//picks a random word from allData
 	while (word.isEmpty())
 	word = allData[random.getLong(objects)]; //gives us a single word...
@@ -276,9 +277,8 @@ void KHangManView::game()
 	}//end of test
 	word = word.lower(); //because of German
 	}//end else if lanlanguage=fr
-	kdDebug() << word << endl;
-		
-        goodWord ="";
+	//kdDebug() << word << endl;
+	goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
