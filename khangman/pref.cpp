@@ -22,8 +22,10 @@ KHangManPreferences::KHangManPreferences()
     : KDialogBase(TreeList, i18n("KHangMan Preferences"),
                   Help|Default|Ok|Apply|Cancel, Ok)
 {
+     //disable the Apply button before any changes are made
      enableButton( Apply, false);
      configChanged = false;
+     levelChanged = true;
 
     QFrame *frame;
     frame = addPage(i18n("Game"), i18n("Look & Feel and Level"));
@@ -33,6 +35,7 @@ KHangManPreferences::KHangManPreferences()
      // m_pageTwo = new KHangManPrefPageTwo(frame);
 
     readConfig();
+    //set the values read in config file
     slotSet();
     cancelBool=false;
     QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotMode(int)));
@@ -91,6 +94,8 @@ void KHangManPreferences::slotApply()
 	enableButton( Apply, false );
         configChanged = false;
 	writeConfig();
+	//emit a signal which is connected to a slot in khangman.cpp
+	emit aClicked();
 }
 
 //Don't validate the new changes in the dialog (after Apply was hit) and close the dialog
@@ -157,6 +162,7 @@ void KHangManPreferences::slotLevel(int id)
 		break;*/
 	enableButton( Apply, false );
         configChanged = false;
+	levelChanged = true;
 	}
 }
 
@@ -174,10 +180,12 @@ void KHangManPreferences::writeConfig()
 	}
 }
 
+//called whenever a change has been made in the settings
+//Apply button is enabled so it can be clicked to apply the changes
 void KHangManPreferences::slotChanged()
 {
-  enableButton( Apply, true );
-  configChanged = true;
+    enableButton( Apply, true );
+    configChanged = true;
 }
 
 

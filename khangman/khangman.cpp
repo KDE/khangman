@@ -25,7 +25,7 @@
 #include <ktoolbar.h>
 //Project headers
 #include "khangman.h"
-#include "pref.h"
+//#include "pref.h"
 
 const int IDS_LEVEL     = 100;
 const int IDS_LANG       = 101;
@@ -84,9 +84,7 @@ KHangMan::KHangMan()
 	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
         QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
 
-	//kdDebug()<<"modeString = " << modeString <<endl;
-
-        isLevel();
+	isLevel();
 	isMode();
 	fileNew();
 }
@@ -180,16 +178,12 @@ void KHangMan::newToolbarConfig()
 
 void KHangMan::optionsPreferences()
 {
-    KHangManPreferences dlg;
-	dlg.resize(450, 340);
+    dlg.resize(450, 340);
+    QObject::connect(&dlg, SIGNAL(aClicked()), this, SLOT(slotClickApply()));
     if (dlg.exec())
     {
         // redo your settings
     }
-	readSettings();
-	isLevel();
-	isMode();
-	if (dlg.cancelBool==false) fileNew();
 }
 
 void KHangMan::changeStatusbar(const QString& text, int id)
@@ -377,6 +371,21 @@ void KHangMan::setLanguage(int lang)
 	break;
 	}
     changeStatusbar(i18n("Language: ")+language, IDS_LANG);
+}
+
+//when Apply button in Preferences dialog is clicked, refresh view
+void KHangMan::slotClickApply()
+{
+	kdDebug() << modeString << endl;
+	modeString = dlg.modeString;
+	isMode();
+	if (dlg.levelChanged)
+	{
+		levelString = dlg.levelString;
+		isLevel();
+		m_view->levelFile = levelString+".txt";
+	}
+	if (dlg.cancelBool==false || dlg.levelChanged == true) fileNew();
 }
 
 #include "khangman.moc"

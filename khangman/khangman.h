@@ -16,6 +16,7 @@
 #include <kmainwindow.h>
 
 #include "khangmanview.h"
+#include "pref.h"
 
 class KToggleAction;
 class KComboBox;
@@ -49,6 +50,7 @@ public:
     QString languageActions[4];
     void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
     void changeLanguage(uint newLanguage);
+    KHangManPreferences dlg;
 
 protected:
     /**
@@ -64,6 +66,8 @@ protected:
      */
     void readProperties(KConfig *);
 
+public slots:
+        void slotClickApply();
 
 private slots:
     void fileNew();

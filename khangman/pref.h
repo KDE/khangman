@@ -22,6 +22,7 @@ public:
 
 	QString levelString, modeString;
 	bool cancelBool;
+	bool levelChanged;
 
 private:
     KHangManPrefPageOne *m_pageOne;
@@ -40,13 +41,16 @@ private slots:
 	void slotMode(int);
 	void slotLevel(int);
 	void slotChanged();
+
+signals:
+	void aClicked();
 };
 
 class KHangManPrefPageOne : public pref1ui
 {
     Q_OBJECT
 public:
-    KHangManPrefPageOne(QWidget *parent = 0);
+        KHangManPrefPageOne(QWidget *parent = 0);
 	QString modeString;
 
 private slots:
