@@ -319,7 +319,7 @@ void KHangMan::changeLanguage(int newLanguage)
     if (newLanguage == selectedLanguage)
 	return;
 
-    // Unselect preceeding language
+    // Unselect preceding language
     langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
     for (int id = 0; id < (int) m_languageNames.count(); id++)
     	langPopup->setItemChecked(id, id == newLanguage);
