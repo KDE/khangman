@@ -215,6 +215,7 @@ void KHangManView::game()
 		goodWord.append("_ ");
 	}
 	mainLabel-> setText(goodWord);//display the _
+	setMinimumSize(480, 430);
 }
 
 void KHangManView::wipeout()
