@@ -22,23 +22,22 @@
 #include <config.h>
 #endif
 
-#include <qcombobox.h>
-#include <qevent.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qlineedit.h>
-#include <qmainwindow.h>
-#include <qpixmap.h>
-#include <qpushbutton.h>
-#include <qstring.h>
-#include <qtooltip.h>
-#include <qvariant.h>
-#include <qwidget.h>
-
-#include <kaccel.h>
 #include <kapp.h>
-#include <kdialog.h>
+#include <qwidget.h>
+#include <qpushbutton.h>
+#include <qlabel.h>
+#include <qstring.h>
+#include <qlineedit.h>
+#include <qtooltip.h>
+#include <qcombobox.h>
+#include <qpixmap.h>
+#include <qevent.h>
+#include <kaccel.h>
+#include <qmainwindow.h>
 #include <kstddirs.h>
+#include <kdialog.h>
+#include <qlayout.h>
+#include <qvariant.h>
 
 class KHangMan : public QWidget
 {
@@ -48,6 +47,7 @@ class KHangMan : public QWidget
     KHangMan(QWidget* parent=0, const char *name=0);
 
     QComboBox*level;
+
     QLabel *but[20];
     QLabel *guess[20];
     QLabel *lab1;
