@@ -1,93 +1,97 @@
-/***************************************************************************
-                          khangman.h  -  description
-                             -------------------
-    begin                : Thu Jul 19 16:42:53 EDT 2001
-    copyright            : (C) 2001 by Anne-Marie Mahfouf
-    email                : a-m.mahfouf@lineone.net
- ***************************************************************************/
+/*
+ * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@kde.org>
+ */
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
-#ifndef KHANGMAN_H
-#define KHANGMAN_H
-
-#define KHM_VERSION "0.8"
+#ifndef _KHANGMAN_H_
+#define _KHANGMAN_H_
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-//standard C++ connections...
-#include <stdlib.h>
-
-//extern GUI...
-#include "mainw.h"
-#include "info.h"
-
-//Qt headers
-#include <qcombobox.h>
-#include <qfile.h>
-#include <qlabel.h>
-#include <qlineedit.h>
 #include <qpixmap.h>
-#include <qpushbutton.h>
-#include <qmainwindow.h>
-#include <qwidget.h>
-#include <qstringlist.h>
-#include <qtextstream.h>
+#include <qstring.h>
 
-//KDE headers
 #include <kapplication.h>
-#include <kaudioplayer.h>
-#include <kdialog.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kpopupmenu.h>
-#include <khelpmenu.h>
-#include <krandomsequence.h>
+#include <kmainwindow.h>
+
+#include "khangmanview.h"
+
+class KToggleAction;
+class KComboBox;
 
 
-class KHangMan : public MainW
+/**
+ * This class serves as the main window for KHangMan.  It handles the
+ * menus, toolbars, and status bars.
+ *
+ * @short Main window class
+ * @author $AUTHOR <$EMAIL>
+ * @version $APP_VERSION
+ */
+class KHangMan : public KMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-    /** construtor */
-    KHangMan(QWidget* parent=0, const char *name=0);
-     /** destructor */
-    ~KHangMan();
-	QString levelFile;
-	QString word;
-	QString goodWord;
-	QString missedL;
-	int missedChar;
-	QStringList allWords;	
+    /**
+     * Default Constructor
+     */
+    KHangMan();
 
-public slots:
-	virtual void slotClose();
-	virtual void slotGetLevel(int level);
-	virtual void slotInfo();
-	virtual void slotNewGame();
-	virtual void slotTry();
-	virtual void slotOptions();
-	void game();
-	void wipeout();
-	virtual void getOptions();
+    /**
+     * Default Destructor
+     */
+    virtual ~KHangMan();
 
-private:
-	KRandomSequence random;
-	QPixmap px[13];
+	KComboBox *combo;
+	KComboBox *comboMode;
+	QString levelString, modeString;
 
 protected:
-	KHelpMenu *helpMenu;
-	void closeEvent(QCloseEvent *);
+    /**
+     * This function is called when it is time for the app to save its
+     * properties for session management purposes.
+     */
+    void saveProperties(KConfig *);
 
+    /**
+     * This function is called when this app is restored.  The KConfig
+     * object points to the session management config file that was saved
+     * with @ref saveProperties
+     */
+    void readProperties(KConfig *);
+
+
+private slots:
+    void fileNew();
+
+    void optionsShowToolbar();
+    void optionsShowStatusbar();
+    void optionsConfigureKeys();
+    void optionsConfigureToolbars();
+    void optionsPreferences();
+    void newToolbarConfig();
+
+    void changeStatusbar(const QString& text);
+    void changeCaption(const QString& text);
+	void slotLevel(int);
+	void slotMode(int index);
+	void isLevel();
+	void isMode();
+
+	void readSettings();
+	void writeSettings();
+
+private:
+    void setupAccel();
+    void setupActions();
+
+private:
+    KHangManView *m_view;
+
+    KToggleAction *m_toolbarAction;
+    KToggleAction *m_statusbarAction;
+	KAction *newAct;
 };
 
-#endif
+#endif // _KHANGMAN_H_

@@ -1,296 +1,282 @@
-/***************************************************************************
-                          khangman.cpp  -  description
-                             -------------------
-    begin                : Thu Jul 19 16:42:53 EDT 2001
-    copyright            : (C) 2001 by Anne-Marie Mahfouf
-    email                : a-m.mahfouf@lineone.net
- ***************************************************************************/
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+/*
+ * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@kde.org>
+ */
 
-#include "khangman.h"
-#include <qlayout.h>
-#include <klocale.h>
+//Qt headers
+#include <qtooltip.h>
+#include <qwhatsthis.h>
+//KDE headers
+#include <kaccel.h>
+#include <kaction.h>
+#include <kcombobox.h>
+#include <kconfig.h>
 #include <kdebug.h>
-#include <qtoolbutton.h>
-#include "khangman.moc"
+#include <kedittoolbar.h>
+#include <kglobal.h>
+#include <kglobalsettings.h>
+#include <kiconloader.h>
+#include <kkeydialog.h>
+#include <klocale.h>
+#include <kmenubar.h>
+#include <kstatusbar.h>
+#include <kstdaccel.h>
+#include <kstdaction.h>
+#include <kstddirs.h>
+#include <ktoolbar.h>
+//Project headers
+#include "khangman.h"
+#include "pref.h"
 
-KHangMan::KHangMan(QWidget *parent, const char *name) : MainW(parent, name)
+
+KHangMan::KHangMan()
+    : KMainWindow( 0, "KHangMan" ),
+      m_view(new KHangManView(this))
 {
-//set the usuall stuff...
-	setIcon(locate("icon","hicolor/16x16/apps/khangman.png"));
-	setCaption(i18n("KHangMan %1").arg(KHM_VERSION));
-	missedChar = 0;
-	modeAdult->hide();
 
-	
-//plugs in the Help menu...
-	helpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData(), true);
-	helpMenu->menu()->insertSeparator(-1);
-	helpMenu->menu()->insertItem(QPixmap( locate("icon","hicolor/16x16/actions/info.png") ), "&Info",this,SLOT(slotInfo()) );
-	//kdDebug() << locate("icon","hicolor/16x16/actions/info.png") << endl;
-	btnHelp->setPopup(helpMenu->menu());
+    // tell the KMainWindow that this is indeed the main widget
+    setCentralWidget(m_view);
 
-//now we preload the pixmaps...
-	px[0].load(locate("data","khangman/pics/hg1.jpg"));
-	px[1].load(locate("data","khangman/pics/hg2.jpg"));
-	px[2].load(locate("data","khangman/pics/hg3.jpg"));
-	px[3].load(locate("data","khangman/pics/hg4.jpg"));
-	px[4].load(locate("data","khangman/pics/hg5.jpg"));
-	px[5].load(locate("data","khangman/pics/hg6.jpg"));
-	px[6].load(locate("data","khangman/pics/hg7.jpg"));
-	px[7].load(locate("data","khangman/pics/hg8.jpg"));
-	px[8].load(locate("data","khangman/pics/hg9.jpg"));
-	px[9].load(locate("data","khangman/pics/hg10.jpg"));
-	px[10].load(locate("data","khangman/pics/hg12.jpg"));
-	px[11].load(locate("data","khangman/pics/hg13.jpg"));
-	px[12].load(locate("data","khangman/pics/hg14.jpg"));
+    // then, setup our actions
+    setupActions();
 
-//...and we se the first image into the pixmap container...
-	pixImage->setPixmap(px[10]);
+    // and a status bar
+    statusBar()->show();
 
-//start with the game...
-	slotNewGame();
-}
+    // allow the view to change the statusbar and caption
+    connect(m_view, SIGNAL(signalChangeStatusbar(const QString&)),
+            this,   SLOT(changeStatusbar(const QString&)));
+    connect(m_view, SIGNAL(signalChangeCaption(const QString&)),
+            this,   SLOT(changeCaption(const QString&)));
 
-void KHangMan::game()
-{
-pixImage->setPixmap(px[10]);
-//code from previous KHM....
-	switch(boxLevel->currentItem())
-	{
-		case 0: //easy
-			kdDebug() << "Easy!" << endl;
-			levelFile="easy.txt";
-		break;
-
-		case 1: //animals
-			kdDebug() << "Animals" << endl;
-			levelFile="animals.txt";
-		break;
-
-		case 2: //medium
-			kdDebug() << "Medium!" << endl;
-			levelFile="medium.txt";
-		break;
-
-		case 3://hard
-			kdDebug() << "Hard!" << endl;
-			levelFile="hard.txt";
-		break;
-	}
-
-//we open the file and store info into the stream...
-	QFile openFileStream(locate("data","khangman/data/")+levelFile);
-	openFileStream.open(IO_ReadOnly);
-	QTextStream readFileStr(&openFileStream);
-//	kdDebug() << readFileStr.read() << endl;
-	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
-	openFileStream.close();
-
-//now the calculations...
-	int objects = allData.count();
-	word = allData[random.getLong(objects)]; //gives us a single word...
-	// int wrdLen=word.length(); //the length of the word...
-	if (word.stripWhiteSpace() == "") //prevents to display the empty places...
-	{
-		slotNewGame();
-	}
-//engine...
-	for(unsigned int i = 0; i < word.length(); i++)
-	{
-		goodWord.append("_ ");
-	}
-
-	//kdDebug() << word << endl;
-	mainLabel-> setText(goodWord);
-}
-
-void KHangMan::slotGetLevel(int level)
-{
-	slotNewGame();
-}
-
-void KHangMan::slotNewGame()
-{
-	wipeout();
-	game();
-//focus is now set to the letter pad...
-	charWrite->setFocus();
-}
-
-void  KHangMan::slotClose()
-{
-	kapp->quit(); //this closes ONLY this widget... QCloseEvent kills the app...
-}
-
-//display a screen with a quick information
-void KHangMan::slotInfo()
-{
-	Info * info = new Info();
-	info->show();
-}
-
-void KHangMan::slotTry()
-{
-	QString sChar = charWrite->text();
-	missedL=missedLetters->text();
-
-//if contains more than 1 character...
-	if (sChar!="" && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...
-	{
-		if (allWords.contains(sChar) == 0)
-		{
-			if (word.contains(sChar) > 0)
-			{
-				int index=0;
-				for (int count=0; count <word.contains(sChar); count++)
-				{
-					//searching for letter location
-					index = word.find(sChar,index);
-					//we replace it...
-					goodWord.replace((2*index), 1,sChar);
-					index++;
-				}
-				QStringList rightChars=QStringList::split(" ", goodWord, true);
-				QString rightWord= rightChars.join("");
-				mainLabel->setText(goodWord);
-				allWords << sChar; //appends the list...
-				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
-				{
-					//we reset everything...
-					pixImage->setPixmap(px[12]);
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-					{
-						slotNewGame();
-					}
-					else
-					{
-						close();
-					}
-				}
-			}
-			else //if the char is missed...
-			{
-				allWords << sChar; //appends the list...
-				if (missedChar<6)
-				missedL=missedL.replace(2*missedChar,1, sChar);
-				else if(missedChar>6)
-				missedL=missedL.replace((2*missedChar)+1,1, sChar);
-				
-				if (missedChar==6) //we actually need to relace one underscore too much..
-				{
-					missedL=missedL.replace(2*missedChar,1, "\n"+sChar+" ");
-					missedL=missedL.replace(24,2, "");
-				}
-				
-				missedLetters->setText(missedL);
-				pixImage->setPixmap(px[missedChar]);
-				missedChar++;
-				if (missedChar >= 11) //you are hanged!
-				{
-					//we reset everything...
-					pixImage->setPixmap(px[11]);
-					//um... The word is not guessed... Let's show it...
-					QStringList charList=QStringList::split("",word);
-					QString theWord=charList.join(" ");
-					mainLabel->setText(theWord);
-					
-					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
-					{
-						slotNewGame();
-					}
-					else
-					{
-						close();
-					}
-				}
-				kdDebug() << missedChar << endl;
-			}
-		}
-		else //do something drastic... Word has already been guessed...
-		{
-			KMessageBox::information (this, i18n("The letter has already been guessed."));
-		}
-	}
-	kdDebug() <<word.contains(sChar) << endl;
-
-//reset after guess...
-	charWrite->setText("");
+	toolBar()->insertSeparator(-1, 1); //id=1 for separator
+	toolBar()->insertCombo("easy", 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
+	combo = toolBar()->getCombo(2);
+	combo->insertItem("medium", 1);
+	combo->insertItem("hard", 2);
+	combo->insertItem("animals", 3);
+	//combo->insertItem("own", 4);
+    QToolTip::add( combo, i18n( "Choose the level" ) );
+    QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
+	toolBar()->insertSeparator(-1, 3);
+	toolBar()->insertCombo("No Background", 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
+	comboMode = toolBar()->getCombo(4);
+	comboMode->insertItem("Blue Theme", 1);
+	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
+    QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
+	readSettings();
+	isLevel();
+	isMode();
+	fileNew();
 }
 
 KHangMan::~KHangMan()
 {
 }
 
-void KHangMan::closeEvent(QCloseEvent *)
+void KHangMan::setupActions()
 {
-	exit(0);
+    newAct = new KAction(i18n("&New"), "file_new", 0 , this, SLOT(fileNew()), actionCollection(), "file_new");
+    KStdAction::quit(kapp, SLOT(quit()), actionCollection());
+
+    m_toolbarAction = KStdAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
+    m_statusbarAction = KStdAction::showStatusbar(this, SLOT(optionsShowStatusbar()), actionCollection());
+
+    KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+    KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+
+	createGUI("khangmanui.rc");
 }
 
-void KHangMan::wipeout()
+void KHangMan::saveProperties(KConfig *)
 {
-	//this is odd... This won't work in front of the game() function :(
-	goodWord="";
-	missedChar=0;
-	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ ");
-	allWords.clear();
+    // the 'config' object points to the session managed
+    // config file.  anything you write here will be available
+    // later when this app is restored
 }
 
-void KHangMan::slotOptions()
+void KHangMan::readProperties(KConfig *)
 {
-//child mode...
-		Frame6_2->hide();
-		QPixmap bgPix;
-		bgPix=QPixmap(QPixmap(locate("data","khangman/pics/c_bg.png") ) );
-		
-		this->setBackgroundPixmap(bgPix);
-		pixImage->setGeometry(400, 20, 150, 170);
-		Frame11->setGeometry(70, 300, 430, 53);
-		mainLabel->setGeometry(90,240,380,27);
-		
-		mainLabel->setBackgroundOrigin( QLabel::ParentOrigin );
-		mainLabel->setBackgroundPixmap(bgPix);
-		
-		TextLabel1->setBackgroundOrigin( QLabel::ParentOrigin );
-		TextLabel1->setBackgroundPixmap(bgPix);
-	
-		TextLabel2->setBackgroundOrigin( QLabel::ParentOrigin );
-		TextLabel2->setBackgroundPixmap(bgPix);
-
-		missedLetters->setBackgroundOrigin( QLabel::ParentOrigin );
-		missedLetters->setBackgroundPixmap(bgPix);
-
-		QHBoxLayout *layout1 = new QHBoxLayout( 0, 0, 6, "layout1");
-		modeAdult->setFixedSize(30, 30);
-		modeAdult->show();
-		layout1->addWidget(Frame11);
-		layout1->addWidget(modeAdult);
+    // the 'config' object points to the session managed
+    // config file.  this function is automatically called whenever
+    // the app is being restored.  read in here whatever you wrote
+    // in 'saveProperties'
 }
 
-void KHangMan::getOptions()
+void KHangMan::fileNew()
 {
-//back to the 'normal' mode...
-	setBackgroundColor("#DCDCDC");
-
-		Frame6_2->show();
-		
-		pixImage->setGeometry(240, 20, 150, 170);
-		Frame11->setGeometry(10, 300, 430, 53);
-		mainLabel->setGeometry(10,240,380,27);
-		
-		mainLabel->setBackgroundColor("#DCDCDC");
-		
-		TextLabel1->setBackgroundColor("#DCDCDC");
-	
-		TextLabel2->setBackgroundColor("#DCDCDC");
-
-		missedLetters->setBackgroundColor("#DCDCDC");
-		modeAdult->hide();
+    // create a new window  (new KHangMan)->show();
+	/**we want the game to be reset*/
+	m_view->slotNewGame();
 }
+
+void KHangMan::optionsShowToolbar()
+{
+    // this is all very cut and paste code for showing/hiding the
+    // toolbar
+    if (m_toolbarAction->isChecked())
+        toolBar()->show();
+    else
+        toolBar()->hide();
+}
+
+void KHangMan::optionsShowStatusbar()
+{
+    // this is all very cut and paste code for showing/hiding the
+    // statusbar
+    if (m_statusbarAction->isChecked())
+        statusBar()->show();
+    else
+        statusBar()->hide();
+}
+
+void KHangMan::optionsConfigureKeys()
+{
+    KKeyDialog::configureKeys(actionCollection(), "khangmanui.rc");
+}
+
+void KHangMan::optionsConfigureToolbars()
+{
+    // use the standard toolbar editor
+    saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+    KEditToolbar dlg(actionCollection());
+    connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
+    dlg.exec();
+}
+
+void KHangMan::newToolbarConfig()
+{
+    // this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
+    // recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
+    createGUI();
+    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+}
+
+void KHangMan::optionsPreferences()
+{
+    KHangManPreferences dlg;
+	dlg.resize(450, 340);
+    if (dlg.exec())
+    {
+        // redo your settings
+    }
+	readSettings();
+	isLevel();
+	isMode();
+	if (dlg.cancelBool==false) fileNew();
+}
+
+void KHangMan::changeStatusbar(const QString& text)
+{
+    // display the text on the statusbar
+    statusBar()->message(text);
+}
+
+void KHangMan::changeCaption(const QString& text)
+{
+    // display the text on the caption
+    setCaption(text);
+}
+
+//when combo is changed, levelString is changed
+//and written in config
+void KHangMan::slotLevel(int id)
+{
+	switch(id){
+	case 0:
+		levelString="easy";
+		break;
+	case 1:
+		levelString="medium";
+		break;
+	case 2:
+		levelString="hard";
+		break;
+	case 3:
+		levelString="animals";
+		break;
+	/*case 4:
+		levelString="own";
+		break;*/
+	}
+	m_view->levelFile = levelString+".txt";
+	changeStatusbar("level:"+levelString);
+	writeSettings();
+	fileNew();
+}
+
+//When changing background, the game stays as it is
+void KHangMan::slotMode(int index)
+{
+ 	switch ( index ) {
+    	case 0:
+	 		modeString="adult";
+			m_view->slotNoBkgd();
+    		break;
+
+    	case 1:
+      		modeString="child";
+			m_view->slotBlue();
+   			break;
+	}
+	writeSettings();
+}
+
+//read settings from config file khangmanrc
+void KHangMan::readSettings()
+{
+    KConfig *config = kapp->config();
+    config->setGroup( "Settings" );
+	levelString = config->readEntry( "level");
+    m_view->levelFile=config->readEntry( "levelFile");
+	modeString=config->readEntry("mode");
+    if (m_view->levelFile.isEmpty()) //if no config file
+    {
+		levelString="easy";
+		m_view->levelFile="easy.txt";
+		kdDebug()<<"in no config file routine"<<endl;
+    }
+}
+
+//write current settings to config file
+void KHangMan::writeSettings()
+{
+	KConfigBase *conf = kapp->config();
+  	if( conf )
+  	{
+     	conf->setGroup( "Settings" );
+     	conf->writeEntry( "level", levelString);
+		conf->writeEntry("levelFile",m_view->levelFile);
+		conf->writeEntry( "mode", modeString);
+     	conf->sync();
+  	}
+}
+
+//when config is read, set the KComboBox to the right item
+//and update statusbar
+void KHangMan::isLevel()
+{
+	if (levelString=="easy")
+ 		combo->setCurrentItem(0);
+ 	if (levelString=="medium")
+ 		combo->setCurrentItem(1);
+	if (levelString=="hard")
+ 		combo->setCurrentItem(2);
+	if (levelString=="animals")
+ 		combo->setCurrentItem(3);
+	//if (levelString=="own")
+ 	//	combo->setCurrentItem(4);
+	changeStatusbar("level:"+levelString);
+}
+
+void KHangMan::isMode()
+{
+	if (modeString=="adult")
+ 		{comboMode->setCurrentItem(0);
+		m_view->slotNoBkgd();}
+ 	if (modeString=="child")
+ 		{comboMode->setCurrentItem(1);
+		m_view->slotBlue();}
+}
+
+#include "khangman.moc"

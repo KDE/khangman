@@ -1,0 +1,18 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="khangman" version="0.9">
+
+<MenuBar>
+	<Menu name="file" noMerge="1"><text>&amp;Game</text>
+	<Action name="file_new"/>
+	<Action name="file_quit"/>
+</Menu>
+</MenuBar>
+
+<ToolBar name="mainToolBar" noMerge="1"><Text>Main</Text>
+	<Action name="file_new"/>
+	<Action name="file_quit"/>
+    <Separator/>
+    <Action name="help_contents"/>
+</ToolBar>
+
+</kpartgui>
