@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-09-20</date>
+<date>2003-10-15</date>
 <releaseinfo>1.3</releaseinfo>
 
 <abstract>
@@ -58,13 +58,13 @@
 
 <para>
 &khangman; is a game based on the well known hangman game. It is aimed
-for children aged 6+. It has four levels of difficulty. A word is picked in
+for children aged 6+. It has four levels of difficulty which are Animals (animals words), Easy, Medium and Hard. A word is picked in
 random, the letters are hidden, you must guess the word by trying a letter after
 another. Each time you guess a wrong letter, a picture of a hangman is drawn.
 You must guess the word before getting hanged! You have 10 tries.
 </para>
 <para>
-My son Joachim, who was 9 and a half years old, gave me the idea of that game in
+My son Joachim, who was at the time 9 and a half years old, gave me the idea of that game in
 June 2000. </para>
 
 </chapter>
@@ -145,11 +145,11 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in ten languages: Catalan, Danish, English, Finnish, French, German, Brazilian Portuguese, Italian, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in twelve languages: Catalan, Danish, Dutch, English, Finnish, French, German, Brazilian Portuguese, Italian, Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
-Please note that you can now type the special characters in a language by displaying the Special Characters Toolbar.  You can of course also use the keyboard layout corresponding to the language.
+Please note that you can now type the special characters in a language by displaying the <emphasis>Special Characters Toolbar</emphasis>.  This toolbar helds buttons with an icon of each special character per language like &eacute; in French for example. Clicking on such a button will write the corresponding letter in the input line and you validate your choice with Enter. You can of course also use the keyboard layout corresponding to the language. This toolbar can be shown or hidden if you want. The setting is restored next time you play KHangMan.
 </para>
 
 </sect1>
@@ -162,7 +162,7 @@ Try to guess the vowels first. Then have a go with the most common consonants : 
 When you see io, try n after that, in French and English.
 </para>
 <para>
-In Catalan, Spanish and Portuguese, the accented vowels can be discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a". This is when Settings-> Enable Accented Letters is not checked.
+In Brazilian Portuguese, Catalan, Spanish and Portuguese, the accented vowels can be discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a". This is when Settings-> Type Accented Letters is not checked. When Settings-> Type Accented Letters is checked, then you have to type yourself the accented letters. When you type "a", only "a" is displayed and you have to type for example &atilde; for this letter to be displayed.
 </para>
 <para>
 Did you know?
@@ -183,8 +183,8 @@ in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></
 game by closing the main window and writing the actual settings in the configuration file.
 </para>
 <para>
-The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has nine menu items: Catalan, Danish, English, Finnish, French, German, Portuguese, Spanish and Swedish.
-As default, if your KDE language is one of those eight, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
+The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has twelve menu items: Brazilian Portuguese, Catalan, Danish, Dutch, English, Finnish, French, German, Italian, Portuguese, Spanish and Swedish.
+As default, if your KDE language is one of those twelve, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
 </para>
 <para>
 The <menuchoice><guimenuitem>Settings</guimenuitem></menuchoice> menu allows you to configure &khangman; easily.
@@ -391,7 +391,7 @@ Only letters are allowed to be typed in the field.
 <guimenu>Settings</guimenu>
 <guimenuitem>Type Accented Letters</guimenuitem>
 </menuchoice></term>
-<listitem><para>Allow to type accented letters on their own (in Catalan, Portuguese and Spanish)
+<listitem><para>Allow to type accented letters on their own (in Brazilian Portuguese, Catalan, Portuguese and Spanish)
 </para></listitem>
 </varlistentry>
 <varlistentry>
@@ -419,7 +419,7 @@ Only letters are allowed to be typed in the field.
 <para>
 Thanks to Stefan Asserhäll, it is very easy to add a new language directly to
 the game. The procedure which is written here can also be found in <filename class="directory">khangman</filename> source dir
-in the file <filename>README.languages</filename>.
+in the file <filename>README.languages</filename>. However, as there are already twelve languages, it'll be difficult to add others as the menu will be too long. So please follow the procedure below but instead of committing your files you send them to me tarred and gzipped. That way I'll make your language available on the KHangMan webpage. Next KHangMan release (with KDE 3.3) will have a wizard to easily download and install new languages.
 </para>
 
 <para>Download the latest cvs version of &khangman;. The words
@@ -487,9 +487,6 @@ are stored in 4 separate files, one for each level. The files are in
      cvs commit -m "Added new language &lt;name_of_your_language&gt;"
      </command></userinput>
 </para>
-<para>
-Please don't commit the Makefile and Makefile.in, only the Makefile.am is necessary.
-</para>
 
 <note><para>If you want to have hints in the new language, then you will have more work to do. You will have to use the kvtml format and the best thing to do is to have a look at French or Italian data. The tag &lt;o&gt; is for the word and &lt;t&gt; for the hint. Try to match the hint with the level of difficulty. The level 'Easy' will require an easy hint but the level 'Hard' will require the definition in the dictionary. Try not to use words of the same family in the hint, that would give the word away too easily!</para>
 <para>
@@ -516,7 +513,7 @@ An example of a kvtml file is as follow:
 As the number of languages increases for the data, it will be necessary to stop adding them in the programme. We plan to have only a few languages as English, French, German and Spanish shipped with KHangMan and the other languages will be available in the i18n module and as download. KHangMan will make use of the KNewStuff class to have a wizard that will allow the user to download and install easily some additional languages. This will also be done for KLettres and KStars as we don't want to increase the size of the kdeedu module.
 </para>
 <para>
-Another planned feature is of course to have hints in every langugage.
+Another planned feature is of course to have hints in every language.
 </para>
 <para>
 What can also be done is to use other kvtml files like the ones that are on the KDE-Edu website to play KHangMan. For example, imagine you can play the capitals of the world, the hint will tell you the country and you have to guess the capital. Or learn words in another language, the hint is the word in your language, the word to guess is the translation in the new language.
@@ -604,6 +601,12 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Italian data files: Giovanni Venturi
 <email>jumpyj AT libero DOT it
+</email></para> </listitem>
+<listitem><para>Dutch data files: Rinse
+<email>rinse AT kde DOT nl
+</email></para> </listitem>
+<listitem><para>Portuguese data files: Pedro Morais
+<email>morais AT kde DOT org
 </email></para> </listitem>
 <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
