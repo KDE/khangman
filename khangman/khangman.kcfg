@@ -52,7 +52,7 @@
   </group>
     <group name="advanced">
      <entry name="OneLetter" type="Bool">
-      <label>Allow Only One Instance of Each Letter</label>
+      <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
       <default code="true">false</default>
     </entry>
    <entry name="Fortune" type="Bool">

@@ -846,14 +846,15 @@ void KHangMan::updateSettings()
 	//Enable hint or not
     	m_view->hintBool= Prefs::hint();
 	slotHint();
-	//hintBool=true if the user has choosen to have hints
 	if (Prefs::hint())  {
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 	}
 	else {
 		changeStatusbar("", IDS_HINT);
 	}
+	//One letter only mode
 	m_view->b_oneLetter = Prefs::oneLetter();
+	newGame();
 }
 
 #include "khangman.moc"

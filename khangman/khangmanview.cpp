@@ -202,13 +202,33 @@ void KHangManView::replaceLetters(QString sChar)
 {
 	//replace letter in the word
 	int index=0;
-	for (int count=0; count <word.contains(sChar); count++)
+	bool b_end = false;
+	kdDebug() << "Word: " << word << endl;
+	if (b_oneLetter) //we just replace the next instance
 	{
-		//searching for letter location
-		index = word.find(sChar,index);
-		//we replace it...
-		goodWord.replace((2*index), 1,sChar);
-		index++;
+		for (int count=0; count <word.contains(sChar); count++)
+		{
+			index = word.find(sChar,index);
+			if (goodWord.at(2*index)=='_') {
+				goodWord.replace((2*index), 1,sChar);
+				if (count == word.contains(sChar)-1)
+					b_end = true;
+				break;
+				}
+			else index ++;
+			if (count == word.contains(sChar)-1)
+				b_end = true;
+		}
+	}
+	else {
+		for (int count=0; count <word.contains(sChar); count++)
+		{
+			//searching for letter location
+			index = word.find(sChar,index);
+			//we replace it...
+			goodWord.replace((2*index), 1,sChar);
+			index++;
+		}
 	}
 	if (m_accent && !accent_b)
 	{
@@ -225,7 +245,9 @@ void KHangManView::replaceLetters(QString sChar)
 		if (sChar=="e") replaceLetters(QString("é¨"));
 		if (sChar=="u") replaceLetters(QString("ù"));
 	}
-	allWords << sChar; //appends the list...
+	if (!b_oneLetter) allWords << sChar; //appends the list only if not in One Letter only mode...
+	if (word.contains(sChar)==1) allWords << sChar; //append if only one instance
+	if (b_oneLetter && b_end) allWords << sChar; 
 }
 
 bool KHangManView::containsChar(QString &sChar)
