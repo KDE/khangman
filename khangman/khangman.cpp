@@ -165,7 +165,7 @@ void KHangMan::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[12]);
-					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won!... Wanna play again?")) == 3)
+					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 					{
 						slotNewGame();
 					}
@@ -201,7 +201,7 @@ void KHangMan::slotTry()
 					QString theWord=charList.join(" ");
 					mainLabel->setText(theWord);
 					
-					if (KMessageBox::questionYesNo(this, i18n("You are dead... Wanna play again?")) == 3)
+					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
 					{
 						slotNewGame();
 					}
@@ -215,7 +215,7 @@ void KHangMan::slotTry()
 		}
 		else //do something drastic... Word has already been guessed...
 		{
-			KMessageBox::information (this, i18n("The letter has already been guessed..."));
+			KMessageBox::information (this, i18n("The letter has already been guessed."));
 		}
 	}
 	kdDebug() <<word.contains(sChar) << endl;
