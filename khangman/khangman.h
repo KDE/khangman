@@ -180,8 +180,6 @@ private slots:
     void slotClose();
     ///Check if the language has special characters and load the second toolbar if so
     void slotAccents();
-    ///when Enabled Hint is checked or not by the user
-    void slotChooseHint();
     ///Whether Enabled Hint  is checked or not
     void slotHint();
     ///if the data file is a kvtml one then Enable Hint must be enabled
@@ -204,13 +202,7 @@ private:
     KHangManView *m_view;
     ///Action in the Game menu to start a new word
     KAction *newAct;
-    ///Action in the Settings menu to enable/disable softer hangman pictures
-    //KToggleAction *softAct;
-    ///Action in the Settings menu to enable/disable hints for the languages that allow hints
-    //KToggleAction *hintAct;
-    ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
-    //KToggleAction *accentsAct;
-    //KToggleToolBarAction *secondAct;
+    
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;

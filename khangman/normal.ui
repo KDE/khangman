@@ -99,6 +99,12 @@
                             <property name="text">
                                 <string>Type Accented Letters</string>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>In some languages, if this is checked, you have to type yourself accented letters. They are differencied from the normal letter if this is checked.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If this is disabled, then the selected language does not support it. If this is enabled and if you check it. then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.</string>
+                            </property>
                         </widget>
                         <widget class="QCheckBox">
                             <property name="name">
@@ -109,6 +115,9 @@
                             </property>
                             <property name="text">
                                 <string>Enable Hints</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, hint will be displayed by right clicking on the game.</string>
                             </property>
                         </widget>
                     </vbox>

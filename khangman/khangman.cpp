@@ -756,19 +756,6 @@ void KHangMan::enableHint(bool m_bool)
 	slotHint();
 }
 
-void KHangMan::slotChooseHint()
-{
-	//hintBool=true if the user has choosen to have hints
-	if (Prefs::hint())  {
-		m_view->hintBool=true;
-		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
-	}
-	else {
-		m_view->hintBool =false;
-		changeStatusbar("", IDS_HINT);
-	}
-}
-
 void KHangMan::setAccentBool()
 {
 	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
