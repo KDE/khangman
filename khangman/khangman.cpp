@@ -143,7 +143,7 @@ void KHangMan::changeLevel()
 
 	m_view->levelFile = levelString +".kvtml";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
-	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
+	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.txt")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	else
 		changeStatusbar(i18n(""), IDS_ACCENTS);
@@ -179,6 +179,7 @@ void KHangMan::loadSettings()
 {
     	// Language
     	selectedLanguage = Prefs::selectedLanguage();
+    	kdDebug() << "Languages : " << m_languages << endl;
 	if (m_languages.grep(selectedLanguage).isEmpty())
 		selectedLanguage = "en";
      	setLanguage(selectedLanguage);
@@ -338,16 +339,11 @@ void KHangMan::loadLangToolBar()
 	allData.clear();
 	if (!noCharBool) {
 	QString myString=QString("khangman/%1.txt").arg(m_view->language);
-	//add the file pt.txt as pt_BR.txt in kde-i18n/pt_BR and in pt_BR tarball in order to suppress this if
-	if (m_view->language =="pt_BR")
-		myString=QString("khangman/pt.txt");
 	QFile myFile;
 	myFile.setName(locate("data",myString));
 	//let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
 		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
-		if (m_view->language =="pt_BR")
-			myString=QString("khangman/data/%1/pt.txt").arg(m_view->language);
 		myFile.setName(locate("data",myString));
 		kdDebug() << myString << endl;
 	}
@@ -404,7 +400,7 @@ void KHangMan::slotAccents()
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
 	//TODO change these .txt to .kvtml
-	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
+	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.txt")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
@@ -464,14 +460,6 @@ void KHangMan::setLanguages()
 		m_languages.remove(m_languages.find(".."));
 	}
 	if (m_languages.isEmpty()) return;
-	//suppress duplicated entries of same language dir
-	for (uint i=0;  i<m_languages.count(); i++)
-	{
-		QString tmp = m_languages[i];
-		if (m_languages.grep(m_languages[i]).count() >1)  {
-			m_languages.remove(m_languages .find(tmp));
-		}
-	}
 	//write the present languages in config so they cannot be downloaded
 	KConfig *config=kapp->config();
 	config->setGroup("KNewStuffStatus");
