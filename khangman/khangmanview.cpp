@@ -237,14 +237,15 @@ void KHangManView::slotTry()
 				popup->setView(i18n("This letter has already been guessed.") );
 				popup->show();
 				int redIndex = missedL.find(sChar,0);
-				//missedLetters->setTextFormat( QLabel::RichText );
-				missedLetters->setText(missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1));
-				//disable any possible entry
-				charWrite->setEnabled(false);
 				//put the letter in red for 1 second
 				QTimer *timer = new QTimer( this);
         			connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
         			timer->start( 1000, TRUE ); // 1 second single-shot timer
+				missedLetters->setTextFormat( QLabel::AutoText );
+				missedLetters->setText(missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1));
+				//disable any possible entry
+				charWrite->setEnabled(false);
+
 			}
 			//usability: hilight it in the word
 			if (goodWord.contains(sChar)>0)
@@ -274,6 +275,8 @@ void KHangManView::slotTry()
 void KHangManView::timerDone()
 {
 	missedLetters->setTextFormat( QLabel::AutoText);
+	missedLetters->setScaledContents( TRUE );
+    	missedLetters->setAlignment( int( QLabel::AlignTop ) );
 	missedLetters->setText(missedL);
 	charWrite->setEnabled(true);
 	charWrite->setFocus();
