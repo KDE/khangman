@@ -52,7 +52,7 @@
         </color>
     </property>
     <property name="backgroundOrigin">
-        <enum>AncestorOrigin</enum>
+        <enum>WidgetOrigin</enum>
     </property>
     <property name="caption">
         <string>MainW</string>
@@ -91,29 +91,15 @@
                                 <property name="spacing">
                                     <number>0</number>
                                 </property>
-                                <spacer>
-                                    <property name="name">
-                                        <cstring>spacer6</cstring>
-                                    </property>
-                                    <property name="orientation">
-                                        <enum>Horizontal</enum>
-                                    </property>
-                                    <property name="sizeType">
-                                        <enum>Expanding</enum>
-                                    </property>
-                                    <property name="sizeHint">
-                                        <size>
-                                            <width>361</width>
-                                            <height>21</height>
-                                        </size>
-                                    </property>
-                                </spacer>
                                 <widget class="QLabel">
                                     <property name="name">
                                         <cstring>TextLabel1</cstring>
                                     </property>
                                     <property name="text">
                                         <string>Misses:</string>
+                                    </property>
+                                    <property name="backgroundOrigin">
+                                        <enum>AncestorOrigin</enum>
                                     </property>
                                 </widget>
                                 <widget class="QLabel">
@@ -130,6 +116,9 @@
                                     <property name="text">
                                         <string>_ _ _ _ _ 
 _ _ _ _ _ </string>
+                                    </property>
+                                    <property name="backgroundOrigin">
+                                        <enum>AncestorOrigin</enum>
                                     </property>
                                 </widget>
                                 <spacer>
@@ -158,6 +147,17 @@ _ _ _ _ _ </string>
                             <property name="scaledContents">
                                 <bool>true</bool>
                             </property>
+                            <property name="backgroundOrigin">
+                                <enum>AncestorOrigin</enum>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>7</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
                         </widget>
                     </hbox>
                 </widget>
@@ -170,6 +170,9 @@ _ _ _ _ _ </string>
                     </property>
                     <property name="alignment">
                         <set>AlignCenter</set>
+                    </property>
+                    <property name="backgroundOrigin">
+                        <enum>AncestorOrigin</enum>
                     </property>
                 </widget>
                 <widget class="QLayoutWidget">
@@ -210,7 +213,7 @@ _ _ _ _ _ </string>
                                 </sizepolicy>
                             </property>
                             <property name="backgroundOrigin">
-                                <enum>WindowOrigin</enum>
+                                <enum>AncestorOrigin</enum>
                             </property>
                             <property name="font">
                                 <font>
@@ -264,7 +267,7 @@ _ _ _ _ _ </string>
                         <cstring>Frame11</cstring>
                     </property>
                     <property name="backgroundOrigin">
-                        <enum>WindowOrigin</enum>
+                        <enum>AncestorOrigin</enum>
                     </property>
                     <property name="frameShape">
                         <enum>StyledPanel</enum>
@@ -302,6 +305,9 @@ _ _ _ _ _ </string>
                                     </property>
                                     <property name="text">
                                         <string>Letter:</string>
+                                    </property>
+                                    <property name="backgroundOrigin">
+                                        <enum>AncestorOrigin</enum>
                                     </property>
                                 </widget>
                                 <spacer>
