@@ -3,6 +3,7 @@
  */
 
 //Qt headers
+#include <qdir.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 //KDE headers
@@ -34,11 +35,27 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
-    languages = 0;
     // and a status bar
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
     statusBar( )->insertItem("   ",IDS_LANG, 0);
     statusBar()->show();
+
+    //the program scans in khangman/data/ to see what languages data is found
+    QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    for (QStringList::Iterator it = dirs.begin(); it != dirs.end(); ++it ) {
+	QDir dir(*it);
+	m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+    }
+    m_languages.remove(m_languages.find("."));
+    m_languages.remove(m_languages.find(".."));
+
+    KConfig entry(locate("locale", "all_languages"));
+    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+	entry.setGroup(*it);
+	m_languageNames.append(entry.readEntry("Name"));
+    }
+    m_sortedNames = m_languageNames;
+    m_sortedNames.sort();
 
     readSettings();
     // tell the KMainWindow that this is indeed the main widget
@@ -46,36 +63,9 @@ KHangMan::KHangMan()
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
     setLanguage(selectedLanguage);
 
-    bool enabled;
-    //enabled=true if language is found
-    //the program scans in khangman/data/ to see what languages data is found
-    enabled = locate("data", "khangman/data/en/") != 0;
-    registerLanguage(i18n("English"), "data_en", enabled);
-    enabled = locate("data", "khangman/data/fr/") != 0;
-    registerLanguage(i18n("French"), "data_fr", enabled);
-    enabled = locate("data", "khangman/data/es/") != 0;
-    registerLanguage(i18n("Spanish"), "data_es", enabled);
-    enabled = locate("data", "khangman/data/sv/") != 0;
-    registerLanguage(i18n("Swedish"), "data_sv", enabled);
      // then, setup our actions, must be done after the language search
     setupActions();
-
-    toolBar()->insertSeparator(-1, 1); //id=1 for separator
-    toolBar()->insertCombo(i18n("Easy"), 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
-    combo = toolBar()->getCombo(2);
-    combo->insertItem(i18n("Medium"), 1);
-    combo->insertItem(i18n("Hard"), 2);
-    combo->insertItem(i18n("Animals"), 3);
-    //combo->insertItem("own", 4);
-    QToolTip::add( combo, i18n( "Choose the level" ) );
-    QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
-    toolBar()->insertSeparator(-1, 3);
-    toolBar()->insertCombo(i18n("No Background"), 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
-    comboMode = toolBar()->getCombo(4);
-    comboMode->insertItem(i18n("Blue Theme"), 1);
-    comboMode->insertItem(i18n("Nature Theme"), 2);
-    QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
-    QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
+    setupLangMenu();
 
     isLevel();
     isMode();
@@ -95,36 +85,44 @@ void KHangMan::setupActions()
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
 
+    langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
+    langAct->setItems(m_sortedNames);
+    langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
+
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
+    QStringList levels;
+    levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(slotLevel()), actionCollection(), "combo_level");
+    levels += i18n("Easy");
+    levels += i18n("Medium");
+    levels += i18n("Hard");
+    levels += i18n("Animals");
+    //levels += i18n("Own");
+    levelAct->setItems(levels);
+    levelAct->setToolTip(i18n( "Choose the level" ));
+    levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
+
+    QStringList modes;
+    modeAct = new KSelectAction(i18n("Look and Feel"), 0, this, SLOT(slotMode()),  actionCollection(), "combo_mode");
+    modes += i18n("No Background");
+    modes += i18n("Blue Theme");
+    modes += i18n("Nature Theme");
+    modeAct->setItems(modes);
+    modeAct->setToolTip(i18n( "Choose the Look and Feel" ));
+    modeAct->setWhatsThis(i18n( "Check the Look and Feel" ));
+
     createGUI("khangmanui.rc");
 }
 
-// Register an available language
-void KHangMan::registerLanguage(const QString &menuItem, const char *actionId, bool enabled)
+void KHangMan::setupLangMenu()
 {
-  KToggleAction *t = 0;
-
-  switch (languages)
-  {
-  	case 0: t = new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language0()), actionCollection(), actionId);
-		break;
-  	case 1: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language1()), actionCollection(), actionId);
-		break;
-	case 2: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language2()), actionCollection(), actionId);
-		break;
-	case 3: t =  new KToggleAction(i18n(menuItem.latin1()), 0, this, SLOT(language3()), actionCollection(), actionId);
-		break;
-  }
-
-  if( t ) {
-      if (languages == selectedLanguage) t->setChecked(true);
-      t->setEnabled(enabled);
-      languageActions[languages] = actionId;
-      languages++;
-  }
+    langPopup = static_cast<QPopupMenu*>(factory()->container("languages",this));
+    for (uint index = 0; index < m_sortedNames.count(); index++)
+	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
+    langPopup->setItemChecked(selectedLanguage, true);
+    connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
 void KHangMan::saveProperties(KConfig *)
@@ -169,6 +167,7 @@ void KHangMan::newToolbarConfig()
     // this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
     // recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
     createGUI();
+    setupLangMenu();
     applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
 
@@ -200,7 +199,7 @@ void KHangMan::changeCaption(const QString& text)
 
 //when combo is changed, levelString is changed
 //and written in config
-void KHangMan::slotLevel(int id)
+void KHangMan::slotLevel()
 {
 	static const char *levelStrings[] = {
 		I18N_NOOP("easy"),
@@ -209,6 +208,7 @@ void KHangMan::slotLevel(int id)
 		I18N_NOOP("animals"),
 		/* I18N_NOOP("own"), */
 	};
+	int id = levelAct->currentItem();
 
 	m_view->levelFile = QString(levelStrings[id])+".txt";
 	changeStatusbar(i18n("Level: ") + i18n(levelStrings[id]), IDS_LEVEL);
@@ -217,9 +217,9 @@ void KHangMan::slotLevel(int id)
 }
 
 //When changing background, the game stays as it is
-void KHangMan::slotMode(int index)
+void KHangMan::slotMode()
 {
- 	switch ( index ) {
+	switch (modeAct->currentItem()) {
     	case 0:
 	 		modeString="nobg";
 			m_view->slotNoBkgd();
@@ -269,22 +269,16 @@ void KHangMan::readSettings()
     if (config->hasKey("myLanguage")==false)
     selectedLanguage = defaultLang;
     else
-        if ( selectedLanguage > 3)
+	if (selectedLanguage >= (int) m_languages.count())
     		selectedLanguage = 0;
     writeSettings();
 }
 
 void KHangMan::setSelectedLanguage(QString mLanguage)
 {
-	if (mLanguage == "en")
-		defaultLang = 0;
-	else if (mLanguage == "fr")
-		defaultLang = 1;
-	else if (mLanguage == "es")
-		defaultLang = 2;
-	else if (mLanguage == "sv")
-		defaultLang = 3;
-	else defaultLang = 0;
+    defaultLang = m_languages.findIndex(mLanguage);
+    if (defaultLang == -1)
+	defaultLang = 0;
 }
 
 //write current settings to config file
@@ -310,15 +304,15 @@ void KHangMan::writeSettings()
 void KHangMan::isLevel()
 {
     if (levelString=="easy")
- 	combo->setCurrentItem(0);
+ 	levelAct->setCurrentItem(0);
     if (levelString=="medium")
- 	combo->setCurrentItem(1);
+ 	levelAct->setCurrentItem(1);
     if (levelString=="hard")
- 	combo->setCurrentItem(2);
+ 	levelAct->setCurrentItem(2);
     if (levelString=="animals")
- 	combo->setCurrentItem(3);
+ 	levelAct->setCurrentItem(3);
     //if (levelString=="own")
- //	combo->setCurrentItem(4);
+    //    levelAct->setCurrentItem(4);
     changeStatusbar(i18n("Level: ") + i18n(levelString.latin1()), IDS_LEVEL);
 }
 
@@ -328,53 +322,37 @@ void KHangMan::isMode()
 {
     if (modeString=="nobg")
     {
-	comboMode->setCurrentItem(0);
+	modeAct->setCurrentItem(0);
 	m_view->slotNoBkgd();
     }
     if (modeString=="blue")
     {
-	comboMode->setCurrentItem(1);
+	modeAct->setCurrentItem(1);
 	m_view->slotBlue(m_view->bluePix);
     }
     if (modeString=="nature")
     {
-	comboMode->setCurrentItem(2);
+	modeAct->setCurrentItem(2);
 	m_view->slotBlue(m_view->naturePix);
     }
 }
 
-void KHangMan::language0()
+void KHangMan::slotLanguage()
 {
-    changeLanguage(0);
-}
-
-void KHangMan::language1()
-{
-    changeLanguage(1);
-}
-
-void KHangMan::language2()
-{
-    changeLanguage(2);
-}
-
-void KHangMan::language3()
-{
-    changeLanguage(3);
+    changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
 }
 
 // Switch to another language using Languages menu
-void KHangMan::changeLanguage(uint newLanguage)
+void KHangMan::changeLanguage(int newLanguage)
 {
-   // Do not accept to switch to same language
-   if (newLanguage == selectedLanguage)
-   {
-    	// newLanguage should stay checked
-    	((KToggleAction*) actionCollection()->action(languageActions[newLanguage].latin1()))->setChecked(true);
-   	 return;
-    }
+    // Do not accept to switch to same language
+    if (newLanguage == selectedLanguage)
+	return;
+
     // Unselect preceeding language
-    ((KToggleAction*) actionCollection()->action(languageActions[selectedLanguage].latin1()))->setChecked(false);
+    langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
+    for (int id = 0; id < (int) m_languageNames.count(); id++)
+    	langPopup->setItemChecked(id, id == newLanguage);
 
     // Change language in the config file
     selectedLanguage = newLanguage;
@@ -385,26 +363,10 @@ void KHangMan::changeLanguage(uint newLanguage)
 
 void KHangMan::setLanguage(int lang)
 {
-    QString language;
-    switch ( lang ) {
-    	case 0:
-	m_view->language="en";
-	language = i18n("English");
-	break;
-	case 1:
-	m_view->language="fr";
-	language = i18n("French");
-	break;
-	case 2:
-	m_view->language="es";
-	language = i18n("Spanish");
-	break;
-	case 3:
-	m_view->language="sv";
-	language = i18n("Swedish");
-	break;
-	}
-    changeStatusbar(i18n("Language: ")+language, IDS_LANG);
+    if (lang >= 0 && lang < (int) m_languages.count()) {
+	m_view->language = m_languages[lang];
+	changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
+    }
 }
 
 //when Apply button in Preferences dialog is clicked, refresh view
@@ -413,9 +375,10 @@ void KHangMan::slotClickApply()
 	KHangManPreferences dlg;
 	modeString = dlg.modeString;
 	setLanguage(dlg.langNum);
-	((KToggleAction*) actionCollection()->action(languageActions[selectedLanguage].latin1()))->setChecked(false);
-	((KToggleAction*) actionCollection()->action(languageActions[dlg.langNum].latin1()))->setChecked(true);
 	selectedLanguage = dlg.langNum;
+	langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
+	for (int id = 0; id < (int) m_languageNames.count(); id++)
+		langPopup->setItemChecked(id, id == selectedLanguage);
 	isMode();
 	if (dlg.transparent!=m_view->transparent) {
 		m_view->transparent = dlg.transparent;

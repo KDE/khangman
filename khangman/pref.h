@@ -6,15 +6,11 @@
 #define _KHANGMANPREF_H_
 
 #include <kdialogbase.h>
-#include <qframe.h>
 #include <qstring.h>
 #include <qstringlist.h>
 
 #include "pref1ui.h"
 #include "pref2ui.h"
-
-class KHangManPrefPageOne;
-class KHangManPrefPageTwo;
 
 class KHangManPreferences : public KDialogBase
 {
@@ -24,15 +20,16 @@ public:
 
 	QString levelString, modeString;
 	bool transparent;
-	int langNum, defaultLang;
+	int langNum;
 	bool cancelBool;
 	bool levelChanged;
 	bool langChanged;
-	QString name;
-
 private:
-    KHangManPrefPageOne *m_pageOne;
-    KHangManPrefPageTwo *m_pageTwo;
+    pref1ui *m_pageOne;
+    pref2ui *m_pageTwo;
+
+    int defaultLang;
+    QStringList languageNames;
 
     bool configChanged;
 
@@ -48,25 +45,10 @@ private slots:
 	void slotLevel(int);
 	void slotTransparent(bool);
 	void slotChanged();
-	void slotLang(int);
+	void slotLang(const QString &);
 
 signals:
 	void aClicked();
-
-};
-
-class KHangManPrefPageOne : public pref1ui
-{
-    Q_OBJECT
-public:
-        KHangManPrefPageOne(QWidget *parent = 0);
-};
-
-class KHangManPrefPageTwo : public pref2ui
-{
-    Q_OBJECT
-public:
-    KHangManPrefPageTwo(QWidget *parent = 0);
 };
 
 #endif // _KHANGMANPREF_H_

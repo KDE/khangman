@@ -1,0 +1,44 @@
+#!/bin/sh
+# Script to add a new language to khangman
+
+# Check parameters
+if test $# = 0 || test $# -gt 1 || test $1 = "--help" ; then
+  echo "usage: add_language <language_code>"
+  exit
+fi
+
+# Check for valid language code
+all_langs=$KDEDIR/share/locale/all_languages
+if test -e $all_langs ; then
+  grep -q "^\[$1\]$" $all_langs
+  if test $? != 0 ; then
+    echo "add_language: error: \"$1\" is not a valid language code"
+    exit
+  fi
+fi
+
+# Set up variables
+code=$1
+dir=khangman/data
+lang=$dir/$code
+en=$dir/en
+
+# Check if directory already exists
+if test -e $lang ; then
+  echo "add_language: error: \"$1\" already exists"
+  exit
+fi
+
+# Create the directory and copy files to it
+mkdir $lang
+cp $dir/en/*.txt $lang
+sed -e "s/\/en/\/$code/" $en/Makefile.am > $lang/Makefile.am
+sed -e "s/\/en/\/$code/" $en/Makefile.in > $lang/Makefile.in
+sed -e "s/\/en/\/$code/" $en/Makefile    > $lang/Makefile
+touch $dir/Makefile.am
+
+# Tell user what to do
+echo "The language $code has been succesfully added!"
+echo ""
+echo "Please edit the following files and translate the english words:"
+ls $lang/*.txt

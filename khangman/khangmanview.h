@@ -73,6 +73,7 @@ public slots:
 
 private slots:
 
+    void slotValidate(const QString &);
     void game();
     void wipeout();
 };

@@ -1,0 +1,38 @@
+Dear Translator,
+
+Here is a an outline of the steps necessary to translate the words of
+the game to your language. There are 175 words to translate.
+
+1. Enter the following commands in a konsole to create the directory
+   and files for the new language:
+
+     ./add_language <language_code>
+
+   Here you must replace <language_code> with your language code.
+
+2. Edit all indicated text files in the new directory with a text editor,
+   and replace each word with a translated word. It is not really important
+   that the exact meaning is preserved, but try to keep the length and
+   level of difficulty roughly the same.
+
+   Note that you must use UTF-8 encoding when editing the files. If your
+   editor can't do this, try using kwrite or kate. When opening a file in
+   kwrite or kate you can select utf8 encoding with the top right combo box.
+
+3. Enter the following command to install the new data files:
+
+     make
+     make install
+
+   You may have to become root to run 'make install', depending on your
+   installation.
+
+4. Run the game and check that your language has been added:
+
+     khangman
+
+5. Commit the new language files with the following command:
+
+     cvs commit -m "Added new language <name_of_your_language>"
+
+Good luck!

@@ -14,8 +14,11 @@
 #include <qbuttongroup.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
+#include <qdir.h>
+#include <qframe.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qlistbox.h>
 #include <qradiobutton.h>
 //Project headers
 #include "pref.h"
@@ -29,11 +32,35 @@ KHangManPreferences::KHangManPreferences()
      enableButton( Apply, false);
 
     QFrame *frame;
-    frame = addPage(i18n("General"), i18n("General"), BarIcon("gear", KIcon::SizeMedium));
-    m_pageOne = new KHangManPrefPageOne(frame);
+    QVBoxLayout *layout;
 
-     frame = addPage(i18n("Language"), i18n("Data language"), BarIcon ("locale", KIcon::SizeMedium));
-     m_pageTwo = new KHangManPrefPageTwo(frame);
+    frame = addPage(i18n("General"), i18n("General"), BarIcon("gear", KIcon::SizeMedium));
+    layout = new QVBoxLayout(frame, 0, 0);
+    m_pageOne = new pref1ui(frame);
+    frame->setMinimumHeight(220);
+
+    frame = addPage(i18n("Language"), i18n("Data language"), BarIcon ("locale", KIcon::SizeMedium));
+    layout = new QVBoxLayout(frame, 0, 0);
+    m_pageTwo = new pref2ui(frame);
+    frame->setMinimumHeight(220);
+
+    //get the available languages
+    QStringList langs;
+    QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    for (QStringList::Iterator it = dirs.begin(); it != dirs.end(); ++it ) {
+	QDir dir(*it);
+	langs += dir.entryList(QDir::Dirs, QDir::Name);
+    }
+    langs.remove(langs.find("."));
+    langs.remove(langs.find(".."));
+
+    KConfig entry(locate("locale", "all_languages"));
+    for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it ) {
+	entry.setGroup(*it);
+        languageNames.append(entry.readEntry("Name"));
+    }
+    m_pageTwo->langBox->insertStringList(languageNames);
+    m_pageTwo->langBox->sort();
 
     readConfig();
     //set the values read in config file
@@ -45,20 +72,8 @@ KHangManPreferences::KHangManPreferences()
     QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotChanged()));
     QObject::connect(m_pageOne->transparentBox, SIGNAL(toggled(bool)), this, SLOT(slotTransparent(bool)));
     QObject::connect(m_pageOne->transparentBox, SIGNAL(toggled(bool)), this, SLOT(slotChanged()));
-    QObject::connect(m_pageTwo->langGroup, SIGNAL(clicked(int)), this, SLOT(slotLang(int)));
-    QObject::connect(m_pageTwo->langGroup, SIGNAL(clicked(int)), this, SLOT(slotChanged()));
-}
-
-KHangManPrefPageOne::KHangManPrefPageOne(QWidget *parent)
-    : pref1ui(parent)
-{
-	adjustSize();
-}
-
-KHangManPrefPageTwo::KHangManPrefPageTwo(QWidget *parent)
-    : pref2ui(parent)
-{
-	adjustSize();
+    QObject::connect(m_pageTwo->langBox, SIGNAL(highlighted(const QString &)), this, SLOT(slotLang(const QString &)));
+    QObject::connect(m_pageTwo->langBox, SIGNAL(highlighted(const QString &)), this, SLOT(slotChanged()));
 }
 
 void KHangManPreferences::readConfig()
@@ -73,7 +88,7 @@ void KHangManPreferences::readConfig()
 		conf->setGroup("Language");
    		langNum = conf->readNumEntry("myLanguage");
 		defaultLang = conf->readNumEntry("defaultLang");
-		if (langNum<0 || langNum >3)
+		if (langNum < 0 || langNum >= (int)m_pageTwo->langBox->count())
 			langNum = 0;
 	}
 	if( !levelString )
@@ -88,7 +103,7 @@ void KHangManPreferences::slotDefault()
 	levelString="easy";
 	modeString="nobg";
 	langNum = defaultLang;
-	if (langNum<0 || langNum >3)
+	if (langNum < 0 || langNum >= (int)m_pageTwo->langBox->count())
 			langNum = 0;
 	slotSet();
 	slotChanged();
@@ -121,19 +136,6 @@ void KHangManPreferences::slotCancel()
 
 void KHangManPreferences::slotSet()
 {
-	//maybe there is a way to reduce code here
-	//check for available languages
-	//radiobuttons are disabled by default and enabled if language is found
-	bool enabled;
-	enabled = locate("data", "khangman/data/en/") != 0;
-	if (enabled) m_pageTwo->enBox->setEnabled(true);
-    	enabled = locate("data", "khangman/data/fr/") != 0;
-    	if (enabled) m_pageTwo->frBox->setEnabled(true);
-    	enabled = locate("data", "khangman/data/es/") != 0;
-    	if (enabled) m_pageTwo->esBox->setEnabled(true);
-        enabled = locate("data", "khangman/data/sv/") != 0;
-    	if (enabled) m_pageTwo->svBox->setEnabled(true);
-
 	if (levelString=="easy")
 		m_pageOne->levelBox->setCurrentItem(0);
 	if (levelString=="medium")
@@ -152,14 +154,8 @@ void KHangManPreferences::slotSet()
 		m_pageOne->natureBox->setChecked(true);
 	m_pageOne->transparentBox->setChecked(transparent);
 	m_pageOne->transparentBox->setEnabled(!m_pageOne->noBgBox->isChecked());
-	if (langNum==0)
-		m_pageTwo->enBox->setChecked(true);
-	if (langNum==1)
-		m_pageTwo->frBox->setChecked(true);
-	if (langNum==2)
-		m_pageTwo->esBox->setChecked(true);
-	if (langNum==3)
-		m_pageTwo->svBox->setChecked(true);
+
+	m_pageTwo->langBox->setCurrentItem(m_pageTwo->langBox->findItem(languageNames[langNum]));
 }
 
 void KHangManPreferences::slotMode(int id)
@@ -180,9 +176,9 @@ void KHangManPreferences::slotMode(int id)
         configChanged = false;
 }
 
-void KHangManPreferences::slotLang(int id)
+void KHangManPreferences::slotLang(const QString &item)
 {
-	langNum = id;
+	langNum = languageNames.findIndex(item);
 	slotSet();
 	langChanged = true;
 	enableButton( Apply, false );

@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khangman" version="1">
+<kpartgui name="khangman" version="2">
 
 <MenuBar>
 	<Menu name="file" noMerge="1"><text>&amp;Game</text>
@@ -7,10 +7,6 @@
 		<Action name="file_quit"/>
 	</Menu>
 	<Menu name="languages" noMerge="1"><text>&amp;Languages</text>
-		<Action name="data_en"/>
-		<Action name="data_fr"/>
-		<Action name="data_es"/>
-		<Action name="data_sv"/>
 	</Menu>
 </MenuBar>
 
@@ -19,6 +15,10 @@
 	<Action name="file_quit"/>
         <Separator/>
         <Action name="help_contents"/>
+        <Separator/>
+        <Action name="combo_level"/>
+        <Separator/>
+        <Action name="combo_mode"/>
 </ToolBar>
 
 </kpartgui>

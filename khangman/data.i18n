@@ -1,0 +1,7 @@
+i18n("NOTE_TO_THE_TRANSLATORS",
+     "The translators have the opportunity to translate the\n"
+     "words in the game.\n"
+     "See the file README.languages in khangman's source directory\n"
+     "for more information on how to do that.\n"
+     "(translate this message as \"DONE\" when you have translated\n"
+     "the words; otherwise leave it untranslated as a reminder)");

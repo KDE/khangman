@@ -2,7 +2,7 @@ chat
 chien
 ours
 dauphin
-zèbre
+zÃ¨bre
 kangourou
 baleine
 cheval
@@ -10,7 +10,7 @@ singe
 hirondelle
 serpent
 girafe
-éléphant
+Ã©lÃ©phant
 souris
 pingouin
 lapin
@@ -20,9 +20,9 @@ loup
 lion
 tigre
 pieuvre
-rhinocéros
-hérisson
-écureuil
+rhinocÃ©ros
+hÃ©risson
+Ã©cureuil
 cerf
 tortue
 hippopotame
@@ -42,12 +42,12 @@ mouton
 moule
 vache
 homard
-hyène
+hyÃ¨ne
 cachalot
 belette
-bélier
+bÃ©lier
 autruche
-araignée
+araignÃ©e
 biche
 coccinelle
 crabe
@@ -56,5 +56,5 @@ antilope
 flamant
 abeille
 mouche
-lièvre
+liÃ¨vre
 

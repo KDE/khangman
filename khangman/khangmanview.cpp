@@ -56,6 +56,7 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 
 	temp="";
 
+	QObject::connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
 	QObject::connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
 }
 
@@ -68,6 +69,17 @@ void KHangManView::slotNewGame()
 	wipeout();
 	game();
 	charWrite->setFocus();
+}
+
+void KHangManView::slotValidate(const QString &text)
+{
+	disconnect(charWrite, SIGNAL( textChanged(const QString &) ),
+		   this, SLOT( slotValidate(const QString &) ) );
+	charWrite->clear();
+	if (!text.isEmpty() && text[0].isLetter())
+		charWrite->setText(text);
+	connect(charWrite, SIGNAL( textChanged(const QString &) ),
+		this, SLOT( slotValidate(const QString &) ) );
 }
 
 void KHangManView::slotTry()
@@ -201,6 +213,7 @@ void KHangManView::game()
 	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
+	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
 	//allData contains all the words from the file
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();

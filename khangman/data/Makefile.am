@@ -1,1 +1,1 @@
-SUBDIRS = en es fr sv
+SUBDIRS = $(AUTODIRS)

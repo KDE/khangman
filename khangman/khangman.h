@@ -18,9 +18,8 @@
 
 #include "khangmanview.h"
 
-class KToggleAction;
-class KComboBox;
-
+class KSelectAction;
+class QPopupMenu;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -44,14 +43,10 @@ public:
      */
     virtual ~KHangMan();
 
-    KComboBox *combo;
-    KComboBox *comboMode;
+private:
     QString levelString, modeString;
     //the language used in KDE for the user
     QString userLanguage;
-    QString languageActions[5];
-    void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
-    void changeLanguage(uint newLanguage);
     int defaultLang;
 
 protected:
@@ -82,8 +77,8 @@ private slots:
 
     void changeStatusbar(const QString& text, int id);
     void changeCaption(const QString& text);
-    void slotLevel(int);
-    void slotMode(int index);
+    void slotLevel();
+    void slotMode();
     void isLevel();
     void isMode();
     void setSelectedLanguage(QString);
@@ -91,24 +86,26 @@ private slots:
     void readSettings();
     void writeSettings();
 
-    void language0();
-    void language1();
-    void language2();
-    void language3();
-
+    void changeLanguage(int newLanguage);
+    void slotLanguage();
     void setLanguage(int lang);
 
 private:
     void setupAccel();
     void setupActions();
+    void setupLangMenu();
 
 private:
     KHangManView *m_view;
 
     KAction *newAct;
+    KSelectAction *langAct, *levelAct, *modeAct;
+    QPopupMenu *langPopup;
 
-   uint selectedLanguage,	// Number of selected language
-   languages;		// Total number of languages
+    int selectedLanguage;        // Number of selected language
+    QStringList m_languages;     // Language codes of available languages
+    QStringList m_languageNames; // Translated names of languages
+    QStringList m_sortedNames;   // Translated and sorted names of languages
 };
 
 #endif // _KHANGMAN_H_
