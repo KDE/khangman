@@ -25,15 +25,15 @@
 
 
 <copyright>
-<year>2001</year><year>2002</year>
+<year>2001</year><year>2003</year>
 <holder>Anne-Marie Mahfouf</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2002-10-08</date>
-<releaseinfo>0.8</releaseinfo>
+<date>2003-02-23</date>
+<releaseinfo>0.9</releaseinfo>
 
 <abstract>
 <para>
@@ -62,7 +62,7 @@ another. Each time you guess a wrong letter, a picture of a hangman is drawn.
 You must guess the word before getting hanged! You have 9 tries.
 </para>
 <para>
-My son Joachim, 9 and a half years old, gave me the idea of that game in
+My son Joachim, who was 9 and a half years old, gave me the idea of that game in
 June 2000. </para>
 
 </chapter>
@@ -93,11 +93,13 @@ words in each level.</para>
 <important><para>All words are nouns and in small letters.</para></important>
 
 <para>
-Each time you start the game, the default is easy.
+The first time you start the game, the default is easy and there is no background picture.
+After your first game, your actual configuration is saved. Next time you play, your background and
+level will be restored.
 </para>
 <para>
 Each time you guess a letter that is not in the word, the hangman is drawn a
-little further. You have 10 tries to guess the word. After that, the word is
+little further. You have 10 tries to guess the word. After that, the correct answer is
 displayed.
 </para>
 <para>
@@ -139,10 +141,11 @@ In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.
 <sect1 id="khangman-mainwindow">
 <title>The Main &khangman; Window</title>
 
-<para>Clicking on the <guibutton>Close</guibutton> button) allows you
-to exit the game.  Click on the <guibutton>Help</guibutton> to access
-this handbook.  To choose the level, choose from the drop down box
-labelled <guibutton>Level</guibutton> button.</para>
+<para>The <menuchoice><guimenuitem>Game</guimenuitem></menuchoice> menu has 2 items: New and Quit.
+<menuchoice><guimenuitem>New</guimenuitem></menuchoice> brings you a new game, i.e a new word to guess,
+in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></menuchoice> quits the
+game by closing the main window and writing the actual settings in the configuration file.
+</para>
 
 </sect1>
 </chapter>
@@ -227,17 +230,19 @@ you.</para>
 &khangman;
 </para>
 <para>
-Program copyright 2001 Anne-Marie Mahfouf <email>annma@kde.org</email>
+Program copyright 2001-2003 Anne-Marie Mahfouf <email>annma@kde.org</email>
 </para>
 <para>
 Contributors:
 <itemizedlist>
-<listitem><para>graphics: Renaud Blanchard
+<listitem><para>Hangman graphics: Renaud Blanchard
 <email>kisukuma@chez.com</email></para> </listitem>
 <listitem><para>sounds: Ludovic Grossard
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
-<listitem><para>splashscreen: Primoz Anzur
+<listitem><para>Blue theme and code: Primoz Anzur
 <email>zerokode@yahoo.com</email></para> </listitem>
+<listitem><para>Nature theme: Joe Bolin
+<email>jbolin@zoominternet.net</email></para> </listitem>
 </itemizedlist>
 </para>
 
