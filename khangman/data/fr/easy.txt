@@ -76,7 +76,7 @@
  <t>Fruit jaune d'Afrique</t>
  </e> <e>
 <o>terre</o>
- <t></t>
+ <t>On la creuse</t>
  </e> <e>
 <o>ciel</o>
  <t>On le dit bleu</t>
@@ -106,12 +106,12 @@
  <t>On la regarde pour se distraire</t>
  </e> <e>
 <o>enfant</o>
- <t>Humain jusqu'à l'adolescence</t>
+ <t>Humain jusqu'à  l'adolescence</t>
  </e> <e>
 <o>parent</o>
  <t>Celui qui a l'autorité</t>
  </e> <e>
-<o>forêt</o>
+<o>foràªt</o>
  <t>Se compose d'arbres</t>
  </e> <e>
 <o>montagne</o>
@@ -136,7 +136,7 @@
  <t>Des milliers de gouttes</t>
  </e> <e>
 <o>chambre</o>
- <t>L'endroit où on dort</t>
+ <t>L'endroit oà¹ on dort</t>
  </e> <e>
 <o>machine</o>
  <t>Remplace l'homme dans l'usine</t>
@@ -151,6 +151,6 @@
  <t>Il habite tout près de nous</t>
  </e> <e>
 <o>voile</o>
- <t>Sert à faire avancer le bateau</t>
+ <t>Sert à  faire avancer le bateau</t>
  </e> 
  </kvtml>
