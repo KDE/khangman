@@ -33,8 +33,6 @@ fi
 mkdir $lang
 cp $dir/en/*.txt $lang
 sed -e "s/\/en/\/$code/" $en/Makefile.am > $lang/Makefile.am
-sed -e "s/\/en/\/$code/" $en/Makefile.in > $lang/Makefile.in
-sed -e "s/\/en/\/$code/" $en/Makefile    > $lang/Makefile
 touch $dir/Makefile.am
 
 # Tell user what to do
@@ -42,3 +40,6 @@ echo "The language $code has been succesfully added!"
 echo ""
 echo "Please edit the following files and translate the english words:"
 ls $lang/*.txt
+echo ""
+echo "If you want to enable hints in your language, please edit these files and use the kvtml format."
+echo "See http://edu.kde.org/khangman/add_language.php for more information."
