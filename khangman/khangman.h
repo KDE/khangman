@@ -113,13 +113,13 @@ private slots:
       *and call the corresponding slot in the main view to set the background
       */
     void setMode_WindowState();
-    void setSelectedLanguage(QString);
+    //void setSelectedLanguage(QString);
     ///Read settings from config file khangmanrc or set defaults if none
     void loadSettings();
     ///Switch to another language using the Languages menu
     void changeLanguage(int newLanguage);
     void slotLanguage();
-    void setLanguage(int lang);
+    void setLanguage(QString lang);
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
 
@@ -197,8 +197,8 @@ private:
     KAction* m_pFullScreen;
 #endif
 
-    ///Number of the selected language
-    int selectedLanguage;
+    ///Selected language
+    QString selectedLanguage;
     ///Language codes of available languages
     QStringList m_languages;
     ///Translated names of languages

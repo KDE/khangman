@@ -98,7 +98,7 @@ void KHangMan::setupActions()
     setStandardToolBarMenuEnabled(true);
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
-    langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
+    langAct->setCurrentItem(m_sortedNames.findIndex(selectedLanguage));
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
@@ -136,7 +136,7 @@ void KHangMan::setupLangMenu()
     langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
     for (uint index = 0; index < m_sortedNames.count(); index++)
 	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
-    langPopup->setItemChecked(selectedLanguage, true);
+    langPopup->setItemChecked(m_languageNames.findIndex(selectedLanguage), true);
     connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
@@ -232,20 +232,14 @@ void KHangMan::changeMode()
 void KHangMan::loadSettings()
 {
     	// Language
-    	//load the kdeglobals config file - safer way would be to load that one read-only
-    	/*KConfigBase *globalConf = KGlobal::config();
-    	globalConf->setGroup("Locale");
-    	userLanguage = globalConf->readEntry("Language");
-    	//keep only the first 2 characters
-    	userLanguage = userLanguage.left(2);*/
-	kdDebug() << "userLanguage :" << Prefs::userLanguage() << endl;
-    	setSelectedLanguage(Prefs::userLanguage());
+    	//setSelectedLanguage(Prefs::userLanguage());
 
-    	KConfig *config = kapp->config();
-    	config->setGroup("Language");
-    	selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
+    	//KConfig *config = kapp->config();
+    	//config->setGroup("Language");
+    	selectedLanguage = Prefs::selectedLanguage();
+	/* config->readNumEntry("selectedLanguage", defaultLang);
     	if (selectedLanguage >= (int) m_languages.count())
-                selectedLanguage = 3;
+                selectedLanguage = 3;*/
      	setLanguage(selectedLanguage);
 
     	// Level
@@ -298,12 +292,12 @@ void KHangMan::loadSettings()
     	}
  }
 
-void KHangMan::setSelectedLanguage(QString mLanguage)
+/*void KHangMan::setSelectedLanguage(QString mLanguage)
 {
     defaultLang = m_languages.findIndex(mLanguage);
     if (defaultLang == -1)
 	defaultLang = 3; //if no default, set it to English
-}
+}*/
 
 //when config is read, set the KComboBox to the right level
 //and update statusbar
@@ -346,7 +340,7 @@ void KHangMan::slotLanguage()
 void KHangMan::changeLanguage(int newLanguage)
 {
     	// Do not accept to switch to same language
-   	 if (newLanguage == selectedLanguage)
+   	 if (newLanguage == m_languageNames.findIndex(selectedLanguage))
 		return;
 
     	// Unselect preceding language
@@ -354,14 +348,10 @@ void KHangMan::changeLanguage(int newLanguage)
    	for (int id = 0; id < (int) m_languageNames.count(); id++)
     		langPopup->setItemChecked(id, id == newLanguage);
 
-    	selectedLanguage = newLanguage;
-    	// Change language in the config file
-    	KConfigBase *conf = kapp->config();
-   	 if( conf ) {
-		conf->setGroup("Language");
-		conf->writeEntry("selectedLanguage", selectedLanguage);
-        	conf->writeEntry("defaultLang", defaultLang);
-   	 }
+    	selectedLanguage = m_languages[newLanguage];
+	kdDebug() << "2" << selectedLanguage << endl;
+	 Prefs::setSelectedLanguage(selectedLanguage);
+	 Prefs::writeConfig();
     	//load the different data files in the Level combo for the new language
    	 loadDataFiles();
     	bool fileExistBool = false;
@@ -380,7 +370,7 @@ void KHangMan::changeLanguage(int newLanguage)
     	}
     	//update the Levels in Level combobox as well
     	setLevel_WindowState();
-    	setLanguage(newLanguage);
+    	setLanguage(selectedLanguage);
     	if (m_view->hintBool && m_view->kvtmlBool) 
     		hintAct->setChecked(true);
     	slotHint();
@@ -395,12 +385,14 @@ void KHangMan::changeLanguage(int newLanguage)
     	}
 }
 
-void KHangMan::setLanguage(int lang)
+void KHangMan::setLanguage(QString lang)
 {
-    	if (lang >= 0 && lang < (int) m_languages.count()) {
-		m_view->language = m_languages[lang];
-		changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
-    	}
+    	//if (lang >= 0 && lang < (int) m_languages.count()) {
+	//	m_view->language = m_languages[lang];
+	//	changeStatusbar(i18n("Language: ")+m_languageNames[lang], IDS_LANG);
+    	//}
+	m_view->language = lang;
+	changeStatusbar(i18n("Language: ")+m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
 }
 
 void KHangMan::slotTransparent()
@@ -417,7 +409,7 @@ void KHangMan::loadDataFiles()
     //build the Level combobox menu dynamically depending of the data for each language
     levels.clear();//initialize QStringList levels
     KStandardDirs *dirs = KGlobal::dirs();
-    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + m_languages[selectedLanguage] + "/*.txt");
+    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
     if (!mfiles.isEmpty())
     {
     for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {

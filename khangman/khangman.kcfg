@@ -39,10 +39,10 @@
     </code>
     <default code="true">userLanguage</default>
     </entry>   
-    <!--<entry name="SelectedLanguage" type="String">
+    <entry name="SelectedLanguage" type="String">
       <label>The language selected by the user</label>
-      <default code="true">defaultLang</default>
-    </entry> -->
+      <default code="true">userLanguage</default>
+    </entry> 
     </group>
   <group name="Settings">
      <entry name="Softer" type="Bool">
