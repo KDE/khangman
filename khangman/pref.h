@@ -8,6 +8,7 @@
 #include <kdialogbase.h>
 #include <qframe.h>
 #include <qstring.h>
+#include <qstringlist.h>
 
 #include "pref1ui.h"
 #include "pref2ui.h"
@@ -26,6 +27,7 @@ public:
 	bool cancelBool;
 	bool levelChanged;
 	bool langChanged;
+	QString name;
 
 private:
     KHangManPrefPageOne *m_pageOne;

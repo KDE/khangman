@@ -11,6 +11,7 @@
 
 #include <qpixmap.h>
 #include <qstring.h>
+#include <qstringlist.h>
 
 #include <kapplication.h>
 #include <kmainwindow.h>

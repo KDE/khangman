@@ -82,6 +82,9 @@ language for the words.</string>
                         <property name="name">
                             <cstring>enBox</cstring>
                         </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
                         <property name="geometry">
                             <rect>
                                 <x>13</x>
@@ -104,6 +107,9 @@ language for the words.</string>
                         <property name="name">
                             <cstring>frBox</cstring>
                         </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
                         <property name="geometry">
                             <rect>
                                 <x>13</x>
@@ -124,7 +130,10 @@ language for the words.</string>
                     </widget>
                     <widget class="QRadioButton">
                         <property name="name">
-                            <cstring>spBox</cstring>
+                            <cstring>esBox</cstring>
+                        </property>
+                        <property name="enabled">
+                            <bool>false</bool>
                         </property>
                         <property name="geometry">
                             <rect>

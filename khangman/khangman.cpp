@@ -35,7 +35,6 @@ KHangMan::KHangMan()
       m_view(new KHangManView(this))
 {
     languages = 0;
-
     // and a status bar
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
     statusBar( )->insertItem("   ", 102, 0);
@@ -57,8 +56,7 @@ KHangMan::KHangMan()
     registerLanguage(i18n("French"), "data_fr", enabled);
     enabled = locate("data", "khangman/data/es/") != 0;
     registerLanguage(i18n("Spanish"), "data_es", enabled);
-
-    // then, setup our actions, must be done after the language search
+     // then, setup our actions, must be done after the language search
     setupActions();
 
     toolBar()->insertSeparator(-1, 1); //id=1 for separator

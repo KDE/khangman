@@ -9,6 +9,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kstddirs.h>
 //Qt headers
 #include <qbuttongroup.h>
 #include <qcombobox.h>
@@ -116,6 +117,17 @@ void KHangManPreferences::slotCancel()
 
 void KHangManPreferences::slotSet()
 {
+	//maybe there is a way to reduce code here
+	//check for available languages
+	//radiobuttons are disabled by default and enabled if language is found
+	bool enabled;
+	enabled = locate("data", "khangman/data/en/") != 0;
+	if (enabled) m_pageTwo->enBox->setEnabled(true);
+    	enabled = locate("data", "khangman/data/fr/") != 0;
+    	if (enabled) m_pageTwo->frBox->setEnabled(true);
+    	enabled = locate("data", "khangman/data/es/") != 0;
+    	if (enabled) m_pageTwo->esBox->setEnabled(true);
+
 	if (levelString=="easy")
 		m_pageOne->levelBox->setCurrentItem(0);
 	if (levelString=="medium")
@@ -137,7 +149,7 @@ void KHangManPreferences::slotSet()
 	if (langNum==1)
 		m_pageTwo->frBox->setChecked(true);
 	if (langNum==2)
-		m_pageTwo->spBox->setChecked(true);
+		m_pageTwo->esBox->setChecked(true);
 }
 
 void KHangManPreferences::slotMode(int id)
@@ -213,6 +225,5 @@ void KHangManPreferences::slotChanged()
     enableButton( Apply, true );
     configChanged = true;
 }
-
 
 #include "pref.moc"
