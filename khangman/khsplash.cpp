@@ -21,6 +21,7 @@
 #include <kaudioplayer.h>
 #include <kmessagebox.h>
 #include <stdlib.h>
+#include <kdebug.h>
 
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)
 {
@@ -37,7 +38,7 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 	KAudioPlayer::play(locate("data","khangman/sounds/splash.ogg"));
 	show(); //only after play...
 
-	//allow the splash screen to be displayed 400 seconds
+//allow the splash screen to be displayed 400 seconds or closed by mouseclick...
 	QTimer *timer = new QTimer(this);
 	connect( timer, SIGNAL(timeout()), this, SLOT(slotHide()) );
 	

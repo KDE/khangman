@@ -34,7 +34,7 @@ configure_args=\s--build=i386-linux --host=i386-linux --target=i386-linux\s
 dir_where_make_will_be_called=./
 email=zerokode@yahoo.com
 kdevprj_version=1.3
-lfv_open_groups=Headers,Others,Sources,User Interface
+lfv_open_groups=Headers,Sources,User Interface
 make_options=\s-j1
 makefiles=Makefile.am,khangman/Makefile.am,khangman/sounds/Makefile.am,khangman/pics/Makefile.am,khangman/data/Makefile.am,
 modifyMakefiles=true
