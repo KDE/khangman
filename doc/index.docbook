@@ -1,10 +1,12 @@
-<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
-  <!ENTITY kappname "&khangman;" -- replace khangman here -->
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&khangman;"><!-- replace khangman here -->
+  <!ENTITY package "kdeedu">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % English "INCLUDE" -- change language only here -->
-  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V2.0//EN">
-  %ents;
+  <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
+
 <book lang="&language;">
 
 <bookinfo>
@@ -298,5 +300,7 @@ Local Variables:
 mode: sgml
 sgml-minimize-attributes: nil
 sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
 End:
 -->
