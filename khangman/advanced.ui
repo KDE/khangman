@@ -24,7 +24,7 @@
                 <cstring>groupBox4</cstring>
             </property>
             <property name="title">
-                <string>Advanced settings</string>
+                <string>Advanced Settings</string>
             </property>
             <vbox>
                 <property name="name">
@@ -35,13 +35,13 @@
                         <cstring>kcfg_OneLetter</cstring>
                     </property>
                     <property name="text">
-                        <string>Only One Letter Instance</string>
+                        <string>Only one letter instance</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Check this if you do not want to display each instance of the same letter</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter. 
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
 
 Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
                     </property>
@@ -51,13 +51,13 @@ Default is that for one letter typed, all instances of that letter in the word a
                         <cstring>kcfg_WonDialog</cstring>
                     </property>
                     <property name="text">
-                        <string>Do Not Display the 'Congratulations! You won!' Dialog</string>
+                        <string>Do not display the 'Congratulations! You won!' dialog</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If this option is not checked, when a game is won a dialog will appear saying 'Congratulations! You won!'. 
+                        <string>If this option is not checked, when a game is won a dialog will appear saying 'Congratulations! You won!'.
 This is the default state.
 
 If this option is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>

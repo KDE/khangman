@@ -46,7 +46,7 @@
                                 <bool>false</bool>
                             </property>
                             <property name="text">
-                                <string>Transparent Pictures</string>
+                                <string>Transparent pictures</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Check it if you want transparent hangman pictures</string>
@@ -63,7 +63,7 @@
                                 <bool>true</bool>
                             </property>
                             <property name="text">
-                                <string>Milder Hangman Pictures</string>
+                                <string>Milder Hangman pictures</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>When this box is checked, milder hangman pictures will be used.</string>
@@ -104,7 +104,7 @@ For younger children, it is preferable to leave this box checked and thus use th
                                 <bool>false</bool>
                             </property>
                             <property name="text">
-                                <string>Type Accented Letters</string>
+                                <string>Type accented letters</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>In some languages, if this is checked, you must type accented letters yourself (i.e. They are differentiated from the corresponding unaccented letter).</string>
@@ -122,13 +122,13 @@ Default is that accented letters will be shown when the corresponding unaccented
                                 <bool>false</bool>
                             </property>
                             <property name="text">
-                                <string>Enable Hints</string>
+                                <string>Enable hints</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, a hint will be displayed by right-clicking on the game window.</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language. 
+                                <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language.
 If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get them by checking this box. You will then see the hint for the word you are trying to guess by right-clicking somewhere on the KHangMan window.</string>
                             </property>
                         </widget>
@@ -152,7 +152,7 @@ If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get 
                         <cstring>kcfg_Sound</cstring>
                     </property>
                     <property name="text">
-                        <string>Enable Sounds</string>
+                        <string>Enable sounds</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, sounds will be played for New Game and Win Game</string>
