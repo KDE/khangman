@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
  "dtd/kdex.dtd" [
-  <!ENTITY kappname "&khangman;"><!-- replace khangman here -->
+  <!ENTITY kappname "&khangman;">
   <!ENTITY package "kdeedu">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -10,7 +10,7 @@
 <book lang="&language;">
 
 <bookinfo>
-<title>The KHangMan Handbook</title>
+<title>The &khangman; Handbook</title>
 
 <authorgroup>
 <author>
@@ -32,14 +32,12 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>31/10/2001</date>
+<date>2001-10-31</date>
 <releaseinfo>0.7.1</releaseinfo>
-
-<!-- Abstract about this handbook -->
 
 <abstract>
 <para>
-&khangman; is the classical hangman game for childrenadapted for KDE.
+&khangman; is the classical hangman game for children adapted for &kde;.
 </para>
 </abstract>
 
@@ -70,22 +68,19 @@ June 2000. </para>
 </chapter>
 
 <chapter id="using-khangman">
-<title>Using KHangMan</title>
-
-<para>
+<title>Using &khangman;</title>
 
 <screenshot>
 <screeninfo>Here's a screenshot of &khangman;</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="khangman1.png" format="PNG">
+	    <imagedata fileref="khangman1.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>KHangMan screenshot</phrase>
+	    <phrase>&khangman; screenshot</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
-</para>
 
 
 <sect1 id="general-usage">
@@ -94,9 +89,9 @@ June 2000. </para>
 <para>A word is displayed, hidden. You have to guess what the word is by trying
 a letter after another. The word id picked in random. There are 44 different
 words in each level.</para>
-<para>
-IMPORTANT : all words are nouns and in small letters.
-</para>
+
+<important><para>All words are nouns and in small letters.</para></important>
+
 <para>
 Each time you start the game, the default is easy.
 </para>
@@ -106,20 +101,21 @@ little further. You have 10 tries to guess the word. After that, the word is
 displayed.
 </para>
 <para>
-There are 4 levels : easy, medium and hard and animals :
+There are 4 levels : easy, medium, hard and animals :
 </para>
 <para>
 In the easy level, the words are quite simple, related to everyday life. It is
 suitable for children from 6 to 9.  The animals level contains only names of
 animals so they can be easier to find. Some of them are easy, others are more
 difficult. In the medium level, the words are longer and more difficult. It is
-suitable for 9+. The hard level is ...hard, i.e. the words are difficult to
+suitable for 9+. The hard level is ...hard, &ie; the words are difficult to
 spell and not very well known. Challenging, even for adults.
 </para>
 
-<para>
-After a word is guessed (or the hangman is completed), you are prompted for another word and you can either use the 'y' or 'n' keys or the mouse to answer 'yes' or 'not'. </para>
-</para>
+<para>After a word is guessed (or the hangman is completed), you are
+prompted for another word and you can either use the
+<keycap>Y</keycap> or <keycap>N</keycap> keys or the mouse to answer
+yes or not.</para>
 
 </sect1>
 <sect1 id="few-tips">
@@ -131,7 +127,7 @@ Try to guess the vowels first. Then have a go with the most common consonants : 
 When you see io, try n after that.
 </para>
 <para>
-Did you know ?
+Did you know?
 In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.2%), i (7.0%) and n (6.7%).
 </para>
 </sect1>
@@ -141,54 +137,68 @@ In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.
 <title>Command Reference</title>
 
 <sect1 id="khangman-mainwindow">
-<title>The main KHangMan window</title>
-<para>
+<title>The Main &khangman; Window</title>
 
-<shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>q</keycap></keycombo>
-</shortcut> or <shortcut>
-<keycombo><keycap>Alt</keycap><keycap>q</keycap></keycombo>
-</shortcut> enables you to quit the game (as well as clicking on the Quit
-button), <shortcut><keycap>F1</keycap></shortcut> or
-<keycombo><keycap>Alt</keycap><keycap>h</keycap></keycombo> </shortcut> gives
-you this Help (or click on the Help button) and
-<keycombo><keycap>Alt</keycap><keycap>i</keycap></keycombo> </shortcut> brings
-you the quick info screen. To choose the level, click on the Level
-button.</para>
+<para><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> or
+ <keycombo action="simul">&Alt;<keycap>Q</keycap></keycombo> enables you to quit the
+ game (as well as clicking on the <guibutton>Quit</guibutton> button),
+ <keycap>F1</keycap> or <keycombo action="simul">&Alt;<keycap>H</keycap></keycombo>
+ gives you this Help (or click on the <guibutton>Help</guibutton>
+ button) and <keycombo action="simul">&Alt;<keycap>I</keycap></keycombo> brings you
+ the quick info screen. To choose the level, click on the
+ <guibutton>Level</guibutton> button.</para>
 
 </sect1>
 </chapter>
 
 <chapter id="developers">
-<title>Developer's Guide to KHangMan</title>
+<title>Developer's Guide to &khangman;</title>
+
 <sect1 id="changing-words">
 <title>How to change the words for the game</title>
-<para>
-Download the tar.gz file of the latest version of KHangMan. Unpack it in a
-directory (/usr/local/bin for example). The words are stored in 4 separate
-files, one for each level. The files are in /khangman/data. The file
-easy.txt is for level easy, the file level2.txt is for level medium, the
-file level3.txt is for level animals and the file level4.txt is for level
-hard.</para>
-<para> Edit one of the file with your favorite editor (kedit or
-kwrite or emacs...). Change the words by putting one word a line, the maximum
-letters in the word should be 12. </para>
-<para>Note: the 4 text files have each 44 words (that is 44 lines with a word
-per line). If you change that number, please do so for each of these files so
-they all have the same number of lines/words. Then, in khangman.cpp, correct the
-first int that is declared which is called wordsnum.
+
+<para>Download the <literal role="extension">tar.gz</literal> file of
+the latest version of &khangman;. Unpack it in a directory (<filename
+class="directory">/usr/local/bin</filename> for example). The words
+are stored in 4 separate files, one for each level. The files are in
+<filename class="directory">/khangman/data</filename>. The file
+<filename>easy.txt</filename> is for level easy, the file
+<filename>level2.txt</filename> is for level medium, the file
+<filename>level3.txt</filename> is for level animals and the file
+<filename>level4.txt</filename> is for level hard.</para>
+
+<para> Edit one of the file with your favorite editor (&eg; &kedit; or
+&kate; or <application>Emacs</application>). Change the words by
+putting one word a line, the maximum letters in the word should be
+12. </para>
+
+<note><para>The 4 text files have each 44 words (that is 44 lines with
+a word per line). If you change that number, please do so for each of
+these files so they all have the same number of lines/words. Then, in
+<filename>khangman.cpp</filename>, correct the first int that is
+declared which is called wordsnum.
 <screen width="40">
 int wordsnum=your_new_number_of_words;
 </screen>
-</para>
-<para> Save the file and do a make install as root to install the file correctly 
-if you already compiled the game. If not, ./configure --prefix=/your_kde_dir,
-make and make install in a terminal. </para> </sect1>
+</para></note>
+
+<para> Save the file and do a <userinput><command>make</command>
+<option>install</option></userinput> as <systemitem
+class="username">root</systemitem> to install the file correctly if
+you already compiled the game. If not,
+<userinput><command>./configure</command>
+<option>--prefix=<replaceable>/your_kde_dir</replaceable></option></userinput>,
+<userinput><command>make</command></userinput> and
+<userinput><command>make</command>
+<parameter>install</parameter></userinput> in a terminal.</para>
+
+</sect1>
 
 </chapter>
 
 <chapter id="faq">
 <title>Questions and Answers</title>
+
 &reporting.bugs;
 &updating.documentation;
 
