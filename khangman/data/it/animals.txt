@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<kvtml>
+<e>
+<o>cane</o>
+<t>e' il tuo animale domestico preferito</t>
+</e>
+
+<e>
+<o>gatto</o>
+<t>e' un animale domestico</t>
+</e>
+
+<e>
+<o>canarino</o>
+<t>cantano tanto</t>
+</e>
+
+<e>
+<o>cardellino</o>
+<t>piccolo pennuto</t>
+</e>
+
+<e>
+<o>orso</o>
+<t>e' grosso e gli piace il miele</t>
+</e>
+
+<e>
+<o>balena</o>
+<t>e' un grosso pesce</t>
+</e>
+
+<e>
+<o>squalo</o>
+<t>tutti fuori dall'acqua!</t>
+</e>
+
+<e>
+<o>orca</o>
+<t>e' un grosso mammifero di mare</t>
+</e>
+
+<e>
+<o>delfino</o>
+<t>ama giocare in acqua</t>
+</e>
+
+<e>
+<o>foca</o>
+<t>ama giocare a palla</t>
+</e>
+
+<e>
+<o>tonno</o>
+<t>vive a mare ed e' molto saporito</t>
+</e>
+
+<e>
+<o>polipo</o>
+<t>ha sempre il naso sporco di inchiostro</t>
+</e>
+
+<e>
+<o>trota</o>
+<t>vive al lago</t>
+</e>
+
+<e>
+<o>pinguino</o>
+<t>vive al freddo</t>
+</e>
+
+<e>
+<o>anatra</o>
+<t>le piace nuotare beata</t>
+</e>
+
+<e>
+<o>piovra</o>
+<t>attenti alle sue braccia</t>
+</e>
+
+<e>
+<o>tartaruga</o>
+<t>e' molto lenta</t>
+</e>
+
+<e>
+<o>ippopotamo</o>
+<t>vive lungo i fiumi dell'Africa</t>
+</e>
+
+<e>
+<o>alligatore</o>
+<t>e' silenziso e pericoloso</t>
+</e>
+
+<e>
+<o>coccodrillo</o>
+<t>attenzione vive lungo i fiumi dell'Africa!</t>
+</e>
+
+<e>
+<o>rana</o>
+<t>le piace saltare</t>
+</e>
+
+<e>
+<o>girino</o>
+<t>e' appena nato</t>
+</e>
+
+<e>
+<o>pulcino</o>
+<t>piccolo nel pollaio</t>
+</e>
+
+<e>
+<o>gallo</o>
+<t>controlla il pollaio</t>
+</e>
+
+<e>
+<o>gallina</o>
+<t>sta sempre a fare uova</t>
+</e>
+
+<e>
+<o>chiocciola</o>
+<t>com'e' lenta!</t>
+</e>
+
+<e>
+<o>lumaca</o>
+<t>non e' per nulla veloce!</t>
+</e>
+
+<e>
+<o>zebra</o>
+<t>ne hai mai vista una allo zoo?</t>
+</e>
+
+<e>
+<o>canguro</o>
+<t>non vive in Italia</t>
+</e>
+
+<e>
+<o>cavallo</o>
+<t>molti vi salgono in groppa</t>
+</e>
+
+<e>
+<o>scimmia</o>
+<t>mangia molte banane</t>
+</e>
+
+<e>
+<o>picchio</o>
+<t>becca di continuo</t>
+</e>
+
+<e>
+<o>serpente</o>
+<t>ha uno scatto velocissimo e pericoloso</t>
+</e>
+
+<e>
+<o>giraffa</o>
+<t>che collo lungo che ha!</t>
+</e>
+
+<e>
+<o>elefante</o>
+<t>attenzione ai suoi piedi</t>
+</e>
+
+<e>
+<o>topo</o>
+<t>ve ne sono di carini bianchi</t>
+</e>
+
+<e>
+<o>verme</o>
+<t>striscia sempre</t>
+</e>
+
+<e>
+<o>libellula</o>
+<t>quante ali che ha!</t>
+</e>
+
+<e>
+<o>farfalla</o>
+<t>che belle ali!</t>
+</e>
+
+<e>
+<o>coniglio</o>
+<t>quante carote vorrà?</t>
+</e>
+
+<e>
+<o>criceto</o>
+<t>corre sempre</t>
+</e>
+
+<e>
+<o>porcellino</o>
+<t>e' sempre sporco</t>
+</e>
+
+<e>
+<o>lupo</o>
+<t>attenti alla luna piena</t>
+</e>
+
+<e>
+<o>leone</o>
+<t>che cresta e che paura!</t>
+</e>
+
+<e>
+<o>tigre</o>
+<t>veloce e feroce, vive in Africa</t>
+</e>
+
+<e>
+<o>puma</o>
+<t>corre molto ed e' pericoloso</t>
+</e>
+
+<e>
+<o>rinoceronte</o>
+<t>che bel corno sul naso!</t>
+</e>
+
+<e>
+<o>riccio</o>
+<t>attenzione che punge!</t>
+</e>
+
+<e>
+<o>porcospino</o>
+<t>punge, attento alle mani!</t>
+</e>
+
+<e>
+<o>puzzola</o>
+<t>oh, che cattivo odore!</t>
+</e>
+
+<e>
+<o>maialino</o>
+<t>non e' abituato alla pulizia</t>
+</e>
+
+<e>
+<o>renna</o>
+<t>senza non vi sarebbero doni a Natale</t>
+</e>
+
+<e>
+<o>scoiattolo</o>
+<t>vive nei boschi</t>
+</e>
+
+<e>
+<o>dinosauro</o>
+<t>e' vissuto tanti anni fa</t>
+</e>
+
+<e>
+<o>tacchino</o>
+<t>come il gallo</t>
+</e>
+
+<e>
+<o>acquila</o>
+<t>e' un volatile di stirpe nobile</t>
+</e>
+
+<e>
+<o>pesce</o>
+<t>può essere di varie specie: di lago, di mare</t>
+</e>
+
+<e>
+<o>pappagallo</o>
+<t>ripete tutto</t>
+</e>
+
+<e>
+<o>cammello</o>
+<t>e' indispensabile nel deserto</t>
+</e>
+
+<e>
+<o>dromedario</o>
+<t>vive nel deserto</t>
+</e>
+
+<e>
+<o>pecora</o>
+<t>si contano prima di dormire</t>
+</e>
+
+<e>
+<o>mucca</o>
+<t>fa tanto latte</t>
+</e>
+
+<e>
+<o>zanzara</o>
+<t>alcune non fanno dormire</t>
+</e>
+
+<e>
+<o>mosca</o>
+<t>ce ne sono di molto fastidiose</t>
+</e>
+
+<e>
+<o>ape</o>
+<t>punge e lavora molto</t>
+</e>
+
+</kvtml>
