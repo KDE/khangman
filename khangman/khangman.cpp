@@ -78,8 +78,12 @@ void KHangMan::setupActions()
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
     m_bFullScreen = false;
+#ifdef KHANGMAN_KDE_3_2_0
+    m_pFullScreen = KStdAction::fullScreen( this, SLOT( slotToggleFullScreen() ), actionCollection());
+#else
     m_pFullScreen = new KAction( i18n( "&Full-Screen Mode" ), "window_fullscreen", CTRL+SHIFT+Key_F, this,
         SLOT( slotToggleFullScreen() ), actionCollection(), "fullscreen" );
+#endif
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
 
@@ -400,19 +404,41 @@ void KHangMan::slotToggleFullScreen( )
 {
    m_bFullScreen = !m_bFullScreen;
    if( m_bFullScreen ){
-      menuBar()->hide();
       showFullScreen();
+   } else { // both calls with create event triggering updateFullScreenState()
+      showNormal();
+   }
+}
 
+void KHangMan::updateFullScreenState( )
+{
+   if( m_bFullScreen == isFullScreen())
+      return;
+   m_bFullScreen = isFullScreen();
+   if( m_bFullScreen ){
+      menuBar()->hide();
+#ifdef KHANGMAN_KDE_3_2_0
+      m_pFullScreen->setChecked(true);
+#else
       m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
       m_pFullScreen->setIcon( "window_nofullscreen" );
+#endif
    } else {
       menuBar()->show();
-
-      showNormal();
-
+#ifdef KHANGMAN_KDE_3_2_0
+      m_pFullScreen->setChecked(false);
+#else
       m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
       m_pFullScreen->setIcon( "window_fullscreen" );
+#endif
    }
+}
+
+bool KHangMan::event( QEvent* e )
+{
+   if( e->type() == QEvent::ShowFullScreen || e->type() == QEvent::ShowNormal )
+      updateFullScreenState();
+   return KMainWindow::event( e );
 }
 
 void KHangMan::slotSofter()

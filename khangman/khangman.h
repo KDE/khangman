@@ -15,6 +15,13 @@
 
 #include "khangmanview.h"
 
+#ifdef KDE_IS_VERSION
+#if KDE_IS_VERSION(3,1,90)
+#define KHANGMAN_KDE_3_2_0
+#else
+#endif
+#endif
+
 class KSelectAction;
 class KToggleAction;
 class QPopupMenu;
@@ -69,6 +76,9 @@ protected:
      */
     void readProperties(KConfig *);
 
+    // watch changes in fullscreen state    
+    virtual bool event(QEvent *);
+
 private slots:
     ///Start a new game i.e. repaint and set a new word
     void newGame();
@@ -118,6 +128,7 @@ private:
     void setupActions();
     void setupLangMenu();
     void loadDataFiles();
+    void updateFullScreenState();
 
 private:
     ///Main view
@@ -130,7 +141,11 @@ private:
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
     ///Full-Screen mode action
+#ifdef KHANGMAN_KDE_3_2_0
+    KToggleAction* m_pFullScreen;
+#else
     KAction* m_pFullScreen;
+#endif
 
     bool m_bFullScreen;
     ///Number of the selected language
