@@ -1,5 +1,4 @@
 TODO:
-
 - Maybe change GUI a bit... Will have to see the response...
 - New splashscreen?
 - few new images to replace current (bad ones...)
@@ -7,7 +6,11 @@ TODO:
 
 DONE
 - 27/07/2001 splash screen
+- a label just on top of the guessed letters maybe to indicate that these are the guessed letters. [me]
+- a label indicating the word to guess [me]
+- when the level changes, the focus should go back in the input box charWrite [me]
 - new game seems buggy (URGENT) [crossapp fixes... me]
+- (why 6 letters and then 7 and not 7 and 7?) [me]
 - icons rock [me]
 - accerated keys?  Y does not work (URGENT) [ignored... Uses different approach...]
 - read the words for each level from a file [anne]
@@ -15,3 +18,6 @@ DONE
 - invoke help (HTML) is deprecated (replaced with REAL help menu...) [me]
 - suppress all hard code like the path for the pictures (use kde standard dirs) [anne]
 - change the pics format from GIF to png [anne]
+- suppress that annma on the splashscreen and change the 1st pic please.
+
+
