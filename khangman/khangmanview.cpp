@@ -29,6 +29,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <kpassivepopup.h>
 #include <kstandarddirs.h>
 //standard C++ headers
 #include <stdlib.h>
@@ -371,5 +372,27 @@ void KHangManView::slotSofter()
 	pixImage->setPixmap(px[missedChar]);
 
 }
+
+void KHangManView::mousePressEvent(QMouseEvent *mouse )
+{
+	//float step = 1.0;
+	if (mouse->button() == RightButton)
+	{
+		 //QLabel *newL = new QLabel(this);
+		 //newL->setText("hi");
+		 KPassivePopup::message(i18n("KHangMan"),
+                                                      "bla bla", 0L, this, "popup", 0);
+	}
+	/*if ( e->state() & ShiftButton ) step = 2.0;
+ 	switch ( e->key() ) {
+                 case Key_Right :
+		 QLabel *newL = new QLabel(this);
+		 newL->setText("hi");
+		 //KPassivePopup::message(i18n("KHangMan"),
+                                                      //"bla bla", 0L, this, "popup", 0);						      
+		 break;
+		 }*/
+}
+
 
 #include "khangmanview.moc"

@@ -81,6 +81,9 @@ private:
 
   bool containsChar(QString &);
   void replaceLetters(QString);
+  
+  protected:
+   virtual void mousePressEvent( QMouseEvent *mouse );
 
 public slots:
 

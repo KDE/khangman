@@ -99,6 +99,8 @@ protected:
 
     // watch changes in fullscreen state
     virtual bool event(QEvent *);
+    
+   //  virtual void mousePressEvent( QMouseEvent *mouse );
 
 private slots:
     ///Start a new game i.e. repaint and set a new word
