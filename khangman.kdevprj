@@ -20,7 +20,7 @@ cxxflags= -O1 -g3 -Wall
 ldadd= -lkdeui -lkdecore $(LIB_QT) -lX11
 ldflags=
 [General]
-AMChanged=true
+AMChanged=false
 author=Anne-Marie Mahfouf
 configure_args=--with-kde-dir=/usr --prefix=/usr
 email=a-m.mahfouf@lineone.net
