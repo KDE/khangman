@@ -123,7 +123,7 @@ void KHangManView::slotTry()
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				if (language =="de")
-				goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
+					goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
 				mainLabel->setText(goodWord);
 				sword.remove(QRegExp(" "));
 				if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) //you made it!
@@ -375,23 +375,12 @@ void KHangManView::slotSofter()
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse )
 {
-	//float step = 1.0;
 	if (mouse->button() == RightButton)
 	{
-		 //QLabel *newL = new QLabel(this);
-		 //newL->setText("hi");
 		 KPassivePopup::message(i18n("KHangMan"),
-                                                      "bla bla", 0L, this, "popup", 0);
+                                     "bla bla", 0L, this, "popup", 0);
 	}
-	/*if ( e->state() & ShiftButton ) step = 2.0;
- 	switch ( e->key() ) {
-                 case Key_Right :
-		 QLabel *newL = new QLabel(this);
-		 newL->setText("hi");
-		 //KPassivePopup::message(i18n("KHangMan"),
-                                                      //"bla bla", 0L, this, "popup", 0);						      
-		 break;
-		 }*/
+
 }
 
 

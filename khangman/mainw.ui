@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>MainW</class>
 <widget class="QWidget">
     <property name="name">
@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>400</width>
-            <height>341</height>
+            <height>343</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -54,6 +54,9 @@
     <property name="backgroundOrigin">
         <enum>WidgetOrigin</enum>
     </property>
+    <property name="caption">
+        <string>MainW</string>
+    </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -92,16 +95,19 @@
                                     <property name="name">
                                         <cstring>TextLabel1</cstring>
                                     </property>
-                                    <property name="text">
-                                        <string>Misses:</string>
-                                    </property>
                                     <property name="backgroundOrigin">
                                         <enum>AncestorOrigin</enum>
+                                    </property>
+                                    <property name="text">
+                                        <string>Misses:</string>
                                     </property>
                                 </widget>
                                 <widget class="QLabel">
                                     <property name="name">
                                         <cstring>missedLetters</cstring>
+                                    </property>
+                                    <property name="backgroundOrigin">
+                                        <enum>AncestorOrigin</enum>
                                     </property>
                                     <property name="font">
                                         <font>
@@ -114,8 +120,11 @@
                                         <string>_ _ _ _ _ 
 _ _ _ _ _ </string>
                                     </property>
-                                    <property name="backgroundOrigin">
-                                        <enum>AncestorOrigin</enum>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Letters that you wrongly guessed</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>Here are the letters that you thought were in the word but are not</string>
                                     </property>
                                 </widget>
                                 <spacer>
@@ -141,12 +150,6 @@ _ _ _ _ _ </string>
                             <property name="name">
                                 <cstring>pixImage</cstring>
                             </property>
-                            <property name="scaledContents">
-                                <bool>true</bool>
-                            </property>
-                            <property name="backgroundOrigin">
-                                <enum>AncestorOrigin</enum>
-                            </property>
                             <property name="sizePolicy">
                                 <sizepolicy>
                                     <hsizetype>7</hsizetype>
@@ -155,6 +158,15 @@ _ _ _ _ _ </string>
                                     <verstretch>0</verstretch>
                                 </sizepolicy>
                             </property>
+                            <property name="backgroundOrigin">
+                                <enum>AncestorOrigin</enum>
+                            </property>
+                            <property name="scaledContents">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>The HangMan is drawn here</string>
+                            </property>
                         </widget>
                     </hbox>
                 </widget>
@@ -162,14 +174,14 @@ _ _ _ _ _ </string>
                     <property name="name">
                         <cstring>TextLabel2</cstring>
                     </property>
+                    <property name="backgroundOrigin">
+                        <enum>AncestorOrigin</enum>
+                    </property>
                     <property name="text">
                         <string>Word:</string>
                     </property>
                     <property name="alignment">
                         <set>AlignCenter</set>
-                    </property>
-                    <property name="backgroundOrigin">
-                        <enum>AncestorOrigin</enum>
                     </property>
                 </widget>
                 <widget class="QLayoutWidget">
@@ -239,6 +251,12 @@ _ _ _ _ _ </string>
                             <property name="indent">
                                 <number>0</number>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>This is the word to guess</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>The letters that you guessed will appear here</string>
+                            </property>
                         </widget>
                         <spacer>
                             <property name="name">
@@ -300,11 +318,11 @@ _ _ _ _ _ </string>
                                     <property name="name">
                                         <cstring>TextLabel3</cstring>
                                     </property>
-                                    <property name="text">
-                                        <string>Letter:</string>
-                                    </property>
                                     <property name="backgroundOrigin">
                                         <enum>AncestorOrigin</enum>
+                                    </property>
+                                    <property name="text">
+                                        <string>Letter:</string>
                                     </property>
                                 </widget>
                                 <spacer>
@@ -347,6 +365,12 @@ _ _ _ _ _ </string>
                                     </property>
                                     <property name="alignment">
                                         <set>AlignHCenter</set>
+                                    </property>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Type a letter to guess the word</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>You type a letter that you think is in the word to guess</string>
                                     </property>
                                 </widget>
                                 <spacer>

@@ -17,7 +17,6 @@
 
 //Qt headers
 #include <qdir.h>
-//#include <qlabel.h>
 #include <qlineedit.h>
 //KDE headers
 #include <kaction.h>
