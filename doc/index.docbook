@@ -32,8 +32,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-05-16</date>
-<releaseinfo>1.0</releaseinfo>
+<date>2003-05-22</date>
+<releaseinfo>1.1</releaseinfo>
 
 <abstract>
 <para>
@@ -113,8 +113,9 @@ little further. You have 10 tries to guess the word. After that, the correct ans
 displayed.
 </para>
 <para>
-There are 4 levels : easy, medium, hard and animals.
-</para>
+There are 4 levels : easy, medium, hard and animals plus other topics data in
+some languages. The program scans for all data files in all languages.
+ </para>
 <para>
 In the easy level, the words are quite simple, related to everyday life. It is
 suitable for children from 6 to 9.  The animals level contains only names of
