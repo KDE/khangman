@@ -5,11 +5,7 @@
 #ifndef _KHANGMANVIEW_H_
 #define _KHANGMANVIEW_H_
 
-#include <qobject.h>
 #include <qpixmap.h>
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qwidget.h>
 
 #include <krandomsequence.h>
 

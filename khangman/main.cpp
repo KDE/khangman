@@ -5,11 +5,9 @@
 #include "khangman.h"
 #include "version.h"
 
-#include <kapplication.h>
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
-#include <klocale.h>
 
 static const char *description =
     I18N_NOOP("The classical hangman game for KDE-Edu");

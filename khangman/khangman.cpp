@@ -4,26 +4,16 @@
 
 //Qt headers
 #include <qdir.h>
-#include <qtooltip.h>
-#include <qwhatsthis.h>
 //KDE headers
-#include <kaccel.h>
 #include <kaction.h>
-#include <kcombobox.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kiconloader.h>
 #include <kkeydialog.h>
 #include <klocale.h>
 #include <kmenubar.h>
 #include <kstatusbar.h>
-#include <kstdaccel.h>
-#include <kstdaction.h>
 #include <kstandarddirs.h>
-#include <ktoolbar.h>
 //Project headers
 #include "khangman.h"
 

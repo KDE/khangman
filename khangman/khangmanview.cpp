@@ -6,13 +6,10 @@
 #include "khangmanview.h"
 #include "version.h"
 //Qt headers
-#include <qbitmap.h>
 #include <qfile.h>
 #include <qimage.h>
 #include <qlabel.h>
-#include <qlayout.h>
 #include <qlineedit.h>
-#include <qtextstream.h>
 //KDE headers
 #include <kapplication.h>
 #include <kdebug.h>
