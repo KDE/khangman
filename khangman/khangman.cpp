@@ -336,6 +336,7 @@ void KHangMan::loadLangToolBar()
 	allData.clear();
 	if (!noCharBool) {
 	QString myString=QString("khangman/%1.txt").arg(m_view->language);
+	//add the file pt.txt as pt_BR.txt in kde-i18n/pt_BR and in pt_BR tarball in order to suppress this if
 	if (m_view->language =="pt_BR")
 		myString=QString("khangman/pt.txt");
 	QFile myFile;
@@ -343,6 +344,8 @@ void KHangMan::loadLangToolBar()
 	//let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
 		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
+		if (m_view->language =="pt_BR")
+			myString=QString("khangman/data/%1/pt.txt").arg(m_view->language);
 		myFile.setName(locate("data",myString));
 		kdDebug() << myString << endl;
 	}
