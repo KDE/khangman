@@ -277,9 +277,9 @@ void KHangMan::loadSettings()
     
     if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
     {m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
-    kdDebug() << m_view->accent_b << endl;
-    accentsAct->setChecked(!m_view->accent_b);}
-    
+    accentsAct->setChecked(!m_view->accent_b);
+    if (!m_view->accent_b)
+	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);}
     loadDataFiles();
 
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
@@ -523,20 +523,20 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n(QString("Try ø").utf8()), 1 );
 	secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n(QString("Try æ").utf8()), 2 );
 	secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 3 );
-	m_bCharToolbar = true;
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "fi")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
 	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2 );
-	m_bCharToolbar = true;
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "sv")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
 	secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
 	secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
-	m_bCharToolbar = true;
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "pt")
 	{
@@ -554,14 +554,14 @@ void KHangMan::loadLangToolBar()
 	{
 	secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
 	secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
-	m_bCharToolbar = true;
+	//m_bCharToolbar = true;
 	}
 	else if (m_view->language == "de")
 	{
 	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
 	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2);  secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
 	secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
-	m_bCharToolbar = true;
+	//m_bCharToolbar = true;
 	}
 	else
 	{
@@ -701,7 +701,9 @@ void KHangMan::slotClose()
 void KHangMan::slotAccents()
 {
  	m_view->accent_b = !accentsAct->isChecked();
-	secondAct->setChecked(!m_view->accent_b);
+	//secondAct->setChecked(!m_view->accent_b);
+	if (!m_view->accent_b)
+	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
 }
