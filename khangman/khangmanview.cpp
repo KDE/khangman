@@ -103,7 +103,7 @@ void KHangManView::slotTry()
 					}
 					else
 					{
-						close();
+						kapp->quit();
 					}
 				}
 			}
