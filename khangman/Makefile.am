@@ -1,7 +1,7 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
 khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp
-khangman_LDADD   =  $(LIB_KDEUI) -lkdeeducore
+khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la
 
 SUBDIRS = data pics sounds
 
