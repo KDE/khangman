@@ -101,7 +101,6 @@ void KHangMan::setupActions()
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-    m_bFullScreen = false;
 #ifdef KHANGMAN_KDE_3_2_0
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
@@ -464,8 +463,7 @@ void KHangMan::loadDataFiles()
 
 void KHangMan::slotSetFullScreen( bool set )
 {
-   m_bFullScreen = set;
-   if( m_bFullScreen ){
+   if( set ){
       showFullScreen();
       menuBar()->hide();
 #ifndef KHANGMAN_KDE_3_2_0

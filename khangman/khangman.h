@@ -213,7 +213,6 @@ private:
     KAction* m_pFullScreen;
 #endif
 
-    bool m_bFullScreen;
     ///Number of the selected language
     int selectedLanguage;
     ///Language codes of available languages
