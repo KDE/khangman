@@ -104,8 +104,6 @@ void KHangMan::setupActions()
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
 
-    //accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
-
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
@@ -183,12 +181,13 @@ void KHangMan::changeLevel()
 		I18N_NOOP("Animals"),
 	};
 	currentLevel = levelAct->currentItem();
+	kdDebug() << "Current Act : " << currentLevel << endl;
 	levelString = levels[currentLevel];
 	levelString.replace(0, 1, levelString.left(1).lower());
 	
 	m_view->levelFile = levelString +".txt";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
-	if (m_view->levelFile == "world_capitals.txt")
+	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
 		changeStatusbar(i18n("First letters must be upper case"), IDS_ACCENTS);	
 	else
 		changeStatusbar(i18n(""), IDS_ACCENTS);
@@ -247,8 +246,10 @@ void KHangMan::loadSettings()
     
     	loadDataFiles();
  
-	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty())
-		Prefs::setLevelFile("easy.txt");
+	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
+		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".txt");
+		currentLevel = 0;
+		}
 	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
@@ -314,24 +315,18 @@ void KHangMan::changeLanguage(int newLanguage)
     	selectedLanguage = m_languages[newLanguage];
 	Prefs::setSelectedLanguage(selectedLanguage);
 	Prefs::writeConfig();
-	kdDebug() << "After write config " << endl;
     	//load the different data files in the Level combo for the new language
    	loadDataFiles();
-    	bool fileExistBool = false;
-    	//check if the name of the file exists in the new language. If not, set it to Easy.
+	//at the moment, check if currentLevel exists (< levels.count()) if not, set it to 0
+	//but if medium in tg -> hard in other so 
+    	//check if the name of the file exists in the new language. If not, set it to levels[0].
     	//TODO: save level per language
-	kdDebug() << "After fileExistBool " << endl;
-    	for (int id = 0; id < (int) levels.count(); id++)
-    	if (levels[id].lower()==levelString)
-    		fileExistBool = true;
-    	if (!fileExistBool) {
-    		levelString = "easy";
-		m_view->levelFile = levelString +".txt";
-		currentLevel = 1;
-		Prefs::setLevel(currentLevel);
-        	Prefs::setLevelFile(m_view->levelFile);
-		Prefs::writeConfig();
-    	}
+	if (currentLevel > (uint) levels.count()) currentLevel= 0;
+	m_view->levelFile = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) +".txt";
+	Prefs::setLevel(currentLevel);
+        Prefs::setLevelFile(m_view->levelFile);
+	Prefs::writeConfig();
+    	//}
     	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);

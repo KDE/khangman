@@ -107,7 +107,7 @@ void KHangManView::slotNewGame()
 		mainLabel->setFont(tFont);
 	}
 	//distinction between upper and lower case letters
-	if (levelFile == "world_capitals.txt")
+	if (levelFile == "world_capitals.txt" || levelFile == "departements.txt")
 		upperBool = true;
 	 else upperBool = false;
 	game();
@@ -297,6 +297,7 @@ void KHangManView::game()
 	kdDebug() << "in game, file: " << myString << endl;
 	QFile myFile;
 	myFile.setName(locate("data",myString));
+	kdDebug() << "In game, level: " << levelFile << endl;
         if (!myFile.exists())
         {
 		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"

@@ -5,7 +5,7 @@
   <group name="General">
     <entry name="Level" type="Int">
       <label>Level</label>
-      <default code="true">1</default>
+      <default code="true">0</default>
     </entry>
     <entry name="LevelFile" type="String">
       <default>"easy.txt"</default>

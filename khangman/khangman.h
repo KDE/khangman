@@ -81,6 +81,7 @@ public:
     
     ///Update the text in the Statusbar
     void changeStatusbar(const QString& text, int id);
+    
 private:
     ///hold the current level
     QString levelString;
