@@ -87,7 +87,7 @@ void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
     KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
-    new KAction( i18n("Get  data in a new language..."), "knewstuff", this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+    new KAction( i18n("Get data in a new language..."), "knewstuff", this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
     KStdAction::quit(this, SLOT(slotClose()), actionCollection());
 
     createStandardStatusBarAction();
