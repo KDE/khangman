@@ -20,6 +20,7 @@
  
 //Qt headers
 #include <qcheckbox.h>
+#include <qdatetime.h>
 #include <qdir.h>
 #include <qlineedit.h>
 #include <qstringlist.h>
@@ -808,7 +809,7 @@ void KHangMan::setLanguages()
 	{
 		QString tmp = m_languages[i];
 		if (!config->readEntry(tmp))
-			config->writeEntry(tmp, "Thu Apr 8 2004");
+			config->writeEntry(tmp, QDate::currentDate().toString());
 	}
 	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
 	//to find the name of the country
