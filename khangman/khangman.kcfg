@@ -2,12 +2,12 @@
 <!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
 <kcfg>
   <kcfgfile name="khangmanrc"/>
- <!-- <group name="General">
+  <group name="General">
     <entry name="Level" type="Int">
       <label>Level</label>
       <default code="true">1</default>
     </entry>
-    <entry name="LevelFile" type="String">
+    <!--<entry name="LevelFile" type="String">
       <default>"easy.txt"</default>
     </entry>
      <entry name="Mode" type="Enum" Key="myMode">
@@ -30,9 +30,9 @@
     <entry name="Hint" type="Bool">
       <label>Enable Hint mode if available</label>
       <default code="true">false</default>
-    </entry>
+    </entry>-->
     </group>
-    <group name="Language">
+    <!--<group name="Language">
       <entry name="DefaultLanguage" type="String">
       <label>The Default KDE language for the user</label>
       <code>

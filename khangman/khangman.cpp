@@ -197,10 +197,11 @@ void KHangMan::changeLevel()
 	
 	m_view->levelFile = levelString +".txt";
 	changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+	Prefs::setLevel( currentLevel);
+	Prefs::writeConfig();
         KConfigBase *conf = kapp->config();
         if( conf ) {
      	  conf->setGroup( "General" );
-     	  conf->writeEntry("level", currentLevel);
 	  conf->writeEntry("levelFile", m_view->levelFile);
 	}
 	newGame();
@@ -251,9 +252,8 @@ void KHangMan::loadSettings()
                 selectedLanguage = 3;
      setLanguage(selectedLanguage);
 
-    config->setGroup( "General" );
     // Level
-    currentLevel = config->readNumEntry("level", 1); //default is easy
+    currentLevel = Prefs::level(); //default is easy
 
     // Show/hide characters toolbar
     m_bCharToolbar = config->readBoolEntry( "showCharToolbar", false);
@@ -374,10 +374,11 @@ void KHangMan::changeLanguage(int newLanguage)
     	levelString = "easy";
 	m_view->levelFile = levelString +".txt";
 	currentLevel = 1;
+	Prefs::setLevel(currentLevel);
+	Prefs::writeConfig();
         KConfigBase *conf = kapp->config();
         if( conf ) {
      		conf->setGroup( "General" );
-     	  	conf->writeEntry("level", currentLevel);
 	  	conf->writeEntry("levelFile", m_view->levelFile);
 	}
     }
