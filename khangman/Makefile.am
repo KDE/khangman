@@ -9,6 +9,9 @@ EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp
 
 KDE_ICON = khangman
 
+appsdir = $(kde_appsdir)/Edutainment/Languages
+apps_DATA = khangman.desktop
+
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
 
