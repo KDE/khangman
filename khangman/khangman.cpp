@@ -22,7 +22,7 @@
 #include <kstatusbar.h>
 #include <kstdaccel.h>
 #include <kstdaction.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <ktoolbar.h>
 //Project headers
 #include "khangman.h"
