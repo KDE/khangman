@@ -228,7 +228,7 @@ Medium regards nouns a bit more challenging, hard is quite difficult and animals
 <sect1 id="changing-words">
 <title>How to add words in a new language for the game</title>
 <para>
-Thanks to Stefan Asserh&#228;ll, it is very easy to add a new language directly to
+Thanks to Stefan Asserhäll, it is very easy to add a new language directly to
 the game. The procedure which is written here can also be found in <filename class="directory">khangman</filename> source dir
 in the file <filename>README.languages</filename>.
 </para>
@@ -348,7 +348,7 @@ Contributors:
 <email>ludovic.grossard AT libertysurf DOT fr</email></para> </listitem>
 <listitem><para>Blue theme, icons and code: Primoz Anzur
 <email>zerokode AT yahoo DOT com</email></para> </listitem>
-<listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserh&#228;ll
+<listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserhäll
 <email>stefan DOT asserhall AT telia DOT com
 </email></para> </listitem>
 <listitem><para>Nature theme: Joe Bolin
