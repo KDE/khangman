@@ -18,6 +18,7 @@
 #include "khsplash.h"
 #include "khsplash.moc"
 #include <kstandarddirs.h>
+#include <kglobalsettings.h>
 #include <kaudioplayer.h>
 #include <kmessagebox.h>
 #include <stdlib.h>
@@ -32,7 +33,8 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 		exit(0);
 	}
 	setBackgroundPixmap( QPixmap( locate("data","khangman/pics/khm_splash.png") ) ); //preload is senseless here...
-	setGeometry ( QApplication::desktop()->width ()/2-160, QApplication::desktop()->height()/2-120, 349, 173 );
+	QRect desk = KGlobalSettings::splashScreenDesktopGeometry();
+	setGeometry ( desk.width()/2-160, desk.height()/2-120, 349, 173 );
 	setFrameStyle( QFrame::Box | QFrame::Raised );
 	setLineWidth(1);
 	KAudioPlayer::play(locate("data","khangman/sounds/splash.ogg"));
