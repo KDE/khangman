@@ -73,6 +73,7 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	missedChar=0;
 	tmp = 0;
 	accent_b = false;
+	m_accent = false;
 	tip="";
 
 	connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
@@ -198,7 +199,7 @@ void KHangManView::replaceLetters(QString sChar)
     goodWord.replace((2*index), 1,sChar);
     index++;
   }
-  if ((language=="es" || language == "pt" || language == "ca" || language=="pt_BR") && (accent_b==true))
+  if (m_accent && accent_b)
   {
   //characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
     if (sChar=="i") replaceLetters(QString("í"));
@@ -220,7 +221,7 @@ bool KHangManView::containsChar(QString &sChar)
 {
   bool b = false;
 
-  if ((language=="es" || language =="pt" || language == "ca" || language=="pt_BR") && (accent_b==true))
+  if (m_accent && accent_b)
   {
     if (sChar=="i") b = word.contains(QString("í")) > 0;
     if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;

@@ -70,9 +70,11 @@ public:
 	QString tip;
 	QString stripWord, sword;
 	int c, d;
-	
+	///true if Type accents is enabled for the languages that support it
 	bool accent_b;
-	
+	///true if language = es, ca, pt or pt_BR
+	bool m_accent;
+	///true if hint is enabled for the fiels that support it
 	bool hintBool;
 	///if the data file is a kvtml file thus has hints
 	bool kvtmlBool;

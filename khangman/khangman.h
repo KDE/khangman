@@ -183,7 +183,8 @@ private slots:
     void setupActions();
     void setupLangMenu();
     void loadDataFiles();
-
+    void setAccentBool();
+    
 private:
     ///Main view
     KHangManView *m_view;

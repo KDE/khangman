@@ -273,12 +273,15 @@ void KHangMan::loadSettings()
     m_bCharToolbar = config->readBoolEntry( "showCharToolbar", false);
     if (m_bCharToolbar) secondToolbar->show();
     else secondToolbar->hide();
-    
-    if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR")
-    {m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
-    accentsAct->setChecked(!m_view->accent_b);
-    if (!m_view->accent_b)
-	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);}
+    //see if language has special accented letters
+    setAccentBool();
+   
+    if (m_view->m_accent) {
+    	m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
+    	accentsAct->setChecked(!m_view->accent_b);
+    	if (!m_view->accent_b)
+		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+    }
     loadDataFiles();
     //Enable hint or not
     m_view->hintBool= config->readBoolEntry( "hint", true);
@@ -401,7 +404,9 @@ void KHangMan::changeLanguage(int newLanguage)
     if (m_view->hintBool && m_view->kvtmlBool) 
     	hintAct->setChecked(true);
     slotHint();
-    if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+    setAccentBool();
+    //if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+    if (m_view->m_accent)
     	slotAccents();
     else {
     	changeStatusbar("", IDS_ACCENTS);
@@ -497,7 +502,8 @@ void KHangMan::loadLangToolBar()
 	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
- 	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+ 	//if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+	if (m_view->m_accent)
      		accentsAct->setEnabled(true);
     	else accentsAct->setEnabled(false);
 	 
@@ -680,7 +686,7 @@ void KHangMan::slotClose()
         if( conf ) {
      	  conf->setGroup( "General" );
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
-	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
+	  if (m_view->m_accent)
 	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
 	  if (m_view->kvtmlBool)
 	  	conf->writeEntry( "hint", m_view->hintBool);
@@ -739,6 +745,14 @@ void KHangMan::slotChooseHint()
 		m_view->hintBool =false;
 		changeStatusbar("", IDS_HINT);
 	}
+}
+
+//set a bool to true for languages that allow Typing Accented Letters
+void KHangMan::setAccentBool()
+{
+	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
+    		m_view->m_accent = true;
+    	else m_view->m_accent = false;
 }
 
 #include "khangman.moc"
