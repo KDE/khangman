@@ -93,7 +93,6 @@ void KHangMan::setupActions()
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
-    //secondAct = new KToggleToolBarAction(secondToolbar, i18n("Special Characters"), actionCollection(), "second_act");
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
     langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
@@ -197,12 +196,12 @@ void KHangMan::changeCaption(const QString& text)
 //and written in config
 void KHangMan::changeLevel()
 {
-	/*static const char *levelStrings[] = {
-		I18N_NOOP("easy"),
-		I18N_NOOP("medium"),
-		I18N_NOOP("hard"),
-		I18N_NOOP("animals"),
-	};*/
+	static const char *levelStrings[] = {
+		I18N_NOOP("Easy"),
+		I18N_NOOP("Medium"),
+		I18N_NOOP("Hard"),
+		I18N_NOOP("Animals"),
+	};
 	//TODO i18n()
 	currentLevel = levelAct->currentItem();
 	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
