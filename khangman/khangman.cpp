@@ -97,7 +97,7 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-    newAct = new KAction(i18n("&New"), "file_new", 0 , this, SLOT(fileNew()), actionCollection(), "file_new");
+    newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(fileNew()), actionCollection(), "file_new");
     KStdAction::quit(kapp, SLOT(quit()), actionCollection());
 
     createStandardStatusBarAction();

@@ -38,8 +38,6 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	px[8].load(locate("data","khangman/pics/hg9.jpg"));
 	px[9].load(locate("data","khangman/pics/hg10.jpg"));
 	px[10].load(locate("data","khangman/pics/hg12.jpg"));
-	px[11].load(locate("data","khangman/pics/hg13.jpg"));
-	px[12].load(locate("data","khangman/pics/hg14.jpg"));
 
 	bluePix = QPixmap(QPixmap(locate("data","khangman/pics/blue.png") ) );
 	naturePix = QPixmap(QPixmap(locate("data","khangman/pics/nature.png") ) );
@@ -105,7 +103,14 @@ void KHangManView::slotTry()
 					if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
 					{
 					//we reset everything...
+					pixImage->setPixmap(px[10]);
+					/*
 					pixImage->setPixmap(px[12]);
+        				QPainter paint;                         // our painter
+					 paint.begin(&px[12]);                   // begin painting onto picture
+        				slotPaintWin(&paint );                    // paint!
+        				 paint.end();*/
+
 					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 					{
 						sChar="";
@@ -115,6 +120,8 @@ void KHangManView::slotTry()
 					{
 						kapp->quit();
 					}
+					charWrite->setText("");
+					return;
 					}
 				}//end if word.contains(sChar)
 				if (sChar=="í") sChar="i";
@@ -161,7 +168,8 @@ void KHangManView::slotTry()
 				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
 				{
 					//we reset everything...
-					pixImage->setPixmap(px[12]);
+					pixImage->setPixmap(px[10]);
+
 					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 					{
 						slotNewGame();
@@ -193,7 +201,7 @@ void KHangManView::slotTry()
 				if (missedChar >= 10) //you are hanged!
 				{
 					//we reset everything...
-				        pixImage->setPixmap(px[11]);
+				        pixImage->setPixmap(px[9]);
 					//um... The word is not guessed... Let's show it...
 					QStringList charList=QStringList::split("",word);
 					QString theWord=charList.join(" ");
@@ -244,7 +252,6 @@ void KHangManView::game()
 	int objects = allData.count();//number of words in the file
 	//picks a random word from allData
 	word = allData[random.getLong(objects)]; //gives us a single word...
-	  //debug to see what word is picked
 	kdDebug() << word << endl;
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
 	{
@@ -258,12 +265,8 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
-
-	kdDebug() << "GoodWord: " << goodWord << endl;
 	mainLabel-> setText(goodWord);//display the _
-	//mainLabel->adjustSize();
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
-	//setMinimumSize(480, 430);
 }
 
 void KHangManView::wipeout()
@@ -297,7 +300,5 @@ void KHangManView::slotNoBkgd()
 	Frame11->setBackgroundColor("#DCDCDC");
 	charWrite->setFocus();
 }
-
-
 
 #include "khangmanview.moc"

@@ -54,7 +54,7 @@ private:
 
 	KRandomSequence random;
 	//the hangman pictures
-	QPixmap px[13];
+	QPixmap px[11];
 
 signals:
     /**

@@ -234,7 +234,10 @@ _ _ _ _ _ </string>
                                 <bool>true</bool>
                             </property>
                             <property name="alignment">
-                                <set>WordBreak|AlignCenter</set>
+                                <set>AlignCenter</set>
+                            </property>
+                            <property name="indent">
+                                <number>0</number>
                             </property>
                         </widget>
                         <spacer>
