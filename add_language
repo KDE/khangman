@@ -39,7 +39,7 @@ sed -e "s/\/en/\/$code/" $en/Makefile.am > $lang/Makefile.am
 touch $dir/Makefile.am
 
 # Tell user what to do
-echo "The language $code has been succesfully added!"
+echo "The language $code has been successfully added!"
 echo ""
 echo "Please edit the following files and translate the english words:"
 ls $lang/*.txt
