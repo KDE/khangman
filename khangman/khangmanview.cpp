@@ -39,8 +39,8 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	px[9].load(locate("data","khangman/pics/hg10.png"));
 	px[10].load(locate("data","khangman/pics/hg12.png"));
 
-	bluePix = QPixmap(QPixmap(locate("data","khangman/pics/blue.png") ) );
-	naturePix = QPixmap(QPixmap(locate("data","khangman/pics/nature.png") ) );
+	bluePix = QPixmap(locate("data","khangman/pics/blue.png") );
+	naturePix = QPixmap(locate("data","khangman/pics/nature.png") );
 	if (bluePix.isNull() || naturePix.isNull())
 	{
 		QString mString=i18n("The backgrounds files are not found.\n"
@@ -55,8 +55,8 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	temp="";
 	missedChar=0;
 
-	QObject::connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
-	QObject::connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
+	connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
+	connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
 }
 
 KHangManView::~KHangManView()
@@ -346,8 +346,7 @@ void KHangManView::slotSofter()
 		px[9].load(locate("data","khangman/pics/hg10.png"));
 	}
 	//update the pic immediatly
-	if (missedChar > 0 && missedChar < 9) pixImage->setPixmap(px[missedChar+1]);
-	if (missedChar == 9) pixImage->setPixmap(px[missedChar]);
+	pixImage->setPixmap(px[missedChar]);
 
 }
 
