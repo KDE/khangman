@@ -11,6 +11,7 @@ KDE_ICON = AUTO
 
 xdg_apps_DATA = khangman.desktop
 kde_kcfg_DATA = khangman.kcfg
+kde_conf_DATA = khangmanrc
 
 # set the include path for X, qt and KDE
 INCLUDES= -I$(top_srcdir)/libkdeedu/kdeeducore $(all_includes)

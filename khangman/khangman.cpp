@@ -50,10 +50,6 @@ KHangMan::KHangMan()
     levelString = "";
     modeString = "";
     mNewStuff = 0;
-    KConfig *cfg = KGlobal::config();
-    cfg->setGroup("KNewStuff");
-    cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
-    cfg->sync();
     kdDebug() << "before  dirs " << endl;
     setLanguages();
     
