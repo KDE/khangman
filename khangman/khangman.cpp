@@ -266,7 +266,6 @@ void KHangMan::loadSettings()
     config->setGroup( "General" );
     // Level
     currentLevel = config->readNumEntry("level", 1); //default is easy
-    QString oldLevel = levelString;
 
     // Show/hide characters toolbar
     m_bCharToolbar = config->readBoolEntry( "showCharToolbar", false);
@@ -286,6 +285,7 @@ void KHangMan::loadSettings()
     
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
+    //m_view->levelFile = easy.txt  levelString = easy
     setLevel_WindowState();
 
      // Background
@@ -376,6 +376,23 @@ void KHangMan::changeLanguage(int newLanguage)
     }
     //load the different data files in the Level combo for the new language
     loadDataFiles();
+    bool fileExistBool = false;
+    //check if the name of the file exists in the new language. If not, set it to Easy.
+    for (int id = 0; id < (int) levels.count(); id++)
+    if (levels[id].lower()==levelString)
+    	fileExistBool = true;
+    if (!fileExistBool) {
+    	levelString = "easy";
+	m_view->levelFile = levelString +".txt";
+	currentLevel = 1;
+	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
+        KConfigBase *conf = kapp->config();
+        if( conf ) {
+     		conf->setGroup( "General" );
+     	  	conf->writeEntry("level", currentLevel);
+	  	conf->writeEntry("levelFile", m_view->levelFile);
+	}
+    }
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
