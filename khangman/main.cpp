@@ -28,15 +28,15 @@ int main(int argc, char **argv)
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
     aboutData.addCredit("Robert Gogolok",
-                            I18N_NOOP("Coding help"), "mail AT robert-gogolok DOT de");
+                            I18N_NOOP("Coding help"), "robertgogolok@gmx.de");
     aboutData.addCredit("Joe Bolin",
                             I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
     aboutData.addCredit("Whitehawk Stormchaser",
                             I18N_NOOP("Blue theme background"), "zerokode@gmx.net");
     aboutData.addCredit("Renaud Blanchard",
-                            I18N_NOOP("Graphics"), "kisukuma AT chez DOT com");
+                            I18N_NOOP("Graphics"), "kisukuma.chez.com");
     aboutData.addCredit("eXParTaKus",
-                            I18N_NOOP("Spanish data files"), "expartakus AT expartakus DOT com");
+                            I18N_NOOP("Spanish data files"), "expartakus.expartakus.com");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
