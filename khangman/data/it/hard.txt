@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<kvtml>
+<e>
+<o>colpire</o>
+<t>battere su qualcosa</t>
+</e>
+
+<e>
+<o>catalisi</o>
+<t>procedimento chimico</t>
+</e>
+
+<e>
+<o>gioielli</o>
+<t>ci sono pure quelli della corona</t>
+</e>
+
+<e>
+<o>faro</o>
+<t>utile per le navi la notte</t>
+</e>
+
+<e>
+<o>aumento</o>
+<t>quando cresce qualcosa</t>
+</e>
+
+<e>
+<o>federalismo</o>
+<t>concetto legato al tipo di stato</t>
+</e>
+
+<e>
+<o>dogmatico</o>
+<t>si accetta senza porsi dubbi</t>
+</e>
+
+<e>
+<o>dilettantismo</o>
+<t>genere di attività di cui non si è pratici</t>
+</e>
+
+<e>
+<o>cloroformio</o>
+<t></t>
+</e>
+
+<e>
+<o>etnografia</o>
+<t></t>
+</e>
+
+<e>
+<o>calligrafia</o>
+<t>studio della scrittura</t>
+</e>
+
+<e>
+<o>follia</o>
+<t>momento in cui non si agisce in modo innaturale</t>
+</e>
+
+<e>
+<o>fisarmonicista</o>
+<t>suonatore praghese</t>
+</e>
+
+<e>
+<o>boomerang</o>
+<t>ritorna indietro dopo averlo lanciato</t>
+</e>
+
+<e>
+<o>ripensamento</o>
+<t>quando si decide nuovamente</t>
+</e>
+
+<e>
+<o>ornitologia</o>
+<t>lo studio degli uccelli</t>
+</e>
+
+<e>
+<o>osteologia</o>
+<t>studio delle ossa</t>
+</e>
+
+<e>
+<o>serpente</o>
+<t>striscia ed è velenoso</t>
+</e>
+
+<e>
+<o>esibizione</o>
+<t>quando ci si mostra</t>
+</e>
+
+<e>
+<o>radiografia</o>
+<t>"foto" che mostra l'interno del nostro corpo</t>
+</e>
+
+<e>
+<o>surrealismo</o>
+<t>movimento letterario che esprime della vita dell'inconscio</t>
+</e>
+
+<e>
+<o>sillogismo</o>
+<t>tipo di ragionamento transitivo</t>
+</e>
+
+<e>
+<o>simposio</o>
+<t>banchetto</t>
+</e>
+
+<e>
+<o>teologo</o>
+<t>studioso di religione</t>
+</e>
+
+<e>
+<o>trigonometria</o>
+<t>branca della matematca</t>
+</e>
+
+<e>
+<o>traslucido</o>
+<t>un oggetto come il vetro smerigliato</t>
+</e>
+
+<e>
+<o>sincerità</o>
+<t>quando si dice ciò che si pensa</t>
+</e>
+
+<e>
+<o>tapezzeria</o>
+<t>arredi vari</t>
+</e>
+
+<e>
+<o>ritiro</o>
+<t>prelievo di denaro</t>
+</e>
+
+<e>
+<o>zoologia</o>
+<t>scienza che studia gli animali</t>
+</e>
+
+wheelbarrow
+<e>
+<o></o>
+<t></t>
+</e>
+
+<e>
+<o>xenofobia</o>
+<t>avversione agli stranieri</t>
+</e>
+
+<e>
+<o>proprietario</o>
+<t>persona a cui appartiene un certo oggetto</t>
+</e>
+
+<e>
+<o>stupore</o>
+<t>reazione a una novità</t>
+</e>
+
+<e>
+<o>xilofono</o>
+<t>strumento musicale che si suona con due mazzuoli</t>
+</e>
+
+<e>
+<o>pseudonimo</o>
+<t>nome falso preso ad arte da un autore</t>
+</e>
+
+<e>
+<o>prosperità</o>
+<t>condizione di benessere</t>
+</e>
+
+<e>
+<o>psichiatra</o>
+<t>cura le persone mentalmente disturbate</t>
+</e>
+
+<e>
+<o>protagonista</o>
+<t>chi è al centro dell'attenzione</t>
+</e>
+
+</kvtml>
