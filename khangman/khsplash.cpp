@@ -16,41 +16,43 @@
  ***************************************************************************/
 
 #include "khsplash.h"
-#include "khsplash.moc"
+//#include "khsplash.moc"
 #include <kstddirs.h>
 #include <kaudioplayer.h>
 
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)
 {
-   QPixmap pm;
-   pm.load(locate("data","khangman/pics/beta.png"));
+	QPixmap pm;
+	pm.load(locate("data","khangman/pics/khm_splash.png"));
 	setBackgroundPixmap(pm);
-	setGeometry( QApplication::desktop()->width ()/2-160,
-				QApplication::desktop()->height()/2-120,
-							349, 173 );
-   setFrameStyle( QFrame::Box | QFrame::Raised );
+	setGeometry
+	( QApplication::desktop()->width ()/2-160,
+	  QApplication::desktop()->height()/2-120,
+	  349, 173 );
+	setFrameStyle( QFrame::Box | QFrame::Raised );
 	setLineWidth(1);
 	show();
-   QString string1;
-   string1=locate("data","khangman/sounds/splash.wav");
-   KAudioPlayer::play(string1);
+	QString string1;
+	string1=locate("data","khangman/sounds/splash.wav");
+	KAudioPlayer::play(string1);
 
-    //allow the splash screen to be displayed 400 seconds
-    QTimer *timer = new QTimer(this);
-    connect( timer, SIGNAL(timeout()),
-    this, SLOT(slotHide()) );
-    timer->start( 3000, TRUE );
+	//allow the splash screen to be displayed 400 seconds
+	QTimer *timer = new QTimer(this);
+	connect( timer, SIGNAL(timeout()),
+	         this, SLOT(slotHide()) );
+	timer->start( 2000, TRUE );
 }
 
-KhSplash::~KhSplash(){
-}
+KhSplash::~KhSplash()
+{}
 
 
 /** Hide the splash screen and call the game */
 void KhSplash::slotHide()
 {
-    this->hide();
-    KHangMan *khangman = new KHangMan();
-    khangman->setGeometry(20,20,720,400);
-    khangman->show();
+	this->hide();
+	KHangMan *khangman = new KHangMan();
+	khangman->setGeometry
+	(20,20,720,400);
+	khangman->show();
 }

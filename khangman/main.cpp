@@ -22,30 +22,32 @@
 #include "khsplash.h"
 
 static const char *description =
-	I18N_NOOP("KHangMan");
+    I18N_NOOP("KHangMan");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
-	
-	
+
+
 static KCmdLineOptions options[] =
-{
-  { 0, 0, 0 }
-  // INSERT YOUR COMMANDLINE OPTIONS HERE
-};
+    {
+        { 0, 0, 0 }
+        // INSERT YOUR COMMANDLINE OPTIONS HERE
+    };
 
 int main(int argc, char *argv[])
 {
 
-    KAboutData aboutData( "khangman - v0.2", I18N_NOOP("KHangMan"),
-    VERSION, description, KAboutData::License_GPL,
-    "(c) 2001, Anne-Marie Mahfouf", 0, 0, "a-m.mahfouf@lineone.net");
-  aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Maintainer, Author"), "a-m.mahfouf@lineone.net");
-  aboutData.addCredit("Elhay Achiam",
-		I18N_NOOP("Graphics"), "e_achiam@netvision.net.il");
-  KCmdLineArgs::init( argc, argv, &aboutData );
-  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
+	KAboutData aboutData( "khangman - v0.71", I18N_NOOP("KHangMan"),
+	                      VERSION, description, KAboutData::License_GPL,
+	                      "(c) 2001, Anne-Marie Mahfouf", 0, 0, "a-m.mahfouf@lineone.net");
+	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Maintainer, Author"), "a-m.mahfouf@lineone.net");
+	aboutData.addCredit("Renaud Blanchard",
+	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
+    aboutData.addCredit("Primoz Primoz Anzur",
+	                    I18N_NOOP("Splash-screen"), "zerokode@yahoo.com");
+	KCmdLineArgs::init( argc, argv, &aboutData );
+	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
-  KApplication a;
-  KhSplash *splash=new KhSplash();
-  splash->show();
-  return a.exec();
+	KApplication a;
+	KhSplash *splash=new KhSplash();
+	splash->show();
+	return a.exec();
 }

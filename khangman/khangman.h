@@ -22,24 +22,29 @@
 #include <config.h>
 #endif
 
-#include <kapp.h>
-#include <qwidget.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qstring.h>
-#include <qlineedit.h>
-#include <qtooltip.h>
+//Qt headers
 #include <qcombobox.h>
-#include <qpixmap.h>
 #include <qevent.h>
-#include <kaccel.h>
-#include <qmainwindow.h>
-#include <kstddirs.h>
-#include <kdialog.h>
-#include <qlayout.h>
-#include <qvariant.h>
-#include <qtextstream.h>
 #include <qfile.h>
+#include <qlabel.h>
+#include <qlineedit.h>
+#include <qpixmap.h>
+#include <qpushbutton.h>
+#include <qlayout.h>
+#include <qmainwindow.h>
+#include <qstring.h>
+#include <qtextstream.h>
+#include <qtooltip.h>
+#include <qvariant.h>
+#include <qwidget.h>
+
+//KDE headers
+#include <kaccel.h>
+#include <kapp.h>
+#include <kaudioplayer.h>
+#include <kdialog.h>
+#include <kmessagebox.h>
+#include <kstddirs.h>
 
 class KHangMan : public QWidget
 {
@@ -47,6 +52,7 @@ class KHangMan : public QWidget
   public:
     /** construtor */
     KHangMan(QWidget* parent=0, const char *name=0);
+     QString file1;
 
   public slots:
     void slotquit();
@@ -84,7 +90,7 @@ class KHangMan : public QWidget
     QPushButton *exit1;
     QLabel *helpla1;
     KDialog *helpla;
-    QString file1;
+
 
   protected:
     void keyPressEvent(QKeyEvent *);
