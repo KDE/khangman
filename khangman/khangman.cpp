@@ -214,74 +214,77 @@ void KHangMan::changeMode()
     	case 0:
 	 		modeString="nobg";
 			m_view->slotNoBkgd();
+			Prefs::setMode("nobg");
     		break;
 
     	case 1:
       			modeString="blue";
 			m_view->slotSetPixmap(m_view->bluePix);
+			Prefs::setMode("blue");
    			break;
     	case 2:
       		modeString="nature";
 			m_view->slotSetPixmap(m_view->naturePix);
+			Prefs::setMode("nature");
    			break;
 	}
+	Prefs::writeConfig();
         transAct->setEnabled( modeAct->currentItem() != 0 );
-	KConfigBase *conf = kapp->config();
-        if( conf ) {
-     	  conf->setGroup( "General" );
-	  conf->writeEntry( "mode", modeString);
-        }
 }
 
 //read settings from config file khangmanrc
 void KHangMan::loadSettings()
 {
-    // Language
-    //load the kdeglobals config file - safer way would be to load that one read-only
-    KConfigBase *globalConf = KGlobal::config();
-    globalConf->setGroup("Locale");
-    userLanguage = globalConf->readEntry("Language");
-    //keep only the first 2 characters
-    userLanguage = userLanguage.left(2);
-    setSelectedLanguage(userLanguage);
+    	// Language
+    	//load the kdeglobals config file - safer way would be to load that one read-only
+    	KConfigBase *globalConf = KGlobal::config();
+    	globalConf->setGroup("Locale");
+    	userLanguage = globalConf->readEntry("Language");
+    	//keep only the first 2 characters
+    	userLanguage = userLanguage.left(2);
+    	setSelectedLanguage(userLanguage);
 
-    KConfig *config = kapp->config();
-    config->setGroup("Language");
-    selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
-    if (selectedLanguage >= (int) m_languages.count())
+    	KConfig *config = kapp->config();
+    	config->setGroup("Language");
+    	selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
+    	if (selectedLanguage >= (int) m_languages.count())
                 selectedLanguage = 3;
-     setLanguage(selectedLanguage);
+     	setLanguage(selectedLanguage);
 
-    // Level
-    currentLevel = Prefs::level(); //default is easy
+    	// Level
+    	currentLevel = Prefs::level(); //default is easy
 
-    // Show/hide characters toolbar
-    m_bCharToolbar = config->readBoolEntry( "showCharToolbar", false);
-    if (m_bCharToolbar) secondToolbar->show();
-    else secondToolbar->hide();
-    //see if language has special accented letters
-    setAccentBool();
-    m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
-    accentsAct->setChecked(m_view->accent_b);
-    if (m_view->m_accent && m_view->accent_b)
-	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+     	// Show/hide characters toolbar
+   	m_bCharToolbar = Prefs::showCharToolbar();
+   	if (m_bCharToolbar) 
+		secondToolbar->show();
+  	else 
+		secondToolbar->hide();
+    	//see if language has special accented letters
+    	setAccentBool();
+    	m_view->accent_b = Prefs::accentedLetters();
+   	 accentsAct->setChecked(m_view->accent_b);
+    	if (m_view->m_accent && m_view->accent_b)
+		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     
     	loadDataFiles();
     	//Enable hint or not
-    	m_view->hintBool= config->readBoolEntry( "hint", true);
-    	if (m_view->hintBool) hintAct->setChecked(true);
-    	else hintAct->setChecked(false);
+    	m_view->hintBool= Prefs::hint();
+    	if (m_view->hintBool) 
+		hintAct->setChecked(true);
+    	else 
+		hintAct->setChecked(false);
     
-    	m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
+    	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
     	setLevel_WindowState();
 
      	// Background
     	QString oldMode = modeString;
-    	modeString = config->readEntry("mode", "nobg");
+    	modeString = Prefs::mode();
    	if(oldMode != modeString)
-    	setMode_WindowState();
+    		setMode_WindowState();
 
      	 // Transparency
      	 if(m_view->transparent != Prefs::transparent()) {
@@ -345,62 +348,54 @@ void KHangMan::slotLanguage()
 // Switch to another language using Languages menu
 void KHangMan::changeLanguage(int newLanguage)
 {
-    // Do not accept to switch to same language
-    if (newLanguage == selectedLanguage)
-	return;
+    	// Do not accept to switch to same language
+   	 if (newLanguage == selectedLanguage)
+		return;
 
-    // Unselect preceding language
-    langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
-    for (int id = 0; id < (int) m_languageNames.count(); id++)
-    	langPopup->setItemChecked(id, id == newLanguage);
+    	// Unselect preceding language
+    	langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
+   	for (int id = 0; id < (int) m_languageNames.count(); id++)
+    		langPopup->setItemChecked(id, id == newLanguage);
 
-    selectedLanguage = newLanguage;
-    // Change language in the config file
-    KConfigBase *conf = kapp->config();
-    if( conf ) {
-	conf->setGroup("Language");
-	conf->writeEntry("selectedLanguage", selectedLanguage);
-        conf->writeEntry("defaultLang", defaultLang);
-    }
-    //load the different data files in the Level combo for the new language
-    loadDataFiles();
-    bool fileExistBool = false;
-    //check if the name of the file exists in the new language. If not, set it to Easy.
-    //TODO: save level per language
-    for (int id = 0; id < (int) levels.count(); id++)
-    if (levels[id].lower()==levelString)
-    	fileExistBool = true;
-    if (!fileExistBool) {
-    	levelString = "easy";
-	m_view->levelFile = levelString +".txt";
-	currentLevel = 1;
-	Prefs::setLevel(currentLevel);
-	Prefs::writeConfig();
-        KConfigBase *conf = kapp->config();
-        if( conf ) {
-     		conf->setGroup( "General" );
-	  	conf->writeEntry("levelFile", m_view->levelFile);
-	}
-    }
-    //update the Levels in Level combobox as well
-    setLevel_WindowState();
-    setLanguage(newLanguage);
-    if (m_view->hintBool && m_view->kvtmlBool) 
-    	hintAct->setChecked(true);
-    slotHint();
-    setAccentBool();
-
-    if( conf ) {
-    conf->setGroup( "General" );
-    m_bCharToolbar = conf->readBoolEntry( "showCharToolbar", true);
-    }
-    if (m_view->m_accent) 
+    	selectedLanguage = newLanguage;
+    	// Change language in the config file
+    	KConfigBase *conf = kapp->config();
+   	 if( conf ) {
+		conf->setGroup("Language");
+		conf->writeEntry("selectedLanguage", selectedLanguage);
+        	conf->writeEntry("defaultLang", defaultLang);
+   	 }
+    	//load the different data files in the Level combo for the new language
+   	 loadDataFiles();
+    	bool fileExistBool = false;
+    	//check if the name of the file exists in the new language. If not, set it to Easy.
+    	//TODO: save level per language
+    	for (int id = 0; id < (int) levels.count(); id++)
+    	if (levels[id].lower()==levelString)
+    		fileExistBool = true;
+    	if (!fileExistBool) {
+    		levelString = "easy";
+		m_view->levelFile = levelString +".txt";
+		currentLevel = 1;
+		Prefs::setLevel(currentLevel);
+        	Prefs::setLevelFile(m_view->levelFile);
+		Prefs::writeConfig();
+    	}
+    	//update the Levels in Level combobox as well
+    	setLevel_WindowState();
+    	setLanguage(newLanguage);
+    	if (m_view->hintBool && m_view->kvtmlBool) 
+    		hintAct->setChecked(true);
+    	slotHint();
+    	setAccentBool();
+	m_bCharToolbar = Prefs::showCharToolbar();
+   	 if (m_view->m_accent) 
     		slotAccents();
-    else {
-    	changeStatusbar("", IDS_ACCENTS);
-	loadLangToolBar();
-	newGame();
-    }
+    	else {
+    		changeStatusbar("", IDS_ACCENTS);
+		loadLangToolBar();
+		newGame();
+    	}
 }
 
 void KHangMan::setLanguage(int lang)
@@ -486,9 +481,10 @@ void KHangMan::loadLangToolBar()
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
 
-	if (m_view->m_accent)
-     		accentsAct->setEnabled(true);
-    	else accentsAct->setEnabled(false);
+	//if (m_view->m_accent)
+     	//	accentsAct->setEnabled(true);
+    	//else
+	 accentsAct->setEnabled(m_view->m_accent);
 	 
 	if (m_view->language == "ca")	{
 		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true,  i18n("Try ")+ QString::fromUtf8("à", -1), 1 );
@@ -565,11 +561,8 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->show();
 	}
 	else secondToolbar->hide();
-	KConfigBase *conf = kapp->config();
-	if( conf ) {
-     	conf->setGroup( "General" );
-	conf->writeEntry( "showCharToolbar", !secondToolbar->isVisible());
-	}
+	Prefs::setShowCharToolbar( !secondToolbar->isVisible());
+	Prefs::writeConfig();
 	if (noCharBool)//no special chars in those languages
 		secondToolbar->hide();
 }
@@ -731,17 +724,10 @@ void KHangMan::slotPasteZcaron()
 
 void KHangMan::slotClose()
 {
-	// save if characters toolbar is shown or not
-   	KConfigBase *conf = kapp->config();
-        if( conf ) {
-     	  conf->setGroup( "General" );
-	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
-	  if (m_view->m_accent)
-	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
-	  if (m_view->kvtmlBool)
-	  	conf->writeEntry( "hint", m_view->hintBool);
-        }
-	// then close the main window
+	 Prefs::setShowCharToolbar(secondToolbar->isVisible());
+	 Prefs::setAccentedLetters(m_view->accent_b);
+	 Prefs::setHint(m_view->hintBool);
+	 Prefs::writeConfig();
 	close();
 }
 

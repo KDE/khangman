@@ -7,21 +7,16 @@
       <label>Level</label>
       <default code="true">1</default>
     </entry>
-    <!--<entry name="LevelFile" type="String">
+    <entry name="LevelFile" type="String">
       <default>"easy.txt"</default>
     </entry>
-     <entry name="Mode" type="Enum" Key="myMode">
+     <entry name="Mode" type="String">
       <label>Mode</label>
-      <choices>
-        <choice name="nobg"/>
-        <choice name="blue"/>
-	<choice name="nature"/>
-      </choices>
-      <default>nobg</default>
+      <default>"nobg"</default>
     </entry>
     <entry name="ShowCharToolbar" type="Bool">
-      <label>ShowCharToolBar</label>
-      <default code="true">true</default>
+      <label>Show the characters toolbar</label>
+      <default code="true">false</default>
     </entry>
     <entry name="AccentedLetters" type="Bool">
       <label>The language has special accented letters</label>
@@ -30,7 +25,7 @@
     <entry name="Hint" type="Bool">
       <label>Enable Hint mode if available</label>
       <default code="true">false</default>
-    </entry>-->
+    </entry>
     </group>
     <!--<group name="Language">
       <entry name="DefaultLanguage" type="String">
