@@ -289,7 +289,7 @@ void KHangManView::timerDoneWord()
 	charWrite->setFocus();
 }
 
-void KHangManView::replaceLetters(QString sChar)
+void KHangManView::replaceLetters(const QString& sChar)
 {
 	//replace letter in the word
 	int index=0;
@@ -340,7 +340,7 @@ void KHangManView::replaceLetters(QString sChar)
 	if (b_oneLetter && b_end) allWords << sChar; 
 }
 
-bool KHangManView::containsChar(QString &sChar)
+bool KHangManView::containsChar(const QString &sChar)
 {
 	bool b = false;
 	
