@@ -197,7 +197,9 @@ First, <menuchoice><guimenuitem>Show Toolbar</guimenuitem></menuchoice> and
 <menuchoice><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> is a standard KDE setting that allows you to
 choose different shortcut keys for different actions. For example, Ctrl+Q is the standard shortcut for Quit.
 <menuchoice><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice> is also a standard KDE menu item that allows you to add or suppress items from the toolbar.
+When <menuchoice><guimenuitem>Full-Screen Mode</guimenuitem></menuchoice> is checked, it brings you in full-screen mode, with only the toolbar on top and KHangMan occupies the whole screen. On the toolbar, the icon Back to Normal Size allows you to come back from full-screen mode to the window size you had before.
 <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
+<menuchoice><guimenuitem>Softer Hangman Pictures</guimenuitem></menuchoice> gives you the choice of having the last of the hangman pictures softer. That means that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children.
 </para>
 <para>
 Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background. By default, transparency is enabled.
@@ -331,12 +333,34 @@ Only letters are allowed to be typed in the field.
 <varlistentry>
 <term><menuchoice>
 <shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Shift</keycap><keycap>F</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Full-Screen Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the full-screen mode
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
 <keycombo action="simul">&Ctrl;<keycap>T</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Transparent Pictures</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the transparency for the hangman pictures
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Softer Hangman Pictures</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> softer/original hangman pictures
 </para></listitem>
 </varlistentry>
 </variablelist>
@@ -478,6 +502,8 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Nature theme: Joe Bolin
 <email>jbolin AT users DOT sourceforge DOT net</email></para> </listitem>
+<listitem><para>Softer Hangman Pictures: Matt Howe
+<email>mdhowe AT bigfoot DOT com</email></para> </listitem>
 <listitem><para>Spanish data files: eXParTaKus
 <email>expartakus AT expartakus DOT com
 </email></para> </listitem>
