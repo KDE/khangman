@@ -37,7 +37,7 @@
 
 <abstract>
 <para>
-&khangman; is the classical hangman game for children, adapted for &kde;.
+&khangman; is the classic hangman game for children, adapted for &kde;.
 </para>
 </abstract>
 
@@ -102,7 +102,7 @@ toolbar.
 
 <!-- FIXME: A word can't really be displayed and hidden at the same time, -->
 <!-- although I can't think of a better way to phrase this -->
-<para>A word is displayed, hidden. You know how many letters there are in the
+<para>A word is displayed and its letters are hidden. You know how many letters there are in the
 word. You have to guess the word by trying one letter after another. The word
 is picked at random and it is not the same as the previous word.
 </para>
@@ -355,7 +355,7 @@ quite difficult and animals is only animals nouns. </para>
 A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the background are easily changed via 2 drop down boxes on the toolbar.
 </para>
 <para>
-In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for normal settings. <guimenuitem>Transparent Pictures</guimenuitem> gives you the choice of having the hangman pictures transparent or not. <guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the choice of having the last of the hangman pictures softer. Softer pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children. Transparent and softer pictures are the defaults.
+In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for normal settings. <guimenuitem>Transparent Pictures</guimenuitem> gives you the choice of having the hangman pictures transparent or not. <guimenuitem>Softer Hangman Pictures</guimenuitem> gives you the choice of having the last of the hangman pictures milder. Milder pictures mean that the man is not hanged but he is holding the rope with his hand. This is more suitable for younger children. Transparent and milder pictures are the defaults.
 </para>
 
 <para>Please note that transparent pictures for the hangman are not
