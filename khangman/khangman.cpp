@@ -51,7 +51,9 @@ KHangMan::KHangMan()
     }
     m_languages.remove(m_languages.find("."));
     m_languages.remove(m_languages.find(".."));
-
+    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
+    //to find the name of the country
+    //corresponding to the code and the language the user set
     KConfig entry(locate("locale", "all_languages"));
     for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
 	entry.setGroup(*it);
@@ -204,7 +206,6 @@ void KHangMan::changeLevel()
 		I18N_NOOP("Hard"),
 		I18N_NOOP("Animals"),
 	};
-	//TODO i18n()
 	currentLevel = levelAct->currentItem();
 	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
 
