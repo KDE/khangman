@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>advanced</class>
 <widget class="QWidget">
     <property name="name">
@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>344</width>
-            <height>122</height>
+            <width>358</width>
+            <height>125</height>
         </rect>
     </property>
     <property name="caption">
@@ -41,7 +41,9 @@
                         <string>Check this if you want not to display each instance of a same letter</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there is no more instance of this letter. </string>
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there is no more instance of this letter. 
+
+Default is that for one letter typed all same letters in the word are displayed.</string>
                     </property>
                 </widget>
                 <widget class="QCheckBox">
@@ -68,6 +70,7 @@
                     <property name="whatsThis" stdset="0">
                         <string>When a game is won, a dialog appear saying 'Congratulations, you won!'. 
 This is the default, this case is not checked. 
+
 If this case is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
                     </property>
                 </widget>
