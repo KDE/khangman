@@ -74,6 +74,7 @@ public:
 	bool accent_b;
 	
 	bool hintBool;
+	///if the data file is a kvtml file thus has hints
 	bool kvtmlBool;
 	///for tip to be seen
 	KPassivePopup * myPopup;

@@ -285,14 +285,13 @@ void KHangMan::loadSettings()
     
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
-    //m_view->levelFile = easy.txt  levelString = easy
     setLevel_WindowState();
 
      // Background
     QString oldMode = modeString;
     modeString = config->readEntry("mode", "nobg");
     if(oldMode != modeString)
-      setMode_WindowState();
+    	setMode_WindowState();
 
       // Transparency
      config->setGroup("Settings");
@@ -378,6 +377,7 @@ void KHangMan::changeLanguage(int newLanguage)
     loadDataFiles();
     bool fileExistBool = false;
     //check if the name of the file exists in the new language. If not, set it to Easy.
+    //TODO: save level per language
     for (int id = 0; id < (int) levels.count(); id++)
     if (levels[id].lower()==levelString)
     	fileExistBool = true;
@@ -396,7 +396,7 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
-    if (m_view->hintBool && kvtmlBool) 
+    if (m_view->hintBool && m_view->kvtmlBool) 
     	hintAct->setChecked(true);
     slotHint();
     if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
@@ -701,7 +701,7 @@ void KHangMan::slotClose()
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
 	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
 	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
-	  if (kvtmlBool)
+	  if (m_view->kvtmlBool)
 	  	conf->writeEntry( "hint", m_view->hintBool);
         }
 	// then close the main window
@@ -721,7 +721,7 @@ void KHangMan::slotAccents()
 
 void KHangMan::slotHint()
 {
-	if ((kvtmlBool) && (m_view->hintBool)) {
+	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
 		hintAct->setChecked(true);
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
@@ -735,22 +735,21 @@ void KHangMan::enableHint(bool m_bool)
 {
 	if (m_bool) {
 		hintAct->setEnabled(true);
-		kvtmlBool = true;
+		m_view->kvtmlBool = true;
 	}
 	else
 	{
 		hintAct->setChecked(false);
 		hintAct->setEnabled(false);
-		kvtmlBool = false;
+		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
-	m_view->kvtmlBool = kvtmlBool;
 	slotHint();
 }
 
 void KHangMan::slotChooseHint()
 {
-	//hintBool says if the user has choosen to have hints
+	//hintBool=true if the user has choosen to have hints
 	if (hintAct->isChecked())  {
 		m_view->hintBool=true;
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
