@@ -241,8 +241,8 @@ void KHangManView::slotTry()
 				QTimer *timer = new QTimer( this);
         			connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
         			timer->start( 1000, TRUE ); // 1 second single-shot timer
+				missedLetters->setText("<qt>"+missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1)+"</qt>");
 				missedLetters->setTextFormat( QLabel::AutoText );
-				missedLetters->setText(missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1));
 				//disable any possible entry
 				charWrite->setEnabled(false);
 
@@ -261,7 +261,7 @@ void KHangManView::slotTry()
         			timer->start( 1000, TRUE ); // 1 second single-shot timer
 				//put the letter in red for 1 second
 				mainLabel->setTextFormat( QLabel::RichText );
-				mainLabel->setText(goodWord.left(redIndex)+"<font color=\"#ff0000\"><b>"+goodWord[redIndex]+"</b></font>"+goodWord.right(goodWord.length()-redIndex-1));
+				mainLabel->setText("<qt>"+goodWord.left(redIndex)+"<font color=\"#ff0000\"><b>"+goodWord[redIndex]+"</b></font>"+goodWord.right(goodWord.length()-redIndex-1)+"</qt>");
 				mainLabel->setAlignment( int( QLabel::AlignCenter ) );
 				//disable any possible entry
 				charWrite->setEnabled(false);	
