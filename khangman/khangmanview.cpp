@@ -167,7 +167,7 @@ void KHangManView::paintWord()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setPen( QColor(148, 156, 167));
-    paint.setFont(QFont("Arial", height()/15, QFont::Bold));
+    paint.setFont(QFont("Arial", 32));
     paint.drawText(width()/50, height()-height()/10, goodWord);
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
@@ -180,12 +180,12 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
     charWrite->setMinimumSize( QSize( height()/18, 0 ) );
     QFont charWrite_font(  charWrite->font() );
-    charWrite_font.setPointSize( height()/12 );
-    charWrite_font.setFamily( "Arial Narrow" );
+    charWrite_font.setPointSize( height()/18 );
+    charWrite_font.setFamily( "Dustimo Roman" );
     charWrite->setFont( charWrite_font ); 
-    guessButton->setFont(QFont("Bitstream Charter", height()/20, QFont::Bold));
+    guessButton->setFont(QFont("Dustimo Roman", height()/20, QFont::Bold));
     guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+    //bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
 void KHangManView::slotSetPixmap(QPixmap& bgPix)
@@ -206,8 +206,8 @@ void KHangManView::paintHangman()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setPen( QColor(148, 156, 167));
-    QFont f = QFont("Steve");
-    f.setPointSize(height()/16);
+    QFont f = QFont("Domestic Manners");
+    f.setPointSize(height()/14);
     paint.setFont(f);
     //paint.setFont(QFont("Steve", height()/14));
     QString misses = i18n("Misses");
@@ -250,7 +250,7 @@ void KHangManView::slotTry()
                     //if (language =="de") {
                         //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
                        // }
-                    paintWord();;
+                    paintWord();
                     sword.remove(QRegExp(" "));
                     if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
                         //we reset everything...
@@ -285,9 +285,9 @@ void KHangManView::slotTry()
                                 missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
                                 missedL=missedL.replace(22,2, "");
                         }
-                       
-                        paintHangman();
+
                         missedChar++;
+                        paintHangman();
 
                         if (missedChar >= 10) //you are hanged!
                         {
