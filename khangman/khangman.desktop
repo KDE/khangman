@@ -1,0 +1,12 @@
+# KDE Config File  
+[Desktop Entry]
+Type=Application
+Exec=khangman -caption "%c" %i %m  
+Icon=khangman.png
+MiniIcon=khangman.png
+DocPath=khangman/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=KHangMan
+Name[de]=KHangMan
