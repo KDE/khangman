@@ -33,8 +33,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Blue theme background"), "zerokode@gmx.net");
     aboutData.addCredit("Renaud Blanchard",
                             I18N_NOOP("Graphics"), "kisukuma AT chez DOT com");
-    //aboutData.addCredit("Whitehawk Stormchaser",
-                            //I18N_NOOP("Splash screen"), "zerokode@gmx.net");
+    aboutData.addCredit("eXParTaKus",
+                            //I18N_NOOP("Spanish data files"), "expartakus AT expartakus DOT com");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;

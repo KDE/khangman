@@ -175,23 +175,32 @@ void KHangManView::game()
 	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
+	//allData contains all the words from the file
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
+	  /*
+	  // debug to see if the QStringList contains all words
+	  for ( QStringList::Iterator it = allData.begin(); it != allData.end(); ++it ) {
+          kdDebug() << *it << ":"<<endl;
+          }*/
 
 	//now the calculations...
-	int objects = allData.count();
+	int objects = allData.count();//number of words in the file
+	//picks a random word from allData
 	word = allData[random.getLong(objects)]; //gives us a single word...
+	  //debug to see what word is picked
+	  //kdDebug() << word << endl;
 	// int wrdLen=word.length(); //the length of the word...
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
 	{
 		slotNewGame();
 	}
-	//engine...
+	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
 	{
 		goodWord.append("_ ");
 	}
-	mainLabel-> setText(goodWord);
+	mainLabel-> setText(goodWord);//display the _
 }
 
 void KHangManView::wipeout()
