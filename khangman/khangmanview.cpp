@@ -176,16 +176,16 @@ void KHangManView::replaceLetters(QString sChar)
   }
   if (language=="es" || language == "pt" || language == "ca")
   {
-    if (sChar=="i") replaceLetters(QString("í"));
-    if (sChar=="a") replaceLetters(QString("á"));
-    if (sChar=="a") replaceLetters(QString("à"));
-    if (sChar=="a") replaceLetters(QString("ã"));
-    if (sChar=="u") replaceLetters(QString("ú"));
-    if (sChar=="o") replaceLetters(QString("ó"));
-    if (sChar=="o") replaceLetters(QString("ò"));
-    if (sChar=="e") replaceLetters(QString("é"));
-    if (sChar=="e") replaceLetters(QString("è"));
-    if (sChar=="u") replaceLetters(QString("ü"));
+    if (sChar=="i") replaceLetters(QString("Ã­"));
+    if (sChar=="a") replaceLetters(QString("Ã¡"));
+    if (sChar=="a") replaceLetters(QString("Ã "));
+    if (sChar=="a") replaceLetters(QString("Ã£"));
+    if (sChar=="u") replaceLetters(QString("Ãº"));
+    if (sChar=="o") replaceLetters(QString("Ã³"));
+    if (sChar=="o") replaceLetters(QString("Ã²"));
+    if (sChar=="e") replaceLetters(QString("Ã©"));
+    if (sChar=="e") replaceLetters(QString("Ã¨"));
+    if (sChar=="u") replaceLetters(QString("Ã¼"));
   }
 	allWords << sChar; //appends the list...
 }
@@ -196,11 +196,11 @@ bool KHangManView::containsChar(QString &sChar)
 
   if (language=="es" || language =="pt" || language == "ca")
   {
-    if (sChar=="i") b = word.contains(QString("í")) > 0;
-    if (sChar=="a") b = word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0 || word.contains(QString("à")) > 0;
-    if (sChar=="u") b = word.contains(QString("ú")) > 0 || word.contains(QString("ü")) > 0;
-    if (sChar=="o") b = word.contains(QString("ó")) > 0 || word.contains(QString("ò")) > 0;
-    if (sChar=="e") b = word.contains(QString("é")) > 0 || word.contains(QString("è")) > 0;
+    if (sChar=="i") b = word.contains(QString("Ã­")) > 0;
+    if (sChar=="a") b = word.contains(QString("Ã¡")) > 0 || word.contains(QString("Ã£")) > 0 || word.contains(QString("Ã ")) > 0;
+    if (sChar=="u") b = word.contains(QString("Ãº")) > 0 || word.contains(QString("Ã¼")) > 0;
+    if (sChar=="o") b = word.contains(QString("Ã³")) > 0 || word.contains(QString("Ã²")) > 0;
+    if (sChar=="e") b = word.contains(QString("Ã©")) > 0 || word.contains(QString("Ã¨")) > 0;
   }
 
   return ((word.contains(sChar) > 0) || b);
@@ -266,8 +266,8 @@ void KHangManView::game()
 		d = word.find( " ", c+1);
 		if (d>0)  goodWord.replace(2*d, c+1, " ");
 	}
-	int e = word.find( "·" );
-	if (e>0) goodWord.replace(2*e, 1, "·");
+	int e = word.find( "Â·" );
+	if (e>0) goodWord.replace(2*e, 1, "Â·");
 	mainLabel-> setText(goodWord);//display the _
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
 }
