@@ -127,8 +127,7 @@ void  KHangMan::slotClose()
 //display a screen with a quick information
 void KHangMan::slotInfo()
 {
-	Info * info;
-	info=new Info();
+	Info * info = new Info();
 	info->show();
 }
 
