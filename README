@@ -1,1 +1,14 @@
+24 July 2001
+
+To run the game from cvs:
+make -f Makefile.dist
+./configure --prefix=/usr
+make
+su -c "make install"
+
+The game installs in /usr/local/kde if the prefix option is not invoked (run
+/usr/local/kde/bin/khangman to start it).
+In that case, the pics don't appear, you have to copy them in /usr/share/icons.
+This will be fixed soon.
+
 

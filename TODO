@@ -1,1 +1,15 @@
+24 July 2001
 
+TO DO
+
+- the game installs in /usr/local/kde (prefix): how to change that for the game
+to install in $KDEDIR?
+ - suppress all hard code like the path for the pictures 
+(use kde standard dirs) - change the pics format from GIF to png
+- accerated keys?
+- invoke help (HTML) is deprecated
+- write the doc
+- icons
+
+- read the words for each level from a file
+- design a GUI to allow the teacher to enter his own words.
