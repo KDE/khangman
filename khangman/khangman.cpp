@@ -564,7 +564,7 @@ QString KHangMan::charIcon(const QChar & c)
 
 	///A font to draw the character with
 	QFont font;
-	if (m_view->language=="cs" || m_view->language=="hu" )
+	if (m_view->language=="cs" || m_view->language=="hu" || m_view->language == "sk")
 		font.setFamily( "Arial" );
 	else
 		font.setFamily( "URW Bookman" );
