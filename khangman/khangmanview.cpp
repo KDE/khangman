@@ -70,7 +70,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
                                      "Check your installation, please!");
 		KMessageBox::sorry( this, mString,
 		                    i18n("Error") );
-		exit(1);
+		qApp->exit(1);
 	}
 
 	setMinimumSize(380, 410); /* Selected to get px aspect ratio */
@@ -369,7 +369,7 @@ void KHangManView::game()
                                      "Check your installation, please!").arg(language).arg(levelFile);
 		KMessageBox::sorry( this, mString,
 		                    i18n("Error") );
-		exit(1);
+		qApp->exit(1);
 	}
 	update();
 	//we open the file and store info into the stream...
