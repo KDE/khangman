@@ -19,7 +19,7 @@
 #include <kaboutdata.h>
 #include <klocale.h>
 
-#include "khsplash.h"
+//#include "khsplash.h"
 #include "khangman.h"
 
 static const char *description =
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
 	KApplication a;
-	KhSplash *splash=new KhSplash();
-	splash->show();
+	KHangMan *khm=new KHangMan();
+	khm->show();
 	return a.exec();
 }
