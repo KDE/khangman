@@ -206,9 +206,12 @@ void KHangManView::paintHangman()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setPen( QColor(148, 156, 167));
-    paint.setFont(QFont("Steve", height()/14));
+    QFont f = QFont("Steve");
+    f.setPointSize(height()/16);
+    paint.setFont(f);
+    //paint.setFont(QFont("Steve", height()/14));
     QString misses = i18n("Misses");
-    paint.drawText(width()/2, height()/12, misses);
+    paint.drawText(width()/2+width()/30, height()/12, misses);
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
     paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
     paint.end();
