@@ -4,8 +4,7 @@ bin_PROGRAMS = khangman
 ## INCLUDES were found outside kdevelop specific part
 
 khangman_SOURCES = khangman.cpp main.cpp khsplash.cpp 
-khangman_LDADD   =  $(LIBSOCKET)
-
+khangman_LDADD   =  $(LIBSOCKET) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
 SUBDIRS = data pics sounds 
 
 EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop hi16-app-khangman.png hi32-app-khangman.png 
