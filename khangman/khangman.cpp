@@ -61,14 +61,14 @@ KHangMan::KHangMan()
 	setCentralWidget(m_view);
 	
 	setLanguages();
-	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-	// then, setup our actions, must be done after the language search
-	setupActions();
 	// set up the status bar
 	statusBar( )->insertItem("   ",IDS_LEVEL, 0);
 	statusBar( )->insertItem("   ",IDS_LANG, 0);
 	statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
 	statusBar( )->insertItem("   ",IDS_HINT, 0);
+	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
+	// then, setup our actions, must be done after the language search
+	setupActions();
 	//toolbar for special characters
 	secondToolbar = toolBar("Special Characters");
 	secondToolbar->setBarPos(KToolBar::Bottom);
