@@ -275,6 +275,7 @@ void KHangManView::game()
 void KHangManView::wipeout()
 {
 	goodWord="";
+	charWrite->setText("");
 	missedChar=0;
 	missedLetters->setText("_ _ _ _ _  \n_ _ _ _ _  ");
 	allWords.clear();
