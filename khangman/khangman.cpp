@@ -207,10 +207,11 @@ void KHangMan::changeLevel()
 		I18N_NOOP("Animals"),
 	};
 	currentLevel = levelAct->currentItem();
-	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
-
+	levelString = levels[currentLevel];
+	levelString.replace(0, 1, levelString.left(1).lower());
+	
 	m_view->levelFile = levelString +".txt";
-	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
+	changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
         KConfigBase *conf = kapp->config();
         if( conf ) {
      	  conf->setGroup( "General" );
@@ -287,7 +288,8 @@ void KHangMan::loadSettings()
     else hintAct->setChecked(false);
     
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
-    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
+    levelString = levels[currentLevel];
+    levelString.replace(0, 1, levelString.left(1).lower());
     setLevel_WindowState();
 
      // Background
@@ -326,7 +328,7 @@ void KHangMan::setLevel_WindowState()
     if (currentLevel>levels.count())
         currentLevel = levels.count();
     levelAct->setCurrentItem(currentLevel);
-    changeStatusbar(i18n("Level: ") + i18n(levelString.latin1()), IDS_LEVEL);
+    changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 }
 
 //when config is read, set the KComboBox to the right background
@@ -388,7 +390,6 @@ void KHangMan::changeLanguage(int newLanguage)
     	levelString = "easy";
 	m_view->levelFile = levelString +".txt";
 	currentLevel = 1;
-	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
         KConfigBase *conf = kapp->config();
         if( conf ) {
      		conf->setGroup( "General" );
@@ -435,8 +436,6 @@ void KHangMan::slotTransparent()
 void KHangMan::loadDataFiles()
 {
     //build the Level combobox menu dynamically depending of the data for each language
-    //TODO: ask Stefan about i18n() for dynamic items
-    //should the file names be diesctly translated like animaux.txt in Fr for animals.txt?
     levels.clear();//initialize QStringList levels
     KStandardDirs *dirs = KGlobal::dirs();
     QStringList mfiles = dirs->findAllResources("data","khangman/data/" + m_languages[selectedLanguage] + "/*.txt");
@@ -457,6 +456,10 @@ void KHangMan::loadDataFiles()
     }
     levels.sort();
     levelAct->setItems(levels);
+    QStringList translatedLevels;
+    for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+        translatedLevels+=i18n((*it).utf8());
+    levelAct->setItems(translatedLevels);
 }
 
 void KHangMan::slotSetFullScreen( bool set )
