@@ -1,19 +1,17 @@
 TODO:
 
-- accerated keys?  Y does not work (URGENT) [will be fixed in 0.8 with new UI...
-
-- icons <-- will work on this one...
-- new game seems buggy (URGENT) <-- looks allright now... Will be updated in the 0.8...
-
-- design a GUI to allow the teacher to enter his own words. [swipe the code from the KMessedWords...]
+- Maybe change GUI a bit... Will have to see the response...
+- New splashscreen?
+- few new images to replace current (bad ones...)
+- design a GUI to allow the teacher to enter his own words. [it will be 'till 1.0...]
 
 DONE
 - 27/07/2001 splash screen
-
+- new game seems buggy (URGENT) [crossapp fixes... me]
+- icons rock [me]
+- accerated keys?  Y does not work (URGENT) [ignored... Uses different approach...]
 - read the words for each level from a file [anne]
 - write the doc <-- Working (are they?) [anne... Me will update...]
--
 - invoke help (HTML) is deprecated (replaced with REAL help menu...) [me]
-
- - suppress all hard code like the path for the pictures [anne]
-(use kde standard dirs) - change the pics format from GIF to png [anne]
+- suppress all hard code like the path for the pictures (use kde standard dirs) [anne]
+- change the pics format from GIF to png [anne]
