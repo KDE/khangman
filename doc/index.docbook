@@ -164,7 +164,7 @@ the level with the level button on the toolbar (this will bring you a new word
 for the new level).</para>
 
 <para>
-Future improvement will allow you to create your own words file or to load a file different from the four included ones.
+Future improvement (in KDE 4) will allow you to create your own words file or to load a file different from the four included ones.
 </para>
 </sect1>
 
@@ -266,6 +266,9 @@ file.</para>
 last time you used &khangman; is restored.
 </para>
 <para>
+The <guimenu>Levels</guimenu> menu allows you to choose the level, &ie; the difficulty of the word to guess.
+</para>
+<para>
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
 <guimenuitem>Show Status bar</guimenuitem> give you the possibility to
@@ -324,8 +327,7 @@ from full-screen mode to the window size you had before.</para>
 hangman pictures, Catalan language and level Easy. The
 <interface>Characters</interface> toolbar is shown here.</para>
 
-<para>The level is chosen with a combo box and you have easy, medium,
-animals and hard. Easy is related to common objects a child aged six
+<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Levels</guimenu> menu in the menubar. The available levels are easy, medium, animals and hard. Easy is related to common objects a child aged six
 or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
@@ -457,6 +459,42 @@ If you check <guimenu>Do not display the "Congratulations! You Won" dialog</guim
 <guimenuitem>Languages</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the language for the words</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Levels</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Levels</guimenu>
+<guimenuitem>Animals</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Choose</action> the list of animals words to guess</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Levels</guimenu>
+<guimenuitem>Easy</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Choose</action> the list of easy words to guess</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Levels</guimenu>
+<guimenuitem>Medium</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Choose</action> the list of medium difficulty words to guess</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Levels</guimenu>
+<guimenuitem>Hard</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Choose</action> the list of difficult words to guess</para></listitem>
 </varlistentry>
 </variablelist>
 
