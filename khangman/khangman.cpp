@@ -229,7 +229,7 @@ void KHangMan::loadSettings()
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
      if (selectedLanguage >= (int) m_languages.count())
-                selectedLanguage = 0;
+                selectedLanguage = 1;
      setLanguage(selectedLanguage);
 
     config->setGroup( "General" );
