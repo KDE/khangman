@@ -34,7 +34,7 @@ public:
 public slots: // Public slots
   /** No descriptions */
   void slotHide();
-	~KhSplash();
+    ~KhSplash();
 };
 
 #endif
