@@ -31,7 +31,7 @@ public:
 
     virtual ~KHangManView();
 
-    	//levelFile is the text file containing the data
+  //levelFile is the text file containing the data
 	QString levelFile;
 	//language is the current language for data file
 	QString language;
@@ -56,6 +56,7 @@ private:
 	//the hangman pictures
 	QPixmap px[11];
 
+  bool containsChar(QString &);
   void replaceLetters(QString);
 
 public slots:

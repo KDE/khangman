@@ -82,7 +82,7 @@ void KHangManView::slotTry()
 		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
 
-			if (word.contains(sChar) > 0) // FIX ME
+			if (containsChar(sChar)) 
 			{
         replaceLetters(sChar); 
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
@@ -100,15 +100,14 @@ void KHangManView::slotTry()
 						kapp->quit();
 				}
         
-			}  //end if (word.contains(sChar) > 0)
+			}
 			else //if the char is missed...
-			//if (es_flag==false)
 			{
-				allWords << sChar; //appends the list...
+				allWords << sChar;
 				if (missedChar<5)
-				missedL=missedL.replace(2*missedChar,1, sChar);
+				  missedL=missedL.replace(2*missedChar,1, sChar);
 				else if(missedChar>5)
-				missedL=missedL.replace((2*missedChar)+2,1, sChar);
+				  missedL=missedL.replace((2*missedChar)+2,1, sChar);
 
 				if (missedChar==5) //we actually need to relace one underscore too much..
 				{
@@ -165,6 +164,22 @@ void KHangManView::replaceLetters(QString sChar)
     if (sChar=="u") replaceLetters(QString("ü"));
   }
 	allWords << sChar; //appends the list...
+}
+
+bool KHangManView::containsChar(QString &sChar)
+{
+  bool b = false; 
+  
+  if (language=="es")
+  {
+    if (sChar=="i") b = word.contains(QString("í")) > 0;
+    if (sChar=="a") b = word.contains(QString("á")) > 0;
+    if (sChar=="u") b = word.contains(QString("ú")) > 0 || word.contains(QString("ü")) > 0;
+    if (sChar=="o") b = word.contains(QString("ó")) > 0;
+    if (sChar=="e") b = word.contains(QString("é")) > 0;
+  }
+  
+  return ((word.contains(sChar) > 0) || b);
 }
 
 void KHangManView::game()
