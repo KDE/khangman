@@ -164,8 +164,8 @@ void KHangManView::game()
 	myFile.setName(locate("data",myString));
     if (!myFile.exists())
     {
-		QString mString=QString(i18n("File $KDEDIR/share/apps/khangman/data/%1 not found!\n"
-                                     "Check your installation, please!")).arg(levelFile);
+		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1 not found!\n"
+                                     "Check your installation, please!").arg(levelFile);
 		KMessageBox::sorry( this, mString,
 		                    i18n("KHangMan - Error") );
 		exit(1);
