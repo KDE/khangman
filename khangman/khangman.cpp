@@ -74,7 +74,7 @@ KHangMan::KHangMan()
     statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
     statusBar( )->insertItem("   ",IDS_HINT, 0);
     //toolbar for special characters
-    secondToolbar = toolBar("Special characters");
+    secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
     connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
     m_bCharToolbar=true;
@@ -96,7 +96,7 @@ void KHangMan::setupActions()
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
-    secondAct = new KToggleToolBarAction(secondToolbar, i18n("Special characters"), actionCollection(), "second_act");
+    secondAct = new KToggleToolBarAction(secondToolbar, i18n("Special Characters"), actionCollection(), "second_act");
     langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
     langAct->setItems(m_sortedNames);
     langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));

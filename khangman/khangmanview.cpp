@@ -247,11 +247,6 @@ void KHangManView::game()
 		                    i18n("Error") );
 		exit(1);
 	}
-	if (language=="fr") {
-		readFile();
-	}
-	else
-	{
 	update();
 	//we open the file and store info into the stream...
 	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
@@ -261,27 +256,31 @@ void KHangManView::game()
 	//allData contains all the words from the file
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
-	if (allData.count()<=1) {
-		emit(signalChangeLanguage(3));
-		return;
-	}
-	//now the calculations...
-	int objects = allData.count();//number of words in the file
-	word ="";
-	//picks a random word from allData
-	while (word.isEmpty())
-	word = allData[random.getLong(objects)]; //gives us a single word...
-	//test if the word is not the same than the previous one
-	if (temp.isEmpty())
-		temp=word;
-	else
-	{
-		while (word.lower()==temp.lower())
-			word = allData[random.getLong(objects)];
-		temp=word;
-	}//end of test
-	word = word.lower(); //because of German
-	}//end else if lanlanguage=fr
+	//detects if file is a kvtml file so that it's a hint enable file
+	if (allData.first()=="<?xml version=\"1.0\"?>") {
+		readFile();
+		}
+	else {
+		if (allData.count()<=1) {
+			emit(signalChangeLanguage(3));
+			return;
+			}
+		//now the calculations...
+		int objects = allData.count();//number of words in the file
+		word ="";
+		//picks a random word from allData
+		while (word.isEmpty())
+		word = allData[random.getLong(objects)]; //gives us a single word...
+		//test if the word is not the same than the previous one
+		if (temp.isEmpty())
+			temp=word;
+		else {
+			while (word.lower()==temp.lower())
+				word = allData[random.getLong(objects)];
+				temp=word;
+			}//end of test
+			word = word.lower(); //because of German
+		}//end else if lanlanguage=fr
 	//kdDebug() << word << endl;
 	goodWord ="";
 	mainLabel->setText(goodWord);
