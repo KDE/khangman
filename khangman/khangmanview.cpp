@@ -158,18 +158,6 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
-    //QPainter paint(this);
-    //paint.drawPixmap(QRect(0,0, width()*630/700, height()*285/535),px[missedChar]);
-
-    /*paint.setPen( QColor(148, 156, 167));
-    paint.setFont(QFont("Steve", height()/14));
-    QString misses = i18n("Misses");
-    paint.drawText(width()/2, height()/12, misses);
-
-    paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
-    paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
-    paint.setFont(QFont("Arial", height()/15, QFont::Bold));
-    paint.drawText(width()/50, height()-height()/10, goodWord);*/
     paintHangman();
     paintWord();
 }
@@ -212,8 +200,6 @@ void KHangManView::paintHangman()
 {
     kdDebug() << "In painting" << endl;
     QPainter p;
-    //QPixmap pm(width(), height());
-    //pm.fill(this, 0, 0);
     p.begin(paletteBackgroundPixmap());//p.begin(&pm);
     p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
     p.end();
@@ -225,9 +211,6 @@ void KHangManView::paintHangman()
     paint.drawText(width()/2, height()/12, misses);
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
     paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
-    //below should be painted outside this
-    //paint.setFont(QFont("Arial", height()/15, QFont::Bold));
-    //paint.drawText(width()/50, height()-height()/10, goodWord);
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -265,7 +248,6 @@ void KHangManView::slotTry()
                         //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
                        // }
                     paintWord();;
-                    //paintHangman();
                     sword.remove(QRegExp(" "));
                     if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
                         //we reset everything...
@@ -302,7 +284,6 @@ void KHangManView::slotTry()
                         }
                        
                         paintHangman();
-                        //update();
                         missedChar++;
 
                         if (missedChar >= 10) //you are hanged!
