@@ -465,12 +465,12 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
 	QImage img = bgPix.convertToImage();
 	QPixmap bg(size());
 	QColor myColor;
-	if (Prefs::mode() == "blue") {
+	if (Prefs::blue()) {
 		myColor=Qt::white;
 		guessButton->setPaletteBackgroundColor( QColor( 24, 165, 16 ) );
 	}
 	else
-	if (Prefs::mode() == "nature") {
+	if (Prefs::nature()) {
 		myColor=Qt::black;
 		guessButton->setPaletteBackgroundColor( QColor( 32, 141, 16 ) );
 	}

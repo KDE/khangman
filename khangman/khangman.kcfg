@@ -10,10 +10,6 @@
     <entry name="LevelFile" type="String">
       <default>"animals.txt"</default>
     </entry>
-     <entry name="Mode" type="String">
-      <label>Mode</label>
-      <default>"nobg"</default>
-    </entry>
     <entry name="ShowCharToolbar" type="Bool">
       <label>Show the characters toolbar</label>
       <default code="true">false</default>

@@ -157,18 +157,18 @@ void KHangMan::changeMode()
 {
 	switch (modeAct->currentItem()) {
     	case 0:
-			Prefs::setMode("nobg");
+			Prefs::setNobg(true);
 			Prefs::writeConfig();
 			m_view->slotNoBkgd();
     		break;
 
     	case 1:
-			Prefs::setMode("blue");
+			Prefs::setBlue(true);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->bluePix);
    			break;
     	case 2:
-			Prefs::setMode("nature");
+			Prefs::setNature(true);
 			Prefs::writeConfig();
 			m_view->slotSetPixmap(m_view->naturePix);
    			break;
@@ -225,17 +225,17 @@ void KHangMan::setLevel_WindowState()
 
 void KHangMan::setMode_WindowState()
 {
-	if (Prefs::mode()=="nobg")
+	if (Prefs::nobg())
 	{
 		modeAct->setCurrentItem(0);
 		m_view->slotNoBkgd();
 	}
-	else if (Prefs::mode()=="blue")
+	else if (Prefs::blue())
 	{
 		modeAct->setCurrentItem(1);
 		m_view->slotSetPixmap(m_view->bluePix);
 	}
-	else if (Prefs::mode()=="nature")
+	else if (Prefs::nature())
 	{
 		modeAct->setCurrentItem(2);
 		m_view->slotSetPixmap(m_view->naturePix);
@@ -519,6 +519,7 @@ void KHangMan::optionsPreferences()
 void KHangMan::updateSettings()
 {
 	loadDataFiles();
+	setMode_WindowState();
 	changeLanguage(m_languageNames.findIndex(m_sortedNames[mAdvanced->kcfg_LanguageCombobox->currentItem()]));
     	// Softer Pictures
 	m_view->slotMilder();
