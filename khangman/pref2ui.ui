@@ -97,10 +97,10 @@ language for the words.</string>
                             <string>English</string>
                         </property>
                         <property name="toolTip" stdset="0">
-                            <string>Set the "adult" Look and Feel</string>
+                            <string>Set the language to English</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if you want the "adult" Look and Feel</string>
+                            <string>Set the language to English</string>
                         </property>
                     </widget>
                     <widget class="QRadioButton">
@@ -122,10 +122,10 @@ language for the words.</string>
                             <string>French</string>
                         </property>
                         <property name="toolTip" stdset="0">
-                            <string>Set the "blue" Look and Feel</string>
+                            <string>Set the language to French</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if youwant the "blue" Look and Feel</string>
+                            <string>Set the language to French</string>
                         </property>
                     </widget>
                     <widget class="QRadioButton">
@@ -147,10 +147,32 @@ language for the words.</string>
                             <string>Spanish</string>
                         </property>
                         <property name="toolTip" stdset="0">
-                            <string>Set the "nature" Look and Feel</string>
+                            <string>Set the language to Spanish</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if youwant the "nature" Look and Feel</string>
+                            <string>Set the language to Spanish</string>
+                        </property>
+                    </widget>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>svBox</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>13</x>
+                                <y>109</y>
+                                <width>80</width>
+                                <height>23</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Swedish</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Set the language to Swedish</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Set the language to Swedish</string>
                         </property>
                     </widget>
                 </widget>

@@ -49,7 +49,7 @@ public:
     QString levelString, modeString;
     //the language used in KDE for the user
     QString userLanguage;
-    QString languageActions[4];
+    QString languageActions[5];
     void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
     void changeLanguage(uint newLanguage);
     int defaultLang;
@@ -94,6 +94,7 @@ private slots:
     void language0();
     void language1();
     void language2();
+    void language3();
 
     void setLanguage(int lang);
 

@@ -10,6 +10,7 @@
 		<Action name="data_en"/>
 		<Action name="data_fr"/>
 		<Action name="data_es"/>
+		<Action name="data_sv"/>
 	</Menu>
 </MenuBar>
 
