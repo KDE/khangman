@@ -129,8 +129,6 @@ private slots:
     void setLanguage(QString lang);
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
-    ///Slot to get softer hangman pictures when the action is checked
-    void slotSofter();
     ///Slot to toggle the full screen mode	
     void slotSetFullScreen( bool );
     ///Populate the second toolbar with the correct buttons if the current language has special characters
@@ -205,14 +203,12 @@ private:
     KHangManView *m_view;
     ///Action in the Game menu to start a new word
     KAction *newAct;
-    ///Action in the Settings menu to enable/disable transparency pictures
-    KToggleAction *transAct;
     ///Action in the Settings menu to enable/disable softer hangman pictures
-    KToggleAction *softAct;
+    //KToggleAction *softAct;
     ///Action in the Settings menu to enable/disable hints for the languages that allow hints
-    KToggleAction *hintAct;
+    //KToggleAction *hintAct;
     ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
-    KToggleAction *accentsAct;
+    //KToggleAction *accentsAct;
     //KToggleToolBarAction *secondAct;
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu

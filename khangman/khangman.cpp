@@ -103,11 +103,9 @@ void KHangMan::setupActions()
 
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
-    
-    transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
-    softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
-    hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
-    accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
+
+   // hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
+    //accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
@@ -218,8 +216,7 @@ void KHangMan::changeMode()
    			break;
 	}
 	Prefs::writeConfig();
-        transAct->setEnabled( modeAct->currentItem() != 0 );
-	mNormal->kcfg_Transparent->setEnabled( transAct->isEnabled() );
+	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0 );
 }
 
 void KHangMan::loadSettings()
@@ -241,17 +238,17 @@ void KHangMan::loadSettings()
     	//see if language has special accented letters
     	setAccentBool();
     	m_view->accent_b = Prefs::accentedLetters();
-   	 accentsAct->setChecked(m_view->accent_b);
+   	// accentsAct->setChecked(m_view->accent_b);
     	if (m_view->m_accent && m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     
     	loadDataFiles();
     	//Enable hint or not
     	m_view->hintBool= Prefs::hint();
-    	if (m_view->hintBool) 
-		hintAct->setChecked(true);
-    	else 
-		hintAct->setChecked(false);
+    	//if (m_view->hintBool) 
+		//hintAct->setChecked(true);
+    	//else 
+		//hintAct->setChecked(false);
     
     	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
@@ -264,19 +261,8 @@ void KHangMan::loadSettings()
    	if(oldMode != modeString)
     		setMode_WindowState();
 
-     	 // Transparency
-     	 if(m_view->transparent != Prefs::transparent()) {
-      		m_view->transparent = Prefs::transparent();
-      		m_view->slotTransparent();
-       	}
-    	transAct->setChecked(m_view->transparent);
+	updateSettings();
 
-    	// Softer Pictures
-    	if(m_view->softer != Prefs::softer()) {
-    		m_view->softer = Prefs::softer();
-    		softAct->setChecked(m_view->softer);
-    		m_view->slotSofter();
-    	}
  }
 
 void KHangMan::setLevel_WindowState()
@@ -304,7 +290,6 @@ void KHangMan::setMode_WindowState()
 	modeAct->setCurrentItem(2);
 	m_view->slotSetPixmap(m_view->naturePix);
     }
-    transAct->setEnabled( modeAct->currentItem() != 0 );
 }
 
 void KHangMan::slotLanguage()
@@ -345,8 +330,8 @@ void KHangMan::changeLanguage(int newLanguage)
     	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
-    	if (m_view->hintBool && m_view->kvtmlBool) 
-    		hintAct->setChecked(true);
+    	//if (m_view->hintBool && m_view->kvtmlBool) 
+    		//hintAct->setChecked(true);
     	slotHint();
     	setAccentBool();
 	m_bCharToolbar = Prefs::showCharToolbar();
@@ -367,11 +352,8 @@ void KHangMan::setLanguage(QString lang)
 
 void KHangMan::slotTransparent()
 {
-        m_view->transparent = transAct->isChecked();
+        m_view->transparent = Prefs::transparent();//transAct->isChecked();
         m_view->slotTransparent();
-        //write transparent in the config file
-	Prefs::setTransparent(m_view->transparent);
-	Prefs::writeConfig();
 }
 
 void KHangMan::loadDataFiles()
@@ -418,15 +400,6 @@ void KHangMan::slotSetFullScreen( bool set )
    }
 }
 
-void KHangMan::slotSofter()
-{
-	m_view->softer = softAct->isChecked();
-        m_view->slotSofter();
-        //write softer in the config file
-        Prefs::setSofter(m_view->softer);
-	Prefs::writeConfig();
-}
-
 void KHangMan::loadLangToolBar()
 {
 	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" )
@@ -436,7 +409,7 @@ void KHangMan::loadLangToolBar()
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
 
-	 accentsAct->setEnabled(m_view->m_accent);
+	 //accentsAct->setEnabled(m_view->m_accent);
 	 
 	if (m_view->language == "ca")	{
 		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true,  i18n("Try ")+ QString::fromUtf8("à", -1), 1 );
@@ -745,7 +718,7 @@ void KHangMan::slotClose()
 
 void KHangMan::slotAccents()
 {
- 	m_view->accent_b = accentsAct->isChecked();
+ 	m_view->accent_b = Prefs::accentedLetters();//accentsAct->isChecked();
 
 	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
@@ -756,19 +729,19 @@ void KHangMan::slotAccents()
 
 void KHangMan::restoreAccentConfig()
 {
-	accentsAct->setChecked(!m_view->accent_b);
-	mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
+	//accentsAct->setChecked(!m_view->accent_b);
+	//mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
 	slotAccents();
 }
 
 void KHangMan::slotHint()
 {
 	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
-		hintAct->setChecked(true);
+		//hintAct->setChecked(true);
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
 	else if (m_view->hintBool==false) {
-		hintAct->setChecked(false);
+		//hintAct->setChecked(false);
 		changeStatusbar("", IDS_HINT);
 	}
 }
@@ -776,13 +749,10 @@ void KHangMan::slotHint()
 void KHangMan::enableHint(bool m_bool)
 {
 	if (m_bool) {
-		hintAct->setEnabled(true);
 		m_view->kvtmlBool = true;
 	}
 	else
 	{
-		hintAct->setChecked(false);
-		hintAct->setEnabled(false);
 		m_view->kvtmlBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
@@ -792,7 +762,7 @@ void KHangMan::enableHint(bool m_bool)
 void KHangMan::slotChooseHint()
 {
 	//hintBool=true if the user has choosen to have hints
-	if (hintAct->isChecked())  {
+	if (Prefs::hint())  {
 		m_view->hintBool=true;
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 	}
@@ -860,8 +830,8 @@ void KHangMan::optionsPreferences()
 	//dialog->setModal(true); //makes it modal even if it's not the default
 	mNormal =  new normal( 0, "Kids Settings" ); 
 	dialog->addPage(mNormal, i18n("Kids Settings"), "configure");
-	mNormal->kcfg_Transparent->setEnabled( transAct->isEnabled() );
-	mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
+	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
+	//mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
 	dialog->show();
@@ -870,7 +840,13 @@ void KHangMan::optionsPreferences()
 
 void KHangMan::updateSettings()
 {
-	
+     	 // Transparency
+      	m_view->transparent = Prefs::transparent();
+      	m_view->slotTransparent();
+
+    	// Softer Pictures
+    	m_view->softer = Prefs::softer();		
+	m_view->slotSofter();
 }
 
 #include "khangman.moc"
