@@ -254,9 +254,13 @@ void KHangMan::loadSettings()
     	modeString = Prefs::mode();
    	if(oldMode != modeString)
     		setMode_WindowState();
-
-	updateSettings();
-
+	m_view->transparent = Prefs::transparent();
+	m_view->slotTransparent();
+	m_view->softer = Prefs::softer();
+	m_view->slotSofter();
+	slotAccents();	
+	m_view->hintBool= Prefs::hint();
+	m_view->b_oneLetter = Prefs::oneLetter();
  }
 
 void KHangMan::setLevel_WindowState()
@@ -859,10 +863,6 @@ void KHangMan::updateSettings()
 		kdDebug() << "Change One Letter mode   " << endl;
 		m_view->b_oneLetter = Prefs::oneLetter();
 		newGame();
-	}
-	if (m_view->b_sound != Prefs::sound())  {
-		kdDebug() << "Change Sound mode   " << endl;
-		m_view->b_sound = Prefs::sound();
 	}
 }
 

@@ -131,25 +131,22 @@
             <property name="title">
                 <string>Sounds</string>
             </property>
-            <widget class="QCheckBox">
+            <vbox>
                 <property name="name">
-                    <cstring>kcfg_Sound</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <property name="geometry">
-                    <rect>
-                        <x>10</x>
-                        <y>20</y>
-                        <width>104</width>
-                        <height>19</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Enable Sounds</string>
-                </property>
-                <property name="toolTip" stdset="0">
-                    <string>If checked, sounds will be played for New Game and Win Game</string>
-                </property>
-            </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_Sound</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Enable Sounds</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If checked, sounds will be played for New Game and Win Game</string>
+                    </property>
+                </widget>
+            </vbox>
         </widget>
     </grid>
 </widget>

@@ -18,6 +18,7 @@
 //project headers
 #include "khangmanview.h"
 #include "version.h"
+#include "prefs.h"
 //Qt headers
 #include <qfile.h>
 #include <qimage.h>
@@ -87,7 +88,8 @@ KHangManView::~KHangManView()
 
 void KHangManView::slotNewGame()
 {
-	if (b_sound) {
+	kdDebug() << "Sound in new game " << Prefs::sound() << endl;
+	if (Prefs::sound()) {
 		QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
 		if (soundFile != 0) 
   			KAudioPlayer::play(soundFile);
@@ -152,7 +154,7 @@ void KHangManView::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
-					if (b_sound) {
+					if (Prefs::sound()) {
 						QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
 						if (soundFile != 0) 
   							KAudioPlayer::play(soundFile);

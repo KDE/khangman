@@ -91,8 +91,6 @@ public:
 	
 	bool b_oneLetter;
 	
-	bool b_sound;
-	
 signals:
 	/**
 	* Use this signal to change the content of the statusbar
