@@ -44,6 +44,8 @@ public:
 
     virtual ~KHangManView();
 
+    	///parent instance
+    	KHangMan *khangman;
         ///levelFile is the text file containing the data
 	QString levelFile;
 	///language is the current language for data file
@@ -70,6 +72,7 @@ public:
 	QString tip;
 	
 	QString stripWord, sword;
+	
 	int c, d, f, g;
 	///true if Type accents is enabled for the languages that support it
 	bool accent_b;
@@ -79,14 +82,11 @@ public:
 	bool hintBool;
 	///if the data file is a kvtml file thus has hints
 	bool kvtmlBool;
-	///for tip to be seen
-	KPassivePopup * myPopup;
 	///tmp is to check if not twice the same random number
 	int tmp;
-	KHangMan *khangman;
-	//true if only one instance of each letter is displayed
+	///true if only one instance of each letter is displayed
 	bool b_oneLetter;
-	//If true, the uppercase and lower case are disctincts (world capitals)
+	///If true, the uppercase and lower case are disctincts (world capitals)
 	bool upperBool;
 	
 signals:
@@ -123,10 +123,8 @@ public slots:
 	void slotSetPixmap(QPixmap& );
 	///called when the Combobox changes to No Background
 	void slotNoBkgd();
-	///called when Settings ->Transparent Pictures is checked
-	void slotTransparent();
 	///called when Settings->Softer HangMan Pictures is checked
-	void slotSofter();
+	void slotMilder();
 	///is called if the data file is kvtml hence has tips. read the word and its corrercponding tip from the kvtml file
 	void readFile();
 
@@ -135,6 +133,8 @@ private slots:
     	void slotValidate(const QString &);
     	void game();
     	void wipeout();
+	void timerDone();
+	void timerDoneWord();
 };
 
 #endif // _KHANGMANVIEW_H_

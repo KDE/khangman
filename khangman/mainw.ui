@@ -112,7 +112,13 @@
                             </property>
                             <property name="text">
                                 <string>_ _ _ _ _ 
-_ _ _ _ _ </string>
+_ _ _ _ _</string>
+                            </property>
+                            <property name="scaledContents">
+                                <bool>true</bool>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignTop</set>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Letters that you wrongly guessed</string>
@@ -383,6 +389,16 @@ _ _ _ _ _ </string>
                                     <width>40</width>
                                     <height>32767</height>
                                 </size>
+                            </property>
+                            <property name="paletteBackgroundColor">
+                                <color>
+                                    <red>255</red>
+                                    <green>255</green>
+                                    <blue>255</blue>
+                                </color>
+                            </property>
+                            <property name="backgroundOrigin">
+                                <enum>WidgetOrigin</enum>
                             </property>
                             <property name="font">
                                 <font>

@@ -7,8 +7,6 @@
 		<Action name="downloadnewstuff"/>
 		<Action name="file_quit"/>
 	</Menu>
-	<Menu name="languages" noMerge="1"><text>&amp;Languages</text>
-	</Menu>
 	<Action name="combo_level"/>
         <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
 		<Merge name="StandardToolBarMenuHandler" />

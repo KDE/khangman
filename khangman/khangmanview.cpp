@@ -34,6 +34,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <knotifyclient.h>
 #include <kpassivepopup.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
@@ -221,13 +222,63 @@ void KHangManView::slotTry()
 			}
 		}
 		else
-			KPassivePopup::message(i18n("Information"), i18n("The letter has already been guessed."), this);
-			//KMessageBox::information (this, i18n("The letter has already been guessed."));
-			//usability: highlight it in Missed
-			//usability:hilight it in the word
+		{
+			//usability: highlight it in Missed if it is there
+			if (missedL.contains(sChar)>0)
+			{
+				KPassivePopup *popup = new KPassivePopup( missedLetters, "popup" );
+  				popup->setAutoDelete( true );
+  				popup->setTimeout( 1000 );
+				popup->setView(i18n("This letter has already been guessed.") );
+				popup->show();
+				int redIndex = missedL.find(sChar,0);
+				//missedLetters->setTextFormat( QLabel::RichText );
+				missedLetters->setText(missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1));
+				//disable any possible entry
+				charWrite->setEnabled(false);
+				//put the letter in red for 1 second
+				QTimer *timer = new QTimer( this);
+        			connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
+        			timer->start( 1000, TRUE ); // 1 second single-shot timer
+			}
+			//usability: hilight it in the word
+			if (goodWord.contains(sChar)>0)
+			{
+				KPassivePopup *popup = new KPassivePopup( mainLabel, "popup" );
+  				popup->setAutoDelete( true );
+  				popup->setTimeout( 1000 );
+				popup->setView(i18n("This letter has already been guessed.") );
+				popup->show();
+				int redIndex = goodWord.find(sChar,0);
+				QTimer *timer = new QTimer( this);
+        			connect( timer, SIGNAL(timeout()), this, SLOT(timerDoneWord()) );
+        			timer->start( 1000, TRUE ); // 1 second single-shot timer
+				//put the letter in red for 1 second
+				mainLabel->setTextFormat( QLabel::RichText );
+				mainLabel->setText(goodWord.left(redIndex)+"<font color=\"#ff0000\"><b>"+goodWord[redIndex]+"</b></font>"+goodWord.right(goodWord.length()-redIndex-1));
+				mainLabel->setAlignment( int( QLabel::AlignCenter ) );
+				//disable any possible entry
+				charWrite->setEnabled(false);	
+			}			
+		}
 	}
 	//reset after guess...
 	charWrite->setText("");
+}
+
+void KHangManView::timerDone()
+{
+	missedLetters->setTextFormat( QLabel::AutoText);
+	missedLetters->setText(missedL);
+	charWrite->setEnabled(true);
+	charWrite->setFocus();
+}
+
+void KHangManView::timerDoneWord()
+{
+	mainLabel->setText(goodWord);
+	charWrite->setEnabled(true);
+	charWrite->setFocus();
 }
 
 void KHangManView::replaceLetters(QString sChar)
@@ -431,11 +482,7 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
 	TextLabel3->setPaletteBackgroundPixmap(bg);
 	mainLabel->setPaletteBackgroundPixmap(bg);
 	missedLetters->setPaletteBackgroundPixmap(bg);
-
-	if (Prefs::transparent())
-                pixImage->setPaletteBackgroundPixmap(bg);
-        else
-                pixImage->setBackgroundColor("#ECECEC");
+        pixImage->setPaletteBackgroundPixmap(bg);
 	charWrite->setFocus();
 	bgPixmap = bgPix;
 }
@@ -460,18 +507,9 @@ void KHangManView::slotNoBkgd()
 	guessButton->setPaletteBackgroundColor("#DCDCDC");
 }
 
-void KHangManView::slotTransparent()
+void KHangManView::slotMilder()
 {
-	kdDebug() << "--- in slot transparent"  << endl;
-	if (bgPixmap.isNull())
-		slotNoBkgd();
-	else
-		slotSetPixmap(bgPixmap);
-}
-
-void KHangManView::slotSofter()
-{
-	if (Prefs::softer())
+	if (Prefs::milder())
 	{
 		px[6].load(locate("data","khangman/pics/hg7c.png"));
 		px[7].load(locate("data","khangman/pics/hg8c.png"));
@@ -497,13 +535,11 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
 	if (kvtmlBool && hintBool && (mouse->button() == RightButton))
 	{
-		myPopup = new KPassivePopup(TextLabel3);
+		KPassivePopup *myPopup = new KPassivePopup( Frame11);
 		myPopup->setView(i18n("Hint"), tip );
 		myPopup->setPalette(QToolTip::palette());
 		myPopup->setTimeout(4000); //show for 4 seconds
-		myPopup->show();
-		//KPassivePopup::message(i18n("Hint"), tip, TextLabel3);
-		
+		myPopup->show();	
 	}
         update();//this is nice!
 }

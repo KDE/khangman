@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>advanced</class>
 <widget class="QWidget">
     <property name="name">
@@ -8,31 +8,121 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>360</width>
-            <height>97</height>
+            <width>375</width>
+            <height>185</height>
         </rect>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QGroupBox" row="0" column="0">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>groupBox4</cstring>
-            </property>
-            <property name="title">
-                <string>Advanced Settings</string>
+                <cstring>layout7</cstring>
             </property>
             <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>40</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string>Words are in:</string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>languageCombo</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QComboBox">
+                            <property name="name">
+                                <cstring>kcfg_LanguageCombobox</cstring>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer3_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>41</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_AccentedLetters</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Type accented &amp;letters</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>In some languages, if this is checked, you must type accented letters yourself (i.e. They are differentiated from the corresponding unaccented letter).</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this is &lt;b&gt;disabled&lt;/b&gt;, then the selected language does not support it. If this is &lt;b&gt;enabled&lt;/b&gt; and if you check it, then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.
+Default is that accented letters will be shown when the corresponding unaccented letter is guessed.</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_Hint</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Show hints</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, a hint will be displayed by right-clicking on the game window.</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language.
+If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get them by checking this box. You will then see the hint for the word you are trying to guess by right-clicking somewhere on the KHangMan window.</string>
+                    </property>
+                </widget>
                 <widget class="QCheckBox">
                     <property name="name">
                         <cstring>kcfg_OneLetter</cstring>
                     </property>
                     <property name="text">
-                        <string>Only one letter instance</string>
+                        <string>Require more &amp;guesses for duplicate letters</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Check this if you do not want to display each instance of the same letter</string>
@@ -48,7 +138,7 @@ Default is that for one letter typed, all instances of that letter in the word a
                         <cstring>kcfg_WonDialog</cstring>
                     </property>
                     <property name="text">
-                        <string>Do not display the 'Congratulations! You won!' dialog</string>
+                        <string>Do not display the 'Congratulations! You &amp;won!' dialog</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
@@ -60,6 +150,23 @@ This is the default state.
 If this option is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
                     </property>
                 </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer3</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Minimum</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
             </vbox>
         </widget>
     </grid>

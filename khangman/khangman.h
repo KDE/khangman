@@ -34,6 +34,7 @@ class KToggleToolBarAction;
 class QPopupMenu;
 class KToolBar;
 class KHNewStuff;
+class advanced;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -68,12 +69,10 @@ public:
     void setLanguages();
     ///Build the Level combobox menu dynamically depending of the data for each language
     void loadDataFiles();
-    ///Action for building the Languages menu
-    KSelectAction *langAct;
+    
+    advanced *mAdvanced;
     
     QStringList allData;
-    ///Build the Languages menu
-    void setupLangMenu();   
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -124,8 +123,6 @@ private slots:
     @param newLanguage the index of the new selected language in the menu
     */
     void changeLanguage(int newLanguage);
-    ///Convenient slot to call changeLanguage slot
-    void slotLanguage();
     /**Set the current language in the view and update the statusbar
     @param lang the code of the currently selected language
     */

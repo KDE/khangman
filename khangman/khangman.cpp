@@ -71,11 +71,10 @@ KHangMan::KHangMan()
 	//toolbar for special characters
 	secondToolbar = toolBar("Special Characters");
 	secondToolbar->setBarPos(KToolBar::Bottom);
-	connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
+	//connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT((int)));
 	connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
 	loadSettings();
 	loadLangToolBar();
-	setupLangMenu();
 	slotHint();
 	slotAccents();
 	newGame();
@@ -91,9 +90,6 @@ void KHangMan::setupActions()
 	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
 	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 	KStdAction::quit(this, SLOT(slotClose()), actionCollection());
-
-	langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
-	langAct->setItems(m_sortedNames);
 
 	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
 	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
@@ -114,16 +110,6 @@ void KHangMan::setupActions()
 	modeAct->setWhatsThis(i18n( "Check the look and feel" ));
 
 	setupGUI();
-}
-
-void KHangMan::setupLangMenu()
-{
-	langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
-	langPopup->clear();
-	for (uint index = 0; index < m_sortedNames.count(); index++)
-		langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
-	langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
-	connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
 void KHangMan::newGame()
@@ -223,8 +209,7 @@ void KHangMan::loadSettings()
 
      	// Background
 	setMode_WindowState();
-	m_view->slotTransparent();
-	m_view->slotSofter();
+	m_view->slotMilder();
 	slotAccents();
 	m_view->hintBool= Prefs::hint();
 	m_view->b_oneLetter = Prefs::oneLetter();
@@ -257,25 +242,16 @@ void KHangMan::setMode_WindowState()
 	}
 }
 
-void KHangMan::slotLanguage()
-{
-    	changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
-}
-
 void KHangMan::changeLanguage(int newLanguage)
 {
     	// Do not accept to switch to same language
    	 if (newLanguage == m_languageNames.findIndex(selectedLanguage))
 		return;
 
-    	// Unselect preceding language
-    	langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[newLanguage]));
-   	for (int id = 0; id < (int) m_languageNames.count(); id++)
-    		langPopup->setItemChecked(id, id == newLanguage);
-
     	selectedLanguage = m_languages[newLanguage];
 	Prefs::setSelectedLanguage(selectedLanguage);
 	Prefs::writeConfig();
+	kdDebug() << "------ in changeLanguage() --" << endl;
     	//load the different data files in the Level combo for the new language
    	loadDataFiles();
 	//at the moment, check if currentLevel exists (< levels.count()) if not, set it to 0
@@ -512,32 +488,35 @@ void KHangMan::setLanguages()
 		m_languageNames.append(entry.readEntry("Name"));
 	}
 	m_sortedNames = m_languageNames;
+	kdDebug() << m_sortedNames << endl;
 }
 
 void KHangMan::optionsPreferences()
 {
+	setLanguages(); //so the KNewStuff is taken into account
 	if ( KConfigDialog::showDialog( "settings" ) )
         	return;
 
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
 	normal *mNormal =  new normal( 0, "Normal Settings" );
-	dialog->addPage(mNormal, i18n("Normal Settings"), "configure");
-	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
-        mNormal->kcfg_Hint->setEnabled( m_view->kvtmlBool);
-	mNormal->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
-	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
+	dialog->addPage(mNormal, i18n("Look And Feel"), "colorize");
+	mAdvanced=  new advanced( 0, "Advanced" );
+	dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
+	mAdvanced->kcfg_Hint->setEnabled( m_view->kvtmlBool);
+	mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+	mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
+	mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
-
 	dialog->show();
 }
 
 void KHangMan::updateSettings()
 {
-     	// Transparency
-	m_view->slotTransparent();
+	loadDataFiles();
+	changeLanguage(m_languageNames.findIndex(m_sortedNames[mAdvanced->kcfg_LanguageCombobox->currentItem()]));
     	// Softer Pictures
-	m_view->slotSofter();
+	m_view->slotMilder();
 	//Accented Letters
 	if (m_view->accent_b != Prefs::accentedLetters())
 		slotAccents();

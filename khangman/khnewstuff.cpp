@@ -49,10 +49,6 @@ bool KHNewStuff::install( const QString &fileName )
 	KStandardDirs::makeDir( destDir );
 	archiveDir->copyTo(destDir);
 	archive.close();
-	m_view->khangman->setLanguages();
-	m_view->khangman->loadDataFiles();
-	m_view->khangman->setupLangMenu();
-	//this return might be the result of checking if everything is installed ok
 	return true;
 }
 
