@@ -78,7 +78,6 @@ void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
     KStdAction::quit(this, SLOT(close()), actionCollection());
-    //KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
@@ -267,15 +266,16 @@ void KHangMan::loadSettings()
     if(oldMode != modeString)
       setMode_WindowState();
 
-       // Transparency
+      // Transparency
      config->setGroup("Settings");
       if(m_view->transparent != config->readBoolEntry( "transparent", true)){
       m_view->transparent = config->readBoolEntry( "transparent", true);
       m_view->slotTransparent();
     }
     transAct->setChecked(m_view->transparent);
-    //load the kdeglobals config file
-    //safer way would be to load that one read-only
+
+    // Language
+    //load the kdeglobals config file - safer way would be to load that one read-only
     KConfigBase *globalConf = KGlobal::config();
     globalConf->setGroup("Locale");
     userLanguage = globalConf->readEntry("Language");

@@ -27,8 +27,8 @@ class QPopupMenu;
  * menus, toolbars, and status bars.
  *
  * @short Main window class
- * @author $AUTHOR <$EMAIL>
- * @version $APP_VERSION
+ * @author Anne-Marie Mahfouf <annma@kde.org>
+ * @version 1.0
  */
 class KHangMan : public KMainWindow
 {
@@ -47,9 +47,13 @@ public:
     uint currentLevel;
 
 private:
-    QString levelString, modeString;
-    //the language used in KDE for the user
+    ///hold the current level
+    QString levelString;
+    ///hold the current mode
+    QString modeString;
+    ///the language used in KDE for the user
     QString userLanguage;
+    ///the language that is set to default: either userLanguage or en if userLanguage is not available
     int defaultLang;
 
 protected:
@@ -69,14 +73,22 @@ protected:
 private slots:
     ///Start a new game i.e. repaint and set a new word
     void newGame();
-
+    ///Configure shortcut keys standard KDE dialog
     void optionsConfigureKeys();
+    ///Configure toolbars standard KDE dialog
     void optionsConfigureToolbars();
+    /**
+     *this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
+     *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
+     */
     void newToolbarConfig();
     ///Update the text in the Statusbar
     void changeStatusbar(const QString& text, int id);
+    ///Update the text in the caption in the main window
     void changeCaption(const QString& text);
+    ///this slot is called when the user changes level with the level combobox in the toolbar
     void changeLevel();
+    ///this slot is called when the user changes background mode with the mode combobox in the toolbar
     void changeMode();
     /**
       *When config is read, set the level KComboBox to the right level
