@@ -85,7 +85,7 @@ void KHangManView::slotTry()
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
 
-	if (!sChar.isEmpty() && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...
+	if (sChar.at(0).isLetter())
 	{
 		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
@@ -113,9 +113,9 @@ void KHangManView::slotTry()
 			{
 				allWords << sChar;
 				if (missedChar<5)
-				  missedL=missedL.replace(2*missedChar,1, sChar);
+				  missedL=missedL.replace(2*missedChar, 1, sChar);
 				else if(missedChar>5)
-				  missedL=missedL.replace((2*missedChar)+2,1, sChar);
+				  missedL=missedL.replace((2*missedChar)+2, 1, sChar);
 
 				if (missedChar==5) //we actually need to relace one underscore too much..
 				{
@@ -219,7 +219,7 @@ void KHangManView::game()
 	//picks a random word from allData
 	word = allData[random.getLong(objects)]; //gives us a single word...
 	//test if the word is not the same than the previous one
-	if (temp=="")
+	if (temp.isEmpty())
 		temp=word;
 	else
 	{
