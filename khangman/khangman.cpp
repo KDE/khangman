@@ -334,7 +334,7 @@ void KHangMan::slotSetFullScreen( bool set )
 
 void KHangMan::loadLangToolBar()
 {
-	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" || m_view->language =="ru" )
+  if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" || m_view->language =="ru" || m_view->language =="bg")
 	noCharBool = true;
 	else noCharBool = false;
 	if (secondToolbar->isVisible() && !noCharBool)
