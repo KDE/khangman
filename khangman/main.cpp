@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
 	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Original maintainer, author"), "annma@kde.org");
 	aboutData.addCredit("Renaud Blanchard",
 	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
-    aboutData.addCredit("Primoz Anzur",
-	                    I18N_NOOP("Splash screen"), "zerokode@yahoo.com");
+    aboutData.addCredit("Whitehawk Stormchaser",
+	                    I18N_NOOP("Splash screen"), "zerokode@gmx.net");
 	KCmdLineArgs::init( argc, argv, &aboutData );
 	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 

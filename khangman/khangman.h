@@ -73,6 +73,7 @@ public slots:
 	virtual void slotNewGame();
 	virtual void slotTry();
 	void game();
+	void wipeout();
 
 private:
 	KRandomSequence random;

@@ -97,10 +97,9 @@ pixImage->setPixmap(px[10]);
 	int objects = allData.count();
 	word = allData[random.getLong(objects)]; //gives us a single word...
 	int wrdLen=word.length(); //the length of the word...
-	if (word.stripWhiteSpace() == "") //prevents to daiplay the empty places...
+	if (word.stripWhiteSpace() == "") //prevents to display the empty places...
 	{
-		goodWord="";
-		game();
+		slotNewGame();
 	}
 //engine...
 	for(unsigned int i = 0; i < word.length(); i++)
@@ -114,13 +113,12 @@ pixImage->setPixmap(px[10]);
 
 void KHangMan::slotGetLevel(int level)
 {
-	goodWord="";
-	game();
+	slotNewGame();
 }
 
 void KHangMan::slotNewGame()
 {
-	goodWord="";
+	wipeout();
 	game();
 }
 
@@ -160,13 +158,12 @@ void KHangMan::slotTry()
 				}
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
+				mainLabel->setText(goodWord);
+				allWords << sChar; //appends the list...
 				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you are hanged!
 				{
 					//we reset everything...
-					missedChar=0;
-					missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ _");
 					pixImage->setPixmap(px[12]);
-					allWords.clear();
 					if (KMessageBox::questionYesNo(this, "Congratulations! You won!... Wanna play again?") == 3)
 					{
 						slotNewGame();
@@ -179,6 +176,7 @@ void KHangMan::slotTry()
 			}
 			else //if the char is missed...
 			{
+				allWords << sChar; //appends the list...
 				missedL=missedL.replace(2*missedChar,1, sChar);
 				if (missedChar==6)
 				missedL=missedL.replace(2*missedChar,1, sChar+"\n");
@@ -189,10 +187,7 @@ void KHangMan::slotTry()
 				if (missedChar >= 11) //you are hanged!
 				{
 					//we reset everything...
-					missedChar=0;
-					missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ _");
 					pixImage->setPixmap(px[11]);
-					allWords.clear();
 					if (KMessageBox::questionYesNo(this, "You are dead... Wanna play again?") == 3)
 					{
 						slotNewGame();
@@ -204,7 +199,6 @@ void KHangMan::slotTry()
 				}
 				kdDebug() << missedChar << endl;
 			}
-			allWords << sChar; //appends the list...
 		}
 		else //do something drastic... Word has already been guessed...
 		{
@@ -212,7 +206,6 @@ void KHangMan::slotTry()
 		}
 	}
 	kdDebug() <<word.contains(sChar) << endl;
-	mainLabel->setText(goodWord);
 
 //reset after guess...
 	charWrite->setText("");
@@ -225,4 +218,13 @@ KHangMan::~KHangMan()
 void KHangMan::closeEvent(QCloseEvent *)
 {
 	exit(0);
+}
+
+void KHangMan::wipeout()
+{
+	//this is odd... This won't work in front of the game() function :(
+	goodWord="";
+	missedChar=0;
+	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ _");
+	allWords.clear();
 }
