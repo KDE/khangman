@@ -75,6 +75,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Coding help"), "tsdgeos@terra.es");
    aboutData.addCredit("Chris Luetchford",
                              I18N_NOOP("svg icon"), "chris@os11.com");
+   aboutData.addCredit("Peter Hedlund",
+                             I18N_NOOP("Code for generating icons for the characters toolbar"), "peter@peterandlinda.com");
 		 
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
