@@ -18,11 +18,17 @@
 #ifndef KHSPLASH_H
 #define KHSPLASH_H
 
+//standard C++ connections...
+#include <stdlib.h>
+
+//qt stuff...
 #include <qwidget.h>
 #include <qframe.h>
-#include <kapplication.h>
 #include <qtimer.h>
-#include <khangman.h>
+
+//kde /custom stuff...
+#include <kapplication.h>
+#include "khangman.h"
 
 /**
   *@author Anne-Marie Mahfouf

@@ -24,6 +24,9 @@
 #include <config.h>
 #endif
 
+//standard C++ connections...
+#include <stdlib.h>
+
 //extern GUI...
 #include "mainw.h"
 #include "info.h"
