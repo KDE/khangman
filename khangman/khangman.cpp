@@ -61,9 +61,8 @@ KHangMan::KHangMan()
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-    setLanguage(selectedLanguage);
-
-     // then, setup our actions, must be done after the language search
+    //setLanguage(selectedLanguage); //seems useless 20/05
+    // then, setup our actions, must be done after the language search
     setupActions();
     loadSettings();
 
@@ -90,14 +89,7 @@ void KHangMan::setupActions()
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
 
-    QStringList levels;
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
-    levels += i18n("Easy");
-    levels += i18n("Medium");
-    levels += i18n("Hard");
-    levels += i18n("Animals");
-    //levels += i18n("Own");
-    levelAct->setItems(levels);
     levelAct->setToolTip(i18n( "Choose the level" ));
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
@@ -182,21 +174,22 @@ void KHangMan::changeCaption(const QString& text)
 //and written in config
 void KHangMan::changeLevel()
 {
-	static const char *levelStrings[] = {
+	/*static const char *levelStrings[] = {
 		I18N_NOOP("easy"),
 		I18N_NOOP("medium"),
 		I18N_NOOP("hard"),
 		I18N_NOOP("animals"),
-		/* I18N_NOOP("own"), */
-	};
-	int id = levelAct->currentItem();
+	};*/
+	//TODO i18n()
+	currentLevel = levelAct->currentItem();
+	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
 
-	m_view->levelFile = QString(levelStrings[id])+".txt";
-	changeStatusbar(i18n("Level: ") + i18n(levelStrings[id]), IDS_LEVEL);
+	m_view->levelFile = levelString +".txt";
+	changeStatusbar(i18n("Level: ") + levelString, IDS_LEVEL);
         KConfigBase *conf = kapp->config();
         if( conf ) {
      	  conf->setGroup( "General" );
-     	  conf->writeEntry("level", id);// levelStrings[id]);
+     	  conf->writeEntry("level", currentLevel);
 	  conf->writeEntry("levelFile", m_view->levelFile);
 	}
 	newGame();
@@ -232,27 +225,31 @@ void KHangMan::changeMode()
 void KHangMan::loadSettings()
 {
     bool startNewGame = false;
+    // Language
+    //load the kdeglobals config file - safer way would be to load that one read-only
+    KConfigBase *globalConf = KGlobal::config();
+    globalConf->setGroup("Locale");
+    userLanguage = globalConf->readEntry("Language");
+    //keep only the first 2 characters
+    userLanguage = userLanguage.left(2);
+    setSelectedLanguage(userLanguage);
 
     KConfig *config = kapp->config();
+    config->setGroup("Language");
+    selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
+     if (selectedLanguage >= (int) m_languages.count())
+                selectedLanguage = 0;
+     setLanguage(selectedLanguage);
+
     config->setGroup( "General" );
     // Level
     currentLevel = config->readNumEntry("level", 0);
     QString oldLevel = levelString;
-    switch(currentLevel){
-      default:
-	currentLevel=0;
-      case 0:
-        levelString="easy";
-        break;
-      case 1:
-        levelString="medium";
-        break;
-      case 2:
-        levelString="hard";
-        break;
-      case 3:
-        levelString="animals";
-    }
+
+    loadDataFiles();
+
+    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
+
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     m_view->levelFile = QString("%1.%1").arg(levelString).arg("txt");
     if (oldLevel!=levelString) {
@@ -274,20 +271,6 @@ void KHangMan::loadSettings()
     }
     transAct->setChecked(m_view->transparent);
 
-    // Language
-    //load the kdeglobals config file - safer way would be to load that one read-only
-    KConfigBase *globalConf = KGlobal::config();
-    globalConf->setGroup("Locale");
-    userLanguage = globalConf->readEntry("Language");
-    //keep only the first 2 characters
-    userLanguage = userLanguage.left(2);
-    setSelectedLanguage(userLanguage);
-
-    config->setGroup("Language");
-    selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
-     if (selectedLanguage >= (int) m_languages.count())
-                selectedLanguage = 0;
-     setLanguage(selectedLanguage);
      if(startNewGame) newGame();
  }
 
@@ -302,14 +285,9 @@ void KHangMan::setSelectedLanguage(QString mLanguage)
 //and update statusbar
 void KHangMan::setLevel_WindowState()
 {
-    if (levelString=="easy")
- 	levelAct->setCurrentItem(0);
-    if (levelString=="medium")
- 	levelAct->setCurrentItem(1);
-    if (levelString=="hard")
- 	levelAct->setCurrentItem(2);
-    if (levelString=="animals")
- 	levelAct->setCurrentItem(3);
+    if (currentLevel>levels.count())
+        currentLevel = levels.count();
+    levelAct->setCurrentItem(currentLevel);
     changeStatusbar(i18n("Level: ") + i18n(levelString.latin1()), IDS_LEVEL);
 }
 
@@ -352,7 +330,6 @@ void KHangMan::changeLanguage(int newLanguage)
     for (int id = 0; id < (int) m_languageNames.count(); id++)
     	langPopup->setItemChecked(id, id == newLanguage);
 
-    // Change language in the config file
     selectedLanguage = newLanguage;
     // Change language in the config file
     KConfigBase *conf = kapp->config();
@@ -361,6 +338,10 @@ void KHangMan::changeLanguage(int newLanguage)
 	conf->writeEntry("selectedLanguage", selectedLanguage);
         conf->writeEntry("defaultLang", defaultLang);
     }
+    //load the different data files in the Level combo for the new language
+    loadDataFiles();
+    //update the Levels in Level combobox as well
+    setLevel_WindowState();
     setLanguage(newLanguage);
     newGame();
 }
@@ -383,6 +364,33 @@ void KHangMan::slotTransparent()
         	conf->setGroup( "Settings" );
         	conf->writeEntry( "transparent", m_view->transparent);
         }
+}
+
+void KHangMan::loadDataFiles()
+{
+    //build the Level combobox menu dynamically depending of the data for each language
+    //TODO: ask Stefan about i18n() for dynamic items
+    //should the file names be diesctly translated like animaux.txt in Fr for animals.txt?
+    levels.clear();//initialize QStringList levels
+    KStandardDirs *dirs = KGlobal::dirs();
+    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + m_languages[selectedLanguage] + "/*.txt");
+    if (!mfiles.isEmpty())
+    {
+    for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+        QFile f( *it);
+	//find the last / in the file name
+	int location = f.name().findRev("/");
+	//strip the string to keep only the filename and not the path
+	QString mString = f.name().right(f.name().length()-location-1);
+	mString = mString.left(mString.length()-4);
+	//Put the first letter in Upper case
+	mString = mString.replace(0, 1, mString.left(1).upper());
+        levels+=mString;
+    }
+    //TODO else tell no files had been found
+    }
+    levels.sort();
+    levelAct->setItems(levels);
 }
 
 #include "khangman.moc"

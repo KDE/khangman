@@ -28,7 +28,7 @@ class QPopupMenu;
  *
  * @short Main window class
  * @author Anne-Marie Mahfouf <annma@kde.org>
- * @version 1.0
+ * @version 1.1
  */
 class KHangMan : public KMainWindow
 {
@@ -55,6 +55,8 @@ private:
     QString userLanguage;
     ///the language that is set to default: either userLanguage or en if userLanguage is not available
     int defaultLang;
+    ///the different data files in each language dir
+    QStringList levels;
 
 protected:
     /**
@@ -114,6 +116,7 @@ private:
     void setupAccel();
     void setupActions();
     void setupLangMenu();
+    void loadDataFiles();
 
 private:
     ///Main view
