@@ -20,7 +20,6 @@
 #include <qlineedit.h>
 //KDE headers
 #include <kactionclasses.h>
-#include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
 #include <kkeydialog.h>
@@ -671,10 +670,10 @@ void KHangMan::slotPasteZcaron()
 
 void KHangMan::slotClose()
 {
-	 Prefs::setShowCharToolbar(secondToolbar->isVisible());
-	 Prefs::setAccentedLetters(m_view->accent_b);
-	 Prefs::setHint(m_view->hintBool);
-	 Prefs::writeConfig();
+	Prefs::setShowCharToolbar(secondToolbar->isVisible());
+	Prefs::setAccentedLetters(m_view->accent_b);
+	Prefs::setHint(m_view->hintBool);
+	Prefs::writeConfig();
 	close();
 }
 

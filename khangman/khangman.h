@@ -55,7 +55,7 @@ public:
      * Default Destructor
      */
     virtual ~KHangMan();
-
+    ///Current level ID
     uint currentLevel;
     ///Create the Special Characters Toolbar
     KToolBar *secondToolbar;
@@ -108,17 +108,19 @@ private slots:
     void loadSettings();
     ///Switch to another language using the Languages menu
     void changeLanguage(int newLanguage);
+    ///Convenient slot to call changeLanguage slot
     void slotLanguage();
+    ///Set the current language in the view and update the statusbar
     void setLanguage(QString lang);
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
-
+    ///Slot to get softer hangman pictures when the action is checked
     void slotSofter();
-
+    ///Slot to toggle the full screen mode	
     void slotSetFullScreen( bool );
-
+    ///Populate the second toolbar with the correct buttons if the current language has special characters
     void loadLangToolBar();
-
+    ///When the a tilde button is clicked, a tilde is written in the lineedit
     void slotPasteAtilde();
     void slotPasteAgrave();
     void slotPasteAacute();
@@ -150,7 +152,9 @@ private slots:
     void slotPasteSzlig();
     void slotPasteYacute();
     void slotPasteZcaron();
+    ///Write some config settings and close the main window
     void slotClose();
+    ///Check if the language has special characters and load the second toolbar if so
     void slotAccents();
     ///when Enabled Hint is checked or not by the user
     void slotChooseHint();
@@ -160,12 +164,15 @@ private slots:
     void enableHint(bool);
 
   private:
-    void setupAccel();
+    ///Set up the actions for the menus
     void setupActions();
+    ///Build the Languages menu
     void setupLangMenu();
+    ///Build the Level combobox menu dynamically depending of the data for each language
     void loadDataFiles();
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
+    ///Set the Accented Letters action correctly
     void restoreAccentConfig();
     
 private:
@@ -175,19 +182,18 @@ private:
     KAction *newAct;
     ///Action in the Settings menu to enable/disable transparency pictures
     KToggleAction *transAct;
+    ///Action in the Settings menu to enable/disable softer hangman pictures
     KToggleAction *softAct;
+    ///Action in the Settings menu to enable/disable hints for the languages that allow hints
     KToggleAction *hintAct;
+    ///Action in the Settings menu to enable/disable accented letters different from normal letters for the languages with accented letters
     KToggleAction *accentsAct;
     //KToggleToolBarAction *secondAct;
     KSelectAction *langAct, *levelAct, *modeAct;
+    ///Populate the Languages menu
     QPopupMenu *langPopup;
     ///Full-Screen mode action
-#ifdef KHANGMAN_KDE_3_2_0
     KToggleAction* m_pFullScreen;
-#else
-    KAction* m_pFullScreen;
-#endif
-
     ///Selected language
     QString selectedLanguage;
     ///Language codes of available languages
