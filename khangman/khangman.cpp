@@ -511,6 +511,11 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->insertButton ("ghe_stroke.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteGhestroke()), true,  i18n("Try ")+ QString::fromUtf8("ғ", -1), 5 );
 		secondToolbar->insertButton ("ka_desc.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteKadesc()), true,  i18n("Try ")+ QString::fromUtf8("қ", -1), 6 );
 	}
+	else if (m_view->language == "sl")	{
+		secondToolbar->insertButton ("c_caron.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("č", -1), 1 );
+		secondToolbar->insertButton ("s_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 2 );
+		secondToolbar->insertButton ("z_caron.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 3 );
+	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 	}
