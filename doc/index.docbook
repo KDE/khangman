@@ -430,7 +430,7 @@ are stored in 4 separate files, one for each level. The files are in
 <filename>animals.txt</filename> is for level animals and the file
 <filename>hard.txt</filename> is for level hard.</para>
 
-<para>1. Enter the following commands in a konsole to create the directory
+<para>1. Enter the following commands in a konsole to create the folder
    and files for the new language:</para>
  <para>
   <userinput><command>
@@ -440,7 +440,7 @@ are stored in 4 separate files, one for each level. The files are in
 <para>
    Here you must replace &lt;language_code&gt; with your language code.</para>
 
-<para>2. Edit all indicated text files in the new directory with a text editor,
+<para>2. Edit all indicated text files in the new folder with a text editor,
    and replace each word with a translated word. It is not really important
    that the exact meaning is preserved, but try to keep the length and
    level of difficulty roughly the same.</para>
@@ -551,7 +551,7 @@ you.</para>
 </question>
 <answer>
 <para>
-There might be a problem due to the change of the configuration file. Please remove the <filename>khangmanrc</filename> file in your <filename class="directory">$HOME/.kde/share/config</filename> directory.
+There might be a problem due to the change of the configuration file. Please remove the <filename>khangmanrc</filename> file in your <filename class="directory">$HOME/.kde/share/config</filename> folder.
 </para>
 </answer>
 </qandaentry>
