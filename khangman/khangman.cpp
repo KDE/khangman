@@ -198,13 +198,9 @@ void KHangMan::changeLevel()
 	m_view->levelFile = levelString +".txt";
 	changeStatusbar(i18n("Level: ") + i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 	Prefs::setLevel( currentLevel);
+	Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
-        KConfigBase *conf = kapp->config();
-        if( conf ) {
-     	  conf->setGroup( "General" );
-	  conf->writeEntry("levelFile", m_view->levelFile);
-	}
-	newGame();
+        newGame();
 }
 
 //When changing background, the game stays as it is
@@ -237,12 +233,13 @@ void KHangMan::loadSettings()
 {
     	// Language
     	//load the kdeglobals config file - safer way would be to load that one read-only
-    	KConfigBase *globalConf = KGlobal::config();
+    	/*KConfigBase *globalConf = KGlobal::config();
     	globalConf->setGroup("Locale");
     	userLanguage = globalConf->readEntry("Language");
     	//keep only the first 2 characters
-    	userLanguage = userLanguage.left(2);
-    	setSelectedLanguage(userLanguage);
+    	userLanguage = userLanguage.left(2);*/
+	kdDebug() << "userLanguage :" << Prefs::userLanguage() << endl;
+    	setSelectedLanguage(Prefs::userLanguage());
 
     	KConfig *config = kapp->config();
     	config->setGroup("Language");

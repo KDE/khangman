@@ -27,21 +27,23 @@
       <default code="true">false</default>
     </entry>
     </group>
-    <!--<group name="Language">
-      <entry name="DefaultLanguage" type="String">
+    <group name="Language">
+      <entry name="UserLanguage" type="String">
       <label>The Default KDE language for the user</label>
       <code>
-      		KConfigBase *globalConf = KGlobal::config();
+          	KConfigBase *globalConf = KGlobal::config();
     		globalConf->setGroup("Locale");
-    		QString defaultLang = globalConf->readEntry("Language");
-    		defaultLang = defaultLang.left(2);
+    		QString userLanguage = globalConf->readEntry("Language");
+    		//keep only the first 2 characters
+		userLanguage = userLanguage.left(2);
     </code>
+    <default code="true">userLanguage</default>
     </entry>   
-     <entry name="SelectedLanguage" type="String">
+    <!--<entry name="SelectedLanguage" type="String">
       <label>The language selected by the user</label>
       <default code="true">defaultLang</default>
-    </entry> 
-    </group>-->
+    </entry> -->
+    </group>
   <group name="Settings">
      <entry name="Softer" type="Bool">
       <label>Softer Hangman Pictures</label>
