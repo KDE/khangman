@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <qtimer.h>
 #include <klocale.h>
+#include <qaccel.h>
 #include <qabstractlayout.h>
 
 #include "khangman.moc"
