@@ -97,6 +97,7 @@ void KHangManView::slotTry()
 				if (sChar=="u") sChar="ú";
 				if (sChar=="o") sChar="ó";
 				if (sChar=="e") sChar="é";
+				if (sChar=="u") sChar="ü";
 				index=0;
 				for (int count=0; count <word.contains(sChar); count++)
 				{
@@ -129,15 +130,15 @@ void KHangManView::slotTry()
 			else //if the char is missed...
 			{
 				allWords << sChar; //appends the list...
-				if (missedChar<6)
+				if (missedChar<5)
 				missedL=missedL.replace(2*missedChar,1, sChar);
-				else if(missedChar>6)
-				missedL=missedL.replace((2*missedChar)+1,1, sChar);
+				else if(missedChar>5)
+				missedL=missedL.replace((2*missedChar)+2,1, sChar);
 
-				if (missedChar==6) //we actually need to relace one underscore too much..
+				if (missedChar==5) //we actually need to relace one underscore too much..
 				{
-					missedL=missedL.replace(2*missedChar,1, "\n"+sChar+" ");
-					missedL=missedL.replace(24,2, "");
+					missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
+					missedL=missedL.replace(22,2, "");
 				}
 
 				missedLetters->setText(missedL);

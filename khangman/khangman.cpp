@@ -115,7 +115,7 @@ void KHangMan::registerLanguage(const QString &menuItem, const char *actionId, b
 
   if( t ) {
       if (languages == selectedLanguage) t->setChecked(true);
-      t->setEnabled(true);
+      t->setEnabled(enabled);
       languageActions[languages] = actionId;
       languages++;
   }
