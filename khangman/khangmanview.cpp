@@ -46,7 +46,7 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 		QString mString=i18n("The backgrounds files are not found.\n"
                                      "Check your installation, please!");
 		KMessageBox::sorry( this, mString,
-		                    i18n("KHangMan - Error") );
+		                    i18n("Error") );
 		exit(1);
 	}
 
@@ -218,7 +218,7 @@ void KHangManView::game()
 		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
                                      "Check your installation, please!").arg(language).arg(levelFile);
 		KMessageBox::sorry( this, mString,
-		                    i18n("KHangMan - Error") );
+		                    i18n("Error") );
 		exit(1);
 	}
 
