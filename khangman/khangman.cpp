@@ -206,7 +206,7 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	QToolTip::add( line,i18n( "Enter a letter") );
 	Layout10->addWidget( line );
 
-	lab4 = new QLabel(i18n(" Another word ?"), this);
+	lab4 = new QLabel(i18n(" Try another word?"), this);
 	lab4->setFont(QFont("Times", 28, QFont::Bold));
 	lab4->hide();
 	Layout10->addWidget( lab4 );
@@ -249,7 +249,7 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 
 	if (px[11].isNull()==true)
 	{
-		KMessageBox::sorry( this, i18n("The first picture was not found.\n \nConfigure with the right prefix please!"),
+		KMessageBox::sorry( this, i18n("The first picture was not found.\n\nPlease configure with the correct prefix."),
 		                    "KHangman - Error" );
 		exit(1);
 	}
@@ -575,11 +575,11 @@ void KHangMan::slotInfo()
 	helpla1=new QLabel(helpla);
 	helpla1->setAlignment ( AlignHCenter);
 	helpla1->setFont(QFont("Times", 26, QFont::Bold));
-	helpla1->setText(i18n("   Type in small letters. \n"
-	                      "   Ctrl-Q : quit the game \n"
-	                      " F1 for Help \n"
-	                      "Default : level 'easy'\n"
-	                      "TIP : try the vowels first \n\n"
+	helpla1->setText(i18n("   Type lower case letters. \n"
+	                      "   Ctrl-Q: Quit the game \n"
+	                      " Press F1 for Help \n"
+	                      "Default level: 'easy' \n"
+	                      "TIP: Try the vowels first \n\n"
 	                      " KHangMan - July 2001 \n"
 	                      "by Anne-Marie Mahfouf\n"));
 	helpla1->setAlignment ( AlignHCenter);
@@ -612,7 +612,7 @@ void KHangMan::choice1()
 	QFile easyFile(locate("data",file1));
 	if (!easyFile.exists())
 	{
-		KMessageBox::sorry( this, i18n("File $KDEDIR/share/apps/")+file1+i18n(" not found!\n Configure with the right prefix please!"),
+		KMessageBox::sorry( this, i18n("File $KDEDIR/share/apps/")+file1+i18n(" not found!\n Please configure with the correct prefix."),
 		                    "KHangman - Error" );
 		exit(1);
 	}
