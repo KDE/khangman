@@ -84,8 +84,6 @@ public:
 private:
     ///hold the current level
     QString levelString;
-    ///hold the current mode
-    QString modeString;
     ///the language used in KDE for the user
     QString userLanguage;
     ///the different data files in each language dir
@@ -132,8 +130,6 @@ private slots:
     @param lang the code of the currently selected language
     */
     void setLanguage(QString lang);
-    ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
-    void slotTransparent();
     /**
     Slot to toggle the full screen mode	
     @param set the state of the Full Screen Mode ToggleMenu, true if toggled

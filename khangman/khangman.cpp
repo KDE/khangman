@@ -55,7 +55,6 @@ KHangMan::KHangMan()
       m_view(new KHangManView(this))
 {
 	levelString = "";
-	modeString = "";
 	mNewStuff = 0;
 	// tell the KMainWindow that this is indeed the main widget
 	setCentralWidget(m_view);
@@ -99,7 +98,7 @@ void KHangMan::setupActions()
 	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
 	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
 
-	levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
+	levelAct = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
 	levelAct->setToolTip(i18n( "Choose the level" ));
 	levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
@@ -107,9 +106,9 @@ void KHangMan::setupActions()
 
 	QStringList modes;
 	modeAct = new KSelectAction(i18n("Look && Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
-	modes += i18n("No Background");
-	modes += i18n("Blue Theme");
-	modes += i18n("Nature Theme");
+	modes += i18n("N&o Background");
+	modes += i18n("&Blue Theme");
+	modes += i18n("&Nature Theme");
 	modeAct->setItems(modes);
 	modeAct->setToolTip(i18n( "Choose the look and feel" ));
 	modeAct->setWhatsThis(i18n( "Check the look and feel" ));
@@ -172,23 +171,22 @@ void KHangMan::changeMode()
 {
 	switch (modeAct->currentItem()) {
     	case 0:
-	 		modeString="nobg";
-			m_view->slotNoBkgd();
 			Prefs::setMode("nobg");
+			Prefs::writeConfig();
+			m_view->slotNoBkgd();
     		break;
 
     	case 1:
-      			modeString="blue";
-			m_view->slotSetPixmap(m_view->bluePix);
 			Prefs::setMode("blue");
+			Prefs::writeConfig();
+			m_view->slotSetPixmap(m_view->bluePix);
    			break;
     	case 2:
-      		modeString="nature";
-			m_view->slotSetPixmap(m_view->naturePix);
 			Prefs::setMode("nature");
+			Prefs::writeConfig();
+			m_view->slotSetPixmap(m_view->naturePix);
    			break;
 	}
-	Prefs::writeConfig();
 }
 
 void KHangMan::loadSettings()
@@ -224,13 +222,8 @@ void KHangMan::loadSettings()
     	setLevel_WindowState();
 
      	// Background
-    	QString oldMode = modeString;
-    	modeString = Prefs::mode();
-   	if(oldMode != modeString)
-    		setMode_WindowState();
-	m_view->transparent = Prefs::transparent();
+	setMode_WindowState();
 	m_view->slotTransparent();
-	m_view->softer = Prefs::softer();
 	m_view->slotSofter();
 	slotAccents();
 	m_view->hintBool= Prefs::hint();
@@ -247,17 +240,17 @@ void KHangMan::setLevel_WindowState()
 
 void KHangMan::setMode_WindowState()
 {
-	if (modeString=="nobg")
+	if (Prefs::mode()=="nobg")
 	{
 		modeAct->setCurrentItem(0);
 		m_view->slotNoBkgd();
 	}
-	else if (modeString=="blue")
+	else if (Prefs::mode()=="blue")
 	{
 		modeAct->setCurrentItem(1);
 		m_view->slotSetPixmap(m_view->bluePix);
 	}
-	else if (modeString=="nature")
+	else if (Prefs::mode()=="nature")
 	{
 		modeAct->setCurrentItem(2);
 		m_view->slotSetPixmap(m_view->naturePix);
@@ -313,11 +306,6 @@ void KHangMan::setLanguage(QString lang)
 	changeStatusbar(m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
 }
 
-void KHangMan::slotTransparent()
-{
-        m_view->transparent = Prefs::transparent();//transAct->isChecked();
-        m_view->slotTransparent();
-}
 
 void KHangMan::loadDataFiles()
 {
@@ -547,17 +535,9 @@ void KHangMan::optionsPreferences()
 void KHangMan::updateSettings()
 {
      	// Transparency
-	if (m_view->transparent != Prefs::transparent())  {
-      		m_view->transparent = Prefs::transparent();
-		kdDebug() << "Change Transparent mode   " << endl;
-      		m_view->slotTransparent();
-	}
+	m_view->slotTransparent();
     	// Softer Pictures
-	if (m_view->softer != Prefs::softer()) {
-    		m_view->softer = Prefs::softer();
-		kdDebug() << "Change Softer mode   " << endl;
-		m_view->slotSofter();
-	}
+	m_view->slotSofter();
 	//Accented Letters
 	if (m_view->accent_b != Prefs::accentedLetters())
 		slotAccents();

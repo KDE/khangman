@@ -35,6 +35,7 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kpassivepopup.h>
+#include <kpushbutton.h>
 #include <kstandarddirs.h>
 //standard C++ headers
 #include <stdlib.h>
@@ -82,6 +83,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 
 	connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
 	connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
+	connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
 }
 
 KHangManView::~KHangManView()
@@ -98,22 +100,17 @@ void KHangManView::slotNewGame()
 	
 	wipeout();
 	//language=Prefs::selectedLanguage();
+	QFont tFont;
 	if (language =="tg")  {
-		QFont tFont;
     		tFont.setFamily( "URW Bookman" );
-    		tFont.setPointSize( 22 );
-		missedLetters->setFont(tFont);
-		charWrite->setFont(tFont);
-		mainLabel->setFont(tFont);
 	}
 	if (language =="cs")  {
-		QFont tFont;
     		tFont.setFamily( "Arial" );
-    		tFont.setPointSize( 22 );
-		missedLetters->setFont(tFont);
-		charWrite->setFont(tFont);
-		mainLabel->setFont(tFont);
 	}
+	tFont.setPointSize( 22 );
+	missedLetters->setFont(tFont);
+	charWrite->setFont(tFont);
+	mainLabel->setFont(tFont);
 	//distinction between upper and lower case letters
 	if (levelFile == "world_capitals.txt" || levelFile == "departements.txt")
 		upperBool = true;
@@ -214,7 +211,8 @@ void KHangManView::slotTry()
 					if (language =="de")
 						theWord = theWord.replace(0,1, theWord.left(1).upper());
 					mainLabel->setText(theWord);
-
+					
+					//usability: change that
 					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
 						slotNewGame();
 					else
@@ -223,7 +221,10 @@ void KHangManView::slotTry()
 			}
 		}
 		else
-			KMessageBox::information (this, i18n("The letter has already been guessed."));
+			KPassivePopup::message(i18n("Information"), i18n("The letter has already been guessed."), this);
+			//KMessageBox::information (this, i18n("The letter has already been guessed."));
+			//usability: highlight it in Missed
+			//usability:hilight it in the word
 	}
 	//reset after guess...
 	charWrite->setText("");
@@ -407,7 +408,21 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
 {
 	QImage img = bgPix.convertToImage();
 	QPixmap bg(size());
-
+	QColor myColor;
+	if (Prefs::mode() == "blue") {
+		myColor=Qt::white;
+		guessButton->setPaletteBackgroundColor( QColor( 24, 165, 16 ) );
+	}
+	else
+	if (Prefs::mode() == "nature") {
+		myColor=Qt::black;
+		guessButton->setPaletteBackgroundColor( QColor( 32, 141, 16 ) );
+	}
+	missedLetters->setPaletteForegroundColor(myColor);
+	TextLabel1->setPaletteForegroundColor(myColor);
+	TextLabel2->setPaletteForegroundColor(myColor);
+	TextLabel3->setPaletteForegroundColor(myColor);
+	mainLabel->setPaletteForegroundColor(myColor);
 	bg.convertFromImage(img.smoothScale( width(), height()));
 	setPaletteBackgroundPixmap(bg);
 	Frame11->setPaletteBackgroundPixmap(bg);
@@ -416,10 +431,11 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
 	TextLabel3->setPaletteBackgroundPixmap(bg);
 	mainLabel->setPaletteBackgroundPixmap(bg);
 	missedLetters->setPaletteBackgroundPixmap(bg);
-	if (transparent)
-		pixImage->setPaletteBackgroundPixmap(bg);
-	else
-		pixImage->setBackgroundColor("#ECECEC");
+
+	if (Prefs::transparent())
+                pixImage->setPaletteBackgroundPixmap(bg);
+        else
+                pixImage->setBackgroundColor("#ECECEC");
 	charWrite->setFocus();
 	bgPixmap = bgPix;
 }
@@ -435,11 +451,18 @@ void KHangManView::slotNoBkgd()
 	Frame11->setBackgroundColor("#DCDCDC");
 	pixImage->setBackgroundColor("#ECECEC");
 	charWrite->setFocus();
+	missedLetters->setPaletteForegroundColor(Qt::black);
+	TextLabel1->setPaletteForegroundColor(Qt::black);
+	TextLabel2->setPaletteForegroundColor(Qt::black);
+	TextLabel3->setPaletteForegroundColor(Qt::black);
+	mainLabel->setPaletteForegroundColor(Qt::black);
 	bgPixmap.resize(0,0);
+	guessButton->setPaletteBackgroundColor("#DCDCDC");
 }
 
 void KHangManView::slotTransparent()
 {
+	kdDebug() << "--- in slot transparent"  << endl;
 	if (bgPixmap.isNull())
 		slotNoBkgd();
 	else
@@ -448,7 +471,7 @@ void KHangManView::slotTransparent()
 
 void KHangManView::slotSofter()
 {
-	if (softer)
+	if (Prefs::softer())
 	{
 		px[6].load(locate("data","khangman/pics/hg7c.png"));
 		px[7].load(locate("data","khangman/pics/hg8c.png"));
@@ -479,6 +502,8 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 		myPopup->setPalette(QToolTip::palette());
 		myPopup->setTimeout(4000); //show for 4 seconds
 		myPopup->show();
+		//KPassivePopup::message(i18n("Hint"), tip, TextLabel3);
+		
 	}
         update();//this is nice!
 }

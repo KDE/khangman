@@ -44,12 +44,8 @@ public:
 
     virtual ~KHangManView();
 
-        //levelFile is the text file containing the data
+        ///levelFile is the text file containing the data
 	QString levelFile;
-	///transparent=true indicates that pictures should be transparent
-	bool transparent;
-	///softer=true indicates that pictures should be childish ones
-	bool softer;
 	///language is the current language for data file
 	QString language;
 	////word is the random word to be guessed
