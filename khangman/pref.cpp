@@ -35,7 +35,7 @@ KHangManPreferences::KHangManPreferences()
     readConfig();
     //set the values read in config file
     slotSet();
-    cancelBool=false;
+
     QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotMode(int)));
     QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotChanged()));
     QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
@@ -129,7 +129,7 @@ void KHangManPreferences::slotSet()
 		m_pageTwo->enBox->setChecked(true);
 	if (langNum==1)
 		m_pageTwo->frBox->setChecked(true);
-	if (langNum==3)
+	if (langNum==2)
 		m_pageTwo->spBox->setChecked(true);
 }
 

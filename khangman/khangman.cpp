@@ -174,6 +174,9 @@ void KHangMan::optionsPreferences()
 {
     KHangManPreferences dlg;
     dlg.resize(450, 340);
+    dlg.cancelBool=false;
+    dlg.levelChanged = false;
+    dlg.langChanged = false;
     QObject::connect(&dlg, SIGNAL(aClicked()), this, SLOT(slotClickApply()));
     if (dlg.exec())
     {
