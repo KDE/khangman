@@ -393,7 +393,7 @@ Only letters are allowed to be typed in the field.
 <guimenu>Settings</guimenu>
 <guimenuitem>Enable Accented Letters</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Allow</action> to type accented letters on their own
+<listitem><para>Allow to type accented letters on their own
 </para></listitem>
 </varlistentry>
 </variablelist>
