@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2003-05-22</date>
+<date>2003-07-01</date>
 <releaseinfo>1.1</releaseinfo>
 
 <abstract>
@@ -145,7 +145,7 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in six languages: Danish, English, Finnish, French, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in seven languages: Danish, English, Finnish, French, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
@@ -162,7 +162,7 @@ Try to guess the vowels first. Then have a go with the most common consonants : 
 When you see io, try n after that, in French and English.
 </para>
 <para>
-In Spanish, the accented vowels are discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a".
+In Spanish and Portuguese, the accented vowels are discovered when you type the non accented corresponding vowel. For example, all the accented "a" are displayed in the word when you type "a".
 </para>
 <para>
 Did you know?
@@ -188,7 +188,7 @@ As default, if your KDE language is one of those six, then it is set as default 
 </para>
 <para>
 If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language, "&aacute;" are displayed when
-"a" is typed and same for "i", "e", "u" and "o". Furthermore, "&agrave;" are displayed when "a" is typed for Catalan users.
+"a" is typed and same for "i", "e", "u" and "o". Furthermore, "&agrave;" are displayed when "a" is typed for Catalan users. In Portuguese, "&atilde;" and "&aacute;" are displayed when "a" is typed.
 </para>
 <para>
 The <menuchoice><guimenuitem>Settings</guimenuitem></menuchoice> menu allows you to configure &khangman; easily.
@@ -200,7 +200,7 @@ choose different shortcut keys for different actions. For example, Ctrl+Q is the
 <menuchoice><guimenuitem>Transparent Pictures</guimenuitem></menuchoice> gives you the choice of having the hangman pictures transparent or not, depending on wether it is checked or not.
 </para>
 <para>
-Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background.
+Please note that transparent pictures for the hangman are not enabled in No Background mode. Transparency is only available with a picture background. By default, transparency is enabled.
 </para>
 <screenshot>
 <screeninfo>&khangman; blue theme</screeninfo>
@@ -486,6 +486,9 @@ Contributors:
 </email></para> </listitem>
 <listitem><para>Finnish data files: Niko Lewman
 <email>niko DOT leman AT edu DOT hel DOT fi
+</email></para> </listitem>
+<listitem><para>Brazilian Portuguese data files: João Sebastião de Oliveira Bueno
+<email>gwidion AT mpc DOT com DOT br
 </email></para> </listitem>
  <listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
