@@ -100,8 +100,6 @@ private:
 private slots:
     ///Start a new game i.e. repaint and set a new word
     void newGame();
-    ///Configure shortcut keys standard KDE dialog
-    void optionsConfigureKeys();
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
     ///Configure toolbars standard KDE dialog

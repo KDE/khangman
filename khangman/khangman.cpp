@@ -30,7 +30,6 @@
 #include <kedittoolbar.h>
 #include <kglobal.h>
 #include <kiconloader.h>
-#include <kkeydialog.h>
 #include <klocale.h>
 #include <kmenubar.h>
 #include <kmessagebox.h>
@@ -99,7 +98,8 @@ void KHangMan::setupActions()
 	langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
 	langAct->setItems(m_sortedNames);
 	
-	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+	KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
 	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 	
 	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
@@ -138,10 +138,6 @@ void KHangMan::newGame()
   	m_view->slotNewGame();
 }
 
-void KHangMan::optionsConfigureKeys()
-{
-    	KKeyDialog::configure(actionCollection());
-}
 
 void KHangMan::optionsConfigureToolbars()
 {
