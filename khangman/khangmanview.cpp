@@ -74,13 +74,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     accent_b = false;
     m_accent = true;
     //tip="";
-    missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
-
-    //word = "khàngman";
-    kdDebug() << "word " << word << endl;
-    //word = word.utf8();
-    //kdDebug() << "word2 " << word << endl;
-    goodWord = "_ _ _ _ _ _ _ _";
+    //missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
     connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
     connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
@@ -122,8 +116,6 @@ void KHangManView::replaceLetters(const QString& sChar)
             index++;
             }
     }
-    kdDebug() << "m_accent  " << m_accent << endl;
-    kdDebug() << "accent_b  " << accent_b << endl;
     if (m_accent && !accent_b) {
         //characters must be lisible as utf-8 and file must be saved with this encoding. 
         kdDebug() << "In accent " << endl;
@@ -151,7 +143,6 @@ void KHangManView::replaceLetters(const QString& sChar)
 bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
-    kdDebug() << "In containsChar " << endl;
     if (m_accent && !accent_b) {
         kdDebug() << "Testing " << endl;
         if (sChar=="i") b = word.contains(QString("í"))>0;//QChar('í').unicode()) > 0;
@@ -177,12 +168,13 @@ void KHangManView::paintWord()
     paint.setPen( QColor(148, 156, 167));
     paint.setFont(QFont("Arial", 32));
     QRect aux;
-    aux = paint.boundingRect(QRect(), AlignLeft|AlignTop, goodWord);
+    //TODO the rectangle does not adapt correctly to the word size
+    aux = paint.boundingRect(QRect(), AlignLeft, goodWord);
     aux.moveBy(width()/50, height()-height()/10);
     //TODO fill it so it blends into the background
     paint.fillRect(aux, QColor(41, 60, 123));
-    paint.drawText(aux, AlignLeft|AlignTop, goodWord);
-    paint.setPen( QColor(148, 156, 167));
+    paint.drawText(aux, AlignLeft, goodWord);
+    //paint.setPen( QColor(148, 156, 167));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -258,12 +250,13 @@ void KHangManView::slotTry()
                     //if (language =="de") {
                         //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
                        // }
-                    //update(aux);
                     paintWord();
                     sword.remove(QRegExp(" "));
                     if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
                         //we reset everything...
                        // pixImage->setPixmap(px[10]);
+                       //TODO find a better way to finish
+                       slotNewGame();
                         /*if (Prefs::sound()) {
                             QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                             if (soundFile != 0) 
@@ -296,6 +289,7 @@ void KHangManView::slotTry()
                         }
 
                         missedChar++;
+                        kdDebug() << missedChar << endl;
                         paintHangman();
 
                         if (missedChar >= 10) //you are hanged!
@@ -303,12 +297,13 @@ void KHangManView::slotTry()
                                 //we reset everything...
                                 //pixImage->setPixmap(px[9]);
                                 //um... The word is not guessed... Let's show it...
+                                kdDebug() << "Hanged!!! " << endl;
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
                                 //if (language =="de")
-                                        //theWord = theWord.replace(0,1, theWord.left(1).upper());
-                                //paintHangman();
-                                
+                                //theWord = theWord.replace(0,1, theWord.left(1).upper());
+                                goodWord = theWord;
+                                slotNewGame();
                                 //usability: change that
                                 /*QString newGameString;
                                 if (Prefs::pictures() == Prefs::EnumPictures::mild) 
@@ -399,10 +394,12 @@ void KHangManView::slotNewGame()
 void KHangManView::reset()
 {
     goodWord="";
+    word="";
     charWrite->setText("");
     missedChar=0;
     missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
     allWords.clear();
+    update();
 }
 
 void KHangManView::game()
@@ -433,36 +430,32 @@ void KHangManView::game()
         openFileStream.close();
         //detects if file is a kvtml file so that it's a hint enable file
         if (allData.first() == "<?xml version=\"1.0\"?>") {
-                emit(signalKvtml(true));
-                readFile();
-                }
+            emit(signalKvtml(true));
+            readFile();
+        }
         else {//TODO abort if not a kvtml file maybe
-                if (allData.count()<=1) {
-                        emit(signalChangeLanguage(3));
-                        return;
-                        }
-                emit(signalKvtml(false));
-                //now the calculations...
-                int objects = allData.count();//number of words in the file
-                word ="";
-                //picks a random word from allData
-                while (word.isEmpty())
+            if (allData.count()<=1) {
+                emit(signalChangeLanguage(3));
+                return;
+            }
+            emit(signalKvtml(false));
+            //now the calculations...
+            int objects = allData.count();//number of words in the file
+            //picks a random word from allData
+            while (word.isEmpty())
                 word = allData[random.getLong(objects)]; //gives us a single word...
-                //test if the word is not the same than the previous one
-                if (temp.isEmpty())
-                        temp=word;
-                else {
-                        while (word.lower()==temp.lower())
-                                word = allData[random.getLong(objects)];
-                                temp=word;
-                        }//end of test
-                        if (!upperBool)
-                                word = word.lower(); //because of German
-                }//end else if language=fr
+            //test if the word is not the same than the previous one
+            if (temp.isEmpty())
+                    temp=word;
+            else {
+                while (word.lower()==temp.lower())
+                    word = allData[random.getLong(objects)];
+                temp=word;
+            }//end of test
+            if (!upperBool)
+                word = word.lower(); //because of German
+        }//end else if language=fr
         kdDebug() << word << endl;
-        kdDebug() << "length: " <<  word.length() << endl;
-        goodWord ="";
-        //paintWord();
         //display the number of letters to guess with _
         for(unsigned int i = 0; i < word.length(); i++)
         {
@@ -502,6 +495,7 @@ void KHangManView::game()
 
 void KHangManView::readFile()
 {
+        kdDebug() << "in read kvtml file " << endl;
         QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
         myString= locate("data", myString);
         KEduVocDataItemList verbs = KEduVocData::parse(myString);
