@@ -22,7 +22,7 @@
 #include "khsplash.h"
 
 static const char *description =
-    I18N_NOOP("KHangMan");
+    I18N_NOOP("Hangman Game");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	aboutData.addCredit("Renaud Blanchard",
 	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
     aboutData.addCredit("Primoz Primoz Anzur",
-	                    I18N_NOOP("Splash-screen"), "zerokode@yahoo.com");
+	                    I18N_NOOP("Splash screen"), "zerokode@yahoo.com");
 	KCmdLineArgs::init( argc, argv, &aboutData );
 	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
