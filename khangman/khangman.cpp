@@ -19,7 +19,6 @@
 #include <qdir.h>
 #include <qlineedit.h>
 //KDE headers
-#include <kaction.h>
 #include <kactionclasses.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -29,8 +28,6 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
-#include <ktoolbar.h>
-#include <kpushbutton.h>
 //Project headers
 #include "khangman.h"
 
@@ -112,7 +109,7 @@ void KHangMan::setupActions()
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
     hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotHint()), actionCollection(), "hint");
-    accentsAct = new KToggleAction(i18n("&Type Accented Letters"), CTRL+Key_E, this, SLOT(slotAccents()), actionCollection(), "accents");
+    accentsAct = new KToggleAction(i18n("Type A&ccented Letters"), CTRL+Key_A, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
@@ -388,6 +385,7 @@ void KHangMan::changeLanguage(int newLanguage)
     	slotAccents();
     else {
     	changeStatusbar("", IDS_ACCENTS);
+	loadLangToolBar();
 	newGame();
     }
 }
@@ -682,7 +680,7 @@ void KHangMan::slotClose()
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
 	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
 	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
-	  if (m_view->language=="fr")
+	  if (m_view->language=="fr" || m_view->language=="it")
 	  	conf->writeEntry( "hint", m_view->hintBool);
         }
 	// then close the main window

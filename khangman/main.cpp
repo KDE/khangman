@@ -57,6 +57,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
     aboutData.addCredit("Antoni Bella",
                             I18N_NOOP("Catalan data files"), "bella5@teleline.es");
+    aboutData.addCredit("Giovanni Venturi",
+                            I18N_NOOP("Italian data files"), "jumpyj@libero.it");
     aboutData.addCredit("Matt Howe",
                             I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
     aboutData.addCredit("Benjamin Meyer",
@@ -66,7 +68,8 @@ int main(int argc, char **argv)
     aboutData.addCredit("Lubos Lunàk",
                             I18N_NOOP("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit("Albert Astals Cid",
-                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");			 
+                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");	
+		 
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
