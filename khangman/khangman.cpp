@@ -81,6 +81,7 @@ void KHangMan::setupActions()
     m_pFullScreen = new KAction( i18n( "&Full-Screen Mode" ), "window_fullscreen", CTRL+SHIFT+Key_F, this,
         SLOT( slotToggleFullScreen() ), actionCollection(), "fullscreen" );
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
+    softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
@@ -265,6 +266,14 @@ void KHangMan::loadSettings()
     }
     transAct->setChecked(m_view->transparent);
 
+    // Softer Pictures
+    config->setGroup("Settings");
+    if(m_view->softer != config->readBoolEntry( "softer", true)){
+    m_view->softer = config->readBoolEntry( "softer", true);
+    m_view->slotSofter();
+    }
+    softAct->setChecked(m_view->softer);
+
      if(startNewGame) newGame();
  }
 
@@ -404,6 +413,18 @@ void KHangMan::slotToggleFullScreen( )
       m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
       m_pFullScreen->setIcon( "window_fullscreen" );
    }
+}
+
+void KHangMan::slotSofter()
+{
+	m_view->softer = softAct->isChecked();
+        m_view->slotSofter();
+        //write softer in the config file
+        KConfigBase *conf = kapp->config();
+    	if( conf ) {
+        	conf->setGroup( "Settings" );
+        	conf->writeEntry( "softer", m_view->softer);
+        }
 }
 
 #include "khangman.moc"

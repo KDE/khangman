@@ -31,6 +31,8 @@ public:
 	QString levelFile;
 	///transparent=true indicates that pictures should be transparent
 	bool transparent;
+	///softer=true indicates that pictures should be childish ones
+	bool softer;
 	///language is the current language for data file
 	QString language;
 	////word is the random word to be guessed
@@ -71,6 +73,7 @@ public slots:
 	void slotSetPixmap(QPixmap& );
 	void slotNoBkgd();
 	void slotTransparent();
+	void slotSofter();
 
 private slots:
 

@@ -109,6 +109,8 @@ private slots:
     ///When Transparent Pictures is checked/unchecked in Settings menu, go to this slot
     void slotTransparent();
 
+    void slotSofter();
+
     void slotToggleFullScreen();
 
 private:
@@ -124,6 +126,7 @@ private:
     KAction *newAct;
     ///Action in the Settings menu to enable/disable transparency pictures
     KToggleAction *transAct;
+    KToggleAction *softAct;
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
     ///Full-Screen mode action

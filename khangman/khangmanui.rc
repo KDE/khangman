@@ -18,6 +18,7 @@
         	<Action name="fullscreen"/>
         	<Separator />
 		<Action name="transparent"/>
+		<Action name="softer"/>
         </Menu>
 </MenuBar>
 

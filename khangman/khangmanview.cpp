@@ -52,6 +52,7 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 	setMinimumSize(380, 410); /* Selected to get px aspect ratio */
 
 	temp="";
+	missedChar=0;
 
 	QObject::connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
 	QObject::connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
@@ -130,7 +131,7 @@ void KHangManView::slotTry()
 				if (missedChar >= 10) //you are hanged!
 				{
 					//we reset everything...
-				  pixImage->setPixmap(px[9]);
+				        pixImage->setPixmap(px[9]);
 					//um... The word is not guessed... Let's show it...
 					QStringList charList=QStringList::split("",word);
 					QString theWord=charList.join(" ");
@@ -298,6 +299,26 @@ void KHangManView::slotTransparent()
 		slotNoBkgd();
 	else
 		slotSetPixmap(bgPixmap);
+}
+
+void KHangManView::slotSofter()
+{
+	if (softer)
+	{
+		px[6].load(locate("data","khangman/pics/hg7c.png"));
+		px[7].load(locate("data","khangman/pics/hg8c.png"));
+		px[8].load(locate("data","khangman/pics/hg9c.png"));
+		px[9].load(locate("data","khangman/pics/hg10c.png"));
+	}
+	else
+	{
+		px[6].load(locate("data","khangman/pics/hg7.png"));
+		px[7].load(locate("data","khangman/pics/hg8.png"));
+		px[8].load(locate("data","khangman/pics/hg9.png"));
+		px[9].load(locate("data","khangman/pics/hg10.png"));
+	}
+	//update the pic immediatly
+	if (missedChar > 0) pixImage->setPixmap(px[missedChar+1]);
 }
 
 #include "khangmanview.moc"
