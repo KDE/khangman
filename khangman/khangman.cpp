@@ -143,7 +143,7 @@ void KHangMan::changeLevel()
 
 	m_view->levelFile = levelString +".kvtml";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
-	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.txt")
+	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	else
 		changeStatusbar(i18n(""), IDS_ACCENTS);
@@ -400,7 +400,7 @@ void KHangMan::slotAccents()
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
 	//TODO change these .txt to .kvtml
-	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.txt")
+	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();

@@ -113,7 +113,7 @@ void KHangManView::slotNewGame()
 	charWrite->setFont(tFont);
 	mainLabel->setFont(tFont);
 	//distinction between upper and lower case letters
-	if (levelFile == "world_capitals.txt" || levelFile == "departements.txt")
+	if (levelFile == "world_capitals.kvtml" || levelFile == "departements.kvtml")
 		upperBool = true;
 	 else upperBool = false;
 	game();
