@@ -17,9 +17,7 @@
 
 #include "khangmanview.h"
 
-class KToggleAction;
 class KComboBox;
-
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -65,8 +63,6 @@ protected:
 private slots:
     void fileNew();
 
-    void optionsShowToolbar();
-    void optionsShowStatusbar();
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
     void optionsPreferences();
@@ -88,10 +84,7 @@ private:
 
 private:
     KHangManView *m_view;
-
-    KToggleAction *m_toolbarAction;
-    KToggleAction *m_statusbarAction;
-	KAction *newAct;
+    KAction *newAct;
 };
 
 #endif // _KHANGMAN_H_
