@@ -39,6 +39,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Graphics"), "kisukuma.chez.com");
     aboutData.addCredit("eXParTaKus",
                             I18N_NOOP("Spanish data files"), "expartakus.expartakus.com");
+    aboutData.addCredit("Benjamin Meyer",
+                            I18N_NOOP("Coding help"), "ben@meyerhome.net");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;

@@ -93,13 +93,13 @@ void KHangManView::slotTry()
 		if (allWords.contains(sChar) == 0) //if letter not alreasy guessed
 		{
 
-			if (containsChar(sChar)) 
+			if (containsChar(sChar))
 			{
-				replaceLetters(sChar); 
+				replaceLetters(sChar);
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
-        
+
 				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
 				{
 					//we reset everything...
@@ -110,7 +110,7 @@ void KHangManView::slotTry()
 					else
 						kapp->quit();
 				}
-        
+
 			}
 			else //if the char is missed...
 			{
@@ -145,7 +145,7 @@ void KHangManView::slotTry()
 						kapp->quit();
 				}
 			}
-		} 
+		}
 		else
 			KMessageBox::information (this, i18n("The letter has already been guessed."));
 	}
@@ -179,8 +179,8 @@ void KHangManView::replaceLetters(QString sChar)
 
 bool KHangManView::containsChar(QString &sChar)
 {
-  bool b = false; 
-  
+  bool b = false;
+
   if (language=="es")
   {
     if (sChar=="i") b = word.contains(QString("í")) > 0;
@@ -189,7 +189,7 @@ bool KHangManView::containsChar(QString &sChar)
     if (sChar=="o") b = word.contains(QString("ó")) > 0;
     if (sChar=="e") b = word.contains(QString("é")) > 0;
   }
-  
+
   return ((word.contains(sChar) > 0) || b);
 }
 
@@ -231,9 +231,9 @@ void KHangManView::game()
 		temp=word;
 	}//end of test
 	kdDebug() << word << endl;
-	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
-		slotNewGame();
-  goodWord ="";
+	//if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
+		//slotNewGame();
+        goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
