@@ -831,6 +831,13 @@ void KHangMan::setLanguages()
     KConfig entry(locate("locale", "all_languages"));
     for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
 	entry.setGroup(*it);
+	if (*it == "sr")
+		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+	else if (*it == "sr@Latn") {
+		entry.setGroup("sr");
+		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+		}
+	else
 	m_languageNames.append(entry.readEntry("Name"));
     }
     m_sortedNames = m_languageNames;
