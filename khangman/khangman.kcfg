@@ -18,14 +18,6 @@
       <label>Show the characters toolbar</label>
       <default code="true">false</default>
     </entry>
-    <entry name="AccentedLetters" type="Bool">
-      <label>The language has special accented letters</label>
-      <default code="true">false</default>
-    </entry>
-    <entry name="Hint" type="Bool">
-      <label>Enable Hint mode if available</label>
-      <default code="true">false</default>
-    </entry>
     </group>
     <group name="Language">
     <entry name="SelectedLanguage" type="String">
@@ -40,7 +32,7 @@
       <default code="true">userLanguage</default>
     </entry> 
     </group>
-  <group name="Settings">
+  <group name="normal">
      <entry name="Softer" type="Bool">
       <label>Softer Hangman Pictures</label>
       <default code="true">true</default>
@@ -49,5 +41,27 @@
       <label>Transparent Hangman Pictures</label>
       <default code="true">true</default>
     </entry>  
+    <entry name="AccentedLetters" type="Bool">
+      <label>The language has special accented letters</label>
+      <default code="true">false</default>
+    </entry>
+    <entry name="Hint" type="Bool">
+      <label>Enable Hint mode if available</label>
+      <default code="true">false</default>
+    </entry>
+  </group>
+    <group name="advanced">
+     <entry name="OneLetter" type="Bool">
+      <label>Allow Only One Instance of Each Letter</label>
+      <default code="true">false</default>
+    </entry>
+   <entry name="Fortune" type="Bool">
+      <label>Guess fortune cookies instead of words</label>
+      <default code="true">false</default>
+    </entry>  
+       <entry name="WonDialog" type="Bool">
+      <label>Do not display the 'Congratulations You won!' dialog</label>
+      <default code="true">false</default>
+    </entry> 
   </group>
 </kcfg>

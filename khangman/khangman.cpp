@@ -19,11 +19,13 @@
  /************************************/
  
 //Qt headers
+#include <qcheckbox.h>
 #include <qdir.h>
 #include <qlineedit.h>
 #include <qstringlist.h>
 //KDE headers
 #include <kactionclasses.h>
+#include <kconfigdialog.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
 #include <kglobal.h>
@@ -37,6 +39,7 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "khnewstuff.h"
+#include "advanced.h"
 
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
@@ -109,7 +112,9 @@ void KHangMan::setupActions()
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
-
+    
+    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    
     QStringList modes;
     modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
     modes += i18n("No Background");
@@ -214,6 +219,7 @@ void KHangMan::changeMode()
 	}
 	Prefs::writeConfig();
         transAct->setEnabled( modeAct->currentItem() != 0 );
+	mNormal->kcfg_Transparent->setEnabled( transAct->isEnabled() );
 }
 
 void KHangMan::loadSettings()
@@ -751,6 +757,7 @@ void KHangMan::slotAccents()
 void KHangMan::restoreAccentConfig()
 {
 	accentsAct->setChecked(!m_view->accent_b);
+	mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
 	slotAccents();
 }
 
@@ -841,6 +848,29 @@ void KHangMan::setLanguages()
 	m_languageNames.append(entry.readEntry("Name"));
     }
     m_sortedNames = m_languageNames;
+}
+
+void KHangMan::optionsPreferences()
+{
+	if ( KConfigDialog::showDialog( "settings" ) ) 
+        	return; 
+ 
+	//KConfigDialog didn't find an instance of this dialog, so lets create it : 
+	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
+	//dialog->setModal(true); //makes it modal even if it's not the default
+	mNormal =  new normal( 0, "Kids Settings" ); 
+	dialog->addPage(mNormal, i18n("Kids Settings"), "configure");
+	mNormal->kcfg_Transparent->setEnabled( transAct->isEnabled() );
+	mNormal->kcfg_AccentedLetters->setEnabled(accentsAct->isEnabled());
+	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
+	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+	dialog->show();
+	
+}
+
+void KHangMan::updateSettings()
+{
+	
 }
 
 #include "khangman.moc"

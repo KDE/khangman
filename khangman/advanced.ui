@@ -1,0 +1,65 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>advanced</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>advanced</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>344</width>
+            <height>122</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form2</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="0" column="0">
+            <property name="name">
+                <cstring>groupBox4</cstring>
+            </property>
+            <property name="title">
+                <string>Advanced settings</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_OneLetter</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Only One Letter Instance</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there is no more instance of this letter. </string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_Fortune</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Allow Fortune Cookies instead of words</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_WonDialog</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Do Not Display The 'Congratulations! You won' dialog</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

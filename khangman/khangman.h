@@ -26,6 +26,7 @@
 #include <kapplication.h>
 #include <kmainwindow.h>
 
+#include "normal.h"
 #include "khangmanview.h"
 
 class KSelectAction;
@@ -70,6 +71,8 @@ public:
     KSelectAction *langAct;
     ///Build the Languages menu
     void setupLangMenu();
+    
+    normal* mNormal;
 private:
     ///hold the current level
     QString levelString;
@@ -89,6 +92,8 @@ private slots:
     void newGame();
     ///Configure shortcut keys standard KDE dialog
     void optionsConfigureKeys();
+    ///In Settings menu, Configure KHangMan... menu item
+    void optionsPreferences();
     ///Configure toolbars standard KDE dialog
     void optionsConfigureToolbars();
     /**
@@ -182,6 +187,8 @@ private slots:
     void enableHint(bool);
     ///access the KNewStuff class to install new data
     void downloadNewStuff();
+    
+    void updateSettings();
 
   private:
     ///Set up the actions for the menus
@@ -218,6 +225,7 @@ private:
     QStringList m_languageNames;
     
     KHNewStuff *mNewStuff;
+    
 };
 
 #endif // _KHANGMAN_H_

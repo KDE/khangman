@@ -200,48 +200,48 @@ void KHangManView::slotTry()
 
 void KHangManView::replaceLetters(QString sChar)
 {
-  //replace letter in the word
-  int index=0;
-  for (int count=0; count <word.contains(sChar); count++)
-  {
-    //searching for letter location
-    index = word.find(sChar,index);
-    //we replace it...
-    goodWord.replace((2*index), 1,sChar);
-    index++;
-  }
-  if (m_accent && !accent_b)
-  {
-  //characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
-    if (sChar=="i") replaceLetters(QString("í"));
-    if (sChar=="a") replaceLetters(QString("à"));
-    if (sChar=="a") replaceLetters(QString("á"));
-    if (sChar=="a") replaceLetters(QString("ã"));
-    if (sChar=="u") replaceLetters(QString("ü"));
-    if (sChar=="o") replaceLetters(QString("ò"));
-    if (sChar=="o") replaceLetters(QString("ó"));
-    if (sChar=="o") replaceLetters(QString("õ"));
-    if (sChar=="e") replaceLetters(QString("è"));
-    if (sChar=="e") replaceLetters(QString("é¨"));
-    if (sChar=="u") replaceLetters(QString("ù"));
-  }
+	//replace letter in the word
+	int index=0;
+	for (int count=0; count <word.contains(sChar); count++)
+	{
+		//searching for letter location
+		index = word.find(sChar,index);
+		//we replace it...
+		goodWord.replace((2*index), 1,sChar);
+		index++;
+	}
+	if (m_accent && !accent_b)
+	{
+		//characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
+		if (sChar=="i") replaceLetters(QString("í"));
+		if (sChar=="a") replaceLetters(QString("à"));
+		if (sChar=="a") replaceLetters(QString("á"));
+		if (sChar=="a") replaceLetters(QString("ã"));
+		if (sChar=="u") replaceLetters(QString("ü"));
+		if (sChar=="o") replaceLetters(QString("ò"));
+		if (sChar=="o") replaceLetters(QString("ó"));
+		if (sChar=="o") replaceLetters(QString("õ"));
+		if (sChar=="e") replaceLetters(QString("è"));
+		if (sChar=="e") replaceLetters(QString("é¨"));
+		if (sChar=="u") replaceLetters(QString("ù"));
+	}
 	allWords << sChar; //appends the list...
 }
 
 bool KHangManView::containsChar(QString &sChar)
 {
-  bool b = false;
-
-  if (m_accent && !accent_b)
-  {
-    if (sChar=="i") b = word.contains(QString("í")) > 0;
-    if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
-    if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
-    if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
-    if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
-  }
-
-  return ((word.contains(sChar) > 0) || b);
+	bool b = false;
+	
+	if (m_accent && !accent_b)
+	{
+		if (sChar=="i") b = word.contains(QString("í")) > 0;
+		if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
+		if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
+		if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
+		if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
+	}
+	
+	return ((word.contains(sChar) > 0) || b);
 }
 
 void KHangManView::game()
