@@ -425,30 +425,6 @@
     </widget>
     <widget class="QLabel">
         <property name="name">
-            <cstring>missedLetters</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>30</x>
-                <y>40</y>
-                <width>160</width>
-                <height>60</height>
-            </rect>
-        </property>
-        <property name="font">
-            <font>
-                <family>Helvetica [Adobe]</family>
-                <pointsize>24</pointsize>
-                <bold>1</bold>
-            </font>
-        </property>
-        <property name="text">
-            <string>_ _ _ _ _ _ 
-_ _ _ _ _ _</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
             <cstring>TextLabel1</cstring>
         </property>
         <property name="geometry">
@@ -461,6 +437,30 @@ _ _ _ _ _ _</string>
         </property>
         <property name="text">
             <string>Misses:</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>missedLetters</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>200</width>
+                <height>70</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <family>Helvetica [Adobe]</family>
+                <pointsize>24</pointsize>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="text">
+            <string>_ _ _ _ _ _ 
+_ _ _ _ _ _</string>
         </property>
     </widget>
 </widget>
