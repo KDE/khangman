@@ -18,7 +18,7 @@
 #ifndef KHANGMAN_H
 #define KHANGMAN_H
 
-#define KHM_VERSION "0.8"
+#define KHM_VERSION "1.0"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
