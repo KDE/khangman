@@ -618,12 +618,12 @@ QString KHangMan::charIcon(const QChar & c)
 
   ///A font to draw the character with
   QFont font;
-  if (m_view->language=="cs")
+  if (m_view->language=="cs" || m_view->language=="hu" )
   	font.setFamily( "Arial" );
   else
    	font.setFamily( "URW Bookman" );
   font.setPixelSize(120);
-  font.setWeight(QFont::DemiBold);
+  font.setWeight(QFont::Normal);
   
   ///Create the pixmap        
   QPixmap pm(128, 128);
