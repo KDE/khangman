@@ -394,7 +394,7 @@ void KHangManView::slotSofter()
 
 }
 
-//Tip on right-click
+///Hint on right-click
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
 	if (kvtmlBool && hintBool && (mouse->button() == RightButton))

@@ -35,7 +35,6 @@
 #endif
 #endif
 
-//class KToggleToolBarAction;
 class KSelectAction;
 class KToggleAction;
 class KToggleToolBarAction;
@@ -48,7 +47,7 @@ class KToolBar;
  *
  * @short Main window class
  * @author Anne-Marie Mahfouf <annma@kde.org>
- * @version 1.1
+ * @version 1.3
  */
 class KHangMan : public KMainWindow
 {
@@ -65,9 +64,8 @@ public:
     virtual ~KHangMan();
 
     uint currentLevel;
-
+    ///Create the Special Characters Toolbar
     KToolBar *secondToolbar;
-    KAction *toolAct;
 
 private:
     ///hold the current level

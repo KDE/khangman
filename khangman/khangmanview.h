@@ -100,22 +100,28 @@ private:
         ///the background image
 	QPixmap bgPixmap;
 
- 	 bool containsChar(QString &);
+ 	bool containsChar(QString &);
 	void replaceLetters(QString);
 
   
 protected:
-   virtual void mousePressEvent(QMouseEvent *mouse);
+        ///Enable hints on mouse right click if Hints exist
+        virtual void mousePressEvent(QMouseEvent *mouse);
 
 public slots:
-
+	///call wipeout(), then call game()
 	void slotNewGame();
+	///called when a letter is typed in the input lineEdit and Enter is pressed
 	void slotTry();
         ///set the background pixmap to the QPixmap argument
 	void slotSetPixmap(QPixmap& );
+	///called when the Combobox changes to No Background
 	void slotNoBkgd();
+	///called when Settings ->Transparent Pictures is checked
 	void slotTransparent();
+	///called when Settings->Softer HangMan Pictures is checked
 	void slotSofter();
+	///is called if the data file is kvtml hence has tips. read the word and its corrercponding tip from the kvtml file
 	void readFile();
 
 private slots:
