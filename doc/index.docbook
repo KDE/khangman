@@ -259,46 +259,16 @@ Documentation copyright 2001 Anne-Marie Mahfouf <email>annma@kde.org</email>
 <title>Installation</title>
 
 <sect1 id="getting-khangman">
-<title>How to obtain KHangMan</title>
+<title>How to obtain &khangman;</title>
 
-<para>
-&khangman; is part of the KDE and KDE-Edu project
-<ulink url="http://edu.kde.org">http://edu.kde.org</ulink>.
- <!--&khangman; can be found in the kdeutils package on
-<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the
-main ftp site of the KDE project.-->
- </para>
-</sect1>
+&install.intro.documentation;
 
-<sect1 id="requirements">
-<title>Requirements</title>
-
-<para>
-In order to successfully use &khangman;, you need KDE 2 and Qt2 on your system.
-</para>
-
-<para>
-&khangman; can be found on <ulink url="http://edu.kde.org/khangman">The
-&khangman; home page</ulink>.
-</para>
 </sect1>
 
 <sect1 id="compilation">
 <title>Compilation and installation</title>
 
-<para>
-In order to compile and install KHangMan on your system, type the following in
-the  base directory of the KHangMan distribution:
-<screen width="40">
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-</para>
-
-<para>Since KHangMan uses autoconf and automake you should have not trouble
- compiling it.
-Should you run into problems please report them to the KDE mailing lists.</para>
+&install.compile.documentation;
 
 </sect1>
 </appendix>
