@@ -155,7 +155,7 @@ void KHangMan::newGame()
 
 void KHangMan::optionsConfigureKeys()
 {
-    KKeyDialog::configureKeys(actionCollection(), "khangmanui.rc");
+    KKeyDialog::configure(actionCollection());
 }
 
 void KHangMan::optionsConfigureToolbars()
