@@ -165,11 +165,41 @@ for the new level).</para>
 <para>
 Future improvement will allow you to create your own words file or to load a file different from the four included ones.
 </para>
+</sect1>
+
+<sect1 id="languages">
+<title>Languages</title>
+<para>
+You can play &khangman; in eighteen languages: Brazilian Portuguese, Catalan, Czech, Danish, Dutch, English,
+Finnish, French, German, Italian, Norwegian (Bokm&#229;l), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and
+Swedish. 
+</para>
+<para>
+By default, after the first installation of &khangman; for KDE 3.3, only English and your kde language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have KDE in Danish, &khangman; <guimenu>Languages</guimenu> will have two items: English and Danish.
+</para>
 
 <para>
-You can play &khangman; in thirteen languages: Brazilian Portuguese, Catalan, Czech, Danish, Dutch, English,
-Finnish, French, German, Italian, Portuguese, Spanish and
-Swedish. You can easily change the Language by going in the
+You can still play &khangman; in other languages. It is very easy to add new data in &khangman;. All you need is a working internet connection. 
+You click on the <guimenu>File</guimenu> menu and then on <guimenu>Get data in a new language...</guimenu>. A dialog appears, similar to this one:
+</para>
+
+<screenshot>
+<screeninfo>The Get Hot New Stuff dialog for &khangman;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="getnewstuff.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Get Hot New Stuff screenshot</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+Click on the language name you want to install and then on the Install button. A dialog will tell you when the language is installed by displaying: Successfully installed hot new stuff. You click on OK to close this information dialog then on Close to close the Get New Stuff dialog (if you want another language, you get repeat these steps). The new language is now available!
+</para>
+
+<para>You can then easily change the language by going in the
 <guimenu>Languages</guimenu> menu and choosing another language.
 </para>
 
@@ -613,20 +643,26 @@ in the hint, that would give the word away too easily!</para>
 
 
 </sect1>
-<sect1 id="planned-features">
-<title>Planned Features for &khangman;</title>
-
-<para>As the number of languages increases for the data, it will be necessary
-to stop adding them in the program. We plan to have only a few languages such
-as English, French, German and Spanish shipped with &khangman; and the other
-languages will be available in the i18n module and as download. &khangman; will
-make use of the <classname>KNewStuff</classname> class to have a wizard that
-will allow the user to download and install easily some additional languages.
-This will also be done for &klettres; and &kstars; as we don't want to increase
-the size of the &package; module.
+<sect1 id="internal">
+<title>What is stored by &khangman; and where</title>
+<para>
+When you get a new language via  <guimenu>File </guimenu> ->  <guimenu>Get a new language ...</guimenu>, the new language data is stored in <filename
+class="directory">$~/.kde/share/apps/khangman/data</filename> in the language code folder. The available language dir names are also stored in the &khangman; config file in <filename>~/.kde/share/config/khangmanrc</filename>.
 </para>
 <para>
-Another planned feature is of course to have hints in every language.
+The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
+</para>
+<para>
+The english language (default) and the user language from his i18n package (if available) are stored in <filename class="directory">$KDEDIR/share/apps/kahngman</filename>.
+</para>
+<para>
+In the configuration file, stored for each user in his <filename>~/.kde/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
+</para>
+</sect1>
+<sect1 id="planned-features">
+<title>Planned Features for &khangman;</title>
+<para>
+A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the english words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>.
 </para>
 <para>
 What can also be done is to use other kvtml files like the ones that are on the
