@@ -574,6 +574,10 @@ void KHangManView::readFile()
 	}//end of test
 	word = verbs[wordNumber].originalText();
 	tip = verbs[wordNumber].translatedText(); 
+	kdDebug() << "tip : " << tip << endl;
+	if (tip.isEmpty()) {
+		hintBool = false;
+		khangman ->changeStatusbar("", 103);}
 	//TODO if tip.isEmpty() don't show tip
 }
 

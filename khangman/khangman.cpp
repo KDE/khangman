@@ -146,7 +146,7 @@ void KHangMan::changeLevel()
 	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	else
-		changeStatusbar(i18n(""), IDS_ACCENTS);
+		changeStatusbar("", IDS_ACCENTS);
 	Prefs::setLevel( currentLevel);
 	Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
@@ -334,7 +334,7 @@ void KHangMan::slotSetFullScreen( bool set )
 
 void KHangMan::loadLangToolBar()
 {
-  if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" || m_view->language =="ru" || m_view->language =="bg")
+  	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" || m_view->language =="ru" || m_view->language =="bg")
 	noCharBool = true;
 	else noCharBool = false;
 	if (secondToolbar->isVisible() && !noCharBool)
@@ -344,7 +344,7 @@ void KHangMan::loadLangToolBar()
 	if (!noCharBool) {
 	QString myString=QString("khangman/%1.txt").arg(m_view->language);
 	QFile myFile;
-	myFile.setName(locate("data",myString));
+	myFile.setName(locate("data", myString));
 	//let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
 		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
