@@ -102,7 +102,7 @@
                             <cstring>btnOptions</cstring>
                         </property>
                         <property name="text">
-                            <string>&amp;Child mode</string>
+                            <string>&amp;Child Mode</string>
                         </property>
                     </widget>
                     <widget class="QPushButton">
@@ -129,7 +129,7 @@
                             <cstring>btnNew</cstring>
                         </property>
                         <property name="text">
-                            <string>New game</string>
+                            <string>New Game</string>
                         </property>
                     </widget>
                     <spacer>
@@ -373,7 +373,6 @@ _ _ _ _ _ _</string>
                         <property name="font">
                             <font>
                                 <family>Helvetica [Adobe]</family>
-                                <pointsize>12</pointsize>
                             </font>
                         </property>
                         <property name="frameShape">
