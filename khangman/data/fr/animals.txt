@@ -55,4 +55,6 @@ crevette
 antilope
 flamant
 abeille
+mouche
+lièvre
 
