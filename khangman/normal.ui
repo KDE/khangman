@@ -43,7 +43,7 @@
                                 <string>&amp;Mild</string>
                             </property>
                             <property name="toolTip" stdset="0">
-                                <string>The hangman helds the rope.</string>
+                                <string>The hangman holds the rope.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
