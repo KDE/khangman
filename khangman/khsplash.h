@@ -44,7 +44,6 @@ public:
 public slots: // Public slots
   /** No descriptions */
   void slotHide();
-
 };
 
 #endif

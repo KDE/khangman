@@ -30,14 +30,8 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 		KMessageBox::error(this,"Sorry... KHangMan is not installed correctly\nPlease install it properly with --prefix=/your/KDE/dir...");
 		exit(0);
 	}
-	QPixmap pm;
-	pm.load(locate("data","khangman/pics/khm_splash.png"));
-	setBackgroundPixmap(pm);
-	setGeometry
-	(
-	QApplication::desktop()->width ()/2-160,
-	QApplication::desktop()->height()/2-120,
-	349, 173 );
+	setBackgroundPixmap( QPixmap( locate("data","khangman/pics/khm_splash.png") ) ); //preload is senseless here...
+	setGeometry ( QApplication::desktop()->width ()/2-160, QApplication::desktop()->height()/2-120, 349, 173 );
 	setFrameStyle( QFrame::Box | QFrame::Raised );
 	setLineWidth(1);
 	KAudioPlayer::play(locate("data","khangman/sounds/splash.ogg"));
