@@ -25,9 +25,9 @@
 #include <qlineedit.h>
 #include <qregexp.h>
 #include <qtooltip.h>
-//#include <qwhatsthis.h>
 //KDE headers
 #include <kapplication.h>
+#include <kaudioplayer.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
@@ -36,7 +36,6 @@
 //standard C++ headers
 #include <stdlib.h>
 #include "khangman.h"
-//#include "prefs.h"
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
     : MainW(parent, name)
@@ -88,6 +87,10 @@ KHangManView::~KHangManView()
 
 void KHangManView::slotNewGame()
 {
+	QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+	if (soundFile != 0) 
+  		KAudioPlayer::play(soundFile);
+	
 	wipeout();
 	//language=Prefs::selectedLanguage();
 	if (language =="tg")  {
