@@ -53,10 +53,6 @@ KHangMan::KHangMan()
 	levelString = "";
 	modeString = "";
 	mNewStuff = 0;
-	KConfig conf(locate("data", "khangman/khangmanrc"));
-	conf.setGroup("KNewStuff");
-	Prefs::setProvidersUrl(conf.readEntry("ProvidersUrl"));
-	Prefs::writeConfig();
 	setLanguages();
 	// tell the KMainWindow that this is indeed the main widget
 	setCentralWidget(m_view);
@@ -788,12 +784,15 @@ void KHangMan::setLanguages()
 	kdDebug() << "in SetLanguages "<< endl;
 	//the program scans in khangman/data/ to see what languages data is found
 	QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+	if (mdirs.isEmpty()) return;
+	kdDebug() << "mdirs= "<< mdirs << endl;
 	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
 		QDir dir(*it);
 		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
 		m_languages.remove(m_languages.find("."));
 		m_languages.remove(m_languages.find(".."));	
 	}	
+	if (m_languages.isEmpty()) return;
 	//suppress duplicated entries of same language dir
 	for (uint i=0;  i<m_languages.count(); i++)
 	{
