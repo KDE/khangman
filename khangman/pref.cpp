@@ -131,6 +131,8 @@ void KHangManPreferences::slotSet()
     	if (enabled) m_pageTwo->frBox->setEnabled(true);
     	enabled = locate("data", "khangman/data/es/") != 0;
     	if (enabled) m_pageTwo->esBox->setEnabled(true);
+        enabled = locate("data", "khangman/data/sv/") != 0;
+    	if (enabled) m_pageTwo->svBox->setEnabled(true);
 
 	if (levelString=="easy")
 		m_pageOne->levelBox->setCurrentItem(0);

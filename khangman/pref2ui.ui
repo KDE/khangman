@@ -157,6 +157,9 @@ language for the words.</string>
                         <property name="name">
                             <cstring>svBox</cstring>
                         </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
                         <property name="geometry">
                             <rect>
                                 <x>13</x>
