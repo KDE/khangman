@@ -739,13 +739,13 @@ void KHangMan::slotHint()
 	kdDebug() << "kvtmlBool: " << m_view->kvtmlBool << endl;
 	if (m_view->kvtmlBool)  {
 		if(dialog) mNormal->kcfg_Hint->setEnabled(true);
-		
+		changeStatusbar(i18n("You can enable hints in Settings"), IDS_HINT);
 	}
         m_view->hintBool=Prefs::hint();
-	if ((m_view->kvtmlBool) && (m_view->hintBool)) {
-		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
-		}	
-	else if (m_view->hintBool==false) 
+	if ((m_view->kvtmlBool) && (m_view->hintBool)) 
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);	
+	kdDebug() << Prefs::hint() << "hint" << endl;
+	if (!Prefs::hint())
 		changeStatusbar(i18n("You can enable hints in Settings"), IDS_HINT);
 }
 
@@ -864,7 +864,7 @@ void KHangMan::updateSettings()
 		slotAccents();
 	
 	//Enable hint or not
-	if (m_view->hintBool= Prefs::hint())  {
+	if (m_view->hintBool != Prefs::hint())  {
     		m_view->hintBool= Prefs::hint();
 		kdDebug() << "Change Hint mode   " << endl;
 		slotHint();

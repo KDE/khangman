@@ -78,6 +78,9 @@ public:
     normal* mNormal;
     
     KConfigDialog* dialog;
+    
+    ///Update the text in the Statusbar
+    void changeStatusbar(const QString& text, int id);
 private:
     ///hold the current level
     QString levelString;
@@ -106,8 +109,7 @@ private slots:
      *Recreate our GUI and re-apply the settings (e.g. "text under icons", etc.)
      */
     void newToolbarConfig();
-    ///Update the text in the Statusbar
-    void changeStatusbar(const QString& text, int id);
+
     ///Update the text in the caption in the main window
     void changeCaption(const QString& text);
     ///this slot is called when the user changes level with the level combobox in the toolbar
