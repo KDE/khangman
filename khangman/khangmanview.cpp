@@ -162,10 +162,11 @@ void KHangManView::replaceLetters(QString sChar)
     goodWord.replace((2*index), 1,sChar);
     index++;
   }
-  if (language=="es")
+  if (language=="es" || language == "pt")
   {
     if (sChar=="i") replaceLetters(QString("í"));
     if (sChar=="a") replaceLetters(QString("á"));
+    if (sChar=="a") replaceLetters(QString("ã"));
     if (sChar=="u") replaceLetters(QString("ú"));
     if (sChar=="o") replaceLetters(QString("ó"));
     if (sChar=="e") replaceLetters(QString("é"));
@@ -178,10 +179,10 @@ bool KHangManView::containsChar(QString &sChar)
 {
   bool b = false;
 
-  if (language=="es")
+  if (language=="es" || language =="pt")
   {
     if (sChar=="i") b = word.contains(QString("í")) > 0;
-    if (sChar=="a") b = word.contains(QString("á")) > 0;
+    if (sChar=="a") b = word.contains(QString("á")) > 0|| word.contains(QString("ã")) > 0;
     if (sChar=="u") b = word.contains(QString("ú")) > 0 || word.contains(QString("ü")) > 0;
     if (sChar=="o") b = word.contains(QString("ó")) > 0;
     if (sChar=="e") b = word.contains(QString("é")) > 0;

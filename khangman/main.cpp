@@ -20,7 +20,7 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char **argv)
 {
-	KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
+    KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
                               KHM_VERSION, description, KAboutData::License_GPL,
                               "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
@@ -39,6 +39,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Danish data files"), "erik@mpim-bonn.mpg.de" );
     aboutData.addCredit("Niko Lewman",
                             I18N_NOOP("Finnish data files"), "niko.lewman@edu.hel.fi" );
+    aboutData.addCredit("João Sebastião de Oliveira Bueno",
+                            I18N_NOOP("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
     aboutData.addCredit("Benjamin Meyer",
                             I18N_NOOP("Coding help"), "ben@meyerhome.net");
     aboutData.addCredit("Robert Gogolok",
