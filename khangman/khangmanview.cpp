@@ -89,7 +89,6 @@ KHangManView::~KHangManView()
 
 void KHangManView::slotNewGame()
 {
-	kdDebug() << "Sound in new game " << Prefs::sound() << endl;
 	if (Prefs::sound()) {
 		QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
 		if (soundFile != 0) 
@@ -153,11 +152,11 @@ void KHangManView::slotTry()
 				/*if (g>0)  {
 					stripWord.replace(2*f, 1, "_");
 					stripWord.replace(2*f-1, 1, "_");
-				}*/
+				}
 				if (g>0)  {
 					stripWord.replace(2*(g-1), 1, "");
 					stripWord.replace(2*(g-1)-1, 1, "");
-				}
+				}*/
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				if (language =="de")
@@ -234,7 +233,6 @@ void KHangManView::replaceLetters(QString sChar)
 	//replace letter in the word
 	int index=0;
 	bool b_end = false;
-	kdDebug() << "Word: " << word << endl;
 	if (b_oneLetter) //we just replace the next instance
 	{
 		for (int count=0; count <word.contains(sChar); count++)
@@ -324,7 +322,6 @@ void KHangManView::game()
 	//detects if file is a kvtml file so that it's a hint enable file
 	if (allData.first() == "<?xml version=\"1.0\"?>") {
 		emit(signalKvtml(true));
-		kdDebug() << "---- Kvtml detected ------\n" << endl;
 		readFile();
 		}
 	else {
@@ -350,7 +347,8 @@ void KHangManView::game()
 			if (!upperBool)
 				word = word.lower(); //because of German
 		}//end else if language=fr
-	//kdDebug() << word << endl;
+	kdDebug() << word << endl;
+	kdDebug() << "length: " <<  word.length() << endl;
 	goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -359,7 +357,7 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
-	kdDebug() << "GoodWord " << goodWord << endl;
+	kdDebug() << goodWord << endl;
 	stripWord=goodWord;
 	//if needed, display white space or - if in word or semi dot
 	f = word.find( "-" );
@@ -368,9 +366,11 @@ void KHangManView::game()
 		g=0;
 		goodWord.replace(2*f, 1, "-");
 		g = word.find( "-", f+1);
-		if (g>0)  goodWord.replace(2*g, f, "-");
+		if (g>0) 
+			goodWord.replace(2*g, 3, "-");
+		if (g>1)
+			goodWord.append("_");
 	}
-		
 	c = word.find( " " );
 	if (c>0) //find another white space
 	{
@@ -487,7 +487,6 @@ void KHangManView::readFile()
 	///TODO: be sure it's opened in UNICODE
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
 	myString= locate("data", myString);
-	kdDebug() << "in kvtml: " << myString << endl;
 	KEduVocDataItemList verbs = KEduVocData::parse(myString);
 	//how many words in the file
 	int NumberOfWords = verbs.count();

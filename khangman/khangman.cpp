@@ -247,7 +247,6 @@ void KHangMan::loadSettings()
 	m_view->levelFile = Prefs::levelFile();
    	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
-	kdDebug() << "------levelFile: " << m_view->levelFile << endl;
     	setLevel_WindowState();
 
      	// Background
@@ -446,6 +445,7 @@ void KHangMan::loadLangToolBar()
 	else if (m_view->language == "fr")	{
 		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("é", -1), 1 );
 		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("è", -1), 2 );
+		secondToolbar->insertButton ("o_circ.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true,  i18n("Try ")+ QString::fromUtf8("ô", -1), 3 );
 	}
 	else if (m_view->language == "nb")	{
 		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true,  i18n("Try ")+ QString::fromUtf8("ø", -1), 1 );;
