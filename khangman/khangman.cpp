@@ -14,7 +14,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
- 
+
 //Qt headers
 #include <qbitmap.h>
 #include <qcheckbox.h>
@@ -56,10 +56,10 @@ KHangMan::KHangMan()
 {
 	levelString = "";
 	modeString = "";
-	mNewStuff = 0;	
+	mNewStuff = 0;
 	// tell the KMainWindow that this is indeed the main widget
 	setCentralWidget(m_view);
-	
+
 	setLanguages();
 	// set up the status bar
 	statusBar( )->insertItem("   ",IDS_LEVEL, 0);
@@ -92,21 +92,21 @@ void KHangMan::setupActions()
 	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
 	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 	KStdAction::quit(this, SLOT(slotClose()), actionCollection());
-	
+
 	langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
 	langAct->setItems(m_sortedNames);
-	
+
 	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
 	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
-	
+
 	levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
 	levelAct->setToolTip(i18n( "Choose the level" ));
 	levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
-	
+
 	KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-	
+
 	QStringList modes;
-	modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
+	modeAct = new KSelectAction(i18n("Look && Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
 	modes += i18n("No Background");
 	modes += i18n("Blue Theme");
 	modes += i18n("Nature Theme");
@@ -155,11 +155,11 @@ void KHangMan::changeLevel()
 	currentLevel = levelAct->currentItem();
 	levelString = levels[currentLevel];
 	levelString.replace(0, 1, levelString.left(1).lower());
-	
+
 	m_view->levelFile = levelString +".txt";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
-		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);	
+		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	else
 		changeStatusbar(i18n(""), IDS_ACCENTS);
 	Prefs::setLevel( currentLevel);
@@ -202,7 +202,7 @@ void KHangMan::loadSettings()
     	currentLevel = Prefs::level(); //default is easy
      	// Show/hide characters toolbar
    	m_bCharToolbar = Prefs::showCharToolbar();
-   	if (m_bCharToolbar) 
+   	if (m_bCharToolbar)
 		secondToolbar->show();
   	else
 		secondToolbar->hide();
@@ -212,7 +212,7 @@ void KHangMan::loadSettings()
     	if (m_view->m_accent && m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     	loadDataFiles();
- 
+
 	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
 		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".txt");
 		Prefs::writeConfig();
@@ -232,7 +232,7 @@ void KHangMan::loadSettings()
 	m_view->slotTransparent();
 	m_view->softer = Prefs::softer();
 	m_view->slotSofter();
-	slotAccents();	
+	slotAccents();
 	m_view->hintBool= Prefs::hint();
 	m_view->b_oneLetter = Prefs::oneLetter();
  }
@@ -286,7 +286,7 @@ void KHangMan::changeLanguage(int newLanguage)
     	//load the different data files in the Level combo for the new language
    	loadDataFiles();
 	//at the moment, check if currentLevel exists (< levels.count()) if not, set it to 0
-	//but if medium in tg -> hard in other so 
+	//but if medium in tg -> hard in other so
     	//check if the name of the file exists in the new language. If not, set it to levels[0].
     	//TODO: save level per language
 
@@ -296,7 +296,7 @@ void KHangMan::changeLanguage(int newLanguage)
 	Prefs::setLevel(currentLevel);
         Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
-    	
+
 	//update the Levels in Level combobox as well
     	setLevel_WindowState();
     	setLanguage(selectedLanguage);
@@ -398,7 +398,7 @@ void KHangMan::loadLangToolBar()
 	for (int i=0; i<(int) allData.count(); i++)
 			secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
 	}
-	
+
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 	}
@@ -431,7 +431,7 @@ void KHangMan::slotAccents()
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
 	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
-		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);	
+		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
 }
@@ -442,8 +442,8 @@ void KHangMan::slotHint()
 		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 	}
         m_view->hintBool=Prefs::hint();
-	if ((m_view->kvtmlBool) && (m_view->hintBool)) 
-		changeStatusbar(i18n("Hint on right-click"), IDS_HINT);	
+	if ((m_view->kvtmlBool) && (m_view->hintBool))
+		changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
 	if (!Prefs::hint())
 		changeStatusbar(i18n("Hints possible"), IDS_HINT);
 }
@@ -463,15 +463,15 @@ void KHangMan::enableHint(bool m_bool)
 
 void KHangMan::setAccentBool()
 {
-	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR") 
-    		m_view->m_accent = true;	
-    	else 
+	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+    		m_view->m_accent = true;
+    	else
 		m_view->m_accent = false;
 }
 
 void KHangMan::downloadNewStuff()
 {
-	if ( !mNewStuff ) 
+	if ( !mNewStuff )
 		mNewStuff = new KHNewStuff( m_view );
  	mNewStuff->download();
 }
@@ -488,8 +488,8 @@ void KHangMan::setLanguages()
 		QDir dir(*it);
 		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
 		m_languages.remove(m_languages.find("."));
-		m_languages.remove(m_languages.find(".."));	
-	}	
+		m_languages.remove(m_languages.find(".."));
+	}
 	if (m_languages.isEmpty()) return;
 	//suppress duplicated entries of same language dir
 	for (uint i=0;  i<m_languages.count(); i++)
@@ -528,20 +528,20 @@ void KHangMan::setLanguages()
 
 void KHangMan::optionsPreferences()
 {
-	if ( KConfigDialog::showDialog( "settings" ) ) 
-        	return; 
- 
-	//KConfigDialog didn't find an instance of this dialog, so lets create it : 
+	if ( KConfigDialog::showDialog( "settings" ) )
+        	return;
+
+	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-	normal *mNormal =  new normal( 0, "Normal Settings" ); 
+	normal *mNormal =  new normal( 0, "Normal Settings" );
 	dialog->addPage(mNormal, i18n("Normal Settings"), "configure");
 	mNormal->kcfg_Transparent->setEnabled( modeAct->currentItem() != 0);
         mNormal->kcfg_Hint->setEnabled( m_view->kvtmlBool);
 	mNormal->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
-	
-	dialog->show();	
+
+	dialog->show();
 }
 
 void KHangMan::updateSettings()
@@ -554,14 +554,14 @@ void KHangMan::updateSettings()
 	}
     	// Softer Pictures
 	if (m_view->softer != Prefs::softer()) {
-    		m_view->softer = Prefs::softer();	
-		kdDebug() << "Change Softer mode   " << endl;	
+    		m_view->softer = Prefs::softer();
+		kdDebug() << "Change Softer mode   " << endl;
 		m_view->slotSofter();
-	}	
+	}
 	//Accented Letters
 	if (m_view->accent_b != Prefs::accentedLetters())
 		slotAccents();
-	
+
 	//Enable hint or not
 	if (m_view->hintBool != Prefs::hint())  {
     		m_view->hintBool= Prefs::hint();
@@ -580,13 +580,13 @@ QString KHangMan::charIcon(const QChar & c)
 {
 	///Create a name and path for the icon
 	QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
-	
+
 	///No need to redraw if it already exists
 	// if (KStandardDirs::exists(s))
 	// return s;
-	
+
 	QRect r(4, 4, 120, 120);
-	
+
 	///A font to draw the character with
 	QFont font;
 	if (m_view->language=="cs" || m_view->language=="hu" )
@@ -595,15 +595,15 @@ QString KHangMan::charIcon(const QChar & c)
 		font.setFamily( "URW Bookman" );
 	font.setPixelSize(120);
 	font.setWeight(QFont::Normal);
-	
-	///Create the pixmap        
+
+	///Create the pixmap
 	QPixmap pm(128, 128);
 	pm.fill(Qt::white);
 	QPainter p(&pm);
 	p.setFont(font);
 	p.setPen(Qt::black);
 	p.drawText(r, Qt::AlignCenter, (QString) c);
-	
+
 	///Create transparency mask
 	QBitmap bm(128, 128);
 	bm.fill(Qt::color0);
@@ -611,13 +611,13 @@ QString KHangMan::charIcon(const QChar & c)
 	b.setFont(font);
 	b.setPen(Qt::color1);
 	b.drawText(r, Qt::AlignCenter, (QString) c);
-	
+
 	///Mask the pixmap
-	pm.setMask(bm); 
-	
+	pm.setMask(bm);
+
 	///Save the icon to disk
 	pm.save(s, "PNG");
-	
+
 	return s;
 }
 

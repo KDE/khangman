@@ -23,7 +23,7 @@
 #include <kcmdlineargs.h>
 
 static const char description[] =
-    I18N_NOOP("The classical hangman game for KDE-Edu");
+    I18N_NOOP("Classical hangman game for KDE");
 
 static KCmdLineOptions options[] =
 {
@@ -89,7 +89,7 @@ int main(int argc, char **argv)
                              I18N_NOOP("svg icon"), "chris@os11.com");
    aboutData.addCredit("Peter Hedlund",
                              I18N_NOOP("Code for generating icons for the characters toolbar"), "peter@peterandlinda.com");
-		 
+
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
