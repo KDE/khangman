@@ -26,8 +26,8 @@
           	KConfigBase *globalConf = KGlobal::config();
     		globalConf->setGroup("Locale");
     		QString userLanguage = globalConf->readEntry("Language", "en");
-    		//keep only the first 2 characters
-		userLanguage = userLanguage.left(2);
+    		//keep only the first 4 characters
+		userLanguage = userLanguage.left(4);
     	    </code>
       <default code="true">userLanguage</default>
     </entry> 
@@ -64,4 +64,11 @@
       <default code="true">false</default>
     </entry> 
   </group>
+  <!-- maybe this will work when hard path fixed in KNewStuff
+  <group name="KNewStuff">
+  <entry name="ProvidersUrl" type="Path">
+      <label>Do not display the 'Congratulations You won!' dialog</label>
+      <default code="true">"http://edu.kde.org/khangman/downloads/providers.xml"</default>
+    </entry> 
+  </group>-->
 </kcfg>
