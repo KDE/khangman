@@ -5,7 +5,7 @@ khangman_LDADD   =  $(LIB_KDEUI)
 
 SUBDIRS = data pics sounds 
 
-EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop hi16-app-khangman.png hi32-app-khangman.png mainw.ui infodlg.ui info.cpp info.h 
+EXTRA_DIST = khsplash.h khsplash.cpp main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui infodlg.ui info.cpp info.h 
 
 KDE_ICON = khangman
 

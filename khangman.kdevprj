@@ -93,7 +93,7 @@ install_location=
 type=DATA
 
 [khangman/Makefile.am]
-files=khangman/khsplash.h,khangman/khsplash.cpp,khangman/main.cpp,khangman/lo16-app-khangman.png,khangman/khangman.cpp,khangman/lo32-app-khangman.png,khangman/khangman.h,khangman/khangman.desktop,khangman/hi16-app-khangman.png,khangman/hi32-app-khangman.png,khangman/mainw.ui,khangman/infodlg.ui,khangman/info.cpp,khangman/info.h
+files=khangman/khsplash.h,khangman/khsplash.cpp,khangman/main.cpp,khangman/lo16-app-khangman.png,khangman/khangman.cpp,khangman/lo32-app-khangman.png,khangman/khangman.h,khangman/khangman.desktop,khangman/cr16-app-khangman.png,khangman/cr32-app-khangman.png,khangman/mainw.ui,khangman/infodlg.ui,khangman/info.cpp,khangman/info.h
 sub_dirs=data,pics,sounds,
 type=prog_main
 
@@ -126,16 +126,16 @@ install=true
 install_location=$$(kde_datadir)/khangman/data/medium.txt
 type=DATA
 
-[khangman/hi16-app-khangman.png]
+[khangman/cr16-app-khangman.png]
 dist=true
 install=true
-install_location=$$(kde_icondir)/hicolor/16x16/apps/khangman.png
+install_location=$$(kde_icondir)/crystalsvg/16x16/apps/khangman.png
 type=DATA
 
-[khangman/hi32-app-khangman.png]
+[khangman/cr32-app-khangman.png]
 dist=true
 install=true
-install_location=$$(kde_icondir)/hicolor/32x32/apps/khangman.png
+install_location=$$(kde_icondir)/crystalsvg/32x32/apps/khangman.png
 type=DATA
 
 [khangman/info.cpp]
