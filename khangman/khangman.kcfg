@@ -24,8 +24,8 @@
           	KConfigBase *globalConf = KGlobal::config();
     		globalConf->setGroup("Locale");
     		QString userLanguage = globalConf->readEntry("Language", "en");
-    		//keep only the first 4 characters
-		userLanguage = userLanguage.left(4);
+    		//keep only the first 2 characters
+		userLanguage = userLanguage.left(2);
     	    </code>
       <default code="true">userLanguage</default>
     </entry> 

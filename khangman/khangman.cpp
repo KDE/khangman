@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -87,6 +87,7 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
 	newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+	newAct->setToolTip(i18n( "Play with a new word" ));
 	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
 	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 	KStdAction::quit(this, SLOT(slotClose()), actionCollection());

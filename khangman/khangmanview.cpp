@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2003 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -578,7 +578,6 @@ void KHangManView::readFile()
 	if (tip.isEmpty()) {
 		hintBool = false;
 		khangman ->changeStatusbar("", 103);}
-	//TODO if tip.isEmpty() don't show tip
 }
 
 
