@@ -1,0 +1,302 @@
+<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+  <!ENTITY kappname "&khangman;" -- replace khangman here -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE" -- change language only here -->
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V2.0//EN">
+  %ents;
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title>The KHangMan Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Anne-Marie</firstname>
+<othername></othername>
+<surname>Mahfouf</surname>
+<affiliation>
+<address><email>annma@kde.org</email></address>
+</affiliation>
+</author>
+</authorgroup>
+
+
+<copyright>
+<year>2001</year>
+<holder>Anne-Marie Mahfouf</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+
+<date>31/10/2001</date>
+<releaseinfo>0.7.1</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para>
+&khangman; is the classical hangman game for childrenadapted for KDE.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdeedu</keyword>
+<keyword>KHangMan</keyword>
+<keyword>child</keyword>
+<keyword>words</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+&khangman; is a game based on the well known hangman game. It is aimed
+for children aged 6+. It has four levels of difficulty. A word is picked in
+random, the letters are hidden, you must guess the word by trying a letter after
+another. Each time you guess a wrong letter, a picture of a hangman is drawn.
+You must guess the word before getting hanged! You have 9 tries.
+</para>
+<para>
+My son Joachim, 9 and a half years old, gave me the idea of that game in
+June 2000. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title>Using KHangMan</title>
+
+<para>
+
+<screenshot>
+<screeninfo>Here's a screenshot of &khangman;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="khangman1.png" format="PNG">
+	  </imageobject>
+	    <textobject>
+	    <phrase>KHangMan screenshot</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+</para>
+
+
+<sect1 id="general-usage">
+<title>General usage</title>
+
+<para>A word is displayed, hidden. You have to guess what the word is by trying
+a letter after another. The word id picked in random. There are 44 different
+words in each level.</para>
+<para>
+IMPORTANT : all words are nouns and in small letters.
+</para>
+<para>
+Each time you start the game, the default is easy.
+</para>
+<para>
+Each time you guess a letter that is not in the word, the hangman is drawn a
+little further. You have 10 tries to guess the word. After that, the word is
+displayed.
+</para>
+<para>
+There are 4 levels : easy, medium and hard and animals :
+</para>
+<para>
+In the easy level, the words are quite simple, related to everyday life. It is
+suitable for children from 6 to 9.  The animals level contains only names of
+animals so they can be easier to find. Some of them are easy, others are more
+difficult. In the medium level, the words are longer and more difficult. It is
+suitable for 9+. The hard level is ...hard, i.e. the words are difficult to
+spell and not very well known. Challenging, even for adults.
+</para>
+
+<para>
+After a word is guessed (or the hangman is completed), you are prompted for another word and you can either use the 'y' or 'n' keys or the mouse to answer 'yes' or 'not'. </para>
+</para>
+
+</sect1>
+<sect1 id="few-tips">
+<title>A few tips</title>
+<para>
+Try to guess the vowels first. Then have a go with the most common consonants : l, t, r, n, s
+</para>
+<para>
+When you see io, try n after that.
+</para>
+<para>
+Did you know ?
+In English, the most common letter is e (12.7%), followed by t (9.1%) then a (8.2%), i (7.0%) and n (6.7%).
+</para>
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title>Command Reference</title>
+
+<sect1 id="khangman-mainwindow">
+<title>The main KHangMan window</title>
+<para>
+
+<shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>q</keycap></keycombo>
+</shortcut> or <shortcut>
+<keycombo><keycap>Alt</keycap><keycap>q</keycap></keycombo>
+</shortcut> enables you to quit the game (as well as clicking on the Quit
+button), <shortcut><keycap>F1</keycap></shortcut> or
+<keycombo><keycap>Alt</keycap><keycap>h</keycap></keycombo> </shortcut> gives
+you this Help (or click on the Help button) and
+<keycombo><keycap>Alt</keycap><keycap>i</keycap></keycombo> </shortcut> brings
+you the quick info screen. To choose the level, click on the Level
+button.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="developers">
+<title>Developer's Guide to KHangMan</title>
+<sect1 id="changing-words">
+<title>How to change the words for the game</title>
+<para>
+Download the tar.gz file of the latest version of KHangMan. Unpack it in a
+directory (/usr/local/bin for example). The words are stored in 4 separate
+files, one for each level. The files are in /khangman/data. The file
+easy.txt is for level easy, the file level2.txt is for level medium, the
+file level3.txt is for level animals and the file level4.txt is for level
+hard.</para>
+<para> Edit one of the file with your favorite editor (kedit or
+kwrite or emacs...). Change the words by putting one word a line, the maximum
+letters in the word should be 12. </para>
+<para>Note: the 4 text files have each 44 words (that is 44 lines with a word
+per line). If you change that number, please do so for each of these files so
+they all have the same number of lines/words. Then, in khangman.cpp, correct the
+first int that is declared which is called wordsnum.
+<screen width="40">
+int wordsnum=your_new_number_of_words;
+</screen>
+</para>
+<para> Save the file and do a make install as root to install the file correctly 
+if you already compiled the game. If not, ./configure --prefix=/your_kde_dir,
+make and make install in a terminal. </para> </sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title>Questions and Answers</title>
+&reporting.bugs;
+&updating.documentation;
+
+<qandaset id="faqlist">
+<qandaentry>
+<question>
+<para>I have an error message telling me the pictures cannot be found.</para>
+</question>
+<answer>
+<para>The game installs by default in /usr/local/kde so add
+/usr/local/kde/bin to your path and set the KDEDIR variable to
+/usr/local/kde before running the game. An easiest way is to configure
+KHangman with the option --prefix=/your_kde_dir where /your_kde_dir can be
+/opt/kde or /usr, depending of the distribution. </para> </answer> </qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+
+<title>Credits and License</title>
+
+<para>
+&khangman;
+</para>
+<para>
+Program copyright 2001 Anne-Marie Mahfouf <email>annma@kde.org</email>
+</para>
+<para>
+Contributors:
+<itemizedlist>
+<listitem><para>graphics: Renaud Blanchard
+<email>kisukuma@chez.com</email></para> </listitem>
+<listitem><para>sounds: Ludovic Grossard
+<email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
+<listitem><para>splashscreen: Primoz Anzur
+<email>zerokode@yahoo.com</email></para> </listitem>
+</itemizedlist>
+</para>
+
+<para>
+Documentation copyright 2001 Anne-Marie Mahfouf <email>annma@kde.org</email>
+</para>
+
+
+&underFDL;               <!-- FDL: do not remove -->
+
+<!-- Determine which license your application is licensed under, 
+     and delete all the remaining licenses below:
+
+     (NOTE:  All documentation are licensed under the FDL, 
+     regardless of what license the application uses) -->
+
+&underGPL;        	 <!-- GPL License -->
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-khangman">
+<title>How to obtain KHangMan</title>
+
+<para>
+&khangman; is part of the KDE and KDE-Edu project
+<ulink url="http://edu.kde.org">http://edu.kde.org</ulink>.
+ <!--&khangman; can be found in the kdeutils package on
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the
+main ftp site of the KDE project.-->
+ </para>
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>
+In order to successfully use &khangman;, you need KDE 2 and Qt2 on your system.
+</para>
+
+<para>
+&khangman; can be found on <ulink url="http://edu.kde.org/khangman">The
+&khangman; home page</ulink>.
+</para>
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and installation</title>
+
+<para>
+In order to compile and install KHangMan on your system, type the following in
+the  base directory of the KHangMan distribution:
+<screen width="40">
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+</para>
+
+<para>Since KHangMan uses autoconf and automake you should have not trouble
+ compiling it.
+Should you run into problems please report them to the KDE mailing lists.</para>
+
+</sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
