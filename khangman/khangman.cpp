@@ -404,6 +404,11 @@ void KHangMan::changeLanguage(int newLanguage)
     	hintAct->setChecked(true);
     slotHint();
     setAccentBool();
+
+    if( conf ) {
+    conf->setGroup( "General" );
+    m_bCharToolbar = conf->readBoolEntry( "showCharToolbar", true);
+    }
     if (m_view->m_accent) 
     		slotAccents();
     else {
@@ -581,6 +586,11 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->show();
 	}
 	else secondToolbar->hide();
+	KConfigBase *conf = kapp->config();
+	if( conf ) {
+     	conf->setGroup( "General" );
+	conf->writeEntry( "showCharToolbar", !secondToolbar->isVisible());
+	}
 	if (noCharBool)//no special chars in those languages
 		secondToolbar->hide();
 }

@@ -7,7 +7,7 @@ SUBDIRS = data pics icons sounds
 
 EXTRA_DIST = main.cpp lo16-app-khangman.png khangman.cpp lo32-app-khangman.png khangman.h khangman.desktop cr16-app-khangman.png cr32-app-khangman.png mainw.ui khangmanview.h version.h
 
-KDE_ICON = khangman
+KDE_ICON = AUTO
 
 xdg_apps_DATA = khangman.desktop
 
