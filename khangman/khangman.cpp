@@ -384,7 +384,12 @@ void KHangMan::changeLanguage(int newLanguage)
     if (m_view->hintBool && (m_view->language == "fr" || m_view->language == "it")) 
     	hintAct->setChecked(true);
     slotHint();
-    slotAccents();
+    if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
+    	slotAccents();
+    else {
+    	changeStatusbar("", IDS_ACCENTS);
+	newGame();
+    }
 }
 
 void KHangMan::setLanguage(int lang)
@@ -690,6 +695,7 @@ void KHangMan::slotAccents()
 
 	if (!m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+	else changeStatusbar("", IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
 }
@@ -709,7 +715,7 @@ void KHangMan::slotHint()
 		m_view->hintBool = true;
 		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
-	else if ((m_view->language == "fr" || m_view->language == "it") && (hintAct->isChecked()==false)) {
+	else if (hintAct->isChecked()==false) {
 		m_view->hintBool = false;
 		changeStatusbar("", IDS_HINT);
 	}
