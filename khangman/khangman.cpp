@@ -274,7 +274,7 @@ void KHangMan::changeLanguage(int newLanguage)
 	slotAccents();
 }
 
-void KHangMan::setLanguage(QString lang)
+void KHangMan::setLanguage(const QString& lang)
 {
 	m_view->language = lang;
 	changeStatusbar(m_languageNames[m_languages.findIndex(lang)], IDS_LANG);

@@ -126,7 +126,7 @@ private slots:
     /**Set the current language in the view and update the statusbar
     @param lang the code of the currently selected language
     */
-    void setLanguage(QString lang);
+    void setLanguage(const QString& lang);
     /**
     Slot to toggle the full screen mode	
     @param set the state of the Full Screen Mode ToggleMenu, true if toggled
