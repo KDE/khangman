@@ -409,8 +409,8 @@ void KHangMan::loadLangToolBar()
 	myFile.setName(locate("data",myString));
 	if (!myFile.exists())
 	{
-		QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found!\n"
-					"Check your installation.").arg(m_view->language);
+		QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+					"check your installation.").arg(m_view->language);
 		KMessageBox::sorry( this, mString,
 					i18n("Error") );
 		exit(1);
