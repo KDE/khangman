@@ -65,7 +65,7 @@ KHangMan::KHangMan()
 	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
     QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
 	readSettings();
-	kdDebug()<<"modeString = " << modeString <<endl;
+	//kdDebug()<<"modeString = " << modeString <<endl;
 	isLevel();
 	isMode();
 	fileNew();
@@ -202,7 +202,7 @@ void KHangMan::slotLevel(int id)
 		break;*/
 	}
 	m_view->levelFile = levelString+".txt";
-	changeStatusbar("level:"+levelString);
+	changeStatusbar("level: "+levelString);
 	writeSettings();
 	fileNew();
 }
@@ -272,7 +272,7 @@ void KHangMan::isLevel()
  		combo->setCurrentItem(3);
 	//if (levelString=="own")
  	//	combo->setCurrentItem(4);
-	changeStatusbar("level:"+levelString);
+	changeStatusbar("level: "+levelString);
 }
 
 void KHangMan::isMode()
