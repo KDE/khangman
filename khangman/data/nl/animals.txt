@@ -5,8 +5,8 @@ zebra
 kangoeroe
 walvis
 paard
-aapy
-spechtr
+aap
+specht
 ijsvogel
 slang
 giraffe

@@ -277,7 +277,7 @@
 </e>
 
 <e>
-<o>acquila</o>
+<o>aquila</o>
 <t>è un volatile di stirpe nobile</t>
 </e>
 
