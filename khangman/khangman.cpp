@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "khangman.h"
+#include <qlayout.h>
 #include <klocale.h>
 #include <kdebug.h>
 #include <qtoolbutton.h>
@@ -266,7 +267,11 @@ void KHangMan::slotOptions()
 		missedLetters->setBackgroundOrigin( QLabel::ParentOrigin );
 		missedLetters->setBackgroundPixmap(bgPix);
 
+		QHBoxLayout *layout1 = new QHBoxLayout( 0, 0, 6, "layout1");
+		modeAdult->setFixedSize(30, 30);
 		modeAdult->show();
+		layout1->addWidget(Frame11);
+		layout1->addWidget(modeAdult);
 }
 
 void KHangMan::getOptions()
