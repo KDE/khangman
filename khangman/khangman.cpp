@@ -141,7 +141,7 @@ void KHangMan::changeLevel()
 	levelString = levels[currentLevel];
 	levelString.replace(0, 1, levelString.left(1).lower());
 
-	m_view->levelFile = levelString +".txt";
+	m_view->levelFile = levelString +".kvtml";
 	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
@@ -198,7 +198,7 @@ void KHangMan::loadSettings()
     	loadDataFiles();
 
 	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
-		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".txt");
+		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
 		Prefs::writeConfig();
 		currentLevel = 0;
 		}
@@ -259,7 +259,9 @@ void KHangMan::changeLanguage(int newLanguage)
 
 	if (currentLevel > (uint) levels.count()) currentLevel= 0;
 	levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
-	m_view->levelFile = levelString +".txt";
+	kdDebug() <<"LevelString " << levelString << endl;
+	m_view->levelFile = levelString +".kvtml";
+	kdDebug() << "Level " << m_view->levelFile  << endl;
 	Prefs::setLevel(currentLevel);
         Prefs::setLevelFile(m_view->levelFile);
 	Prefs::writeConfig();
@@ -286,7 +288,7 @@ void KHangMan::loadDataFiles()
 	//build the Level combobox menu dynamically depending of the data for each language
 	levels.clear();//initialize QStringList levels
 	KStandardDirs *dirs = KGlobal::dirs();
-	QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
+	QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.kvtml");
 	if (!mfiles.isEmpty())
 	{
 		for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
@@ -295,7 +297,7 @@ void KHangMan::loadDataFiles()
 			int location = f.name().findRev("/");
 			//strip the string to keep only the filename and not the path
 			QString mString = f.name().right(f.name().length()-location-1);
-			mString = mString.left(mString.length()-4);
+			mString = mString.left(mString.length()-6);
 			//Put the first letter in Upper case
 			mString = mString.replace(0, 1, mString.left(1).upper());
 			levels+=mString;
@@ -401,6 +403,7 @@ void KHangMan::slotAccents()
 	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
+	//TODO change these .txt to .kvtml
 	if (m_view->levelFile == "world_capitals.txt" || m_view->levelFile == "departements.txt")
 		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
 	loadLangToolBar();

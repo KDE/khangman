@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<kvtml>
+<kvtml encoding="UTF-8">
  <e>
  <o>kitten</o>
  <t>the young of a cat, ferret, etc.</t>

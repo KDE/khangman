@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<kvtml>
+<kvtml encoding="UTF-8">
  <e>
  <o>machine</o>
  <t>apparatus for applying mechanical power</t>
