@@ -244,7 +244,9 @@ void KHangMan::loadSettings()
     
     	loadDataFiles();
  
-    	m_view->levelFile = Prefs::levelFile();
+	if (locate("data", "khangman/data/%1/%2").arg(selectedLanguage).arg(Prefs::levelFile()).isEmpty())
+		Prefs::setLevelFile("easy.txt");
+	m_view->levelFile = Prefs::levelFile();
     	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
     	setLevel_WindowState();
@@ -781,36 +783,42 @@ void KHangMan::downloadNewStuff()
 
 void KHangMan::setLanguages()
 {
-    m_languages.clear();
-    m_languageNames.clear();
-    m_sortedNames.clear();
-    kdDebug() << "in SetLanguages "<< endl;
-   //the program scans in khangman/data/ to see what languages data is found
-    QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
-    kdDebug() << "mdirs= " << mdirs << endl;
-    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
-	QDir dir(*it);
-	m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-	m_languages.remove(m_languages.find("."));
-	m_languages.remove(m_languages.find(".."));
-    }	
-    kdDebug() << "mlanguages= " << m_languages << endl;    
-    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
-    //to find the name of the country
-    //corresponding to the code and the language the user set
-    KConfig entry(locate("locale", "all_languages"));
-    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
-	entry.setGroup(*it);
-	if (*it == "sr")
-		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
-	else if (*it == "sr@Latn") {
-		entry.setGroup("sr");
-		m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+	m_languages.clear();
+	m_languageNames.clear();
+	m_sortedNames.clear();
+	kdDebug() << "in SetLanguages "<< endl;
+	//the program scans in khangman/data/ to see what languages data is found
+	QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+		QDir dir(*it);
+		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+		m_languages.remove(m_languages.find("."));
+		m_languages.remove(m_languages.find(".."));	
+	}	
+	//suppress duplicated entries of same language dir
+	for (uint i=0;  i<m_languages.count(); i++)
+	{
+		QString tmp = m_languages[i];
+		if (m_languages.grep(m_languages[i]).count() >1)  {
+			m_languages.remove(m_languages .find(tmp));
 		}
-	else
-	m_languageNames.append(entry.readEntry("Name"));
-    }
-    m_sortedNames = m_languageNames;
+	}
+	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
+	//to find the name of the country
+	//corresponding to the code and the language the user set
+	KConfig entry(locate("locale", "all_languages"));
+	for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+		entry.setGroup(*it);
+		if (*it == "sr")
+			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+		else if (*it == "sr@Latn") {
+			entry.setGroup("sr");
+			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+			}
+		else
+		m_languageNames.append(entry.readEntry("Name"));
+	}
+	m_sortedNames = m_languageNames;
 }
 
 void KHangMan::optionsPreferences()
@@ -830,8 +838,7 @@ void KHangMan::optionsPreferences()
 	dialog->addPage(new advanced(0, "Advanced"), i18n("Advanced Settings"), "wizard");
 	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
 	
-	dialog->show();
-	
+	dialog->show();	
 }
 
 void KHangMan::updateSettings()

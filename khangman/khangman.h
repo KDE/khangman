@@ -68,7 +68,9 @@ public:
     QStringList m_sortedNames;
     
     void setLanguages();
-	
+    ///Build the Level combobox menu dynamically depending of the data for each language
+    void loadDataFiles();
+    
     KSelectAction *langAct;
     ///Build the Languages menu
     void setupLangMenu();
@@ -192,8 +194,7 @@ private slots:
   private:
     ///Set up the actions for the menus
     void setupActions();
-    ///Build the Level combobox menu dynamically depending of the data for each language
-    void loadDataFiles();
+
     ///Set a bool to true for languages that allow Typing Accented Letters
     void setAccentBool();
      

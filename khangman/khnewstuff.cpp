@@ -38,27 +38,28 @@ KHNewStuff::KHNewStuff( KHangManView *view ) :
 
 bool KHNewStuff::install( const QString &fileName )
 {
-  kdDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
-
-  KTar archive( fileName );
-  if ( !archive.open( IO_ReadOnly ) )
-                 return false;
-  const KArchiveDirectory *archiveDir = archive.directory();
-  KStandardDirs myStdDir;
-  const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
-  KStandardDirs::makeDir( destDir );
-  archiveDir->copyTo(destDir);
-  archive.close();
-  kdDebug() << "Dest Dir: " << destDir << endl;
-  //this return might be the result of checking if everything is installed ok*/
-  m_view->khangman->setLanguages();
-  kdDebug() << "In language languages= " << m_view->khangman->m_sortedNames << endl;    
-  m_view->khangman->setupLangMenu();
-  return true;
+	kdDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
+	
+	KTar archive( fileName );
+	if ( !archive.open( IO_ReadOnly ) )
+			return false;
+	const KArchiveDirectory *archiveDir = archive.directory();
+	KStandardDirs myStdDir;
+	const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
+	KStandardDirs::makeDir( destDir );
+	archiveDir->copyTo(destDir);
+	archive.close();
+	kdDebug() << "Dest Dir: " << destDir << endl;
+	//this return might be the result of checking if everything is installed ok*/
+	m_view->khangman->setLanguages();
+	m_view->khangman->loadDataFiles();
+	kdDebug() << "In language languages= " << m_view->khangman->m_sortedNames << endl;    
+	m_view->khangman->setupLangMenu();
+	return true;
 }
 
 bool KHNewStuff::createUploadFile( const QString &fileName )
 {
-  //return mView->saveCalendar( fileName );
-  return true;
+  	//return mView->saveCalendar( fileName );
+ 	 return true;
 }
