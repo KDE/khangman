@@ -5,7 +5,7 @@ gymnasium
 afspraak
 antibiotica
 delegatie
-aphoteker
+apotheker
 cheeseburger
 toewijzing
 supermarkt
@@ -14,7 +14,7 @@ radiografie
 informatie
 schorseneren
 signatuur
-enthusiasme
+enthousiasme
 asperge
 vocabulaire
 gouvernante
@@ -37,8 +37,6 @@ intelligentie
 populatie
 innovatie
 aardbei
-ugli
-sharonfruit
 koninklijk
 landschap
 collectie
