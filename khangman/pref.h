@@ -23,6 +23,7 @@ public:
     KHangManPreferences();
 
 	QString levelString, modeString;
+	bool transparent;
 	int langNum, defaultLang;
 	bool cancelBool;
 	bool levelChanged;
@@ -45,6 +46,7 @@ private slots:
 	void slotSet();
 	void slotMode(int);
 	void slotLevel(int);
+	void slotTransparent(bool);
 	void slotChanged();
 	void slotLang(int);
 

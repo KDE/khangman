@@ -56,10 +56,10 @@
                             <string>No background</string>
                         </property>
                         <property name="toolTip" stdset="0">
-                            <string>Set the "adult" Look and Feel</string>
+                            <string>Set no background</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if you want the "adult" Look and Feel</string>
+                            <string>Check this if you want no background</string>
                         </property>
                     </widget>
                     <widget class="QRadioButton">
@@ -81,7 +81,7 @@
                             <string>Set the "blue" Look and Feel</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if youwant the "blue" Look and Feel</string>
+                            <string>Check this if you want the "blue" Look and Feel</string>
                         </property>
                     </widget>
                     <widget class="QRadioButton">
@@ -103,9 +103,23 @@
                             <string>Set the "nature" Look and Feel</string>
                         </property>
                         <property name="whatsThis" stdset="0">
-                            <string>Check that if youwant the "nature" Look and Feel</string>
+                            <string>Check this if you want the "nature" Look and Feel</string>
                         </property>
                     </widget>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>transparentBox</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Transparent pictures</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Select transparent hangman pictures</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this if you want the hangman pictures to be transparent</string>
+                    </property>
                 </widget>
                 <spacer>
                     <property name="name">
