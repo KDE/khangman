@@ -48,7 +48,6 @@ class KHangMan : public QWidget
     KHangMan(QWidget* parent=0, const char *name=0);
 
     QComboBox*level;
-
     QLabel *but[20];
     QLabel *guess[20];
     QLabel *lab1;

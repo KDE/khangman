@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "khangman.h"
+
 #include <string>
 #include <time.h>
 #include <stdlib.h>
@@ -22,7 +22,9 @@
 #include <klocale.h>
 #include <qabstractlayout.h>
 
+#include "khangman.h"
 #include "khangman.moc"
+
 #define KHM_VERSION 0.3
 //rd=random number <=30
 //k to position the labels with letters
