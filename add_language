@@ -6,9 +6,9 @@ if test $# = 0 || test $# -gt 1 || test $1 = "--help" ; then
   echo "usage: add_language <language_code>"
   exit
 fi
-echo "As it is now feature freeze and adding a new language can generates new problems, it would be better if you send your files tarred and zipped to annma@kde.org and note anything specific to your language such as special characters. Thanks a lot.
+echo "Please send your files tarred and zipped to annemarie.mahfouf@free.fr and note anything specific to your language such as special characters. Thanks a lot.
 
-The script will carry on, please just do not commit the files."
+The script will carry on, please just do not commit the files. Please NEVER commit in a BRANCH."
 
 # Check for valid language code
 all_langs=$KDEDIR/share/locale/all_languages
@@ -41,8 +41,9 @@ touch $dir/Makefile.am
 # Tell user what to do
 echo "The language $code has been successfully added!"
 echo ""
-echo "Please edit the following files and translate the english words:"
+echo "Please edit the following files and translate the english words and english hints:"
 ls $lang/*.txt
 echo ""
-echo "If you want to enable hints in your language, please edit these files and use the kvtml format."
+echo "The files now use the kvtml format."
 echo "See http://edu.kde.org/khangman/add_language.php for more information."
+echo "Thanks a lot for your contribution!"
