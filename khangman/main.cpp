@@ -95,8 +95,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit("Albert Astals Cid",
                             I18N_NOOP("Coding help"), "tsdgeos@terra.es");
-   aboutData.addCredit("Chris Luetchford",
-                             I18N_NOOP("svg icon"), "chris@os11.com");
+   aboutData.addCredit("Danny Allen",
+                             I18N_NOOP("svg icon"), "danny@dannyallen.co.uk");
    aboutData.addCredit("Peter Hedlund",
                              I18N_NOOP("Code for generating icons for the characters toolbar"), "peter@peterandlinda.com");
 
