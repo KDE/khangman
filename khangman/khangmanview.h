@@ -15,8 +15,8 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef _KHANGMANVIEW_H_
-#define _KHANGMANVIEW_H_
+#ifndef KHANGMANVIEW_H
+#define KHANGMANVIEW_H
 
 #include <qpixmap.h>
 
@@ -137,4 +137,4 @@ private slots:
 	void timerDoneWord();
 };
 
-#endif // _KHANGMANVIEW_H_
+#endif // KHANGMANVIEW_H

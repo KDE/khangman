@@ -179,7 +179,6 @@ void KHangMan::loadSettings()
 {
     	// Language
     	selectedLanguage = Prefs::selectedLanguage();
-    	kdDebug() << "Languages : " << m_languages << endl;
 	if (m_languages.grep(selectedLanguage).isEmpty())
 		selectedLanguage = "en";
      	setLanguage(selectedLanguage);
@@ -306,6 +305,13 @@ void KHangMan::loadDataFiles()
 	//TODO else tell no files had been found
 	}
 	levels.sort();
+	//find duplicated entries in KDEDIR and KDEHOME
+	for (uint i=0;  i<levels.count(); i++)
+	{
+		if (levels.contains(levels[i])>1)
+			levels.remove(levels[i]);
+	}
+	kdDebug() << levels << endl;
 	levelAct->setItems(levels);
 	QStringList translatedLevels;
 	for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
@@ -459,7 +465,14 @@ void KHangMan::setLanguages()
 		m_languages.remove(m_languages.find("."));
 		m_languages.remove(m_languages.find(".."));
 	}
+	m_languages.sort();
 	if (m_languages.isEmpty()) return;
+	//find duplicated entries in KDEDIR and KDEHOME
+	for (uint i=0;  i<m_languages.count(); i++)
+	{
+		if (m_languages.contains(m_languages[i])>1)
+			m_languages.remove(m_languages[i]);
+	}
 	//write the present languages in config so they cannot be downloaded
 	KConfig *config=kapp->config();
 	config->setGroup("KNewStuffStatus");
@@ -469,11 +482,11 @@ void KHangMan::setLanguages()
 		if (!config->readEntry(tmp))
 			config->writeEntry(tmp, QDate::currentDate().toString());
 	}
-	m_languages.sort();
 	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
 	//to find the name of the country
 	//corresponding to the code and the language the user set
 	KConfig entry(locate("locale", "all_languages"));
+	const QStringList::ConstIterator itEnd = m_languages.end();
 	for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
 		entry.setGroup(*it);
 		if (*it == "sr")
@@ -483,7 +496,7 @@ void KHangMan::setLanguages()
 			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
 			}
 		else
-		m_languageNames.append(entry.readEntry("Name"));
+			m_languageNames.append(entry.readEntry("Name"));
 	}
 	//never sort m_languageNames as it's m_languages translated 
 	m_sortedNames = m_languageNames;

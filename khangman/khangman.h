@@ -15,8 +15,8 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef _KHANGMAN_H_
-#define _KHANGMAN_H_
+#ifndef KHANGMAN_H
+#define KHANGMAN_H
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -175,4 +175,4 @@ private:
     
 };
 
-#endif // _KHANGMAN_H_
+#endif // KHANGMAN_H
