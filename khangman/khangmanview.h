@@ -33,7 +33,7 @@ public:
 
 	QString levelFile;
 	QString language;
-	QString word;
+	QString word, word1;
 	QString goodWord;
 	QString missedL;
 	int missedChar;

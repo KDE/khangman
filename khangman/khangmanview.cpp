@@ -84,11 +84,30 @@ void KHangManView::slotTry()
 				for (int count=0; count <word.contains(sChar); count++)
 				{
 					//searching for letter location
-					index = word.find(sChar,index);
+					 index = word.find(sChar,index);
 					//we replace it...
 					goodWord.replace((2*index), 1,sChar);
 					index++;
 				}
+
+				if (language=="sp")
+				{
+				if (sChar=="i") sChar="í";
+				if (sChar=="a") sChar="á";
+				if (sChar=="u") sChar="ú";
+				if (sChar=="o") sChar="ó";
+				if (sChar=="e") sChar="é";
+				index=0;
+				for (int count=0; count <word.contains(sChar); count++)
+				{
+				//searching for letter location
+				index = word.find(sChar,index);
+				//we replace it...
+				goodWord.replace((2*index), 1,sChar);
+				index++;
+				}
+				}
+
 				QStringList rightChars=QStringList::split(" ", goodWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
@@ -122,12 +141,12 @@ void KHangManView::slotTry()
 				}
 
 				missedLetters->setText(missedL);
-				pixImage->setPixmap(px[missedChar]);
+				pixImage->setPixmap(px[missedChar+1]);
 				missedChar++;
-				if (missedChar >= 11) //you are hanged!
+				if (missedChar >= 10) //you are hanged!
 				{
 					//we reset everything...
-				    pixImage->setPixmap(px[11]);
+				        pixImage->setPixmap(px[11]);
 					//um... The word is not guessed... Let's show it...
 					QStringList charList=QStringList::split("",word);
 					QString theWord=charList.join(" ");
@@ -178,19 +197,12 @@ void KHangManView::game()
 	//allData contains all the words from the file
 	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
-	  /*
-	  // debug to see if the QStringList contains all words
-	  for ( QStringList::Iterator it = allData.begin(); it != allData.end(); ++it ) {
-          kdDebug() << *it << ":"<<endl;
-          }*/
-
 	//now the calculations...
 	int objects = allData.count();//number of words in the file
 	//picks a random word from allData
 	word = allData[random.getLong(objects)]; //gives us a single word...
 	  //debug to see what word is picked
-	  //kdDebug() << word << endl;
-	// int wrdLen=word.length(); //the length of the word...
+	kdDebug() << word << endl;
 	if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
 	{
 		slotNewGame();
@@ -207,7 +219,7 @@ void KHangManView::wipeout()
 {
 	goodWord="";
 	missedChar=0;
-	missedLetters->setText("_ _ _ _ _ _ \n_ _ _ _ _ _ ");
+	missedLetters->setText("_ _ _ _ _  \n_ _ _ _ _  ");
 	allWords.clear();
 }
 
