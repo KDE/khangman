@@ -151,12 +151,16 @@ private slots:
     void slotPasteAumlaut();
     void slotPasteAwithe();
     void slotPasteAcircle();
+    void slotPasteCcaron();
     void slotPasteCcedil();
+    void slotPasteDapos();
+    void slotPasteEcaron();
     void slotPasteEacute();
     void slotPasteEgrave();
     void slotPasteEcirc();
     void slotPasteIgrave();
     void slotPasteIacute();
+    void slotPasteNcaron();
     void slotPasteNtilde();
     void slotPasteOgrave();
     void slotPasteOacute();
@@ -164,9 +168,14 @@ private slots:
     void slotPasteOcross();
     void slotPasteOtilde();
     void slotPasteOumlaut();
+    void slotPasteRcaron();
+    void slotPasteScaron();
     void slotPasteUumlaut();
     void slotPasteUacute();
+    void slotPasteUdot();
     void slotPasteSzlig();
+    void slotPasteYacute();
+    void slotPasteZcaron();
     void slotClose();
     void slotAccents();
     ///when Enabled Hint is checked or not by the user

@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>400</width>
-            <height>343</height>
+            <height>345</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -348,7 +348,8 @@ _ _ _ _ _ </string>
                                     </property>
                                     <property name="font">
                                         <font>
-                                            <family>Helvetica [Adobe]</family>
+                                            <family>Arial Narrow</family>
+                                            <pointsize>22</pointsize>
                                         </font>
                                     </property>
                                     <property name="frameShape">

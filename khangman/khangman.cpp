@@ -30,7 +30,7 @@
 #include <kstandarddirs.h>
 //Project headers
 #include "khangman.h"
-
+//Please save as utf8 encoding
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
 const int IDS_ACCENTS = 102;
@@ -508,58 +508,75 @@ void KHangMan::loadLangToolBar()
     	else accentsAct->setEnabled(false);
 	 
 	if (m_view->language == "ca")	{
-		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true, i18n(QString("Try à").utf8()), 1 );
-		secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 2 );
-		secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 3 );
-		secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 4 );
-		secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true, i18n(QString("Try ò").utf8()), 5 );
-		secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 6 );
-		secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 7 );
-		secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()),8);
+		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true,  i18n("Try ")+ QString::fromUtf8("Ã ", -1), 1 );
+		secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true,  i18n("Try ")+ QString::fromUtf8("Ã§", -1), 2 );
+		secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("Ã¨", -1), 3 );
+		secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã­", -1), 4 );
+		secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true,  i18n("Try ")+ QString::fromUtf8("Ã²", -1), 5 );
+		secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã³", -1), 6 );
+		secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true,  i18n("Try ")+ QString::fromUtf8("Ãº", -1), 7 );
+		secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¼", -1) ,8);
 	}
 	else if (m_view->language == "es")	{
-		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
-		secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 2 );
-		secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 3 );
-		secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true, i18n(QString("Try ñ").utf8()), 4 );
-		secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 5 );
-		secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 6 );
-		secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 7 );
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã¡", -1), 1 );
+		secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã©", -1), 2 );
+		secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã­", -1), 3 );
+		secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true,  i18n("Try ")+ QString::fromUtf8("Ã±", -1), 4 );
+		secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã³", -1), 5 );
+		secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n("Try ")+ QString::fromUtf8("Ãº", -1), 6 );
+		secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¼", -1), 7 );
 	}
 	else if (m_view->language == "da")	{
-		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n(QString("Try ø").utf8()), 1 );
-		secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n(QString("Try æ").utf8()), 2 );
-		secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 3 );
+		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true,  i18n("Try ")+ QString::fromUtf8("Ã¸", -1), 1 );
+		secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true,  i18n("Try ")+ QString::fromUtf8("Ã¦", -1), 2 );
+		secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true,  i18n("Try ")+ QString::fromUtf8("Ã¥", -1), 3 );
 	}
 	else if (m_view->language == "fi")	{
-		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2 );
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¤", -1), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¶", -1), 2 );
 	}
 	else if (m_view->language == "sv")	{
-		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
-		secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¤", -1), 1 );
+		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true,  i18n("Try ")+ QString::fromUtf8("Ã¥", -1), 2 );
+		secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¶", -1), 3 );
 	}
 	else if (m_view->language == "pt" || m_view->language == "pt_BR")	{
-		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
-		secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true, i18n(QString("Try ã").utf8()), 2 );
-		secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 3 );
-		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 4 );
-		secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true, i18n(QString("Try ê").utf8()), 5 );
-		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 6 );
-		secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 7 );
-		secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true, i18n(QString("Try ô").utf8()), 8 );
-		secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true, i18n(QString("Try õ").utf8()), 9 );
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã¡", -1), 1 );
+		secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true,  i18n("Try ")+ QString::fromUtf8("Ã£", -1), 2 );
+		secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true,  i18n("Try ")+ QString::fromUtf8("Ã§", -1), 3 );
+		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã©", -1), 4 );
+		secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true,  i18n("Try ")+ QString::fromUtf8("Ãª", -1), 5 );
+		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã­", -1), 6 );
+		secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã³", -1), 7 );
+		secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true,  i18n("Try ")+ QString::fromUtf8("Ã´", -1), 8 );
+		secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true,  i18n("Try ")+ QString::fromUtf8("Ãµ", -1), 9 );
 	}
 	else if (m_view->language == "fr")	{
-		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
-		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
+		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã©", -1), 1 );
+		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true,  i18n("Try ")+ QString::fromUtf8("Ã¨", -1), 2 );
 	}
 	else if (m_view->language == "de")	{
-		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2);  
-		secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
-		secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¤", -1), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¶", -1), 2);  
+		secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¼", -1), 3 );
+		secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true,  i18n("Try ")+ QString::fromUtf8("ÃŸ", -1), 4 );
+	}
+	else if (m_view->language == "cs")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã¡", -1), 1 );
+		secondToolbar->insertButton ("c_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("Ä", -1), 2 );
+		secondToolbar->insertButton ("d_apos.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteDapos()), true,  i18n("Try ")+ QString::fromUtf8("Ä", -1), 3);  
+		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã©", -1), 4 );
+		secondToolbar->insertButton ("e_caron.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcaron()), true,  i18n("Try ")+ QString::fromUtf8("Ä•", -1), 5 );
+		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã­", -1), 6 );
+		secondToolbar->insertButton ("n_caron.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteNcaron()), true,  i18n("Try ")+ QString::fromUtf8("Åˆ", -1), 7 );
+		secondToolbar->insertButton ("o_acute.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã³", -1), 8 );
+		secondToolbar->insertButton ("o_umlaut.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¶", -1), 9); 
+		secondToolbar->insertButton ("u_umlaut.png", 100, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true,  i18n("Try ")+ QString::fromUtf8("Ã¼", -1), 10 );
+		secondToolbar->insertButton ("r_caron.png", 110, SIGNAL( clicked() ), this, SLOT( slotPasteRcaron()), true,  i18n("Try ")+ QString::fromUtf8("Å™", -1), 11 );
+		secondToolbar->insertButton ("s_caron.png", 120, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("Å¡", -1), 12 );
+		secondToolbar->insertButton ("u_dot.png", 130, SIGNAL( clicked() ), this, SLOT( slotPasteUdot()), true,  i18n("Try ")+ QString::fromUtf8("Å¯", -1), 13 );
+		secondToolbar->insertButton ("y_acute.png", 140, SIGNAL( clicked() ), this, SLOT( slotPasteYacute()), true,  i18n("Try ")+ QString::fromUtf8("Ã½", -1), 14 );
+		secondToolbar->insertButton ("z_caron.png", 150, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("Å¾", -1), 15 );
 	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
@@ -569,114 +586,159 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->hide();
 }
 
-void KHangMan::slotPasteCcedil()
-{
-	m_view->charWrite->setText("ç");
-}
-
-void KHangMan::slotPasteAgrave()
-{
-	m_view->charWrite->setText("à");
-}
-
 void KHangMan::slotPasteAacute()
 {
-	m_view->charWrite->setText("á");
-}
-
-void KHangMan::slotPasteIgrave()
-{
-	m_view->charWrite->setText("ì");
-}
-
-void KHangMan::slotPasteIacute()
-{
-	m_view->charWrite->setText("í");
-}
-
-void KHangMan::slotPasteOgrave()
-{
-	m_view->charWrite->setText("ò");
-}
-
-void KHangMan::slotPasteOacute()
-{
-	m_view->charWrite->setText("ó");
-}
-
-void KHangMan::slotPasteUacute()
-{
-	m_view->charWrite->setText("ú");
-}
-
-void KHangMan::slotPasteOcross()
-{
-	m_view->charWrite->setText("ø");
+	m_view->charWrite->setText(QString::fromUtf8("Ã¡", -1));
 }
 
 void KHangMan::slotPasteAcircle()
 {
-	m_view->charWrite->setText("å");
+	m_view->charWrite->setText(QString::fromUtf8("Ã¥", -1));
 }
 
-void KHangMan::slotPasteAwithe()
+void KHangMan::slotPasteAgrave()
 {
-	m_view->charWrite->setText("æ");
-}
-
-void KHangMan::slotPasteOumlaut()
-{
-	m_view->charWrite->setText("ö");
-}
-
-void KHangMan::slotPasteAumlaut()
-{
-	m_view->charWrite->setText("ä");
+	m_view->charWrite->setText(QString::fromUtf8("Ã ", -1));
 }
 
 void KHangMan::slotPasteAtilde()
 {
-	m_view->charWrite->setText("ã");
+	m_view->charWrite->setText(QString::fromUtf8("Ã£", -1));
 }
 
-void KHangMan::slotPasteUumlaut()
+void KHangMan::slotPasteAumlaut()
 {
-	m_view->charWrite->setText("ü");
+	m_view->charWrite->setText(QString::fromUtf8("Ã¤", -1));
+}
+
+void KHangMan::slotPasteAwithe()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¦", -1));
+}
+
+void KHangMan::slotPasteCcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ä", -1));
+}
+
+void KHangMan::slotPasteCcedil()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã§", -1));
+}
+
+void KHangMan::slotPasteDapos()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ä", -1));
 }
 
 void KHangMan::slotPasteEacute()
 {
-	m_view->charWrite->setText("é");
+	m_view->charWrite->setText(QString::fromUtf8("Ã©", -1));
 }
 
-void KHangMan::slotPasteNtilde()
+void KHangMan::slotPasteEcaron()
 {
-	m_view->charWrite->setText("ñ");
-}
-
-void KHangMan::slotPasteEgrave()
-{
-	m_view->charWrite->setText("è");
+	m_view->charWrite->setText(QString::fromUtf8("Ä•", -1));
 }
 
 void KHangMan::slotPasteEcirc()
 {
-	m_view->charWrite->setText("ê");
+	m_view->charWrite->setText(QString::fromUtf8("Ãª", -1));
+}
+
+void KHangMan::slotPasteEgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¨", -1));
+}
+
+void KHangMan::slotPasteIacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã­", -1));
+}
+
+void KHangMan::slotPasteIgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¬", -1));
+}
+
+void KHangMan::slotPasteNcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Åˆ", -1));
+}
+
+void KHangMan::slotPasteNtilde()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã±", -1));
+}
+
+void KHangMan::slotPasteOgrave()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã²", -1));
+}
+
+void KHangMan::slotPasteOacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã³", -1));
+}
+
+void KHangMan::slotPasteOcross()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¸", -1));
+}
+
+void KHangMan::slotPasteOumlaut()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¶", -1));
 }
 
 void KHangMan::slotPasteOtilde()
 {
-	m_view->charWrite->setText("õ");
+	m_view->charWrite->setText(QString::fromUtf8("Ãµ", -1));
 }
 
 void KHangMan::slotPasteOcirc()
 {
-	m_view->charWrite->setText("ô");
+	m_view->charWrite->setText(QString::fromUtf8("Ã´", -1));
+}
+
+void KHangMan::slotPasteRcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Å™", -1));
+}
+
+void KHangMan::slotPasteScaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Å¡", -1));
+}
+
+void KHangMan::slotPasteUacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ãº", -1));
+}
+
+void KHangMan::slotPasteUdot()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Å¯", -1));
+}
+
+void KHangMan::slotPasteUumlaut()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã¼", -1));
 }
 
 void KHangMan::slotPasteSzlig()
 {
-	m_view->charWrite->setText("ß");
+	m_view->charWrite->setText(QString::fromUtf8("ÃŸ", -1));
+}
+
+void KHangMan::slotPasteYacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Ã½", -1));
+}
+
+void KHangMan::slotPasteZcaron()
+{
+	m_view->charWrite->setText(QString::fromUtf8("Å¾", -1));
 }
 
 void KHangMan::slotClose()
