@@ -46,8 +46,25 @@ class KHangMan : public QWidget
     /** construtor */
     KHangMan(QWidget* parent=0, const char *name=0);
 
-    QComboBox*level;
+  public slots:
+    void slotquit();
+    void slotTreat();
+    void slotShow();
+    void slotNext();
+    void choice(int index);
+    void choice1();
+    void choice2();
+    void choice3();
+    void slotInfo();
+    void slotNewgame();
+    void game();
+    void warning();
+    void slotHelp();
+    void test1();
+    void animals();
 
+ private:
+    QComboBox*level;
     QLabel *but[20];
     QLabel *guess[20];
     QLabel *lab1;
@@ -67,33 +84,12 @@ class KHangMan : public QWidget
     KAccel *accel2;
     QPushButton *exit1;
     QLabel *helpla1;
-//    KhSplash *splash;
-     KDialog *helpla;
-
-  public slots:
-    void slotquit();
-    void slotTreat();
-    void slotShow();
-    void slotNext();
-    void choice(int index);
-    void choice1();
-    void choice2();
-    void choice3();
-    void slotInfo();
-    void slotNewgame();
-    void game();
-    void warning();
-    void slotHelp();
-    void test1();
-    void animals();
-  /** No descriptions */
- // void slotDel();
-//void slotGo();
-
+    KDialog *helpla;
 
   protected:
     void keyPressEvent(QKeyEvent *);
      void resizeEvent(QResizeEvent *);
+
      /** destructor */
     ~KHangMan();
 };

@@ -27,22 +27,24 @@ KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWid
 				QApplication::desktop()->height()/2-120,
 							349, 173 );
    setFrameStyle( QFrame::Box | QFrame::Raised );
-	setLineWidth(4);
+	setLineWidth(1);
 	show();
-//allow the splash screen to be displayed 400 seconds
-     QTimer *timer = new QTimer(this);
-     connect( timer, SIGNAL(timeout()),
-     this, SLOT(slotHide()) );
-     timer->start( 3000, TRUE );
+    //allow the splash screen to be displayed 400 seconds
+    QTimer *timer = new QTimer(this);
+    connect( timer, SIGNAL(timeout()),
+    this, SLOT(slotHide()) );
+    timer->start( 3000, TRUE );
 }
+
 KhSplash::~KhSplash(){
 }
 
 
 /** Hide the splash screen and call the game */
-void KhSplash::slotHide(){
-this->hide();
-KHangMan *khangman = new KHangMan();
-khangman->setGeometry(20,20,720,400);
-khangman->show();
+void KhSplash::slotHide()
+{
+    this->hide();
+    KHangMan *khangman = new KHangMan();
+    khangman->setGeometry(20,20,720,400);
+    khangman->show();
 }
