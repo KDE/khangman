@@ -6,7 +6,7 @@ if test $# = 0 || test $# -gt 1 || test $1 = "--help" ; then
   echo "usage: add_language <language_code>"
   exit
 fi
-echo "Please send your files tarred and zipped to annemarie.mahfouf@free.fr and note anything specific to your language such as special characters. Thanks a lot.
+echo "Please send your files tarred and zipped to annemarie.mahfouf@free.fr and note anything specific to your language such as special characters. Please add all special characters in a text file. Thanks a lot.
 
 The script will carry on, please just do not commit the files. Please NEVER commit in a BRANCH."
 
