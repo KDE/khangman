@@ -309,6 +309,7 @@ void KHangMan::loadSettings()
     config->setGroup("Settings");
     if(m_view->softer != config->readBoolEntry( "softer", true)) {
     m_view->softer = config->readBoolEntry( "softer", true);
+    softAct->setChecked(m_view->softer);
     m_view->slotSofter();
     }
  }
