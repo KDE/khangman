@@ -36,10 +36,12 @@ KHangMan::KHangMan()
     readSettings();
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
+    //selectedLanguage is the language saved in Settings otherwise it is 0=en
     setLanguage(selectedLanguage);
 
     bool enabled;
     //enabled=true if language is found
+    //the program scans in khangman/data/ to see what languages data is found
     enabled = locate("data", "khangman/data/en/") != 0;
     registerLanguage("English", "data_en", enabled);
     enabled = locate("data", "khangman/data/sp/") != 0;
@@ -90,8 +92,8 @@ void KHangMan::setupActions()
     newAct = new KAction(i18n("&New"), "file_new", 0 , this, SLOT(fileNew()), actionCollection(), "file_new");
     KStdAction::quit(kapp, SLOT(quit()), actionCollection());
 
-    m_toolbarAction = KStdAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
-    m_statusbarAction = KStdAction::showStatusbar(this, SLOT(optionsShowStatusbar()), actionCollection());
+    createStandardStatusBarAction();
+    setStandardToolBarMenuEnabled(true);
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
@@ -143,25 +145,6 @@ void KHangMan::fileNew()
 	m_view->slotNewGame();
 }
 
-void KHangMan::optionsShowToolbar()
-{
-    // this is all very cut and paste code for showing/hiding the
-    // toolbar
-    if (m_toolbarAction->isChecked())
-        toolBar()->show();
-    else
-        toolBar()->hide();
-}
-
-void KHangMan::optionsShowStatusbar()
-{
-    // this is all very cut and paste code for showing/hiding the
-    // statusbar
-    if (m_statusbarAction->isChecked())
-        statusBar()->show();
-    else
-        statusBar()->hide();
-}
 
 void KHangMan::optionsConfigureKeys()
 {

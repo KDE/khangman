@@ -68,8 +68,6 @@ protected:
 private slots:
     void fileNew();
 
-    void optionsShowToolbar();
-    void optionsShowStatusbar();
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
     void optionsPreferences();
@@ -97,8 +95,6 @@ private:
 private:
     KHangManView *m_view;
 
-    KToggleAction *m_toolbarAction;
-    KToggleAction *m_statusbarAction;
     KAction *newAct;
 
    uint selectedLanguage,	// Number of selected language
