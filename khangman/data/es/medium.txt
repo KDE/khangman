@@ -5,7 +5,7 @@ gimnasio
 cita
 antibiótico
 delegación
-farmacéutico
+farmaceútico
 hamburguesa
 gravamen
 rodear
@@ -23,7 +23,7 @@ conservatorio
 estante
 fotógrafo
 inteligencia
-cortacéspedes
+cortacésped
 aritmética
 membresía
 tranquilidad
