@@ -26,8 +26,6 @@
 	<Action name="file_quit"/>
         <Separator/>
 	<Action name="fullscreen"/>
-	<Separator/>
-        <Action name="help_contents"/>
         <Separator/>
         <Action name="combo_level"/>
         <Separator/>

@@ -3,7 +3,6 @@ Encoding=UTF-8
 Type=Application
 Exec=khangman -caption "%c" %i %m  
 Icon=khangman
-MiniIcon=khangman
 DocPath=khangman/index.html
 GenericName=Hangman Game
 GenericName[af]=Hangman Speletjie
