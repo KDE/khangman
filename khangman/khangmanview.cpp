@@ -10,6 +10,7 @@
 #include <qimage.h>
 #include <qlabel.h>
 #include <qlineedit.h>
+#include <qregexp.h>
 //KDE headers
 #include <kapplication.h>
 #include <kdebug.h>
@@ -94,11 +95,21 @@ void KHangManView::slotTry()
 			if (containsChar(sChar))
 			{
 				replaceLetters(sChar);
-				QStringList rightChars=QStringList::split(" ", goodWord, true);
+				stripWord = goodWord;//need that because of the white spaces
+				sword=word;
+				kdDebug() << c << endl;
+				kdDebug() << d << endl;
+				if (d>0)  {stripWord.replace(2*c, 1, "");
+				stripWord.replace(2*c-1, 1, "");}
+				if (d>0)  {stripWord.replace(2*(d-1), 1, "");
+				stripWord.replace(2*(d-1)-1, 1, ""); }
+				kdDebug() << "stripWord: " << stripWord << endl;
+				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
-
-				if (rightWord.stripWhiteSpace() == word.stripWhiteSpace()) //you made it!
+				kdDebug() << "rightChars: " << rightChars<< endl;
+				sword.remove(QRegExp(" "));
+				if (rightWord.stripWhiteSpace() == sword.stripWhiteSpace()) //you made it!
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
@@ -163,14 +174,17 @@ void KHangManView::replaceLetters(QString sChar)
     goodWord.replace((2*index), 1,sChar);
     index++;
   }
-  if (language=="es" || language == "pt")
+  if (language=="es" || language == "pt" || language == "ca")
   {
     if (sChar=="i") replaceLetters(QString("í"));
     if (sChar=="a") replaceLetters(QString("á"));
+    if (sChar=="a") replaceLetters(QString("à"));
     if (sChar=="a") replaceLetters(QString("ã"));
     if (sChar=="u") replaceLetters(QString("ú"));
     if (sChar=="o") replaceLetters(QString("ó"));
+    if (sChar=="o") replaceLetters(QString("ò"));
     if (sChar=="e") replaceLetters(QString("é"));
+    if (sChar=="e") replaceLetters(QString("è"));
     if (sChar=="u") replaceLetters(QString("ü"));
   }
 	allWords << sChar; //appends the list...
@@ -180,13 +194,13 @@ bool KHangManView::containsChar(QString &sChar)
 {
   bool b = false;
 
-  if (language=="es" || language =="pt")
+  if (language=="es" || language =="pt" || language == "ca")
   {
     if (sChar=="i") b = word.contains(QString("í")) > 0;
-    if (sChar=="a") b = word.contains(QString("á")) > 0|| word.contains(QString("ã")) > 0;
+    if (sChar=="a") b = word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0 || word.contains(QString("à")) > 0;
     if (sChar=="u") b = word.contains(QString("ú")) > 0 || word.contains(QString("ü")) > 0;
-    if (sChar=="o") b = word.contains(QString("ó")) > 0;
-    if (sChar=="e") b = word.contains(QString("é")) > 0;
+    if (sChar=="o") b = word.contains(QString("ó")) > 0 || word.contains(QString("ò")) > 0;
+    if (sChar=="e") b = word.contains(QString("é")) > 0 || word.contains(QString("è")) > 0;
   }
 
   return ((word.contains(sChar) > 0) || b);
@@ -230,8 +244,6 @@ void KHangManView::game()
 		temp=word;
 	}//end of test
 	kdDebug() << word << endl;
-	//if (word.stripWhiteSpace().isEmpty()) //prevents to display the empty places...
-		//slotNewGame();
         goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -240,6 +252,20 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
+	stripWord=goodWord;
+	//if needed, display white space or - if in word or semi dot
+	c = word.find( "-" );
+	if (c>0)
+		goodWord.replace(2*c, 1, "-");
+	c = word.find( " " );
+	if (c>0) //find another white space
+	{
+		goodWord.replace(2*c, 1, " ");
+		d = word.find( " ", c+1);
+		if (d>0)  goodWord.replace(2*d, c+1, " ");
+	}
+	int e = word.find( "·" );
+	if (e>0) goodWord.replace(2*e, 1, "·");
 	mainLabel-> setText(goodWord);//display the _
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
 }

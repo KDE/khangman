@@ -51,6 +51,8 @@ public:
 	QPixmap naturePix;
 	///store temporarily the previous word to check it's not the same twice
 	QString temp;
+	QString stripWord, sword;
+	int c, d;
 
 private:
 	///necessary to have it all resize correctly
