@@ -261,7 +261,7 @@ void KHangMan::loadSettings()
     KConfig *config = kapp->config();
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("selectedLanguage", defaultLang);
-     if (selectedLanguage >= (int) m_languages.count())
+    if (selectedLanguage >= (int) m_languages.count())
                 selectedLanguage = 3;
      setLanguage(selectedLanguage);
 
@@ -275,13 +275,11 @@ void KHangMan::loadSettings()
     else secondToolbar->hide();
     //see if language has special accented letters
     setAccentBool();
-   
-    if (m_view->m_accent) {
-    	m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
-    	accentsAct->setChecked(!m_view->accent_b);
-    	if (!m_view->accent_b)
-		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
-    }
+    m_view->accent_b = config->readBoolEntry( "accentedLetters", false);
+    accentsAct->setChecked(m_view->accent_b);
+    if (m_view->m_accent && m_view->accent_b)
+	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+    
     loadDataFiles();
     //Enable hint or not
     m_view->hintBool= config->readBoolEntry( "hint", true);
@@ -300,7 +298,7 @@ void KHangMan::loadSettings()
 
       // Transparency
      config->setGroup("Settings");
-      if(m_view->transparent != config->readBoolEntry( "transparent", true)){
+      if(m_view->transparent != config->readBoolEntry( "transparent", true)) {
       m_view->transparent = config->readBoolEntry( "transparent", true);
       m_view->slotTransparent();
     }
@@ -308,7 +306,7 @@ void KHangMan::loadSettings()
 
     // Softer Pictures
     config->setGroup("Settings");
-    if(m_view->softer != config->readBoolEntry( "softer", true)){
+    if(m_view->softer != config->readBoolEntry( "softer", true)) {
     m_view->softer = config->readBoolEntry( "softer", true);
     m_view->slotSofter();
     }
@@ -405,9 +403,8 @@ void KHangMan::changeLanguage(int newLanguage)
     	hintAct->setChecked(true);
     slotHint();
     setAccentBool();
-    //if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
-    if (m_view->m_accent)
-    	slotAccents();
+    if (m_view->m_accent) 
+    		slotAccents();
     else {
     	changeStatusbar("", IDS_ACCENTS);
 	loadLangToolBar();
@@ -502,7 +499,7 @@ void KHangMan::loadLangToolBar()
 	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
- 	//if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca" || m_view->language == "pt_BR")
+
 	if (m_view->m_accent)
      		accentsAct->setEnabled(true);
     	else accentsAct->setEnabled(false);
@@ -697,13 +694,19 @@ void KHangMan::slotClose()
 
 void KHangMan::slotAccents()
 {
- 	m_view->accent_b = !accentsAct->isChecked();
+ 	m_view->accent_b = accentsAct->isChecked();
 
-	if (!m_view->accent_b)
+	if (m_view->accent_b)
 		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	else changeStatusbar("", IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
+}
+
+void KHangMan::restoreAccentConfig()
+{
+	accentsAct->setChecked(!m_view->accent_b);
+	slotAccents();
 }
 
 void KHangMan::slotHint()

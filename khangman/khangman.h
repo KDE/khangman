@@ -184,6 +184,7 @@ private slots:
     void setupLangMenu();
     void loadDataFiles();
     void setAccentBool();
+    void restoreAccentConfig();
     
 private:
     ///Main view
