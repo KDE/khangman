@@ -117,21 +117,20 @@ QObject::connect (quit, SIGNAL(clicked()), this, SLOT(slotquit()));
 lab8 = new QLabel(this);
 lab8->setGeometry(420,100,190,230);
 
-px[0].load("/usr/share/icons/hg1.gif");  //array for stocking the pairs
-px[1].load("/usr/share/icons/hg2.gif"); //of images
-px[2].load("/usr/share/icons/hg3.gif");
-px[3].load("/usr/share/icons/hg4.gif");
-px[4].load("/usr/share/icons/hg5.gif");
-px[5].load("/usr/share/icons/hg6.gif");
-px[6].load("/usr/share/icons/hg7.gif");
-px[7].load("/usr/share/icons/hg8.gif");
-px[8].load("/usr/share/icons/hg9.gif");
-px[9].load("/usr/share/icons/hg10.gif");
-px[10].load("/usr/share/icons/hg11.gif");
-px[11].load("/usr/share/icons/hg12.gif");
-px[12].load("/usr/share/icons/hg13.gif");
-px[13].load("/usr/share/icons/hg14.gif");
-
+px[0].load(locate("data","hg1.gif"));
+px[1].load(locate("data","hg2.gif"));
+px[2].load(locate("data","hg3.gif"));
+px[3].load(locate("data","hg4.gif"));
+px[4].load(locate("data","hg5.gif"));
+px[5].load(locate("data","hg6.gif"));
+px[6].load(locate("data","hg7.gif"));
+px[7].load(locate("data","hg8.gif"));
+px[8].load(locate("data","hg9.gif"));
+px[9].load(locate("data","hg10.gif"));
+px[10].load(locate("data","hg_sm.png"));
+px[11].load(locate("data","hg12.gif"));
+px[12].load(locate("data","hg13.gif"));
+px[13].load(locate("data","hg14.gif"));
 ind=1;
 game();
 }

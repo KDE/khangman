@@ -34,6 +34,7 @@
 #include <qevent.h>
 #include <kaccel.h>
 #include <qmainwindow.h>
+#include <kstddirs.h>
 
 class KHangMan : public QWidget
 {

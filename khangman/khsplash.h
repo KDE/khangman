@@ -23,6 +23,7 @@
 #include <kapp.h>
 #include <qtimer.h>
 #include <khangman.h>
+
 /**
   *@author Anne-Marie Mahfouf
   */

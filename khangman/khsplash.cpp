@@ -16,11 +16,12 @@
  ***************************************************************************/
 
 #include "khsplash.h"
+#include <kstddirs.h>
 
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)
 {
    QPixmap pm;
-   pm.load("beta.png");
+   pm.load(locate("data","beta.png"));
 	setBackgroundPixmap(pm);
 	setGeometry( QApplication::desktop()->width ()/2-160,
 				QApplication::desktop()->height()/2-120,
