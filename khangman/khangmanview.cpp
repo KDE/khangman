@@ -72,6 +72,7 @@ void KHangManView::slotNewGame()
 void KHangManView::slotTry()
 {
 	QString sChar = charWrite->text();
+	sChar = sChar.lower();
 	missedL= missedLetters->text();
 	//if contains more than 1 character...
 	if (!sChar.isEmpty() && sChar.toInt() ==0 && sChar != "0") //it won't react to empty box, neither if someone enters number...

@@ -52,13 +52,13 @@ KHangMan::KHangMan()
     //enabled=true if language is found
     //the program scans in khangman/data/ to see what languages data is found
     enabled = locate("data", "khangman/data/en/") != 0;
-    registerLanguage("English", "data_en", enabled);
+    registerLanguage(i18n("English"), "data_en", enabled);
     enabled = locate("data", "khangman/data/fr/") != 0;
-    registerLanguage("French", "data_fr", enabled);
+    registerLanguage(i18n("French"), "data_fr", enabled);
     enabled = locate("data", "khangman/data/sp/") != 0;
-    registerLanguage("Spanish", "data_sp", enabled);
+    registerLanguage(i18n("Spanish"), "data_sp", enabled);
 
-    // then, setup our actions
+    // then, setup our actions, must be done after the language search
     setupActions();
 
     // allow the view to change the statusbar and caption
