@@ -28,19 +28,15 @@
     </entry>
     </group>
     <group name="Language">
-      <entry name="UserLanguage" type="String">
-      <label>The Default KDE language for the user</label>
-      <code>
-          	KConfigBase *globalConf = KGlobal::config();
-    		globalConf->setGroup("Locale");
-    		QString userLanguage = globalConf->readEntry("Language");
-    		//keep only the first 2 characters
-		userLanguage = userLanguage.left(2);
-    </code>
-    <default code="true">"en"</default>
-    </entry>   
     <entry name="SelectedLanguage" type="String">
       <label>The language selected by the user</label>
+            <code>
+          	KConfigBase *globalConf = KGlobal::config();
+    		globalConf->setGroup("Locale");
+    		QString userLanguage = globalConf->readEntry("Language", "en");
+    		//keep only the first 2 characters
+		userLanguage = userLanguage.left(2);
+    	    </code>
       <default code="true">userLanguage</default>
     </entry> 
     </group>
