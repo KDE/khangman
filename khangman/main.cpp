@@ -29,6 +29,8 @@ int main(int argc, char **argv)
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
     aboutData.addCredit("Robert Gogolok",
                             I18N_NOOP("Coding help"), "robertgogolok@gmx.de");
+    aboutData.addCredit("Stefan Asserhall",
+                            I18N_NOOP("Swedish data files, bugfixes and coding"), "stefan.asserhall@telia.com");
     aboutData.addCredit("Joe Bolin",
                             I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
     aboutData.addCredit("Whitehawk Stormchaser",
