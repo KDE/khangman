@@ -156,8 +156,6 @@ void KHangManView::slotTry()
 					goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
 				mainLabel->setText(goodWord);
 				sword.remove(QRegExp(" "));
-				kdDebug() << "sword: " << sword << endl;
-				kdDebug() << "rightWord: " << rightWord << endl;
 				if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) //you made it!
 				{
 					//we reset everything...
@@ -296,10 +294,8 @@ void KHangManView::game()
 	pixImage->setPixmap(px[10]);
 	//if the data files are not installed in the correct dir
 	QString myString=QString("khangman/data/%1/%2").arg(language).arg(levelFile);
-	kdDebug() << "in game, file: " << myString << endl;
 	QFile myFile;
 	myFile.setName(locate("data",myString));
-	kdDebug() << "In game, level: " << levelFile << endl;
         if (!myFile.exists())
         {
 		QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -311,7 +307,6 @@ void KHangManView::game()
 	update();
 	//we open the file and store info into the stream...
 	QFile openFileStream(myFile.name());
-	kdDebug() << locate("data","khangman/data/"+language+"/"+levelFile) << endl;
 	openFileStream.open(IO_ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(QTextStream::UnicodeUTF8);

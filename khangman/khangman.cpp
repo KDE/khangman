@@ -50,36 +50,37 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
-    levelString = "";
-    modeString = "";
-    mNewStuff = 0;
-    KConfig *cfg = KGlobal::config();
-    cfg->setGroup("KNewStuff");
-    cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
-    cfg->sync();
-    kdDebug() << "before  dirs " << endl;
-    setLanguages();
-    
-    // tell the KMainWindow that this is indeed the main widget
-    setCentralWidget(m_view);
-    //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-    // then, setup our actions, must be done after the language search
-    setupActions();
-    // set up the status bar
-    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
-    statusBar( )->insertItem("   ",IDS_LANG, 0);
-    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ",IDS_HINT, 0);
-    //toolbar for special characters
-    secondToolbar = toolBar("Special Characters");
-    secondToolbar->setBarPos(KToolBar::Bottom);
-    connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
-    connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
-    loadSettings();
-    loadLangToolBar();
-    setupLangMenu();
-    slotHint();
-    newGame();
+	levelString = "";
+	modeString = "";
+	mNewStuff = 0;
+	KConfig *cfg = KGlobal::config();
+	cfg->setGroup("KNewStuff");
+	cfg->writeEntry( "ProvidersUrl", "http://edu.kde.org/khangman/downloads/providers.xml" );
+	cfg->sync();
+	setLanguages();
+	kdDebug() << "--------- before setCentralWidget -------- " <<  endl;
+	// tell the KMainWindow that this is indeed the main widget
+	setCentralWidget(m_view);
+	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
+	// then, setup our actions, must be done after the language search
+	setupActions();
+	kdDebug() << "--------- before StatusBar -------- " <<  endl;
+	// set up the status bar
+	statusBar( )->insertItem("   ",IDS_LEVEL, 0);
+	statusBar( )->insertItem("   ",IDS_LANG, 0);
+	statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
+	statusBar( )->insertItem("   ",IDS_HINT, 0);
+	//toolbar for special characters
+	secondToolbar = toolBar("Special Characters");
+	secondToolbar->setBarPos(KToolBar::Bottom);
+	connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT(changeLanguage(int)));
+	connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
+	kdDebug() << "--------- before LoadSettings -------- " <<  endl;
+	loadSettings();
+	loadLangToolBar();
+	setupLangMenu();
+	slotHint();
+	newGame();
 }
 
 KHangMan::~KHangMan()
@@ -88,48 +89,48 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-    newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
-    KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
-    new KAction( i18n("Get data in a new language..."), "knewstuff", 0, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
-    KStdAction::quit(this, SLOT(slotClose()), actionCollection());
-
-    createStandardStatusBarAction();
-    setStandardToolBarMenuEnabled(true);
-    langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
-    langAct->setItems(m_sortedNames);
-
-    KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
-    KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-
-    m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
-    connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
-
-    levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
-    levelAct->setToolTip(i18n( "Choose the level" ));
-    levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
-    
-    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-    
-    QStringList modes;
-    modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
-    modes += i18n("No Background");
-    modes += i18n("Blue Theme");
-    modes += i18n("Nature Theme");
-    modeAct->setItems(modes);
-    modeAct->setToolTip(i18n( "Choose the look and feel" ));
-    modeAct->setWhatsThis(i18n( "Check the look and feel" ));
-    setAutoSaveSettings("General");
-    createGUI("khangmanui.rc");
+	newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
+	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
+	new KAction( i18n("Get data in a new language..."), "knewstuff", 0, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+	KStdAction::quit(this, SLOT(slotClose()), actionCollection());
+	
+	createStandardStatusBarAction();
+	setStandardToolBarMenuEnabled(true);
+	langAct = new KSelectAction(i18n("&Languages"), 0, this, SLOT(slotLanguage()), actionCollection(), "combo_lang");
+	langAct->setItems(m_sortedNames);
+	
+	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+	
+	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
+	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
+	
+	levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
+	levelAct->setToolTip(i18n( "Choose the level" ));
+	levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
+	
+	KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+	
+	QStringList modes;
+	modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
+	modes += i18n("No Background");
+	modes += i18n("Blue Theme");
+	modes += i18n("Nature Theme");
+	modeAct->setItems(modes);
+	modeAct->setToolTip(i18n( "Choose the look and feel" ));
+	modeAct->setWhatsThis(i18n( "Check the look and feel" ));
+	setAutoSaveSettings("General");
+	createGUI("khangmanui.rc");
 }
 
 void KHangMan::setupLangMenu()
 {
-    langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
-    langPopup->clear();
-    for (uint index = 0; index < m_sortedNames.count(); index++)
-	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
-    langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
-    connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
+	langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
+	langPopup->clear();
+	for (uint index = 0; index < m_sortedNames.count(); index++)
+		langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
+	langPopup->setItemChecked(m_languages.findIndex(selectedLanguage), true);
+	connect(langPopup, SIGNAL(activated(int)), this, SLOT(changeLanguage(int)) );
 }
 
 void KHangMan::newGame()
@@ -139,37 +140,37 @@ void KHangMan::newGame()
 
 void KHangMan::optionsConfigureKeys()
 {
-    KKeyDialog::configure(actionCollection());
+    	KKeyDialog::configure(actionCollection());
 }
 
 void KHangMan::optionsConfigureToolbars()
 {
-    // use the standard toolbar editor
-    saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
-    KEditToolbar dlg(actionCollection());
-    connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
-    dlg.exec();
+	// use the standard toolbar editor
+	saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+	KEditToolbar dlg(actionCollection());
+	connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
+	dlg.exec();
 }
 
 void KHangMan::newToolbarConfig()
 {
-    // this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
-    // recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
-    createGUI();
-    setupLangMenu();
-    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+	// this slot is called when user clicks "Ok" or "Apply" in the toolbar editor.
+	// recreate our GUI, and re-apply the settings (e.g. "text under icons", etc.)
+	createGUI();
+	setupLangMenu();
+	applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
 
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
-    // display the text on the statusbar
-    statusBar()->changeItem(text, id);
+	// display the text on the statusbar
+	statusBar()->changeItem(text, id);
 }
 
 void KHangMan::changeCaption(const QString& text)
 {
-    // display the text on the caption
-    setCaption(text);
+	// display the text on the caption
+	setCaption(text);
 }
 
 void KHangMan::changeLevel()
@@ -246,9 +247,11 @@ void KHangMan::loadSettings()
  
 	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
 		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".txt");
+		Prefs::writeConfig();
 		currentLevel = 0;
 		}
 	m_view->levelFile = Prefs::levelFile();
+	kdDebug() << "--------- LevelFile -------- " << m_view->levelFile << endl;
     	levelString = levels[currentLevel];
     	levelString.replace(0, 1, levelString.left(1).lower());
     	setLevel_WindowState();
@@ -269,34 +272,34 @@ void KHangMan::loadSettings()
 
 void KHangMan::setLevel_WindowState()
 {
-    if (currentLevel>levels.count())
-        currentLevel = levels.count();
-    levelAct->setCurrentItem(currentLevel);
-    changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+	if (currentLevel>levels.count())
+		currentLevel = levels.count();
+	levelAct->setCurrentItem(currentLevel);
+	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 }
 
 void KHangMan::setMode_WindowState()
 {
-    if (modeString=="nobg")
-    {
-	modeAct->setCurrentItem(0);
-	m_view->slotNoBkgd();
-    }
-    else if (modeString=="blue")
-    {
-	modeAct->setCurrentItem(1);
-	m_view->slotSetPixmap(m_view->bluePix);
-    }
-    else if (modeString=="nature")
-    {
-	modeAct->setCurrentItem(2);
-	m_view->slotSetPixmap(m_view->naturePix);
-    }
+	if (modeString=="nobg")
+	{
+		modeAct->setCurrentItem(0);
+		m_view->slotNoBkgd();
+	}
+	else if (modeString=="blue")
+	{
+		modeAct->setCurrentItem(1);
+		m_view->slotSetPixmap(m_view->bluePix);
+	}
+	else if (modeString=="nature")
+	{
+		modeAct->setCurrentItem(2);
+		m_view->slotSetPixmap(m_view->naturePix);
+	}
 }
 
 void KHangMan::slotLanguage()
 {
-    changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
+    	changeLanguage(m_languageNames.findIndex(m_sortedNames[langAct->currentItem()]));
 }
 
 void KHangMan::changeLanguage(int newLanguage)
@@ -361,46 +364,46 @@ void KHangMan::slotTransparent()
 
 void KHangMan::loadDataFiles()
 {
-    //build the Level combobox menu dynamically depending of the data for each language
-    levels.clear();//initialize QStringList levels
-    KStandardDirs *dirs = KGlobal::dirs();
-    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
-    if (!mfiles.isEmpty())
-    {
-    for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
-        QFile f( *it);
-	//find the last / in the file name
-	int location = f.name().findRev("/");
-	//strip the string to keep only the filename and not the path
-	QString mString = f.name().right(f.name().length()-location-1);
-	mString = mString.left(mString.length()-4);
-	//Put the first letter in Upper case
-	mString = mString.replace(0, 1, mString.left(1).upper());
-        levels+=mString;
-    }
-    //TODO else tell no files had been found
-    }
-    levels.sort();
-    levelAct->setItems(levels);
-    QStringList translatedLevels;
-    for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
-        translatedLevels+=i18n((*it).utf8());
-    levelAct->setItems(translatedLevels);
+	//build the Level combobox menu dynamically depending of the data for each language
+	levels.clear();//initialize QStringList levels
+	KStandardDirs *dirs = KGlobal::dirs();
+	QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.txt");
+	if (!mfiles.isEmpty())
+	{
+	for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+		QFile f( *it);
+		//find the last / in the file name
+		int location = f.name().findRev("/");
+		//strip the string to keep only the filename and not the path
+		QString mString = f.name().right(f.name().length()-location-1);
+		mString = mString.left(mString.length()-4);
+		//Put the first letter in Upper case
+		mString = mString.replace(0, 1, mString.left(1).upper());
+		levels+=mString;
+	}
+	//TODO else tell no files had been found
+	}
+	levels.sort();
+	levelAct->setItems(levels);
+	QStringList translatedLevels;
+	for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+		translatedLevels+=i18n((*it).utf8());
+	levelAct->setItems(translatedLevels);
 }
 
 void KHangMan::slotSetFullScreen( bool set )
 {
-   if( set ){
-      showFullScreen();
-      menuBar()->hide();
-      m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
-      m_pFullScreen->setIcon( "window_nofullscreen" );
-   } else {
-      showNormal();
-      menuBar()->show();
-      m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
-      m_pFullScreen->setIcon( "window_fullscreen" );
-   }
+	if( set ){
+		showFullScreen();
+		menuBar()->hide();
+		m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
+		m_pFullScreen->setIcon( "window_nofullscreen" );
+	} else {
+		showNormal();
+		menuBar()->show();
+		m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
+		m_pFullScreen->setIcon( "window_fullscreen" );
+	}
 }
 
 void KHangMan::loadLangToolBar()

@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>normal</class>
 <widget class="QWidget">
     <property name="name">
@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>200</width>
-            <height>247</height>
+            <width>207</width>
+            <height>250</height>
         </rect>
     </property>
     <property name="caption">
@@ -65,6 +65,13 @@
                             <property name="text">
                                 <string>Softer Hangman Pictures</string>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>When this box is checked, softer hangman pictures will be used.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>KHangMan comes with 2 sets of hangman pictures. The set by default is the softer pictures: the man is not hung by the neck but by the hand. If you uncheck this option, you will get the usual hangman pictures: the man is hung by the neck.
+For younger kids, it is prefered to leave this box checked and thus use the softer pictures.</string>
+                            </property>
                         </widget>
                     </vbox>
                 </widget>
@@ -119,6 +126,10 @@
                             <property name="toolTip" stdset="0">
                                 <string>In some languages, there are hints that can help you to guess the word. If this is enabled, then hints exist. If you check it, hint will be displayed by right clicking on the game.</string>
                             </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language. 
+If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get them by checking this box. You will then see the hint for the word to guess by right-clicking somewhere on KHangMan window.</string>
+                            </property>
                         </widget>
                     </vbox>
                 </widget>
@@ -144,6 +155,9 @@
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, sounds will be played for New Game and Win Game</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.</string>
                     </property>
                 </widget>
             </vbox>
