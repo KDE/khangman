@@ -46,7 +46,6 @@ KHangMan::KHangMan()
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-    kdDebug() << "selected in ctr khm: " <<  selectedLanguage << endl;
     setLanguage(selectedLanguage);
 
     bool enabled;
@@ -62,26 +61,26 @@ KHangMan::KHangMan()
     // then, setup our actions, must be done after the language search
     setupActions();
 
-	toolBar()->insertSeparator(-1, 1); //id=1 for separator
-	toolBar()->insertCombo(i18n("Easy"), 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
-	combo = toolBar()->getCombo(2);
-	combo->insertItem(i18n("Medium"), 1);
-	combo->insertItem(i18n("Hard"), 2);
-	combo->insertItem(i18n("Animals"), 3);
-	//combo->insertItem("own", 4);
-       QToolTip::add( combo, i18n( "Choose the level" ) );
-       QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
-	toolBar()->insertSeparator(-1, 3);
-	toolBar()->insertCombo(i18n("No Background"), 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
-	comboMode = toolBar()->getCombo(4);
-	comboMode->insertItem(i18n("Blue Theme"), 1);
-	comboMode->insertItem(i18n("Nature Theme"), 2);
-	QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
-        QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
+    toolBar()->insertSeparator(-1, 1); //id=1 for separator
+    toolBar()->insertCombo(i18n("Easy"), 2, false, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
+    combo = toolBar()->getCombo(2);
+    combo->insertItem(i18n("Medium"), 1);
+    combo->insertItem(i18n("Hard"), 2);
+    combo->insertItem(i18n("Animals"), 3);
+    //combo->insertItem("own", 4);
+    QToolTip::add( combo, i18n( "Choose the level" ) );
+    QWhatsThis::add( combo, i18n( "Choose the level of difficulty" ) );
+    toolBar()->insertSeparator(-1, 3);
+    toolBar()->insertCombo(i18n("No Background"), 4, false, SIGNAL(activated(int)), this, SLOT(slotMode(int)));
+    comboMode = toolBar()->getCombo(4);
+    comboMode->insertItem(i18n("Blue Theme"), 1);
+    comboMode->insertItem(i18n("Nature Theme"), 2);
+    QToolTip::add( comboMode, i18n( "Choose the Look and Feel" ) );
+    QWhatsThis::add( comboMode, i18n( "Check the Look and Feel" ) );
 
-	isLevel();
-	isMode();
-	fileNew();
+    isLevel();
+    isMode();
+    fileNew();
 }
 
 KHangMan::~KHangMan()
@@ -256,7 +255,7 @@ void KHangMan::readSettings()
     config->setGroup("Language");
     selectedLanguage = config->readNumEntry("myLanguage");
     //default background mode
-    if (config->hasKey("mode") == false)
+    if (modeString.isEmpty())
     	modeString = "nobg";
     if (m_view->levelFile.isEmpty()) //if no config file
     {
