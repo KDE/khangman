@@ -38,22 +38,22 @@ KHNewStuff::KHNewStuff( KHangManView *view ) :
 
 bool KHNewStuff::install( const QString &fileName )
 {
-	kdDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
-	
-	KTar archive( fileName );
-	if ( !archive.open( IO_ReadOnly ) )
-			return false;
-	const KArchiveDirectory *archiveDir = archive.directory();
-	KStandardDirs myStdDir;
-	const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
-	KStandardDirs::makeDir( destDir );
-	archiveDir->copyTo(destDir);
-	archive.close();
-	return true;
+    kdDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
+    
+    KTar archive( fileName );
+    if ( !archive.open( IO_ReadOnly ) )
+        return false;
+    const KArchiveDirectory *archiveDir = archive.directory();
+    KStandardDirs myStdDir;
+    const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
+    KStandardDirs::makeDir( destDir );
+    archiveDir->copyTo(destDir);
+    archive.close();
+    return true;
 }
 
 bool KHNewStuff::createUploadFile( const QString &fileName )
 {
-  	//return mView->saveCalendar( fileName );
- 	 return true;
+    //return mView->saveCalendar( fileName );
+    return true;
 }

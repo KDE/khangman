@@ -1,26 +1,24 @@
-TODO:
-- warning if the background pic is not found in the pics dir
-- preview theme in Settings dialog
-- allow the user to open his/her own file of words
-- design a GUI to allow the teacher to enter his own words. [it will be 'till 1.0...]
+KHANGMAN - NEW IDEAS - NEW DESIGN
+22 March 2005
 
-DONE
-- 23/02/2003: cleaned the GUI, added menubar, toolbar and statusbar, removed the buttons
-fixed the layout, added code to prevent loop if file of words not found (in case of install in the wrong KDEDIR)
-added nature theme (background pic from Joe Bolin)
-- 27/07/2001 splash screen
-- a label just on top of the guessed letters maybe to indicate that these are the guessed letters. [me]
-- a label indicating the word to guess [me]
-- when the level changes, the focus should go back in the input box charWrite [me]
-- new game seems buggy (URGENT) [crossapp fixes... me]
-- (why 6 letters and then 7 and not 7 and 7?) [me]
-- icons rock [me]
-- accerated keys?  Y does not work (URGENT) [ignored... Uses different approach...]
-- read the words for each level from a file [anne]
-- write the doc <-- Working (are they?) [anne... Me will update...]
-- invoke help (HTML) is deprecated (replaced with REAL help menu...) [me]
-- suppress all hard code like the path for the pictures (use kde standard dirs) [anne]
-- change the pics format from GIF to png [anne]
-- suppress that annma on the splashscreen and change the 1st pic please.
+Menubar
+- Look menu -> switching theme
+- Language menu -> switching language
+
+Options - themes
+- sea theme: the "light" to blink when changing animations...
+in practice, there would be a bg image with the light on, and one with the light off...
+maybe we overlay just the light part on a standard bg
+- preview theme is Settings dialog
+
+we could write the options if needed in some kind of theme file (Dannya)
+
+NEW: Young kids theme with 120x120 pixels area to put an image -> new kvtml file with pic name as hint
+
+GUI: Misses and Word and Guess: QPainter for each theme
+
+Steve font: free? -> dual licensing
+
+Toolbar for special chars and normal: transparent image bg for one
 
 

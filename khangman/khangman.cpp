@@ -1,49 +1,37 @@
-/*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+/***************************************************************************
+ *   Copyright (C) 2005 by Anne-Marie Mahfouf   *
+ *   annemarie.mahfouf@free.fr   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of version 2 of the GNU General Public
-    License as published by the Free Software Foundation.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
- */
-
-//Qt headers
-#include <qbitmap.h>
-#include <qcheckbox.h>
-#include <qdatetime.h>
-#include <qdir.h>
-#include <qlineedit.h>
-#include <qpainter.h>
-#include <qstringlist.h>
-//KDE headers
-#include <kactionclasses.h>
-#include <kconfigdialog.h>
-#include <kdebug.h>
-#include <kedittoolbar.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenubar.h>
-#include <kmessagebox.h>
-#include <kstatusbar.h>
-#include <kstandarddirs.h>
-#include <ktoolbarbutton.h>
-//Project headers
 #include "khangman.h"
 #include "prefs.h"
-#include "khnewstuff.h"
-#include "advanced.h"
-#include "normal.h"
-//standard C++ headers
-#include <stdlib.h>
+
+#include <qdir.h>
+
+#include <kapplication.h>
+#include <kactionclasses.h>
+#include <kconfig.h>
+#include <kdebug.h>
+#include <klocale.h>
+#include <kmainwindow.h>
+#include <kstandarddirs.h>
+#include <kstatusbar.h>
 
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
@@ -54,30 +42,18 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
-	levelString = "";
-	mNewStuff = 0;
-	// tell the KMainWindow that this is indeed the main widget
-	setCentralWidget(m_view);
+    // tell the KMainWindow that this is indeed the main widget
+    setCentralWidget(m_view);
+    
+    setupStatusbar();
+    setLanguages();
+    setupActions();
 
-	setLanguages();
-	// set up the status bar
-	statusBar( )->insertItem("   ",IDS_LEVEL, 0);
-	statusBar( )->insertItem("   ",IDS_LANG, 0);
-	statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
-	statusBar( )->insertItem("   ",IDS_HINT, 0);
-	//selectedLanguage is the language saved in Settings otherwise it is default or en if no default
-	// then, setup our actions, must be done after the language search
-	setupActions();
-	//toolbar for special characters
-	secondToolbar = toolBar("Special Characters");
-	secondToolbar->setBarPos(KToolBar::Bottom);
-	//connect(m_view, SIGNAL(signalChangeLanguage(int)), this, SLOT((int)));
-	connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
-	loadSettings();
-	loadLangToolBar();
-	slotHint();
-	slotAccents();
-	newGame();
+    loadSettings();
+    loadLevels();
+    //setupToolbars();
+    
+
 }
 
 KHangMan::~KHangMan()
@@ -86,514 +62,193 @@ KHangMan::~KHangMan()
 
 void KHangMan::setupActions()
 {
-	newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
-	newAct->setToolTip(i18n( "Play with a new word" ));
-	KGlobal::iconLoader()->loadIcon("knewstuff", KIcon::Small);
-	new KAction( i18n("&Get Data in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( downloadNewStuff() ), actionCollection(), "downloadnewstuff" );
-	KStdAction::quit(this, SLOT(slotClose()), actionCollection());
+    newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , this, SLOT(slotNewGame()), actionCollection(), "file_new");
+    newAct->setToolTip(i18n( "Play with a new word" ));
+    new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+    KStdAction::quit(kapp, SLOT(quit()), actionCollection());
+    
+    levelAct = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
+    levelAct->setToolTip(i18n( "Choose the level" ));
+    levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
-	m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
-	connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
+    m_languageAction = new KSelectAction(i18n("&Language"), KShortcut(), actionCollection(), "languages");
+    m_languageAction->setItems(m_languageNames);
+    m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
 
-	levelAct = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
-	levelAct->setToolTip(i18n( "Choose the level" ));
-	levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
-
-	KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-
-	QStringList modes;
-	modeAct = new KSelectAction(i18n("Look && Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
-	modes += i18n("N&o Background");
-	modes += i18n("&Blue Theme");
-	modes += i18n("&Nature Theme");
-	modeAct->setItems(modes);
-	modeAct->setToolTip(i18n( "Choose the look and feel" ));
-	modeAct->setWhatsThis(i18n( "Check the look and feel" ));
-
-	setupGUI();
+    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    
+    QStringList modes;
+    modeAct = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
+    modes += i18n("&Sea Theme");
+    modes += i18n("&Desert Theme");
+    modeAct->setItems(modes);
+    modeAct->setToolTip(i18n( "Choose the look and feel" ));
+    modeAct->setWhatsThis(i18n( "Check the look and feel" ));
+    
+    setupGUI();
 }
 
-void KHangMan::newGame()
+void KHangMan::setupStatusbar()
 {
-  	m_view->slotNewGame();
+    // set up the status bar
+    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
+    statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
+    statusBar( )->insertItem("   ",IDS_HINT, 0);
 }
 
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
-	// display the text on the statusbar
-	statusBar()->changeItem(text, id);
+    statusBar()->changeItem(text, id);
 }
 
-void KHangMan::changeCaption(const QString& text)
+void KHangMan::slotChangeLevel()
 {
-	// display the text on the caption
-	setCaption(text);
-}
-
-void KHangMan::changeLevel()
-{
-	static const char *levelStrings[] = {
-		I18N_NOOP("Easy"),
-		I18N_NOOP("Medium"),
-		I18N_NOOP("Hard"),
-		I18N_NOOP("Animals"),
-	};
-	currentLevel = levelAct->currentItem();
-	levelString = levels[currentLevel];
-	levelString.replace(0, 1, levelString.left(1).lower());
-
-	m_view->levelFile = levelString +".kvtml";
-	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
-	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
-		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
-	else
-		changeStatusbar("", IDS_ACCENTS);
-	Prefs::setLevel( currentLevel);
-	Prefs::setLevelFile(m_view->levelFile);
-	Prefs::writeConfig();
-        newGame();
-}
-
-void KHangMan::changeMode()
-{
-	switch (modeAct->currentItem()) {
-    	case 0:
-			Prefs::setMode(Prefs::EnumMode::nobg);
-			Prefs::writeConfig();
-			m_view->slotNoBkgd();
-    		break;
-
-    	case 1:
-			Prefs::setMode(Prefs::EnumMode::blue);
-			Prefs::writeConfig();
-			m_view->slotSetPixmap(m_view->bluePix);
-   			break;
-    	case 2:
-			Prefs::setMode(Prefs::EnumMode::nature);
-			Prefs::writeConfig();
-			m_view->slotSetPixmap(m_view->naturePix);
-   			break;
-	}
-}
-
-void KHangMan::loadSettings()
-{
-    	// Language
-    	selectedLanguage = Prefs::selectedLanguage();
-	if (m_languages.grep(selectedLanguage).isEmpty())
-		selectedLanguage = "en";
-     	setLanguage(selectedLanguage);
-    	// Level
-    	currentLevel = Prefs::level(); //default is easy
-     	// Show/hide characters toolbar
-   	m_bCharToolbar = Prefs::showCharToolbar();
-   	if (m_bCharToolbar)
-		secondToolbar->show();
-  	else
-		secondToolbar->hide();
-    	//see if language has special accented letters
-    	setAccentBool();
-    	m_view->accent_b = Prefs::accentedLetters();
-    	if (m_view->m_accent && m_view->accent_b)
-		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
-    	loadDataFiles();
-
-	setLevel();
-
-     	// Background
-	setMode_WindowState();
-	m_view->slotMilder();
-	slotAccents();
-	m_view->hintBool= Prefs::hint();
-	m_view->b_oneLetter = Prefs::oneLetter();
- }
-
-void KHangMan::setLevel_WindowState()
-{
-	if (currentLevel>levels.count())
-		currentLevel = levels.count();
-	levelAct->setCurrentItem(currentLevel);
-	changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
-}
-
-void KHangMan::setMode_WindowState()
-{
-	switch (Prefs::mode())  {
-		case Prefs::EnumMode::nobg:
-			modeAct->setCurrentItem(0);
-			m_view->slotNoBkgd();
-			break;
-		case Prefs::EnumMode::blue:
-			modeAct->setCurrentItem(1);
-			m_view->slotSetPixmap(m_view->bluePix);
-			break;
-		case Prefs::EnumMode::nature:
-			modeAct->setCurrentItem(2);
-			m_view->slotSetPixmap(m_view->naturePix);
-			break;
-	}
-}
-
-void KHangMan::changeLanguage(int newLanguage)
-{
-    	// Do not accept to switch to same language
-   	 if (newLanguage == m_languageNames.findIndex(selectedLanguage))
-		return;
-
-    	selectedLanguage = m_languages[newLanguage];
-	Prefs::setSelectedLanguage(selectedLanguage);
-	Prefs::writeConfig();
-    	//load the different data files in the Level combo for the new language
-   	loadDataFiles();
-	//at the moment, check if currentLevel exists (< levels.count()) if not, set it to 0
-	//but if medium in tg -> hard in other so
-    	//check if the name of the file exists in the new language. If not, set it to levels[0].
-    	//TODO: save level per language
-
-	setLevel();
-	setLanguage(selectedLanguage);
-    	slotHint();
-    	setAccentBool();
-	m_bCharToolbar = Prefs::showCharToolbar();
-	slotAccents();
-}
-
-void KHangMan::setLevel()
-{
-	if (currentLevel > (uint) levels.count()) currentLevel= 0;
-	if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
-		//set first file in the levels StringList
-		Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
-		Prefs::writeConfig();
-		currentLevel = 0;
-		}
-	m_view->levelFile = Prefs::levelFile();
-   	levelString = levels[currentLevel];
-    	levelString.replace(0, 1, levelString.left(1).lower());
-	//levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
-	m_view->levelFile = levelString +".kvtml";
-	//update the Levels in Level combobox as well
-    	setLevel_WindowState();
-}
-
-void KHangMan::setLanguage(const QString& lang)
-{
-	m_view->language = lang;
-	changeStatusbar(m_languageNames[m_languages.findIndex(lang)], IDS_LANG);
-}
-
-
-void KHangMan::loadDataFiles()
-{
-	//build the Level combobox menu dynamically depending of the data for each language
-	levels.clear();//initialize QStringList levels
-	KStandardDirs *dirs = KGlobal::dirs();
-	QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.kvtml");
-	if (!mfiles.isEmpty())
-	{
-		for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
-			QFile f( *it);
-			//find the last / in the file name
-			int location = f.name().findRev("/");
-			//strip the string to keep only the filename and not the path
-			QString mString = f.name().right(f.name().length()-location-1);
-			mString = mString.left(mString.length()-6);
-			//Put the first letter in Upper case
-			mString = mString.replace(0, 1, mString.left(1).upper());
-			levels+=mString;
-	}
-	//TODO else tell no files had been found
-	}
-	levels.sort();
-	//find duplicated entries in KDEDIR and KDEHOME
-	for (uint i=0;  i<levels.count(); i++)
-	{
-		if (levels.contains(levels[i])>1)
-			levels.remove(levels[i]);
-	}
-	levelAct->setItems(levels);
-	QStringList translatedLevels;
-	for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
-		translatedLevels+=i18n((*it).utf8());
-	levelAct->setItems(translatedLevels);
-}
-
-void KHangMan::slotSetFullScreen( bool set )
-{
-	if( set ){
-		showFullScreen();
-		menuBar()->hide();
-		m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
-		m_pFullScreen->setIcon( "window_nofullscreen" );
-	} else {
-		showNormal();
-		menuBar()->show();
-		m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
-		m_pFullScreen->setIcon( "window_fullscreen" );
-	}
-}
-
-void KHangMan::loadLangToolBar()
-{
-  	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" || m_view->language =="ru" || m_view->language =="bg")
-	noCharBool = true;
-	else noCharBool = false;
-	if (secondToolbar->isVisible() && !noCharBool)
-	    m_bCharToolbar=true;
-	secondToolbar->clear();
-	allData.clear();
-	if (!noCharBool) {
-	QString myString=QString("khangman/%1.txt").arg(m_view->language);
-	QFile myFile;
-	myFile.setName(locate("data", myString));
-	//let's look in local KDEHOME dir then
-	if (!myFile.exists()) {
-		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
-		myFile.setName(locate("data",myString));
-		kdDebug() << myString << endl;
-	}
-	if (!myFile.exists())
-	{
-		QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
-					"check your installation.").arg(m_view->language);
-		KMessageBox::sorry( this, mString,
-					i18n("Error") );
-		exit(1);
-	}
-	update();
-	//we open the file and store info into the stream...
-	QFile openFileStream(myFile.name());
-	openFileStream.open(IO_ReadOnly);
-	QTextStream readFileStr(&openFileStream);
-	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
-	//allData contains all the words from the file
-	allData = QStringList::split("\n", readFileStr.read(), true);
-	openFileStream.close();
-	for (int i=0; i<(int) allData.count(); i++)
-			secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
-	}
-
-	if (m_bCharToolbar) {
-		secondToolbar->show();
-	}
-	else secondToolbar->hide();
-	Prefs::setShowCharToolbar( !secondToolbar->isVisible());
-	Prefs::writeConfig();
-	if (noCharBool)//no special chars in those languages
-		secondToolbar->hide();
-}
-
-void KHangMan::slotPasteChar()
-{
-	KToolBarButton *charBut = (KToolBarButton* ) sender();
-	m_view->charWrite->setText(allData[charBut->id()]);
-}
-
-void KHangMan::slotClose()
-{
-	Prefs::setShowCharToolbar(secondToolbar->isVisible());
-	Prefs::setAccentedLetters(m_view->accent_b);
-	Prefs::setHint(m_view->hintBool);
-	Prefs::writeConfig();
-	close();
-}
-
-void KHangMan::slotAccents()
-{
- 	m_view->accent_b = Prefs::accentedLetters();
-	if (m_view->accent_b)
-		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
-	else changeStatusbar("", IDS_ACCENTS);
-	//TODO change these .txt to .kvtml
-	if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
-		changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
-	loadLangToolBar();
-	newGame();
-}
-
-void KHangMan::slotHint()
-{
-	if (m_view->kvtmlBool)  {
-		changeStatusbar(i18n("Hints possible"), IDS_HINT);
-	}
-        m_view->hintBool=Prefs::hint();
-	if ((m_view->kvtmlBool) && (m_view->hintBool))
-		changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
-	if (!Prefs::hint())
-		changeStatusbar(i18n("Hints possible"), IDS_HINT);
-}
-
-void KHangMan::enableHint(bool m_bool)
-{
-	if (m_bool) {
-		m_view->kvtmlBool = true;
-		slotHint();
-	}
-	else 	{
-		m_view->kvtmlBool = false;
-		changeStatusbar("", IDS_HINT);
-	}
-}
-
-void KHangMan::setAccentBool()
-{
-	if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca" || m_view->language == "pt_BR")
-    		m_view->m_accent = true;
-    	else
-		m_view->m_accent = false;
-}
-
-void KHangMan::downloadNewStuff()
-{
-	if ( !mNewStuff )
-		mNewStuff = new KHNewStuff( m_view );
- 	mNewStuff->download();
+    static const char *levelStrings[] = {
+        I18N_NOOP("Easy"),
+        I18N_NOOP("Medium"),
+        I18N_NOOP("Hard"),
+        I18N_NOOP("Animals"),
+    };
+   // currentLevel = levelAct->currentItem();
+   // levelString = levels[currentLevel];
+    //levelString.replace(0, 1, levelString.left(1).lower());
+    
+    //m_view->levelFile = levelString +".kvtml";
+    changeStatusbar(i18n(levelStrings[1]), IDS_LEVEL);
+   // if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
+    //    changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
+   // else
+   //     changeStatusbar("", IDS_ACCENTS);
+    //Prefs::setLevel( currentLevel);
+    //Prefs::setLevelFile(m_view->levelFile);
+    //Prefs::writeConfig();
+    //newGame();
 }
 
 void KHangMan::setLanguages()
 {
-	m_languages.clear();
-	m_languageNames.clear();
-	m_sortedNames.clear();
-	//the program scans in khangman/data/ to see what languages data is found
-	QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
-	if (mdirs.isEmpty()) return;
-	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
-		QDir dir(*it);
-		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-		m_languages.remove(m_languages.find("."));
-		m_languages.remove(m_languages.find(".."));
-	}
-	m_languages.sort();
-	if (m_languages.isEmpty()) return;
-	//find duplicated entries in KDEDIR and KDEHOME
-	for (uint i=0;  i<m_languages.count(); i++)
-	{
-		if (m_languages.contains(m_languages[i])>1)
-			m_languages.remove(m_languages[i]);
-	}
-	//write the present languages in config so they cannot be downloaded
-	KConfig *config=kapp->config();
-	config->setGroup("KNewStuffStatus");
-	for (uint i=0;  i<m_languages.count(); i++)
-	{
-		QString tmp = m_languages[i];
-		if (!config->readEntry(tmp))
-			config->writeEntry(tmp, QDate::currentDate().toString());
-	}
-	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
-	//to find the name of the country
-	//corresponding to the code and the language the user set
-	KConfig entry(locate("locale", "all_languages"));
-	const QStringList::ConstIterator itEnd = m_languages.end();
-	for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
-		entry.setGroup(*it);
-		if (*it == "sr")
-			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
-		else if (*it == "sr@Latn") {
-			entry.setGroup("sr");
-			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
-			}
-		else
-			m_languageNames.append(entry.readEntry("Name"));
-	}
-	//never sort m_languageNames as it's m_languages translated 
-	m_sortedNames = m_languageNames;
+    m_languages.clear();
+    m_languageNames.clear();
+    m_sortedNames.clear();
+    //the program scans in khangman/data/ to see what languages data is found
+    QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    if (mdirs.isEmpty()) return;
+    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+        QDir dir(*it);
+        m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+        m_languages.remove(m_languages.find("."));
+        m_languages.remove(m_languages.find(".."));
+    }
+    m_languages.sort();
+    kdDebug() << "languages :" << m_languages << endl;
+    if (m_languages.isEmpty()) return;
+    //find duplicated entries in KDEDIR and KDEHOME
+    QStringList temp_languages;
+    for (uint i=0;  i<m_languages.count(); i++)
+    {
+        if (m_languages.contains(m_languages[i])>1) {
+            temp_languages.append(m_languages[i]);
+            m_languages.remove(m_languages[i]);
+        }
+    }
+    for (uint i=0;  i<temp_languages.count(); i++)
+    {
+        if (i%2==0)
+            m_languages.append(temp_languages[i]);//append 1 of the 2 instances found
+    }
+    temp_languages.clear();
+    //write the present languages in config so they cannot be downloaded
+    KConfig *config=kapp->config();
+    config->setGroup("KNewStuffStatus");
+    for (uint i=0;  i<m_languages.count(); i++)
+    {
+        QString tmp = m_languages[i];
+        if (!config->readEntry(tmp))
+            config->writeEntry(tmp, QDate::currentDate().toString());
+    }
+    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
+    //to find the name of the country corresponding to the code and the language the user set
+    KConfig entry(locate("locale", "all_languages"));
+    const QStringList::ConstIterator itEnd = m_languages.end();
+    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+        entry.setGroup(*it);
+        if (*it == "sr")
+            m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+        else if (*it == "sr@Latn") {
+            entry.setGroup("sr");
+        m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+        }
+        else
+        m_languageNames.append(entry.readEntry("Name"));
+    }
+    //never sort m_languageNames as it's m_languages translated 
+    m_sortedNames = m_languageNames;
 }
 
-void KHangMan::optionsPreferences()
+void KHangMan::loadSettings()
 {
-	setLanguages(); //so the KNewStuff is taken into account
-	Prefs::setLanguageCombobox(m_languages.findIndex(Prefs::selectedLanguage()));
-	Prefs::writeConfig();
-	if ( KConfigDialog::showDialog( "settings" ) )  {
-		mAdvanced->kcfg_LanguageCombobox->clear();
-		mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
-		mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
-        	return;
-	}
-	//KConfigDialog didn't find an instance of this dialog, so lets create it :
-	KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-	normal *mNormal =  new normal( 0, "Normal Settings" );
-	dialog->addPage(mNormal, i18n("Look & Feel"), "colorize");
-	mAdvanced=  new advanced( 0, "Advanced" );
-	mAdvanced->kcfg_Hint->setEnabled( m_view->kvtmlBool);
-	mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
-	mAdvanced->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
-	mAdvanced->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
-	dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
-	connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
-	dialog->show();
+    // Language
+    selectedLanguage = Prefs::selectedLanguage();
+    if (m_languages.grep(selectedLanguage).isEmpty())
+            selectedLanguage = "en";
+    //setLanguage(selectedLanguage);
+    // Level
+   setLevel();
 }
 
-void KHangMan::updateSettings()
+void KHangMan::setLevel()
 {
-	loadDataFiles();
-	setMode_WindowState();
-	changeLanguage(m_languageNames.findIndex(m_sortedNames[mAdvanced->kcfg_LanguageCombobox->currentItem()]));
-	//TODO update widgets in config regarding change of language
-    	// Softer Pictures
-	//TODO call this slot only if prefs have changed betwen mild and norm
-	m_view->slotMilder();
-	//Accented Letters
-	if (m_view->accent_b != Prefs::accentedLetters())
-		slotAccents();
-	m_view->readFile();
-	//Enable hint or not
-	if (m_view->hintBool != Prefs::hint())  {
-    		m_view->hintBool= Prefs::hint();
-		slotHint();
-	}
-	//One letter only mode
-	if (m_view->b_oneLetter != Prefs::oneLetter())  {
-		m_view->b_oneLetter = Prefs::oneLetter();
-		newGame();
-	}
+    if (currentLevel > (uint) levels.count()) currentLevel= 0;
+    if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
+        //set first file in the levels StringList
+        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
+        Prefs::writeConfig();
+        currentLevel = 0;
+        }
+//    m_view->levelFile = Prefs::levelFile();
+    levelString = levels[currentLevel];
+    levelString.replace(0, 1, levelString.left(1).lower());
+    //levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
+   // m_view->levelFile = levelString +".kvtml";
+    //update the Levels in Level combobox as well
+   // setLevel_WindowState();
 }
 
-QString KHangMan::charIcon(const QChar & c)
+void KHangMan::loadLevels()
 {
-	///Create a name and path for the icon
-	QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
-
-	///No need to redraw if it already exists
-	// if (KStandardDirs::exists(s))
-	// return s;
-
-	QRect r(4, 4, 120, 120);
-
-	///A font to draw the character with
-	QFont font;
-	if (m_view->language=="cs" || m_view->language=="hu" || m_view->language == "sk")
-		font.setFamily( "Arial" );
-	else
-		font.setFamily( "URW Bookman" );
-	font.setPixelSize(120);
-	font.setWeight(QFont::Normal);
-
-	///Create the pixmap
-	QPixmap pm(128, 128);
-	pm.fill(Qt::white);
-	QPainter p(&pm);
-	p.setFont(font);
-	p.setPen(Qt::black);
-	p.drawText(r, Qt::AlignCenter, (QString) c);
-
-	///Create transparency mask
-	QBitmap bm(128, 128);
-	bm.fill(Qt::color0);
-	QPainter b(&bm);
-	b.setFont(font);
-	b.setPen(Qt::color1);
-	b.drawText(r, Qt::AlignCenter, (QString) c);
-
-	///Mask the pixmap
-	pm.setMask(bm);
-
-	///Save the icon to disk
-	pm.save(s, "PNG");
-
-	return s;
+    //build the Level combobox menu dynamically depending of the data for each language
+    levels.clear();//initialize QStringList levels
+    KStandardDirs *dirs = KGlobal::dirs();
+    kdDebug() << "SelectedLanguage " << selectedLanguage << endl;
+    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.kvtml");
+    if (!mfiles.isEmpty())
+    {
+        for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+            QFile f( *it);
+            //find the last / in the file name
+            int location = f.name().findRev("/");
+            //strip the string to keep only the filename and not the path
+            QString mString = f.name().right(f.name().length()-location-1);
+            mString = mString.left(mString.length()-6);
+            //Put the first letter in Upper case
+            mString = mString.replace(0, 1, mString.left(1).upper());
+        levels+=mString;
+    }
+    //TODO else tell no files had been found
+    }
+    levels.sort();
+    //find duplicated entries in KDEDIR and KDEHOME
+    for (uint i=0;  i<levels.count(); i++)
+    {
+        if (levels.contains(levels[i])>1)
+            levels.remove(levels[i]);
+    }
+    kdDebug() << "Levels: " << levels << endl;
+    QStringList translatedLevels;
+    for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+        translatedLevels+=i18n((*it).utf8());
+    levelAct->setItems(translatedLevels);
 }
 
 #include "khangman.moc"

@@ -15,19 +15,23 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+
 #include "khangman.h"
 #include "version.h"
 
-#include <dcopclient.h>
+#include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
+#include <klocale.h>
 
 static const char description[] =
     I18N_NOOP("Classical hangman game for KDE");
 
+static const char version[] = "0.1";
+
 static KCmdLineOptions options[] =
 {
-    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
+//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
     KCmdLineLastOption
 };
 
@@ -99,37 +103,30 @@ int main(int argc, char **argv)
                              I18N_NOOP("SVG icon"), "danny@dannyallen.co.uk");
    aboutData.addCredit("Peter Hedlund",
                              I18N_NOOP("Code for generating icons for the characters toolbar"), "peter@peterandlinda.com");
-
     KCmdLineArgs::init( argc, argv, &aboutData );
-    KCmdLineArgs::addCmdLineOptions(options);
+    KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
+    KHangMan *mainWin = 0;
 
-    // register ourselves as a dcop client
-    app.dcopClient()->registerAs(app.name(), false);
-
-    // see if we are starting with session management
     if (app.isRestored())
-        RESTORE(KHangMan)
+    {
+        RESTORE(KHangMan);
+    }
     else
     {
         // no session.. just start up normally
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-        if (args->count() == 0)
-        {
-            KHangMan *widget = new KHangMan;
-            widget->show();
-        }
-        else
-        {
-            int i = 0;
-            for (; i < args->count(); i++)
-            {
-                KHangMan *widget = new KHangMan;
-                widget->show();
-            }
-        }
+
+        /// @todo do something with the command line args here
+
+        mainWin = new KHangMan();
+        app.setMainWidget( mainWin );
+        mainWin->show();
+
         args->clear();
     }
 
+    // mainWin has WDestructiveClose flag by default, so it will delete itself.
     return app.exec();
 }
+

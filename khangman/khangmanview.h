@@ -18,15 +18,7 @@
 #ifndef KHANGMANVIEW_H
 #define KHANGMANVIEW_H
 
-#include <qpixmap.h>
-
-#include <krandomsequence.h>
-//from libkdeedu
-#include <keduvocdata.h>
-
-#include "mainw.h"
-
-class KPassivePopup;
+class KPushButton;
 class KHangMan;
 
 /**
@@ -35,7 +27,7 @@ class KHangMan;
  * here.
  */
 
-class KHangManView : public MainW
+class KHangManView : public QWidget
 {
     Q_OBJECT
 public:
@@ -44,97 +36,68 @@ public:
 
     virtual ~KHangManView();
 
-    	///parent instance
-    	KHangMan *khangman;
-        ///levelFile is the text file containing the data
-	QString levelFile;
-	///language is the current language for data file
-	QString language;
-	////word is the random word to be guessed
-	QString word;
-	///goodWord is the hidden word that is filled in
-	QString goodWord;
-	///the text on the MissedLetters label
-	QString missedL;
-	///how many times you missed, when it reaches 10, you are hanged
-	int missedChar;
-	///allWords contains all letters already guessed
-	QStringList allWords;
-	///mode is the background mode: "nobg", "blue" or "nature"
-	QString mode;
-        ///contains the pixmap for the blue background mode
-	QPixmap bluePix;
-        ///contains the pixmap for the nature background mode
-	QPixmap naturePix;
-	///store temporarily the previous word to check it's not the same twice
-	QString temp;
-	///store the hint when there is one
-	QString tip;
-	
-	QString stripWord, sword;
-	
-	int c, d, f, g;
-	///true if Type accents is enabled for the languages that support it
-	bool accent_b;
-	///true if language = es, ca, pt or pt_BR
-	bool m_accent;
-	///true if hint is enabled for the fiels that support it
-	bool hintBool;
-	///if the data file is a kvtml file thus has hints
-	bool kvtmlBool;
-	///tmp is to check if not twice the same random number
-	int tmp;
-	///true if only one instance of each letter is displayed
-	bool b_oneLetter;
-	///If true, the uppercase and lower case are disctincts (world capitals)
-	bool upperBool;
-	
+    ///parent instance
+    KHangMan *khangman;
+    QPixmap seaPicture;
+    void paintHangman();
 signals:
-	/**
-	* Use this signal to change the content of the statusbar
-	*/
-	void signalChangeLanguage(int);
-	//emit this signal to say if this is a kvtml file or not (hints enabled or not)
-	void signalKvtml(bool);
-private:
-	///necessary to have it all resize correctly
-	void resizeEvent(QResizeEvent *);
-	///KDE random generator
-	KRandomSequence random;
-	///the hangman pictures
-	QPixmap px[11];
-        ///the background image
-	QPixmap bgPixmap;
-	///If true, the word contains the QString
- 	bool containsChar(const QString &);
-	void replaceLetters(const QString &);
 
-  
+private:
+    KLineEdit *charWrite;;
+
+    QColor m_fillColor;
+
+    KPushButton *guessButton;
+    bool miss_bool;
+
 protected:
-        ///Enable hints on mouse right click if Hints exist
-        virtual void mousePressEvent(QMouseEvent *mouse);
+
+    ///Paint the texts
+    void paintEvent( QPaintEvent * );
+    ///necessary to have it all resize correctly
+    void resizeEvent(QResizeEvent *);
+    ///set the background pixmap to the QPixmap argument
+    void slotSetPixmap(QPixmap& );
+
+    void game();
+    QString missedL;
+
+    QString temp;
+    ///store the hint when there is one
+    QString tip;
+    
+    QString stripWord, sword;
+    
+    int c, d, f, g;
+    ///word is the random word to be guessed
+    QString word;
+    ///goodWord is the hidden word that is filled in
+    QString goodWord;
+    ///how many times you missed, when it reaches 10, you are hanged
+    int missedChar;
+    ///tmp is to check if not twice the same random number
+    int tmp;
+    ///true if only one instance of each letter is displayed
+    bool b_oneLetter;
+    ///true if Type accents is enabled for the languages that support it
+    bool accent_b;
+    ///true if language = es, ca, pt or pt_BR
+    bool m_accent;
+    ///allWords contains all letters already guessed
+    QStringList allWords;
+    ///If true, the word contains the QString
+    bool containsChar(const QString &);
+    void replaceLetters(const QString &);
+    QPixmap px[11];
+    
+    void paintMisses();
 
 public slots:
-	///call wipeout(), then call game()
-	void slotNewGame();
-	///called when a letter is typed in the input lineEdit and Enter is pressed
-	void slotTry();
-        ///set the background pixmap to the QPixmap argument
-	void slotSetPixmap(QPixmap& );
-	///called when the Combobox changes to No Background
-	void slotNoBkgd();
-	///called when Settings->Softer HangMan Pictures is checked
-	void slotMilder();
-	///is called if the data file is kvtml hence has tips. read the word and its corrercponding tip from the kvtml file
-	void readFile();
+
 
 private slots:
-
-    	void slotValidate(const QString &);
-    	void game();
-    	void wipeout();
-	void timerDone();
-	void timerDoneWord();
+    void slotTry();
 };
 
 #endif // KHANGMANVIEW_H
+ 
