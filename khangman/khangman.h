@@ -25,6 +25,7 @@
 class KSelectAction;
 class KToggleAction;
 class QPopupMenu;
+class KToolBar;
 
 /**
  * This class serves as the main window for KHangMan.  It handles the
@@ -49,6 +50,8 @@ public:
     virtual ~KHangMan();
 
     uint currentLevel;
+
+    KToolBar *secondToolbar;
 
 private:
     ///hold the current level
@@ -76,7 +79,7 @@ protected:
      */
     void readProperties(KConfig *);
 
-    // watch changes in fullscreen state    
+    // watch changes in fullscreen state
     virtual bool event(QEvent *);
 
 private slots:
@@ -123,7 +126,31 @@ private slots:
 
     void slotToggleFullScreen();
 
-private:
+    void loadLangToolBar();
+
+    void slotPasteAtilde();
+    void slotPasteAgrave();
+    void slotPasteAacute();
+    void slotPasteAumlaut();
+    void slotPasteAwithe();
+    void slotPasteAcircle();
+    void slotPasteCcedil();
+    void slotPasteEacute();
+    void slotPasteEgrave();
+    void slotPasteEcirc();
+    void slotPasteIgrave();
+    void slotPasteIacute();
+    void slotPasteNtilde();
+    void slotPasteOgrave();
+    void slotPasteOacute();
+    void slotPasteOcirc();
+    void slotPasteOcross();
+    void slotPasteOtilde();
+    void slotPasteOumlaut();
+    void slotPasteUumlaut();
+    void slotPasteUacute();
+
+  private:
     void setupAccel();
     void setupActions();
     void setupLangMenu();

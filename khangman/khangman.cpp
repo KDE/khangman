@@ -4,6 +4,7 @@
 
 //Qt headers
 #include <qdir.h>
+#include <qlineedit.h>
 //KDE headers
 #include <kaction.h>
 #include <kconfig.h>
@@ -14,11 +15,13 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
+#include <ktoolbar.h>
+#include <kpushbutton.h>
 //Project headers
 #include "khangman.h"
 
 const int IDS_LEVEL     = 100;
-const int IDS_LANG       = 101;
+const int IDS_LANG      = 101;
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
@@ -55,7 +58,11 @@ KHangMan::KHangMan()
     // then, setup our actions, must be done after the language search
     setupActions();
     loadSettings();
-
+    //toolbar for special characters
+    secondToolbar = toolBar("secondToolbar");
+    loadLangToolBar();
+    //hide it by default
+    secondToolbar->hide();
     setupLangMenu();
 }
 
@@ -105,7 +112,7 @@ void KHangMan::setupActions()
 
 void KHangMan::setupLangMenu()
 {
-    langPopup = static_cast<QPopupMenu*>(factory()->container("languages",this));
+    langPopup = static_cast<QPopupMenu*>(factory()->container("languages", this));
     for (uint index = 0; index < m_sortedNames.count(); index++)
 	langPopup->insertItem(m_sortedNames[index], m_languageNames.findIndex(m_sortedNames[index]), index);
     langPopup->setItemChecked(selectedLanguage, true);
@@ -348,6 +355,7 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
+    loadLangToolBar();
     newGame();
 }
 
@@ -449,6 +457,179 @@ void KHangMan::slotSofter()
         	conf->setGroup( "Settings" );
         	conf->writeEntry( "softer", m_view->softer);
         }
+}
+
+void KHangMan::loadLangToolBar()
+{
+	secondToolbar->clear();
+
+	if (m_view->language == "ca")
+	{
+	secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n("Use this letter"), 2 );
+	secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n("Use this letter"), 3 );
+	secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n("Use this letter"), 4 );
+	secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true, i18n("Use this letter"), 5 );
+	secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n("Use this letter"), 6 );
+	secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n("Use this letter"), 7 );
+	secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n("Use this letter"),8);
+	}
+	else if (m_view->language == "es")
+	{
+	secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n("Use this letter"), 2 );
+	secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n("Use this letter"), 3 );
+	secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true, i18n("Use this letter"), 4 );
+	secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n("Use this letter"), 5 );
+	secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n("Use this letter"), 6 );
+	secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n("Use this letter"), 7 );
+
+	}
+	else if (m_view->language == "da")
+	{
+	secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n("Use this letter"), 2 );
+	secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n("Use this letter"), 3 );
+	}
+	else if (m_view->language == "fi")
+	{
+	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n("Use this letter"), 2 );
+	}
+	else if (m_view->language == "sv")
+	{
+	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n("Use this letter"), 2 );
+	secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n("Use this letter"), 3 );
+	}
+	else if (m_view->language == "pt")
+	{
+	secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true, i18n("Use this letter"), 2 );
+	secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n("Use this letter"), 3 );
+	secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n("Use this letter"), 4 );
+	secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true, i18n("Use this letter"), 5 );
+	secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n("Use this letter"), 6 );
+	secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n("Use this letter"), 7 );
+	secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true, i18n("Use this letter"), 8 );
+	secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true, i18n("Use this letter"), 9 );
+	}
+	else if (m_view->language == "fr")
+	{
+	secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n("Use this letter"), 1 );
+	secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n("Use this letter"), 2 );
+	}
+	else
+	{
+	secondToolbar->hide();
+	//KAction::secondToolbar->setEnabled(false);
+	}
+
+}
+
+void KHangMan::slotPasteCcedil()
+{
+	m_view->charWrite->setText("ç");
+}
+
+void KHangMan::slotPasteAgrave()
+{
+	m_view->charWrite->setText("à");
+}
+
+void KHangMan::slotPasteAacute()
+{
+	m_view->charWrite->setText("á");
+}
+
+void KHangMan::slotPasteIgrave()
+{
+	m_view->charWrite->setText("ì");
+}
+
+void KHangMan::slotPasteIacute()
+{
+	m_view->charWrite->setText("í");
+}
+
+void KHangMan::slotPasteOgrave()
+{
+	m_view->charWrite->setText("ò");
+}
+
+void KHangMan::slotPasteOacute()
+{
+	m_view->charWrite->setText("ó");
+}
+
+void KHangMan::slotPasteUacute()
+{
+	m_view->charWrite->setText("ú");
+}
+
+void KHangMan::slotPasteOcross()
+{
+	m_view->charWrite->setText("Ø");
+}
+
+void KHangMan::slotPasteAcircle()
+{
+	m_view->charWrite->setText("å");
+}
+
+void KHangMan::slotPasteAwithe()
+{
+	m_view->charWrite->setText("æ");
+}
+
+void KHangMan::slotPasteOumlaut()
+{
+	m_view->charWrite->setText("ö");
+}
+
+void KHangMan::slotPasteAumlaut()
+{
+	m_view->charWrite->setText("ä");
+}
+
+void KHangMan::slotPasteAtilde()
+{
+	m_view->charWrite->setText("ã");
+}
+
+void KHangMan::slotPasteUumlaut()
+{
+	m_view->charWrite->setText("ü");
+}
+
+void KHangMan::slotPasteEacute()
+{
+	m_view->charWrite->setText("é");
+}
+
+void KHangMan::slotPasteNtilde()
+{
+	m_view->charWrite->setText("ñ");
+}
+
+void KHangMan::slotPasteEgrave()
+{
+	m_view->charWrite->setText("è");
+}
+
+void KHangMan::slotPasteEcirc()
+{
+	m_view->charWrite->setText("ê");
+}
+
+void KHangMan::slotPasteOtilde()
+{
+	m_view->charWrite->setText("õ");
+}
+
+void KHangMan::slotPasteOcirc()
+{
+	m_view->charWrite->setText("ô");
 }
 
 #include "khangman.moc"

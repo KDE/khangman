@@ -9,9 +9,9 @@ table
 mur
 porte
 bureau
-Ã©vier
-bibliothÃ¨que
-tÃ©lÃ©vision
+évier
+bibliothèque
+télévision
 cuisine
 cuillère
 couteau

@@ -35,4 +35,7 @@
         <Action name="combo_mode"/>
 </ToolBar>
 
+<ToolBar name="secondToolbar" position="bottom" noMerge="1"><text>Characters</text>
+</ToolBar>
+
 </kpartgui>

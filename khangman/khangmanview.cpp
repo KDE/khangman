@@ -246,6 +246,7 @@ void KHangManView::game()
 	}//end of test
         goodWord ="";
 	mainLabel->setText(goodWord);
+	kdDebug() << word << endl;
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
 	{
