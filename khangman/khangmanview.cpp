@@ -120,9 +120,11 @@ void KHangManView::slotTry()
 				}
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
+				if (language =="de")
+				goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
 				mainLabel->setText(goodWord);
 				sword.remove(QRegExp(" "));
-				if (rightWord.stripWhiteSpace() == sword.stripWhiteSpace()) //you made it!
+				if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) //you made it!
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[10]);
@@ -159,6 +161,8 @@ void KHangManView::slotTry()
 					//um... The word is not guessed... Let's show it...
 					QStringList charList=QStringList::split("",word);
 					QString theWord=charList.join(" ");
+					if (language =="de")
+						theWord = theWord.replace(0,1, theWord.left(1).upper());
 					mainLabel->setText(theWord);
 
 					if (KMessageBox::questionYesNo(this, i18n("You are dead. Do you want to play again?")) == 3)
@@ -189,16 +193,18 @@ void KHangManView::replaceLetters(QString sChar)
   }
   if (language=="es" || language == "pt" || language == "ca")
   {
-    if (sChar=="i") replaceLetters(QString("Ã­"));
-    if (sChar=="a") replaceLetters(QString("Ã¡"));
-    if (sChar=="a") replaceLetters(QString("Ã "));
-    if (sChar=="a") replaceLetters(QString("Ã£"));
-    if (sChar=="u") replaceLetters(QString("Ãº"));
-    if (sChar=="o") replaceLetters(QString("Ã³"));
-    if (sChar=="o") replaceLetters(QString("Ã²"));
-    if (sChar=="e") replaceLetters(QString("Ã©"));
-    if (sChar=="e") replaceLetters(QString("Ã¨"));
-    if (sChar=="u") replaceLetters(QString("Ã¼"));
+  //characters must be lisible as ISO 8859-1 and file must be saved with this encoding. 
+    if (sChar=="i") replaceLetters(QString("í"));
+    if (sChar=="a") replaceLetters(QString("à"));
+    if (sChar=="a") replaceLetters(QString("á"));
+    if (sChar=="a") replaceLetters(QString("ã"));
+    if (sChar=="u") replaceLetters(QString("ü"));
+    if (sChar=="o") replaceLetters(QString("ò"));
+    if (sChar=="o") replaceLetters(QString("ó"));
+    if (sChar=="o") replaceLetters(QString("õ"));
+    if (sChar=="e") replaceLetters(QString("è"));
+    if (sChar=="e") replaceLetters(QString("é¨"));
+    if (sChar=="u") replaceLetters(QString("ù"));
   }
 	allWords << sChar; //appends the list...
 }
@@ -209,11 +215,11 @@ bool KHangManView::containsChar(QString &sChar)
 
   if (language=="es" || language =="pt" || language == "ca")
   {
-    if (sChar=="i") b = word.contains(QString("Ã­")) > 0;
-    if (sChar=="a") b = word.contains(QString("Ã¡")) > 0 || word.contains(QString("Ã£")) > 0 || word.contains(QString("Ã ")) > 0;
-    if (sChar=="u") b = word.contains(QString("Ãº")) > 0 || word.contains(QString("Ã¼")) > 0;
-    if (sChar=="o") b = word.contains(QString("Ã³")) > 0 || word.contains(QString("Ã²")) > 0;
-    if (sChar=="e") b = word.contains(QString("Ã©")) > 0 || word.contains(QString("Ã¨")) > 0;
+    if (sChar=="i") b = word.contains(QString("í")) > 0;
+    if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
+    if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
+    if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
+    if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
   }
 
   return ((word.contains(sChar) > 0) || b);
@@ -253,13 +259,14 @@ void KHangManView::game()
 		temp=word;
 	else
 	{
-		while (word==temp)
+		while (word.lower()==temp.lower())
 			word = allData[random.getLong(objects)];
 		temp=word;
 	}//end of test
+	kdDebug() << word << endl;
+	word = word.lower(); //because of German
         goodWord ="";
 	mainLabel->setText(goodWord);
-	kdDebug() << word << endl;
 	//display the number of letters to guess with _
 	for(unsigned int i = 0; i < word.length(); i++)
 	{
@@ -279,8 +286,8 @@ void KHangManView::game()
 		d = word.find( " ", c+1);
 		if (d>0)  goodWord.replace(2*d, c+1, " ");
 	}
-	int e = word.find( "Â·" );
-	if (e>0) goodWord.replace(2*e, 1, "Â·");
+	int e = word.find( "·" );
+	if (e>0) goodWord.replace(2*e, 1, "·");
 	mainLabel-> setText(goodWord);//display the _
 	mainLabel->setAlignment(AlignCenter|AlignCenter);
 }
