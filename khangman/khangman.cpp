@@ -37,6 +37,7 @@
 //str[30] : store the words for level 'easy'
 //sto[26] store the already guessed letters
 
+int wordsnum=44;     //number of words/lines per data text files
 int  rd, k, z, y1, te, length, inc, b, u, ind=0, c0, c1, drap, drap2;
 QString let1, a1, s[20],st, str[45], sto[26];
 
@@ -53,18 +54,17 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	Layout4->setSpacing( 6 );
 	Layout4->setMargin( 0 );
 
-	help = new QPushButton(i18n( "Help"), this,"help" );
+	help = new QPushButton(i18n( "&Help"), this,"help" );
 	help->setGeometry
 	(10,350, 60, 40);
 	help->setFont(QFont("Helvetica", 20, QFont::Bold));
 	QToolTip::add( help,i18n( "The KHangMan HandBook") );
 	//accel2 : enable F1 for 'Help'
-	//refused in porting to kde2
-	//accel2=new KAccel(this);
-	//accel2->connectItem(KAccel::Help, this , SLOT(slotHelp()));
+	accel2=new KAccel(this);
+	accel2->connectItem(KStdAccel::Help, this , SLOT(slotHelp()));
 	Layout4->addWidget( help );
 
-	info = new QPushButton(i18n( "Info"), this,"info" );
+	info = new QPushButton(i18n( "&Info"), this,"info" );
 	info->setFont(QFont("Helvetica", 20, QFont::Bold));
 	QToolTip::add( info,i18n( "Quick Information") );
 	QObject::connect (info, SIGNAL(clicked()), this, SLOT(slotInfo()));
@@ -84,10 +84,14 @@ KHangMan::KHangMan(QWidget *parent, const char *name) : QWidget(parent, name)
 	QObject::connect( level, SIGNAL(activated(int)),SLOT(choice(int)));
 	Layout4->addWidget( level );
 
-	quit = new QPushButton(i18n( "Quit"), this,"quit" );
+	quit = new QPushButton(i18n( "&Quit"), this,"quit" );
 	quit->setFont(QFont("Helvetica", 20, QFont::Bold));
 	QToolTip::add( quit,i18n( "Quit the game") );
 	QObject::connect (quit, SIGNAL(clicked()), this, SLOT(slotquit()));
+   QAccel *a = new QAccel( quit );        // create accels for comb1
+	a->connectItem( a->insertItem(Key_Q+CTRL), // adds CTRL-Q accelerator
+	                this,                  // connected to this'
+	                SLOT(slotquit()) );
 	Layout4->addWidget( quit );
 
 	QSpacerItem* spacer4 = new QSpacerItem( 20, 20, QSizePolicy::Expanding,
@@ -320,7 +324,7 @@ void KHangMan::game()
 	drap2=0;
 	//seed random function
 	srand((unsigned int)time((time_t *)NULL));
-	rd=rand()%44;  //pick a random number
+	rd=rand()%wordsnum;  //pick a random number
 
 	//02 char name[20];  //store the letters of the word
 	QString name;  //store the letters of the word
@@ -559,7 +563,7 @@ void  KHangMan:: slotquit()
 //display the KHangMan HandBook
 void KHangMan::slotHelp()
 {
-	kapp->invokeHTMLHelp("","");
+	kapp->invokeHelp("","");
 }
 
 //display a screen with a quick information
@@ -600,7 +604,7 @@ void KHangMan::test1()
 	if (helpla->isVisible()==true)
 		helpla->hide();
 }
-//store the words for level 'easy'
+//open the text files that store the words for the different levels
 void KHangMan::choice1()
 {
 	int count=0;
