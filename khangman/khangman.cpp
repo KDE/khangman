@@ -107,7 +107,7 @@ pixImage->setPixmap(px[10]);
 		goodWord.append("_ ");
 	}
 
-	kdDebug() << word << endl;
+	//kdDebug() << word << endl;
 	mainLabel-> setText(goodWord);
 }
 
@@ -164,7 +164,7 @@ void KHangMan::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[12]);
-					if (KMessageBox::questionYesNo(this, "Congratulations! You won!... Wanna play again?") == 3)
+					if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won!... Wanna play again?")) == 3)
 					{
 						slotNewGame();
 					}
@@ -188,7 +188,7 @@ void KHangMan::slotTry()
 				{
 					//we reset everything...
 					pixImage->setPixmap(px[11]);
-					if (KMessageBox::questionYesNo(this, "You are dead... Wanna play again?") == 3)
+					if (KMessageBox::questionYesNo(this, i18n("You are dead... Wanna play again?")) == 3)
 					{
 						slotNewGame();
 					}
@@ -202,7 +202,7 @@ void KHangMan::slotTry()
 		}
 		else //do something drastic... Word has already been guessed...
 		{
-			KMessageBox::information (this, "The letter has already been guessed...");
+			KMessageBox::information (this, i18n("The letter has already been guessed..."));
 		}
 	}
 	kdDebug() <<word.contains(sChar) << endl;
