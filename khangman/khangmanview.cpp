@@ -150,20 +150,14 @@ void KHangManView::slotTry()
 					stripWord.replace(2*(d-1), 1, "");
 					stripWord.replace(2*(d-1)-1, 1, "");
 				}
-				if (g>0)  {
-					stripWord.replace(2*f, 1, "");
-					stripWord.replace(2*f-1, 1, "");
-				}
-				if (g>0)  {
-					stripWord.replace(2*(g-1), 1, "");
-					stripWord.replace(2*(g-1)-1, 1, "");
-				}
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				if (language =="de")
 					goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
 				mainLabel->setText(goodWord);
 				sword.remove(QRegExp(" "));
+				kdDebug() << "sword: " << sword << endl;
+				kdDebug() << "rightWord: " << rightWord << endl;
 				if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) //you made it!
 				{
 					//we reset everything...
