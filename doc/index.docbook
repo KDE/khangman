@@ -224,6 +224,9 @@ Medium regards nouns a bit more challenging, hard is quite difficult and animals
 <para>
  All words are nouns. No verbs, no adjectives. The chosen level is then displayed on the statusbar.
 </para>
+<para>
+Only letters are allowed to be typed in the field.
+</para>
 </sect1>
 </chapter>
 
