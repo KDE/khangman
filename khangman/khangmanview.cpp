@@ -38,6 +38,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     khangman = parent;
     //get background from config file - default is sea
     seaPicture = QPixmap(locate("data","khangman/pics/sea_theme.png") );
+    bluePic = QPixmap(locate("data","khangman/pics/blue.png") );
     //now we preload the pixmaps...
     px[0].load(locate("data","khangman/pics/animation0.png"));
     px[1].load(locate("data","khangman/pics/animation1.png"));
@@ -167,13 +168,14 @@ void KHangManView::paintWord()
     paint.begin(paletteBackgroundPixmap());
     paint.setPen( QColor(148, 156, 167));
     paint.setFont(QFont("Arial", 32));
-    QRect aux;
+    paint.drawPixmap(QRect(width()/50-100, height()-height()/10-80, width()*366/700, height()*126/535), bluePic);
+       //QRect aux;
     //TODO the rectangle does not adapt correctly to the word size
-    aux = paint.boundingRect(QRect(), AlignLeft, goodWord);
-    aux.moveBy(width()/50, height()-height()/10);
+       // aux = paint.boundingRect(QRect(), AlignLeft, goodWord);
+        //aux.moveBy(width()/50, height()-height()/10);
     //TODO fill it so it blends into the background
-    paint.fillRect(aux, QColor(41, 60, 123));
-    paint.drawText(aux, AlignLeft, goodWord);
+        //paint.fillRect(aux, QColor(41, 60, 123));
+    paint.drawText(width()/50, height()-height()/10, goodWord);
     //paint.setPen( QColor(148, 156, 167));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());

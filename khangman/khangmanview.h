@@ -89,7 +89,7 @@ protected:
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
     QPixmap px[11];
-    
+    QPixmap bluePic;
     void paintWord();
     
     void reset();
