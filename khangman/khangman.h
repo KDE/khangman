@@ -137,9 +137,11 @@ private slots:
     void slotPasteAumlaut();
     void slotPasteAwithe();
     void slotPasteAcircle();
+    void slotPasteCacute();
     void slotPasteCcaron();
     void slotPasteCcedil();
     void slotPasteDapos();
+    void slotPasteDbar();
     void slotPasteEcaron();
     void slotPasteEacute();
     void slotPasteEgrave();

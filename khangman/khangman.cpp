@@ -516,6 +516,13 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->insertButton ("s_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 2 );
 		secondToolbar->insertButton ("z_caron.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 3 );
 	}
+	else if (m_view->language == "sr@Latn")	{
+		secondToolbar->insertButton ("c_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteCacute()), true,  i18n("Try ")+ QString::fromUtf8("ć", -1), 1 );
+		secondToolbar->insertButton ("c_caron.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcaron()), true,  i18n("Try ")+ QString::fromUtf8("č", -1), 2 );
+		secondToolbar->insertButton ("d_bar.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteDbar()), true,  i18n("Try ")+ QString::fromUtf8("đ", -1), 3); 
+		secondToolbar->insertButton ("s_caron.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteScaron()), true,  i18n("Try ")+ QString::fromUtf8("š", -1), 4 );
+		secondToolbar->insertButton ("z_caron.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteZcaron()), true, i18n("Try ")+ QString::fromUtf8("ž", -1), 5 );
+	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 	}
@@ -556,6 +563,11 @@ void KHangMan::slotPasteAwithe()
 	m_view->charWrite->setText(QString::fromUtf8("æ", -1));
 }
 
+void KHangMan::slotPasteCacute()
+{
+	m_view->charWrite->setText(QString::fromUtf8("ć", -1));
+}
+
 void KHangMan::slotPasteCcaron()
 {
 	m_view->charWrite->setText(QString::fromUtf8("č", -1));
@@ -569,6 +581,11 @@ void KHangMan::slotPasteCcedil()
 void KHangMan::slotPasteDapos()
 {
 	m_view->charWrite->setText(QString::fromUtf8("ď", -1));
+}
+
+void KHangMan::slotPasteDbar()
+{
+	m_view->charWrite->setText(QString::fromUtf8("đ", -1));
 }
 
 void KHangMan::slotPasteEacute()
