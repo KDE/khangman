@@ -25,7 +25,7 @@
             </property>
             <property name="whatsThis" stdset="0">
                 <string>&lt;qt&gt;These settings allow you to choose how you want your hangman pictures.
-&lt;b&gt;Mild&lt;/b&gt; is default and the hangman holds the rope with the hand.
+&lt;b&gt;Mild&lt;/b&gt; is default and the hangman holds the rope with his hand.
 &lt;b&gt;Normal&lt;/b&gt; is when the man is hanged by the neck.&lt;/qt&gt;</string>
             </property>
             <grid>
@@ -74,8 +74,8 @@
                 <string>Background Picture</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>You can choose here the background picture for the game. In No background mode (default), the background stays grey. Blue theme and nature theme are nice backgrounds pictures where everything is blended into the background.
-The choosen background will be restored at KHangMan next run.</string>
+                <string>You can choose here the background picture for the game. In No background mode (default), the background stays gray. Blue theme and nature theme are nice backgrounds pictures where everything is blended into the background.
+The chosen background will be restored at KHangMan next run.</string>
             </property>
             <grid>
                 <property name="name">
