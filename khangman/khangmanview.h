@@ -33,6 +33,8 @@ public:
 
   //levelFile is the text file containing the data
 	QString levelFile;
+	//transparent indicates if pictures should be transparent
+	bool transparent;
 	//language is the current language for data file
 	QString language;
 	//word is the random word to be guessed
@@ -51,10 +53,12 @@ public:
 	QString temp;
 
 private:
+	void resizeEvent(QResizeEvent *);
 
 	KRandomSequence random;
 	//the hangman pictures
 	QPixmap px[11];
+	QPixmap bgPixmap;
 
   bool containsChar(QString &);
   void replaceLetters(QString);
@@ -65,6 +69,7 @@ public slots:
 	void slotTry();
 	void slotBlue(QPixmap& );
 	void slotNoBkgd();
+	void slotTransparent();
 
 private slots:
 
