@@ -9,7 +9,7 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 
-static const char *description =
+static const char description[] =
     I18N_NOOP("The classical hangman game for KDE-Edu");
 
 static KCmdLineOptions options[] =
