@@ -24,10 +24,11 @@ int main(int argc, char **argv)
                               KHM_VERSION, description, KAboutData::License_GPL,
                               "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
     aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
+    //write the names with accents and all and this file save with utf8 encoding
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
     aboutData.addCredit("Renaud Blanchard",
                             I18N_NOOP("Graphics"), "kisukuma@chez.com");
-    aboutData.addCredit("Stefan Asserhall",
+    aboutData.addCredit("Stefan Asserhäll",
                             I18N_NOOP("Swedish data files, coding help, transparent pictures and i18n fixes"), "stefan.asserhall@telia.com");
     aboutData.addCredit("Joe Bolin",
                             I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
@@ -35,18 +36,22 @@ int main(int argc, char **argv)
                             I18N_NOOP("Blue theme background, icons"), "zerokode@gmx.net");
     aboutData.addCredit("eXParTaKus",
                             I18N_NOOP("Spanish data files"), "expartakus@expartakus.com");
-    aboutData.addCredit("Erik Kjaer Pedersen",
+    aboutData.addCredit("Erik Kjær Pedersenn",
                             I18N_NOOP("Danish data files"), "erik@mpim-bonn.mpg.de" );
     aboutData.addCredit("Niko Lewman",
                             I18N_NOOP("Finnish data files"), "niko.lewman@edu.hel.fi" );
     aboutData.addCredit("João Sebastião de Oliveira Bueno",
                             I18N_NOOP("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
+    aboutData.addCredit("Antoni Bella",
+                            I18N_NOOP("Catalan data files"), "bella5@teleline.es");
     aboutData.addCredit("Matt Howe",
                             I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
     aboutData.addCredit("Benjamin Meyer",
                             I18N_NOOP("Coding help"), "ben@meyerhome.net");
     aboutData.addCredit("Robert Gogolok",
                             I18N_NOOP("Coding help"), "robertgogolok@gmx.de");
+    aboutData.addCredit("Lubos Lunàk",
+                            I18N_NOOP("Coding help"), "l.lunak@kde.org");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;

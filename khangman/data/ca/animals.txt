@@ -6,7 +6,6 @@ cangur
 balena
 cavall
 mono
-pica-soques
 martí pescador
 serpent
 girafa
@@ -23,7 +22,6 @@ lleó
 tigre
 pop
 rinoceront
-porc espí
 ren
 esquirol
 tortuga
