@@ -88,7 +88,6 @@ void KHangManView::slotNewGame()
 	wipeout();
 	game();
 	charWrite->setFocus();
-	kdDebug() << hintBool << endl;
 }
 
 void KHangManView::slotValidate(const QString &text)

@@ -3,12 +3,12 @@
 <kvtml>
 <e>
 <o>cane</o>
-<t>e' il tuo animale domestico preferito</t>
+<t>è il tuo animale domestico preferito</t>
 </e>
 
 <e>
 <o>gatto</o>
-<t>e' un animale domestico</t>
+<t>è un animale domestico</t>
 </e>
 
 <e>
@@ -23,12 +23,12 @@
 
 <e>
 <o>orso</o>
-<t>e' grosso e gli piace il miele</t>
+<t>è grosso e gli piace il miele</t>
 </e>
 
 <e>
 <o>balena</o>
-<t>e' un grosso pesce</t>
+<t>è un grosso pesce</t>
 </e>
 
 <e>
@@ -38,7 +38,7 @@
 
 <e>
 <o>orca</o>
-<t>e' un grosso mammifero di mare</t>
+<t>è un grosso mammifero di mare</t>
 </e>
 
 <e>
@@ -53,7 +53,7 @@
 
 <e>
 <o>tonno</o>
-<t>vive a mare ed e' molto saporito</t>
+<t>vive a mare ed è molto saporito</t>
 </e>
 
 <e>
@@ -83,7 +83,7 @@
 
 <e>
 <o>tartaruga</o>
-<t>e' molto lenta</t>
+<t>è molto lenta</t>
 </e>
 
 <e>
@@ -93,7 +93,7 @@
 
 <e>
 <o>alligatore</o>
-<t>e' silenziso e pericoloso</t>
+<t>è silenziso e pericoloso</t>
 </e>
 
 <e>
@@ -108,7 +108,7 @@
 
 <e>
 <o>girino</o>
-<t>e' appena nato</t>
+<t>è appena nato</t>
 </e>
 
 <e>
@@ -128,12 +128,12 @@
 
 <e>
 <o>chiocciola</o>
-<t>com'e' lenta!</t>
+<t>com'è lenta!</t>
 </e>
 
 <e>
 <o>lumaca</o>
-<t>non e' per nulla veloce!</t>
+<t>non è per nulla veloce!</t>
 </e>
 
 <e>
@@ -198,7 +198,7 @@
 
 <e>
 <o>coniglio</o>
-<t>quante carote vorr�?</t>
+<t>quante carote vorrà?</t>
 </e>
 
 <e>
@@ -208,7 +208,7 @@
 
 <e>
 <o>porcellino</o>
-<t>e' sempre sporco</t>
+<t>è sempre sporco</t>
 </e>
 
 <e>
@@ -228,7 +228,7 @@
 
 <e>
 <o>puma</o>
-<t>corre molto ed e' pericoloso</t>
+<t>corre molto ed è pericoloso</t>
 </e>
 
 <e>
@@ -253,7 +253,7 @@
 
 <e>
 <o>maialino</o>
-<t>non e' abituato alla pulizia</t>
+<t>non è abituato alla pulizia</t>
 </e>
 
 <e>
@@ -268,7 +268,7 @@
 
 <e>
 <o>dinosauro</o>
-<t>e' vissuto tanti anni fa</t>
+<t>è vissuto tanti anni fa</t>
 </e>
 
 <e>
@@ -278,12 +278,12 @@
 
 <e>
 <o>acquila</o>
-<t>e' un volatile di stirpe nobile</t>
+<t>è un volatile di stirpe nobile</t>
 </e>
 
 <e>
 <o>pesce</o>
-<t>pu� essere di varie specie: di lago, di mare</t>
+<t>può essere di varie specie: di lago, di mare</t>
 </e>
 
 <e>
@@ -293,7 +293,7 @@
 
 <e>
 <o>cammello</o>
-<t>e' indispensabile nel deserto</t>
+<t>è indispensabile nel deserto</t>
 </e>
 
 <e>
