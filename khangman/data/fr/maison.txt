@@ -1,23 +1,97 @@
-chaise
-tabouret
-fourchette
-assiette
-plante
-chambre
-douche
-table
-mur
-porte
-bureau
-évier
-bibliothèque
-télévision
-cuisine
-cuillère
-couteau
-verre
-serviette
-baignoire
-canapé
-
+<?xml version="1.0"?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<kvtml>
+ <e>
+ <o>chaise</o>
+ <t>On s'assoit dessus</t>
+ </e>
+  <e>
+ <o>fauteuil</o>
+ <t>On s'assoit dedans</t>
+ </e>
+  <e>
+ <o>casserole</o>
+ <t>On cuit les aliments dedans</t>
+ </e>
+  <e>
+ <o>tabouret</o>
+ <t>Chaise sans dossier</t>
+ </e>
+  <e>
+ <o>fourchette</o>
+ <t>Sert à piquer les aliments</t>
+ </e>
+  <e>
+ <o>assiette</o>
+ <t>On mange dedans</t>
+ </e>
+  <e>
+ <o>plante</o>
+ <t>Décore la maison</t>
+ </e>
+  <e>
+ <o>chambre</o>
+ <t>On y dort</t>
+ </e>
+  <e>
+ <o>douche</o>
+ <t>L'eau qui en coule sert pour nous laver</t>
+ </e>
+  <e>
+ <o>table</o>
+ <t>On mange autour</t>
+ </e>
+  <e>
+ <o>mur</o>
+ <t>On y accroche des tableaux</t>
+ </e>
+  <e>
+ <o>porte</o>
+ <t>On l'ouvre et la ferme</t>
+ </e>
+  <e>
+ <o>bureau</o>
+ <t>On y travaille</t>
+ </e>
+  <e>
+ <o>évier</o>
+ <t>Pour laver les ustensiles</t>
+ </e>
+  <e>
+ <o>bibliothèque</o>
+ <t>Les livres y sont rangés</t>
+ </e>
+  <e>
+ <o>télévision</o>
+ <t>On la regarde pour se distraire</t>
+ </e>
+  <e>
+ <o>cuisine</o>
+ <t>On y prépare les repas</t>
+ </e>
+  <e>
+ <o>cuillère</o>
+ <t>Sert à manger</t>
+ </e>
+  <e>
+ <o>couteau</o>
+ <t>Sert à couper</t>
+ </e>
+  <e>
+ <o>verre</o>
+ <t>On boit dedans</t>
+ </e>
+  <e>
+ <o>serviette</o>
+ <t>On le met autours du cou</t>
+ </e>
+  <e>
+ <o>baignoire</o>
+ <t>On la remplit d'eau pour se laver</t>
+ </e>
+  <e>
+ <o>canapé</o>
+ <t>Confortable pour s'assoir dedans</t>
+ </e>
+ </kvtml>
 
