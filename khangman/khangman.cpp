@@ -27,7 +27,6 @@
 #define KHM_VERSION 0.71
 //rd=random number <=30
 //k to position the labels with letters
-//z and y1 to positionne the labels with guesses letters
 //te : count the number of letters which are shown
 //i=word lenght
 //inc : integer to increment the array of labels for guessed letters
@@ -39,7 +38,7 @@
 //sto[26] store the already guessed letters
 
 int wordsnum=44;     //number of words/lines per data text files
-int  rd, k, z, y1, te, length, inc, b, u, ind=0, c0, c1, drap, drap2;
+int  rd, k, te, length, inc, b, u, ind=0, c0, c1, drap, drap2;
 QString let1, a1, s[20],st, str[45], sto[26];
 
 
@@ -311,11 +310,9 @@ void KHangMan::game()
 	lab8->setPixmap(px[11]);//display the presentation picture
 	lab8->show();
 
-	y1=250 ;
 	te=0;
 	length=0;
 	k=10;
-	z=10 ;
 	inc=0;
 	b=0;
 	u=0;
@@ -472,13 +469,6 @@ void KHangMan::slotShow()
 
 	lab8->setPixmap(px[c0]);  //display pictures of the hangman
 	lab8->show();
-
-	z=z+20;
-	if (z>220)
-	{
-		z=10;
-		y1=290;
-	}
 
 	sto[te]=a1;
 	te=te+1;
