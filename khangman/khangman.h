@@ -99,9 +99,6 @@ protected:
      */
     void readProperties(KConfig *);
 
-    // watch changes in fullscreen state
-    virtual bool event(QEvent *);
-    
    //  virtual void mousePressEvent( QMouseEvent *mouse );
 
 private slots:
@@ -146,7 +143,7 @@ private slots:
 
     void slotSofter();
 
-    void slotToggleFullScreen();
+    void slotSetFullScreen( bool );
 
     void loadLangToolBar();
 
@@ -186,7 +183,6 @@ private slots:
     void setupActions();
     void setupLangMenu();
     void loadDataFiles();
-    void updateFullScreenState();
 
 private:
     ///Main view
