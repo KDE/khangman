@@ -801,6 +801,15 @@ void KHangMan::setLanguages()
 			m_languages.remove(m_languages .find(tmp));
 		}
 	}
+	//write the present languages in config so they cannot be downloaded
+	KConfig *config=kapp->config();
+	config->setGroup("KNewStuffStatus");
+	for (uint i=0;  i<m_languages.count(); i++)
+	{
+		QString tmp = m_languages[i];
+		if (!config->readEntry(tmp))
+			config->writeEntry(tmp, "Thu Apr 8 2004");
+	}
 	//we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
 	//to find the name of the country
 	//corresponding to the code and the language the user set

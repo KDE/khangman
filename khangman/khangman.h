@@ -207,7 +207,7 @@ private slots:
     ///update settings after Settings->Configure KHangMan dialog is closed
     void updateSettings();
 
-  private:
+  protected:
     ///Set up the actions for the menus
     void setupActions();
     ///Set a bool to true for languages that allow Typing Accented Letters
