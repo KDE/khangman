@@ -263,9 +263,6 @@ are. <guimenuitem>Get data in a new language</guimenuitem> will display the Get 
 main window and writing the actual settings in the configuration
 file.</para>
 
-<para>The <guimenu>Languages</guimenu> menu has one or two languages as default: English and your kde language if available (if your &kde; language is one of the following eighteen: Czech, Brazilian Portuguese, Catalan, Danish, Dutch, Finnish, French, German, Hungarian, Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish , Slovenian, Serbian Latin, Serbian Cyrillic, Swedish and Tajik and if you have the corresponding i18n package installed then it will be the default. After your first game, the language you set up the
-last time you used &khangman; is restored.
-</para>
 <para>
 The <guimenu>Levels</guimenu> menu allows you to choose the level, &ie; the difficulty of the word to guess.
 </para>
