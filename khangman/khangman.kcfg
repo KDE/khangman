@@ -8,7 +8,7 @@
       <default code="true">0</default>
     </entry>
     <entry name="LevelFile" type="String">
-      <default>"easy.txt"</default>
+      <default>"animals.txt"</default>
     </entry>
      <entry name="Mode" type="String">
       <label>Mode</label>
