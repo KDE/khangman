@@ -493,7 +493,10 @@ void KHangMan::slotSofter()
 
 void KHangMan::loadLangToolBar()
 {
-	if (secondToolbar->isVisible() && (m_view->language != "en" || m_view->language != "it"))
+	if (m_view->language == "en" || m_view->language == "it" || m_view->language == "nl" )
+	noCharBool = true;
+	else noCharBool = false;
+	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
 	secondToolbar->clear();
  	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
@@ -558,7 +561,7 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->show();
 	}
 	else secondToolbar->hide();
-	if (m_view->language == "en" || m_view->language == "it")//no special chars in those languages
+	if (noCharBool)//no special chars in those languages
 		secondToolbar->hide();
 }
 

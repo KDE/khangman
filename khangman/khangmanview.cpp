@@ -398,7 +398,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 		myPopup = new KPassivePopup(TextLabel3);
 		myPopup->setView(i18n("Hint"), tip );
 		myPopup->setPalette(QToolTip::palette());
-		myPopup->setTimeout(4000); //shows for 4 seconds
+		myPopup->setTimeout(4000); //show for 4 seconds
 		myPopup->show();
 	}
         update();//this is nice!

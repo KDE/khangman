@@ -80,10 +80,12 @@ private:
     int defaultLang;
     ///the different data files in each language dir
     QStringList levels;
-
+    ///true if the Special Characters toolbar is checked to be shown
     bool m_bCharToolbar;
     ///if the data file is a kvtml file thus has hints
     bool kvtmlBool;
+    ///true if the language has no special char as en, it and nl
+    bool noCharBool;
 
 protected:
     /**
