@@ -88,7 +88,7 @@ void KHangMan::setupActions()
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-    transAct = new KToggleAction(i18n("&Transparent pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
+    transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
 
     QStringList levels;
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
@@ -102,13 +102,13 @@ void KHangMan::setupActions()
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
     QStringList modes;
-    modeAct = new KSelectAction(i18n("Look and Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
+    modeAct = new KSelectAction(i18n("Look & Feel"), 0, this, SLOT(changeMode()),  actionCollection(), "combo_mode");
     modes += i18n("No Background");
     modes += i18n("Blue Theme");
     modes += i18n("Nature Theme");
     modeAct->setItems(modes);
-    modeAct->setToolTip(i18n( "Choose the Look and Feel" ));
-    modeAct->setWhatsThis(i18n( "Check the Look and Feel" ));
+    modeAct->setToolTip(i18n( "Choose the look and feel" ));
+    modeAct->setWhatsThis(i18n( "Check the look and feel" ));
 
     createGUI("khangmanui.rc");
 }
