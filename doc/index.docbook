@@ -386,12 +386,12 @@ Only letters are allowed to be typed in the field.
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>A</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Type Accented Letters</guimenuitem>
 </menuchoice></term>
-<listitem><para>Allow to type accented letters on their own
+<listitem><para>Allow to type accented letters on their own (in Catalan, Portuguese and Spanish)
 </para></listitem>
 </varlistentry>
 <varlistentry>
@@ -451,6 +451,8 @@ are stored in 4 separate files, one for each level. The files are in
    language needs. The number of words in a file is not important, you can add some if you
    want.</para>
 
+<para>Remember that all words are nouns.</para>
+
   <para> Note that you must use UTF-8 encoding when editing the files. If your
    editor can't do this, try using kwrite or kate. When opening a file in
    kwrite or kate you can select utf8 encoding with the top right combo box.
@@ -489,8 +491,37 @@ are stored in 4 separate files, one for each level. The files are in
 Please don't commit the Makefile and Makefile.in, only the Makefile.am is necessary.
 </para>
 
-</sect1>
+<note><para>If you want to have hints in the new language, then you will have more work to do. You will have to use the kvtml format and the best thing to do is to have a look at French or Italian data. The tag &lt;o&gt; is for the word and &lt;t&gt; for the hint. Try to match the hint with the level of difficulty. The level 'Easy' will require an easy hint but the level 'Hard' will require the definition in the dictionary. Try not to use words of the same family in the hint, that would give the word away too easily!</para>
+<para>
+An example of a kvtml file is as follow:
+<screen>
+&lt;?xml version="1.0"?&gt; 
+&lt;!DOCTYPE kvtml SYSTEM "kvoctrain.dtd"&gt; 
+&lt;kvtml&gt; 
+&lt;e&gt; 
+&lt;o&gt;cane&lt;/o&gt; 
+&lt;t&gt;&egrave; il tuo animale domestico preferito&lt;/t&gt; 
+&lt;/e&gt; 
+...
+...
+&lt;/kvtml&gt;
+</screen>
+</para>
+</note>
 
+</sect1>
+<sect1 id="planned-features">
+<title>Planned Features for KHangMan</title>
+<para>
+As the number of languages increases for the data, it will be necessary to stop adding them in the programme. We plan to have only a few languages as English, French, German and Spanish shipped with KHangMan and the other languages will be available in the i18n module and as download. KHangMan will make use of the KNewStuff class to have a wizard that will allow the user to download and install easily some additional languages. This will also be done for KLettres and KStars as we don't want to increase the size of the kdeedu module.
+</para>
+<para>
+Another planned feature is of course to have hints in every langugage.
+</para>
+<para>
+What can also be done is to use other kvtml files like the ones that are on the KDE-Edu website to play KHangMan. For example, imagine you can play the capitals of the world, the hint will tell you the country and you have to guess the capital. Or learn words in another language, the hint is the word in your language, the word to guess is the translation in the new language.
+</para>
+</sect1>
 </chapter>
 
 <chapter id="faq">
