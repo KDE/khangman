@@ -22,18 +22,23 @@ KHangManPreferences::KHangManPreferences()
     : KDialogBase(TreeList, i18n("KHangMan Preferences"),
                   Help|Default|Ok|Apply|Cancel, Ok)
 {
+     enableButton( Apply, false);
+     configChanged = false;
+
     QFrame *frame;
     frame = addPage(i18n("Game"), i18n("Look & Feel and Level"));
     m_pageOne = new KHangManPrefPageOne(frame);
 
-   // frame = addPage(i18n("Your own file"), i18n("Choose a new file"));
-   // m_pageTwo = new KHangManPrefPageTwo(frame);
+     // frame = addPage(i18n("Your own file"), i18n("Choose a new file"));
+     // m_pageTwo = new KHangManPrefPageTwo(frame);
 
-	readConfig();
-	slotSet();
-	cancelBool=false;
-	QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotMode(int)));
-	QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
+    readConfig();
+    slotSet();
+    cancelBool=false;
+    QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotMode(int)));
+    QObject::connect(m_pageOne->buttonGroup, SIGNAL(clicked(int)), this, SLOT(slotChanged()));
+    QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotLevel(int)));
+    QObject::connect(m_pageOne->levelBox, SIGNAL(activated(int)), this, SLOT(slotChanged()));
 }
 
 KHangManPrefPageOne::KHangManPrefPageOne(QWidget *parent)
@@ -75,17 +80,20 @@ void KHangManPreferences::slotDefault()
 //Apply changes made in the dialog and close the dialog
 void KHangManPreferences::slotOk()
 {
-	writeConfig();
+	if( configChanged )
+     	   slotApply();
 	accept();
 }
 
-//Apply changes made in the dialog and leave the dialog close
+//Apply changes made in the dialog and disable the Apply button
 void KHangManPreferences::slotApply()
 {
+	enableButton( Apply, false );
+        configChanged = false;
 	writeConfig();
 }
 
-//Don't validate the changes in the dialog and close the dialog
+//Don't validate the new changes in the dialog (after Apply was hit) and close the dialog
 void KHangManPreferences::slotCancel()
 {
 	cancelBool=true;
@@ -125,6 +133,8 @@ void KHangManPreferences::slotMode(int id)
 		modeString="nature";
 		break;
 	}
+	enableButton( Apply, false );
+        configChanged = false;
 }
 
 void KHangManPreferences::slotLevel(int id)
@@ -145,6 +155,8 @@ void KHangManPreferences::slotLevel(int id)
 	/*case 4:
 		levelString="own";
 		break;*/
+	enableButton( Apply, false );
+        configChanged = false;
 	}
 }
 
@@ -161,5 +173,12 @@ void KHangManPreferences::writeConfig()
 		conf->sync();
 	}
 }
+
+void KHangManPreferences::slotChanged()
+{
+  enableButton( Apply, true );
+  configChanged = true;
+}
+
 
 #include "pref.moc"

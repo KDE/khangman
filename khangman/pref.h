@@ -27,6 +27,8 @@ private:
     KHangManPrefPageOne *m_pageOne;
     KHangManPrefPageTwo *m_pageTwo;
 
+    bool configChanged;
+
 private slots:
 	void readConfig();
 	void writeConfig();
@@ -37,6 +39,7 @@ private slots:
 	void slotSet();
 	void slotMode(int);
 	void slotLevel(int);
+	void slotChanged();
 };
 
 class KHangManPrefPageOne : public pref1ui
