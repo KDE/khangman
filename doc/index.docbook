@@ -145,7 +145,7 @@ Future improvement will allow you to create your own words file or to load a fil
 </para>
 
 <para>
-You can play KHangMan in seven languages: Danish, English, Finnish, French, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
+You can play KHangMan in eight languages: Catalan, Danish, English, Finnish, French, Brazilian Portuguese, Spanish and Swedish. You can easily change the Language by going in the Languages menu and choosing another language.
 </para>
 
 <para>
@@ -183,11 +183,11 @@ in the same level you already are. <menuchoice><guimenuitem>Quit</guimenuitem></
 game by closing the main window and writing the actual settings in the configuration file.
 </para>
 <para>
-The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has six menu items: Danish, English, Finnish, French, Spanish and Swedish.
-As default, if your KDE language is one of those six, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
+The <menuchoice><guimenuitem>Languages menu</guimenuitem></menuchoice> has eight menu items: Catalan, Danish, English, Finnish, French, Portuguese, Spanish and Swedish.
+As default, if your KDE language is one of those eight, then it is set as default otherwise English is chosen. After your first game, the language you set up the last time you used KHangMan is restored.
 </para>
 <para>
-If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language, "&aacute;" are displayed when
+If you play in Spanish, you will need the spanish keyboard layout. Please note that in this language and in Catalan, "&aacute;" are displayed when
 "a" is typed and same for "i", "e", "u" and "o". Furthermore, "&agrave;" are displayed when "a" is typed for Catalan users. In Portuguese, "&atilde;" and "&aacute;" are displayed when "a" is typed.
 </para>
 <para>
@@ -516,10 +516,15 @@ Contributors:
 <listitem><para>Brazilian Portuguese data files: João Sebastião de Oliveira Bueno
 <email>gwidion AT mpc DOT com DOT br
 </email></para> </listitem>
- <listitem><para>Coding help: Robert Gogolok
+<listitem><para>Catalan data files: Antoni Bella
+<email>bella5 AT teleline DOT es
+</email></para> </listitem>
+<listitem><para>Coding help: Robert Gogolok
 <email>robertgogolok AT gmx DOT de</email></para> </listitem>
- <listitem><para>Coding help: Benjamin Meyer
+<listitem><para>Coding help: Benjamin Meyer
 <email>ben AT meyerhome DOT net</email></para> </listitem>
+<listitem><para>Code fixes: Lubos Lun&agrave;k
+<email>l.lunak AT kde DOT org</email></para> </listitem>
 </itemizedlist>
 </para>
 
