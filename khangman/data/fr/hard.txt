@@ -55,7 +55,7 @@
  </e> 
   <e>
  <o>abstentionnisme</o>
- <t>Qui s'abteint de voter</t>
+ <t>Qui s'abtient de voter</t>
  </e> 
   <e>
  <o>dissymétrie</o>

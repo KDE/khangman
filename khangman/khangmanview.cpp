@@ -25,6 +25,7 @@
 #include <qlineedit.h>
 #include <qregexp.h>
 #include <qtooltip.h>
+//#include <qwhatsthis.h>
 //KDE headers
 #include <kapplication.h>
 #include <kdebug.h>

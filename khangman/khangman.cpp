@@ -37,6 +37,7 @@
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
 const int IDS_ACCENTS = 102;
+const int IDS_HINT =         103;
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
@@ -48,6 +49,7 @@ KHangMan::KHangMan()
     statusBar( )->insertItem("   ",IDS_LEVEL, 0);
     statusBar( )->insertItem("   ",IDS_LANG, 0);
     statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
+    statusBar( )->insertItem("   ",IDS_HINT, 0);
     statusBar()->show();
     //the program scans in khangman/data/ to see what languages data is found
     QStringList dirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
@@ -719,9 +721,14 @@ void KHangMan::slotHint()
 		hintAct->setEnabled(false);
 		m_view->hintBool = false;
 	}
-	if ((m_view->language == "fr") && (hintAct->isChecked()==true))
+	if ((m_view->language == "fr") && (hintAct->isChecked()==true)) {
 		m_view->hintBool = true;
-	else  m_view->hintBool = false;
+		changeStatusbar(i18n("Hint mode on right-click"), IDS_HINT);
+		}	
+	else  {
+		m_view->hintBool = false;
+		changeStatusbar(i18n(""), IDS_HINT);
+	}
 }
 
 #include "khangman.moc"
