@@ -172,6 +172,7 @@ private slots:
     void slotPasteSzlig();
     void slotClose();
     void slotAccents();
+    void slotHint();
 
   private:
     void setupAccel();
@@ -188,6 +189,7 @@ private:
     ///Action in the Settings menu to enable/disable transparency pictures
     KToggleAction *transAct;
     KToggleAction *softAct;
+    KToggleAction *hintAct;
     KToggleAction *accentsAct;
     KToggleToolBarAction *secondAct;
     KSelectAction *langAct, *levelAct, *modeAct;

@@ -1,7 +1,7 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
 khangman_SOURCES = mainw.ui khangman.cpp main.cpp khangmanview.cpp
-khangman_LDADD   =  $(LIB_KDEUI)
+khangman_LDADD   =  $(LIB_KDEUI) -lkdeeducore
 
 SUBDIRS = data pics sounds
 
@@ -12,7 +12,7 @@ KDE_ICON = khangman
 xdg_apps_DATA = khangman.desktop
 
 # set the include path for X, qt and KDE
-INCLUDES= $(all_includes)
+INCLUDES= -I$(top_srcdir)/libkdeedu/kdeeducore $(all_includes)
 
 METASOURCES = AUTO
 

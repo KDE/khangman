@@ -21,9 +21,12 @@
 #include <qpixmap.h>
 
 #include <krandomsequence.h>
+//from libkdeedu
+#include <keduvocdata.h>
 
 #include "mainw.h"
 
+class KPassivePopup;
 
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
@@ -64,10 +67,18 @@ public:
 	QPixmap naturePix;
 	///store temporarily the previous word to check it's not the same twice
 	QString temp;
+	QString tip;
 	QString stripWord, sword;
 	int c, d;
 	
 	bool accent_b;
+	
+	bool hintBool;
+	
+	///for tip to be seen
+	KPassivePopup * myPopup;
+	///tmp is to check if not twice the same random number
+	int tmp;
 
 private:
 	///necessary to have it all resize correctly
@@ -82,8 +93,8 @@ private:
   bool containsChar(QString &);
   void replaceLetters(QString);
   
-  protected:
-   virtual void mousePressEvent( QMouseEvent *mouse );
+protected:
+   virtual void mousePressEvent(QMouseEvent *mouse);
 
 public slots:
 
@@ -94,6 +105,7 @@ public slots:
 	void slotNoBkgd();
 	void slotTransparent();
 	void slotSofter();
+	void readFile();
 
 private slots:
 

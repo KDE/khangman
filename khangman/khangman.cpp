@@ -81,6 +81,7 @@ KHangMan::KHangMan()
     loadSettings();
     loadLangToolBar();
     setupLangMenu();
+    slotHint();
     newGame();
 }
 
@@ -111,6 +112,7 @@ void KHangMan::setupActions()
 #endif
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
+    hintAct = new KToggleAction(i18n("&Enable Hint"), CTRL+Key_H, this, SLOT(slotHint()), actionCollection(), "hint");
     accentsAct = new KToggleAction(i18n("&Enable Accented Letters"), CTRL+Key_E, this, SLOT(slotAccents()), actionCollection(), "accents");
 
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(changeLevel()), actionCollection(), "combo_level");
@@ -281,7 +283,11 @@ void KHangMan::loadSettings()
     if (!m_view->accent_b)
 	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);}
     loadDataFiles();
-
+    //Enable hint or not
+    m_view->hintBool = config->readBoolEntry( "hint", true);
+    if (m_view->hintBool) hintAct->setChecked(true);
+    else hintAct->setChecked(false);
+    
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     m_view->levelFile = QString("%1.%1").arg(levelString).arg("txt");
@@ -384,6 +390,7 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
+    slotHint();
     slotAccents();
 }
 
@@ -693,6 +700,8 @@ void KHangMan::slotClose()
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
 	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
 	  conf->writeEntry( "accentedLetters", m_view->accent_b);
+	  if (m_view->language=="fr")
+	  conf->writeEntry( "hint", m_view->hintBool);
         }
 	// then close the main window
 	close();
@@ -708,5 +717,18 @@ void KHangMan::slotAccents()
 	newGame();
 }
 
+void KHangMan::slotHint()
+{
+	if (m_view->language == "fr")
+		hintAct->setEnabled(true);
+	else
+	{
+		hintAct->setEnabled(false);
+		m_view->hintBool = false;
+	}
+	if ((m_view->language == "fr") && (hintAct->isChecked()==true))
+		m_view->hintBool = true;
+	else  m_view->hintBool = false;
+}
 
 #include "khangman.moc"

@@ -21,6 +21,7 @@
 		<Action name="transparent"/>
 		<Action name="softer"/>
 		<Action name="accents"/>
+		<Action name="hint"/>
         </Menu>
 </MenuBar>
 

@@ -1,51 +1,156 @@
-jeu
-meuble
-jardin
-enfant
-légumes
-pomme
-assiette
-bonbon
-chocolat
-cuisine
-chaise
-carotte
-ordinateur
-voiture
-repas
-fleur
-papa
-maman
-orange
-raisin
-rivière
-eau
-fontaine
-banane
-terre
-ciel
-argent
-école
-crayon
-table
-livre
-dessin
-cahier
-télévision
-enfant
-parent
-forêt
-montagne
-arbre
-neige
-pluie
-plage
-sable
-mer
-chambre
-machine
-tracteur
-volcan
-voisin
-voile
-
+<?xml version="1.0"?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<kvtml>
+ <e>
+ <o>jeu</o>
+ <t>Occupe les enfants</t>
+ </e>
+ <e>
+<o>meuble</o>
+ <t>On range des objets dedans</t>
+ </e> <e>
+<o>jardin</o>
+ <t>On y plante les légumes</t>
+ </e> <e>
+<o>enfant</o>
+ <t>Il anime la maison</t>
+ </e> <e>
+<o>légumes</o>
+ <t>On les cultive dans le jardin</t>
+ </e> <e>
+<o>pomme</o>
+ <t>Fruit que l'on trouve toute l'année</t>
+ </e> <e>
+<o>assiette</o>
+ <t>On met les aliments dedans</t>
+ </e> <e>
+<o>bonbon</o>
+ <t>Mauvais pour les dents</t>
+ </e> <e>
+<o>chocolat</o>
+ <t>Mets favori des gourmands</t>
+ </e> <e>
+<o>cuisine</o>
+ <t>On y prépare les repas</t>
+ </e> <e>
+<o>chaise</o>
+ <t>On s'assoit dessus</t>
+ </e> <e>
+<o>carotte</o>
+ <t>Légume favori des lapins</t>
+ </e> <e>
+<o>ordinateur</o>
+ <t>Tu t'en sers en ce moment</t>
+ </e> <e>
+<o>voiture</o>
+ <t>On se déplace dedans</t>
+ </e> <e>
+<o>repas</o>
+ <t>On en prend trois par jour</t>
+ </e> <e>
+<o>fleur</o>
+ <t>On la met dans un vase</t>
+ </e> <e>
+<o>papa</o>
+ <t>Un parent</t>
+ </e> <e>
+<o>maman</o>
+ <t>Un parent</t>
+ </e> <e>
+<o>orange</o>
+ <t>Fruit d'hiver</t>
+ </e> <e>
+<o>raisin</o>
+ <t>On en fait du vin</t>
+ </e> <e>
+<o>rivière</o>
+ <t>Se jette dans la mer</t>
+ </e> <e>
+<o>eau</o>
+ <t>Nous désaltère</t>
+ </e> <e>
+<o>fontaine</o>
+ <t>Source d'eau vive</t>
+ </e> <e>
+<o>banane</o>
+ <t>Fruit jaune d'Afrique</t>
+ </e> <e>
+<o>terre</o>
+ <t></t>
+ </e> <e>
+<o>ciel</o>
+ <t>On le dit bleu</t>
+ </e> <e>
+<o>argent</o>
+ <t>Sert pour faire du troc</t>
+ </e> <e>
+<o>école</o>
+ <t></t>
+ </e> <e>
+<o>crayon</o>
+ <t>On écrit avec</t>
+ </e> <e>
+<o>table</o>
+ <t>On s'assoit autour</t>
+ </e> <e>
+<o>livre</o>
+ <t>Assemblage de feuilles</t>
+ </e> <e>
+<o>dessin</o>
+ <t>Représentation d'un objet</t>
+ </e> <e>
+<o>cahier</o>
+ <t>On écrit dedans</t>
+ </e> <e>
+<o>télévision</o>
+ <t>On la regarde pour se distraire</t>
+ </e> <e>
+<o>enfant</o>
+ <t>Humain jusqu'à l'adolescence</t>
+ </e> <e>
+<o>parent</o>
+ <t>Celui qui a l'autorité</t>
+ </e> <e>
+<o>forêt</o>
+ <t>Se compose d'arbres</t>
+ </e> <e>
+<o>montagne</o>
+ <t>On la grimpe</t>
+ </e> <e>
+<o>arbre</o>
+ <t>Grande plante ayant un tronc</t>
+ </e> <e>
+<o>neige</o>
+ <t>En hiver, en montagne</t>
+ </e> <e>
+<o>pluie</o>
+ <t>Tombe du ciel</t>
+ </e> <e>
+<o>plage</o>
+ <t>Au bord de la mer</t>
+ </e> <e>
+<o>sable</o>
+ <t>Seulement lui dans le désert</t>
+ </e> <e>
+<o>mer</o>
+ <t>Des milliers de gouttes</t>
+ </e> <e>
+<o>chambre</o>
+ <t>L'endroit où on dort</t>
+ </e> <e>
+<o>machine</o>
+ <t>Remplace l'homme dans l'usine</t>
+ </e> <e>
+<o>tracteur</o>
+ <t>Sert pour le travail de la ferme</t>
+ </e> <e>
+<o>volcan</o>
+ <t>Parfois en éruption</t>
+ </e> <e>
+<o>voisin</o>
+ <t>Il habite tout près de nous</t>
+ </e> <e>
+<o>voile</o>
+ <t>Sert à faire avancer le bateau</t>
+ </e> 
+ </kvtml>

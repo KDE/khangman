@@ -24,6 +24,7 @@
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <qregexp.h>
+#include <qtooltip.h>
 //KDE headers
 #include <kapplication.h>
 #include <kdebug.h>
@@ -33,6 +34,7 @@
 #include <kstandarddirs.h>
 //standard C++ headers
 #include <stdlib.h>
+
 
 KHangManView::KHangManView(QWidget *parent, const char *name)
     : MainW(parent, name)
@@ -68,7 +70,9 @@ KHangManView::KHangManView(QWidget *parent, const char *name)
 
 	temp="";
 	missedChar=0;
+	tmp = 0;
 	accent_b = false;
+	tip="";
 
 	connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
 	connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
@@ -242,7 +246,12 @@ void KHangManView::game()
 		                    i18n("Error") );
 		exit(1);
 	}
-
+	if (language=="fr") {
+		readFile();
+	}
+	else
+	{
+	update();
 	//we open the file and store info into the stream...
 	QFile openFileStream(locate("data","khangman/data/")+language+"/"+levelFile);
 	openFileStream.open(IO_ReadOnly);
@@ -265,8 +274,10 @@ void KHangManView::game()
 			word = allData[random.getLong(objects)];
 		temp=word;
 	}//end of test
-	kdDebug() << word << endl;
 	word = word.lower(); //because of German
+	}//end else if lanlanguage=fr
+	kdDebug() << word << endl;
+		
         goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -373,14 +384,40 @@ void KHangManView::slotSofter()
 
 }
 
-void KHangManView::mousePressEvent(QMouseEvent *mouse )
+//Tip on right-click
+void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-	if (mouse->button() == RightButton)
+	if ((hintBool == true) && (mouse->button() == RightButton))
 	{
-		 KPassivePopup::message(i18n("KHangMan"),
-                                     "bla bla", 0L, this, "popup", 0);
+		myPopup = new KPassivePopup(TextLabel3);
+		myPopup->setView(i18n("Hint"), tip );
+		myPopup->setPalette(QToolTip::palette());
+		myPopup->setTimeout(4000); //shows for 4 seconds
+		myPopup->show();
 	}
+        update();//this is nice!
+}
 
+///enable tips
+void KHangManView::readFile()
+{
+	///TODO: be sure it's opened in UNICODE
+	KEduVocDataItemList verbs = KEduVocData::parse(locate("data","khangman/data/")+language+"/"+levelFile);
+	///how many words in the file
+	int NumberOfWords = verbs.count();
+	//pick a number in random
+	int wordNumber = random.getLong(NumberOfWords);
+	//test if not twice the same
+	if (tmp==0)
+		temp=wordNumber;
+	else
+	{
+		while (wordNumber==tmp)
+			wordNumber = random.getLong(NumberOfWords);
+		tmp=wordNumber;
+	}//end of test
+	word = verbs[wordNumber].originalText();
+	tip = verbs[wordNumber].translatedText(); 
 }
 
 
