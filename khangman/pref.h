@@ -22,7 +22,7 @@ public:
     KHangManPreferences();
 
 	QString levelString, modeString;
-	int langNum;
+	int langNum, defaultLang;
 	bool cancelBool;
 	bool levelChanged;
 	bool langChanged;

@@ -45,7 +45,7 @@ KHangMan::KHangMan()
     readSettings();
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
-    //selectedLanguage is the language saved in Settings otherwise it is 0=en
+    //selectedLanguage is the language saved in Settings otherwise it is default or en if no default
     setLanguage(selectedLanguage);
 
     bool enabled;
@@ -90,7 +90,7 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(fileNew()), actionCollection(), "file_new");
-    KStdAction::quit(kapp, SLOT(quit()), actionCollection());
+    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
@@ -260,8 +260,35 @@ void KHangMan::readSettings()
     {
 	levelString = "easy";
 	m_view->levelFile = "easy.txt";
-	selectedLanguage = 0;
+	//selectedLanguage = 0;
     }
+    //see what language the user has set for kde
+    //if fr or en or sp, set that as default at first run
+    if (config->hasKey("myLanguage")==false)
+    {
+	 //load the kdeglobals config file
+	 KConfigBase *config = KGlobal::config();
+	 config->setGroup("Locale");
+         userLanguage = config->readEntry("Language");//, QString::fromLatin1(""), true, true);
+	 //keep only the first 2 characters
+	 userLanguage = userLanguage.left(2);
+	 setSelectedLanguage(userLanguage);
+    }
+    if (modeString.isEmpty())
+    	modeString = "nobg";
+}
+
+void KHangMan::setSelectedLanguage(QString mLanguage)
+{
+	if (mLanguage == "en")
+		selectedLanguage = 0;
+	else if (mLanguage == "fr")
+		selectedLanguage  = 1;
+	else if (mLanguage == "sp")
+		selectedLanguage = 2;
+	else selectedLanguage = 0;
+	defaultLang = selectedLanguage;
+	writeSettings();
 }
 
 //write current settings to config file
@@ -276,6 +303,7 @@ void KHangMan::writeSettings()
 	conf->writeEntry( "mode", modeString);
 	conf->setGroup("Language");
 	conf->writeEntry("myLanguage", selectedLanguage);
+	conf->writeEntry("defaultLang", defaultLang);
      	conf->sync();
   }
 }
@@ -394,5 +422,10 @@ void KHangMan::slotClickApply()
 		fileNew();
 }
 
+void KHangMan::slotQuit()
+{
+	writeSettings();
+	kapp->quit();
+}
 
 #include "khangman.moc"

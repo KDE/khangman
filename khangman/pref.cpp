@@ -66,6 +66,7 @@ void KHangManPreferences::readConfig()
 		modeString = conf->readEntry("mode");
 		conf->setGroup("Language");
    		langNum = conf->readNumEntry("myLanguage");
+		defaultLang = conf->readNumEntry("defaultLang");
 		if (langNum<0 || langNum >2)
 			langNum = 0;
 	}
@@ -76,9 +77,12 @@ void KHangManPreferences::readConfig()
 //Set the system defaults
 void KHangManPreferences::slotDefault()
 {
+	readConfig();
 	levelString="easy";
 	modeString="nobg";
-	langNum = 0;
+	langNum = defaultLang;
+	if (langNum<0 || langNum >2)
+			langNum = 0;
 	slotSet();
 	slotChanged();
 }

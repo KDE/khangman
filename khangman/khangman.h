@@ -46,9 +46,12 @@ public:
     KComboBox *combo;
     KComboBox *comboMode;
     QString levelString, modeString;
+    //the language used in KDE for the user
+    QString userLanguage;
     QString languageActions[4];
     void registerLanguage(const QString &menuItem, const char *actionId, bool enabled);
     void changeLanguage(uint newLanguage);
+    int defaultLang;
 
 protected:
     /**
@@ -69,6 +72,7 @@ public slots:
 
 private slots:
     void fileNew();
+    void slotQuit();
 
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
@@ -81,6 +85,7 @@ private slots:
     void slotMode(int index);
     void isLevel();
     void isMode();
+    void setSelectedLanguage(QString);
 
     void readSettings();
     void writeSettings();
