@@ -45,13 +45,13 @@
     </entry>
     </group>
   <group name="normal">
-     <entry name="Milder" type="Bool">
-      <label>Milder Hangman Pictures</label>
-      <default code="true">true</default>
-    </entry>
-    <entry name="Normal" type="Bool">
-      <label>Normal Hangman Pictures</label>
-      <default code="true">false</default>
+    <entry name="Pictures" type="Enum">
+      <label>HangMan Pictures Style</label>
+      <choices>
+        <choice name="mild"/>
+        <choice name="norm"/>
+      </choices>
+      <default>mild</default>
     </entry>
     <entry name="Mode" type="Enum">
       <label>Background theme</label>

@@ -215,7 +215,7 @@ void KHangManView::slotTry()
 					
 					//usability: change that
 					QString newGameString;
-					if (Prefs::milder()) 
+					if (Prefs::pictures() == Prefs::EnumPictures::mild) 
 						newGameString = i18n("You lost. Do you want to play again?");
 					else
 						newGameString = i18n("You are dead. Do you want to play again?");
@@ -517,7 +517,7 @@ void KHangManView::slotNoBkgd()
 
 void KHangManView::slotMilder()
 {
-	if (Prefs::milder())
+	if (Prefs::pictures() == Prefs::EnumPictures::mild) 
 	{
 		px[6].load(locate("data","khangman/pics/hg7c.png"));
 		px[7].load(locate("data","khangman/pics/hg8c.png"));

@@ -519,7 +519,9 @@ void KHangMan::updateSettings()
 	loadDataFiles();
 	setMode_WindowState();
 	changeLanguage(m_languageNames.findIndex(m_sortedNames[mAdvanced->kcfg_LanguageCombobox->currentItem()]));
+	//TODO update widgets in config regarding change of language
     	// Softer Pictures
+	//TODO call this slot only if prefs have changed betwen mild and norm
 	m_view->slotMilder();
 	//Accented Letters
 	if (m_view->accent_b != Prefs::accentedLetters())
