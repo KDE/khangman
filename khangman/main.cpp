@@ -34,13 +34,15 @@ static KCmdLineOptions options[] =
     };
 
 int main(int argc, char *argv[])
-{
+{ 
 
 	KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
 	                      KHM_VERSION, description, KAboutData::License_GPL,
 	                      "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
 	aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Current maintainer"), "zerokode@gmx.net");
 	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Original maintainer, author"), "annma@kde.org");
+	aboutData.addCredit("Joe Bolin",
+	                    I18N_NOOP("New children\'s background"), "jbolin@zoominternet.net");
 	aboutData.addCredit("Renaud Blanchard",
 	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
     aboutData.addCredit("Whitehawk Stormchaser",
