@@ -157,8 +157,8 @@ void KHangMan::readProperties(KConfig *)
 
 void KHangMan::newGame()
 {
-  // Start a new game
-  m_view->slotNewGame();
+ 	// Start a new game
+  	m_view->slotNewGame();
 }
 
 void KHangMan::optionsConfigureKeys()
@@ -286,7 +286,7 @@ void KHangMan::loadSettings()
     m_view->hintBool = config->readBoolEntry( "hint", true);
     if (m_view->hintBool) hintAct->setChecked(true);
     else hintAct->setChecked(false);
-
+    
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
     setLevel_WindowState();
@@ -382,6 +382,8 @@ void KHangMan::changeLanguage(int newLanguage)
     //update the Levels in Level combobox as well
     setLevel_WindowState();
     setLanguage(newLanguage);
+    if (m_view->hintBool && (m_view->language == "fr" || m_view->language == "it")) 
+    	hintAct->setChecked(true);
     slotHint();
     slotAccents();
 }
@@ -490,87 +492,69 @@ void KHangMan::loadLangToolBar()
 {
 	secondToolbar->clear();
  	if (m_view->language=="es" || m_view->language == "pt" || m_view->language == "ca")
-    	{
      		accentsAct->setEnabled(true);
-    	}
     	else accentsAct->setEnabled(false);
 	 
-	if (m_view->language == "ca")
-	{
-	secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true, i18n(QString("Try à").utf8()), 1 );
-	secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 2 );
-	secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 3 );
-	secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 4 );
-	secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true, i18n(QString("Try ò").utf8()), 5 );
-	secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 6 );
-	secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 7 );
-	secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()),8);
-        //m_bCharToolbar = true;
+	if (m_view->language == "ca")	{
+		secondToolbar->insertButton ("a_grave.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAgrave()), true, i18n(QString("Try à").utf8()), 1 );
+		secondToolbar->insertButton ("c_cedil.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 2 );
+		secondToolbar->insertButton ("e_grave.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 3 );
+		secondToolbar->insertButton ("i_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 4 );
+		secondToolbar->insertButton ("o_grave.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOgrave()), true, i18n(QString("Try ò").utf8()), 5 );
+		secondToolbar->insertButton ("o_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 6 );
+		secondToolbar->insertButton ("u_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 7 );
+		secondToolbar->insertButton ("u_umlaut.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()),8);
 	}
-	else if (m_view->language == "es")
-	{
-	secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
-	secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 2 );
-	secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 3 );
-	secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true, i18n(QString("Try ñ").utf8()), 4 );
-	secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 5 );
-	secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 6 );
-	secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 7 );
+	else if (m_view->language == "es")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
+		secondToolbar->insertButton ("e_acute.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 2 );
+		secondToolbar->insertButton ("i_acute.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 3 );
+		secondToolbar->insertButton ("n_tilde.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteNtilde()), true, i18n(QString("Try ñ").utf8()), 4 );
+		secondToolbar->insertButton ("o_acute.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 5 );
+		secondToolbar->insertButton ("u_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteUacute()), true, i18n(QString("Try ú").utf8()), 6 );
+		secondToolbar->insertButton ("u_umlaut.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 7 );
 	}
-	else if (m_view->language == "da")
-	{
-	secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n(QString("Try ø").utf8()), 1 );
-	secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n(QString("Try æ").utf8()), 2 );
-	secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 3 );
-	//m_bCharToolbar = true;
+	else if (m_view->language == "da")	{
+		secondToolbar->insertButton ("o_cross.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteOcross()), true, i18n(QString("Try ø").utf8()), 1 );
+		secondToolbar->insertButton ("a_withe.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAwithe()), true, i18n(QString("Try æ").utf8()), 2 );
+		secondToolbar->insertButton ("a_circle.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 3 );
 	}
-	else if (m_view->language == "fi")
-	{
-	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2 );
-	//m_bCharToolbar = true;
+	else if (m_view->language == "fi")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2 );
 	}
-	else if (m_view->language == "sv")
-	{
-	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-	secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
-	secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
-	//m_bCharToolbar = true;
+	else if (m_view->language == "sv")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
+		secondToolbar->insertButton ("a_circle.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAcircle()), true, i18n(QString("Try å").utf8()), 2 );
+		secondToolbar->insertButton ("o_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 3 );
 	}
-	else if (m_view->language == "pt")
-	{
-	secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
-	secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true, i18n(QString("Try ã").utf8()), 2 );
-	secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 3 );
-	secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 4 );
-	secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true, i18n(QString("Try ê").utf8()), 5 );
-	secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 6 );
-	secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 7 );
-	secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true, i18n(QString("Try ô").utf8()), 8 );
-	secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true, i18n(QString("Try õ").utf8()), 9 );
+	else if (m_view->language == "pt")	{
+		secondToolbar->insertButton ("a_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAacute()), true, i18n(QString("Try á").utf8()), 1 );
+		secondToolbar->insertButton ("a_tilde.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteAtilde()), true, i18n(QString("Try ã").utf8()), 2 );
+		secondToolbar->insertButton ("c_cedil.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteCcedil()), true, i18n(QString("Try ç").utf8()), 3 );
+		secondToolbar->insertButton ("e_acute.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 4 );
+		secondToolbar->insertButton ("e_circ.png", 50, SIGNAL( clicked() ), this, SLOT( slotPasteEcirc()), true, i18n(QString("Try ê").utf8()), 5 );
+		secondToolbar->insertButton ("i_acute.png", 60, SIGNAL( clicked() ), this, SLOT( slotPasteIacute()), true, i18n(QString("Try í").utf8()), 6 );
+		secondToolbar->insertButton ("o_acute.png", 70, SIGNAL( clicked() ), this, SLOT( slotPasteOacute()), true, i18n(QString("Try ó").utf8()), 7 );
+		secondToolbar->insertButton ("o_circ.png", 80, SIGNAL( clicked() ), this, SLOT( slotPasteOcirc()), true, i18n(QString("Try ô").utf8()), 8 );
+		secondToolbar->insertButton ("o_tilde.png", 90, SIGNAL( clicked() ), this, SLOT( slotPasteOtilde()), true, i18n(QString("Try õ").utf8()), 9 );
 	}
-	else if (m_view->language == "fr")
-	{
-	secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
-	secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
-	//m_bCharToolbar = true;
+	else if (m_view->language == "fr")	{
+		secondToolbar->insertButton ("e_acute.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteEacute()), true, i18n(QString("Try é").utf8()), 1 );
+		secondToolbar->insertButton ("e_grave.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteEgrave()), true, i18n(QString("Try è").utf8()), 2 );
 	}
-	else if (m_view->language == "de")
-	{
-	secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
-	secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2);  secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
-	secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
-	//m_bCharToolbar = true;
-	}
-	else
-	{
-	m_bCharToolbar=false;
+	else if (m_view->language == "de")	{
+		secondToolbar->insertButton ("a_umlaut.png", 10, SIGNAL( clicked() ), this, SLOT( slotPasteAumlaut()), true, i18n(QString("Try ä").utf8()), 1 );
+		secondToolbar->insertButton ("o_umlaut.png", 20, SIGNAL( clicked() ), this, SLOT( slotPasteOumlaut()), true, i18n(QString("Try ö").utf8()), 2);  secondToolbar->insertButton ("u_umlaut.png", 30, SIGNAL( clicked() ), this, SLOT( slotPasteUumlaut()), true, i18n(QString("Try ü").utf8()), 3 );
+		secondToolbar->insertButton ("sz_lig.png", 40, SIGNAL( clicked() ), this, SLOT( slotPasteSzlig()), true, i18n(QString("Try ß").utf8()), 4 );
 	}
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 		secondAct->setChecked(true);
 	}
 	else secondToolbar->hide();
+	if (m_view->language == "en" || m_view->language == "it")
+		secondToolbar->hide();
 }
 
 void KHangMan::slotPasteCcedil()
@@ -691,9 +675,9 @@ void KHangMan::slotClose()
      	  conf->setGroup( "General" );
 	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
 	  if (m_view->language=="es" || m_view->language =="pt" || m_view->language == "ca")
-	  conf->writeEntry( "accentedLetters", m_view->accent_b);
+	  	conf->writeEntry( "accentedLetters", m_view->accent_b);
 	  if (m_view->language=="fr")
-	  conf->writeEntry( "hint", m_view->hintBool);
+	  	conf->writeEntry( "hint", m_view->hintBool);
         }
 	// then close the main window
 	close();
@@ -702,28 +686,29 @@ void KHangMan::slotClose()
 void KHangMan::slotAccents()
 {
  	m_view->accent_b = !accentsAct->isChecked();
-	//secondAct->setChecked(!m_view->accent_b);
+
 	if (!m_view->accent_b)
-	changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+		changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
 	loadLangToolBar();
 	newGame();
 }
 
 void KHangMan::slotHint()
 {
-	if (m_view->language == "fr")
+	if (m_view->language == "fr" || m_view->language == "it")	{
 		hintAct->setEnabled(true);
+		}
 	else
 	{
 		hintAct->setChecked(false);
 		hintAct->setEnabled(false);
-		m_view->hintBool = false;
+		changeStatusbar("", IDS_HINT);
 	}
-	if ((m_view->language == "fr") && (hintAct->isChecked()==true)) {
+	if ((m_view->language == "fr" || m_view->language == "it") && (hintAct->isChecked()==true)) {
 		m_view->hintBool = true;
-		changeStatusbar(i18n("Hint mode on right-click"), IDS_HINT);
+		changeStatusbar(i18n("Hint enabled on right-click"), IDS_HINT);
 		}	
-	else  {
+	else if ((m_view->language == "fr" || m_view->language == "it") && (hintAct->isChecked()==false)) {
 		m_view->hintBool = false;
 		changeStatusbar("", IDS_HINT);
 	}

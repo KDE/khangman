@@ -88,6 +88,7 @@ void KHangManView::slotNewGame()
 	wipeout();
 	game();
 	charWrite->setFocus();
+	kdDebug() << hintBool << endl;
 }
 
 void KHangManView::slotValidate(const QString &text)
@@ -254,10 +255,10 @@ void KHangManView::game()
 	QTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
 	//allData contains all the words from the file
-	QStringList allData=QStringList::split("\n", readFileStr.read(), true);
+	QStringList allData = QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
 	//detects if file is a kvtml file so that it's a hint enable file
-	if (allData.first()=="<?xml version=\"1.0\"?>") {
+	if (allData.first() == "<?xml version=\"1.0\"?>") {
 		readFile();
 		}
 	else {
