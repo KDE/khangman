@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Anne-Marie Mahfouf,,, <annma@kde.org>
+ * Copyright (C) 2001 Anne-Marie Mahfouf,,, <annma@kde.org>
  */
 
 #include "khangman.h"
@@ -22,10 +22,18 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char **argv)
 {
-    KAboutData about("khangman", I18N_NOOP("KHangMan"), KHM_VERSION, description,
-                     KAboutData::License_GPL, "(C) 2001 Anne-Marie Mahfouf,,,", 0, 0, "annma@kde.org");
-    about.addAuthor( "Anne-Marie Mahfouf,,,", 0, "annma@kde.org" );
-    KCmdLineArgs::init(argc, argv, &about);
+	KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
+                              KHM_VERSION, description, KAboutData::License_GPL,
+                              "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
+    aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
+    aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
+    aboutData.addCredit("Joe Bolin",
+                            I18N_NOOP("New children\'s background"), "jbolin@zoominternet.net");
+    aboutData.addCredit("Renaud Blanchard",
+                            I18N_NOOP("Graphics"), "kisukuma AT chez DOT com");
+    //aboutData.addCredit("Whitehawk Stormchaser",
+                            //I18N_NOOP("Splash screen"), "zerokode@gmx.net");
+    KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
