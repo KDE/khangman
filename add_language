@@ -6,6 +6,9 @@ if test $# = 0 || test $# -gt 1 || test $1 = "--help" ; then
   echo "usage: add_language <language_code>"
   exit
 fi
+echo "As it is now feature freeze and adding a new language can generates new problems, it would be better if you send your files tarred and zipped to annma@kde.org and note anything specific to your language such as special characters. Thanks a lot.
+
+The script will carry on, please just do not commit the files."
 
 # Check for valid language code
 all_langs=$KDEDIR/share/locale/all_languages
