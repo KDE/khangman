@@ -19,6 +19,7 @@
 #include "khangmanview.h"
 
 class KSelectAction;
+class KToggleAction;
 class QPopupMenu;
 
 /**
@@ -63,16 +64,12 @@ protected:
      */
     void readProperties(KConfig *);
 
-public slots:
-        void slotClickApply();
-
 private slots:
     void fileNew();
     void slotQuit();
 
     void optionsConfigureKeys();
     void optionsConfigureToolbars();
-    void optionsPreferences();
     void newToolbarConfig();
 
     void changeStatusbar(const QString& text, int id);
@@ -89,6 +86,7 @@ private slots:
     void changeLanguage(int newLanguage);
     void slotLanguage();
     void setLanguage(int lang);
+    void slotTransparent();
 
 private:
     void setupAccel();
@@ -99,6 +97,8 @@ private:
     KHangManView *m_view;
 
     KAction *newAct;
+    ///Action in the Settings menu to enable/disable transparency pictures
+    KToggleAction *transAct;
     KSelectAction *langAct, *levelAct, *modeAct;
     QPopupMenu *langPopup;
 

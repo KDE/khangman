@@ -26,7 +26,6 @@
 #include <ktoolbar.h>
 //Project headers
 #include "khangman.h"
-#include "pref.h"
 
 const int IDS_LEVEL     = 100;
 const int IDS_LANG       = 101;
@@ -91,7 +90,9 @@ void KHangMan::setupActions()
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    transAct = new KToggleAction(i18n("&Transparent pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
+     transAct->setChecked(m_view->transparent);
+    //KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
     QStringList levels;
     levelAct = new KSelectAction(i18n("Level"), 0, this, SLOT(slotLevel()), actionCollection(), "combo_level");
@@ -171,20 +172,6 @@ void KHangMan::newToolbarConfig()
     applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
 
-void KHangMan::optionsPreferences()
-{
-    KHangManPreferences dlg;
-    dlg.resize(450, 340);
-    dlg.cancelBool=false;
-    dlg.levelChanged = false;
-    dlg.langChanged = false;
-    QObject::connect(&dlg, SIGNAL(aClicked()), this, SLOT(slotClickApply()));
-    if (dlg.exec())
-    {
-        // redo your settings
-    }
-}
-
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
     // display the text on the statusbar
@@ -226,7 +213,7 @@ void KHangMan::slotMode()
     		break;
 
     	case 1:
-      		modeString="blue";
+      			modeString="blue";
 			m_view->slotBlue(m_view->bluePix);
    			break;
     	case 2:
@@ -234,6 +221,7 @@ void KHangMan::slotMode()
 			m_view->slotBlue(m_view->naturePix);
    			break;
 	}
+        transAct->setEnabled( modeAct->currentItem() != 0 );
 	writeSettings();
 }
 
@@ -335,6 +323,7 @@ void KHangMan::isMode()
 	modeAct->setCurrentItem(2);
 	m_view->slotBlue(m_view->naturePix);
     }
+    transAct->setEnabled( modeAct->currentItem() != 0 );
 }
 
 void KHangMan::slotLanguage()
@@ -369,36 +358,23 @@ void KHangMan::setLanguage(int lang)
     }
 }
 
-//when Apply button in Preferences dialog is clicked, refresh view
-void KHangMan::slotClickApply()
-{
-	KHangManPreferences dlg;
-	modeString = dlg.modeString;
-	setLanguage(dlg.langNum);
-	selectedLanguage = dlg.langNum;
-	langAct->setCurrentItem(m_sortedNames.findIndex(m_languageNames[selectedLanguage]));
-	for (int id = 0; id < (int) m_languageNames.count(); id++)
-		langPopup->setItemChecked(id, id == selectedLanguage);
-	isMode();
-	if (dlg.transparent!=m_view->transparent) {
-		m_view->transparent = dlg.transparent;
-		m_view->slotTransparent();
-	}
-	if (dlg.levelString!=levelString)
-	{
-		levelString = dlg.levelString;
-		isLevel();
-		m_view->levelFile = levelString+".txt";
-		fileNew();
-	}
-	if (dlg.cancelBool == false || dlg.langChanged == true)
-		fileNew();
-}
-
 void KHangMan::slotQuit()
 {
 	writeSettings();
 	kapp->quit();
+}
+
+void KHangMan::slotTransparent()
+{
+	switch (transAct->isChecked()){
+	case false:
+		m_view->transparent = false;
+       		break;
+	case true:
+       		m_view->transparent = true;
+                break;
+        }
+        m_view->slotTransparent();
 }
 
 #include "khangman.moc"
