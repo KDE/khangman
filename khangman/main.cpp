@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	                      KHM_VERSION, description, KAboutData::License_GPL,
 	                      "(c) 2001, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
 	aboutData.addAuthor("Whitehawk Stormchaser", I18N_NOOP("Current maintainer"), "zerokode@yahoo.com");
-	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Old maintainer, author"), "annma@kde.org");
+	aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Original maintainer, author"), "annma@kde.org");
 	aboutData.addCredit("Renaud Blanchard",
 	                    I18N_NOOP("Graphics"), "kisukuma@chez.com");
     aboutData.addCredit("Primoz Anzur",
