@@ -80,6 +80,7 @@ void KHangManPreferences::slotDefault()
 	modeString="nobg";
 	langNum = 0;
 	slotSet();
+	slotChanged();
 }
 
 //Apply changes made in the dialog and close the dialog

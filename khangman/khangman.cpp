@@ -388,9 +388,11 @@ void KHangMan::slotClickApply()
 		levelString = dlg.levelString;
 		isLevel();
 		m_view->levelFile = levelString+".txt";
+		fileNew();
 	}
-	if (dlg.cancelBool == false || dlg.levelChanged == true || dlg.langChanged == true)
+	if (dlg.cancelBool == false || dlg.langChanged == true)
 		fileNew();
 }
+
 
 #include "khangman.moc"

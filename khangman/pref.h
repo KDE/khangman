@@ -48,6 +48,7 @@ private slots:
 
 signals:
 	void aClicked();
+
 };
 
 class KHangManPrefPageOne : public pref1ui
