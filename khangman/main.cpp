@@ -75,6 +75,8 @@ int main(int argc, char **argv)
                             I18N_NOOP("Slovenian data files"), "jlp@holodeck1.com");
     aboutData.addCredit("Pedro Morais",
                             I18N_NOOP("Portuguese data files"), "Morais@kde.org");
+    aboutData.addCredit("Gaute Hvoslef Kvalnes",
+                            I18N_NOOP("Norwegian (Nynorsk) data files"), "gaute@verdsveven.com");
     aboutData.addCredit("Matt Howe",
                             I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
     aboutData.addCredit("Benjamin Meyer",
