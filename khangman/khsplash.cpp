@@ -17,7 +17,7 @@
 
 #include "khsplash.h"
 //#include "khsplash.moc"
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kaudioplayer.h>
 
 KhSplash::KhSplash(QWidget *parent, const char *name ) : QFrame(parent,name,QWidget::WStyle_NoBorder | QWidget::WStyle_Customize)

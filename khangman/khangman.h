@@ -40,11 +40,11 @@
 
 //KDE headers
 #include <kaccel.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <kaudioplayer.h>
 #include <kdialog.h>
 #include <kmessagebox.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 class KHangMan : public QWidget
 {
