@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "khsplash.h"
-//#include "khsplash.moc"
+#include "khsplash.moc"
 #include <kstandarddirs.h>
 #include <kaudioplayer.h>
 #include <kmessagebox.h>

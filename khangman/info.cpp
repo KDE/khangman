@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "info.h"
+#include "info.moc"
 
 Info::Info(QWidget *parent, const char *name ) : InfoDlg(parent,name, 3)
 {
