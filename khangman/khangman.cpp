@@ -57,12 +57,12 @@ KHangMan::KHangMan()
     //setLanguage(selectedLanguage); //seems useless 20/05
     // then, setup our actions, must be done after the language search
     setupActions();
-    loadSettings();
+
     //toolbar for special characters
     secondToolbar = toolBar("secondToolbar");
+
+    loadSettings();
     loadLangToolBar();
-    //hide it by default
-    secondToolbar->hide();
     setupLangMenu();
 }
 
@@ -73,7 +73,7 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "file_new", CTRL+Key_N , this, SLOT(newGame()), actionCollection(), "file_new");
-    KStdAction::quit(this, SLOT(close()), actionCollection());
+    KStdAction::quit(this, SLOT(slotClose()), actionCollection());
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
@@ -251,6 +251,10 @@ void KHangMan::loadSettings()
     currentLevel = config->readNumEntry("level", 1); //default is easy
     QString oldLevel = levelString;
 
+    // Show/hide characters toolbar
+    m_bCharToolbar = config->readBoolEntry( "showCharToolbar", true);
+    if (m_bCharToolbar) secondToolbar->show();
+    else secondToolbar->hide();
     loadDataFiles();
 
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
@@ -462,6 +466,8 @@ void KHangMan::slotSofter()
 void KHangMan::loadLangToolBar()
 {
 	secondToolbar->clear();
+	if (m_bCharToolbar) secondToolbar->show();
+	else secondToolbar->hide();
 
 	if (m_view->language == "ca")
 	{
@@ -524,112 +530,123 @@ void KHangMan::loadLangToolBar()
 	secondToolbar->hide();
 	//KAction::secondToolbar->setEnabled(false);
 	}
-
 }
 
 void KHangMan::slotPasteCcedil()
 {
-	m_view->charWrite->setText("ç");
+	m_view->charWrite->setText("Ã§");
 }
 
 void KHangMan::slotPasteAgrave()
 {
-	m_view->charWrite->setText("à");
+	m_view->charWrite->setText("Ã ");
 }
 
 void KHangMan::slotPasteAacute()
 {
-	m_view->charWrite->setText("á");
+	m_view->charWrite->setText("Ã¡");
 }
 
 void KHangMan::slotPasteIgrave()
 {
-	m_view->charWrite->setText("ì");
+	m_view->charWrite->setText("Ã¬");
 }
 
 void KHangMan::slotPasteIacute()
 {
-	m_view->charWrite->setText("í");
+	m_view->charWrite->setText("Ã­");
 }
 
 void KHangMan::slotPasteOgrave()
 {
-	m_view->charWrite->setText("ò");
+	m_view->charWrite->setText("Ã²");
 }
 
 void KHangMan::slotPasteOacute()
 {
-	m_view->charWrite->setText("ó");
+	m_view->charWrite->setText("Ã³");
 }
 
 void KHangMan::slotPasteUacute()
 {
-	m_view->charWrite->setText("ú");
+	m_view->charWrite->setText("Ãº");
 }
 
 void KHangMan::slotPasteOcross()
 {
-	m_view->charWrite->setText("Ø");
+	m_view->charWrite->setText("Ã˜");
 }
 
 void KHangMan::slotPasteAcircle()
 {
-	m_view->charWrite->setText("å");
+	m_view->charWrite->setText("Ã¥");
 }
 
 void KHangMan::slotPasteAwithe()
 {
-	m_view->charWrite->setText("æ");
+	m_view->charWrite->setText("Ã¦");
 }
 
 void KHangMan::slotPasteOumlaut()
 {
-	m_view->charWrite->setText("ö");
+	m_view->charWrite->setText("Ã¶");
 }
 
 void KHangMan::slotPasteAumlaut()
 {
-	m_view->charWrite->setText("ä");
+	m_view->charWrite->setText("Ã¤");
 }
 
 void KHangMan::slotPasteAtilde()
 {
-	m_view->charWrite->setText("ã");
+	m_view->charWrite->setText("Ã£");
 }
 
 void KHangMan::slotPasteUumlaut()
 {
-	m_view->charWrite->setText("ü");
+	m_view->charWrite->setText("Ã¼");
 }
 
 void KHangMan::slotPasteEacute()
 {
-	m_view->charWrite->setText("é");
+	m_view->charWrite->setText("Ã©");
 }
 
 void KHangMan::slotPasteNtilde()
 {
-	m_view->charWrite->setText("ñ");
+	m_view->charWrite->setText("Ã±");
 }
 
 void KHangMan::slotPasteEgrave()
 {
-	m_view->charWrite->setText("è");
+	m_view->charWrite->setText("Ã¨");
 }
 
 void KHangMan::slotPasteEcirc()
 {
-	m_view->charWrite->setText("ê");
+	m_view->charWrite->setText("Ãª");
 }
 
 void KHangMan::slotPasteOtilde()
 {
-	m_view->charWrite->setText("õ");
+	m_view->charWrite->setText("Ãµ");
 }
 
 void KHangMan::slotPasteOcirc()
 {
-	m_view->charWrite->setText("ô");
+	m_view->charWrite->setText("Ã´");
+}
+
+void KHangMan::slotClose()
+{
+	// save if cahracters toolbar is shown or not
+   	KConfigBase *conf = kapp->config();
+        if( conf ) {
+     	  conf->setGroup( "General" );
+	  conf->writeEntry( "showCharToolbar", secondToolbar->isVisible());
+        }
+	// then close the main window
+	close();
 }
 
 #include "khangman.moc"

@@ -22,6 +22,7 @@
 #endif
 #endif
 
+//class KToggleToolBarAction;
 class KSelectAction;
 class KToggleAction;
 class QPopupMenu;
@@ -52,6 +53,7 @@ public:
     uint currentLevel;
 
     KToolBar *secondToolbar;
+    KAction *toolAct;
 
 private:
     ///hold the current level
@@ -64,6 +66,8 @@ private:
     int defaultLang;
     ///the different data files in each language dir
     QStringList levels;
+
+    bool m_bCharToolbar;
 
 protected:
     /**
@@ -149,6 +153,7 @@ private slots:
     void slotPasteOumlaut();
     void slotPasteUumlaut();
     void slotPasteUacute();
+    void slotClose();
 
   private:
     void setupAccel();
@@ -166,6 +171,7 @@ private:
     KToggleAction *transAct;
     KToggleAction *softAct;
     KSelectAction *langAct, *levelAct, *modeAct;
+
     QPopupMenu *langPopup;
     ///Full-Screen mode action
 #ifdef KHANGMAN_KDE_3_2_0
