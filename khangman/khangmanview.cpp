@@ -97,17 +97,17 @@ void KHangManView::slotTry()
 				replaceLetters(sChar);
 				stripWord = goodWord;//need that because of the white spaces
 				sword=word;
-				kdDebug() << c << endl;
-				kdDebug() << d << endl;
-				if (d>0)  {stripWord.replace(2*c, 1, "");
-				stripWord.replace(2*c-1, 1, "");}
-				if (d>0)  {stripWord.replace(2*(d-1), 1, "");
-				stripWord.replace(2*(d-1)-1, 1, ""); }
-				kdDebug() << "stripWord: " << stripWord << endl;
+				if (d>0)  {
+					stripWord.replace(2*c, 1, "");
+					stripWord.replace(2*c-1, 1, "");
+				}
+				if (d>0)  {
+					stripWord.replace(2*(d-1), 1, "");
+					stripWord.replace(2*(d-1)-1, 1, "");
+				}
 				QStringList rightChars=QStringList::split(" ", stripWord, true);
 				QString rightWord= rightChars.join("");
 				mainLabel->setText(goodWord);
-				kdDebug() << "rightChars: " << rightChars<< endl;
 				sword.remove(QRegExp(" "));
 				if (rightWord.stripWhiteSpace() == sword.stripWhiteSpace()) //you made it!
 				{
@@ -233,6 +233,7 @@ void KHangManView::game()
 	//now the calculations...
 	int objects = allData.count();//number of words in the file
 	//picks a random word from allData
+	while (word.isEmpty())
 	word = allData[random.getLong(objects)]; //gives us a single word...
 	//test if the word is not the same than the previous one
 	if (temp.isEmpty())
@@ -243,7 +244,6 @@ void KHangManView::game()
 			word = allData[random.getLong(objects)];
 		temp=word;
 	}//end of test
-	kdDebug() << word << endl;
         goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -260,6 +260,7 @@ void KHangManView::game()
 	c = word.find( " " );
 	if (c>0) //find another white space
 	{
+		d=0;
 		goodWord.replace(2*c, 1, " ");
 		d = word.find( " ", c+1);
 		if (d>0)  goodWord.replace(2*d, c+1, " ");

@@ -230,7 +230,6 @@ void KHangMan::loadSettings()
     userLanguage = globalConf->readEntry("Language");
     //keep only the first 2 characters
     userLanguage = userLanguage.left(2);
-    kdDebug() << userLanguage << endl;
     setSelectedLanguage(userLanguage);
 
     KConfig *config = kapp->config();
@@ -248,7 +247,6 @@ void KHangMan::loadSettings()
     loadDataFiles();
 
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower());
-    kdDebug() << levelString << endl;
     m_view->levelFile = config->readEntry( "levelFile", "easy.txt");
     m_view->levelFile = QString("%1.%1").arg(levelString).arg("txt");
     if (oldLevel!=levelString) {
