@@ -28,13 +28,6 @@
 
 #include "khangmanview.h"
 
-#ifdef KDE_IS_VERSION
-#if KDE_IS_VERSION(3,1,90)
-#define KHANGMAN_KDE_3_2_0
-#else
-#endif
-#endif
-
 class KSelectAction;
 class KToggleAction;
 class KToggleToolBarAction;

@@ -101,14 +101,10 @@ void KHangMan::setupActions()
 
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-#ifdef KHANGMAN_KDE_3_2_0
+
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
-#else
-    m_pFullScreen = new KToggleAction( i18n( "&Full-Screen Mode" ), "window_fullscreen", CTRL+SHIFT+Key_F, 0,
-        0, actionCollection(), "fullscreen" );
-    connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotSetFullScreen( bool )));
-#endif
+    
     transAct = new KToggleAction(i18n("&Transparent Pictures"), CTRL+Key_T, this, SLOT(slotTransparent()), actionCollection(), "transparent");
     softAct = new KToggleAction(i18n("&Softer Hangman Pictures"), CTRL+Key_S, this, SLOT(slotSofter()), actionCollection(), "softer");
     hintAct = new KToggleAction(i18n("Enable &Hint"), CTRL+Key_H, this, SLOT(slotChooseHint()), actionCollection(), "hint");
@@ -407,17 +403,13 @@ void KHangMan::slotSetFullScreen( bool set )
    if( set ){
       showFullScreen();
       menuBar()->hide();
-#ifndef KHANGMAN_KDE_3_2_0
       m_pFullScreen->setText( i18n( "Exit Full-Screen Mode" ) );
       m_pFullScreen->setIcon( "window_nofullscreen" );
-#endif
    } else {
       showNormal();
       menuBar()->show();
-#ifndef KHANGMAN_KDE_3_2_0
       m_pFullScreen->setText( i18n( "Full-Screen Mode" ) );
       m_pFullScreen->setIcon( "window_fullscreen" );
-#endif
    }
 }
 
