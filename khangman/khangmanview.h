@@ -109,6 +109,8 @@ protected:
     
     void paintMissedTwice();
     
+    void paintWordTwice();
+    
     int redIndex;
         
 public slots:
@@ -117,6 +119,7 @@ public slots:
 private slots:
     void slotTry();
     void timerDone();
+    void timerWordDone();
     
 signals:
     /**

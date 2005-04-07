@@ -243,21 +243,22 @@ void KHangManView::paintMissedTwice()
 {
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    paint.drawPixmap(QRect(width()-width()*200/700, 0, width()*222/700, height()*116/535), miss_bluePic);
-    paint.setPen( QColor(148, 156, 167));
-    QFont f = QFont("Domestic Manners");
-    f.setPointSize(height()/14);
-    paint.setFont(f);
-    QString misses = i18n("Misses");
-    paint.drawText(width()/2+30, height()/13, misses);
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
-    paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL.left(redIndex) );
     QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
     paint.setPen( QColor(Qt::red));
     paint.drawText( width()/2+width()/4 +aux.width(), 0, 0, 0, AlignLeft|AlignTop|DontClip, QString(missedL[redIndex]));
-    aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex+1));
-    paint.setPen( QColor(148, 156, 167));
-    paint.drawText( width()/2+width()/4 +aux.width(), 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL.right(missedL.length()-redIndex-1));
+    paint.end();
+    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+}
+
+void KHangManView::paintWordTwice()
+{
+    QPainter paint;
+    paint.begin(paletteBackgroundPixmap());
+    paint.setFont(QFont("Arial", 32));
+    QRect aux = paint.boundingRect(QRect(), AlignCenter, goodWord.left(redIndex));
+    paint.setPen( QColor(Qt::red));
+    paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -375,24 +376,22 @@ void KHangManView::slotTry()
                 //disable any possible entry
                 charWrite->setEnabled(false);
             }
-                //usability: hilight it in the word
-                if (goodWord.contains(sChar)>0) {/*
-                    KPassivePopup *popup = new KPassivePopup( mainLabel, "popup" );
-                    popup->setAutoDelete( true );
-                    popup->setTimeout( 1000 );
-                    popup->setView(i18n("This letter has already been guessed.") );
-                    popup->show();
-                    int redIndex = goodWord.find(sChar,0);
-                    QTimer *timer = new QTimer( this);
-                    connect( timer, SIGNAL(timeout()), this, SLOT(timerDoneWord()) );
-                    timer->start( 1000, TRUE ); // 1 second single-shot timer
-                    //put the letter in red for 1 second
-                    mainLabel->setTextFormat( QLabel::RichText );
-                    mainLabel->setText("<qt>"+goodWord.left(redIndex)+"<font color=\"#ff0000\"><b>"+goodWord[redIndex]+"</b></font>"+goodWord.right(goodWord.length()-redIndex-1)+"</qt>");
-                    mainLabel->setAlignment( int( QLabel::AlignCenter ) );
-                    //disable any possible entry
-                    charWrite->setEnabled(false);	*/
-                }			
+            //usability: hilight it in the word
+            if (goodWord.contains(sChar)>0) {
+                KPassivePopup *popup = new KPassivePopup( this, "popup" );
+                popup->setAutoDelete( true );
+                popup->setTimeout( 1000 );
+                popup->setView(i18n("This letter has already been guessed.") );
+                popup->show();
+                redIndex = goodWord.find(sChar,0);
+                QTimer *timer = new QTimer( this);
+                connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
+                timer->start( 1000, TRUE ); // 1 second single-shot timer
+                //put the letter in red for 1 second
+                paintWordTwice();
+                //disable any possible entry
+                charWrite->setEnabled(false);	
+            }			
         }
     }
     //reset after guess...
@@ -404,6 +403,13 @@ void KHangManView::timerDone()
     charWrite->setEnabled(true);
     charWrite->setFocus();
     paintHangman();
+}
+
+void KHangManView::timerWordDone()
+{
+    charWrite->setEnabled(true);
+    charWrite->setFocus();
+    paintWord();
 }
 
 void KHangManView::slotNewGame()
