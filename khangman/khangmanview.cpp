@@ -20,12 +20,15 @@
 #include <klineedit.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <kpassivepopup.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 
 #include <qimage.h>
 #include <qpainter.h>
 #include <qregexp.h>
+#include <qtimer.h>
+#include <qtooltip.h>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -157,6 +160,21 @@ bool KHangManView::containsChar(const QString &sChar)
     return ((word.contains(sChar) > 0) || b);
 }
 
+void KHangManView::mousePressEvent(QMouseEvent *mouse)
+{
+    if (mouse->button() == RightButton)//(kvtmlBool && hintBool && (mouse->button() == RightButton))
+    {
+        KPassivePopup *myPopup = new KPassivePopup( charWrite);
+        myPopup->setView(i18n("Hint"), tip );
+        myPopup->setPalette(QToolTip::palette());
+        myPopup->setTimeout(4000); //show for 4 seconds
+        //see http://lxr.kde.org/source/kdeextragear-3/digikam/imageplugins/imageeffect_redeye.cpp#L54 for reimplementing moveNear()
+        myPopup->show();	
+    }
+    update();
+}
+
+
 void KHangManView::paintEvent( QPaintEvent * )
 {
     paintHangman();
@@ -185,6 +203,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     QFont charWrite_font(  charWrite->font() );
     charWrite_font.setPointSize( height()/18 );
     charWrite_font.setFamily( "Dustimo Roman" );
+    charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
     charWrite->setFont( charWrite_font ); 
     guessButton->setFont(QFont("Dustimo Roman", height()/22));
     guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
@@ -220,11 +239,34 @@ void KHangManView::paintHangman()
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
+void KHangManView::paintMissedTwice()
+{
+    QPainter paint;
+    paint.begin(paletteBackgroundPixmap());
+    paint.drawPixmap(QRect(width()-width()*200/700, 0, width()*222/700, height()*116/535), miss_bluePic);
+    paint.setPen( QColor(148, 156, 167));
+    QFont f = QFont("Domestic Manners");
+    f.setPointSize(height()/14);
+    paint.setFont(f);
+    QString misses = i18n("Misses");
+    paint.drawText(width()/2+30, height()/13, misses);
+    paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
+    paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL.left(redIndex) );
+    QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
+    paint.setPen( QColor(Qt::red));
+    paint.drawText( width()/2+width()/4 +aux.width(), 0, 0, 0, AlignLeft|AlignTop|DontClip, QString(missedL[redIndex]));
+    aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex+1));
+    paint.setPen( QColor(148, 156, 167));
+    paint.drawText( width()/2+width()/4 +aux.width(), 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL.right(missedL.length()-redIndex-1));
+    paint.end();
+    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+}
+
 void KHangManView::slotTry()
 {
     QString sChar = charWrite->text();
     kdDebug() << "sChar as entered: " << sChar << endl;
-//    if (language=="de")
+    //if (language=="de")
       //  upperBool = true;
     //if ((!upperBool))
     sChar = sChar.lower();
@@ -316,24 +358,23 @@ void KHangManView::slotTry()
         }
         else
         {
-                //usability: highlight it in Missed if it is there
-                if (missedL.contains(sChar)>0) {
-                    /*KPassivePopup *popup = new KPassivePopup( this, "popup" );
-                    popup->setAutoDelete( true );
-                    popup->setTimeout( 1000 );
-                    popup->setView(i18n("This letter has already been guessed.") );
-                    popup->show();
-                    int redIndex = missedL.find(sChar,0);
-                    //put the letter in red for 1 second
-                    QTimer *timer = new QTimer( this);
-                    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
-                    timer->start( 1000, TRUE ); // 1 second single-shot timer
-                    missedLetters->setText("<qt>"+missedL.left(redIndex)+"<font color=\"#ff0000\">"+missedL[redIndex]+"</font>"+missedL.right(missedL.length()-redIndex-1)+"</qt>");
-                    missedLetters->setTextFormat( QLabel::AutoText );
-                    //disable any possible entry
-                    charWrite->setEnabled(false);*/
+            //usability: highlight it in Missed if it is there
+            if (missedL.contains(sChar)>0) {
+                KPassivePopup *popup = new KPassivePopup( this, "popup" );
+                popup->setAutoDelete( true );
+                popup->setTimeout( 1000 );
+                popup->setView(i18n("This letter has already been guessed.") );
+                popup->show();
+                redIndex = missedL.find(sChar,0);
 
-                }
+                //put the letter in red for 1 second
+                QTimer *timer = new QTimer( this);
+                connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
+                timer->start( 1000, TRUE ); // 1 second single-shot timer
+                paintMissedTwice();
+                //disable any possible entry
+                charWrite->setEnabled(false);
+            }
                 //usability: hilight it in the word
                 if (goodWord.contains(sChar)>0) {/*
                     KPassivePopup *popup = new KPassivePopup( mainLabel, "popup" );
@@ -356,6 +397,13 @@ void KHangManView::slotTry()
     }
     //reset after guess...
     charWrite->setText("");
+}
+
+void KHangManView::timerDone()
+{
+    charWrite->setEnabled(true);
+    charWrite->setFocus();
+    paintHangman();
 }
 
 void KHangManView::slotNewGame()

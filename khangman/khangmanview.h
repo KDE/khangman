@@ -45,7 +45,7 @@ public:
 signals:
 
 private:
-    KLineEdit *charWrite;;
+    KLineEdit *charWrite;
 
     QColor m_fillColor;
 
@@ -104,12 +104,19 @@ protected:
     ///true if hint is enabled for the fiels that support it
     bool hintBool;
     //QRect aux;
+    ///Enable hints on mouse right click if Hints exist
+    virtual void mousePressEvent(QMouseEvent *mouse);
+    
+    void paintMissedTwice();
+    
+    int redIndex;
+        
 public slots:
 
     void slotNewGame();
 private slots:
     void slotTry();
-
+    void timerDone();
     
 signals:
     /**
