@@ -244,9 +244,12 @@ void KHangManView::paintMissedTwice()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
+    paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
-    paint.setPen( QColor(Qt::red));
-    paint.drawText( width()/2+width()/4 +aux.width(), 0, 0, 0, AlignLeft|AlignTop|DontClip, QString(missedL[redIndex]));
+    if (redIndex == 0)
+        paint.drawText( width()/2+width()/4 +aux.width()+1, height()/13, QString(missedL[redIndex]));
+    else
+        paint.drawText( width()/2+width()/4 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -256,9 +259,12 @@ void KHangManView::paintWordTwice()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setFont(QFont("Arial", 32));
-    QRect aux = paint.boundingRect(QRect(), AlignCenter, goodWord.left(redIndex));
-    paint.setPen( QColor(Qt::red));
-    paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
+    paint.setPen(QColor(Qt::red));
+    QRect aux = paint.boundingRect(QRect(), AlignAuto, goodWord.left(redIndex));
+    if (redIndex == 0)
+        paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
+    else //weird that it needs 2 pixels less after first
+        paint.drawText(width()/50+aux.width()-2, height()-height()/10, QString(goodWord[redIndex]));
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -360,14 +366,13 @@ void KHangManView::slotTry()
         else
         {
             //usability: highlight it in Missed if it is there
-            if (missedL.contains(sChar)>0) {
+            if (missedL.contains(sChar)>0) { //popup should be better placed
                 KPassivePopup *popup = new KPassivePopup( this, "popup" );
                 popup->setAutoDelete( true );
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
-                redIndex = missedL.find(sChar,0);
-
+                redIndex = missedL.find(sChar, 0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
@@ -384,10 +389,10 @@ void KHangManView::slotTry()
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
                 redIndex = goodWord.find(sChar,0);
+                //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
                 timer->start( 1000, TRUE ); // 1 second single-shot timer
-                //put the letter in red for 1 second
                 paintWordTwice();
                 //disable any possible entry
                 charWrite->setEnabled(false);	
