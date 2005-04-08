@@ -149,7 +149,6 @@ bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
     if (m_accent && !accent_b) {
-        kdDebug() << "Testing " << endl;
         if (sChar=="i") b = word.contains(QString("í"))>0;//QChar('í').unicode()) > 0;
         if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
         if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
@@ -248,8 +247,16 @@ void KHangManView::paintMissedTwice()
     QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
     if (redIndex == 0)
         paint.drawText( width()/2+width()/4 +aux.width()+1, height()/13, QString(missedL[redIndex]));
-    else
+    else if (redIndex <=8)
         paint.drawText( width()/2+width()/4 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+    else if (redIndex ==12) {
+        aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
+        paint.drawText( width()/2+width()/4 +aux.width(), height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+    }
+    else if (redIndex > 12) {
+        aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
+        paint.drawText( width()/2+width()/4 +aux.width() -4, height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+    }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -335,7 +342,6 @@ void KHangManView::slotTry()
                         }
 
                         missedChar++;
-                        kdDebug() << missedChar << endl;
                         paintHangman();
 
                         if (missedChar >= 10) //you are hanged!
@@ -366,7 +372,7 @@ void KHangManView::slotTry()
         else
         {
             //usability: highlight it in Missed if it is there
-            if (missedL.contains(sChar)>0) { //popup should be better placed
+            if (missedL.contains(sChar)>0) { //TODO popup should be better placed
                 KPassivePopup *popup = new KPassivePopup( this, "popup" );
                 popup->setAutoDelete( true );
                 popup->setTimeout( 1000 );
