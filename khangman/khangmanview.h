@@ -40,15 +40,18 @@ public:
 
     ///parent instance
     KHangMan *khangman;
+    ///Background picture for the Sea theme
     QPixmap seaPicture;
+    ///Paint the animated hanged K sequence
     void paintHangman();
+    
 signals:
 
 private:
+
+    ///The area where the user enter the letter. Upper case is transformed into lower case.
     KLineEdit *charWrite;
-
-    QColor m_fillColor;
-
+    ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
     KPushButton *guessButton;
 
 protected:
@@ -59,7 +62,7 @@ protected:
     void resizeEvent(QResizeEvent *);
     ///set the background pixmap to the QPixmap argument
     void slotSetPixmap(QPixmap& );
-    
+    ///Store the missed letters
     QString missedL;
 
     QString temp;
@@ -88,14 +91,17 @@ protected:
     ///If true, the word contains the QString
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
+    ///the hanged K animation sequence
     QPixmap px[11];
+    ///part of Sea background used to repaint word and missed letters
     QPixmap bluePic, miss_bluePic;
+    ///Draw the word to be guessed
     void paintWord();
-    
+    ///Reset everything to start a new game, missed letters is empty
     void reset();
-    
+    ///Play a game: look for a word to be guessed and load its tip
     void game();
-
+    ///Load kvtml file and get a word and its tip in random
     void readFile();
     ///If true, the uppercase and lower case are disctincts (world capitals)
     bool upperBool;
@@ -103,22 +109,25 @@ protected:
     KRandomSequence random;
     ///true if hint is enabled for the fiels that support it
     bool hintBool;
-    //QRect aux;
     ///Enable hints on mouse right click if Hints exist
     virtual void mousePressEvent(QMouseEvent *mouse);
-    
+    ///Paint an already guessed letter in red in Missed Letters
     void paintMissedTwice();
-    
+    ///Paint an already guessed letter in red in word
     void paintWordTwice();
-    
+    ///index of the already guessed letter
     int redIndex;
         
 public slots:
-
+    ///if you want to play with a new word
     void slotNewGame();
 private slots:
+
+    ///after you click on Guess button or hit Enter when guessing a new letter, see if the letter is in the word or not
     void slotTry();
+    ///when an already guessed letter is entered, if it is in Missed, redraw the missed letters area
     void timerDone();
+    ///when an already guessed letter is entered, if it is in the word, redraw the word area
     void timerWordDone();
     
 signals:
