@@ -50,7 +50,7 @@ KHangMan::KHangMan()
     setupActions();
 
     loadSettings();
-    //loadLevels();
+    loadLevels();
     //setupToolbars();
     connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
     m_view->slotNewGame();
@@ -105,24 +105,22 @@ void KHangMan::changeStatusbar(const QString& text, int id)
 void KHangMan::slotChangeLevel()
 {
     static const char *levelStrings[] = {
-        I18N_NOOP("Easy"),
-        I18N_NOOP("Medium"),
-        I18N_NOOP("Hard"),
         I18N_NOOP("Animals"),
+        I18N_NOOP("Easy"),
+        I18N_NOOP("Hard"),
+        I18N_NOOP("Medium"),
     };
-   // currentLevel = levelAct->currentItem();
-   // levelString = levels[currentLevel];
-    //levelString.replace(0, 1, levelString.left(1).lower());
-    
-    //m_view->levelFile = levelString +".kvtml";
+    currentLevel = levelAct->currentItem();
+    levelString = levels[currentLevel];
+    levelString.replace(0, 1, levelString.left(1).lower());
     changeStatusbar(i18n(levelStrings[1]), IDS_LEVEL);
    // if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
     //    changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
    // else
    //     changeStatusbar("", IDS_ACCENTS);
     //Prefs::setLevel( currentLevel);
-    //Prefs::setLevelFile(m_view->levelFile);
-    //Prefs::writeConfig();
+    Prefs::setLevelFile(levelString +".kvtml");
+    Prefs::writeConfig();
     m_view->slotNewGame();
 }
 
@@ -210,13 +208,11 @@ void KHangMan::setLevel()
 }*/
 //    m_view->levelFile = Prefs::levelFile();
         
-        kdDebug() << "level in setLevel() 2 " << Prefs::levelFile() << endl;
+    kdDebug() << "level in setLevel() 2 " << Prefs::levelFile() << endl;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
-    //levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
+    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
    // m_view->levelFile = levelString +".kvtml";
-    //update the Levels in Level combobox as well
-   // setLevel_WindowState();
 }
 
 void KHangMan::loadLevels()
@@ -249,10 +245,13 @@ void KHangMan::loadLevels()
             levels.remove(levels[i]);
     }
     kdDebug() << "Levels: " << levels << endl;
+    
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).utf8());
     levelAct->setItems(translatedLevels);
+    
+    //TODO set the current level in levelAct
 }
 
 #include "khangman.moc"
