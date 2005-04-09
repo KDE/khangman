@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Anne-Marie Mahfouf   *
+ *   Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org> *
  *   annemarie.mahfouf@free.fr   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -103,7 +103,7 @@ protected slots:
 
     void slotChangeLevel();
 
-
+    void slotChangeLanguage(int);
 };
 
 #endif // _KHANGMAN_H_

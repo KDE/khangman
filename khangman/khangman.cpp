@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Anne-Marie Mahfouf   *
+ *   Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org> *
  *   annemarie.mahfouf@free.fr   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -71,10 +71,11 @@ void KHangMan::setupActions()
     levelAct->setToolTip(i18n( "Choose the level" ));
     levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
-    m_languageAction = new KSelectAction(i18n("&Language"), KShortcut(), actionCollection(), "languages");
+    m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
-
+    connect(m_languageAction, SIGNAL(activated(int)), this, SLOT(slotChangeLanguage(int)));
+    
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
     
     QStringList modes;
@@ -113,15 +114,26 @@ void KHangMan::slotChangeLevel()
     currentLevel = levelAct->currentItem();
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
-    changeStatusbar(i18n(levelStrings[1]), IDS_LEVEL);
+    changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
    // if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
     //    changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
    // else
    //     changeStatusbar("", IDS_ACCENTS);
-    //Prefs::setLevel( currentLevel);
+    Prefs::setCurrentLevel( currentLevel);
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
     m_view->slotNewGame();
+}
+
+void KHangMan::slotChangeLanguage(int index)
+{
+    //good when no in English
+    kdDebug() << "Change to " << m_languages[m_languageNames.findIndex(m_languageNames[index])] << endl;
+    Prefs::setSelectedLanguage(m_languages[m_languageNames.findIndex(m_languageNames[index])]);
+    Prefs::writeConfig();
+    loadLevels();
+    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    m_view->slotNewGame();   
 }
 
 void KHangMan::setLanguages()
@@ -186,7 +198,7 @@ void KHangMan::setLanguages()
 
 void KHangMan::loadSettings()
 {
-    // Language
+    // Language //is selectedLanguage necessary??? only used here
     selectedLanguage = Prefs::selectedLanguage();
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
@@ -218,10 +230,12 @@ void KHangMan::setLevel()
 void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
+    kdDebug() << "---- *** in loadLevels() " << endl;
     levels.clear();//initialize QStringList levels
     KStandardDirs *dirs = KGlobal::dirs();
-    kdDebug() << "SelectedLanguage " << selectedLanguage << endl;
-    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + selectedLanguage + "/*.kvtml");
+    kdDebug() << "Selected Language in load Levels" << Prefs::selectedLanguage() << endl;
+    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + Prefs::selectedLanguage() + "/*.kvtml");
+    bool levelBool = false;
     if (!mfiles.isEmpty())
     {
         for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
@@ -230,11 +244,14 @@ void KHangMan::loadLevels()
             int location = f.name().findRev("/");
             //strip the string to keep only the filename and not the path
             QString mString = f.name().right(f.name().length()-location-1);
+            if (mString == Prefs::levelFile())
+                levelBool = true;
             mString = mString.left(mString.length()-6);
             //Put the first letter in Upper case
             mString = mString.replace(0, 1, mString.left(1).upper());
         levels+=mString;
     }
+    kdDebug() << "Level found : " << levels << endl;
     //TODO else tell no files had been found
     }
     levels.sort();
@@ -244,14 +261,29 @@ void KHangMan::loadLevels()
         if (levels.contains(levels[i])>1)
             levels.remove(levels[i]);
     }
-    kdDebug() << "Levels: " << levels << endl;
-    
+    kdDebug() << "--- Current level: " << Prefs::levelFile() << endl;
+    if (currentLevel>levels.count())
+        currentLevel = levels.count();
+    if (levelBool == false)
+    {
+        Prefs::setLevelFile("animals.kvtml"); //TODO set to 1st file found better
+        currentLevel =0;
+        Prefs::writeConfig();
+    }    
+    Prefs::setCurrentLevel(currentLevel);
+    Prefs::writeConfig();
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).utf8());
+
+    levelAct->setCurrentItem(currentLevel);
+    kdDebug() << "--- Levels: " <<translatedLevels << endl;
     levelAct->setItems(translatedLevels);
-    
+    levelAct->setCurrentItem(Prefs::currentLevel());
+    //changeStatusbar(translatedLevels[Prefs::level()], IDS_LEVEL);
     //TODO set the current level in levelAct
+
+    changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
 }
 
 #include "khangman.moc"
