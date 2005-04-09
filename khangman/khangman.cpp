@@ -202,7 +202,7 @@ void KHangMan::loadSettings()
     selectedLanguage = Prefs::selectedLanguage();
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
-    //setLanguage(selectedLanguage);
+    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     // Level
    setLevel();
 }
@@ -210,21 +210,9 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     if (currentLevel > (uint) levels.count()) currentLevel= 0;
-    kdDebug() << "language " << Prefs::selectedLanguage() << endl;
-    kdDebug() << "level in setLevel() 1 " << Prefs::levelFile() << endl;
-    /*TODO see if necessary if (locate("data", "khangman/data/"+selectedLanguage+"/"+Prefs::levelFile()).isEmpty()) {
-        //set first file in the levels StringList
-        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
-        Prefs::writeConfig();
-        currentLevel = 0;
-}*/
-//    m_view->levelFile = Prefs::levelFile();
-        
-    kdDebug() << "level in setLevel() 2 " << Prefs::levelFile() << endl;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
-   // m_view->levelFile = levelString +".kvtml";
 }
 
 void KHangMan::loadLevels()
@@ -266,7 +254,7 @@ void KHangMan::loadLevels()
         currentLevel = levels.count();
     if (levelBool == false)
     {
-        Prefs::setLevelFile("animals.kvtml"); //TODO set to 1st file found better
+        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
         currentLevel =0;
         Prefs::writeConfig();
     }    
