@@ -204,11 +204,12 @@ void KHangMan::loadSettings()
             selectedLanguage = "en";
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     // Level
-   setLevel();
+
 }
 
 void KHangMan::setLevel()
 {
+    currentLevel = Prefs::currentLevel();
     if (currentLevel > (uint) levels.count()) currentLevel= 0;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
@@ -218,10 +219,8 @@ void KHangMan::setLevel()
 void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
-    kdDebug() << "---- *** in loadLevels() " << endl;
     levels.clear();//initialize QStringList levels
     KStandardDirs *dirs = KGlobal::dirs();
-    kdDebug() << "Selected Language in load Levels" << Prefs::selectedLanguage() << endl;
     QStringList mfiles = dirs->findAllResources("data","khangman/data/" + Prefs::selectedLanguage() + "/*.kvtml");
     bool levelBool = false;
     if (!mfiles.isEmpty())
@@ -239,7 +238,6 @@ void KHangMan::loadLevels()
             mString = mString.replace(0, 1, mString.left(1).upper());
         levels+=mString;
     }
-    kdDebug() << "Level found : " << levels << endl;
     //TODO else tell no files had been found
     }
     levels.sort();
@@ -249,7 +247,6 @@ void KHangMan::loadLevels()
         if (levels.contains(levels[i])>1)
             levels.remove(levels[i]);
     }
-    kdDebug() << "--- Current level: " << Prefs::levelFile() << endl;
     if (currentLevel>levels.count())
         currentLevel = levels.count();
     if (levelBool == false)
@@ -265,13 +262,12 @@ void KHangMan::loadLevels()
         translatedLevels+=i18n((*it).utf8());
 
     levelAct->setCurrentItem(currentLevel);
-    kdDebug() << "--- Levels: " <<translatedLevels << endl;
     levelAct->setItems(translatedLevels);
     levelAct->setCurrentItem(Prefs::currentLevel());
-    //changeStatusbar(translatedLevels[Prefs::level()], IDS_LEVEL);
-    //TODO set the current level in levelAct
 
     changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
+    
+    setLevel();
 }
 
 #include "khangman.moc"
