@@ -203,8 +203,6 @@ void KHangMan::loadSettings()
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
-    // Level
-
 }
 
 void KHangMan::setLevel()
@@ -252,22 +250,20 @@ void KHangMan::loadLevels()
     if (levelBool == false)
     {
         Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
+        Prefs::setCurrentLevel(0);
         currentLevel =0;
         Prefs::writeConfig();
     }    
-    Prefs::setCurrentLevel(currentLevel);
-    Prefs::writeConfig();
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).utf8());
-
-    levelAct->setCurrentItem(currentLevel);
     levelAct->setItems(translatedLevels);
     levelAct->setCurrentItem(Prefs::currentLevel());
-
-    changeStatusbar(i18n(levels[currentLevel].utf8()), IDS_LEVEL);
     
     setLevel();
+    QString m_lstring = translatedLevels[currentLevel].utf8();
+    m_lstring.replace(0, 1, m_lstring.left(1).upper());
+    changeStatusbar(m_lstring, IDS_LEVEL);
 }
 
 #include "khangman.moc"

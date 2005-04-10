@@ -472,7 +472,7 @@ void KHangManView::game()
         kdDebug() << "language " << Prefs::selectedLanguage() << endl;
         kdDebug() << "level " << Prefs::levelFile() << endl;
         QFile myFile;
-        myFile.setName(locate("data",myString));
+        myFile.setName(locate("data", myString));
         if (!myFile.exists())
         {
                 QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
