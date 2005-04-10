@@ -537,33 +537,36 @@ void KHangManView::game()
 
 void KHangManView::readFile()
 {
-        kdDebug() << "in read kvtml file " << endl;
-        QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-        myString= locate("data", myString);
-        KEduVocDataItemList verbs = KEduVocData::parse(myString);
-        //how many words in the file
-        int NumberOfWords = verbs.count();
-        //pick a number in random
-        int wordNumber = random.getLong(NumberOfWords);
-        if (wordNumber<=0) 
-                return;
-        //test if not twice the same
-        if (tmp==0)
-                temp=wordNumber;
-        else
-        {
-                while (wordNumber==tmp)
-                        wordNumber = random.getLong(NumberOfWords);
-                tmp=wordNumber;
-        }//end of test
-        word = verbs[wordNumber].originalText();
-        tip = verbs[wordNumber].translatedText(); 
-        kdDebug() << "tip : " << tip << endl;
-        if (tip.isEmpty()) {
-                hintBool = false;
-                Prefs::setHint(false);
-                Prefs::writeConfig();
-                khangman ->changeStatusbar("", 103);}
+    kdDebug() << "in read kvtml file " << endl;
+    QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
+    myString= locate("data", myString);
+    KEduVocDataItemList verbs = KEduVocData::parse(myString);
+    //how many words in the file
+    int NumberOfWords = verbs.count();
+    //pick a number in random
+    int wordNumber = random.getLong(NumberOfWords);
+    if (wordNumber<=0) 
+            readFile();
+    //test if not twice the same
+    if (tmp==0)
+            temp=wordNumber;
+    else
+    {
+            while (wordNumber==tmp)
+                    wordNumber = random.getLong(NumberOfWords);
+            tmp=wordNumber;
+    }//end of test
+    word = verbs[wordNumber].originalText();
+    tip = verbs[wordNumber].translatedText(); 
+    if (word.isEmpty()) 
+        readFile();
+    kdDebug() << "tip : " << tip << endl;
+    if (tip.isEmpty()) {
+            hintBool = false;
+            Prefs::setHint(false);
+            Prefs::writeConfig();
+            khangman ->changeStatusbar("", 103);
+    }
 }
 
 #include "khangmanview.moc"
