@@ -169,10 +169,12 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
-    adjustSize();
-    slotSetPixmap(bcgdPicture);    
     slotNewGame();
+    
+    slotSetPixmap(bcgdPicture);    
     update();
+    adjustSize();
+    updateGeometry();
 }
 
 void KHangManView::paintEvent( QPaintEvent * )
@@ -535,8 +537,8 @@ void KHangManView::reset()
     charWrite->setText("");
     missedChar=0;
     allWords.clear();
-    loadAnimation();
-    update();
+   // loadAnimation();
+   // update();
 }
 
 void KHangManView::game()
