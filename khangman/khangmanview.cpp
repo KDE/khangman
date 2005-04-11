@@ -438,9 +438,14 @@ void KHangManView::slotTry()
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
-                int x = width()*332/700;
-                int y = height()*134/535;
-                popup->move(x, y);
+                if (Prefs::mode() ==0)  {
+                
+                }
+                else  {
+                    int x = width()*332/700;
+                    int y = height()*145/535;
+                    popup->move(x, y);
+                }
                 redIndex = missedL.find(sChar, 0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
@@ -457,6 +462,14 @@ void KHangManView::slotTry()
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
+                if (Prefs::mode() ==0)  {
+                
+                }
+                else  {
+                    int x = this->width()*470/700;
+                    int y = this->height()*520/535;
+                    popup->move(x, y);
+                }
                 redIndex = goodWord.find(sChar,0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);

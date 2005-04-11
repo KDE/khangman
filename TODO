@@ -1,7 +1,14 @@
 KHANGMAN - NEW IDEAS - NEW DESIGN
 
-11 April
+USABILITY questions that might remain
+
+- KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
+- usability of the Configure KHangMan dialog
+
+
+11 April 2005
 - center the word display
+- better position the passive popups
 - choose font in configuration (3 dialogs: for Misses, for word and for Guess+charWrite)
 - Misses and word font the same? (uniformity prefered by Dannya)
 - make the gradient disappear in minimum size so that the added parts merge exactly
@@ -9,7 +16,7 @@ KHANGMAN - NEW IDEAS - NEW DESIGN
 
 07 April 2005 
 - urgent: implement Desert theme DONE 10 April
-- urgent: reimplement the moveNear() method from KPassivePopup to control position of the passive popups
+- urgent: position better KPassivePopup DONE 11 April
 - implement fontChecker for Domestic Manners and Dustimo Roman in main.cpp
 - find a way to end a game (when you lose or when you win -> special animation?)
 
