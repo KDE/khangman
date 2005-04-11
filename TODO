@@ -1,16 +1,22 @@
 KHANGMAN - NEW IDEAS - NEW DESIGN
 
+11 April
+- center the word display
+- choose font in configuration (3 dialogs: for Misses, for word and for Guess+charWrite)
+- Misses and word font the same? (uniformity prefered by Dannya)
+- make the gradient disappear in minimum size so that the added parts merge exactly
+- change the wording of Misses to Mistakes? (Reuben)
+
 07 April 2005 
-- urgent: implement Desert theme
+- urgent: implement Desert theme DONE 10 April
 - urgent: reimplement the moveNear() method from KPassivePopup to control position of the passive popups
 - implement fontChecker for Domestic Manners and Dustimo Roman in main.cpp
-- check font size in several configurations
 - find a way to end a game (when you lose or when you win -> special animation?)
 
 22 March 2005
 Menubar
-- Look menu -> switching theme
-- Language menu -> switching language
+- Look menu -> switching theme DONE 10 April 
+- Language menu -> switching language DONE 10 April
 
 Options - themes
 
@@ -24,8 +30,6 @@ we could write the options if needed in some kind of theme file (Dannya)
 NEW: Young kids theme with 120x120 pixels area to put an image -> new kvtml file with pic name as hint
 
 DONE Misses and Word and Guess: QPainter for each theme
-
-Steve font: free? -> dual licensing DONE (GPL)
 
 Toolbar for special chars and normal: transparent image bg for one
 

@@ -58,17 +58,18 @@
                 <choice name="norm"/>
             </choices>
             <default>mild</default>
-        </entry>
+        </entry>-->
+        <group name="look">
         <entry name="Mode" type="Enum">
             <label>Background theme</label>
             <choices>
-                <choice name="nobg"/>
-                <choice name="blue"/>
-                <choice name="nature"/>
+                <choice name="sea"/>
+                <choice name="desert"/>
             </choices>
-            <default>nobg</default>
+            <default>sea</default>
         </entry>
-        <entry name="Sound" type="Bool">
+        </group>
+        <!--<entry name="Sound" type="Bool">
             <label>Enable Sounds on New Game and Win Game</label>
             <default code="true">false</default>
         </entry>

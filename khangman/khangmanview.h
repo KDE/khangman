@@ -40,11 +40,11 @@ public:
 
     ///parent instance
     KHangMan *khangman;
-    ///Background picture for the Sea theme
-    QPixmap seaPicture;
     ///Paint the animated hanged K sequence
     void paintHangman();
     
+    void setTheme();
+        
 signals:
 
 private:
@@ -53,6 +53,8 @@ private:
     KLineEdit *charWrite;
     ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
     KPushButton *guessButton;
+    
+    QString theme;
 
 protected:
 
@@ -93,8 +95,10 @@ protected:
     void replaceLetters(const QString &);
     ///the hanged K animation sequence
     QPixmap px[11];
+    ///Background picture (sea or desert)
+    QPixmap bcgdPicture;
     ///part of Sea background used to repaint word and missed letters
-    QPixmap bluePic, miss_bluePic;
+    QPixmap bluePic, miss_bluePic, miss_desertPic, greenPic;
     ///Draw the word to be guessed
     void paintWord();
     ///Reset everything to start a new game, missed letters is empty
@@ -117,6 +121,8 @@ protected:
     void paintWordTwice();
     ///index of the already guessed letter
     int redIndex;
+    ///load the K animated sequence depending of the theme
+    void loadAnimation();
         
 public slots:
     ///if you want to play with a new word

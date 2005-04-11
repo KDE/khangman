@@ -40,24 +40,15 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 {
     khangman = parent;
     //get background from config file - default is sea
-    seaPicture = QPixmap(locate("data","khangman/pics/sea_theme.png") );
-    bluePic = QPixmap(locate("data","khangman/pics/blue.png") );
-    miss_bluePic = QPixmap(locate("data","khangman/pics/miss_blue.png") );
-    //now we preload the pixmaps...
-    px[0].load(locate("data","khangman/pics/animation0.png"));
-    px[1].load(locate("data","khangman/pics/animation1.png"));
-    px[2].load(locate("data","khangman/pics/animation2.png"));
-    px[3].load(locate("data","khangman/pics/animation3.png"));
-    px[4].load(locate("data","khangman/pics/animation4.png"));
-    px[5].load(locate("data","khangman/pics/animation5.png"));
-    px[6].load(locate("data","khangman/pics/animation6.png"));
-    px[7].load(locate("data","khangman/pics/animation7.png"));
-    px[8].load(locate("data","khangman/pics/animation8.png"));
-    px[9].load(locate("data","khangman/pics/animation9.png"));
-    px[10].load(locate("data","khangman/pics/animation10.png"));
+    loadAnimation();
+    
+    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
+    greenPic = QPixmap(locate("data","khangman/pics/desert/green.png") );
+    miss_bluePic = QPixmap(locate("data","khangman/pics/sea/miss_blue.png") );
+    miss_desertPic= QPixmap(locate("data","khangman/pics/desert/miss_desert.png") );
 
     setMinimumSize( QSize( 700, 535) );
-    slotSetPixmap( seaPicture);
+    slotSetPixmap( bcgdPicture);
 
     charWrite = new KLineEdit( this, "charWrite" );
     charWrite->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, charWrite->sizePolicy().hasHeightForWidth() ) );
@@ -66,9 +57,6 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 
     guessButton = new KPushButton( this, "guessButton" );
     guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, guessButton->sizePolicy().hasHeightForWidth() ) );
-    guessButton->setPaletteBackgroundColor( QColor( 115, 64, 49) );
-    guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
-    guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
     guessButton->setAutoMask( TRUE );
     guessButton->setFlat( TRUE );
     guessButton->setText( i18n( "G&uess" ) );
@@ -173,6 +161,13 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
     update();
 }
 
+void KHangManView::setTheme()
+{
+    loadAnimation();
+    adjustSize();
+    slotSetPixmap(bcgdPicture);    
+    slotNewGame();
+}
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
@@ -184,28 +179,51 @@ void KHangManView::paintWord()
 {
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    paint.setPen( QColor(148, 156, 167));
-    paint.setFont(QFont("Arial", 32));
-    //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
-    paint.drawPixmap(QRect(0, height()-height()*126/535, width()*366/700, height()*126/535), bluePic);
-    paint.drawText(width()/50, height()-height()/10, goodWord);
+    if (Prefs::mode() ==0)  {
+        paint.setPen( QColor(148, 156, 167));
+        paint.setFont(QFont("Arial", 30));
+        //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
+        paint.drawPixmap(QRect(0, height()-height()*126/535, width()*366/700, height()*126/535), bluePic);
+        paint.drawText(width()/50, height()-height()/10, goodWord);
+    }
+    else  {
+        paint.setPen( QColor(87, 0, 0));
+        paint.setFont(QFont("Arial", 30));
+        //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
+        paint.drawPixmap(QRect(width()-width()*325/700, height()-height()*86/535, width()*325/700, height()*86/535), greenPic);
+        paint.drawText(width()*385/700, height()-height()*43/535, goodWord);
+    }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
 void KHangManView::resizeEvent(QResizeEvent *)
 {
-    if(!seaPicture.isNull())
-        slotSetPixmap(seaPicture);
-    charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
+    if(!bcgdPicture.isNull())
+        slotSetPixmap(bcgdPicture);
+    
     charWrite->setMinimumSize( QSize( height()/18, 0 ) );
     QFont charWrite_font(  charWrite->font() );
     charWrite_font.setPointSize( height()/18 );
     charWrite_font.setFamily( "Dustimo Roman" );
-    charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
     charWrite->setFont( charWrite_font ); 
     guessButton->setFont(QFont("Dustimo Roman", height()/22));
-    guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
+    if (Prefs::mode() ==0)  {
+        charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
+        charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
+        guessButton->setPaletteBackgroundColor( QColor( 115, 64, 49) );
+        guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
+        guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+        guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
+    }
+    else  {
+        charWrite->setPaletteForegroundColor(QColor(87, 0, 0));
+        guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
+        guessButton->setPaletteForegroundColor( QColor( 87, 0, 0) );
+        guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+        guessButton->setGeometry(5, height()*479/535, guessButton->width(), height()/10);
+        charWrite->setGeometry(10+guessButton->width(), height()*479/535, height()/10, height()/10);
+    }
     //bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
@@ -221,19 +239,38 @@ void KHangManView::paintHangman()
 {
     QPainter p;
     p.begin(paletteBackgroundPixmap());
-    p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
+    if (Prefs::mode() ==0)  {
+        p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
+    }
+    else  {
+        p.drawPixmap(QRect(width()-width()*259/700, height()*397/535-height()*228/535, width()*259/700, height()*228/535), px[missedChar]);
+    }
     p.end();
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    paint.drawPixmap(QRect(width()-width()*200/700, 0, width()*222/700, height()*116/535), miss_bluePic);
-    paint.setPen( QColor(148, 156, 167));
-    QFont f = QFont("Domestic Manners");
-    f.setPointSize(height()/14);
-    paint.setFont(f);
-    QString misses = i18n("Misses");
-    paint.drawText(width()/2+30, height()/13, misses);
-    paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
-    paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
+    if (Prefs::mode() ==0)  {
+        paint.drawPixmap(QRect(width()-width()*200/700, 0, width()*222/700, height()*116/535), miss_bluePic);
+        paint.setPen( QColor(148, 156, 167));
+        QFont f = QFont("Domestic Manners");
+        f.setPointSize(height()/14);
+        paint.setFont(f);
+        QString misses = i18n("Misses");
+        paint.drawText(width()/2+30, height()/13, misses);
+        paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
+        paint.drawText( width()/2+width()/4, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
+    }
+    else  {
+        paint.drawPixmap(QRect(0, 0, width()*521/700, height()*64/535), miss_desertPic);
+        paint.setPen( QColor(87, 0, 0));
+        QFont f = QFont("Domestic Manners");
+        f.setPointSize(height()/16);
+        paint.setFont(f);
+        QString misses = i18n("Misses");
+        paint.drawText(0, height()*64/535/2, misses);
+        paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
+        paint.drawText( width()*130/700, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );
+    }
+
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
@@ -330,26 +367,27 @@ void KHangManView::slotTry()
                 else //if the char is missed...
                 {
                         allWords << sChar;
-                        if (missedChar<5)
-                            missedL=missedL.replace(2*missedChar, 1, sChar);
-                        else if(missedChar>5)
-                            missedL=missedL.replace((2*missedChar)+2, 1, sChar);
-
-                        if (missedChar==5) //we actually need to replace one underscore too much..
-                        {
-                                missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
-                                missedL=missedL.replace(22,2, "");
-                        }
+                        if (Prefs::mode() ==0) { //sea theme
+                            if (missedChar<5)
+                                missedL=missedL.replace(2*missedChar, 1, sChar);
+                            else if(missedChar>5)
+                                missedL=missedL.replace((2*missedChar)+2, 1, sChar);
+    
+                            if (missedChar==5) //we actually need to relace one underscore too much..
+                            {
+                                    missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
+                                    missedL=missedL.replace(22,2, "");
+                            }
+			}	
+			else	//desert missed all in 1 line
+                            missedL=missedL.replace((2*missedChar), 1, sChar);
 
                         missedChar++;
                         paintHangman();
 
                         if (missedChar >= 10) //you are hanged!
                         {
-                                //we reset everything...
                                 //pixImage->setPixmap(px[9]);
-                                //um... The word is not guessed... Let's show it...
-                                kdDebug() << "Hanged!!! " << endl;
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
                                 //if (language =="de")
@@ -430,7 +468,6 @@ void KHangManView::slotNewGame()
             if (soundFile != 0) 
                     KAudioPlayer::play(soundFile);
     }*/
-    
     reset();
     //language=Prefs::selectedLanguage();
     //TODO: see if that's necessary
@@ -459,80 +496,80 @@ void KHangManView::reset()
     word="";
     charWrite->setText("");
     missedChar=0;
-    missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
     allWords.clear();
+    loadAnimation();
     update();
 }
 
 void KHangManView::game()
 {
-        //pixImage->setPixmap(px[10]);
-        //if the data files are not installed in the correct dir
-        QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-        kdDebug() << "language " << Prefs::selectedLanguage() << endl;
-        kdDebug() << "level " << Prefs::levelFile() << endl;
-        QFile myFile;
-        myFile.setName(locate("data", myString));
-        if (!myFile.exists())
-        {
-                QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
-                                     "Check your installation, please!").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-                KMessageBox::sorry( this, mString,
-                                    i18n("Error") );
-                kapp->quit();
-        }
-        //update();
-        //we open the file and store info into the stream...
-        QFile openFileStream(myFile.name());
-        openFileStream.open(IO_ReadOnly);
-        QTextStream readFileStr(&openFileStream);
-        readFileStr.setEncoding(QTextStream::UnicodeUTF8);
-        //allData contains all the words from the file
-        QStringList allData = QStringList::split("\n", readFileStr.read(), true);
-        openFileStream.close();
-        //detects if file is a kvtml file so that it's a hint enable file
-        if (allData.first() == "<?xml version=\"1.0\"?>") {
-            readFile();
-        }
-        else {//TODO abort if not a kvtml file maybe
+    //pixImage->setPixmap(px[10]);
+    //if the data files are not installed in the correct dir
+    QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
+    kdDebug() << "language " << Prefs::selectedLanguage() << endl;
+    kdDebug() << "level " << Prefs::levelFile() << endl;
+    QFile myFile;
+    myFile.setName(locate("data", myString));
+    if (!myFile.exists())
+    {
+            QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+                                    "Check your installation, please!").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
+            KMessageBox::sorry( this, mString,
+                                i18n("Error") );
+            kapp->quit();
+    }
+    //update();
+    //we open the file and store info into the stream...
+    QFile openFileStream(myFile.name());
+    openFileStream.open(IO_ReadOnly);
+    QTextStream readFileStr(&openFileStream);
+    readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+    //allData contains all the words from the file
+    QStringList allData = QStringList::split("\n", readFileStr.read(), true);
+    openFileStream.close();
+    //detects if file is a kvtml file so that it's a hint enable file
+    if (allData.first() == "<?xml version=\"1.0\"?>") {
+        readFile();
+    }
+    else {//TODO abort if not a kvtml file maybe
         kdDebug() << "Not a kvtml file!" << endl;
-        }
-        kdDebug() << word << endl;
-        //display the number of letters to guess with _
-        for(unsigned int i = 0; i < word.length(); i++)
-        {
+    }
+    kdDebug() << word << endl;
+    //display the number of letters to guess with _
+    for(unsigned int i = 0; i < word.length(); i++)
+    {
+        goodWord.append("_");
+        goodWord.append(" ");
+    }        
+    goodWord.remove(goodWord.length()-1);
+    
+    kdDebug() << goodWord << endl;
+    stripWord=goodWord;
+    //if needed, display white space or - if in word or semi dot
+    f = word.find( "-" );
+    if (f>0)
+    {
+        g=0;
+        goodWord.replace(2*f, 1, "-");
+        g = word.find( "-", f+1);
+        if (g>0) 
+                goodWord.replace(2*g, 3, "-");
+        if (g>1)
                 goodWord.append("_");
-                goodWord.append(" ");
-        }        
-        goodWord.remove(goodWord.length()-1);
-        
-        kdDebug() << goodWord << endl;
-        stripWord=goodWord;
-        //if needed, display white space or - if in word or semi dot
-        f = word.find( "-" );
-        if (f>0)
-        {
-                g=0;
-                goodWord.replace(2*f, 1, "-");
-                g = word.find( "-", f+1);
-                if (g>0) 
-                        goodWord.replace(2*g, 3, "-");
-                if (g>1)
-                        goodWord.append("_");
-        }
-        c = word.find( " " );
-        if (c>0) //find another white space
-        {
-                d=0;
-                goodWord.replace(2*c, 1, " ");
-                d = word.find( " ", c+1);
-                if (d>0)  goodWord.replace(2*d, c+1, " ");
-        }
-        int e = word.find( "·" );
-        if (e>0) goodWord.replace(2*e, 1, "·");
-        int h = word.find( "'" );
-        if (h>0) goodWord.replace(2*h, 1, "'");
-        //paintWord();
+    }
+    c = word.find( " " );
+    if (c>0) //find another white space
+    {
+        d=0;
+        goodWord.replace(2*c, 1, " ");
+        d = word.find( " ", c+1);
+        if (d>0)  goodWord.replace(2*d, c+1, " ");
+    }
+    int e = word.find( "·" );
+    if (e>0) goodWord.replace(2*e, 1, "·");
+    int h = word.find( "'" );
+    if (h>0) goodWord.replace(2*h, 1, "'");
+    //paintWord();
 }
 
 void KHangManView::readFile()
@@ -546,15 +583,15 @@ void KHangManView::readFile()
     //pick a number in random
     int wordNumber = random.getLong(NumberOfWords);
     if (wordNumber<=0) 
-            readFile();
+        readFile();
     //test if not twice the same
     if (tmp==0)
             temp=wordNumber;
     else
     {
-            while (wordNumber==tmp)
-                    wordNumber = random.getLong(NumberOfWords);
-            tmp=wordNumber;
+        while (wordNumber==tmp)
+                wordNumber = random.getLong(NumberOfWords);
+        tmp=wordNumber;
     }//end of test
     word = verbs[wordNumber].originalText();
     tip = verbs[wordNumber].translatedText(); 
@@ -567,6 +604,34 @@ void KHangManView::readFile()
             Prefs::writeConfig();
             khangman ->changeStatusbar("", 103);
     }
+}
+
+void KHangManView::loadAnimation()
+{
+    switch (Prefs::mode())  {
+        case Prefs::EnumMode::sea:
+            bcgdPicture = QPixmap(locate("data","khangman/pics/sea/sea_theme.png") );
+            theme = "sea";
+            missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
+            break;
+        case Prefs::EnumMode::desert:
+            bcgdPicture = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
+            theme = "desert";
+            missedL = "_ _ _ _ _ _ _ _ _ _  ";
+            break;
+    }		
+    //now we preload the pixmaps...
+    px[0].load(locate("data", QString("khangman/pics/%1/animation0.png").arg(theme)));
+    px[1].load(locate("data", QString("khangman/pics/%1/animation1.png").arg(theme)));
+    px[2].load(locate("data", QString("khangman/pics/%1/animation2.png").arg(theme)));
+    px[3].load(locate("data", QString("khangman/pics/%1/animation3.png").arg(theme)));
+    px[4].load(locate("data", QString("khangman/pics/%1/animation4.png").arg(theme)));
+    px[5].load(locate("data", QString("khangman/pics/%1/animation5.png").arg(theme)));
+    px[6].load(locate("data", QString("khangman/pics/%1/animation6.png").arg(theme)));
+    px[7].load(locate("data", QString("khangman/pics/%1/animation7.png").arg(theme)));
+    px[8].load(locate("data", QString("khangman/pics/%1/animation8.png").arg(theme)));
+    px[9].load(locate("data", QString("khangman/pics/%1/animation9.png").arg(theme)));
+    px[10].load(locate("data", QString("khangman/pics/%1/animation10.png").arg(theme)));
 }
 
 #include "khangmanview.moc"

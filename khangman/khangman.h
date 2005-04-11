@@ -104,6 +104,8 @@ protected slots:
     void slotChangeLevel();
 
     void slotChangeLanguage(int);
+    
+    void slotChangeMode();
 };
 
 #endif // _KHANGMAN_H_

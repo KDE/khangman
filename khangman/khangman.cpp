@@ -83,6 +83,7 @@ void KHangMan::setupActions()
     modes += i18n("&Sea Theme");
     modes += i18n("&Desert Theme");
     modeAct->setItems(modes);
+    modeAct->setCurrentItem(Prefs::mode());
     modeAct->setToolTip(i18n( "Choose the look and feel" ));
     modeAct->setWhatsThis(i18n( "Check the look and feel" ));
     
@@ -134,6 +135,16 @@ void KHangMan::slotChangeLanguage(int index)
     loadLevels();
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     m_view->slotNewGame();   
+}
+
+void KHangMan::slotChangeMode()
+{
+    if (modeAct->currentItem() ==0)
+        Prefs::setMode(Prefs::EnumMode::sea);
+    else
+        Prefs::setMode(Prefs::EnumMode::desert);
+    Prefs::writeConfig();
+    m_view->setTheme();
 }
 
 void KHangMan::setLanguages()
