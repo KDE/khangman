@@ -71,6 +71,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
     connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
+    
 }
 
 KHangManView::~KHangManView()
@@ -282,17 +283,25 @@ void KHangManView::paintMissedTwice()
     paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
     paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
-    if (redIndex == 0)
-        paint.drawText( width()/2+width()/4 +aux.width()+1, height()/13, QString(missedL[redIndex]));
-    else if (redIndex <=8)
-        paint.drawText( width()/2+width()/4 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
-    else if (redIndex ==12) {
-        aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
-        paint.drawText( width()/2+width()/4 +aux.width(), height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+    if (Prefs::mode() ==0) { //sea theme
+        if (redIndex == 0)
+            paint.drawText( width()/2+width()/4 +aux.width()+1, height()/13, QString(missedL[redIndex]));
+        else if (redIndex <=8)
+            paint.drawText( width()/2+width()/4 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+        else if (redIndex ==12) {
+            aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
+            paint.drawText( width()/2+width()/4 +aux.width(), height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+        }
+        else if (redIndex > 12) {
+            aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
+            paint.drawText( width()/2+width()/4 +aux.width() -4, height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+        }
     }
-    else if (redIndex > 12) {
-        aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
-        paint.drawText( width()/2+width()/4 +aux.width() -4, height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+    else  { //desert theme
+        if (redIndex == 0)
+            paint.drawText( width()*130/700 +aux.width()+1, height()/13,  QString(missedL[redIndex]));
+        else 
+            paint.drawText( width()*130/700 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
     }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
