@@ -156,8 +156,12 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         myPopup->setView(i18n("Hint"), tip );
         myPopup->setPalette(QToolTip::palette());
         myPopup->setTimeout(4000); //show for 4 seconds
-        //see http://lxr.kde.org/source/kdeextragear-3/digikam/imageplugins/imageeffect_redeye.cpp#L54 for reimplementing moveNear()
         myPopup->show();	
+        int x = width()*254/700;
+        int y = height()*405/535;
+        myPopup->move(x, y);
+        //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
+        //myPopup->move(mouse->pos());
     }
     update();
 }
@@ -168,6 +172,7 @@ void KHangManView::setTheme()
     adjustSize();
     slotSetPixmap(bcgdPicture);    
     slotNewGame();
+    update();
 }
 
 void KHangManView::paintEvent( QPaintEvent * )
@@ -433,6 +438,9 @@ void KHangManView::slotTry()
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
+                int x = width()*332/700;
+                int y = height()*134/535;
+                popup->move(x, y);
                 redIndex = missedL.find(sChar, 0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
