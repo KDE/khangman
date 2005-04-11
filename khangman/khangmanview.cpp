@@ -311,13 +311,21 @@ void KHangManView::paintWordTwice()
 {
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    paint.setFont(QFont("Arial", 32));
+    paint.setFont(QFont("Arial", 30));
     paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(QRect(), AlignAuto, goodWord.left(redIndex));
-    if (redIndex == 0)
-        paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
-    else //weird that it needs 2 pixels less after first
-        paint.drawText(width()/50+aux.width()-2, height()-height()/10, QString(goodWord[redIndex]));
+    if (Prefs::mode() ==0) { //sea theme
+        if (redIndex == 0)
+            paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
+        else //weird that it needs 2 pixels less after first
+            paint.drawText(width()/50+aux.width()-2, height()-height()/10, QString(goodWord[redIndex]));
+    }
+    else { //desert theme
+        if (redIndex == 0)
+            paint.drawText(width()*385/700+aux.width(), height()-height()*43/535, QString(goodWord[redIndex]));
+        else 
+            paint.drawText(width()*385/700+aux.width()-2, height()-height()*43/535, QString(goodWord[redIndex]));
+    }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
