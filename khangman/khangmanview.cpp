@@ -163,7 +163,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
         //myPopup->move(mouse->pos());
     }
-    update();
+    //update();
 }
 
 void KHangManView::setTheme()
@@ -188,11 +188,13 @@ void KHangManView::paintWord()
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     if (Prefs::mode() ==0)  {
+        kdDebug() << "in paint word sea " << endl;
         paint.setPen( QColor(148, 156, 167));
         paint.setFont(QFont("Arial", 30));
         //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
+        //copyBlt(paletteBackgroundPixmap(),  QPoint(0, height()-height()*126/535), paletteBackgroundPixmap(), QRect(0, height()-height()*126/535, width()*366/700, height()*126/535));
         paint.drawPixmap(QRect(0, height()-height()*126/535, width()*366/700, height()*126/535), bluePic);
-        paint.drawText(width()/50, height()-height()/10, goodWord);
+        paint.drawText(width()/50, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
     }
     else  {
         paint.setPen( QColor(87, 0, 0));
@@ -200,6 +202,29 @@ void KHangManView::paintWord()
         //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
         paint.drawPixmap(QRect(width()-width()*325/700, height()-height()*86/535, width()*325/700, height()*86/535), greenPic);
         paint.drawText(width()*385/700, height()-height()*43/535-height()*86/535,  width()*325/700, height()*86/535, AlignCenter, goodWord);
+    }
+    paint.end();
+    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+}
+
+void KHangManView::paintWordTwice()
+{
+    QPainter paint;
+    paint.begin(paletteBackgroundPixmap());
+    paint.setFont(QFont("Arial", 30));
+    paint.setPen(QColor(Qt::red));
+    QRect aux = paint.boundingRect(QRect(), AlignAuto, goodWord.left(redIndex));
+    if (Prefs::mode() ==0) { //sea theme
+        if (redIndex == 0)
+            paint.drawText(width()/50+aux.width(), height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+        else //weird that it needs 2 pixels less after first
+            paint.drawText(width()/50+aux.width()-2, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+    }
+    else { //desert theme
+        if (redIndex == 0)
+            paint.drawText(width()*385/700+aux.width(), height()-height()*43/535, QString(goodWord[redIndex]));
+        else 
+            paint.drawText(width()*385/700+aux.width()-2, height()-height()*43/535, QString(goodWord[redIndex]));
     }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
@@ -314,29 +339,6 @@ void KHangManView::paintMissedTwice()
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
-void KHangManView::paintWordTwice()
-{
-    QPainter paint;
-    paint.begin(paletteBackgroundPixmap());
-    paint.setFont(QFont("Arial", 30));
-    paint.setPen(QColor(Qt::red));
-    QRect aux = paint.boundingRect(QRect(), AlignAuto, goodWord.left(redIndex));
-    if (Prefs::mode() ==0) { //sea theme
-        if (redIndex == 0)
-            paint.drawText(width()/50+aux.width(), height()-height()/10, QString(goodWord[redIndex]));
-        else //weird that it needs 2 pixels less after first
-            paint.drawText(width()/50+aux.width()-2, height()-height()/10, QString(goodWord[redIndex]));
-    }
-    else { //desert theme
-        if (redIndex == 0)
-            paint.drawText(width()*385/700+aux.width(), height()-height()*43/535, QString(goodWord[redIndex]));
-        else 
-            paint.drawText(width()*385/700+aux.width()-2, height()-height()*43/535, QString(goodWord[redIndex]));
-    }
-    paint.end();
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());
-}
-
 void KHangManView::slotTry()
 {
     QString sChar = charWrite->text();
@@ -412,6 +414,7 @@ void KHangManView::slotTry()
                         if (missedChar >= 10) //you are hanged!
                         {
                                 //pixImage->setPixmap(px[9]);
+                                kdDebug() << "------ hanged !!! " << endl;
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
                                 //if (language =="de")
@@ -538,7 +541,15 @@ void KHangManView::reset()
     missedChar=0;
     allWords.clear();
    // loadAnimation();
-   // update();
+    switch (Prefs::mode())  {
+    case Prefs::EnumMode::sea:
+        missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
+        break;
+    case Prefs::EnumMode::desert:
+        missedL = "_ _ _ _ _ _ _ _ _ _  ";
+        break;
+    }	
+    update();
 }
 
 void KHangManView::game()
