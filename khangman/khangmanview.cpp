@@ -199,7 +199,7 @@ void KHangManView::paintWord()
         paint.setFont(QFont("Arial", 30));
         //TODO instead of using bluePIc should be done in code: get the part of the background, copy it, and repaint it
         paint.drawPixmap(QRect(width()-width()*325/700, height()-height()*86/535, width()*325/700, height()*86/535), greenPic);
-        paint.drawText(width()*385/700, height()-height()*43/535, goodWord);
+        paint.drawText(width()*385/700, height()-height()*43/535-height()*86/535,  width()*325/700, height()*86/535, AlignCenter, goodWord);
     }
     paint.end();
     bitBlt(this, 0, 0, paletteBackgroundPixmap());
