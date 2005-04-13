@@ -5,12 +5,13 @@ USABILITY questions that might remain
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
 - usability of the Configure KHangMan dialog
 - enable hint: in Settings at the moment, should it be as a button in the toolbar as well? (Danny)
+- is the change of GUI a good thing when you switch themes? (won't it confuse users?)
 
 11 April 2005
 - center the word display
 - better position the passive popups
 - choose font in configuration (3 dialogs: for Misses, for word and for Guess+charWrite)
-- Misses and word font the same? (uniformity prefered by Dannya)
+- Misses and word font the same? (uniformity prefered by Dannya) -> have the _ the same size
 - make the gradient disappear in minimum size so that the added parts merge exactly
 - change the wording of Misses to Mistakes? (Reuben)
 
