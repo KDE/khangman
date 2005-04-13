@@ -4,7 +4,7 @@ USABILITY questions that might remain
 
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
 - usability of the Configure KHangMan dialog
-
+- enable hint: in Settings at the moment, should it be as a button in the toolbar as well? (Danny)
 
 11 April 2005
 - center the word display

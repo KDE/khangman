@@ -100,7 +100,7 @@
     </group>-->
     <group name="advanced">
             <entry name="Hint" type="Bool">
-            <label>Enable Hint mode if available</label>
+            <label>Enable Hint mode if available i.e. only if hintBool == true</label>
             <default code="true">false</default>
         </entry>
         </group>

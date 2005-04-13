@@ -111,7 +111,7 @@ protected:
     bool upperBool;
     ///KDE random generator
     KRandomSequence random;
-    ///true if hint is enabled for the fiels that support it
+    ///true if hint exists
     bool hintBool;
     ///Enable hints on mouse right click if Hints exist
     virtual void mousePressEvent(QMouseEvent *mouse);

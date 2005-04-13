@@ -66,6 +66,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     tmp = 0;
     accent_b = false;
     m_accent = true;
+    hintBool = true;//assume tip exists
     //tip="";
     //missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
     connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
@@ -150,7 +151,7 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton)//(kvtmlBool && hintBool && (mouse->button() == RightButton))
+    if (mouse->button() == RightButton && hintBool)//(kvtmlBool && hintBool && (mouse->button() == RightButton))
     {
         KPassivePopup *myPopup = new KPassivePopup( charWrite);
         myPopup->setView(i18n("Hint"), tip );
@@ -220,10 +221,11 @@ void KHangManView::paintWordTwice()
     paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(QRect(), AlignCenter|AlignCenter, goodWord.left(redIndex));
     if (Prefs::mode() ==0) { //sea theme
+        kdDebug() << "aux.width(): " << aux.width() << endl;
         if (redIndex == 0)
-            paint.drawText(width()/50+aux.width(), height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+            paint.drawText(width()/50, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter, QString(goodWord[redIndex]));
         else //weird that it needs 2 pixels less after first
-            paint.drawText(width()/50+aux.width()-2, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+            paint.drawText(aux.width()-2, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
     }
     else { //desert theme
         if (redIndex == 0)
@@ -449,7 +451,9 @@ void KHangManView::slotTry()
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
                 if (Prefs::mode() ==0)  {
-                
+                    int x = width()*332/700;
+                    int y = height()*145/535;
+                    popup->move(x, y);
                 }
                 else  {
                     int x = width()*332/700;
@@ -655,10 +659,14 @@ void KHangManView::readFile()
         readFile();
     kdDebug() << "tip : " << tip << endl;
     if (tip.isEmpty()) {
-            hintBool = false;
-            Prefs::setHint(false);
-            Prefs::writeConfig();
-            khangman ->changeStatusbar("", 103);
+        Prefs::setHint(false);//hint can't be enabled
+        Prefs::writeConfig();
+        hintBool = false;//hint does not exist
+        khangman ->changeStatusbar("", 103);
+    }
+    else {
+        hintBool = true;
+        khangman ->changeStatusbar(i18n("Hint available"), 103);
     }
 }
 
