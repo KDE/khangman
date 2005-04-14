@@ -300,21 +300,20 @@ void KHangManView::paintHangman()
     //draw the Missed letters
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    bitBlt(this, 0, 0, paletteBackgroundPixmap(), 0, 0, width(), height(), CopyROP );
     if (Prefs::mode() ==0)  {
         QRect myRect = QRect(width()-width()*280/700, 0, width()*280/700, height()*90/535);
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
         QPainter p(&pix);
         QFont f = QFont("Domestic Manners");
-        f.setPointSize(height()/15);
+        f.setPointSize(height()/17);
         p.setFont(f);
         p.setPen( QColor(148, 156, 167));
         QString misses = i18n("Misses");
-        p.drawText(0, 0, width()*280/700, height()*90/535, AlignLeft, misses);
+        p.drawText(0, 0, width()*280/700, height()*90/535, AlignLeft|AlignTop, misses);
         QRect aux = paint.boundingRect(QRect(), AlignLeft, misses);
-        p.setFont(QFont("Bitstream Charter", height()/15, QFont::Bold));
-        p.drawText(aux.width()+50, 0, width()*280/700, height()*90/535, AlignLeft|AlignTop|DontClip, missedL );
+        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
+        p.drawText(aux.width(), 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, missedL );
         p.end();
         paint.drawPixmap(myRect,pix);
         bitBlt( this, width()-width()*280/700, 0, &pix );
@@ -393,7 +392,7 @@ void KHangManView::slotTry()
                         //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
                        // }
                     paintWord();
-                    update();
+                    //no update(); here or it'll flicker!!!
                     sword.remove(QRegExp(" "));
                     if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
                         //we reset everything...
