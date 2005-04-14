@@ -225,16 +225,17 @@ void KHangManView::paintWord()
 
 void KHangManView::paintWordTwice()
 {
-    QPainter paint;
+    /*QPainter paint;
     paint.begin(paletteBackgroundPixmap());
     paint.setFont(QFont("Arial", 30));
     paint.setPen(QColor(Qt::red));
-    QRect aux = paint.boundingRect(QRect(), AlignCenter|AlignCenter, goodWord.left(redIndex));
+    QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
+    QRect aux = paint.boundingRect(myRect, AlignCenter|AlignCenter, goodWord.left(redIndex));
     if (Prefs::mode() ==0) { //sea theme
         if (redIndex == 0)
-            paint.drawText(width()/50, height()-height()/10- height()*126/535/2, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+            paint.drawText(+4,height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
         else //weird that it needs 2 pixels less after first
-            paint.drawText(aux.width()-2, height()-height()*126/535, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+            paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
     }
     else { //desert theme
         if (redIndex == 0)
@@ -243,7 +244,7 @@ void KHangManView::paintWordTwice()
             paint.drawText(width()*325/700+aux.width(), height()-height()*86/535,  width()*325/700, height()*86/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
     }
     paint.end();
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+    bitBlt(this, 0, 0, paletteBackgroundPixmap());*/
 }
 
 void KHangManView::resizeEvent(QResizeEvent *)
@@ -273,7 +274,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
         guessButton->setGeometry(5, height()*479/535, guessButton->width(), height()/10);
         charWrite->setGeometry(10+guessButton->width(), height()*479/535, height()/10, height()/10);
     }
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+    //Seems not necessary bitBlt(this, 0, 0, paletteBackgroundPixmap());
 }
 
 void KHangManView::slotSetPixmap(QPixmap& bgPix)
@@ -319,16 +320,22 @@ void KHangManView::paintHangman()
         bitBlt( this, width()-width()*280/700, 0, &pix );
     }
     else  {
-        /*paint.drawPixmap(QRect(0, 0, width()*521/700, height()*64/535), miss_desertPic);
-        //paint.drawPixmap(QRect(0, 0, width()*521/700, height()*64/535), miss_desertPic);
-        paint.setPen( QColor(87, 0, 0));
+        QRect myRect = QRect(0, 0, width()*521/700, height()*64/535);
+        QPixmap pix( myRect.size() );
+        pix.fill( this, myRect.topLeft() );
+        QPainter p(&pix);
         QFont f = QFont("Domestic Manners");
-        f.setPointSize(height()/16);
-        paint.setFont(f);
+        f.setPointSize(height()/17);
+        p.setFont(f);
+        p.setPen( QColor(87, 0, 0));
         QString misses = i18n("Misses");
-        paint.drawText(0, height()*64/535/2, misses);
-        paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
-        paint.drawText( width()*130/700, 0, 0, 0, AlignLeft|AlignTop|DontClip, missedL );*/
+        p.drawText(0, 0, width()*510/700, height()*64/535, AlignLeft|AlignTop, misses);
+        QRect aux = paint.boundingRect(QRect(), AlignRight, misses);
+        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
+        p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
+        p.end();
+        paint.drawPixmap(myRect,pix);
+        bitBlt( this, 0, 0, &pix );
     }
     paint.end();
 }
@@ -337,31 +344,35 @@ void KHangManView::paintMissedTwice()
 {
     /*QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    paint.setFont(QFont("Bitstream Charter", height()/13, QFont::Bold));
-    paint.setPen(QColor(Qt::red));
-    QRect aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.left(redIndex));
+
     if (Prefs::mode() ==0) { //sea theme
+        QRect myRect = QRect(width()-width()*280/700, 0, width()*280/700, height()*90/535);
+        QPixmap pix( myRect.size() );
+        pix.fill( this, myRect.topLeft() );
+        QPainter p(&pix);
+        QFont f = QFont("Domestic Manners");
+        f.setPointSize(height()/17);
+        p.setFont(f);
+        p.setPen( QColor(148, 156, 167));
+        QString misses = i18n("Misses");
+        QRect aux = paint.boundingRect(QRect(), AlignLeft, misses);
+        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
+        p.setPen(QColor(Qt::red));
+        QRect auxi = paint.boundingRect(QRect(), AlignCenter|AlignTop|DontClip, missedL.left(redIndex));
         if (redIndex == 0)
-            paint.drawText( width()/2+width()/4 +aux.width()+1, height()/13, QString(missedL[redIndex]));
-        else if (redIndex <=8)
-            paint.drawText( width()/2+width()/4 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
-        else if (redIndex ==12) {
-            aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
-            paint.drawText( width()/2+width()/4 +aux.width(), height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
-        }
-        else if (redIndex > 12) {
-            aux = paint.boundingRect(QRect(), AlignLeft|AlignTop|DontClip, missedL.mid(12, redIndex-12));//left(redIndex-12));
-            paint.drawText( width()/2+width()/4 +aux.width() -4, height()/13+12, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
-        }
+            p.drawText(0, 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, QString(missedL[redIndex]) );
+        p.end();
+        paint.drawPixmap(myRect,pix);
+        bitBlt( this, width()-width()*280/700, 0, &pix );
     }
     else  { //desert theme
-        if (redIndex == 0)
-            paint.drawText( width()*130/700 +aux.width()+1, height()/13,  QString(missedL[redIndex]));
-        else 
-            paint.drawText( width()*130/700 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
+       // if (redIndex == 0)
+            //paint.drawText( width()*130/700 +aux.width()+1, height()/13,  QString(missedL[redIndex]));
+        //else 
+            //paint.drawText( width()*130/700 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
     }
     paint.end();
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());*/
+    //bitBlt(this, 0, 0, paletteBackgroundPixmap());*/
 }
 
 void KHangManView::slotTry()
@@ -521,14 +532,14 @@ void KHangManView::timerDone()
 {
     charWrite->setEnabled(true);
     charWrite->setFocus();
-    paintHangman();
+    //paintHangman();
 }
 
 void KHangManView::timerWordDone()
 {
     charWrite->setEnabled(true);
     charWrite->setFocus();
-    paintWord();
+    //paintWord();
 }
 
 void KHangManView::slotNewGame()
