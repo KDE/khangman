@@ -208,7 +208,6 @@ void KHangManView::paintWord()
         bitBlt( this, 0, height()-height()*126/535, &pix );
     }
     else  {
-<<<<<<< khangmanview.cpp
         QRect myRect = QRect(width()-width()*300/700, height()-height()*86/535, width()*300/700, height()*86/535);
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
