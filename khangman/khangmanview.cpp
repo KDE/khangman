@@ -208,18 +208,18 @@ void KHangManView::paintWord()
         bitBlt( this, 0, height()-height()*126/535, &pix );
     }
     else  {
-        QRect myRect = QRect(width()-width()*300/700, height()-height()*86/535, width()*300/700, height()*86/535);
+        QRect myRect = QRect(width()-width()*325/700, height()-height()*125/535, width()*325/700, height()*125/535);
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
         QPainter p(&pix);
         p.setFont(QFont("Arial", 30));
         p.setPen( QColor(87, 0, 0));
-        p.drawText(0, 0, width()*300/700, height()*86/535, AlignCenter|AlignCenter, goodWord);
+        p.drawText(0, 0, width()*325/700, height()*125/535, AlignCenter|AlignCenter, goodWord);
         p.end();
         
         paint.drawPixmap(myRect,pix);
         paint.end();
-        bitBlt( this, width()-width()*300/700, height()-height()*86/535, &pix );
+        bitBlt( this, width()-width()*325/700, height()-height()*125/535, &pix );
     }
 }
 
