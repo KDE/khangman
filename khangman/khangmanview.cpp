@@ -16,6 +16,7 @@
  */
 
 #include <kapplication.h>
+#include <kaudioplayer.h>
 #include <kdebug.h>
 #include <klineedit.h>
 #include <klocale.h>
@@ -409,8 +410,8 @@ void KHangManView::slotTry()
                         //we reset everything...
                        // pixImage->setPixmap(px[10]);
                        //TODO find a better way to finish
-                       slotNewGame();
-                        /*if (Prefs::sound()) {
+                       //
+                        if (Prefs::sound()) {
                             QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                             if (soundFile != 0) 
                                 KAudioPlayer::play(soundFile);
@@ -423,7 +424,7 @@ void KHangManView::slotTry()
                                 slotNewGame();
                             else
                                 kapp->quit();
-                       }*/
+                       }
                     }
 
                 }
@@ -538,11 +539,11 @@ void KHangManView::timerWordDone()
 
 void KHangManView::slotNewGame()
 {
-    /* if (Prefs::sound()) {
+    if (Prefs::sound()) {
             QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
             if (soundFile != 0) 
                     KAudioPlayer::play(soundFile);
-    }*/
+    }
     reset();
     //language=Prefs::selectedLanguage();
     //TODO: see if that's necessary
