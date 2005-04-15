@@ -8,86 +8,39 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>375</width>
-            <height>185</height>
+            <width>335</width>
+            <height>212</height>
         </rect>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>spacer3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Minimum</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>32</height>
+                </size>
+            </property>
+        </spacer>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout7</cstring>
+                <cstring>layout3</cstring>
             </property>
             <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout5</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel1</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="maximumSize">
-                                <size>
-                                    <width>32767</width>
-                                    <height>40</height>
-                                </size>
-                            </property>
-                            <property name="text">
-                                <string>Words are in:</string>
-                            </property>
-                            <property name="buddy" stdset="0">
-                                <cstring>languageCombo</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QComboBox">
-                            <property name="name">
-                                <cstring>kcfg_LanguageCombobox</cstring>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>Change the language for the words</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>&lt;qt&gt;Here you can change the data languages, i.e. the language for the words to guess. Only available languages are displayed.
-You can add new languages using the &lt;b&gt;Game&lt;/b&gt; menu &lt;b&gt;Get Data in New language..&lt;/b&gt;.&lt;/qt&gt;</string>
-                            </property>
-                        </widget>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacer3_2</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>41</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                    </hbox>
-                </widget>
                 <widget class="QCheckBox">
                     <property name="name">
                         <cstring>kcfg_AccentedLetters</cstring>
@@ -157,23 +110,34 @@ This is the default state.
 If this option is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
                     </property>
                 </widget>
-                <spacer>
+                <widget class="QGroupBox">
                     <property name="name">
-                        <cstring>spacer3</cstring>
+                        <cstring>groupBox3_2</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
+                    <property name="title">
+                        <string>Sounds</string>
                     </property>
-                    <property name="sizeType">
-                        <enum>Minimum</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>16</height>
-                        </size>
-                    </property>
-                </spacer>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_Sound</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Enable &amp;sounds</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>If checked, sounds will be played for New Game and Win Game</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
+Default is no sound.</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
             </vbox>
         </widget>
     </grid>

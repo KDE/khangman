@@ -33,32 +33,6 @@
             <default code="true">userLanguage</default>
         </entry> 
 </group>
-        <!--<entry name="LanguageCombobox" type="Int">
-            <label>The value of the ComboBox</label>
-            <code>
-                QStringList m_languages;
-                QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
-                if (mdirs.isEmpty()) return;
-                for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
-                QDir dir(*it);
-                m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-                m_languages.remove(m_languages.find("."));
-                m_languages.remove(m_languages.find(".."));
-                }
-                m_languages.sort();
-            </code>
-            <default code="true">m_languages.findIndex(userLanguage)</default>
-        </entry>
-    </group>
-    <group name="normal">
-        <entry name="Pictures" type="Enum">
-            <label>HangMan Pictures Style</label>
-            <choices>
-                <choice name="mild"/>
-                <choice name="norm"/>
-            </choices>
-            <default>mild</default>
-        </entry>-->
         <group name="look">
         <entry name="Mode" type="Enum">
             <label>Background theme</label>
@@ -69,12 +43,11 @@
             <default>sea</default>
         </entry>
         </group>
-        <!--<entry name="Sound" type="Bool">
+            <group name="normal">
+        <entry name="Sound" type="Bool">
             <label>Enable Sounds on New Game and Win Game</label>
             <default code="true">false</default>
         </entry>
-    </group>
-    <group name="advanced">
         <entry name="AccentedLetters" type="Bool">
             <label>The language has special accented letters</label>
             <default code="true">false</default>
@@ -83,10 +56,6 @@
             <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
             <default code="true">false</default>
         </entry>
-        <entry name="Fortune" type="Bool">
-            <label>Guess fortune cookies instead of words</label>
-            <default code="true">false</default>
-        </entry>  
         <entry name="WonDialog" type="Bool">
             <label>Do not display the 'Congratulations You won!' dialog</label>
             <default code="true">false</default>
@@ -97,7 +66,7 @@
             <label>The Providers path for KHangMan</label>
              <default code="true">"http://edu.kde.org/khangman/downloads/providers.xml"</default>
         </entry> 
-    </group>-->
+    </group>
     <group name="advanced">
             <entry name="Hint" type="Bool">
             <label>Enable Hint mode if available i.e. only if hintBool == true</label>

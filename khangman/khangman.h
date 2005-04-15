@@ -106,6 +106,8 @@ protected slots:
     void slotChangeLanguage(int);
     
     void slotChangeMode();
+    ///In Settings menu, Configure KHangMan... menu item
+    void optionsPreferences();
 };
 
 #endif // _KHANGMAN_H_

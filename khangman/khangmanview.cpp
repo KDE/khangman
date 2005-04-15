@@ -331,7 +331,7 @@ void KHangManView::paintHangman()
         QString misses = i18n("Misses");
         p.drawText(0, 0, width()*510/700, height()*64/535, AlignLeft|AlignTop, misses);
         QRect aux = paint.boundingRect(QRect(), AlignRight, misses);
-        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
+        p.setFont(QFont("Bitstream Charter", 30, QFont::Bold));
         p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
         p.end();
         paint.drawPixmap(myRect,pix);
@@ -456,17 +456,11 @@ void KHangManView::slotTry()
                                 //if (language =="de")
                                 //theWord = theWord.replace(0,1, theWord.left(1).upper());
                                 goodWord = theWord;
-                                slotNewGame();
-                                //usability: change that
-                                /*QString newGameString;
-                                if (Prefs::pictures() == Prefs::EnumPictures::mild) 
-                                        newGameString = i18n("You lost. Do you want to play again?");
-                                else
-                                        newGameString = i18n("You are dead. Do you want to play again?");
+                                QString newGameString = i18n("You lost. Do you want to play again?");
                                 if (KMessageBox::questionYesNo(this, newGameString) == 3)
                                         slotNewGame();
                                 else
-                                        kapp->quit();*/
+                                        kapp->quit();
                         }
                 }
         }

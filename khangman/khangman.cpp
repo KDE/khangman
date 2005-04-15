@@ -21,12 +21,14 @@
 
 #include "khangman.h"
 #include "prefs.h"
+#include "advanced.h"
 
+#include <qcheckbox.h>
 #include <qdir.h>
 
 #include <kapplication.h>
 #include <kactionclasses.h>
-#include <kconfig.h>
+#include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmainwindow.h>
@@ -275,6 +277,23 @@ void KHangMan::loadLevels()
     QString m_lstring = translatedLevels[currentLevel].utf8();
     m_lstring.replace(0, 1, m_lstring.left(1).upper());
     changeStatusbar(m_lstring, IDS_LEVEL);
+}
+
+void KHangMan::optionsPreferences()
+{
+    if ( KConfigDialog::showDialog( "settings" ) )  {
+        return;
+    }
+    //KConfigDialog didn't find an instance of this dialog, so lets create it :
+    KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
+    //normal *mNormal =  new normal( 0, "Normal Settings" );
+    //dialog->addPage(mNormal, i18n("Look & Feel"), "colorize");
+    advanced *mAdvanced=  new advanced( 0, "Advanced" );
+    mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
+    mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+    dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
+    connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+    dialog->show();
 }
 
 #include "khangman.moc"

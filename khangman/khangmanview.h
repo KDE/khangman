@@ -44,6 +44,11 @@ public:
     void paintHangman();
     
     void setTheme();
+    
+    ///true if hint exists
+    bool hintBool;
+    ///true if language = es, ca, pt or pt_BR
+    bool m_accent;
         
 signals:
 
@@ -86,8 +91,6 @@ protected:
     bool b_oneLetter;
     ///true if Type accents is enabled for the languages that support it
     bool accent_b;
-    ///true if language = es, ca, pt or pt_BR
-    bool m_accent;
     ///allWords contains all letters already guessed
     QStringList allWords;
     ///If true, the word contains the QString
@@ -111,8 +114,6 @@ protected:
     bool upperBool;
     ///KDE random generator
     KRandomSequence random;
-    ///true if hint exists
-    bool hintBool;
     ///Enable hints on mouse right click if Hints exist
     virtual void mousePressEvent(QMouseEvent *mouse);
     ///Paint an already guessed letter in red in Missed Letters
