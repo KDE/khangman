@@ -211,7 +211,7 @@ void KHangMan::setLanguages()
 
 void KHangMan::loadSettings()
 {
-    // Language //is selectedLanguage necessary??? only used here
+    // Language //TODO is selectedLanguage necessary??? only used here
     selectedLanguage = Prefs::selectedLanguage();
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";

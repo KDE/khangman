@@ -383,7 +383,10 @@ void KHangManView::slotTry()
     //if (language=="de")
       //  upperBool = true;
     //if ((!upperBool))
-    sChar = sChar.lower();
+    if (Prefs::upperCase())
+        sChar = sChar.upper();
+    else
+        sChar = sChar.lower();
     if (sChar.at(0).isLetter()) {//if the char is a letter
         if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
                 if (containsChar(sChar)) {
@@ -692,6 +695,8 @@ void KHangManView::readFile()
         hintBool = true;
         khangman ->changeStatusbar(i18n("Hint available"), 103);
     }
+    if (Prefs::upperCase())
+        word = word.upper();
 }
 
 void KHangManView::loadAnimation()

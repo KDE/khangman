@@ -72,5 +72,9 @@
             <label>Enable Hint mode if available i.e. only if hintBool == true</label>
             <default code="true">false</default>
         </entry>
-        </group>
+            <entry name="UpperCase" type="Bool">
+            <label>Write the word in upper case letters if checked</label>
+            <default code="true">false</default>
+        </entry>
+     </group>
 </kcfg>
