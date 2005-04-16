@@ -383,7 +383,7 @@ void KHangManView::slotTry()
     //if (language=="de")
       //  upperBool = true;
     //if ((!upperBool))
-    if (Prefs::upperCase())
+    if (Prefs::upperCase()) //TODO see if it's OK in all languages for all special chars
         sChar = sChar.upper();
     else
         sChar = sChar.lower();
@@ -696,7 +696,7 @@ void KHangManView::readFile()
         khangman ->changeStatusbar(i18n("Hint available"), 103);
     }
     if (Prefs::upperCase())
-        word = word.upper();
+        word = word.upper();//TODO see if it's OK in all languages for all special chars
 }
 
 void KHangManView::loadAnimation()

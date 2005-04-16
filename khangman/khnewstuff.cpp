@@ -28,6 +28,7 @@
 #include <qdir.h>
 #include <kaction.h>
 
+#include "prefs.h"
 #include "khnewstuff.h"
 
 KHNewStuff::KHNewStuff( KHangManView *view ) :
@@ -42,18 +43,24 @@ bool KHNewStuff::install( const QString &fileName )
     
     KTar archive( fileName );
     if ( !archive.open( IO_ReadOnly ) )
-        return false;
+                    return false;
     const KArchiveDirectory *archiveDir = archive.directory();
     KStandardDirs myStdDir;
     const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
     KStandardDirs::makeDir( destDir );
     archiveDir->copyTo(destDir);
     archive.close();
+        //look for languages dirs installed
+    m_view->khangman->setLanguages();
+    //refresh Languages menu
+    m_view->khangman->m_languageAction->setItems(m_view->khangman->m_languageNames);
+    m_view->khangman->slotChangeLanguage(m_view->khangman->m_languages.findIndex(Prefs::selectedLanguage()));
+    m_view->khangman->m_languageAction->setCurrentItem(m_view->khangman->m_languages.findIndex(Prefs::selectedLanguage()));
     return true;
 }
 
 bool KHNewStuff::createUploadFile( const QString &fileName )
 {
     //return mView->saveCalendar( fileName );
-    return true;
+        return true;
 }

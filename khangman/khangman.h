@@ -32,6 +32,7 @@
 
 class KSelectAction;
 class KToggleAction;
+class KHNewStuff;
 
 /**
  * @short Application Main Window
@@ -58,7 +59,15 @@ public:
     @param id the label in which the text will be written
     */
     void changeStatusbar(const QString& text, int id);
-
+    ///Action that sets up the Language menu
+    KSelectAction *m_languageAction;
+    ///Method to set the current language into the Statusbar and to pass it to KHangManView
+    void setLanguages();
+    ///Translated names of languages
+    QStringList m_languageNames;
+    ///Language codes of available languages
+    QStringList m_languages;
+    
 protected:
     ///Main view
     KHangManView *m_view;
@@ -68,8 +77,7 @@ protected:
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;
-    ///Action that sets up the Language menu
-    KSelectAction *m_languageAction;
+
 
     void setupActions();
 
@@ -77,14 +85,10 @@ protected:
 
     ///Selected language
     QString selectedLanguage;
-    ///Translated names of languages
-    QStringList m_languageNames;
-    ///Language codes of available languages
-    QStringList m_languages;
+
     ///Translated and sorted names of languages
     QStringList m_sortedNames;
-    ///Method to set the current language into the Statusbar and to pass it to KHangManView
-    void setLanguages();
+
     ///the different data files in each language dir
     QStringList levels;
 
@@ -98,16 +102,23 @@ protected:
 
     void loadLevels();
 private:
+    ///Create a KNewStuff instance
+    KHNewStuff *mNewStuff;
 
+public slots:
+
+    void slotChangeLanguage(int);
+    
 protected slots:
 
     void slotChangeLevel();
 
-    void slotChangeLanguage(int);
     
     void slotChangeMode();
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
+    ///access the KNewStuff class to install new data
+    void slotDownloadNewStuff();
 };
 
 #endif // _KHANGMAN_H_

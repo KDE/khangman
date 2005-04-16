@@ -22,6 +22,7 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "advanced.h"
+#include "khnewstuff.h"
 
 #include <qcheckbox.h>
 #include <qdir.h>
@@ -44,6 +45,7 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
+    mNewStuff = 0;
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     
@@ -295,5 +297,15 @@ void KHangMan::optionsPreferences()
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
     dialog->show();
 }
+
+//TODO refresh language menu after hot new stuff
+void KHangMan::slotDownloadNewStuff()
+{
+    if ( !mNewStuff )
+        mNewStuff = new KHNewStuff( m_view );
+    mNewStuff->download();
+}
+
+//TODO special toolbar chars in upperCase if Prefs::upperCase()
 
 #include "khangman.moc"
