@@ -101,6 +101,9 @@ protected:
     QString levelString;
 
     void loadLevels();
+    ///update settings after Settings->Configure KHangMan dialog is closed
+    void updateSettings();
+    
 private:
     ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;

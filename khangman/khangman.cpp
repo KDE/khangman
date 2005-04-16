@@ -298,7 +298,11 @@ void KHangMan::optionsPreferences()
     dialog->show();
 }
 
-//TODO refresh language menu after hot new stuff
+void KHangMan::updateSettings()
+{
+    //TODO after upperCase() changed, reload new game
+}
+
 void KHangMan::slotDownloadNewStuff()
 {
     if ( !mNewStuff )

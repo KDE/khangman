@@ -201,7 +201,15 @@ void KHangManView::paintWord()
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
         QPainter p(&pix);
-        p.setFont(QFont("Arial", 30));
+        QFont tFont;
+        if (Prefs::selectedLanguage() =="tg")  {
+    	   tFont.setFamily( "URW Bookman" );
+        }
+        else
+            tFont.setFamily( "Arial" );
+        tFont.setPixelSize( 30 ); //this has to be scaled depending of the dpi
+        p.setFont(tFont);
+    
         p.setPen( QColor(148, 156, 167));
         p.drawText(0,0, width()*366/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
         p.end();
@@ -213,7 +221,14 @@ void KHangManView::paintWord()
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
         QPainter p(&pix);
-        p.setFont(QFont("Arial", 30));
+        QFont tFont;
+        if (Prefs::selectedLanguage() =="tg")  {
+    	   tFont.setFamily( "URW Bookman" );
+        }
+        else
+            tFont.setFamily( "Arial" );
+        tFont.setPixelSize( 30 );
+        p.setFont(tFont);
         p.setPen( QColor(87, 0, 0));
         p.drawText(0, 0, width()*325/700, height()*125/535, AlignCenter|AlignCenter, goodWord);
         p.end();
@@ -314,7 +329,14 @@ void KHangManView::paintHangman()
         QString misses = i18n("Misses");
         p.drawText(0, 0, width()*280/700, height()*90/535, AlignLeft|AlignTop, misses);
         QRect aux = paint.boundingRect(QRect(), AlignLeft, misses);
-        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
+        QFont tFont;
+        if (Prefs::selectedLanguage() =="tg")  {
+    	   tFont.setFamily( "URW Bookman" );
+        }
+        else
+            tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
+        tFont.setPixelSize( 30 );
+        p.setFont(tFont);
         p.drawText(aux.width(), 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, missedL );
         p.end();
         paint.drawPixmap(myRect,pix);
@@ -332,7 +354,14 @@ void KHangManView::paintHangman()
         QString misses = i18n("Misses");
         p.drawText(0, 0, width()*510/700, height()*64/535, AlignLeft|AlignTop, misses);
         QRect aux = paint.boundingRect(QRect(), AlignRight, misses);
-        p.setFont(QFont("Bitstream Charter", 30, QFont::Bold));
+        QFont tFont;
+        if (Prefs::selectedLanguage() =="tg")  {
+    	   tFont.setFamily( "URW Bookman" );
+        }
+        else
+            tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
+        tFont.setPixelSize( 30 );
+        p.setFont(tFont);
         p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
         p.end();
         paint.drawPixmap(myRect,pix);
@@ -387,6 +416,7 @@ void KHangManView::slotTry()
         sChar = sChar.upper();
     else
         sChar = sChar.lower();
+
     if (sChar.at(0).isLetter()) {//if the char is a letter
         if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
                 if (containsChar(sChar)) {
