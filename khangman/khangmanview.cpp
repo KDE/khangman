@@ -271,7 +271,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite->setMinimumSize( QSize( height()/18, 0 ) );
     QFont charWrite_font(  charWrite->font() );
     charWrite_font.setPointSize( height()/18 );
-    charWrite_font.setFamily( "Dustimo Roman" );
+    charWrite_font.setFamily( "Arial" );
     charWrite->setFont( charWrite_font ); 
     guessButton->setFont(QFont("Dustimo Roman", height()/22));
     if (Prefs::mode() ==0)  {
@@ -334,7 +334,7 @@ void KHangManView::paintHangman()
     	   tFont.setFamily( "URW Bookman" );
         }
         else
-            tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
+            tFont.setFamily( "Arial" );
         tFont.setPixelSize( 28 );
         p.setFont(tFont);
         p.drawText(aux.width(), 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, missedL );
@@ -352,14 +352,14 @@ void KHangManView::paintHangman()
         p.setFont(f);
         p.setPen( QColor(87, 0, 0));
         QString misses = i18n("Misses");
-        p.drawText(0, 0, width()*510/700, height()*64/535, AlignLeft|AlignTop, misses);
+        p.drawText(0, 0, width()*521/700, height()*64/535, AlignLeft|AlignTop, misses);
         QRect aux = paint.boundingRect(QRect(), AlignRight, misses);
         QFont tFont;
         if (Prefs::selectedLanguage() =="tg")  {
     	   tFont.setFamily( "URW Bookman" );
         }
         else
-            tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
+            tFont.setFamily( "Arial" );
         tFont.setPixelSize( 28 );
         p.setFont(tFont);
         p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
