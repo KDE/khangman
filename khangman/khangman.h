@@ -101,8 +101,7 @@ protected:
     QString levelString;
 
     void loadLevels();
-    ///update settings after Settings->Configure KHangMan dialog is closed
-    void updateSettings();
+
     
 private:
     ///Create a KNewStuff instance
@@ -122,6 +121,8 @@ protected slots:
     void optionsPreferences();
     ///access the KNewStuff class to install new data
     void slotDownloadNewStuff();
+    ///update settings after Settings->Configure KHangMan dialog is closed
+    void updateSettings();
 };
 
 #endif // _KHANGMAN_H_

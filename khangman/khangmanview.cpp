@@ -207,7 +207,7 @@ void KHangManView::paintWord()
         }
         else
             tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 30 ); //this has to be scaled depending of the dpi
+        tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
         p.setFont(tFont);
     
         p.setPen( QColor(148, 156, 167));
@@ -227,7 +227,7 @@ void KHangManView::paintWord()
         }
         else
             tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 30 );
+        tFont.setPixelSize( 28 );
         p.setFont(tFont);
         p.setPen( QColor(87, 0, 0));
         p.drawText(0, 0, width()*325/700, height()*125/535, AlignCenter|AlignCenter, goodWord);
@@ -317,13 +317,13 @@ void KHangManView::paintHangman()
     //draw the Missed letters
     QPainter paint;
     paint.begin(paletteBackgroundPixmap());
-    if (Prefs::mode() ==0)  {
+    if (Prefs::mode() ==0)  { //sea
         QRect myRect = QRect(width()-width()*280/700, 0, width()*280/700, height()*90/535);
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
         QPainter p(&pix);
         QFont f = QFont("Domestic Manners");
-        f.setPointSize(height()/17);
+        f.setPixelSize(28);
         p.setFont(f);
         p.setPen( QColor(148, 156, 167));
         QString misses = i18n("Misses");
@@ -335,14 +335,14 @@ void KHangManView::paintHangman()
         }
         else
             tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
-        tFont.setPixelSize( 30 );
+        tFont.setPixelSize( 28 );
         p.setFont(tFont);
         p.drawText(aux.width(), 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, missedL );
         p.end();
         paint.drawPixmap(myRect,pix);
         bitBlt( this, width()-width()*280/700, 0, &pix );
     }
-    else  {
+    else  { //desert
         QRect myRect = QRect(0, 0, width()*521/700, height()*64/535);
         QPixmap pix( myRect.size() );
         pix.fill( this, myRect.topLeft() );
@@ -360,7 +360,7 @@ void KHangManView::paintHangman()
         }
         else
             tFont.setFamily( "Bitstream Charter" );//Is that OK for sk and tj?
-        tFont.setPixelSize( 30 );
+        tFont.setPixelSize( 28 );
         p.setFont(tFont);
         p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
         p.end();
@@ -412,8 +412,10 @@ void KHangManView::slotTry()
     //if (language=="de")
       //  upperBool = true;
     //if ((!upperBool))
-    if (Prefs::upperCase()) //TODO see if it's OK in all languages for all special chars
+    if (Prefs::upperCase()) {//TODO see if it's OK in all languages for all special chars
         sChar = sChar.upper();
+        //TODO replace ß with SS in German if (Prefs::selectedLanguage() =="de")
+    }
     else
         sChar = sChar.lower();
 
@@ -470,7 +472,7 @@ void KHangManView::slotTry()
                             else if(missedChar>5)
                                 missedL=missedL.replace((2*missedChar)+2, 1, sChar);
     
-                            if (missedChar==5) //we actually need to relace one underscore too much..
+                            if (missedChar==5) //we actually need to replace one underscore too much..
                             {
                                     missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
                                     missedL=missedL.replace(22,2, "");
@@ -483,13 +485,14 @@ void KHangManView::slotTry()
                         paintHangman();
                         if (missedChar >= 10) //you are hanged!
                         {
-                                //pixImage->setPixmap(px[9]);
+                                //TODO sequence to finish when hanged
                                 kdDebug() << "------ hanged !!! " << endl;
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
                                 //if (language =="de")
                                 //theWord = theWord.replace(0,1, theWord.left(1).upper());
                                 goodWord = theWord;
+                                //usability: find another way to start a new game
                                 QString newGameString = i18n("You lost. Do you want to play again?");
                                 if (KMessageBox::questionYesNo(this, newGameString) == 3)
                                         slotNewGame();
@@ -578,19 +581,6 @@ void KHangManView::slotNewGame()
                     KAudioPlayer::play(soundFile);
     }
     reset();
-    //language=Prefs::selectedLanguage();
-    //TODO: see if that's necessary
-    /*QFont tFont;
-    if (language =="tg")  {
-        tFont.setFamily( "URW Bookman" );
-    }
-    if (language =="cs")  {
-        tFont.setFamily( "Arial" );
-    }
-    tFont.setPointSize( 22 );
-    missedLetters->setFont(tFont);
-    charWrite->setFont(tFont);*/
-    
     //distinction between upper and lower case letters
     //if (Prefs::levelFile() == "world_capitals.kvtml" || Prefs::levelFile() == "departements.kvtml")
      //   upperBool = true;
@@ -601,6 +591,7 @@ void KHangManView::slotNewGame()
 
 void KHangManView::reset()
 {
+    kdDebug() << "In reset " << endl;
     goodWord="";
     word="";
     charWrite->setText("");
@@ -616,11 +607,12 @@ void KHangManView::reset()
         break;
     }	
     update();
+    resize(this->size());
+    //adjustSize();//this takes too much time!!!
 }
 
 void KHangManView::game()
 {
-    //pixImage->setPixmap(px[10]);
     //if the data files are not installed in the correct dir
     QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
     kdDebug() << "language " << Prefs::selectedLanguage() << endl;
@@ -635,7 +627,7 @@ void KHangManView::game()
                                 i18n("Error") );
             kapp->quit();
     }
-    //update();
+    update();
     //we open the file and store info into the stream...
     QFile openFileStream(myFile.name());
     openFileStream.open(IO_ReadOnly);

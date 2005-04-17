@@ -300,7 +300,8 @@ void KHangMan::optionsPreferences()
 
 void KHangMan::updateSettings()
 {
-    //TODO after upperCase() changed, reload new game
+    //after upperCase() changed, reload new game
+    m_view->slotNewGame();
 }
 
 void KHangMan::slotDownloadNewStuff()
@@ -310,6 +311,5 @@ void KHangMan::slotDownloadNewStuff()
     mNewStuff->download();
 }
 
-//TODO special toolbar chars in upperCase if Prefs::upperCase()
 
 #include "khangman.moc"
