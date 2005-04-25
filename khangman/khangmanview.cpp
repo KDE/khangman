@@ -180,7 +180,6 @@ void KHangManView::setTheme()
 {
     loadAnimation();
     slotSetPixmap(bcgdPicture); 
-    paintMisses();   
     update();
 }
 
@@ -195,12 +194,20 @@ void KHangManView::paintWord()
 {
     QPainter paint;
     paint.begin(&bg);
-    //if (Prefs::mode() ==0)  {
-    QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
+    kdDebug() << "width() " << width() << endl;
+    QRect myRect;
+    if (Prefs::mode() ==0)   //sea
+        myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
+    else  
+        myRect = QRect(0, height()-height()*126/535, width()*327/700, height()*126/535);
     QPixmap pix( myRect.size() );
     pix.fill( this, myRect.topLeft() );
     QPainter p(&pix);
     QFont tFont;
+    if (Prefs::mode() ==0)   //sea
+        p.setPen( QColor(148, 156, 167));
+    else  
+        p.setPen( QColor(87, 0, 0));
     if (Prefs::selectedLanguage() =="tg")  {
         tFont.setFamily( "URW Bookman" );
     }
@@ -208,11 +215,10 @@ void KHangManView::paintWord()
         tFont.setFamily( "Arial" );
     tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
     p.setFont(tFont);
-    if (Prefs::mode() ==0)   //sea
-        p.setPen( QColor(148, 156, 167));
+    if (Prefs::mode() ==0)
+        p.drawText(0,0, width()*417/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
     else
-        p.setPen( QColor(87, 0, 0));
-    p.drawText(0,0, width()*366/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
+        p.drawText(0,0, width()*327/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
     p.end();
     paint.drawPixmap(myRect,pix);
     bitBlt( this, 0, height()-height()*126/535, &pix );
@@ -221,25 +227,25 @@ void KHangManView::paintWord()
 void KHangManView::paintWordTwice()
 {
     /*QPainter paint;
-    paint.begin(paletteBackgroundPixmap());
-    paint.setFont(QFont("Arial", 30));
-    paint.setPen(QColor(Qt::red));
+    paint.begin(&bg);
     QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
+    QFont tFont;
+    if (Prefs::selectedLanguage() =="tg")  {
+        tFont.setFamily( "URW Bookman" );
+    }
+    else
+        tFont.setFamily( "Arial" );
+    tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
+    paint.setFont(tFont);
+    paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(myRect, AlignCenter|AlignCenter, goodWord.left(redIndex));
-    if (Prefs::mode() ==0) { //sea theme
-        if (redIndex == 0)
-            paint.drawText(+4,height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-        else //weird that it needs 2 pixels less after first
-            paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-    }
-    else { //desert theme
-        if (redIndex == 0)
-            paint.drawText(width()*325/700+aux.width(), height()-height()*86/535,  width()*325/700, height()*86/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-        else 
-            paint.drawText(width()*325/700+aux.width(), height()-height()*86/535,  width()*325/700, height()*86/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-    }
+    kdDebug() << aux.width() << endl;
+    if (redIndex == 0)
+        paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+    else //weird that it needs 2 pixels less after first
+        paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
     paint.end();
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());*/
+    bitBlt(this, 0, 0, &bg);*/
 }
 
 void KHangManView::resizeEvent(QResizeEvent *)
