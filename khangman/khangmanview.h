@@ -124,6 +124,10 @@ protected:
     int redIndex;
     ///load the K animated sequence depending of the theme
     void loadAnimation();
+    
+    QPixmap bg;
+    ///paint the Misses label
+    void paintMisses();
         
 public slots:
     ///if you want to play with a new word

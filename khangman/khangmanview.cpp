@@ -40,17 +40,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     : QWidget(parent)
 {
     khangman = parent;
-    //get background from config file - default is sea
-    loadAnimation();
     
-    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
-    greenPic = QPixmap(locate("data","khangman/pics/desert/green.png") );
-    miss_bluePic = QPixmap(locate("data","khangman/pics/sea/miss_blue.png") );
-    miss_desertPic= QPixmap(locate("data","khangman/pics/desert/miss_desert.png") );
-
-    setMinimumSize( QSize( 700, 535) );
-    slotSetPixmap( bcgdPicture);
-
     charWrite = new KLineEdit( this, "charWrite" );
     charWrite->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, charWrite->sizePolicy().hasHeightForWidth() ) );
     charWrite->setMaxLength( 1 );
@@ -61,6 +51,17 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     guessButton->setAutoMask( TRUE );
     guessButton->setFlat( TRUE );
     guessButton->setText( i18n( "G&uess" ) );
+    
+    //get background from config file - default is sea
+    loadAnimation();
+    
+    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
+    greenPic = QPixmap(locate("data","khangman/pics/desert/green.png") );
+    miss_bluePic = QPixmap(locate("data","khangman/pics/sea/miss_blue.png") );
+    miss_desertPic= QPixmap(locate("data","khangman/pics/desert/miss_desert.png") );
+
+    setMinimumSize( QSize( 700, 535) );
+    slotSetPixmap( bcgdPicture);
 
     temp="";
     missedChar=0;
@@ -178,65 +179,43 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
-    slotNewGame();
-    
-    slotSetPixmap(bcgdPicture);    
+    slotSetPixmap(bcgdPicture); 
+    paintMisses();   
     update();
-    adjustSize();
-    updateGeometry();
 }
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
     paintHangman();
     paintWord();
+    paintMisses();
 }
 
 void KHangManView::paintWord()
 {
     QPainter paint;
-    paint.begin(paletteBackgroundPixmap());
-    if (Prefs::mode() ==0)  {
-        QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
-        QPixmap pix( myRect.size() );
-        pix.fill( this, myRect.topLeft() );
-        QPainter p(&pix);
-        QFont tFont;
-        if (Prefs::selectedLanguage() =="tg")  {
-    	   tFont.setFamily( "URW Bookman" );
-        }
-        else
-            tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
-        p.setFont(tFont);
-    
+    paint.begin(&bg);
+    //if (Prefs::mode() ==0)  {
+    QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
+    QPixmap pix( myRect.size() );
+    pix.fill( this, myRect.topLeft() );
+    QPainter p(&pix);
+    QFont tFont;
+    if (Prefs::selectedLanguage() =="tg")  {
+        tFont.setFamily( "URW Bookman" );
+    }
+    else
+        tFont.setFamily( "Arial" );
+    tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
+    p.setFont(tFont);
+    if (Prefs::mode() ==0)   //sea
         p.setPen( QColor(148, 156, 167));
-        p.drawText(0,0, width()*366/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
-        p.end();
-        paint.drawPixmap(myRect,pix);
-        bitBlt( this, 0, height()-height()*126/535, &pix );
-    }
-    else  {
-        QRect myRect = QRect(width()-width()*325/700, height()-height()*125/535, width()*325/700, height()*125/535);
-        QPixmap pix( myRect.size() );
-        pix.fill( this, myRect.topLeft() );
-        QPainter p(&pix);
-        QFont tFont;
-        if (Prefs::selectedLanguage() =="tg")  {
-    	   tFont.setFamily( "URW Bookman" );
-        }
-        else
-            tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 28 );
-        p.setFont(tFont);
+    else
         p.setPen( QColor(87, 0, 0));
-        p.drawText(0, 0, width()*325/700, height()*125/535, AlignCenter|AlignCenter, goodWord);
-        p.end();
-        
-        paint.drawPixmap(myRect,pix);
-        paint.end();
-        bitBlt( this, width()-width()*325/700, height()-height()*125/535, &pix );
-    }
+    p.drawText(0,0, width()*366/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
+    p.end();
+    paint.drawPixmap(myRect,pix);
+    bitBlt( this, 0, height()-height()*126/535, &pix );
 }
 
 void KHangManView::paintWordTwice()
@@ -274,99 +253,73 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite_font.setFamily( "Arial" );
     charWrite->setFont( charWrite_font ); 
     guessButton->setFont(QFont("Dustimo Roman", height()/22));
-    if (Prefs::mode() ==0)  {
-        charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
-        charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
-        guessButton->setPaletteBackgroundColor( QColor( 115, 64, 49) );
-        guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
-        guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
-        guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
-    }
-    else  {
-        charWrite->setPaletteForegroundColor(QColor(87, 0, 0));
-        guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
-        guessButton->setPaletteForegroundColor( QColor( 87, 0, 0) );
-        guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
-        guessButton->setGeometry(5, height()*479/535, guessButton->width(), height()/10);
-        charWrite->setGeometry(10+guessButton->width(), height()*479/535, height()/10, height()/10);
-    }
-    //Seems not necessary bitBlt(this, 0, 0, paletteBackgroundPixmap());
+    charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
+    guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
 }
 
 void KHangManView::slotSetPixmap(QPixmap& bgPix)
 {
     QImage img = bgPix.convertToImage();
-    QPixmap bg(size());
+    bg.resize(size());
     bg.convertFromImage(img.smoothScale( width(), height()));
     setPaletteBackgroundPixmap(bg);
+}
+
+void KHangManView::paintMisses()
+{
+    QPainter paint;
+    paint.begin(&bg);
+    QRect myRect = QRect(width()-width()*360/700, 0, 100, height()*70/535);
+    QPixmap pix( myRect.size() );
+    pix.fill( this, myRect.topLeft() );
+    QPainter pi(&pix);
+    if (Prefs::mode() ==0)   //sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    QString misses = i18n("Misses");
+    QFont f = QFont("Domestic Manners");
+    f.setPointSize(32);
+    pi.setFont(f);
+    pi.drawText(0, 0, 100, height()*70/535, AlignLeft|AlignTop, misses);
+    bitBlt( this, width()-width()*360/700, 0, &pix);
+    paint.end();
 }
 
 void KHangManView::paintHangman()
 {
     //draw the animated hanged K
     QPainter p;
-    p.begin(paletteBackgroundPixmap());
-    if (Prefs::mode() ==0)  {
+    p.begin(&bg);
+    if (Prefs::mode() ==0) 
         p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
-    }
-    else  {
-        p.drawPixmap(QRect(width()-width()*259/700, height()*397/535-height()*228/535, width()*259/700, height()*228/535), px[missedChar]);
-    }
+    else
+        p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
     p.end();
-    bitBlt(this, 0, 0, paletteBackgroundPixmap());
+    bitBlt(this, 0, 0, &bg);
     //draw the Missed letters
     QPainter paint;
-    paint.begin(paletteBackgroundPixmap());
-    if (Prefs::mode() ==0)  { //sea
-        QRect myRect = QRect(width()-width()*280/700, 0, width()*280/700, height()*90/535);
-        QPixmap pix( myRect.size() );
-        pix.fill( this, myRect.topLeft() );
-        QPainter p(&pix);
-        QFont f = QFont("Domestic Manners");
-        f.setPixelSize(28);
-        p.setFont(f);
-        p.setPen( QColor(148, 156, 167));
-        QString misses = i18n("Misses");
-        p.drawText(0, 0, width()*280/700, height()*90/535, AlignLeft|AlignTop, misses);
-        QRect aux = paint.boundingRect(QRect(), AlignLeft, misses);
-        QFont tFont;
-        if (Prefs::selectedLanguage() =="tg")  {
-    	   tFont.setFamily( "URW Bookman" );
-        }
-        else
-            tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 28 );
-        p.setFont(tFont);
-        p.drawText(aux.width(), 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, missedL );
-        p.end();
-        paint.drawPixmap(myRect,pix);
-        bitBlt( this, width()-width()*280/700, 0, &pix );
+    paint.begin(&bg);
+    QRect myRect = QRect(width()-width()*360/700+100, 0, width()*360/700-100, height()*70/535);
+    QPixmap pix( myRect.size() );
+    pix.fill( this, myRect.topLeft() );
+    QPainter pi(&pix);
+    if (Prefs::mode() ==0)   //sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    QFont tFont;
+    if (Prefs::selectedLanguage() =="tg")  {
+        tFont.setFamily( "URW Bookman" );
     }
-    else  { //desert
-        QRect myRect = QRect(0, 0, width()*521/700, height()*64/535);
-        QPixmap pix( myRect.size() );
-        pix.fill( this, myRect.topLeft() );
-        QPainter p(&pix);
-        QFont f = QFont("Domestic Manners");
-        f.setPointSize(height()/17);
-        p.setFont(f);
-        p.setPen( QColor(87, 0, 0));
-        QString misses = i18n("Misses");
-        p.drawText(0, 0, width()*521/700, height()*64/535, AlignLeft|AlignTop, misses);
-        QRect aux = paint.boundingRect(QRect(), AlignRight, misses);
-        QFont tFont;
-        if (Prefs::selectedLanguage() =="tg")  {
-    	   tFont.setFamily( "URW Bookman" );
-        }
-        else
-            tFont.setFamily( "Arial" );
-        tFont.setPixelSize( 28 );
-        p.setFont(tFont);
-        p.drawText(aux.width()*2+20, height()*64/535/2, missedL ,-1 ,AlignLeft|AlignTop|DontClip);
-        p.end();
-        paint.drawPixmap(myRect,pix);
-        bitBlt( this, 0, 0, &pix );
-    }
+    else
+        tFont.setFamily( "Arial" );
+    tFont.setPixelSize( 28 );
+    pi.setFont(tFont);
+    pi.drawText(0, 0, width()*360/700-100, height()*70/535, AlignRight|AlignCenter, missedL);
+    pi.end();
+    paint.drawPixmap(myRect,pix);
+    bitBlt( this, width()-width()*360/700+100, 0, &pix);
     paint.end();
 }
 
@@ -466,7 +419,7 @@ void KHangManView::slotTry()
                 else //if the char is missed...
                 {
                         allWords << sChar;
-                        if (Prefs::mode() ==0) { //sea theme
+                       /* if (Prefs::mode() ==0) { //sea theme
                             if (missedChar<5)
                                 missedL=missedL.replace(2*missedChar, 1, sChar);
                             else if(missedChar>5)
@@ -478,11 +431,12 @@ void KHangManView::slotTry()
                                     missedL=missedL.replace(22,2, "");
                             }
 			}	
-			else	//desert missed all in 1 line
-                            missedL=missedL.replace((2*missedChar), 1, sChar);
+			else*/	//desert missed all in 1 line
+                        missedL=missedL.replace((2*missedChar), 1, sChar);
 
                         missedChar++;
                         paintHangman();
+                        paintMisses();
                         if (missedChar >= 10) //you are hanged!
                         {
                                 //TODO sequence to finish when hanged
@@ -597,18 +551,7 @@ void KHangManView::reset()
     charWrite->setText("");
     missedChar=0;
     allWords.clear();
-   // loadAnimation();
-    switch (Prefs::mode())  {
-    case Prefs::EnumMode::sea:
-        missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
-        break;
-    case Prefs::EnumMode::desert:
-        missedL = "_ _ _ _ _ _ _ _ _ _  ";
-        break;
-    }	
-    update();
-    resize(this->size());
-    //adjustSize();//this takes too much time!!!
+    missedL = "_ _ _ _ _ _ _ _ _ _  ";
 }
 
 void KHangManView::game()
@@ -678,7 +621,6 @@ void KHangManView::game()
     if (e>0) goodWord.replace(2*e, 1, "·");
     int h = word.find( "'" );
     if (h>0) goodWord.replace(2*h, 1, "'");
-    //paintWord();
 }
 
 void KHangManView::readFile()
@@ -727,14 +669,21 @@ void KHangManView::loadAnimation()
         case Prefs::EnumMode::sea:
             bcgdPicture = QPixmap(locate("data","khangman/pics/sea/sea_theme.png") );
             theme = "sea";
-            missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
+            charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
+            guessButton->setPaletteBackgroundColor( QColor( 115, 64, 49) );
+            guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
+            guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
         case Prefs::EnumMode::desert:
             bcgdPicture = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
             theme = "desert";
-            missedL = "_ _ _ _ _ _ _ _ _ _  ";
+            charWrite->setPaletteForegroundColor(QColor(87, 0, 0));
+            guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
+            guessButton->setPaletteForegroundColor( QColor( 87, 0, 0) );
+            guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
-    }		
+    }	
+
     //now we preload the pixmaps...
     px[0].load(locate("data", QString("khangman/pics/%1/animation0.png").arg(theme)));
     px[1].load(locate("data", QString("khangman/pics/%1/animation1.png").arg(theme)));
