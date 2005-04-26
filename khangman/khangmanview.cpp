@@ -226,9 +226,13 @@ void KHangManView::paintWord()
 
 void KHangManView::paintWordTwice()
 {
-    /*QPainter paint;
+    QPainter paint;
     paint.begin(&bg);
-    QRect myRect = QRect(0, height()-height()*126/535, width()*366/700, height()*126/535);
+    QRect myRect ;
+    if (Prefs::mode() ==0)
+        myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
+    else
+        myRect = QRect(0, height()-height()*126/535, width()*327/700, height()*126/535);
     QFont tFont;
     if (Prefs::selectedLanguage() =="tg")  {
         tFont.setFamily( "URW Bookman" );
@@ -240,12 +244,20 @@ void KHangManView::paintWordTwice()
     paint.setPen(QColor(Qt::red));
     QRect aux = paint.boundingRect(myRect, AlignCenter|AlignCenter, goodWord.left(redIndex));
     kdDebug() << aux.width() << endl;
-    if (redIndex == 0)
-        paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-    else //weird that it needs 2 pixels less after first
-        paint.drawText(aux.width()+2, height()-height()*126/535, width()*366/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+    if (Prefs::mode() ==0)  {
+        if (redIndex == 0)
+            paint.drawText(aux.width()*width()/700, height()-height()*126/535, width()*417/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+        else //weird that it needs 2 pixels less after first
+            paint.drawText(width()*aux.width()/700-2, height()-height()*126/535, width()*417/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+    }
+    else  {
+        if (redIndex == 0)
+            paint.drawText(aux.width()+2, height()-height()*126/535, width()*327/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+        else //weird that it needs 2 pixels less after first
+            paint.drawText(aux.width()+2, height()-height()*126/535, width()*327/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
+    }
     paint.end();
-    bitBlt(this, 0, 0, &bg);*/
+    bitBlt(this, 0, 0, &bg);
 }
 
 void KHangManView::resizeEvent(QResizeEvent *)
@@ -424,20 +436,7 @@ void KHangManView::slotTry()
                 }
                 else //if the char is missed...
                 {
-                        allWords << sChar;
-                       /* if (Prefs::mode() ==0) { //sea theme
-                            if (missedChar<5)
-                                missedL=missedL.replace(2*missedChar, 1, sChar);
-                            else if(missedChar>5)
-                                missedL=missedL.replace((2*missedChar)+2, 1, sChar);
-    
-                            if (missedChar==5) //we actually need to replace one underscore too much..
-                            {
-                                    missedL=missedL.replace((2*missedChar)+1,1, "\n"+sChar+" ");
-                                    missedL=missedL.replace(22,2, "");
-                            }
-			}	
-			else*/	//desert missed all in 1 line
+                        allWords << sChar;	
                         missedL=missedL.replace((2*missedChar), 1, sChar);
 
                         missedChar++;
@@ -576,7 +575,7 @@ void KHangManView::game()
                                 i18n("Error") );
             kapp->quit();
     }
-    update();
+    //update();
     //we open the file and store info into the stream...
     QFile openFileStream(myFile.name());
     openFileStream.open(IO_ReadOnly);
