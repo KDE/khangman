@@ -147,6 +147,7 @@ void KHangMan::slotChangeLanguage(int index)
     Prefs::setSelectedLanguage(m_languages[m_languageNames.findIndex(m_languageNames[index])]);
     Prefs::writeConfig();
     loadLevels();
+    loadLangToolBar();
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     m_view->slotNewGame();   
 }
@@ -229,8 +230,7 @@ void KHangMan::loadSettings()
             selectedLanguage = "en";
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     // Show/hide characters toolbar
-    m_bCharToolbar = Prefs::showCharToolbar();
-    if (m_bCharToolbar)
+    if (Prefs::showCharToolbar())
         secondToolbar->show();
     else
         secondToolbar->hide();
@@ -333,7 +333,10 @@ void KHangMan::loadLangToolBar()
 	noCharBool = true;
 	else noCharBool = false;
 	if (secondToolbar->isVisible() && !noCharBool)
-	    m_bCharToolbar=true;
+	{
+	    Prefs::setShowCharToolbar(true);
+	    Prefs::writeConfig();
+	}
 	secondToolbar->clear();
 	allData.clear();
 	if (!noCharBool) {
@@ -366,12 +369,12 @@ void KHangMan::loadLangToolBar()
             for (int i=0; i<(int) allData.count(); i++)
                 secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
 	}
-	if (m_bCharToolbar) {
+	if (Prefs::showCharToolbar()) {
 		secondToolbar->show();
 	}
 	else secondToolbar->hide();
-	Prefs::setShowCharToolbar( !secondToolbar->isVisible());
-	Prefs::writeConfig();
+	//Prefs::setShowCharToolbar( !secondToolbar->isVisible());
+	//Prefs::writeConfig();
 	if (noCharBool)//no special chars in those languages
 		secondToolbar->hide();
 }

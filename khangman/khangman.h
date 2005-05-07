@@ -112,8 +112,6 @@ private:
     bool noCharBool;
     ///Create the Special Characters Toolbar
     KToolBar *secondToolbar;
-    ///true if the Special Characters toolbar is checked to be shown
-    bool m_bCharToolbar;
     ///Read the special chars from the .txt file and put it there
     QStringList allData;
     
