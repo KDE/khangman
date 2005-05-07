@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2004-04-22</date>
+<date>2005-05-07</date>
 <releaseinfo>1.5</releaseinfo>
 
 <abstract>
@@ -176,7 +176,7 @@ Finnish, French, German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#22
 </para>
 
 <para>
-By default, after the first installation of &khangman; for KDE 3.3, only English and your &kde; language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have &kde; in Danish, &khangman; and in <guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;..</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> you will see two items: English and Danish and Danish will be the default.
+By default, after the first installation of &khangman;, only English and your &kde; language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have &kde; in Danish, &khangman; and in <guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;..</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Words are in:</guimenuitem> you will see two items: English and Danish and Danish will be the default.
 </para>
 
 <para>
