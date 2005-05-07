@@ -53,13 +53,13 @@ KHangMan::KHangMan()
     mNewStuff = 0;
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
-    
+    setLanguages();
     setupStatusbar();
     setupActions();
     //toolbar for special characters
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
-    setLanguages();
+    
     
 
     loadSettings();
