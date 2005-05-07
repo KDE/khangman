@@ -12,10 +12,10 @@
         <entry name="LevelFile" type="String">
             <default code="true">"animals.kvtml"</default>
         </entry>
-        <!--<entry name="ShowCharToolbar" type="Bool">
+        <entry name="ShowCharToolbar" type="Bool">
             <label>Show the characters toolbar</label>
             <default code="true">false</default>
-        </entry>-->
+        </entry>
     </group>
     <group name="Language">
         <entry name="SelectedLanguage" type="String">

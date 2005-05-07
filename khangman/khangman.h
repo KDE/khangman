@@ -106,7 +106,17 @@ protected:
 private:
     ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;
-
+    
+    QString charIcon(const QChar &);
+    ///true if the language has no special char as en, it and nl
+    bool noCharBool;
+    ///Create the Special Characters Toolbar
+    KToolBar *secondToolbar;
+    ///true if the Special Characters toolbar is checked to be shown
+    bool m_bCharToolbar;
+    ///Read the special chars from the .txt file and put it there
+    QStringList allData;
+    
 public slots:
 
     void slotChangeLanguage(int);
@@ -123,6 +133,10 @@ protected slots:
     void slotDownloadNewStuff();
     ///update settings after Settings->Configure KHangMan dialog is closed
     void updateSettings();
+    ///Populate the second toolbar with the correct buttons if the current language has special characters
+    void loadLangToolBar();
+    ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
+    void slotPasteChar();
 };
 
 #endif // _KHANGMAN_H_

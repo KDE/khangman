@@ -49,13 +49,13 @@ public:
     bool hintBool;
     ///true if language = es, ca, pt or pt_BR
     bool m_accent;
-        
+        ///The area where the user enter the letter. Upper case is transformed into lower case.
+    KLineEdit *charWrite;
+    
 signals:
 
 private:
 
-    ///The area where the user enter the letter. Upper case is transformed into lower case.
-    KLineEdit *charWrite;
     ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
     KPushButton *guessButton;
     

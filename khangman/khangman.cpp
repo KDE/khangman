@@ -24,17 +24,22 @@
 #include "advanced.h"
 #include "khnewstuff.h"
 
+#include <qbitmap.h>
 #include <qcheckbox.h>
+#include <qpainter.h>
 #include <qdir.h>
 
 #include <kapplication.h>
 #include <kactionclasses.h>
 #include <kconfigdialog.h>
 #include <kdebug.h>
+#include <klineedit.h>
 #include <klocale.h>
 #include <kmainwindow.h>
+#include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
+#include <ktoolbarbutton.h>
 
 const int IDS_LEVEL      = 100;
 const int IDS_LANG       = 101;
@@ -50,10 +55,15 @@ KHangMan::KHangMan()
     setCentralWidget(m_view);
     
     setupStatusbar();
-    setLanguages();
     setupActions();
+    //toolbar for special characters
+    secondToolbar = toolBar("Special Characters");
+    secondToolbar->setBarPos(KToolBar::Bottom);
+    setLanguages();
+    
 
     loadSettings();
+    loadLangToolBar();
     loadLevels();
     //setupToolbars();
     connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
@@ -218,6 +228,16 @@ void KHangMan::loadSettings()
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    // Show/hide characters toolbar
+    m_bCharToolbar = Prefs::showCharToolbar();
+    
+    if (m_bCharToolbar)
+            secondToolbar->show();
+    else
+            {
+            secondToolbar->hide();
+            }
+     kdDebug() << "***** after " << endl;
 }
 
 void KHangMan::setLevel()
@@ -309,6 +329,103 @@ void KHangMan::slotDownloadNewStuff()
     if ( !mNewStuff )
         mNewStuff = new KHNewStuff( m_view );
     mNewStuff->download();
+}
+
+void KHangMan::loadLangToolBar()
+{
+  	if (Prefs::selectedLanguage() == "en" || Prefs::selectedLanguage() == "it" || Prefs::selectedLanguage()== "nl" || Prefs::selectedLanguage() =="ru" || Prefs::selectedLanguage() =="bg")
+	noCharBool = true;
+	else noCharBool = false;
+	if (secondToolbar->isVisible() && !noCharBool)
+	    m_bCharToolbar=true;
+	kdDebug() << "********* in load lang******** " << endl; 
+	secondToolbar->clear();
+	allData.clear();
+	kdDebug() << "charBool " << noCharBool << endl;
+	if (!noCharBool) {
+            kdDebug() << "********* in if ******** " << endl;
+            QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
+            QFile myFile;
+            myFile.setName(locate("data", myString));
+            //let's look in local KDEHOME dir then
+            if (!myFile.exists()) {
+                    QString myString=QString("khangman/data/%1/%1.txt").arg(Prefs::selectedLanguage()).arg(Prefs::selectedLanguage());
+                    myFile.setName(locate("data",myString));
+                    kdDebug() << myString << endl;
+            }
+            if (!myFile.exists())
+            {
+                    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+                                            "check your installation.").arg(Prefs::selectedLanguage());
+                    KMessageBox::sorry( this, mString,
+                                            i18n("Error") );
+                    kapp->quit();
+            }
+            update();
+            //we open the file and store info into the stream...
+            QFile openFileStream(myFile.name());
+            openFileStream.open(IO_ReadOnly);
+            QTextStream readFileStr(&openFileStream);
+            readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+            //allData contains all the words from the file
+            allData = QStringList::split("\n", readFileStr.read(), true);
+            openFileStream.close();
+            for (int i=0; i<(int) allData.count(); i++)
+                secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
+	}
+        kdDebug() << "********* in load tolbar ******** " << endl;
+	if (m_bCharToolbar) {
+		secondToolbar->show();
+	}
+	else secondToolbar->hide();
+	Prefs::setShowCharToolbar( !secondToolbar->isVisible());
+	Prefs::writeConfig();
+	if (noCharBool)//no special chars in those languages
+		secondToolbar->hide();
+}
+
+void KHangMan::slotPasteChar()
+{
+	KToolBarButton *charBut = (KToolBarButton* ) sender();
+	m_view->charWrite->setText(allData[charBut->id()]);
+}
+
+QString KHangMan::charIcon(const QChar & c)
+{
+    ///Create a name and path for the icon
+    QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
+
+    QRect r(4, 4, 120, 120);
+
+    ///A font to draw the character with
+    QFont font;
+    font.setFamily( "Arial" );
+    font.setPixelSize(120);
+    font.setWeight(QFont::Normal);
+
+    ///Create the pixmap
+    QPixmap pm(128, 128);
+    pm.fill(Qt::white);
+    QPainter p(&pm);
+    p.setFont(font);
+    p.setPen(Qt::black);
+    p.drawText(r, Qt::AlignCenter, (QString) c);
+
+    ///Create transparency mask
+    QBitmap bm(128, 128);
+    bm.fill(Qt::color0);
+    QPainter b(&bm);
+    b.setFont(font);
+    b.setPen(Qt::color1);
+    b.drawText(r, Qt::AlignCenter, (QString) c);
+
+    ///Mask the pixmap
+    pm.setMask(bm);
+
+    ///Save the icon to disk
+    pm.save(s, "PNG");
+
+    return s;
 }
 
 
