@@ -230,14 +230,10 @@ void KHangMan::loadSettings()
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     // Show/hide characters toolbar
     m_bCharToolbar = Prefs::showCharToolbar();
-    
     if (m_bCharToolbar)
-            secondToolbar->show();
+        secondToolbar->show();
     else
-            {
-            secondToolbar->hide();
-            }
-     kdDebug() << "***** after " << endl;
+        secondToolbar->hide();
 }
 
 void KHangMan::setLevel()
@@ -338,12 +334,9 @@ void KHangMan::loadLangToolBar()
 	else noCharBool = false;
 	if (secondToolbar->isVisible() && !noCharBool)
 	    m_bCharToolbar=true;
-	kdDebug() << "********* in load lang******** " << endl; 
 	secondToolbar->clear();
 	allData.clear();
-	kdDebug() << "charBool " << noCharBool << endl;
 	if (!noCharBool) {
-            kdDebug() << "********* in if ******** " << endl;
             QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
             QFile myFile;
             myFile.setName(locate("data", myString));
@@ -373,7 +366,6 @@ void KHangMan::loadLangToolBar()
             for (int i=0; i<(int) allData.count(); i++)
                 secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
 	}
-        kdDebug() << "********* in load tolbar ******** " << endl;
 	if (m_bCharToolbar) {
 		secondToolbar->show();
 	}
