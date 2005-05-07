@@ -66,11 +66,10 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     temp="";
     missedChar=0;
     tmp = 0;
-    accent_b = false;
+    //accent_b = false;
     m_accent = true;
     hintBool = true;//assume tip exists
-    //tip="";
-    //missedL = "_ _ _ _ _  \n_ _ _ _ _  ";
+
     connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
     connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
@@ -113,7 +112,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             index++;
             }
     }
-    if (m_accent && !accent_b) {
+    if (m_accent && !Prefs::accentedLetters()) {
         //characters must be lisible as utf-8 and file must be saved with this encoding. 
         kdDebug() << "In accent " << endl;
         if (sChar=="i") replaceLetters(QString("í"));
@@ -140,7 +139,7 @@ void KHangManView::replaceLetters(const QString& sChar)
 bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
-    if (m_accent && !accent_b) {
+    if (m_accent && !Prefs::accentedLetters()) {
         if (sChar=="i") b = word.contains(QString("í"))>0;//QChar('í').unicode()) > 0;
         if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
         if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
@@ -557,6 +556,7 @@ void KHangManView::reset()
     missedChar=0;
     allWords.clear();
     missedL = "_ _ _ _ _ _ _ _ _ _  ";
+    repaint();
 }
 
 void KHangManView::game()

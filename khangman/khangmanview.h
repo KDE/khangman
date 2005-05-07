@@ -89,8 +89,6 @@ protected:
     int tmp;
     ///true if only one instance of each letter is displayed
     bool b_oneLetter;
-    ///true if Type accents is enabled for the languages that support it
-    bool accent_b;
     ///allWords contains all letters already guessed
     QStringList allWords;
     ///If true, the word contains the QString
