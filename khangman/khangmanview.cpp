@@ -296,7 +296,7 @@ void KHangManView::paintMisses()
         pi.setPen( QColor(87, 0, 0));
     QString misses = i18n("Misses");
     QFont f = QFont("Domestic Manners");
-    f.setPointSize(32);
+    f.setPointSize(30);
     pi.setFont(f);
     pi.drawText(0, 0, 100, height()*70/535, AlignLeft|AlignTop, misses);
     bitBlt( this, width()-width()*360/700, 0, &pix);
@@ -556,7 +556,7 @@ void KHangManView::reset()
     missedChar=0;
     allWords.clear();
     missedL = "_ _ _ _ _ _ _ _ _ _  ";
-    repaint();
+    update();
 }
 
 void KHangManView::game()
