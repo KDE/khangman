@@ -134,7 +134,7 @@ void KHangManView::slotValidate(const QString &text)
 void KHangManView::slotTry()
 {
 	QString sChar = charWrite->text();
-	if (!upperBool)
+	if (!upperBool && (language !="de"))
 	sChar = sChar.lower();
 	missedL= missedLetters->text();
 
@@ -408,8 +408,7 @@ void KHangManView::game()
 			if (!upperBool)
 				word = word.lower(); //because of German
 		}//end else if language=fr
-	kdDebug() << word << endl;
-	kdDebug() << "length: " <<  word.length() << endl;
+	//kdDebug() << word << endl;
 	goodWord ="";
 	mainLabel->setText(goodWord);
 	//display the number of letters to guess with _
@@ -418,7 +417,6 @@ void KHangManView::game()
 		goodWord.append("_");
 		goodWord.append(" ");
 	}
-	kdDebug() << goodWord << endl;
 	stripWord=goodWord;
 	//if needed, display white space or - if in word or semi dot
 	f = word.find( "-" );
@@ -574,7 +572,6 @@ void KHangManView::readFile()
 	}//end of test
 	word = verbs[wordNumber].originalText();
 	tip = verbs[wordNumber].translatedText(); 
-	kdDebug() << "tip : " << tip << endl;
 	if (tip.isEmpty()) {
 		hintBool = false;
 		Prefs::setHint(false);

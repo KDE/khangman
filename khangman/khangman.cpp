@@ -26,7 +26,6 @@
 //KDE headers
 #include <kactionclasses.h>
 #include <kconfigdialog.h>
-#include <kdebug.h>
 #include <kedittoolbar.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -350,7 +349,6 @@ void KHangMan::loadLangToolBar()
 	if (!myFile.exists()) {
 		QString myString=QString("khangman/data/%1/%1.txt").arg(m_view->language).arg(m_view->language);
 		myFile.setName(locate("data",myString));
-		kdDebug() << myString << endl;
 	}
 	if (!myFile.exists())
 	{
@@ -369,8 +367,9 @@ void KHangMan::loadLangToolBar()
 	//allData contains all the words from the file
 	allData = QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
-	for (int i=0; i<(int) allData.count(); i++)
-			secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
+	for (int i=0; i<(int) allData.count(); i++) 
+             if (!allData[i].isEmpty())
+	         secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
 	}
 
 	if (m_bCharToolbar) {
