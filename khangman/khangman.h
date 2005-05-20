@@ -118,6 +118,8 @@ private:
 public slots:
 
     void slotChangeLanguage(int);
+
+    void enableHint(bool);
     
 protected slots:
 

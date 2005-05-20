@@ -27,9 +27,11 @@
 
 #include <qimage.h>
 #include <qpainter.h>
+#include <qpoint.h>
 #include <qregexp.h>
 #include <qtimer.h>
 #include <qtooltip.h>
+#include <qwidget.h>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -37,7 +39,7 @@
 
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
-    : QWidget(parent)
+    : QWidget(parent, name)
 {
     khangman = parent;
     
@@ -158,17 +160,18 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         myPopup->setView(i18n("Hint"), tip );
         myPopup->setPalette(QToolTip::palette());
         myPopup->setTimeout(4000); //show for 4 seconds
-        myPopup->show();	
         int x=0, y=0;
+        QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
         if (Prefs::mode() ==0)  {
-            x = width()*300/700;
-            y = height()*510/535;
+            x = abspos.x() + width()*300/700;
+            y = abspos.y() + height()*510/535;
         }
         else  {
-            x = width()*254/700;
-            y = height()*405/535;
+            x = abspos.x() + width()*254/700;
+            y = abspos.y() + height()*405/535;
         }
         myPopup->move(x, y);
+        myPopup->show();
         //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
         //myPopup->move(mouse->pos());
     }
@@ -701,6 +704,10 @@ void KHangManView::loadAnimation()
     px[8].load(locate("data", QString("khangman/pics/%1/animation8.png").arg(theme)));
     px[9].load(locate("data", QString("khangman/pics/%1/animation9.png").arg(theme)));
     px[10].load(locate("data", QString("khangman/pics/%1/animation10.png").arg(theme)));
+}
+
+void KHangManView::slotValidate(const QString&)
+{
 }
 
 #include "khangmanview.moc"

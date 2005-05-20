@@ -423,5 +423,9 @@ QString KHangMan::charIcon(const QChar & c)
     return s;
 }
 
+void KHangMan::enableHint(bool)
+{
+}
+
 
 #include "khangman.moc"

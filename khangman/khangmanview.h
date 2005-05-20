@@ -138,7 +138,9 @@ private slots:
     void timerDone();
     ///when an already guessed letter is entered, if it is in the word, redraw the word area
     void timerWordDone();
-    
+
+    void slotValidate(const QString&);
+
 signals:
     /**
     * Use this signal to change the content of the statusbar
