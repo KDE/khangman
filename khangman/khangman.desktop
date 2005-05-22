@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=khangman -caption "%c" %i %m  
+Exec=khangman -caption "%c" %i %m
 Icon=khangman
 DocPath=khangman/index.html
 GenericName=Hangman Game
@@ -29,6 +29,7 @@ GenericName[it]=Gioco dell'impiccato
 GenericName[ja]=ハングマンゲーム
 GenericName[lt]=Budelio žaidimas
 GenericName[lv]=Karātavu Spēle
+GenericName[mk]=Бесилка
 GenericName[mn]=HangMan-ий Тоглоом
 GenericName[ms]=Permainan Gantung suka-suka
 GenericName[nb]=Hengtmann-spillet
