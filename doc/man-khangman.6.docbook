@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!ENTITY % English "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title>KDE User's Manual</title>
+<author><personname><firstname>Ben</firstname><surname>Burton</surname></personname> <email>bab@debian.org</email></author>
+<date>May 25, 2005</date>
+<productname>K Desktop Environment</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle><command>khangman</command></refentrytitle>
+<manvolnum>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname><command>khangman</command></refname>
+<refpurpose>The classical hangman game for KDE</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>khangman</command>
+<arg choice="opt">KDE Generic Options</arg>
+<arg choice="opt">Qt Generic Options</arg>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title>Description</title>
+<para>&khangman; is a game based on the well known hangman game.  It is
+aimed for children 6 and above.  It has four levels of difficulty: Animals
+(animals words), Easy, Medium and Hard.</para><para>A word is picked at
+random and the letters are hidden. You must guess the word by trying one
+letter after another.  Each time you guess a wrong letter, part of a picture
+of a hangman is drawn.  You must guess the word before getting hanged!  You
+have 10 tries.</para><para>This application is part of the &kde; Edutainment
+module.</para>
+</refsect1>
+
+<refsect1>
+<title>See Also</title>
+<para>More detailed user documentation is available from <ulink
+url="help:/khangman">help:/khangman</ulink>
+(either enter this <acronym>URL</acronym> into &konqueror;, or run
+<userinput><command>khelpcenter</command>
+<parameter>help:/khangman</parameter></userinput>).</para>
+
+<para>There is also further information available at the <ulink url="http://edu.kde.org/khangman/">&kde; Edutainment web site</ulink>.</para>
+</refsect1>
+
+<refsect1>
+<title>Authors</title>
+<para>&khangman; was written by <personname><firstname>Primoz</firstname><surname>Anzur</surname></personname> and &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para>This manual page based on the one prepared by <personname><firstname>Ben</firstname><surname>Burton</surname></personname> for the Debian project.</para>
+
+
+</refsect1>
+
+</refentry>
