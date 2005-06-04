@@ -12,9 +12,6 @@
             <height>235</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>advanced</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -36,9 +33,6 @@
                     </property>
                     <property name="text">
                         <string>Type accented &amp;letters</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+L</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>In some languages, if this is checked, you must type accented letters yourself (i.e. They are differentiated from the corresponding unaccented letter).</string>
@@ -73,9 +67,6 @@ If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get 
                     <property name="text">
                         <string>Require more &amp;guesses for duplicate letters</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+G</string>
-                    </property>
                     <property name="toolTip" stdset="0">
                         <string>Check this if you do not want to display each instance of the same letter</string>
                     </property>
@@ -92,9 +83,6 @@ Default is that for one letter typed, all instances of that letter in the word a
                     </property>
                     <property name="text">
                         <string>Do not display the 'Congratulations! You &amp;won!' dialog</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+W</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
@@ -137,9 +125,6 @@ If this option is checked, this dialog will not appear and a new game will autom
                             </property>
                             <property name="text">
                                 <string>Enable &amp;sounds</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+S</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>If checked, sounds will be played for New Game and Win Game</string>
