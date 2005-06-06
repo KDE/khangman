@@ -289,20 +289,22 @@ void KHangManView::paintMisses()
 {
     QPainter paint;
     paint.begin(&bg);
-    QRect myRect = QRect(width()-width()*360/700, 0, 100, height()*70/535);
-    QPixmap pix( myRect.size() );
-    pix.fill( this, myRect.topLeft() );
-    QPainter pi(&pix);
-    if (Prefs::mode() ==0)   //sea
-        pi.setPen( QColor(148, 156, 167));
-    else
-        pi.setPen( QColor(87, 0, 0));
     QString misses = i18n("Misses");
     QFont f = QFont("Domestic Manners");
     f.setPointSize(30);
+    QFontMetrics fm(f);
+    QRect fmRect(fm.boundingRect(misses));
+    QRect myRect(width()-width()*360/700, 15, fmRect.width(), fmRect.height());
+    QPixmap pix(myRect.size());
+    pix.fill(this, myRect.topLeft());
+    QPainter pi(&pix);
     pi.setFont(f);
-    pi.drawText(0, 0, 100, height()*70/535, AlignLeft|AlignTop, misses);
-    bitBlt( this, width()-width()*360/700, 0, &pix);
+    if (Prefs::mode() ==0)//sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    pi.drawText(0, 0, myRect.width(), myRect.height(), AlignLeft|AlignCenter, misses);
+    bitBlt(this, width()-width()*360/700, 15, &pix);
     paint.end();
 }
 
