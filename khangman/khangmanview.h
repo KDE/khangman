@@ -114,8 +114,6 @@ protected:
     KRandomSequence random;
     ///Enable hints on mouse right click if Hints exist
     virtual void mousePressEvent(QMouseEvent *mouse);
-    ///index of the already guessed letter
-    int redIndex;
     ///load the K animated sequence depending of the theme
     void loadAnimation();
     

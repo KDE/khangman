@@ -397,22 +397,16 @@ void KHangManView::slotTry()
         {
             //usability: highlight it in Missed if it is there
             if (missedL.contains(sChar)>0) { //TODO popup should be better placed
-                KPassivePopup *popup = new KPassivePopup( this, "popup" );
+                KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
                 popup->setAutoDelete( true );
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
                 popup->show();
-                if (Prefs::mode() ==0)  {
-                    int x = width()*332/700;
-                    int y = height()*145/535;
-                    popup->move(x, y);
-                }
-                else  {
-                    int x = width()*332/700;
-                    int y = height()*145/535;
-                    popup->move(x, y);
-                }
-                redIndex = missedL.find(sChar, 0);
+                int x =0, y = 0;
+                QPoint abspos = popup->pos();
+                x = abspos.x() + width()*400/700;
+                y = abspos.y() + height()*50/535;
+                popup->move(x, y);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
@@ -423,23 +417,23 @@ void KHangManView::slotTry()
             }
             //usability: hilight it in the word
             if (goodWord.contains(sChar)>0) {
-                KPassivePopup *popup = new KPassivePopup( this, "popup" );
+                KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
                 popup->setAutoDelete( true );
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
+                popup->show();
                 int x =0, y = 0;
+                QPoint abspos = popup->pos();
                 if (Prefs::mode() ==0)  {
-                    x = width()*300/700;
-                    y = height()*300/535;
+                    x = abspos.x() + width()*250/700;
+                    y = abspos.y() + height()*485/535;
                     popup->move(x, y);
                 }
                 else  {
-                    x = width()*470/700;
-                    y = height()*520/535;
+                    x = abspos.x() + width()*200/700;
+                    y = abspos.y() + height()*485/535;
                     popup->move(x, y);
                 }
-                popup->show();
-                redIndex = goodWord.find(sChar,0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
