@@ -196,7 +196,6 @@ void KHangManView::paintWord()
 {
     QPainter paint;
     paint.begin(&bg);
-    kdDebug() << "width() " << width() << endl;
     QRect myRect;
     if (Prefs::mode() ==0)   //sea
         myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
@@ -226,41 +225,6 @@ void KHangManView::paintWord()
     bitBlt( this, 0, height()-height()*126/535, &pix );
 }
 
-void KHangManView::paintWordTwice()
-{
-    QPainter paint;
-    paint.begin(&bg);
-    QRect myRect ;
-    if (Prefs::mode() ==0)
-        myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
-    else
-        myRect = QRect(0, height()-height()*126/535, width()*327/700, height()*126/535);
-    QFont tFont;
-    if (Prefs::selectedLanguage() =="tg")  {
-        tFont.setFamily( "URW Bookman" );
-    }
-    else
-        tFont.setFamily( "Arial" );
-    tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
-    paint.setFont(tFont);
-    paint.setPen(QColor(Qt::red));
-    QRect aux = paint.boundingRect(myRect, AlignCenter|AlignCenter, goodWord.left(redIndex));
-    kdDebug() << aux.width() << endl;
-    if (Prefs::mode() ==0)  {
-        if (redIndex == 0)
-            paint.drawText(aux.width()*width()/700, height()-height()*126/535, width()*417/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-        else //weird that it needs 2 pixels less after first
-            paint.drawText(width()*aux.width()/700-2, height()-height()*126/535, width()*417/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-    }
-    else  {
-        if (redIndex == 0)
-            paint.drawText(aux.width()+2, height()-height()*126/535, width()*327/700, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-        else //weird that it needs 2 pixels less after first
-            paint.drawText(aux.width()+2, height()-height()*126/535, width()*327/700/2, height()*126/535, AlignCenter|AlignCenter, QString(goodWord[redIndex]));
-    }
-    paint.end();
-    bitBlt(this, 0, 0, &bg);
-}
 
 void KHangManView::resizeEvent(QResizeEvent *)
 {
@@ -343,41 +307,6 @@ void KHangManView::paintHangman()
     paint.drawPixmap(myRect,pix);
     bitBlt( this, width()-width()*360/700+100, 0, &pix);
     paint.end();
-}
-
-void KHangManView::paintMissedTwice()
-{
-    /*QPainter paint;
-    paint.begin(paletteBackgroundPixmap());
-
-    if (Prefs::mode() ==0) { //sea theme
-        QRect myRect = QRect(width()-width()*280/700, 0, width()*280/700, height()*90/535);
-        QPixmap pix( myRect.size() );
-        pix.fill( this, myRect.topLeft() );
-        QPainter p(&pix);
-        QFont f = QFont("Domestic Manners");
-        f.setPointSize(height()/17);
-        p.setFont(f);
-        p.setPen( QColor(148, 156, 167));
-        QString misses = i18n("Misses");
-        QRect aux = paint.boundingRect(QRect(), AlignLeft, misses);
-        p.setFont(QFont("Bitstream Charter", height()/17, QFont::Bold));
-        p.setPen(QColor(Qt::red));
-        QRect auxi = paint.boundingRect(QRect(), AlignCenter|AlignTop|DontClip, missedL.left(redIndex));
-        if (redIndex == 0)
-            p.drawText(0, 0, width()*280/700, height()*90/535, AlignCenter|AlignTop|DontClip, QString(missedL[redIndex]) );
-        p.end();
-        paint.drawPixmap(myRect,pix);
-        bitBlt( this, width()-width()*280/700, 0, &pix );
-    }
-    else  { //desert theme
-       // if (redIndex == 0)
-            //paint.drawText( width()*130/700 +aux.width()+1, height()/13,  QString(missedL[redIndex]));
-        //else 
-            //paint.drawText( width()*130/700 +aux.width()-4, 0, 0, 0, AlignLeft|AlignTop|DontClip,QString(missedL[redIndex]));
-    }
-    paint.end();
-    //bitBlt(this, 0, 0, paletteBackgroundPixmap());*/
 }
 
 void KHangManView::slotTry()
@@ -488,7 +417,7 @@ void KHangManView::slotTry()
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
                 timer->start( 1000, TRUE ); // 1 second single-shot timer
-                paintMissedTwice();
+                //TODO should highlight the repeated letter in red
                 //disable any possible entry
                 charWrite->setEnabled(false);
             }
@@ -498,21 +427,24 @@ void KHangManView::slotTry()
                 popup->setAutoDelete( true );
                 popup->setTimeout( 1000 );
                 popup->setView(i18n("This letter has already been guessed.") );
-                popup->show();
+                int x =0, y = 0;
                 if (Prefs::mode() ==0)  {
-                
-                }
-                else  {
-                    int x = this->width()*470/700;
-                    int y = this->height()*520/535;
+                    x = width()*300/700;
+                    y = height()*300/535;
                     popup->move(x, y);
                 }
+                else  {
+                    x = width()*470/700;
+                    y = height()*520/535;
+                    popup->move(x, y);
+                }
+                popup->show();
                 redIndex = goodWord.find(sChar,0);
                 //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
                 timer->start( 1000, TRUE ); // 1 second single-shot timer
-                paintWordTwice();
+                //TODO should highlight the repeated letter in red
                 //disable any possible entry
                 charWrite->setEnabled(false);	
             }			

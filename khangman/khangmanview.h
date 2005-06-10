@@ -114,10 +114,6 @@ protected:
     KRandomSequence random;
     ///Enable hints on mouse right click if Hints exist
     virtual void mousePressEvent(QMouseEvent *mouse);
-    ///Paint an already guessed letter in red in Missed Letters
-    void paintMissedTwice();
-    ///Paint an already guessed letter in red in word
-    void paintWordTwice();
     ///index of the already guessed letter
     int redIndex;
     ///load the K animated sequence depending of the theme
