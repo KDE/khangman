@@ -396,13 +396,13 @@ void KHangManView::slotTry()
         else
         {
             //usability: highlight it in Missed if it is there
+            KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
+            popup->setAutoDelete( true );
+            popup->setTimeout( 1000 );
+            popup->setView(i18n("This letter has already been guessed.") );
+            popup->show();
+            int x =0, y = 0;
             if (missedL.contains(sChar)>0) { //TODO popup should be better placed
-                KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
-                popup->setAutoDelete( true );
-                popup->setTimeout( 1000 );
-                popup->setView(i18n("This letter has already been guessed.") );
-                popup->show();
-                int x =0, y = 0;
                 QPoint abspos = popup->pos();
                 x = abspos.x() + width()*400/700;
                 y = abspos.y() + height()*50/535;
@@ -417,12 +417,6 @@ void KHangManView::slotTry()
             }
             //usability: hilight it in the word
             if (goodWord.contains(sChar)>0) {
-                KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
-                popup->setAutoDelete( true );
-                popup->setTimeout( 1000 );
-                popup->setView(i18n("This letter has already been guessed.") );
-                popup->show();
-                int x =0, y = 0;
                 QPoint abspos = popup->pos();
                 if (Prefs::mode() ==0)  {
                     x = abspos.x() + width()*250/700;
