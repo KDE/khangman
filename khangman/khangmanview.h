@@ -87,8 +87,6 @@ protected:
     int missedChar;
     ///tmp is to check if not twice the same random number
     int tmp;
-    ///true if only one instance of each letter is displayed
-    bool b_oneLetter;
     ///allWords contains all letters already guessed
     QStringList allWords;
     ///If true, the word contains the QString

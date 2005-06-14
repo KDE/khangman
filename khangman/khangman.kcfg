@@ -49,7 +49,7 @@
             <default code="true">false</default>
         </entry>
         <entry name="AccentedLetters" type="Bool">
-            <label>The language has special accented letters</label>
+            <label>Type accented letters separately from normal letters</label>
             <default code="true">false</default>
         </entry>
         <entry name="OneLetter" type="Bool">

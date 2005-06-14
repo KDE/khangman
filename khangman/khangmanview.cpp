@@ -37,6 +37,7 @@
 #include "khangman.h"
 #include "khangmanview.h"
 
+//TODO this file works saved as iso but not saved as utf8 :(
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
     : QWidget(parent, name)
@@ -68,7 +69,6 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     temp="";
     missedChar=0;
     tmp = 0;
-    //accent_b = false;
     m_accent = true;
     hintBool = true;//assume tip exists
 
@@ -85,11 +85,10 @@ KHangManView::~KHangManView()
 void KHangManView::replaceLetters(const QString& sChar)
 {
     //replace letter in the word
-    kdDebug() << "sChar " << sChar << endl;
     int index=0;
     bool b_end = false;
     kdDebug() << "word " << word << endl;
-    if (b_oneLetter)  {  //we just replace the next instance
+    if (Prefs::oneLetter())  {  //we just replace the next instance
         for (int count=0; count <word.contains(sChar); count++) {
             index = word.find(sChar,index);
             if (goodWord.at(2*index)=='_') {
@@ -110,30 +109,29 @@ void KHangManView::replaceLetters(const QString& sChar)
             index = word.find(sChar,index);
             //we replace it...
             goodWord.replace((2*index), 1,sChar);
-            kdDebug() << "goodword2 " << goodWord << endl;
             index++;
             }
     }
+    kdDebug() << m_accent << !Prefs::accentedLetters()<< endl;
     if (m_accent && !Prefs::accentedLetters()) {
-        //characters must be lisible as utf-8 and file must be saved with this encoding. 
         kdDebug() << "In accent " << endl;
-        if (sChar=="i") replaceLetters(QString("Ã­"));
-        if (sChar=="a") replaceLetters(QString("Ã "));
-        if (sChar=="a") replaceLetters(QString("Ã¡"));
-        if (sChar=="a") replaceLetters(QString("Ã£"));
-        if (sChar=="u") replaceLetters(QString("Ã¼"));
-        if (sChar=="o") replaceLetters(QString("Ã²"));
-        if (sChar=="o") replaceLetters(QString("Ã³"));
-        if (sChar=="o") replaceLetters(QString("Ãµ"));
-        if (sChar=="e") replaceLetters(QString("Ã¨"));
-        if (sChar=="e") replaceLetters(QString("Ã©"));
-        if (sChar=="u") replaceLetters(QString("Ã¹"));
+        if (sChar=="i") replaceLetters(QString::fromLatin1("í"));
+        if (sChar=="a") replaceLetters(QString("à"));
+        if (sChar=="a") replaceLetters(QString("á"));
+        if (sChar=="a") replaceLetters(QString("ã"));
+        if (sChar=="u") replaceLetters(QString("ü"));
+        if (sChar=="o") replaceLetters(QString::fromLatin1("ò"));
+        if (sChar=="o") replaceLetters(QString::fromLatin1("ó"));
+        if (sChar=="o") replaceLetters(QString("õ"));
+        if (sChar=="e") replaceLetters(QString("è"));
+        if (sChar=="e") replaceLetters(QString("é"));
+        if (sChar=="u") replaceLetters(QString("ù"));
     }
-    if (!b_oneLetter) 
+    if (!Prefs::oneLetter()) 
         allWords << sChar; //appends the list only if not in One Letter only mode...
     if (word.contains(sChar)==1) 
         allWords << sChar; //append if only one instance
-    if (b_oneLetter && b_end) 
+    if (Prefs::oneLetter() && b_end) 
         allWords << sChar; 
 }
 
@@ -142,13 +140,13 @@ bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
     if (m_accent && !Prefs::accentedLetters()) {
-        if (sChar=="i") b = word.contains(QString("Ã­"))>0;//QChar('Ã­').unicode()) > 0;
-        if (sChar=="a") b = word.contains(QString("Ã ")) > 0 || word.contains(QString("Ã¡")) > 0 || word.contains(QString("Ã£")) > 0;
-        if (sChar=="u") b = word.contains(QString("Ã¼")) > 0 || word.contains(QString("Ã¹")) > 0;
-        if (sChar=="o") b = word.contains(QString("Ã²")) > 0 || word.contains(QString("Ã³")) || word.contains(QString("Ãµ")) > 0;
-        if (sChar=="e") b = word.contains(QString("Ã¨")) > 0 || word.contains(QString("Ã©")) > 0;
+        kdDebug() << "in containsChar " << endl;
+        if (sChar=="i") b = word.contains(QString("í"))>0;//QChar('í').unicode()) > 0;
+        if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
+        if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
+        if (sChar=="o") b = word.contains(QString("ò")) > 0 || word.contains(QString("ó")) || word.contains(QString("õ")) > 0;
+        if (sChar=="e") b = word.contains(QString("è")) > 0 || word.contains(QString("é")) > 0;
     }
-    
     return ((word.contains(sChar) > 0) || b);
 }
 
@@ -318,7 +316,7 @@ void KHangManView::slotTry()
     //if ((!upperBool))
     if (Prefs::upperCase()) {//TODO see if it's OK in all languages for all special chars
         sChar = sChar.upper();
-        //TODO replace ÃŸ with SS in German if (Prefs::selectedLanguage() =="de")
+        //TODO replace ß with SS in German if (Prefs::selectedLanguage() =="de")
     }
     else
         sChar = sChar.lower();
@@ -355,7 +353,7 @@ void KHangManView::slotTry()
                             if (soundFile != 0) 
                                 KAudioPlayer::play(soundFile);
                         }
-                        if (Prefs::wonDialog()) {
+                        if (Prefs::wonDialog()) { //TODO KPassivePopup to say you have won
                             QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
                         }
                         else {
@@ -547,8 +545,8 @@ void KHangManView::game()
         d = word.find( " ", c+1);
         if (d>0)  goodWord.replace(2*d, c+1, " ");
     }
-    int e = word.find( "Â·" );
-    if (e>0) goodWord.replace(2*e, 1, "Â·");
+    int e = word.find( "·" );
+    if (e>0) goodWord.replace(2*e, 1, "·");
     int h = word.find( "'" );
     if (h>0) goodWord.replace(2*h, 1, "'");
 }
