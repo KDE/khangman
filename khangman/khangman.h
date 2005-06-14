@@ -139,6 +139,8 @@ protected slots:
     void loadLangToolBar();
     ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
     void slotPasteChar();
+    
+    void slotQuit();
 };
 
 #endif // _KHANGMAN_H_

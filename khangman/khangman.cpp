@@ -76,12 +76,19 @@ KHangMan::~KHangMan()
 {
 }
 
+void KHangMan::slotQuit()
+{
+    Prefs::setShowCharToolbar( secondToolbar->isVisible());
+    Prefs::writeConfig();
+    kapp->quit();
+}
+
 void KHangMan::setupActions()
 {
     newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
     newAct->setToolTip(i18n( "Play with a new word" ));
     new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
-    KStdAction::quit(kapp, SLOT(quit()), actionCollection());
+    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
     levelAct = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
     levelAct->setToolTip(i18n( "Choose the level" ));
