@@ -12,9 +12,6 @@
             <height>192</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>advanced</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -48,9 +45,6 @@
                             <property name="text">
                                 <string>&amp;Show hints</string>
                             </property>
-                            <property name="accel">
-                                <string>Alt+S</string>
-                            </property>
                             <property name="toolTip" stdset="0">
                                 <string>If you check it, a hint will be displayed by right-clicking on the game window.</string>
                             </property>
@@ -81,9 +75,6 @@ If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get 
                             </property>
                             <property name="text">
                                 <string>Type accented &amp;letters</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+L</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>In some languages, if this is checked, you must type accented letters yourself (i.e. They are differentiated from the corresponding unaccented letter).</string>

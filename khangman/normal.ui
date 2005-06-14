@@ -12,9 +12,6 @@
             <height>128</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>normal</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -34,9 +31,6 @@
                     <property name="text">
                         <string>Require more &amp;guesses for duplicate letters</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+G</string>
-                    </property>
                     <property name="toolTip" stdset="0">
                         <string>Check this if you do not want to display each instance of the same letter</string>
                     </property>
@@ -53,9 +47,6 @@ Default is that for one letter typed, all instances of that letter in the word a
                     </property>
                     <property name="text">
                         <string>Do not display the 'Congratulations! You &amp;won!' dialog</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+W</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
@@ -84,9 +75,6 @@ If this option is checked, this dialog will not appear and a new game will autom
                             </property>
                             <property name="text">
                                 <string>Enable &amp;sounds</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+S</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>If checked, sounds will be played for New Game and Win Game</string>
