@@ -43,7 +43,7 @@
             <default>sea</default>
         </entry>
         </group>
-            <group name="normal">
+          <group name="normal">
         <entry name="Sound" type="Bool">
             <label>Enable Sounds on New Game and Win Game</label>
             <default code="true">false</default>
