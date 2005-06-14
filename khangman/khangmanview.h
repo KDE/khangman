@@ -106,8 +106,6 @@ protected:
     void game();
     ///Load kvtml file and get a word and its tip in random
     void readFile();
-    ///If true, the uppercase and lower case are disctincts (world capitals)
-    bool upperBool;
     ///KDE random generator
     KRandomSequence random;
     ///Enable hints on mouse right click if Hints exist

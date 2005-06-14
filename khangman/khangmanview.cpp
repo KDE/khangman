@@ -308,10 +308,7 @@ void KHangManView::slotTry()
 {
     QString sChar = charWrite->text();
     kdDebug() << "sChar as entered: " << sChar << endl;
-    //if (language=="de")
-      //  upperBool = true;
-    //if ((!upperBool))
-    if (Prefs::upperCase()) {//TODO see if it's OK in all languages for all special chars
+    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de") {//only in German currently
         sChar = sChar.upper();
         //TODO replace ß with SS in German if (Prefs::selectedLanguage() =="de")
     }
@@ -578,8 +575,8 @@ void KHangManView::readFile()
         hintBool = true;
         khangman ->changeStatusbar(i18n("Hint available"), 103);
     }
-    if (Prefs::upperCase())
-        word = word.upper();//TODO see if it's OK in all languages for all special chars
+    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
+        word = word.upper();// only for German currently
 }
 
 void KHangManView::loadAnimation()
