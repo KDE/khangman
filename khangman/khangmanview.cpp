@@ -111,7 +111,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             index++;
             }
     }
-    kdDebug() << m_accent << !Prefs::accentedLetters()<< endl;
+
     if (m_accent && !Prefs::accentedLetters()) {
         if (sChar=="i") replaceLetters(QString::fromUtf8("í"));
         if (sChar=="a") replaceLetters(QString::fromUtf8("à"));
@@ -461,7 +461,6 @@ void KHangManView::slotNewGame()
 
 void KHangManView::reset()
 {
-    kdDebug() << "In reset " << endl;
     goodWord="";
     word="";
     charWrite->setText("");

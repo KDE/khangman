@@ -8,134 +8,20 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>165</width>
-            <height>279</height>
+            <width>334</width>
+            <height>128</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>normal</string>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QButtonGroup" row="0" column="0">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>kcfg_Pictures</cstring>
-            </property>
-            <property name="title">
-                <string>Hangman Pictures</string>
-            </property>
-            <property name="selectedId" stdset="0">
-                <number>0</number>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>&lt;qt&gt;These settings allow you to choose how you want your hangman pictures.
-&lt;b&gt;Mild&lt;/b&gt; is default and the hangman holds the rope with his hand.
-&lt;b&gt;Normal&lt;/b&gt; is when the man is hanged by the neck.&lt;/qt&gt;</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>mild</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Mild</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>0</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>The hangman holds the rope.</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>norm</cstring>
-                    </property>
-                    <property name="text">
-                        <string>No&amp;rmal</string>
-                    </property>
-                    <property name="checked">
-                        <bool>false</bool>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>1</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>The hangman is hanged by the neck.</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="1" column="0">
-            <property name="name">
-                <cstring>kcfg_Mode</cstring>
-            </property>
-            <property name="title">
-                <string>Background Picture</string>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>You can choose here the background picture for the game. In No background mode (default), the background stays gray. Blue theme and nature theme are nice backgrounds pictures where everything is blended into the background.
-The chosen background will be restored at KHangMan next run.</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>blue</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Blue theme</string>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>1</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Background is blue and green</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="2" column="0">
-                    <property name="name">
-                        <cstring>nature</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Nature theme</string>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>2</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Background is a picture of nature</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>nobg</cstring>
-                    </property>
-                    <property name="text">
-                        <string>No back&amp;ground</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>0</number>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QGroupBox" row="2" column="0">
-            <property name="name">
-                <cstring>groupBox3_2</cstring>
-            </property>
-            <property name="title">
-                <string>Sounds</string>
+                <cstring>layout3</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -143,18 +29,74 @@ The chosen background will be restored at KHangMan next run.</string>
                 </property>
                 <widget class="QCheckBox">
                     <property name="name">
-                        <cstring>kcfg_Sound</cstring>
+                        <cstring>kcfg_OneLetter</cstring>
                     </property>
                     <property name="text">
-                        <string>Enable &amp;sounds</string>
+                        <string>Require more &amp;guesses for duplicate letters</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+G</string>
                     </property>
                     <property name="toolTip" stdset="0">
-                        <string>If checked, sounds will be played for New Game and Win Game</string>
+                        <string>Check this if you do not want to display each instance of the same letter</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
-Default is no sound.</string>
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
+For example, the word to guess is "potato". If this option is unchecked, when you try "o", the 2 "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
+
+Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
                     </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_WonDialog</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Do not display the 'Congratulations! You &amp;won!' dialog</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+W</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this option is not checked, when a game is won a dialog will appear saying 'Congratulations! You won!'.
+This is the default state.
+
+If this option is checked, this dialog will not appear and a new game will automatically start after three seconds.</string>
+                    </property>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>groupBox3_2</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Sounds</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>kcfg_Sound</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Enable &amp;sounds</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+S</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>If checked, sounds will be played for New Game and Win Game</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
+Default is no sound.</string>
+                            </property>
+                        </widget>
+                    </vbox>
                 </widget>
             </vbox>
         </widget>

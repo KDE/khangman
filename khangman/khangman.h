@@ -33,7 +33,7 @@
 class KSelectAction;
 class KToggleAction;
 class KHNewStuff;
-
+class advanced;
 /**
  * @short Application Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
@@ -67,7 +67,8 @@ public:
     QStringList m_languageNames;
     ///Language codes of available languages
     QStringList m_languages;
-    
+    advanced *mAdvanced;
+
 protected:
     ///Main view
     KHangManView *m_view;
@@ -102,7 +103,8 @@ protected:
 
     void loadLevels();
 
-    
+    void setAccent();
+
 private:
     ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;

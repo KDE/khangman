@@ -22,6 +22,7 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "advanced.h"
+#include "normal.h"
 #include "khnewstuff.h"
 
 #include <qbitmap.h>
@@ -63,6 +64,7 @@ KHangMan::KHangMan()
     
 
     loadSettings();
+    setAccent();
     loadLangToolBar();
     loadLevels();
     //setupToolbars();
@@ -149,6 +151,7 @@ void KHangMan::slotChangeLanguage(int index)
     loadLevels();
     loadLangToolBar();
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    setAccent();
     m_view->slotNewGame();   
 }
 
@@ -300,16 +303,26 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
+        mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
+        mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+        if (Prefs::selectedLanguage() == "de")
+            mAdvanced->kcfg_UpperCase->setEnabled(true);
+        else
+            mAdvanced->kcfg_UpperCase->setEnabled(false);
         return;
     }
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-    //normal *mNormal =  new normal( 0, "Normal Settings" );
-    //dialog->addPage(mNormal, i18n("Look & Feel"), "colorize");
-    advanced *mAdvanced=  new advanced( 0, "Advanced" );
+    normal *mNormal =  new normal( 0, "Normal Settings" );
+    dialog->addPage(mNormal, i18n("General"), "colorize");
+    mAdvanced=  new advanced( 0, "Advanced" );
     mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
     mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
-    dialog->addPage(mAdvanced, i18n("Advanced Settings"), "wizard");
+    if (Prefs::selectedLanguage() == "de")
+        mAdvanced->kcfg_UpperCase->setEnabled(true);
+    else
+        mAdvanced->kcfg_UpperCase->setEnabled(false);
+    dialog->addPage(mAdvanced, i18n("Languages"), "wizard");
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
     dialog->show();
 }
@@ -317,6 +330,7 @@ void KHangMan::optionsPreferences()
 void KHangMan::updateSettings()
 {
     //after upperCase() changed, reload new game
+    setAccent();
     m_view->slotNewGame();
 }
 
@@ -427,5 +441,13 @@ void KHangMan::enableHint(bool)
 {
 }
 
+void KHangMan::setAccent()
+{
+    kdDebug() << "in slot accent  " << endl;
+    if (Prefs::selectedLanguage()=="es" || Prefs::selectedLanguage() =="pt" || Prefs::selectedLanguage() == "ca" || Prefs::selectedLanguage() == "pt_BR")
+            m_view->m_accent = true;
+        else
+        m_view->m_accent = false;
+}
 
 #include "khangman.moc"

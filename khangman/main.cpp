@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     aboutData.addCredit("Lubos Lunàk",
                             I18N_NOOP("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit("Albert Astals Cid",
-                            I18N_NOOP("Coding help"), "tsdgeos@terra.es");
+                            I18N_NOOP("Coding help, fixed a lot of things"), "tsdgeos@terra.es");
    aboutData.addCredit("Danny Allen",
                              I18N_NOOP("SVG icon"), "danny@dannyallen.co.uk");
    aboutData.addCredit("Peter Hedlund",
