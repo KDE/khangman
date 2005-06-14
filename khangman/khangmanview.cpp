@@ -138,7 +138,7 @@ bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
     if (m_accent && !Prefs::accentedLetters()) {
-        if (sChar=="i") b = word.contains(QString::fromUtf8("í"));//QChar('í').unicode()) > 0;
+        if (sChar=="i") b = word.contains(QString::fromUtf8("í"));
         if (sChar=="a")	b = word.contains(QString::fromUtf8("à")) || word.contains(QString::fromUtf8("á")) || word.contains(QString::fromUtf8("ã"));
         if (sChar=="u") b = word.contains(QString::fromUtf8("ü")) || word.contains(QString::fromUtf8("ù"));
         if (sChar=="o") b = word.contains(QString::fromUtf8("ò")) || word.contains(QString::fromUtf8("ó")) || word.contains(QString::fromUtf8("õ"));
@@ -149,7 +149,7 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton && hintBool)//(kvtmlBool && hintBool && (mouse->button() == RightButton))
+    if (mouse->button() == RightButton && hintBool)
     {
         KPassivePopup *myPopup = new KPassivePopup( charWrite);
         myPopup->setView(i18n("Hint"), tip );
@@ -310,7 +310,6 @@ void KHangManView::slotTry()
     kdDebug() << "sChar as entered: " << sChar << endl;
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de") {//only in German currently
         sChar = sChar.upper();
-        //TODO replace ß with SS in German if (Prefs::selectedLanguage() =="de")
     }
     else
         sChar = sChar.lower();
@@ -331,9 +330,6 @@ void KHangManView::slotTry()
                     }
                     QStringList rightChars=QStringList::split(" ", stripWord, true);
                     QString rightWord= rightChars.join("");
-                    //if (language =="de") {
-                        //goodWord = goodWord.replace(0,1, goodWord.left(1).upper());
-                       // }
                     paintWord();
                     //no update(); here or it'll flicker!!!
                     sword.remove(QRegExp(" "));
@@ -372,8 +368,6 @@ void KHangManView::slotTry()
                                 //TODO sequence to finish when hanged
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
-                                //if (language =="de")
-                                //theWord = theWord.replace(0,1, theWord.left(1).upper());
                                 goodWord = theWord;
                                 //usability: find another way to start a new game
                                 QString newGameString = i18n("You lost. Do you want to play again?");
@@ -575,7 +569,15 @@ void KHangManView::readFile()
         khangman ->changeStatusbar(i18n("Hint available"), 103);
     }
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
+    {
         word = word.upper();// only for German currently
+        //replace ß with SS in German 
+        if (word.contains(QString::fromUtf8("ß"))) {
+            int index = word.find(QString::fromUtf8("ß"),0);
+            word.replace(index,1, "S");
+            //TODO add a S here
+        }
+    }
 }
 
 void KHangManView::loadAnimation()

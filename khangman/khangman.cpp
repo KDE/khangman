@@ -331,6 +331,8 @@ void KHangMan::updateSettings()
 {
     //after upperCase() changed, reload new game
     setAccent();
+    if (Prefs::selectedLanguage() == "de")
+        loadLangToolBar();
     m_view->slotNewGame();
 }
 
@@ -380,6 +382,9 @@ void KHangMan::loadLangToolBar()
             //allData contains all the words from the file
             allData = QStringList::split("\n", readFileStr.read(), true);
             openFileStream.close();
+            if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
+                for (int i=0; i<(int) allData.count(); i++)
+                    allData[i] = allData[i].upper();
             for (int i=0; i<(int) allData.count(); i++)
                 secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
 	}
