@@ -1,11 +1,13 @@
 KHANGMAN - NEW IDEAS - NEW DESIGN
 
 USABILITY questions that might remain
+- German: in Settings dialog, give the choice of playing all uppercase or all lower case
+lower case: ä,ö,ü,ß
+upper case: Ä,Ö,Ü,SS
 
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
 - usability of the Configure KHangMan dialog
 - enable hint: in Settings at the moment, should it be as a button in the toolbar as well? (Danny)
-- is the change of GUI a good thing when you switch themes? (won't it confuse users?)
 - font size (use QFont::setPixelSize (thanks psn) instead of size) - make sure you use pretty big sizes though else it'll get unreadable fast on a big monitor - 156pt will be enough - QPaintDevice::x11AppDpiX() and QPaintDevice::x11AppDpiY() will give the dpi values
 
 11 April 2005

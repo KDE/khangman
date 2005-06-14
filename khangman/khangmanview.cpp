@@ -72,7 +72,6 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     m_accent = true;
     hintBool = true;//assume tip exists
 
-    connect( charWrite, SIGNAL( textChanged(const QString &) ), this, SLOT( slotValidate(const QString &) ) );
     connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     
@@ -114,7 +113,6 @@ void KHangManView::replaceLetters(const QString& sChar)
     }
     kdDebug() << m_accent << !Prefs::accentedLetters()<< endl;
     if (m_accent && !Prefs::accentedLetters()) {
-        kdDebug() << "In accent " << endl;
         if (sChar=="i") replaceLetters(QString::fromLatin1("í"));
         if (sChar=="a") replaceLetters(QString("à"));
         if (sChar=="a") replaceLetters(QString("á"));
@@ -140,7 +138,6 @@ bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
     if (m_accent && !Prefs::accentedLetters()) {
-        kdDebug() << "in containsChar " << endl;
         if (sChar=="i") b = word.contains(QString("í"))>0;//QChar('í').unicode()) > 0;
         if (sChar=="a") b = word.contains(QString("à")) > 0 || word.contains(QString("á")) > 0 || word.contains(QString("ã")) > 0;
         if (sChar=="u") b = word.contains(QString("ü")) > 0 || word.contains(QString("ù")) > 0;
@@ -376,7 +373,6 @@ void KHangManView::slotTry()
                         if (missedChar >= 10) //you are hanged!
                         {
                                 //TODO sequence to finish when hanged
-                                kdDebug() << "------ hanged !!! " << endl;
                                 QStringList charList=QStringList::split("",word);
                                 QString theWord=charList.join(" ");
                                 //if (language =="de")
@@ -413,7 +409,6 @@ void KHangManView::slotTry()
                 //disable any possible entry
                 charWrite->setEnabled(false);
             }
-            //usability: hilight it in the word
             if (goodWord.contains(sChar)>0) {
                 QPoint abspos = popup->pos();
                 if (Prefs::mode() ==0)  {
@@ -426,7 +421,6 @@ void KHangManView::slotTry()
                     y = abspos.y() + height()*485/535;
                     popup->move(x, y);
                 }
-                //put the letter in red for 1 second
                 QTimer *timer = new QTimer( this);
                 connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
                 timer->start( 1000, TRUE ); // 1 second single-shot timer
@@ -444,14 +438,12 @@ void KHangManView::timerDone()
 {
     charWrite->setEnabled(true);
     charWrite->setFocus();
-    //paintHangman();
 }
 
 void KHangManView::timerWordDone()
 {
     charWrite->setEnabled(true);
     charWrite->setFocus();
-    //paintWord();
 }
 
 void KHangManView::slotNewGame()
@@ -576,7 +568,6 @@ void KHangManView::readFile()
     tip = verbs[wordNumber].translatedText(); 
     if (word.isEmpty()) 
         readFile();
-    kdDebug() << "tip : " << tip << endl;
     if (tip.isEmpty()) {
         Prefs::setHint(false);//hint can't be enabled
         Prefs::writeConfig();
@@ -624,10 +615,6 @@ void KHangManView::loadAnimation()
     px[8].load(locate("data", QString("khangman/pics/%1/animation8.png").arg(theme)));
     px[9].load(locate("data", QString("khangman/pics/%1/animation9.png").arg(theme)));
     px[10].load(locate("data", QString("khangman/pics/%1/animation10.png").arg(theme)));
-}
-
-void KHangManView::slotValidate(const QString&)
-{
 }
 
 #include "khangmanview.moc"
