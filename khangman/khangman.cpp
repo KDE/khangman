@@ -153,6 +153,7 @@ void KHangMan::slotChangeLanguage(int index)
     loadLangToolBar();
     changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
+    setMessages();
     m_view->slotNewGame();   
 }
 
@@ -238,6 +239,7 @@ void KHangMan::loadSettings()
         secondToolbar->show();
     else
         secondToolbar->hide();
+    setMessages();
 }
 
 void KHangMan::setLevel()
@@ -324,7 +326,7 @@ void KHangMan::optionsPreferences()
         mAdvanced->kcfg_UpperCase->setEnabled(true);
     else
         mAdvanced->kcfg_UpperCase->setEnabled(false);
-    dialog->addPage(mAdvanced, i18n("Languages"), "kbabel");
+    dialog->addPage(mAdvanced, i18n("Languages"), "kvoctrain");
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
     dialog->show();
 }
@@ -335,6 +337,7 @@ void KHangMan::updateSettings()
     setAccent();
     if (Prefs::selectedLanguage() == "de")
         loadLangToolBar();
+    setMessages();
     m_view->slotNewGame();
 }
 
@@ -450,6 +453,20 @@ void KHangMan::setAccent()
         m_view->m_accent = true;
     else
         m_view->m_accent = false;
+}
+
+void KHangMan::setMessages()
+{
+    if ((Prefs::hint()) && (m_view->hintBool))
+        changeStatusbar(i18n("Hint on right-click"), 103);
+    else if (m_view->hintBool && !Prefs::hint() )
+        changeStatusbar(i18n("Hint available"), 103);
+    else
+        changeStatusbar("", 103);
+    if (m_view->m_accent && Prefs::accentedLetters())
+        changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+    else
+        changeStatusbar("", IDS_ACCENTS);
 }
 
 #include "khangman.moc"

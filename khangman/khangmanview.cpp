@@ -149,7 +149,7 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton && hintBool)
+    if (mouse->button() == RightButton && hintBool && Prefs::hint())
     {
         KPassivePopup *myPopup = new KPassivePopup( charWrite);
         myPopup->setView(i18n("Hint"), tip );
@@ -566,7 +566,7 @@ void KHangManView::readFile()
     }
     else {
         hintBool = true;
-        khangman ->changeStatusbar(i18n("Hint available"), 103);
+        khangman ->setMessages();
     }
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {

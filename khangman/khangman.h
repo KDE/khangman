@@ -69,6 +69,8 @@ public:
     QStringList m_languages;
     ///Instance of an advanced page of the config dialog
     advanced *mAdvanced;
+    ///Display the correct messages in the statusbar
+    void setMessages();
 
 protected:
     ///Main view
