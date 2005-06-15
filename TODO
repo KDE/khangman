@@ -1,30 +1,47 @@
 KHANGMAN - NEW IDEAS - NEW DESIGN
 
-USABILITY questions that might remain
+TODO
+---------
+- fix hint position
+- get a new Languages Settings icon
+- get a new KHangMan crystal icon
+- bundle the fonts with install
+- fix the font size
+- tooltip if no Win dialog
+- find a way to better finish game (win or loose)
+- allow to change font in Settings (add a Fonts tab)
+- add a Quick STart dialog in doc
+- finish German ß->SS
+
+14 June 2005
+-------------------
 - German: in Settings dialog, give the choice of playing all uppercase or all lower case
 lower case: ä,ö,ü,ß
 upper case: Ä,Ö,Ü,SS
 
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
-- usability of the Configure KHangMan dialog
+- usability of the Configure KHangMan dialog DONE
 - enable hint: in Settings at the moment, should it be as a button in the toolbar as well? (Danny)
 - font size (use QFont::setPixelSize (thanks psn) instead of size) - make sure you use pretty big sizes though else it'll get unreadable fast on a big monitor - 156pt will be enough - QPaintDevice::x11AppDpiX() and QPaintDevice::x11AppDpiY() will give the dpi values
 
 11 April 2005
+------------------
 - center the word display
-- better position the passive popups
-- choose font in configuration (3 dialogs: for Misses, for word and for Guess+charWrite)
+- better position the passive popups DONE
+- choose font in configuration (2 dialogs: for Misses + Word and for Guess+charWrite)
 - Misses and word font the same? (uniformity prefered by Dannya) -> have the _ the same size
 - make the gradient disappear in minimum size so that the added parts merge exactly
 - change the wording of Misses to Mistakes? (Reuben)
 
 07 April 2005 
+------------------
 - urgent: implement Desert theme DONE 10 April
 - urgent: position better KPassivePopup DONE 11 April
 - implement fontChecker for Domestic Manners and Dustimo Roman in main.cpp
 - find a way to end a game (when you lose or when you win -> special animation?)
 
 22 March 2005
+--------------------
 Menubar
 - Look menu -> switching theme DONE 10 April 
 - Language menu -> switching language DONE 10 April
