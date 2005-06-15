@@ -324,7 +324,7 @@ void KHangMan::optionsPreferences()
         mAdvanced->kcfg_UpperCase->setEnabled(true);
     else
         mAdvanced->kcfg_UpperCase->setEnabled(false);
-    dialog->addPage(mAdvanced, i18n("Languages"), "wizard");
+    dialog->addPage(mAdvanced, i18n("Languages"), "kbabel");
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
     dialog->show();
 }
