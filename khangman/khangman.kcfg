@@ -4,7 +4,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="khangmanrc"/>
-    <group name="General">
+
+    <group name="Language">
       <entry name="CurrentLevel" type="Int">
             <label>Level</label>
             <default code="true">0</default>
@@ -16,8 +17,6 @@
             <label>Show the characters toolbar</label>
             <default code="true">false</default>
         </entry>
-    </group>
-    <group name="Language">
         <entry name="SelectedLanguage" type="String">
             <label>The language selected by the user</label>
             <code>
@@ -32,8 +31,9 @@
             </code>
             <default code="true">userLanguage</default>
         </entry> 
-</group>
-        <group name="look">
+        </group>
+
+        <group name="Look">
         <entry name="Mode" type="Enum">
             <label>Background theme</label>
             <choices>
@@ -43,15 +43,8 @@
             <default>sea</default>
         </entry>
         </group>
-          <group name="normal">
-        <entry name="Sound" type="Bool">
-            <label>Enable Sounds on New Game and Win Game</label>
-            <default code="true">false</default>
-        </entry>
-        <entry name="AccentedLetters" type="Bool">
-            <label>Type accented letters separately from normal letters</label>
-            <default code="true">false</default>
-        </entry>
+          
+    <group name="General">
         <entry name="OneLetter" type="Bool">
             <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
             <default code="true">false</default>
@@ -60,21 +53,31 @@
             <label>Do not display the 'Congratulations You won!' dialog</label>
             <default code="true">false</default>
         </entry> 
+        <entry name="Sound" type="Bool">
+            <label>Enable Sounds on New Game and Win Game</label>
+            <default code="true">false</default>
+        </entry>
     </group>
+
+    <group name="Advanced">
+            <entry name="Hint" type="Bool">
+            <label>Enable Hint mode if available i.e. only if hintBool == true</label>
+            <default code="true">false</default>
+        </entry>
+        <entry name="AccentedLetters" type="Bool">
+            <label>Type accented letters separately from normal letters</label>
+            <default code="true">false</default>
+        </entry>
+        <entry name="UpperCase" type="Bool">
+            <label>Write the word in upper case letters if checked</label>
+            <default code="true">false</default>
+        </entry>
+     </group>
+
     <group name="KNewStuff">
         <entry name="ProvidersUrl" type="Path">
             <label>The Providers path for KHangMan</label>
              <default code="true">"http://edu.kde.org/khangman/downloads/providers.xml"</default>
         </entry> 
     </group>
-    <group name="advanced">
-            <entry name="Hint" type="Bool">
-            <label>Enable Hint mode if available i.e. only if hintBool == true</label>
-            <default code="true">false</default>
-        </entry>
-            <entry name="UpperCase" type="Bool">
-            <label>Write the word in upper case letters if checked</label>
-            <default code="true">false</default>
-        </entry>
-     </group>
 </kcfg>
