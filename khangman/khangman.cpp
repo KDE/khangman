@@ -52,7 +52,6 @@ KHangMan::KHangMan()
       m_view(new KHangManView(this))
 {
     mNewStuff = 0;
-    // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
@@ -60,15 +59,10 @@ KHangMan::KHangMan()
     //toolbar for special characters
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
-    
-    
-
     loadSettings();
     setAccent();
     loadLangToolBar();
     loadLevels();
-    //setupToolbars();
-    connect(m_view, SIGNAL(signalKvtml(bool)), this, SLOT(enableHint(bool)));
     m_view->slotNewGame();
 }
 
@@ -249,7 +243,8 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     currentLevel = Prefs::currentLevel();
-    if (currentLevel > (uint) levels.count()) currentLevel= 0;
+    if (currentLevel > (uint) levels.count()) 
+        currentLevel= 0;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
@@ -399,8 +394,7 @@ void KHangMan::loadLangToolBar()
 		secondToolbar->show();
 	}
 	else secondToolbar->hide();
-	//Prefs::setShowCharToolbar( !secondToolbar->isVisible());
-	//Prefs::writeConfig();
+
 	if (noCharBool)//no special chars in those languages
 		secondToolbar->hide();
 }
@@ -449,16 +443,12 @@ QString KHangMan::charIcon(const QChar & c)
     return s;
 }
 
-void KHangMan::enableHint(bool)
-{
-}
-
 void KHangMan::setAccent()
 {
     kdDebug() << "in slot accent  " << endl;
     if (Prefs::selectedLanguage()=="es" || Prefs::selectedLanguage() =="pt" || Prefs::selectedLanguage() == "ca" || Prefs::selectedLanguage() == "pt_BR")
-            m_view->m_accent = true;
-        else
+        m_view->m_accent = true;
+    else
         m_view->m_accent = false;
 }
 

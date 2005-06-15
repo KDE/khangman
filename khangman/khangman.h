@@ -67,6 +67,7 @@ public:
     QStringList m_languageNames;
     ///Language codes of available languages
     QStringList m_languages;
+    ///Instance of an advanced page of the config dialog
     advanced *mAdvanced;
 
 protected:
@@ -78,37 +79,33 @@ protected:
     KSelectAction *levelAct, *modeAct;
     ///Populate the Languages menu
     QPopupMenu *langPopup;
-
-
+    ///Create the actions
     void setupActions();
-
+    ///Create the Statusbar
     void setupStatusbar();
-
     ///Selected language
     QString selectedLanguage;
-
     ///Translated and sorted names of languages
     QStringList m_sortedNames;
-
     ///the different data files in each language dir
     QStringList levels;
-
+    ///At start, restore settings from config file and apply them
     void loadSettings();
-
+    ///Set the level and make sure it exists
     void setLevel();
     ///Current level ID
     uint currentLevel;
     ///hold the current level
     QString levelString;
-
+    ///Scan the files in the selected language dir to set the levels
     void loadLevels();
-
+    ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
 
 private:
     ///Create a KNewStuff instance
     KHNewStuff *mNewStuff;
-    
+    ///Create a png image with the argument (special character) and return the path to this png image
     QString charIcon(const QChar &);
     ///true if the language has no special char as en, it and nl
     bool noCharBool;
@@ -118,16 +115,13 @@ private:
     QStringList allData;
     
 public slots:
-
+    ///When the langugae is changed in the Language menu
     void slotChangeLanguage(int);
-
-    void enableHint(bool);
     
 protected slots:
-
+    ///Called when the user changes the level
     void slotChangeLevel();
-
-    
+    /// Called when the mode is changed
     void slotChangeMode();
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
@@ -139,7 +133,7 @@ protected slots:
     void loadLangToolBar();
     ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
     void slotPasteChar();
-    
+    ///Quit the application and save special toolbar settings
     void slotQuit();
 };
 
