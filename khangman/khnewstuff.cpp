@@ -62,5 +62,5 @@ bool KHNewStuff::install( const QString &fileName )
 bool KHNewStuff::createUploadFile( const QString &fileName )
 {
     //return mView->saveCalendar( fileName );
-        return true;
+    return true;
 }

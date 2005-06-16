@@ -32,12 +32,15 @@
 #include <qtimer.h>
 #include <qtooltip.h>
 #include <qwidget.h>
+
 //project headers
 #include "prefs.h"
 #include "khangman.h"
 #include "khangmanview.h"
 
+
 //TODO this file works saved as iso but not saved as utf8 :(
+
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
     : QWidget(parent, name)
@@ -66,9 +69,8 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     setMinimumSize( QSize( 700, 535) );
     slotSetPixmap( bcgdPicture);
 
-    temp="";
     missedChar=0;
-    tmp = 0;
+    m_lastWordNumber = -1;
     m_accent = true;
     hintBool = true;//assume tip exists
 
@@ -180,11 +182,55 @@ void KHangManView::setTheme()
     update();
 }
 
+
+// ----------------------------------------------------------------
+//                           Painting
+
+
 void KHangManView::paintEvent( QPaintEvent * )
 {
     paintHangman();
     paintWord();
     paintMisses();
+}
+
+void KHangManView::paintHangman()
+{
+    //draw the animated hanged K
+    QPainter p;
+    p.begin(&bg);
+    if (Prefs::mode() ==0) 
+        p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
+    else
+        p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
+    p.end();
+
+
+    bitBlt(this, 0, 0, &bg);
+    //draw the Missed letters
+    QPainter paint;
+    paint.begin(&bg);
+    QRect myRect = QRect(width()-width()*360/700+100, 0, width()*360/700-100, height()*70/535);
+    QPixmap pix( myRect.size() );
+    pix.fill( this, myRect.topLeft() );
+    QPainter pi(&pix);
+    if (Prefs::mode() ==0)   //sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    QFont tFont;
+    if (Prefs::selectedLanguage() =="tg")  {
+        tFont.setFamily( "URW Bookman" );
+    }
+    else
+        tFont.setFamily( "Arial" );
+    tFont.setPixelSize( 28 );
+    pi.setFont(tFont);
+    pi.drawText(0, 0, width()*360/700-100, height()*70/535, AlignRight|AlignCenter, missedL);
+    pi.end();
+    paint.drawPixmap(myRect,pix);
+    bitBlt( this, width()-width()*360/700+100, 0, &pix);
+    paint.end();
 }
 
 void KHangManView::paintWord()
@@ -221,6 +267,34 @@ void KHangManView::paintWord()
 }
 
 
+void KHangManView::paintMisses()
+{
+    QPainter paint;
+    paint.begin(&bg);
+
+    QString misses = i18n("Misses");
+    QFont f = QFont("Domestic Manners");
+    f.setPointSize(30);
+
+    QFontMetrics fm(f);
+    QRect fmRect(fm.boundingRect(misses));
+
+    QRect myRect(width()-width()*360/700, 15, fmRect.width(), fmRect.height());
+    QPixmap pix(myRect.size());
+    pix.fill(this, myRect.topLeft());
+
+    QPainter pi(&pix);
+    pi.setFont(f);
+    if (Prefs::mode() ==0)//sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    pi.drawText(0, 0, myRect.width(), myRect.height(), AlignLeft|AlignCenter, misses);
+    bitBlt(this, width()-width()*360/700, 15, &pix);
+    paint.end();
+}
+
+
 void KHangManView::resizeEvent(QResizeEvent *)
 {
     if(!bcgdPicture.isNull())
@@ -244,186 +318,139 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
     setPaletteBackgroundPixmap(bg);
 }
 
-void KHangManView::paintMisses()
-{
-    QPainter paint;
-    paint.begin(&bg);
-    QString misses = i18n("Misses");
-    QFont f = QFont("Domestic Manners");
-    f.setPointSize(30);
-    QFontMetrics fm(f);
-    QRect fmRect(fm.boundingRect(misses));
-    QRect myRect(width()-width()*360/700, 15, fmRect.width(), fmRect.height());
-    QPixmap pix(myRect.size());
-    pix.fill(this, myRect.topLeft());
-    QPainter pi(&pix);
-    pi.setFont(f);
-    if (Prefs::mode() ==0)//sea
-        pi.setPen( QColor(148, 156, 167));
-    else
-        pi.setPen( QColor(87, 0, 0));
-    pi.drawText(0, 0, myRect.width(), myRect.height(), AlignLeft|AlignCenter, misses);
-    bitBlt(this, width()-width()*360/700, 15, &pix);
-    paint.end();
-}
-
-void KHangManView::paintHangman()
-{
-    //draw the animated hanged K
-    QPainter p;
-    p.begin(&bg);
-    if (Prefs::mode() ==0) 
-        p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
-    else
-        p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
-    p.end();
-    bitBlt(this, 0, 0, &bg);
-    //draw the Missed letters
-    QPainter paint;
-    paint.begin(&bg);
-    QRect myRect = QRect(width()-width()*360/700+100, 0, width()*360/700-100, height()*70/535);
-    QPixmap pix( myRect.size() );
-    pix.fill( this, myRect.topLeft() );
-    QPainter pi(&pix);
-    if (Prefs::mode() ==0)   //sea
-        pi.setPen( QColor(148, 156, 167));
-    else
-        pi.setPen( QColor(87, 0, 0));
-    QFont tFont;
-    if (Prefs::selectedLanguage() =="tg")  {
-        tFont.setFamily( "URW Bookman" );
-    }
-    else
-        tFont.setFamily( "Arial" );
-    tFont.setPixelSize( 28 );
-    pi.setFont(tFont);
-    pi.drawText(0, 0, width()*360/700-100, height()*70/535, AlignRight|AlignCenter, missedL);
-    pi.end();
-    paint.drawPixmap(myRect,pix);
-    bitBlt( this, width()-width()*360/700+100, 0, &pix);
-    paint.end();
-}
 
 void KHangManView::slotTry()
 {
     QString sChar = charWrite->text();
     kdDebug() << "sChar as entered: " << sChar << endl;
-    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de") {//only in German currently
+
+    // If German, make upper case, otherwise make lower case.
+    // FIXME: Very strange. remove this.
+    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
         sChar = sChar.upper();
-    }
     else
         sChar = sChar.lower();
 
-    if (sChar.at(0).isLetter()) {//if the char is a letter
-        if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
-                if (containsChar(sChar)) {
-                    replaceLetters(sChar);
-                    stripWord = goodWord;//need that because of the white spaces
-                    sword=word;
-                    if (d>0)  {
-                        stripWord.replace(2*c, 1, "");
-                        stripWord.replace(2*c-1, 1, "");
-                    }
-                    if (d>0)  {
-                        stripWord.replace(2*(d-1), 1, "");
-                        stripWord.replace(2*(d-1)-1, 1, "");
-                    }
-                    QStringList rightChars=QStringList::split(" ", stripWord, true);
-                    QString rightWord= rightChars.join("");
-                    paintWord();
-                    //no update(); here or it'll flicker!!!
-                    sword.remove(QRegExp(" "));
-                    if (rightWord.stripWhiteSpace().lower() == sword.stripWhiteSpace().lower()) {   //you made it!
-                        //we reset everything...
-                       // pixImage->setPixmap(px[10]);
-                       //TODO find a better way to finish
-                       //
-                        if (Prefs::sound()) {
-                            QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
-                            if (soundFile != 0) 
-                                KAudioPlayer::play(soundFile);
-                        }
-                        if (Prefs::wonDialog()) { //TODO KPassivePopup to say you have won
-                            QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
-                        }
-                        else {
-                            if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
-                                slotNewGame();
-                            else
-                                kapp->quit();
-                       }
-                    }
-
-                }
-                else //if the char is missed...
-                {
-                        allWords << sChar;	
-                        missedL=missedL.replace((2*missedChar), 1, sChar);
-
-                        missedChar++;
-                        paintHangman();
-                        paintMisses();
-                        if (missedChar >= 10) //you are hanged!
-                        {
-                                //TODO sequence to finish when hanged
-                                QStringList charList=QStringList::split("",word);
-                                QString theWord=charList.join(" ");
-                                goodWord = theWord;
-                                //usability: find another way to start a new game
-                                QString newGameString = i18n("You lost. Do you want to play again?");
-                                if (KMessageBox::questionYesNo(this, newGameString) == 3)
-                                        slotNewGame();
-                                else
-                                        kapp->quit();
-                        }
-                }
-        }
-        else
-        {
-            //usability: highlight it in Missed if it is there
-            KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
-            popup->setAutoDelete( true );
-            popup->setTimeout( 1000 );
-            popup->setView(i18n("This letter has already been guessed.") );
-            popup->show();
-            int x =0, y = 0;
-            if (missedL.contains(sChar)>0) { //TODO popup should be better placed
-                QPoint abspos = popup->pos();
-                x = abspos.x() + width()*400/700;
-                y = abspos.y() + height()*50/535;
-                popup->move(x, y);
-                //put the letter in red for 1 second
-                QTimer *timer = new QTimer( this);
-                connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
-                timer->start( 1000, TRUE ); // 1 second single-shot timer
-                //TODO should highlight the repeated letter in red
-                //disable any possible entry
-                charWrite->setEnabled(false);
-            }
-            if (goodWord.contains(sChar)>0) {
-                QPoint abspos = popup->pos();
-                if (Prefs::mode() ==0)  {
-                    x = abspos.x() + width()*250/700;
-                    y = abspos.y() + height()*485/535;
-                    popup->move(x, y);
-                }
-                else  {
-                    x = abspos.x() + width()*200/700;
-                    y = abspos.y() + height()*485/535;
-                    popup->move(x, y);
-                }
-                QTimer *timer = new QTimer( this);
-                connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
-                timer->start( 1000, TRUE ); // 1 second single-shot timer
-                //TODO should highlight the repeated letter in red
-                //disable any possible entry
-                charWrite->setEnabled(false);	
-            }			
-        }
+    // If the char is not a letter, do nothing.
+    if (!sChar.at(0).isLetter()) {
+	charWrite->setText("");
+	return;
     }
-    //reset after guess...
+
+    if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
+	if (containsChar(sChar)) {
+	    replaceLetters(sChar);
+	    stripWord = goodWord;//need that because of the white spaces
+	    sword=word;
+	    if (d>0)  {
+		stripWord.replace(2*c, 1, "");
+		stripWord.replace(2*c-1, 1, "");
+	    }
+	    if (d>0)  {
+		stripWord.replace(2*(d-1), 1, "");
+		stripWord.replace(2*(d-1)-1, 1, "");
+	    }
+	    QStringList rightChars=QStringList::split(" ", stripWord, true);
+	    QString rightWord= rightChars.join("");
+	    paintWord();
+	    //no update(); here or it'll flicker!!!
+	    sword.remove(QRegExp(" "));
+
+	    // If the user made it...
+	    if (rightWord.stripWhiteSpace().lower() 
+		== sword.stripWhiteSpace().lower()) { 
+
+		// We reset everything...
+		// pixImage->setPixmap(px[10]);
+		//TODO find a better way to finish
+		//
+		if (Prefs::sound()) {
+		    QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+		    if (soundFile != 0) 
+			KAudioPlayer::play(soundFile);
+		}
+
+		if (Prefs::wonDialog()) {
+		    // TODO: KPassivePopup to say you have won
+		    QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
+		}
+		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+		    slotNewGame();
+		else
+		    kapp->quit();
+	    }
+	}
+	else {
+	    // The char is missed.
+
+	    allWords << sChar;	
+	    missedL=missedL.replace((2*missedChar), 1, sChar);
+
+	    missedChar++;
+	    paintHangman();
+	    paintMisses();
+	    if (missedChar >= 10) //you are hanged!
+		{
+		    //TODO sequence to finish when hanged
+		    QStringList charList=QStringList::split("",word);
+		    QString theWord=charList.join(" ");
+		    goodWord = theWord;
+		    //usability: find another way to start a new game
+		    QString newGameString = i18n("You lost. Do you want to play again?");
+		    if (KMessageBox::questionYesNo(this, newGameString) == 3)
+			slotNewGame();
+		    else
+			kapp->quit();
+		}
+	}
+    }
+    else {
+	//usability: highlight it in Missed if it is there
+	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
+	popup->setAutoDelete( true );
+	popup->setTimeout( 1000 );
+	popup->setView(i18n("This letter has already been guessed.") );
+	popup->show();
+	int x =0, y = 0;
+	if (missedL.contains(sChar)>0) { //TODO popup should be better placed
+	    QPoint abspos = popup->pos();
+	    x = abspos.x() + width()*400/700;
+	    y = abspos.y() + height()*50/535;
+	    popup->move(x, y);
+	    //put the letter in red for 1 second
+	    QTimer *timer = new QTimer( this);
+	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
+	    timer->start( 1000, TRUE ); // 1 second single-shot timer
+	    //TODO should highlight the repeated letter in red
+	    //disable any possible entry
+	    charWrite->setEnabled(false);
+	}
+
+	if (goodWord.contains(sChar) > 0) {
+	    QPoint abspos = popup->pos();
+	    if (Prefs::mode() == 0)  {
+		x = abspos.x() + width()*250/700;
+		y = abspos.y() + height()*485/535;
+		popup->move(x, y);
+	    }
+	    else  {
+		x = abspos.x() + width()*200/700;
+		y = abspos.y() + height()*485/535;
+		popup->move(x, y);
+	    }
+	    QTimer *timer = new QTimer( this);
+	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
+	    timer->start( 1000, TRUE ); // 1 second single-shot timer
+	    //TODO should highlight the repeated letter in red
+	    //disable any possible entry
+	    charWrite->setEnabled(false);	
+	}			
+    }
+
+    // Reset the entry field after guess.
     charWrite->setText("");
 }
+
 
 void KHangManView::timerDone()
 {
@@ -539,25 +566,26 @@ void KHangManView::readFile()
     QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
     myString= locate("data", myString);
     KEduVocDataItemList verbs = KEduVocData::parse(myString);
+
     //how many words in the file
     int NumberOfWords = verbs.count();
+
     //pick a number in random
-    int wordNumber = random.getLong(NumberOfWords);
-    if (wordNumber<=0) 
-        readFile();
-    //test if not twice the same
-    if (tmp==0)
-            temp=wordNumber;
-    else
-    {
-        while (wordNumber==tmp)
-                wordNumber = random.getLong(NumberOfWords);
-        tmp=wordNumber;
-    }//end of test
+
+    // Make sure the same word is not chosen twice in a row.
+    int  wordNumber = m_random.getLong(NumberOfWords);
+    if (m_lastWordNumber != -1) {
+        while (wordNumber == m_lastWordNumber)
+	    wordNumber = m_random.getLong(NumberOfWords);
+    }
+    m_lastWordNumber = wordNumber;
+
     word = verbs[wordNumber].originalText();
-    tip = verbs[wordNumber].translatedText(); 
+    tip  = verbs[wordNumber].translatedText(); 
+
     if (word.isEmpty()) 
         readFile();
+
     if (tip.isEmpty()) {
         Prefs::setHint(false);//hint can't be enabled
         Prefs::writeConfig();
@@ -568,6 +596,7 @@ void KHangManView::readFile()
         hintBool = true;
         khangman ->setMessages();
     }
+
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
         word = word.upper();// only for German currently

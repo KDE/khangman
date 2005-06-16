@@ -15,14 +15,18 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+
 #ifndef KHANGMANVIEW_H
 #define KHANGMANVIEW_H
 
+
 class KPushButton;
 class KHangMan;
+
 #include <krandomsequence.h>
-//from libkdeedu
 #include <keduvocdata.h>
+
+
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
  * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
@@ -40,39 +44,47 @@ public:
 
     ///parent instance
     KHangMan *khangman;
-    ///Paint the animated hanged K sequence
-    void paintHangman();
-    
+
     void setTheme();
     
     ///true if hint exists
     bool hintBool;
     ///true if language = es, ca, pt or pt_BR
     bool m_accent;
-        ///The area where the user enter the letter. Upper case is transformed into lower case.
-    KLineEdit *charWrite;
+    
+    // The area where the user enter the letter. Upper case is
+    // transformed into lower case.
+    // FIXME: Make this private.
+    KLineEdit  *charWrite;
+
     
 signals:
 
-private:
+     /// Use this signal to change the content of the statusbar
+    void signalChangeLanguage(int);
 
-    ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
-    KPushButton *guessButton;
-    
-    QString theme;
+    ///emit this signal to say if this is a kvtml file or not (hints enabled or not)
+    void signalKvtml(bool);
 
 protected:
 
-    ///Paint the texts
+    // Events
     void paintEvent( QPaintEvent * );
-    ///necessary to have it all resize correctly
     void resizeEvent(QResizeEvent *);
+
+    ///Enable hints on mouse right click if Hints exist
+    virtual void mousePressEvent(QMouseEvent *mouse);
+
     ///set the background pixmap to the QPixmap argument
     void slotSetPixmap(QPixmap& );
+
+    ///If true, the word contains the QString
+    bool containsChar(const QString &);
+    void replaceLetters(const QString &);
+
     ///Store the missed letters
     QString missedL;
 
-    QString temp;
     ///store the hint when there is one
     QString tip;
     
@@ -85,41 +97,34 @@ protected:
     QString goodWord;
     ///how many times you missed, when it reaches 10, you are hanged
     int missedChar;
-    ///tmp is to check if not twice the same random number
-    int tmp;
-    ///allWords contains all letters already guessed
-    QStringList allWords;
-    ///If true, the word contains the QString
-    bool containsChar(const QString &);
-    void replaceLetters(const QString &);
-    ///the hanged K animation sequence
-    QPixmap px[11];
-    ///Background picture (sea or desert)
-    QPixmap bcgdPicture;
-    ///part of Sea background used to repaint word and missed letters
-    QPixmap bluePic, miss_bluePic, miss_desertPic, greenPic;
-    ///Draw the word to be guessed
+
+ private:
+
+    // Painting
+
+    ///Paint the animated hanged K sequence
+    void paintHangman();
+    /// Draw the word to be guessed
     void paintWord();
+    ///paint the Misses label
+    void paintMisses();
+
     ///Reset everything to start a new game, missed letters is empty
     void reset();
     ///Play a game: look for a word to be guessed and load its tip
     void game();
     ///Load kvtml file and get a word and its tip in random
     void readFile();
-    ///KDE random generator
-    KRandomSequence random;
-    ///Enable hints on mouse right click if Hints exist
-    virtual void mousePressEvent(QMouseEvent *mouse);
+
     ///load the K animated sequence depending of the theme
     void loadAnimation();
     
-    QPixmap bg;
-    ///paint the Misses label
-    void paintMisses();
+
         
 public slots:
     ///if you want to play with a new word
     void slotNewGame();
+
 private slots:
 
     ///after you click on Guess button or hit Enter when guessing a new letter, see if the letter is in the word or not
@@ -129,13 +134,33 @@ private slots:
     ///when an already guessed letter is entered, if it is in the word, redraw the word area
     void timerWordDone();
 
-signals:
-    /**
-    * Use this signal to change the content of the statusbar
-    */
-    void signalChangeLanguage(int);
-    ///emit this signal to say if this is a kvtml file or not (hints enabled or not)
-    void signalKvtml(bool);
+private:
+
+    // Stores the last word.  This is to make sure that the same word
+    // is not given twice in a row.
+    int m_lastWordNumber;
+
+    QString theme;
+    KRandomSequence  m_random;
+
+
+    ///allWords contains all letters already guessed
+    QStringList allWords;
+
+    ///the hanged K animation sequence
+    QPixmap px[11];
+    ///Background picture (sea or desert)
+    QPixmap bcgdPicture;
+
+    ///part of Sea background used to repaint word and missed letters
+    QPixmap bluePic, miss_bluePic, miss_desertPic, greenPic;
+    QPixmap bg;
+
+    // Widgets
+
+    ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
+    KPushButton  *guessButton;
+    
 };
 
 #endif // KHANGMANVIEW_H
