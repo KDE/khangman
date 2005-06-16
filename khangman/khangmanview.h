@@ -103,11 +103,11 @@ protected:
     // Painting
 
     ///Paint the animated hanged K sequence
-    void paintHangman();
+    void paintHangman(QPainter &p);
     /// Draw the word to be guessed
-    void paintWord();
+    void paintWord(QPainter &p);
     ///paint the Misses label
-    void paintMisses();
+    void paintMisses(QPainter &p);
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
@@ -118,9 +118,7 @@ protected:
 
     ///load the K animated sequence depending of the theme
     void loadAnimation();
-    
 
-        
 public slots:
     ///if you want to play with a new word
     void slotNewGame();

@@ -39,11 +39,8 @@
 #include "khangmanview.h"
 
 
-//TODO this file works saved as iso but not saved as utf8 :(
-
-
 KHangManView::KHangManView(KHangMan*parent, const char *name)
-    : QWidget(parent, name)
+    : QWidget(parent, name, WStaticContents | WNoAutoErase)
 {
     khangman = parent;
     
@@ -189,35 +186,29 @@ void KHangManView::setTheme()
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
-    paintHangman();
-    paintWord();
-    paintMisses();
+    QPixmap buf(width(), height());
+    QPainter p(&buf);
+    p.drawPixmap(0, 0, bg);
+    paintHangman(p);
+    paintWord(p);
+    paintMisses(p);
+    bitBlt(this, 0, 0, &buf);
 }
 
-void KHangManView::paintHangman()
+void KHangManView::paintHangman(QPainter &p)
 {
     //draw the animated hanged K
-    QPainter p;
-    p.begin(&bg);
     if (Prefs::mode() ==0) 
         p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
     else
         p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
-    p.end();
 
-
-    bitBlt(this, 0, 0, &bg);
     //draw the Missed letters
-    QPainter paint;
-    paint.begin(&bg);
     QRect myRect = QRect(width()-width()*360/700+100, 0, width()*360/700-100, height()*70/535);
-    QPixmap pix( myRect.size() );
-    pix.fill( this, myRect.topLeft() );
-    QPainter pi(&pix);
     if (Prefs::mode() ==0)   //sea
-        pi.setPen( QColor(148, 156, 167));
+        p.setPen( QColor(148, 156, 167));
     else
-        pi.setPen( QColor(87, 0, 0));
+        p.setPen( QColor(87, 0, 0));
     QFont tFont;
     if (Prefs::selectedLanguage() =="tg")  {
         tFont.setFamily( "URW Bookman" );
@@ -225,26 +216,17 @@ void KHangManView::paintHangman()
     else
         tFont.setFamily( "Arial" );
     tFont.setPixelSize( 28 );
-    pi.setFont(tFont);
-    pi.drawText(0, 0, width()*360/700-100, height()*70/535, AlignRight|AlignCenter, missedL);
-    pi.end();
-    paint.drawPixmap(myRect,pix);
-    bitBlt( this, width()-width()*360/700+100, 0, &pix);
-    paint.end();
+    p.setFont(tFont);
+    p.drawText(myRect, AlignRight|AlignCenter, missedL);
 }
 
-void KHangManView::paintWord()
+void KHangManView::paintWord(QPainter &p)
 {
-    QPainter paint;
-    paint.begin(&bg);
     QRect myRect;
     if (Prefs::mode() ==0)   //sea
         myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
     else  
         myRect = QRect(0, height()-height()*126/535, width()*327/700, height()*126/535);
-    QPixmap pix( myRect.size() );
-    pix.fill( this, myRect.topLeft() );
-    QPainter p(&pix);
     QFont tFont;
     if (Prefs::mode() ==0)   //sea
         p.setPen( QColor(148, 156, 167));
@@ -257,21 +239,12 @@ void KHangManView::paintWord()
         tFont.setFamily( "Arial" );
     tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
     p.setFont(tFont);
-    if (Prefs::mode() ==0)
-        p.drawText(0,0, width()*417/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
-    else
-        p.drawText(0,0, width()*327/700, height()*126/535, AlignCenter|AlignCenter, goodWord);
-    p.end();
-    paint.drawPixmap(myRect,pix);
-    bitBlt( this, 0, height()-height()*126/535, &pix );
+    p.drawText(myRect, AlignCenter|AlignCenter, goodWord);
 }
 
 
-void KHangManView::paintMisses()
+void KHangManView::paintMisses(QPainter &pi)
 {
-    QPainter paint;
-    paint.begin(&bg);
-
     QString misses = i18n("Misses");
     QFont f = QFont("Domestic Manners");
     f.setPointSize(30);
@@ -280,18 +253,12 @@ void KHangManView::paintMisses()
     QRect fmRect(fm.boundingRect(misses));
 
     QRect myRect(width()-width()*360/700, 15, fmRect.width(), fmRect.height());
-    QPixmap pix(myRect.size());
-    pix.fill(this, myRect.topLeft());
-
-    QPainter pi(&pix);
     pi.setFont(f);
     if (Prefs::mode() ==0)//sea
         pi.setPen( QColor(148, 156, 167));
     else
         pi.setPen( QColor(87, 0, 0));
-    pi.drawText(0, 0, myRect.width(), myRect.height(), AlignLeft|AlignCenter, misses);
-    bitBlt(this, width()-width()*360/700, 15, &pix);
-    paint.end();
+    pi.drawText(myRect, AlignLeft|AlignCenter, misses);
 }
 
 
@@ -315,7 +282,6 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
     QImage img = bgPix.convertToImage();
     bg.resize(size());
     bg.convertFromImage(img.smoothScale( width(), height()));
-    setPaletteBackgroundPixmap(bg);
 }
 
 
@@ -352,8 +318,7 @@ void KHangManView::slotTry()
 	    }
 	    QStringList rightChars=QStringList::split(" ", stripWord, true);
 	    QString rightWord= rightChars.join("");
-	    paintWord();
-	    //no update(); here or it'll flicker!!!
+	    update();
 	    sword.remove(QRegExp(" "));
 
 	    // If the user made it...
@@ -387,8 +352,7 @@ void KHangManView::slotTry()
 	    missedL=missedL.replace((2*missedChar), 1, sChar);
 
 	    missedChar++;
-	    paintHangman();
-	    paintMisses();
+	    update();
 	    if (missedChar >= 10) //you are hanged!
 		{
 		    //TODO sequence to finish when hanged
