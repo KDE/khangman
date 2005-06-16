@@ -202,22 +202,6 @@ void KHangManView::paintHangman(QPainter &p)
         p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
     else
         p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
-
-    //draw the Missed letters
-    QRect myRect = QRect(width()-width()*360/700+100, 0, width()*360/700-100, height()*70/535);
-    if (Prefs::mode() ==0)   //sea
-        p.setPen( QColor(148, 156, 167));
-    else
-        p.setPen( QColor(87, 0, 0));
-    QFont tFont;
-    if (Prefs::selectedLanguage() =="tg")  {
-        tFont.setFamily( "URW Bookman" );
-    }
-    else
-        tFont.setFamily( "Arial" );
-    tFont.setPixelSize( 28 );
-    p.setFont(tFont);
-    p.drawText(myRect, AlignRight|AlignCenter, missedL);
 }
 
 void KHangManView::paintWord(QPainter &p)
@@ -245,20 +229,39 @@ void KHangManView::paintWord(QPainter &p)
 
 void KHangManView::paintMisses(QPainter &pi)
 {
+    //draw the Missed letters
+    if (Prefs::mode() ==0)   //sea
+        pi.setPen( QColor(148, 156, 167));
+    else
+        pi.setPen( QColor(87, 0, 0));
+    QFont tFont;
+    if (Prefs::selectedLanguage() =="tg")  {
+        tFont.setFamily( "URW Bookman" );
+    }
+    else
+        tFont.setFamily( "Arial" );
+    tFont.setPixelSize( 28 );
+    QFontMetrics fm(tFont);
+    QRect fmRect(fm.boundingRect(missedL));
+    QRect myRect = QRect(width() - fmRect.width(), 15, fmRect.width(), fm.height());
+    pi.setFont(tFont);
+    pi.drawText(myRect, AlignLeft, missedL);
+
+    // draw the Misses word
     QString misses = i18n("Misses");
     QFont f = QFont("Domestic Manners");
     f.setPointSize(30);
 
-    QFontMetrics fm(f);
-    QRect fmRect(fm.boundingRect(misses));
+    QFontMetrics fm2(f);
+    QRect fmRect2(fm2.boundingRect(misses));
 
-    QRect myRect(width()-width()*360/700, 15, fmRect.width(), fmRect.height());
+    QRect myRect2(width()- fmRect.width() - fmRect2.width() - 15, 15 - fm2.height() + fm.height(), fmRect2.width(), fm2.height());
     pi.setFont(f);
     if (Prefs::mode() ==0)//sea
         pi.setPen( QColor(148, 156, 167));
     else
         pi.setPen( QColor(87, 0, 0));
-    pi.drawText(myRect, AlignLeft|AlignCenter, misses);
+    pi.drawText(myRect2, AlignLeft|AlignCenter, misses);
 }
 
 
