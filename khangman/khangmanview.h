@@ -142,8 +142,8 @@ private:
     KRandomSequence  m_random;
 
 
-    ///allWords contains all letters already guessed
-    QStringList allWords;
+    /// Contains all letters already guessed
+    QStringList m_guessedLetters;
 
     ///the hanged K animation sequence
     QPixmap px[11];

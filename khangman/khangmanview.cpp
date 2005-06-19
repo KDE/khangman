@@ -44,41 +44,49 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 {
     khangman = parent;
     
+    // The widget for entering letters.
     charWrite = new KLineEdit( this, "charWrite" );
     charWrite->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, charWrite->sizePolicy().hasHeightForWidth() ) );
     charWrite->setMaxLength( 1 );
     charWrite->setAlignment( int( QLineEdit::AlignHCenter ) );
 
+    // Press this button to enter a letter (or press enter)
     guessButton = new KPushButton( this, "guessButton" );
     guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, guessButton->sizePolicy().hasHeightForWidth() ) );
     guessButton->setAutoMask( TRUE );
     guessButton->setFlat( TRUE );
     guessButton->setText( i18n( "G&uess" ) );
     
-    //get background from config file - default is sea
+    // Get background from config file - default is sea
     loadAnimation();
     
-    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
+    // Some images used in the different themes.
     greenPic = QPixmap(locate("data","khangman/pics/desert/green.png") );
+    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
     miss_bluePic = QPixmap(locate("data","khangman/pics/sea/miss_blue.png") );
     miss_desertPic= QPixmap(locate("data","khangman/pics/desert/miss_desert.png") );
 
     setMinimumSize( QSize( 700, 535) );
     slotSetPixmap( bcgdPicture);
 
+    // Some misc initializations.
     missedChar=0;
     m_lastWordNumber = -1;
     m_accent = true;
     hintBool = true;//assume tip exists
 
     connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
-    connect (guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
-    
+    connect( guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
 }
+
 
 KHangManView::~KHangManView()
 {
 }
+
+
+// Handle a guess of the letter in sChar.
+//
 
 void KHangManView::replaceLetters(const QString& sChar)
 {
@@ -86,7 +94,9 @@ void KHangManView::replaceLetters(const QString& sChar)
     int index=0;
     bool b_end = false;
     kdDebug() << "word " << word << endl;
-    if (Prefs::oneLetter())  {  //we just replace the next instance
+
+    if (Prefs::oneLetter()) {
+	//we just replace the next instance
         for (int count=0; count <word.contains(sChar); count++) {
             index = word.find(sChar,index);
             if (goodWord.at(2*index)=='_') {
@@ -108,7 +118,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             //we replace it...
             goodWord.replace((2*index), 1,sChar);
             index++;
-            }
+	}
     }
 
     if (m_accent && !Prefs::accentedLetters()) {
@@ -125,11 +135,11 @@ void KHangManView::replaceLetters(const QString& sChar)
         if (sChar=="u") replaceLetters(QString::fromUtf8("ù"));
     }
     if (!Prefs::oneLetter()) 
-        allWords << sChar; //appends the list only if not in One Letter only mode...
+        m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
     if (word.contains(sChar)==1) 
-        allWords << sChar; //append if only one instance
+        m_guessedLetters << sChar; //append if only one instance
     if (Prefs::oneLetter() && b_end) 
-        allWords << sChar; 
+        m_guessedLetters << sChar; 
 }
 
 
@@ -276,9 +286,17 @@ void KHangManView::resizeEvent(QResizeEvent *)
     charWrite_font.setFamily( "Arial" );
     charWrite->setFont( charWrite_font ); 
     guessButton->setFont(QFont("Dustimo Roman", height()/22));
-    charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, height()/10, height()/10);
-    guessButton->setGeometry(width()-2*height()/12-guessButton->width()-5, height()-2*height()/16, guessButton->width(), height()/10);
+    charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, 
+			   height()/10, height()/10);
+    guessButton->setGeometry(width() -2*height()/12-guessButton->width()-5, 
+			     height()-2*height()/16, 
+			     guessButton->width(), height()/10);
 }
+
+
+// ----------------------------------------------------------------
+//                             Slots
+
 
 void KHangManView::slotSetPixmap(QPixmap& bgPix)
 {
@@ -294,19 +312,21 @@ void KHangManView::slotTry()
     kdDebug() << "sChar as entered: " << sChar << endl;
 
     // If German, make upper case, otherwise make lower case.
-    // FIXME: Very strange. remove this.
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
         sChar = sChar.upper();
     else
         sChar = sChar.lower();
 
-    // If the char is not a letter, do nothing.
+    // If the char is not a letter, empty the input and return.
     if (!sChar.at(0).isLetter()) {
 	charWrite->setText("");
 	return;
     }
 
-    if (allWords.contains(sChar) == 0) {  //if letter not alreasy guessed
+    // Handle the guess.
+    if (!m_guessedLetters.contains(sChar)) {
+	// The letter is not already guessed.
+	
 	if (containsChar(sChar)) {
 	    replaceLetters(sChar);
 	    stripWord = goodWord;//need that because of the white spaces
@@ -351,7 +371,7 @@ void KHangManView::slotTry()
 	else {
 	    // The char is missed.
 
-	    allWords << sChar;	
+	    m_guessedLetters << sChar;	
 	    missedL=missedL.replace((2*missedChar), 1, sChar);
 
 	    missedChar++;
@@ -372,12 +392,16 @@ void KHangManView::slotTry()
 	}
     }
     else {
-	//usability: highlight it in Missed if it is there
+	// The letter is already guessed.
+
+	// Show a popup that says as much.
+	// FIXME: usability: highlight it in Missed if it is there
 	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
 	popup->show();
+
 	int x =0, y = 0;
 	if (missedL.contains(sChar)>0) { //TODO popup should be better placed
 	    QPoint abspos = popup->pos();
@@ -434,18 +458,21 @@ void KHangManView::timerWordDone()
 void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
-            QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
-            if (soundFile != 0) 
-                    KAudioPlayer::play(soundFile);
+	QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+	if (soundFile != 0) 
+	    KAudioPlayer::play(soundFile);
     }
     reset();
+
     //distinction between upper and lower case letters
     //if (Prefs::levelFile() == "world_capitals.kvtml" || Prefs::levelFile() == "departements.kvtml")
      //   upperBool = true;
     //else upperBool = false;
+
     game();
     charWrite->setFocus();
 }
+
 
 void KHangManView::reset()
 {
@@ -453,7 +480,7 @@ void KHangManView::reset()
     word="";
     charWrite->setText("");
     missedChar=0;
-    allWords.clear();
+    m_guessedLetters.clear();
     missedL = "_ _ _ _ _ _ _ _ _ _  ";
     update();
 }
