@@ -396,18 +396,18 @@ void KHangManView::slotTry()
 
 	// Show a popup that says as much.
 	// FIXME: usability: highlight it in Missed if it is there
+    QPoint point;
 	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
-	popup->show();
 
 	int x =0, y = 0;
 	if (missedL.contains(sChar)>0) { //TODO popup should be better placed
 	    QPoint abspos = popup->pos();
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
-	    popup->move(x, y);
+	    point = QPoint(x, y);
 	    //put the letter in red for 1 second
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
@@ -422,12 +422,12 @@ void KHangManView::slotTry()
 	    if (Prefs::mode() == 0)  {
 		x = abspos.x() + width()*250/700;
 		y = abspos.y() + height()*485/535;
-		popup->move(x, y);
+		point = QPoint(x, y);
 	    }
 	    else  {
 		x = abspos.x() + width()*200/700;
 		y = abspos.y() + height()*485/535;
-		popup->move(x, y);
+		point = QPoint(x, y);
 	    }
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
@@ -435,7 +435,8 @@ void KHangManView::slotTry()
 	    //TODO should highlight the repeated letter in red
 	    //disable any possible entry
 	    charWrite->setEnabled(false);	
-	}			
+	}
+	popup->show(mapToGlobal(point));
     }
 
     // Reset the entry field after guess.
