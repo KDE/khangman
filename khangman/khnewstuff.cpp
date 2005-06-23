@@ -59,7 +59,7 @@ bool KHNewStuff::install( const QString &fileName )
     return true;
 }
 
-bool KHNewStuff::createUploadFile( const QString &fileName )
+bool KHNewStuff::createUploadFile( const QString &/*fileName*/ )
 {
     //return mView->saveCalendar( fileName );
     return true;
