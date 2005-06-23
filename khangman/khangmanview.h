@@ -153,8 +153,7 @@ private:
     ///Background picture (sea or desert)
     QPixmap bcgdPicture;
 
-    ///part of Sea background used to repaint word and missed letters
-    QPixmap bluePic, miss_bluePic, miss_desertPic, greenPic;
+    ///Background picture resized
     QPixmap bg;
 
     // Widgets

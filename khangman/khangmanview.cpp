@@ -60,12 +60,6 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     // Get background from config file - default is sea
     loadAnimation();
     
-    // Some images used in the different themes.
-    greenPic = QPixmap(locate("data","khangman/pics/desert/green.png") );
-    bluePic = QPixmap(locate("data","khangman/pics/sea/blue.png") );
-    miss_bluePic = QPixmap(locate("data","khangman/pics/sea/miss_blue.png") );
-    miss_desertPic= QPixmap(locate("data","khangman/pics/desert/miss_desert.png") );
-
     setMinimumSize( QSize( 700, 535) );
     slotSetPixmap( bcgdPicture);
 
