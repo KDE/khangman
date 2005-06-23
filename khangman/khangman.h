@@ -74,13 +74,12 @@ public:
 
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
+
     ///Translated names of languages
     QStringList m_languageNames;
     ///Language codes of available languages
     QStringList m_languages;
 
-    ///Instance of an advanced page of the config dialog
-    advanced *mAdvanced;
     ///Display the correct messages in the statusbar
     void setMessages();
 
@@ -89,24 +88,31 @@ public:
     void setupActions();
     ///Create the Statusbar
     void setupStatusbar();
+
     ///Selected language
     QString selectedLanguage;
     ///Translated and sorted names of languages
     QStringList m_sortedNames;
     ///the different data files in each language dir
     QStringList levels;
-    ///At start, restore settings from config file and apply them
-    void loadSettings();
-    ///Set the level and make sure it exists
-    void setLevel();
+
     ///Current level ID
     uint currentLevel;
     ///hold the current level
     QString levelString;
+
+    ///At start, restore settings from config file and apply them
+    void loadSettings();
+    ///Set the level and make sure it exists
+    void setLevel();
     ///Scan the files in the selected language dir to set the levels
     void loadLevels();
     ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
+
+    // Populate the second toolbar with the correct buttons if the
+    // current language has special characters.
+    void loadLangToolBar();
 
     ///Create a png image with the argument (special character) and return the path to this png image
     QString charIcon(const QChar &);
@@ -116,20 +122,19 @@ public slots:
     void slotChangeLanguage(int);
     
 private slots:
-    ///Called when the user changes the level
-    void slotChangeLevel();
-    /// Called when the mode is changed
-    void slotChangeMode();
+    // Slots for when the user changes level, setting, etc.
+    void  slotChangeLevel();
+    void  slotChangeMode();
+
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
     ///access the KNewStuff class to install new data
     void slotDownloadNewStuff();
     ///update settings after Settings->Configure KHangMan dialog is closed
     void updateSettings();
-    ///Populate the second toolbar with the correct buttons if the current language has special characters
-    void loadLangToolBar();
     ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
     void slotPasteChar();
+
     ///Quit the application and save special toolbar settings
     void slotQuit();
 
@@ -153,6 +158,9 @@ private:
     // Contains all the words that are read from the data file.
     QStringList     m_allData;
     
+    ///Instance of an advanced page of the config dialog
+    advanced *mAdvanced;
+
 };
 
 #endif // _KHANGMAN_H_

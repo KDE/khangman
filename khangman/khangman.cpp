@@ -337,6 +337,7 @@ void KHangMan::loadLevels()
     changeStatusbar(m_lstring, IDS_LEVEL);
 }
 
+
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
@@ -348,19 +349,27 @@ void KHangMan::optionsPreferences()
             mAdvanced->kcfg_UpperCase->setEnabled(false);
         return;
     }
+
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
+    // Add the Normal Settings page
     normal *mNormal =  new normal( 0, "Normal Settings" );
     dialog->addPage(mNormal, i18n("General"), "colorize");
+
+    // Add the Advanced Settings page
     mAdvanced=  new advanced( 0, "Advanced" );
     mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
     mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+
     if (Prefs::selectedLanguage() == "de")
         mAdvanced->kcfg_UpperCase->setEnabled(true);
     else
         mAdvanced->kcfg_UpperCase->setEnabled(false);
+
     dialog->addPage(mAdvanced, i18n("Languages"), "kvoctrain");
+
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+
     dialog->show();
 }
 
