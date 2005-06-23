@@ -51,18 +51,22 @@ KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
       m_view(new KHangManView(this))
 {
-    mNewStuff = 0;
+    m_newStuff = 0;
+
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
     setupActions();
-    //toolbar for special characters
+
+    // Toolbar for special characters
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
     loadSettings();
     setAccent();
     loadLangToolBar();
     loadLevels();
+
+    // Start a new game.
     m_view->slotNewGame();
 }
 
@@ -79,14 +83,18 @@ void KHangMan::slotQuit()
 
 void KHangMan::setupActions()
 {
-    newAct = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
-    newAct->setToolTip(i18n( "Play with a new word" ));
+    // Game->New
+    KAction *action = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
+    action->setToolTip(i18n( "Play with a new word" ));
+
+    // Game->Get Words in New Language
     new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
-    levelAct = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
-    levelAct->setToolTip(i18n( "Choose the level" ));
-    levelAct->setWhatsThis(i18n( "Choose the level of difficulty" ));
+    m_levelAction = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
+    m_levelAction->setToolTip(i18n( "Choose the level" ));
+    m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
     m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
@@ -96,13 +104,13 @@ void KHangMan::setupActions()
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
     
     QStringList modes;
-    modeAct = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
+    m_modeAction = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
     modes += i18n("&Sea Theme");
     modes += i18n("&Desert Theme");
-    modeAct->setItems(modes);
-    modeAct->setCurrentItem(Prefs::mode());
-    modeAct->setToolTip(i18n( "Choose the look and feel" ));
-    modeAct->setWhatsThis(i18n( "Check the look and feel" ));
+    m_modeAction->setItems(modes);
+    m_modeAction->setCurrentItem(Prefs::mode());
+    m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
+    m_modeAction->setWhatsThis(i18n( "Check the look and feel" ));
     
     setupGUI();
 }
@@ -129,7 +137,7 @@ void KHangMan::slotChangeLevel()
         I18N_NOOP("Hard"),
         I18N_NOOP("Medium"),
     };
-    currentLevel = levelAct->currentItem();
+    currentLevel = m_levelAction->currentItem();
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
     changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
@@ -159,10 +167,11 @@ void KHangMan::slotChangeLanguage(int index)
 
 void KHangMan::slotChangeMode()
 {
-    if (modeAct->currentItem() ==0)
+    if (m_modeAction->currentItem() == 0)
         Prefs::setMode(Prefs::EnumMode::sea);
     else
         Prefs::setMode(Prefs::EnumMode::desert);
+
     Prefs::writeConfig();
     m_view->setTheme();
 }
@@ -295,8 +304,8 @@ void KHangMan::loadLevels()
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).utf8());
-    levelAct->setItems(translatedLevels);
-    levelAct->setCurrentItem(Prefs::currentLevel());
+    m_levelAction->setItems(translatedLevels);
+    m_levelAction->setCurrentItem(Prefs::currentLevel());
     
     setLevel();
     QString m_lstring = translatedLevels[currentLevel].utf8();
@@ -343,69 +352,89 @@ void KHangMan::updateSettings()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    if ( !mNewStuff )
-        mNewStuff = new KHNewStuff( m_view );
-    mNewStuff->download();
+    if ( !m_newStuff )
+        m_newStuff = new KHNewStuff( m_view );
+    m_newStuff->download();
 }
 
 void KHangMan::loadLangToolBar()
 {
-  	if (Prefs::selectedLanguage() == "en" || Prefs::selectedLanguage() == "it" || Prefs::selectedLanguage()== "nl" || Prefs::selectedLanguage() =="ru" || Prefs::selectedLanguage() =="bg")
-	noCharBool = true;
-	else noCharBool = false;
-	if (secondToolbar->isVisible() && !noCharBool)
-	{
-	    Prefs::setShowCharToolbar(true);
-	    Prefs::writeConfig();
-	}
-	secondToolbar->clear();
-	allData.clear();
-	if (!noCharBool) {
-            QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
-            QFile myFile;
-            myFile.setName(locate("data", myString));
-            //let's look in local KDEHOME dir then
-            if (!myFile.exists()) {
-                    QString myString=QString("khangman/data/%1/%1.txt").arg(Prefs::selectedLanguage()).arg(Prefs::selectedLanguage());
-                    myFile.setName(locate("data",myString));
-                    kdDebug() << myString << endl;
-            }
-            if (!myFile.exists())
-            {
-                    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
-                                            "check your installation.").arg(Prefs::selectedLanguage());
-                    KMessageBox::sorry( this, mString,
-                                            i18n("Error") );
-                    kapp->quit();
-            }
-            update();
-            //we open the file and store info into the stream...
-            QFile openFileStream(myFile.name());
-            openFileStream.open(IO_ReadOnly);
-            QTextStream readFileStr(&openFileStream);
-            readFileStr.setEncoding(QTextStream::UnicodeUTF8);
-            //allData contains all the words from the file
-            allData = QStringList::split("\n", readFileStr.read(), true);
-            openFileStream.close();
-            if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
-                for (int i=0; i<(int) allData.count(); i++)
-                    allData[i] = allData[i].upper();
-            for (int i=0; i<(int) allData.count(); i++)
-                secondToolbar->insertButton (charIcon(allData[i].at(0)), i, SIGNAL( clicked() ), this, SLOT( slotPasteChar()), true,  i18n("Inserts the character %1").arg(allData[i]), i+1 );
-	}
-	if (Prefs::showCharToolbar()) {
-		secondToolbar->show();
-	}
-	else secondToolbar->hide();
+    if (Prefs::selectedLanguage() == "en"
+	|| Prefs::selectedLanguage() == "it"
+	|| Prefs::selectedLanguage() == "nl"
+	|| Prefs::selectedLanguage() == "ru"
+	|| Prefs::selectedLanguage() == "bg")
+	m_noSpecialChars = true;
+    else
+	m_noSpecialChars = false;
 
-	if (noCharBool)//no special chars in those languages
-		secondToolbar->hide();
+    if (secondToolbar->isVisible() && !m_noSpecialChars) {
+	Prefs::setShowCharToolbar(true);
+	Prefs::writeConfig();
+    }
+
+    secondToolbar->clear();
+
+    m_allData.clear();
+    if (!m_noSpecialChars) {
+	QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
+	QFile myFile;
+	myFile.setName(locate("data", myString));
+
+	// Let's look in local KDEHOME dir then
+	if (!myFile.exists()) {
+	    QString  myString=QString("khangman/data/%1/%1.txt")
+		.arg(Prefs::selectedLanguage())
+		.arg(Prefs::selectedLanguage());
+	    myFile.setName(locate("data",myString));
+	    kdDebug() << myString << endl;
+	}
+
+	if (!myFile.exists()) {
+	    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+				 "check your installation.").arg(Prefs::selectedLanguage());
+	    KMessageBox::sorry( this, mString,
+				i18n("Error") );
+	    kapp->quit();
+	}
+	update();
+
+	// We open the file and store info into the stream...
+	QFile openFileStream(myFile.name());
+	openFileStream.open(IO_ReadOnly);
+	QTextStream readFileStr(&openFileStream);
+	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+
+	// m_allData contains all the words from the file
+	// FIXME: Better name
+	m_allData = QStringList::split("\n", readFileStr.read(), true);
+	openFileStream.close();
+	if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
+	    for (int i=0; i<(int) m_allData.count(); i++)
+		m_allData[i] = m_allData[i].upper();
+
+	for (int i=0; i<(int) m_allData.count(); i++)
+	    secondToolbar->insertButton (charIcon(m_allData[i].at(0)), i, 
+					 SIGNAL( clicked() ), this, 
+					 SLOT( slotPasteChar()), true,  
+					 i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
+    }
+
+    if (Prefs::showCharToolbar())
+	secondToolbar->show();
+    else
+	secondToolbar->hide();
+
+    // Hide toolbar for special characters if the language doesn't have them.
+    if (m_noSpecialChars)
+	secondToolbar->hide();
 }
+
 
 void KHangMan::slotPasteChar()
 {
 	KToolBarButton *charBut = (KToolBarButton* ) sender();
-	m_view->charWrite->setText(allData[charBut->id()]);
+	m_view->charWrite->setText(m_allData[charBut->id()]);
 }
 
 QString KHangMan::charIcon(const QChar & c)

@@ -91,10 +91,13 @@ protected:
     QString stripWord, sword;
     
     int c, d, f, g;
+
     ///word is the random word to be guessed
     QString word;
+
     ///goodWord is the hidden word that is filled in
     QString goodWord;
+
     ///how many times you missed, when it reaches 10, you are hanged
     int missedChar;
 

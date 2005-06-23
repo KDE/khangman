@@ -34,6 +34,8 @@ class KSelectAction;
 class KToggleAction;
 class KHNewStuff;
 class advanced;
+
+
 /**
  * @short Application Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
@@ -60,6 +62,7 @@ public:
     */
     void changeStatusbar(const QString& text, int id);
     ///Action that sets up the Language menu
+
     KSelectAction *m_languageAction;
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
@@ -67,20 +70,13 @@ public:
     QStringList m_languageNames;
     ///Language codes of available languages
     QStringList m_languages;
+
     ///Instance of an advanced page of the config dialog
     advanced *mAdvanced;
     ///Display the correct messages in the statusbar
     void setMessages();
 
-protected:
-    ///Main view
-    KHangManView *m_view;
-    ///Action in the Game menu to start a new word
-    KAction *newAct;
-    ///Actions for the level combobox and the mode combobox
-    KSelectAction *levelAct, *modeAct;
-    ///Populate the Languages menu
-    QPopupMenu *langPopup;
+ private:
     ///Create the actions
     void setupActions();
     ///Create the Statusbar
@@ -104,18 +100,9 @@ protected:
     ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
 
-private:
-    ///Create a KNewStuff instance
-    KHNewStuff *mNewStuff;
     ///Create a png image with the argument (special character) and return the path to this png image
     QString charIcon(const QChar &);
-    ///true if the language has no special char as en, it and nl
-    bool noCharBool;
-    ///Create the Special Characters Toolbar
-    KToolBar *secondToolbar;
-    ///Read the special chars from the .txt file and put it there
-    QStringList allData;
-    
+
 public slots:
     ///When the langugae is changed in the Language menu
     void slotChangeLanguage(int);
@@ -137,6 +124,27 @@ protected slots:
     void slotPasteChar();
     ///Quit the application and save special toolbar settings
     void slotQuit();
+
+private:
+
+    // Some important members: the view and newStuff.
+    KHangManView   *m_view;
+    KHNewStuff     *m_newStuff;
+
+    // Actions in the Game menu
+    KSelectAction  *m_levelAction;
+    KSelectAction  *m_modeAction;
+
+    ///Create the Special Characters Toolbar
+    KToolBar *secondToolbar;
+
+    // True if the language has no special chars, such as en, it and nl.
+    // FIXME: Reverse the bool.  Negated bools are difficult to read.
+    bool            m_noSpecialChars;
+
+    // Contains all the words that are read from the data file.
+    QStringList     m_allData;
+    
 };
 
 #endif // _KHANGMAN_H_
