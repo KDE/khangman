@@ -23,6 +23,7 @@
 #include "prefs.h"
 #include "advanced.h"
 #include "normal.h"
+#include "timer.h"
 #include "khnewstuff.h"
 
 #include <qbitmap.h>
@@ -367,6 +368,9 @@ void KHangMan::optionsPreferences()
         mAdvanced->kcfg_UpperCase->setEnabled(false);
 
     dialog->addPage(mAdvanced, i18n("Languages"), "kvoctrain");
+
+    Timer *m_timer = new Timer();
+    dialog->addPage(m_timer, i18n("Timers"), "clock");
 
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
 

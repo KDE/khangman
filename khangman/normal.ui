@@ -18,7 +18,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout3</cstring>
+                <cstring>layout4</cstring>
             </property>
             <vbox>
                 <property name="name">

@@ -354,7 +354,7 @@ void KHangManView::slotTry()
 
 		if (Prefs::wonDialog()) {
 		    // TODO: KPassivePopup to say you have won
-		    QTimer::singleShot( 3*1000, this, SLOT(slotNewGame()) );
+		    QTimer::singleShot( Prefs::hintTimer()*1000, this, SLOT(slotNewGame()) );
 		}
 		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 		    slotNewGame();
@@ -405,7 +405,7 @@ void KHangManView::slotTry()
 	    //put the letter in red for 1 second
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
-	    timer->start( 1000, TRUE ); // 1 second single-shot timer
+	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
 	    //TODO should highlight the repeated letter in red
 	    //disable any possible entry
 	    charWrite->setEnabled(false);
@@ -425,7 +425,7 @@ void KHangManView::slotTry()
 	    }
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
-	    timer->start( 1000, TRUE ); // 1 second single-shot timer
+	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
 	    //TODO should highlight the repeated letter in red
 	    //disable any possible entry
 	    charWrite->setEnabled(false);	
