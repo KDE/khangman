@@ -42,10 +42,6 @@
 #include <kstatusbar.h>
 #include <ktoolbarbutton.h>
 
-const int IDS_LEVEL      = 100;
-const int IDS_LANG       = 101;
-const int IDS_ACCENTS = 102;
-const int IDS_HINT =         103;
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
@@ -74,13 +70,6 @@ KHangMan::~KHangMan()
 {
 }
 
-void KHangMan::slotQuit()
-{
-    Prefs::setShowCharToolbar( secondToolbar->isVisible());
-    Prefs::writeConfig();
-    kapp->quit();
-}
-
 void KHangMan::setupActions()
 {
     // Game->New
@@ -96,13 +85,15 @@ void KHangMan::setupActions()
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
+    // Action for selecting language.
     m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(activated(int)), this, SLOT(slotChangeLanguage(int)));
     
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-    
+
+    // Mode. Currently hard coded into Sea and Desert themes.
     QStringList modes;
     m_modeAction = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
     modes += i18n("&Sea Theme");
@@ -110,24 +101,40 @@ void KHangMan::setupActions()
     m_modeAction->setItems(modes);
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
-    m_modeAction->setWhatsThis(i18n( "Check the look and feel" ));
+    m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
     
     setupGUI();
 }
 
+// Set up the status bar with 4 different fields.
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar( )->insertItem("   ",IDS_LEVEL, 0);
-    statusBar( )->insertItem("   ",IDS_LANG, 0);
+    statusBar( )->insertItem("   ",IDS_LEVEL,   0);
+    statusBar( )->insertItem("   ",IDS_LANG,    0);
     statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ",IDS_HINT, 0);
+    statusBar( )->insertItem("   ",IDS_HINT,    0);
 }
 
+
+// FIXME: Make this into a slot?
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
     statusBar()->changeItem(text, id);
 }
+
+
+// ----------------------------------------------------------------
+//                               Slots
+
+
+void KHangMan::slotQuit()
+{
+    Prefs::setShowCharToolbar( secondToolbar->isVisible());
+    Prefs::writeConfig();
+    kapp->quit();
+}
+
 
 void KHangMan::slotChangeLevel()
 {
@@ -141,10 +148,13 @@ void KHangMan::slotChangeLevel()
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).lower());
     changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
-   // if (m_view->levelFile == "world_capitals.kvtml" || m_view->levelFile == "departements.kvtml")
-    //    changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
-   // else
-   //     changeStatusbar("", IDS_ACCENTS);
+#if 0
+    if (m_view->levelFile == "world_capitals.kvtml" 
+	|| m_view->levelFile == "departements.kvtml")
+        changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
+    else
+        changeStatusbar("", IDS_ACCENTS);
+#endif
     Prefs::setCurrentLevel( currentLevel);
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
@@ -176,6 +186,10 @@ void KHangMan::slotChangeMode()
     m_view->setTheme();
 }
 
+
+// ----------------------------------------------------------------
+
+
 void KHangMan::setLanguages()
 {
     m_languages.clear();
@@ -191,50 +205,60 @@ void KHangMan::setLanguages()
         m_languages.remove(m_languages.find(".."));
     }
     m_languages.sort();
+
     kdDebug() << "languages :" << m_languages << endl;
-    if (m_languages.isEmpty()) return;
+
+    if (m_languages.isEmpty())
+	return;
     //find duplicated entries in KDEDIR and KDEHOME
+
     QStringList temp_languages;
-    for (uint i=0;  i<m_languages.count(); i++)
-    {
+    for (uint i=0;  i<m_languages.count(); i++) {
         if (m_languages.contains(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
             m_languages.remove(m_languages[i]);
         }
     }
-    for (uint i=0;  i<temp_languages.count(); i++)
-    {
+
+    for (uint i=0;  i<temp_languages.count(); i++) {
+	// Append 1 of the 2 instances found.
         if (i%2==0)
-            m_languages.append(temp_languages[i]);//append 1 of the 2 instances found
+            m_languages.append(temp_languages[i]);
     }
     temp_languages.clear();
-    //write the present languages in config so they cannot be downloaded
+
+    // Write the present languages in config so they cannot be downloaded.
     KConfig *config=kapp->config();
     config->setGroup("KNewStuffStatus");
-    for (uint i=0;  i<m_languages.count(); i++)
-    {
+    for (uint i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
         if (!config->readEntry(tmp))
             config->writeEntry(tmp, QDate::currentDate().toString());
     }
-    //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
-    //to find the name of the country corresponding to the code and the language the user set
+
+    // We look in $KDEDIR/share/locale/all_languages from
+    // kdelibs/kdecore/all_languages to find the name of the country
+    // corresponding to the code and the language the user set.
     KConfig entry(locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
-    for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
+    for (QStringList::Iterator it = m_languages.begin(); 
+	 it != m_languages.end(); ++it) {
         entry.setGroup(*it);
         if (*it == "sr")
             m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
         else if (*it == "sr@Latn") {
             entry.setGroup("sr");
-        m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+	    m_languageNames.append(entry.readEntry("Name") 
+				   + " ("+i18n("Latin")+")");
         }
         else
-        m_languageNames.append(entry.readEntry("Name"));
+	    m_languageNames.append(entry.readEntry("Name"));
     }
-    //never sort m_languageNames as it's m_languages translated 
+
+    // Never sort m_languageNames as it's m_languages translated 
     m_sortedNames = m_languageNames;
 }
+
 
 void KHangMan::loadSettings()
 {
@@ -487,11 +511,12 @@ void KHangMan::setAccent()
 void KHangMan::setMessages()
 {
     if ((Prefs::hint()) && (m_view->hintBool))
-        changeStatusbar(i18n("Hint on right-click"), 103);
+        changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
     else if (m_view->hintBool && !Prefs::hint() )
-        changeStatusbar(i18n("Hint available"), 103);
+        changeStatusbar(i18n("Hint available"), IDS_HINT);
     else
-        changeStatusbar("", 103);
+        changeStatusbar("", IDS_HINT);
+
     if (m_view->m_accent && Prefs::accentedLetters())
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else

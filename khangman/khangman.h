@@ -36,6 +36,13 @@ class KHNewStuff;
 class advanced;
 
 
+// Id tags for the status bar.
+const int IDS_LEVEL    = 100;
+const int IDS_LANG     = 101;
+const int IDS_ACCENTS  = 102;
+const int IDS_HINT     = 103;
+
+
 /**
  * @short Application Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
@@ -61,9 +68,10 @@ public:
     @param id the label in which the text will be written
     */
     void changeStatusbar(const QString& text, int id);
-    ///Action that sets up the Language menu
 
+    ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
+
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
     ///Translated names of languages
@@ -107,7 +115,7 @@ public slots:
     ///When the langugae is changed in the Language menu
     void slotChangeLanguage(int);
     
-protected slots:
+private slots:
     ///Called when the user changes the level
     void slotChangeLevel();
     /// Called when the mode is changed
