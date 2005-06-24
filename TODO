@@ -2,7 +2,7 @@ KHANGMAN - NEW IDEAS - NEW DESIGN
 
 TODO
 ---------
-- fix hint position
+- fix hint position - DONE
 - get a new Languages Settings icon
 - get a new KHangMan crystal icon
 - bundle the fonts with install
@@ -11,13 +11,13 @@ TODO
 - find a way to better finish game (win or loose)
 - allow to change font in Settings (add a Fonts tab)
 - add a Quick STart dialog in doc
-- finish German ß->SS
+- finish German ÃŸ->SS
 
 14 June 2005
 -------------------
 - German: in Settings dialog, give the choice of playing all uppercase or all lower case
-lower case: ä,ö,ü,ß
-upper case: Ä,Ö,Ü,SS
+lower case: Ã¤,Ã¶,Ã¼,ÃŸ
+upper case: Ã„,Ã–,Ãœ,SS
 
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
 - usability of the Configure KHangMan dialog DONE

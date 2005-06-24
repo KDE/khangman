@@ -162,16 +162,9 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         int x=0, y=0;
 
         QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
-        if (Prefs::mode() ==0)  {
-            x = abspos.x() + width()*300/700;
-            y = abspos.y() + height()*510/535;
-        }
-        else  {
-            x = abspos.x() + width()*254/700;
-            y = abspos.y() + height()*405/535;
-        }
+        x = abspos.x() + width()*70/700;
+        y = abspos.y() + height()*150/535;
         point = QPoint(x, y);
-        myPopup->move(x, y);
         myPopup->show(mapToGlobal(point));
         //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
         //myPopup->move(mouse->pos());
