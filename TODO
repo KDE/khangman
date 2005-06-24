@@ -7,7 +7,7 @@ TODO
 - get a new KHangMan crystal icon
 - bundle the fonts with install
 - fix the font size
-- tooltip if no Win dialog
+- tooltip if no Win dialog - DONE
 - find a way to better finish game (win or loose)
 - allow to change font in Settings (add a Fonts tab)
 - add a Quick STart dialog in doc

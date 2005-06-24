@@ -349,7 +349,18 @@ void KHangManView::slotTry()
 		}
 
 		if (Prefs::wonDialog()) {
-		    // TODO: KPassivePopup to say you have won
+		    // TODO: hide Hint KPassivePopup if any
+            QPoint point;
+            KPassivePopup *popup = new KPassivePopup( this, "popup" );
+            popup->setAutoDelete( true );
+            popup->setTimeout( 4*1000 );
+            popup->setView(i18n("Congratulations,\nyou won!") );
+            int x =0, y = 0;
+            QPoint abspos = popup->pos();
+            x = abspos.x() + width()*50/700;
+            y = abspos.y() + height()*20/535;
+            point = QPoint(x, y);
+            popup->show(mapToGlobal(point));
 		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
 		}
 		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
@@ -385,7 +396,6 @@ void KHangManView::slotTry()
 	// The letter is already guessed.
 
 	// Show a popup that says as much.
-	// FIXME: usability: highlight it in Missed if it is there
     QPoint point;
 	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
 	popup->setAutoDelete( true );
@@ -398,11 +408,9 @@ void KHangManView::slotTry()
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
 	    point = QPoint(x, y);
-	    //put the letter in red for 1 second
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
 	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
-	    //TODO should highlight the repeated letter in red
 	    //disable any possible entry
 	    charWrite->setEnabled(false);
 	}
@@ -422,7 +430,6 @@ void KHangManView::slotTry()
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
 	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
-	    //TODO should highlight the repeated letter in red
 	    //disable any possible entry
 	    charWrite->setEnabled(false);	
 	}
