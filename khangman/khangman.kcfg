@@ -59,7 +59,7 @@
         </entry>
         <entry name="HintTimer" type="Int">
             <label>the time to display the Hint KPassiveTooltip, in seconds</label>
-            <default code="true">3</default>
+            <default code="true">4</default>
         </entry>
         <entry name="MissedTimer" type="Int">
             <label>the time to display the Missed KPassivePopup, in seconds</label>

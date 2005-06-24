@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>437</width>
-            <height>265</height>
+            <width>439</width>
+            <height>270</height>
         </rect>
     </property>
     <grid>
@@ -23,164 +23,201 @@
             <property name="title">
                 <string>Timers</string>
             </property>
-            <grid>
+            <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <spacer row="7" column="3">
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>spacer26_2_2_2</cstring>
+                        <cstring>layout5</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>25</width>
-                            <height>16</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QLabel" row="6" column="3">
-                    <property name="name">
-                        <cstring>timeMissedLabel</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_MissedTimer</cstring>
-                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QSlider" row="1" column="0">
+                            <property name="name">
+                                <cstring>kcfg_HintTimer</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="maxValue">
+                                <number>10</number>
+                            </property>
+                            <property name="pageStep">
+                                <number>1</number>
+                            </property>
+                            <property name="value">
+                                <number>4</number>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="tickmarks">
+                                <enum>Below</enum>
+                            </property>
+                            <property name="tickInterval">
+                                <number>1</number>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Time during which the Hint is displayed</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>You can set the time for displaying the Hint tooltip. Default is 3 seconds but younger children might need longer time to be able to read the Hint.</string>
+                            </property>
+                        </widget>
+                        <spacer row="2" column="0">
+                            <property name="name">
+                                <cstring>spacer24_2_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>295</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer row="3" column="1">
+                            <property name="name">
+                                <cstring>spacer26_2_2_2_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>25</width>
+                                    <height>16</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QLabel" row="2" column="1">
+                            <property name="name">
+                                <cstring>timeHintLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>kcfg_HintTimer</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KActiveLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>kActiveLabel1</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Set the time between for displaying the hint.</string>
+                            </property>
+                        </widget>
+                    </grid>
                 </widget>
-                <spacer row="6" column="0" rowspan="1" colspan="2">
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>spacer24_2_2_2</cstring>
+                        <cstring>layout6</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>295</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QSlider" row="5" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>kcfg_MissedTimer</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>true</bool>
-                    </property>
-                    <property name="maxValue">
-                        <number>10</number>
-                    </property>
-                    <property name="pageStep">
-                        <number>1</number>
-                    </property>
-                    <property name="value">
-                        <number>1</number>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="tickmarks">
-                        <enum>Below</enum>
-                    </property>
-                    <property name="tickInterval">
-                        <number>1</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Time during which the Already Guessed tooltip is displayed</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Only used if Use a timer is checked</string>
-                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="KActiveLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>kActiveLabel1_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Set the time between for displaying the Already Guessed Letter.</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="1">
+                            <property name="name">
+                                <cstring>timeMissedLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>kcfg_MissedTimer</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QSlider" row="1" column="0">
+                            <property name="name">
+                                <cstring>kcfg_MissedTimer</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="maxValue">
+                                <number>10</number>
+                            </property>
+                            <property name="pageStep">
+                                <number>1</number>
+                            </property>
+                            <property name="value">
+                                <number>1</number>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="tickmarks">
+                                <enum>Below</enum>
+                            </property>
+                            <property name="tickInterval">
+                                <number>1</number>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Time during which the Already Guessed tooltip is displayed</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>You can set the time for displaying the Already Guessed tooltip after you try a letter that was already guessed. Default is 3 seconds but younger children might need longer time to be able to understand they are trying a letter that was already guessed.</string>
+                            </property>
+                        </widget>
+                        <spacer row="3" column="1">
+                            <property name="name">
+                                <cstring>spacer26_2_2_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>25</width>
+                                    <height>16</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer row="2" column="0">
+                            <property name="name">
+                                <cstring>spacer24_2_2_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>295</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </grid>
                 </widget>
-                <widget class="KActiveLabel" row="4" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>kActiveLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Set the time between for displaying the Already Guessed Letter.</string>
-                    </property>
-                </widget>
-                <spacer row="3" column="0">
-                    <property name="name">
-                        <cstring>spacer24_2_2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>295</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QLabel" row="2" column="1" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>timeHintLabel</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_HintTimer</cstring>
-                    </property>
-                </widget>
-                <widget class="QSlider" row="1" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_HintTimer</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>true</bool>
-                    </property>
-                    <property name="maxValue">
-                        <number>10</number>
-                    </property>
-                    <property name="pageStep">
-                        <number>1</number>
-                    </property>
-                    <property name="value">
-                        <number>3</number>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="tickmarks">
-                        <enum>Below</enum>
-                    </property>
-                    <property name="tickInterval">
-                        <number>1</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Time during which the Hint is displayed</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>You can set the time for displaying the Hint. Default is 3 seconds but younger kids might need longer time to be able to read the Hint.</string>
-                    </property>
-                </widget>
-                <widget class="KActiveLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>kActiveLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Set the time between for displaying the hint.</string>
-                    </property>
-                </widget>
-            </grid>
+            </vbox>
         </widget>
     </grid>
 </widget>

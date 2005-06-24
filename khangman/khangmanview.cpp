@@ -154,11 +154,13 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
     if (mouse->button() == RightButton && hintBool && Prefs::hint())
     {
+        QPoint point;
         KPassivePopup *myPopup = new KPassivePopup( charWrite);
         myPopup->setView(i18n("Hint"), tip );
         myPopup->setPalette(QToolTip::palette());
-        myPopup->setTimeout(4000); //show for 4 seconds
+        myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
+
         QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
         if (Prefs::mode() ==0)  {
             x = abspos.x() + width()*300/700;
@@ -168,8 +170,9 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
             x = abspos.x() + width()*254/700;
             y = abspos.y() + height()*405/535;
         }
+        point = QPoint(x, y);
         myPopup->move(x, y);
-        myPopup->show();
+        myPopup->show(mapToGlobal(point));
         //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
         //myPopup->move(mouse->pos());
     }
@@ -354,7 +357,7 @@ void KHangManView::slotTry()
 
 		if (Prefs::wonDialog()) {
 		    // TODO: KPassivePopup to say you have won
-		    QTimer::singleShot( Prefs::hintTimer()*1000, this, SLOT(slotNewGame()) );
+		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
 		}
 		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
 		    slotNewGame();
