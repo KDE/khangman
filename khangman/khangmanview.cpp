@@ -26,11 +26,13 @@
 #include <kstandarddirs.h>
 
 #include <qimage.h>
+#include <qlabel.h>
 #include <qpainter.h>
 #include <qpoint.h>
 #include <qregexp.h>
 #include <qtimer.h>
 #include <qtooltip.h>
+#include <qvbox.h>
 #include <qwidget.h>
 
 //project headers
@@ -385,11 +387,33 @@ void KHangManView::slotTry()
 		    goodWord = theWord;
 		    //usability: find another way to start a new game
 		    QString newGameString = i18n("You lost. Do you want to play again?");
-		    if (KMessageBox::questionYesNo(this, newGameString) == 3)
-			slotNewGame();
-		    else
-			kapp->quit();
-		}
+            if (Prefs::wonDialog()) {
+                // TODO: hide Hint KPassivePopup if any
+                QPoint point;
+                KPassivePopup *popup = new KPassivePopup( this, "popup" );
+                popup->setAutoDelete( true );
+                popup->setTimeout( 4*1000 );
+                QVBox *vb = new QVBox( popup );
+                QString popString( i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(sword));
+                QLabel *popLabel = new QLabel( vb);
+                popLabel->setFont(QFont("Arial", 14, QFont::Normal));
+                popLabel->setText(popString);
+                 popup->setView( vb );
+
+                //popup->setView(i18n("You lost"), i18n("The word was\n%1").arg(sword) );
+                int x =0, y = 0;
+                QPoint abspos = popup->pos();
+                x = abspos.x() + width()*50/700;
+                y = abspos.y() + height()*20/535;
+                point = QPoint(x, y);
+                popup->show(mapToGlobal(point));
+                QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
+            }
+            else   if (KMessageBox::questionYesNo(this, newGameString) == 3)
+                    slotNewGame();
+            else
+                kapp->quit();
+        }
 	}
     }
     else {
