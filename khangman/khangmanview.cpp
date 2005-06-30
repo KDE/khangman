@@ -47,17 +47,23 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     khangman = parent;
     
     // The widget for entering letters.
-    charWrite = new KLineEdit( this, "charWrite" );
-    charWrite->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, charWrite->sizePolicy().hasHeightForWidth() ) );
-    charWrite->setMaxLength( 1 );
-    charWrite->setAlignment( int( QLineEdit::AlignHCenter ) );
+    m_letterInput = new KLineEdit( this, "charWrite" );
+    m_letterInput->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
+					       (QSizePolicy::SizeType) 0, 
+					       0, 0, 
+					       m_letterInput->sizePolicy().hasHeightForWidth() ) );
+    m_letterInput->setMaxLength( 1 );
+    m_letterInput->setAlignment( int( QLineEdit::AlignHCenter ) );
 
     // Press this button to enter a letter (or press enter)
-    guessButton = new KPushButton( this, "guessButton" );
-    guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, guessButton->sizePolicy().hasHeightForWidth() ) );
-    guessButton->setAutoMask( TRUE );
-    guessButton->setFlat( TRUE );
-    guessButton->setText( i18n( "G&uess" ) );
+    m_guessButton = new KPushButton( this, "guessButton" );
+    m_guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
+					       (QSizePolicy::SizeType) 0,
+					       0, 0, 
+					       m_guessButton->sizePolicy().hasHeightForWidth() ) );
+    m_guessButton->setAutoMask( TRUE );
+    m_guessButton->setFlat( TRUE );
+    m_guessButton->setText( i18n( "G&uess" ) );
     
     // Get background from config file - default is sea
     loadAnimation();
@@ -71,8 +77,10 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     m_accent = true;
     hintBool = true;//assume tip exists
 
-    connect( charWrite, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
-    connect( guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
+    connect( m_letterInput, SIGNAL( returnPressed() ),
+	     this,          SLOT( slotTry() ) );
+    connect( m_guessButton, SIGNAL( clicked() ),
+	     this,          SLOT( slotTry() ));
 }
 
 
@@ -157,7 +165,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
     if (mouse->button() == RightButton && hintBool && Prefs::hint())
     {
         QPoint point;
-        KPassivePopup *myPopup = new KPassivePopup( charWrite);
+        KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), tip );
         myPopup->setPalette(QToolTip::palette());
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
@@ -272,17 +280,20 @@ void KHangManView::resizeEvent(QResizeEvent *)
     if(!bcgdPicture.isNull())
         slotSetPixmap(bcgdPicture);
     
-    charWrite->setMinimumSize( QSize( height()/18, 0 ) );
-    QFont charWrite_font(  charWrite->font() );
+    m_letterInput->setMinimumSize( QSize( height()/18, 0 ) );
+
+    QFont charWrite_font( m_letterInput->font() );
     charWrite_font.setPointSize( height()/18 );
     charWrite_font.setFamily( "Arial" );
-    charWrite->setFont( charWrite_font ); 
-    guessButton->setFont(QFont("Dustimo Roman", height()/22));
-    charWrite->setGeometry(width()-2*height()/12, height()-2*height()/16, 
-			   height()/10, height()/10);
-    guessButton->setGeometry(width() -2*height()/12-guessButton->width()-5, 
-			     height()-2*height()/16, 
-			     guessButton->width(), height()/10);
+
+    m_letterInput->setFont( charWrite_font ); 
+    m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16, 
+			       height()/10, height()/10);
+    m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
+    m_guessButton->setGeometry(width() - 2*height()/12 
+			       - m_guessButton->width()-5, 
+			       height() - 2*height()/16, 
+			       m_guessButton->width(), height()/10);
 }
 
 
@@ -300,7 +311,7 @@ void KHangManView::slotSetPixmap(QPixmap& bgPix)
 
 void KHangManView::slotTry()
 {
-    QString sChar = charWrite->text();
+    QString sChar = m_letterInput->text();
     kdDebug() << "sChar as entered: " << sChar << endl;
 
     // If German, make upper case, otherwise make lower case.
@@ -311,7 +322,7 @@ void KHangManView::slotTry()
 
     // If the char is not a letter, empty the input and return.
     if (!sChar.at(0).isLetter()) {
-	charWrite->setText("");
+	m_letterInput->setText("");
 	return;
     }
 
@@ -436,7 +447,7 @@ void KHangManView::slotTry()
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
 	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
 	    //disable any possible entry
-	    charWrite->setEnabled(false);
+	    m_letterInput->setEnabled(false);
 	}
 
 	if (goodWord.contains(sChar) > 0) {
@@ -455,26 +466,26 @@ void KHangManView::slotTry()
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
 	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
 	    //disable any possible entry
-	    charWrite->setEnabled(false);	
+	    m_letterInput->setEnabled(false);	
 	}
 	popup->show(mapToGlobal(point));
     }
 
     // Reset the entry field after guess.
-    charWrite->setText("");
+    m_letterInput->setText("");
 }
 
 
 void KHangManView::timerDone()
 {
-    charWrite->setEnabled(true);
-    charWrite->setFocus();
+    m_letterInput->setEnabled(true);
+    m_letterInput->setFocus();
 }
 
 void KHangManView::timerWordDone()
 {
-    charWrite->setEnabled(true);
-    charWrite->setFocus();
+    m_letterInput->setEnabled(true);
+    m_letterInput->setFocus();
 }
 
 void KHangManView::slotNewGame()
@@ -492,7 +503,7 @@ void KHangManView::slotNewGame()
     //else upperBool = false;
 
     game();
-    charWrite->setFocus();
+    m_letterInput->setFocus();
 }
 
 
@@ -500,7 +511,7 @@ void KHangManView::reset()
 {
     goodWord="";
     word="";
-    charWrite->setText("");
+    m_letterInput->setText("");
     missedChar=0;
     m_guessedLetters.clear();
     missedL = "_ _ _ _ _ _ _ _ _ _  ";
@@ -631,22 +642,27 @@ void KHangManView::loadAnimation()
         case Prefs::EnumMode::sea:
             bcgdPicture = QPixmap(locate("data","khangman/pics/sea/sea_theme.png") );
             theme = "sea";
-            charWrite->setPaletteForegroundColor(QColor(83, 40, 14));
-            guessButton->setPaletteBackgroundColor( QColor( 115, 64, 49) );
-            guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
-            guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+            m_letterInput->setPaletteForegroundColor( QColor(  83,  40,  14) );
+            m_guessButton->setPaletteBackgroundColor( QColor( 115,  64,  49) );
+            m_guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
+            m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
         case Prefs::EnumMode::desert:
             bcgdPicture = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
             theme = "desert";
-            charWrite->setPaletteForegroundColor(QColor(87, 0, 0));
-            guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
-            guessButton->setPaletteForegroundColor( QColor( 87, 0, 0) );
-            guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+            m_letterInput->setPaletteForegroundColor( QColor(  87,   0,  0) );
+            m_guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
+            m_guessButton->setPaletteForegroundColor( QColor(  87,   0,  0) );
+            m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
     }	
 
     //now we preload the pixmaps...
+    for (uint i = 0; i < 11; i++)
+	px[i].load(locate( "data", 
+			   QString("khangman/pics/%1/animation%2.png")
+			   .arg(theme).arg(i) ));
+#if 0
     px[0].load(locate("data", QString("khangman/pics/%1/animation0.png").arg(theme)));
     px[1].load(locate("data", QString("khangman/pics/%1/animation1.png").arg(theme)));
     px[2].load(locate("data", QString("khangman/pics/%1/animation2.png").arg(theme)));
@@ -658,6 +674,7 @@ void KHangManView::loadAnimation()
     px[8].load(locate("data", QString("khangman/pics/%1/animation8.png").arg(theme)));
     px[9].load(locate("data", QString("khangman/pics/%1/animation9.png").arg(theme)));
     px[10].load(locate("data", QString("khangman/pics/%1/animation10.png").arg(theme)));
+#endif
 }
 
 #include "khangmanview.moc"

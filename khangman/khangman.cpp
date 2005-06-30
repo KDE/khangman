@@ -471,7 +471,7 @@ void KHangMan::loadLangToolBar()
 void KHangMan::slotPasteChar()
 {
 	KToolBarButton *charBut = (KToolBarButton* ) sender();
-	m_view->charWrite->setText(m_allData[charBut->id()]);
+	m_view->enterLetter(m_allData[charBut->id()]);
 }
 
 QString KHangMan::charIcon(const QChar & c)

@@ -23,6 +23,8 @@
 class KPushButton;
 class KHangMan;
 
+#include <klineedit.h>
+
 #include <krandomsequence.h>
 #include <keduvocdata.h>
 
@@ -52,10 +54,8 @@ public:
     ///true if language = es, ca, pt or pt_BR
     bool m_accent;
     
-    // The area where the user enter the letter. Upper case is
-    // transformed into lower case.
-    // FIXME: Make this private.
-    KLineEdit  *charWrite;
+    /// Enter a letter into the input widget.
+    void  enterLetter(QString letter) { m_letterInput->setText(letter); }
 
     
 signals:
@@ -63,7 +63,8 @@ signals:
      /// Use this signal to change the content of the statusbar
     void signalChangeLanguage(int);
 
-    ///emit this signal to say if this is a kvtml file or not (hints enabled or not)
+    /// Emit this signal to say if this is a kvtml file or not (hints
+    /// enabled or not).
     void signalKvtml(bool);
 
 protected:
@@ -78,7 +79,7 @@ protected:
     ///set the background pixmap to the QPixmap argument
     void slotSetPixmap(QPixmap& );
 
-    ///If true, the word contains the QString
+    /// If true, the word contains the QString
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
 
@@ -107,17 +108,15 @@ protected:
 
     ///Paint the animated hanged K sequence
     void paintHangman(QPainter &p);
-    /// Draw the word to be guessed
     void paintWord(QPainter &p);
-    ///paint the Misses label
     void paintMisses(QPainter &p);
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
-    ///Play a game: look for a word to be guessed and load its tip
-    void game();
     ///Load kvtml file and get a word and its tip in random
     void readFile();
+    ///Play a game: look for a word to be guessed and load its tip
+    void game();
 
     ///load the K animated sequence depending of the theme
     void loadAnimation();
@@ -128,11 +127,16 @@ public slots:
 
 private slots:
 
-    ///after you click on Guess button or hit Enter when guessing a new letter, see if the letter is in the word or not
+    /// After you click on Guess button or hit Enter when guessing a
+    /// new letter, see if the letter is in the word or not
     void slotTry();
-    ///when an already guessed letter is entered, if it is in Missed, redraw the missed letters area
+
+    /// When an already guessed letter is entered, if it is in Missed,
+    /// redraw the missed letters area.
     void timerDone();
-    ///when an already guessed letter is entered, if it is in the word, redraw the word area
+
+    /// When an already guessed letter is entered, if it is in the
+    /// word, redraw the word area.
     void timerWordDone();
 
 private:
@@ -141,26 +145,29 @@ private:
     // is not given twice in a row.
     int m_lastWordNumber;
 
-    QString theme;
+    QString          theme;
     KRandomSequence  m_random;
 
 
-    /// Contains all letters already guessed
-    QStringList m_guessedLetters;
+    /// Contains all letters already guessed.
+    QStringList      m_guessedLetters;
 
-    ///the hanged K animation sequence
-    QPixmap px[11];
+    /// The hanged K animation sequence.
+    QPixmap          px[11];
+
     ///Background picture (sea or desert)
-    QPixmap bcgdPicture;
-
-    ///Background picture resized
-    QPixmap bg;
+    QPixmap          bcgdPicture; // Original image
+    QPixmap          bg;	// Resized to fit the window.
 
     // Widgets
 
-    ///After you entered a letter in the line edit click this button to see if the letter is in the word or not
-    KPushButton  *guessButton;
-    
+    // The widget where the user enters the letter. Upper case is
+    // transformed into lower case, except for german(!).
+    KLineEdit       *m_letterInput;
+
+    /// After you entered a letter in the line edit click this button
+    /// to see if the letter is in the word or not.
+    KPushButton     *m_guessButton;
 };
 
 #endif // KHANGMANVIEW_H
