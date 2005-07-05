@@ -67,7 +67,11 @@ signals:
     /// enabled or not).
     void signalKvtml(bool);
 
-protected:
+private:
+
+    // FIXME: Move all these below the next "private:" and when doing
+    //        that, rename them (if necessary), and regroup them into 
+    //        logical groups.
 
     // Events
     void paintEvent( QPaintEvent * );
@@ -83,8 +87,11 @@ protected:
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
 
-    ///Store the missed letters
+    // Store the missed letters that are shown on the screen.
+    // Initialiazed to _ _ _ _ _ _ _ _ _ _ ".
     QString missedL;
+    ///how many times you missed, when it reaches 10, you are hanged
+    int missedChar;
 
     ///store the hint when there is one
     QString tip;
@@ -93,14 +100,9 @@ protected:
     
     int c, d, f, g;
 
-    ///word is the random word to be guessed
-    QString word;
-
     ///goodWord is the hidden word that is filled in
     QString goodWord;
 
-    ///how many times you missed, when it reaches 10, you are hanged
-    int missedChar;
 
  private:
 
@@ -141,9 +143,12 @@ private slots:
 
 private:
 
+    // The basic data
+    QString          m_word;	// The word to be guessed.
+
     // Stores the last word.  This is to make sure that the same word
     // is not given twice in a row.
-    int m_lastWordNumber;
+    int              m_lastWordNumber;
 
     QString          theme;
     KRandomSequence  m_random;

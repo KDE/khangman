@@ -2,7 +2,7 @@ KHANGMAN - NEW IDEAS - NEW DESIGN
 
 TODO
 ---------
-- fix hint position - DONE
+- fix hint position							DONE
 - get a new Languages Settings icon
 - get a new KHangMan crystal icon
 - bundle the fonts with install
@@ -13,11 +13,19 @@ TODO
 - add a Quick STart dialog in doc
 - finish German ß->SS
 
+Code cleaning (ingwa):
+ - Make all classes use the m_ convention for members			----
+ - Make members private as far as possible
+ - Rename the c, d, f, g members in khangmanview!
+ - Make members and methods use more descriptive names.
+
 14 June 2005
 -------------------
-- German: in Settings dialog, give the choice of playing all uppercase or all lower case
-lower case: ä,ö,ü,ß
-upper case: Ä,Ö,Ü,SS
+
+- German: in Settings dialog, give the choice of playing all uppercase
+  or all lower case
+    lower case: ä,ö,ü,ß
+    upper case: Ä,Ö,Ü,SS
 
 - KPassivePopup for tip: good solution? tip appears always at the same place, where ever you click. Is that good? Should the tooltip appear where the user clicked instead?
 - usability of the Configure KHangMan dialog DONE

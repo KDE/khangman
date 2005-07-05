@@ -94,31 +94,37 @@ KHangManView::~KHangManView()
 
 void KHangManView::replaceLetters(const QString& sChar)
 {
-    //replace letter in the word
-    int index=0;
-    bool b_end = false;
-    kdDebug() << "word " << word << endl;
+    int   index = 0;
+    bool  b_end = false;
 
+    kdDebug() << "word " << m_word << endl;
+
+    // Replace letter in the word
     if (Prefs::oneLetter()) {
-	//we just replace the next instance
-        for (int count=0; count <word.contains(sChar); count++) {
-            index = word.find(sChar,index);
+	// We just replace the next instance.
+        for (int count=0; count < m_word.contains(sChar); count++) {
+
+            index = m_word.find(sChar, index);
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1,sChar);
+
                 kdDebug() << "goodword " << goodWord << endl;
-                if (count == word.contains(sChar)-1)
-                        b_end = true;
+                if (count == m_word.contains(sChar)-1)
+		    b_end = true;
                 break;
             }
-        else index ++;
-        if (count == word.contains(sChar)-1)
-            b_end = true;
+	    else
+		index++;
+
+	    if (count == m_word.contains(sChar)-1)
+		b_end = true;
         }
     }
     else {
-        for (int count=0; count <word.contains(sChar); count++) {
+        for (int count=0; count < m_word.contains(sChar); count++) {
             //searching for letter location
-            index = word.find(sChar,index);
+            index = m_word.find(sChar, index);
+
             //we replace it...
             goodWord.replace((2*index), 1,sChar);
             index++;
@@ -140,8 +146,10 @@ void KHangManView::replaceLetters(const QString& sChar)
     }
     if (!Prefs::oneLetter()) 
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
-    if (word.contains(sChar)==1) 
+
+    if (m_word.contains(sChar)==1) 
         m_guessedLetters << sChar; //append if only one instance
+
     if (Prefs::oneLetter() && b_end) 
         m_guessedLetters << sChar; 
 }
@@ -151,20 +159,40 @@ bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
     if (m_accent && !Prefs::accentedLetters()) {
-        if (sChar=="i") b = word.contains(QString::fromUtf8("í"));
-        if (sChar=="a")	b = word.contains(QString::fromUtf8("à")) || word.contains(QString::fromUtf8("á")) || word.contains(QString::fromUtf8("ã"));
-        if (sChar=="u") b = word.contains(QString::fromUtf8("ü")) || word.contains(QString::fromUtf8("ù"));
-        if (sChar=="o") b = word.contains(QString::fromUtf8("ò")) || word.contains(QString::fromUtf8("ó")) || word.contains(QString::fromUtf8("õ"));
-        if (sChar=="e") b = word.contains(QString::fromUtf8("è")) || word.contains(QString::fromUtf8("é"));
+        if (sChar=="i")
+	    b = m_word.contains(QString::fromUtf8("í"));
+
+        if (sChar=="a")
+	    b = m_word.contains(QString::fromUtf8("à"))
+		|| m_word.contains(QString::fromUtf8("á"))
+		|| m_word.contains(QString::fromUtf8("ã"));
+
+        if (sChar=="u")
+	    b = m_word.contains(QString::fromUtf8("ü"))
+		|| m_word.contains(QString::fromUtf8("ù"));
+
+        if (sChar=="o")
+	    b = m_word.contains(QString::fromUtf8("ò"))
+		|| m_word.contains(QString::fromUtf8("ó"))
+		|| m_word.contains(QString::fromUtf8("õ"));
+
+        if (sChar=="e")
+	    b = m_word.contains(QString::fromUtf8("è"))
+		|| m_word.contains(QString::fromUtf8("é"));
     }
-    return (b || word.contains(sChar));
+
+    return (b || m_word.contains(sChar));
 }
+
+
+// ----------------------------------------------------------------
+//                           Event handlers
+
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton && hintBool && Prefs::hint())
-    {
-        QPoint point;
+    if (mouse->button() == RightButton && hintBool && Prefs::hint()) {
+
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), tip );
         myPopup->setPalette(QToolTip::palette());
@@ -174,13 +202,23 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
         x = abspos.x() + width()*70/700;
         y = abspos.y() + height()*150/535;
-        point = QPoint(x, y);
+
+	QPoint  point = QPoint(x, y);
         myPopup->show(mapToGlobal(point));
-        //maybe it's better to popup where the mouse clicks, in that case kill the popup before new click
+
+        // Maybe it's better to popup where the mouse clicks, in that
+        // case kill the popup before new click
         //myPopup->move(mouse->pos());
     }
+
     //update();
 }
+
+
+// ----------------------------------------------------------------
+
+// FIXME: Move this function somewhere logical
+
 
 void KHangManView::setTheme()
 {
@@ -196,42 +234,61 @@ void KHangManView::setTheme()
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
-    QPixmap buf(width(), height());
-    QPainter p(&buf);
+    // This pixmap implements double buffering to remove all forms of
+    // flicker in the repainting.
+    QPixmap   buf(width(), height());
+
+    // Repaint the contents of the khangman view into the pixmap.
+    QPainter  p(&buf);
     p.drawPixmap(0, 0, bg);
     paintHangman(p);
     paintWord(p);
     paintMisses(p);
+
+    // ...and finally, put the pixmap into the widget.
     bitBlt(this, 0, 0, &buf);
 }
 
+
 void KHangManView::paintHangman(QPainter &p)
 {
-    //draw the animated hanged K
-    if (Prefs::mode() ==0) 
-        p.drawPixmap(QRect(0,0, width()*630/700, height()*285/535), px[missedChar]);
+    // Draw the animated hanged K
+    // FIXME:  What is mode == 0?
+    if (Prefs::mode() == 0) 
+        p.drawPixmap(QRect(0, 0, 
+			   width()*630/700, height()*285/535),
+		     px[missedChar]);
     else
-        p.drawPixmap(QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535), px[missedChar]);
+        p.drawPixmap(QRect(width()*68/700, height()*170/535, 
+			   width()*259/700, height()*228/535), 
+		     px[missedChar]);
 }
+
 
 void KHangManView::paintWord(QPainter &p)
 {
-    QRect myRect;
-    if (Prefs::mode() ==0)   //sea
-        myRect = QRect(0, height()-height()*126/535, width()*417/700, height()*126/535);
+    QRect  myRect;
+    if (Prefs::mode() == 0)   //sea
+        myRect = QRect(0, height()-height()*126/535,
+		       width()*417/700, height()*126/535);
     else  
-        myRect = QRect(0, height()-height()*126/535, width()*327/700, height()*126/535);
+        myRect = QRect(0, height()-height()*126/535, 
+		       width()*327/700, height()*126/535);
+
     QFont tFont;
-    if (Prefs::mode() ==0)   //sea
+    if (Prefs::mode() == 0)   //sea
         p.setPen( QColor(148, 156, 167));
     else  
         p.setPen( QColor(87, 0, 0));
-    if (Prefs::selectedLanguage() =="tg")  {
+
+    if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
-    }
     else
         tFont.setFamily( "Arial" );
-    tFont.setPixelSize( 28 ); //this has to be scaled depending of the dpi
+
+    // FIXME: This has to be scaled depending of the dpi
+    tFont.setPixelSize( 28 ); 
+
     p.setFont(tFont);
     p.drawText(myRect, AlignCenter|AlignCenter, goodWord);
 }
@@ -244,16 +301,18 @@ void KHangManView::paintMisses(QPainter &pi)
         pi.setPen( QColor(148, 156, 167));
     else
         pi.setPen( QColor(87, 0, 0));
+
     QFont tFont;
-    if (Prefs::selectedLanguage() =="tg")  {
+    if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
-    }
     else
         tFont.setFamily( "Arial" );
+
     tFont.setPixelSize( 28 );
     QFontMetrics fm(tFont);
     QRect fmRect(fm.boundingRect(missedL));
-    QRect myRect = QRect(width() - fmRect.width(), 15, fmRect.width(), fm.height());
+    QRect myRect = QRect(width() - fmRect.width(), 15, 
+			 fmRect.width(), fm.height());
     pi.setFont(tFont);
     pi.drawText(myRect, AlignLeft, missedL);
 
@@ -333,7 +392,7 @@ void KHangManView::slotTry()
 	if (containsChar(sChar)) {
 	    replaceLetters(sChar);
 	    stripWord = goodWord;//need that because of the white spaces
-	    sword=word;
+	    sword = m_word;
 	    if (d>0)  {
 		stripWord.replace(2*c, 1, "");
 		stripWord.replace(2*c-1, 1, "");
@@ -393,7 +452,7 @@ void KHangManView::slotTry()
 	    if (missedChar >= 10) //you are hanged!
 		{
 		    //TODO sequence to finish when hanged
-		    QStringList charList=QStringList::split("",word);
+		    QStringList charList=QStringList::split("", m_word);
 		    QString theWord=charList.join(" ");
 		    goodWord = theWord;
 		    //usability: find another way to start a new game
@@ -510,7 +569,7 @@ void KHangManView::slotNewGame()
 void KHangManView::reset()
 {
     goodWord="";
-    word="";
+    m_word = "";
     m_letterInput->setText("");
     missedChar=0;
     m_guessedLetters.clear();
@@ -550,9 +609,9 @@ void KHangManView::game()
     else {//TODO abort if not a kvtml file maybe
         kdDebug() << "Not a kvtml file!" << endl;
     }
-    kdDebug() << word << endl;
+    kdDebug() << m_word << endl;
     //display the number of letters to guess with _
-    for(unsigned int i = 0; i < word.length(); i++)
+    for(unsigned int i = 0; i < m_word.length(); i++)
     {
         goodWord.append("_");
         goodWord.append(" ");
@@ -562,28 +621,28 @@ void KHangManView::game()
     kdDebug() << goodWord << endl;
     stripWord=goodWord;
     //if needed, display white space or - if in word or semi dot
-    f = word.find( "-" );
+    f = m_word.find( "-" );
     if (f>0)
     {
         g=0;
         goodWord.replace(2*f, 1, "-");
-        g = word.find( "-", f+1);
+        g = m_word.find( "-", f+1);
         if (g>0) 
                 goodWord.replace(2*g, 3, "-");
         if (g>1)
                 goodWord.append("_");
     }
-    c = word.find( " " );
+    c = m_word.find( " " );
     if (c>0) //find another white space
     {
         d=0;
         goodWord.replace(2*c, 1, " ");
-        d = word.find( " ", c+1);
+        d = m_word.find( " ", c+1);
         if (d>0)  goodWord.replace(2*d, c+1, " ");
     }
-    int e = word.find( QString::fromUtf8("·") );
+    int e = m_word.find( QString::fromUtf8("·") );
     if (e>0) goodWord.replace(2*e, 1, QString::fromUtf8("·") );
-    int h = word.find( "'" );
+    int h = m_word.find( "'" );
     if (h>0) goodWord.replace(2*h, 1, "'");
 }
 
@@ -607,10 +666,10 @@ void KHangManView::readFile()
     }
     m_lastWordNumber = wordNumber;
 
-    word = verbs[wordNumber].originalText();
+    m_word = verbs[wordNumber].originalText();
     tip  = verbs[wordNumber].translatedText(); 
 
-    if (word.isEmpty()) 
+    if (m_word.isEmpty()) 
         readFile();
 
     if (tip.isEmpty()) {
@@ -626,11 +685,12 @@ void KHangManView::readFile()
 
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
-        word = word.upper();// only for German currently
-        //replace ß with SS in German 
-        if (word.contains(QString::fromUtf8("ß"))) {
-            int index = word.find(QString::fromUtf8("ß"),0);
-            word.replace(index,1, "S");
+        m_word = m_word.upper();// only for German currently
+
+        // Replace ß with SS in German 
+        if (m_word.contains(QString::fromUtf8("ß"))) {
+            int index = m_word.find(QString::fromUtf8("ß"),0);
+            m_word.replace(index,1, "S");
             //TODO add a S here
         }
     }
