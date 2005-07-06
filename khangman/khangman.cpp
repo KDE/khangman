@@ -483,7 +483,7 @@ QString KHangMan::charIcon(const QChar & c)
 
     ///A font to draw the character with
     QFont font;
-    font.setFamily( "Arial" );
+    font.setFamily( "Sans Serif" );
     font.setPixelSize(120);
     font.setWeight(QFont::Normal);
 
