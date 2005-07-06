@@ -284,7 +284,7 @@ void KHangManView::paintWord(QPainter &p)
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
     else
-        tFont.setFamily( "Arial" );
+        tFont.setFamily( "Sans Serif" );
 
     // FIXME: This has to be scaled depending of the dpi
     tFont.setPixelSize( 28 ); 
@@ -306,7 +306,7 @@ void KHangManView::paintMisses(QPainter &pi)
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
     else
-        tFont.setFamily( "Arial" );
+        tFont.setFamily( "Sans Serif" );
 
     tFont.setPixelSize( 28 );
     QFontMetrics fm(tFont);
@@ -343,7 +343,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
     QFont charWrite_font( m_letterInput->font() );
     charWrite_font.setPointSize( height()/18 );
-    charWrite_font.setFamily( "Arial" );
+    charWrite_font.setFamily( "Sans Serif" );
 
     m_letterInput->setFont( charWrite_font ); 
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16, 
@@ -466,7 +466,7 @@ void KHangManView::slotTry()
                 QVBox *vb = new QVBox( popup );
                 QString popString( i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(sword));
                 QLabel *popLabel = new QLabel( vb);
-                popLabel->setFont(QFont("Arial", 14, QFont::Normal));
+                popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
                 popLabel->setText(popString);
                  popup->setView( vb );
 
