@@ -484,7 +484,7 @@ QString KHangMan::charIcon(const QChar & c)
     ///A font to draw the character with
     QFont font;
     font.setFamily( "Sans Serif" );
-    font.setPixelSize(120);
+    font.setPointSize(96);
     font.setWeight(QFont::Normal);
 
     ///Create the pixmap
