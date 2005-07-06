@@ -9,3 +9,5 @@ EXTRA_DIST = TODO README AUTHORS khangman.lsm INSTALL ChangeLog COPYING khangman
 # have all needed files, that a GNU package needs
 AUTOMAKE_OPTIONS = foreign 
 
+include ../admin/Doxyfile.am
+
