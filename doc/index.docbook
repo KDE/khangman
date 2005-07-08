@@ -187,7 +187,7 @@ You click on the <guimenu>File</guimenu> menu and then on <guimenu>Get Words in 
 	    <imagedata fileref="getnewstuff.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>The Get New Words dialg for &khangman;</phrase>
+	    <phrase>The Get New Words dialog for &khangman;</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
@@ -207,7 +207,7 @@ button will write the corresponding letter in the input line and you validate yo
 </para>
 
 <important><para>
-Please note that you need Arial and URW Bookman fonts in order to correctly display the special characters in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small rectangles instead of letters, then you migh miss one of these fonts.
+Please note that you need Arial and URW Bookman fonts in order to display the special characters correctly in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small squares instead of letters, then you may not have one of these fonts installed. Type fonts:/ into the konqueror address bar to check which fonts you have installed.
 </para></important>
 
 </sect1>
@@ -217,7 +217,7 @@ Please note that you need Arial and URW Bookman fonts in order to correctly disp
 Try to guess the vowels first. Then have a go with the most common consonants:
 l, t, r, n, s
 </para>
-<para>
+<para>corresponding
 When you see <quote>io</quote>, try n after that, in French and English.
 </para>
 <para>
