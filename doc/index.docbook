@@ -57,9 +57,9 @@
 <title>Introduction</title>
 
 <para>
-&khangman; is a game based on the well-known hangman game. It is aimed for
-children aged 6+. The game has four levels of difficulty: Animals (animals
-words), Easy, Medium and Hard. A word is picked in random, the letters are
+&khangman; is a game based on the well-known hangman game. It is aimed at
+children aged six and over. The game has four levels of difficulty: Animals (animals
+words), Easy, Medium and Hard. A word is picked at random, the letters are
 hidden, and you must guess the word by trying one letter after another. Each
 time you guess a wrong letter, part of a picture of a hangman is drawn. You
 must guess the word before being hanged! You have 10 tries.
@@ -99,13 +99,13 @@ toolbar.
 
 <!-- FIXME: A word can't really be displayed and hidden at the same time, -->
 <!-- although I can't think of a better way to phrase this -->
-<para>A word is displayed and its letters are hidden. You know how many letters there are in the
+<para>A word is chosen and its letters are hidden. You know how many letters there are in the
 word. You have to guess the word by trying one letter after another. You enter the letter in the text box and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
 
 <para>The word is picked at random and it is not the same as the previous word.
 </para>
 
-<important><para>All words are nouns (no verbs, no adjectives, &etc;).</para></important>
+<important><para>All the words are nouns (there are no verbs or adjectives, &etc;).</para></important>
 
 <para>
 Usually, it is not important whether you type in lowercase or uppercase. The program
