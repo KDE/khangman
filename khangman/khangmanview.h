@@ -29,6 +29,8 @@ class KHangMan;
 #include <keduvocdata.h>
 
 
+#define MAXWRONGGUESSES  10
+
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
  * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
@@ -87,12 +89,6 @@ private:
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
 
-    // Store the missed letters that are shown on the screen.
-    // Initialiazed to _ _ _ _ _ _ _ _ _ _ ".
-    QString missedL;
-    ///how many times you missed, when it reaches 10, you are hanged
-    int missedChar;
-
     ///store the hint when there is one
     QString tip;
     
@@ -100,8 +96,6 @@ private:
     
     int c, d, f, g;
 
-    ///goodWord is the hidden word that is filled in
-    QString goodWord;
 
 
  private:
@@ -143,31 +137,46 @@ private slots:
 
 private:
 
-    // The basic data
-    QString          m_word;	// The word to be guessed.
+    // The basic data ----------------
+
+    /// The word to be guessed.
+    QString          m_word;
+    /// goodWord is the hidden word that is filled in during the game.
+    /// Initialized to "_ " * (number of letters in the word).
+    QString goodWord;
+    /// Contains all letters already guessed.
+    QStringList      m_guessedLetters;
+    // Stores the missed letters that are shown on the screen.
+    // Initialiazed to "_ " * MAXWRONGGUESSES.
+    QString missedL;
+    /// How many times you missed.  
+    /// When this reaches MAXWRONGGUESSES, you are hanged.
+    int missedChar;
+
+
+    // Misc data  ----------------
 
     // Stores the last word.  This is to make sure that the same word
     // is not given twice in a row.
     int              m_lastWordNumber;
 
-    QString          theme;
+    QString          m_themeName;
     KRandomSequence  m_random;
 
 
-    /// Contains all letters already guessed.
-    QStringList      m_guessedLetters;
+    // Graphics  ----------------
+
+    // Background picture (sea or desert)
+    QPixmap          m_originalBackground;   // Original image
+    QPixmap          m_resizedBackground; // Resized to fit the window.
 
     /// The hanged K animation sequence.
-    QPixmap          px[11];
+    QPixmap          m_animationPics[MAXWRONGGUESSES + 1];
 
-    ///Background picture (sea or desert)
-    QPixmap          bcgdPicture; // Original image
-    QPixmap          bg;	// Resized to fit the window.
+    // Widgets ----------------
 
-    // Widgets
-
-    // The widget where the user enters the letter. Upper case is
-    // transformed into lower case, except for german(!).
+    /// The widget where the user enters the letter. Upper case is
+    /// transformed into lower case, except for german(!).
     KLineEdit       *m_letterInput;
 
     /// After you entered a letter in the line edit click this button

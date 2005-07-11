@@ -69,7 +69,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     loadAnimation();
     
     setMinimumSize( QSize( 700, 535) );
-    slotSetPixmap( bcgdPicture);
+    slotSetPixmap( m_originalBackground);
 
     // Some misc initializations.
     missedChar=0;
@@ -106,7 +106,7 @@ void KHangManView::replaceLetters(const QString& sChar)
 
             index = m_word.find(sChar, index);
             if (goodWord.at(2*index)=='_') {
-                goodWord.replace((2*index), 1,sChar);
+                goodWord.replace((2*index), 1, sChar);
 
                 kdDebug() << "goodword " << goodWord << endl;
                 if (count == m_word.contains(sChar)-1)
@@ -223,7 +223,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
-    slotSetPixmap(bcgdPicture); 
+    slotSetPixmap(m_originalBackground); 
     update();
 }
 
@@ -240,7 +240,7 @@ void KHangManView::paintEvent( QPaintEvent * )
 
     // Repaint the contents of the khangman view into the pixmap.
     QPainter  p(&buf);
-    p.drawPixmap(0, 0, bg);
+    p.drawPixmap(0, 0, m_resizedBackground);
     paintHangman(p);
     paintWord(p);
     paintMisses(p);
@@ -253,15 +253,14 @@ void KHangManView::paintEvent( QPaintEvent * )
 void KHangManView::paintHangman(QPainter &p)
 {
     // Draw the animated hanged K
-    // FIXME:  What is mode == 0?
-    if (Prefs::mode() == 0) 
+    if (Prefs::mode() == 0)  // sea
         p.drawPixmap(QRect(0, 0, 
 			   width()*630/700, height()*285/535),
-		     px[missedChar]);
+		     m_animationPics[missedChar]);
     else
         p.drawPixmap(QRect(width()*68/700, height()*170/535, 
 			   width()*259/700, height()*228/535), 
-		     px[missedChar]);
+		     m_animationPics[missedChar]);
 }
 
 
@@ -294,50 +293,51 @@ void KHangManView::paintWord(QPainter &p)
 }
 
 
-void KHangManView::paintMisses(QPainter &pi)
+void KHangManView::paintMisses(QPainter &p)
 {
-    //draw the Missed letters
-    if (Prefs::mode() ==0)   //sea
-        pi.setPen( QColor(148, 156, 167));
+    // Get the color for the letters.
+    QColor  letterColor;
+    if (Prefs::mode() == 0)   //sea
+	letterColor = QColor(148, 156, 167);
     else
-        pi.setPen( QColor(87, 0, 0));
+	letterColor = QColor(87, 0, 0);
 
+    // Draw the missed letters
     QFont tFont;
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
     else
         tFont.setFamily( "Sans Serif" );
-
     tFont.setPixelSize( 28 );
-    QFontMetrics fm(tFont);
-    QRect fmRect(fm.boundingRect(missedL));
-    QRect myRect = QRect(width() - fmRect.width(), 15, 
-			 fmRect.width(), fm.height());
-    pi.setFont(tFont);
-    pi.drawText(myRect, AlignLeft, missedL);
+    p.setPen( letterColor );
+    p.setFont(tFont);
 
-    // draw the Misses word
-    QString misses = i18n("Misses");
-    QFont f = QFont("Domestic Manners");
-    f.setPointSize(30);
+    QFontMetrics  fm(tFont);
+    QRect         fmRect(fm.boundingRect(missedL));
+    QRect         myRect = QRect(width() - fmRect.width(), 15, 
+				 fmRect.width(), fm.height());
+    p.drawText(myRect, AlignLeft, missedL);
 
-    QFontMetrics fm2(f);
-    QRect fmRect2(fm2.boundingRect(misses));
+    // Draw the "Misses" word
+    QString  misses = i18n("Misses");
+    QFont  mFont = QFont("Domestic Manners");
+    mFont.setPointSize(30);
+    p.setFont(mFont);
 
-    QRect myRect2(width()- fmRect.width() - fmRect2.width() - 15, 15 - fm2.height() + fm.height(), fmRect2.width(), fm2.height());
-    pi.setFont(f);
-    if (Prefs::mode() ==0)//sea
-        pi.setPen( QColor(148, 156, 167));
-    else
-        pi.setPen( QColor(87, 0, 0));
-    pi.drawText(myRect2, AlignLeft|AlignCenter, misses);
+    QFontMetrics  fm2(mFont);
+    QRect         fmRect2(fm2.boundingRect(misses));
+    QRect         myRect2(width()- fmRect.width() - fmRect2.width() - 15,
+			  15 - fm2.height() + fm.height(),
+			  fmRect2.width(), fm2.height());
+    p.setPen( letterColor );
+    p.drawText(myRect2, AlignLeft|AlignCenter, misses);
 }
 
 
 void KHangManView::resizeEvent(QResizeEvent *)
 {
-    if(!bcgdPicture.isNull())
-        slotSetPixmap(bcgdPicture);
+    if(!m_originalBackground.isNull())
+        slotSetPixmap(m_originalBackground);
     
     m_letterInput->setMinimumSize( QSize( height()/18, 0 ) );
 
@@ -363,34 +363,34 @@ void KHangManView::resizeEvent(QResizeEvent *)
 void KHangManView::slotSetPixmap(QPixmap& bgPix)
 {
     QImage img = bgPix.convertToImage();
-    bg.resize(size());
-    bg.convertFromImage(img.smoothScale( width(), height()));
+    m_resizedBackground.resize(size());
+    m_resizedBackground.convertFromImage(img.smoothScale( width(), height()));
 }
 
 
 void KHangManView::slotTry()
 {
-    QString sChar = m_letterInput->text();
-    kdDebug() << "sChar as entered: " << sChar << endl;
+    QString guess = m_letterInput->text();
+    kdDebug() << "guess as entered: " << guess << endl;
 
     // If German, make upper case, otherwise make lower case.
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
-        sChar = sChar.upper();
+        guess = guess.upper();
     else
-        sChar = sChar.lower();
+        guess = guess.lower();
 
     // If the char is not a letter, empty the input and return.
-    if (!sChar.at(0).isLetter()) {
+    if (!guess.at(0).isLetter()) {
 	m_letterInput->setText("");
 	return;
     }
 
     // Handle the guess.
-    if (!m_guessedLetters.contains(sChar)) {
+    if (!m_guessedLetters.contains(guess)) {
 	// The letter is not already guessed.
 	
-	if (containsChar(sChar)) {
-	    replaceLetters(sChar);
+	if (containsChar(guess)) {
+	    replaceLetters(guess);
 	    stripWord = goodWord;//need that because of the white spaces
 	    sword = m_word;
 	    if (d>0)  {
@@ -401,6 +401,7 @@ void KHangManView::slotTry()
 		stripWord.replace(2*(d-1), 1, "");
 		stripWord.replace(2*(d-1)-1, 1, "");
 	    }
+
 	    QStringList rightChars=QStringList::split(" ", stripWord, true);
 	    QString rightWord= rightChars.join("");
 	    update();
@@ -411,7 +412,7 @@ void KHangManView::slotTry()
 		== sword.stripWhiteSpace().lower()) { 
 
 		// We reset everything...
-		// pixImage->setPixmap(px[10]);
+		// pixImage->setPixmap(m_animationPics[10]);
 		//TODO find a better way to finish
 		//
 		if (Prefs::sound()) {
@@ -422,17 +423,17 @@ void KHangManView::slotTry()
 
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
-            QPoint point;
-            KPassivePopup *popup = new KPassivePopup( this, "popup" );
-            popup->setAutoDelete( true );
-            popup->setTimeout( 4*1000 );
-            popup->setView(i18n("Congratulations,\nyou won!") );
-            int x =0, y = 0;
-            QPoint abspos = popup->pos();
-            x = abspos.x() + width()*50/700;
-            y = abspos.y() + height()*20/535;
-            point = QPoint(x, y);
-            popup->show(mapToGlobal(point));
+		    QPoint point;
+		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
+		    popup->setAutoDelete( true );
+		    popup->setTimeout( 4*1000 );
+		    popup->setView(i18n("Congratulations,\nyou won!") );
+		    int x =0, y = 0;
+		    QPoint abspos = popup->pos();
+		    x = abspos.x() + width()*50/700;
+		    y = abspos.y() + height()*20/535;
+		    point = QPoint(x, y);
+		    popup->show(mapToGlobal(point));
 		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
 		}
 		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
@@ -444,60 +445,61 @@ void KHangManView::slotTry()
 	else {
 	    // The char is missed.
 
-	    m_guessedLetters << sChar;	
-	    missedL=missedL.replace((2*missedChar), 1, sChar);
+	    m_guessedLetters << guess;	
+	    missedL = missedL.replace((2*missedChar), 1, guess);
 
 	    missedChar++;
 	    update();
-	    if (missedChar >= 10) //you are hanged!
-		{
-		    //TODO sequence to finish when hanged
-		    QStringList charList=QStringList::split("", m_word);
-		    QString theWord=charList.join(" ");
-		    goodWord = theWord;
-		    //usability: find another way to start a new game
-		    QString newGameString = i18n("You lost. Do you want to play again?");
-            if (Prefs::wonDialog()) {
-                // TODO: hide Hint KPassivePopup if any
-                QPoint point;
-                KPassivePopup *popup = new KPassivePopup( this, "popup" );
-                popup->setAutoDelete( true );
-                popup->setTimeout( 4*1000 );
-                QVBox *vb = new QVBox( popup );
-                QString popString( i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(sword));
-                QLabel *popLabel = new QLabel( vb);
-                popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
-                popLabel->setText(popString);
-                 popup->setView( vb );
 
-                //popup->setView(i18n("You lost"), i18n("The word was\n%1").arg(sword) );
-                int x =0, y = 0;
-                QPoint abspos = popup->pos();
-                x = abspos.x() + width()*50/700;
-                y = abspos.y() + height()*20/535;
-                point = QPoint(x, y);
-                popup->show(mapToGlobal(point));
-                QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
-            }
-            else   if (KMessageBox::questionYesNo(this, newGameString) == 3)
-                    slotNewGame();
-            else
-                kapp->quit();
-        }
+	    // Check if we have reached the limit of wrong guesses.
+	    if (missedChar >= MAXWRONGGUESSES) {
+		//TODO sequence to finish when hanged
+		QStringList charList=QStringList::split("", m_word);
+		QString theWord=charList.join(" ");
+		goodWord = theWord;
+		//usability: find another way to start a new game
+		QString newGameString = i18n("You lost. Do you want to play again?");
+		if (Prefs::wonDialog()) {
+		    // TODO: hide Hint KPassivePopup if any
+		    QPoint point;
+		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
+		    popup->setAutoDelete( true );
+		    popup->setTimeout( 4*1000 );
+
+		    QVBox *vb = new QVBox( popup );
+		    QLabel *popLabel = new QLabel( vb);
+		    popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
+		    popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(sword));
+		    popup->setView( vb );
+
+		    int x =0, y = 0;
+		    QPoint abspos = popup->pos();
+		    x = abspos.x() + width()*50/700;
+		    y = abspos.y() + height()*20/535;
+		    point = QPoint(x, y);
+		    popup->show(mapToGlobal(point));
+		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
+		}
+		else if (KMessageBox::questionYesNo(this, newGameString) == 3)
+		    slotNewGame();
+		else
+		    kapp->quit();
+	    }
 	}
     }
     else {
 	// The letter is already guessed.
 
 	// Show a popup that says as much.
-    QPoint point;
-	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, this, "popup" );
+	QPoint point;
+	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, 
+						  this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
 
 	int x =0, y = 0;
-	if (missedL.contains(sChar)>0) { //TODO popup should be better placed
+	if (missedL.contains(guess)>0) { //TODO popup should be better placed
 	    QPoint abspos = popup->pos();
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
@@ -509,24 +511,27 @@ void KHangManView::slotTry()
 	    m_letterInput->setEnabled(false);
 	}
 
-	if (goodWord.contains(sChar) > 0) {
+	if (goodWord.contains(guess) > 0) {
 	    QPoint abspos = popup->pos();
-	    if (Prefs::mode() == 0)  {
+
+	    if (Prefs::mode() == 0) {
+		// sea
 		x = abspos.x() + width()*250/700;
 		y = abspos.y() + height()*485/535;
-		point = QPoint(x, y);
 	    }
-	    else  {
+	    else {
 		x = abspos.x() + width()*200/700;
 		y = abspos.y() + height()*485/535;
-		point = QPoint(x, y);
 	    }
+	    point = QPoint(x, y);
+
 	    QTimer *timer = new QTimer( this);
 	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
 	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
 	    //disable any possible entry
 	    m_letterInput->setEnabled(false);	
 	}
+
 	popup->show(mapToGlobal(point));
     }
 
@@ -556,11 +561,6 @@ void KHangManView::slotNewGame()
     }
     reset();
 
-    //distinction between upper and lower case letters
-    //if (Prefs::levelFile() == "world_capitals.kvtml" || Prefs::levelFile() == "departements.kvtml")
-     //   upperBool = true;
-    //else upperBool = false;
-
     game();
     m_letterInput->setFocus();
 }
@@ -568,12 +568,16 @@ void KHangManView::slotNewGame()
 
 void KHangManView::reset()
 {
-    goodWord="";
-    m_word = "";
-    m_letterInput->setText("");
-    missedChar=0;
+    goodWord = "";
+    m_word   = "";
+
+    missedChar = 0;
+    missedL    = "_ _ _ _ _ _ _ _ _ _  ";
     m_guessedLetters.clear();
-    missedL = "_ _ _ _ _ _ _ _ _ _  ";
+
+    // Clear the input field.
+    m_letterInput->setText("");
+
     update();
 }
 
@@ -676,11 +680,13 @@ void KHangManView::readFile()
         Prefs::setHint(false);//hint can't be enabled
         Prefs::writeConfig();
         hintBool = false;//hint does not exist
-        khangman ->changeStatusbar("", 103);
+
+	// FIXME: Make this a signal instead.
+        khangman->changeStatusbar("", 103);
     }
     else {
         hintBool = true;
-        khangman ->setMessages();
+        khangman->setMessages();
     }
 
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
@@ -696,20 +702,22 @@ void KHangManView::readFile()
     }
 }
 
+
 void KHangManView::loadAnimation()
 {
     switch (Prefs::mode())  {
         case Prefs::EnumMode::sea:
-            bcgdPicture = QPixmap(locate("data","khangman/pics/sea/sea_theme.png") );
-            theme = "sea";
+            m_originalBackground = QPixmap(locate("data", "khangman/pics/sea/sea_theme.png") );
+            m_themeName = "sea";
             m_letterInput->setPaletteForegroundColor( QColor(  83,  40,  14) );
             m_guessButton->setPaletteBackgroundColor( QColor( 115,  64,  49) );
             m_guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
             m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
+
         case Prefs::EnumMode::desert:
-            bcgdPicture = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
-            theme = "desert";
+            m_originalBackground = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
+            m_themeName = "desert";
             m_letterInput->setPaletteForegroundColor( QColor(  87,   0,  0) );
             m_guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
             m_guessButton->setPaletteForegroundColor( QColor(  87,   0,  0) );
@@ -717,24 +725,12 @@ void KHangManView::loadAnimation()
             break;
     }	
 
-    //now we preload the pixmaps...
-    for (uint i = 0; i < 11; i++)
-	px[i].load(locate( "data", 
-			   QString("khangman/pics/%1/animation%2.png")
-			   .arg(theme).arg(i) ));
-#if 0
-    px[0].load(locate("data", QString("khangman/pics/%1/animation0.png").arg(theme)));
-    px[1].load(locate("data", QString("khangman/pics/%1/animation1.png").arg(theme)));
-    px[2].load(locate("data", QString("khangman/pics/%1/animation2.png").arg(theme)));
-    px[3].load(locate("data", QString("khangman/pics/%1/animation3.png").arg(theme)));
-    px[4].load(locate("data", QString("khangman/pics/%1/animation4.png").arg(theme)));
-    px[5].load(locate("data", QString("khangman/pics/%1/animation5.png").arg(theme)));
-    px[6].load(locate("data", QString("khangman/pics/%1/animation6.png").arg(theme)));
-    px[7].load(locate("data", QString("khangman/pics/%1/animation7.png").arg(theme)));
-    px[8].load(locate("data", QString("khangman/pics/%1/animation8.png").arg(theme)));
-    px[9].load(locate("data", QString("khangman/pics/%1/animation9.png").arg(theme)));
-    px[10].load(locate("data", QString("khangman/pics/%1/animation10.png").arg(theme)));
-#endif
+    // Now we load the pixmaps...
+    for (uint i = 0; i < 11; i++) {
+	m_animationPics[i].load(locate( "data", 
+		 	   QString("khangman/pics/%1/animation%2.png")
+			   .arg(m_themeName).arg(i) ));
+    }
 }
 
 #include "khangmanview.moc"

@@ -515,7 +515,10 @@ QString KHangMan::charIcon(const QChar & c)
 void KHangMan::setAccent()
 {
     kdDebug() << "in slot accent  " << endl;
-    if (Prefs::selectedLanguage()=="es" || Prefs::selectedLanguage() =="pt" || Prefs::selectedLanguage() == "ca" || Prefs::selectedLanguage() == "pt_BR")
+    if (Prefs::selectedLanguage()=="es"
+	|| Prefs::selectedLanguage() == "ca"
+	|| Prefs::selectedLanguage() == "pt"
+	|| Prefs::selectedLanguage() == "pt_BR")
         m_view->m_accent = true;
     else
         m_view->m_accent = false;
@@ -523,6 +526,7 @@ void KHangMan::setAccent()
 
 void KHangMan::setMessages()
 {
+    // Tell the user about if there is a hint.
     if ((Prefs::hint()) && (m_view->hintBool))
         changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
     else if (m_view->hintBool && !Prefs::hint() )
@@ -530,6 +534,7 @@ void KHangMan::setMessages()
     else
         changeStatusbar("", IDS_HINT);
 
+    // Tell the user about accented characters
     if (m_view->m_accent && Prefs::accentedLetters())
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else

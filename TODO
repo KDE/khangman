@@ -14,10 +14,17 @@ TODO
 - finish German ß->SS
 
 Code cleaning (ingwa):
- - Make all classes use the m_ convention for members			----
- - Make members private as far as possible
- - Rename the c, d, f, g members in khangmanview!
- - Make members and methods use more descriptive names.
+
+* General
+  - Make all classes use the m_ convention for members			----
+  - Make members private as far as possible
+  - Make members and methods use more descriptive names.
+
+* Special for khangman
+  - Rename the c, d, f, g members in khangmanview!
+  - Make the themes parameterized.  Now the tests and values 
+    for different themes are spread out during the whole code.
+
 
 14 June 2005
 -------------------
