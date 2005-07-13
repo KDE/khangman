@@ -61,21 +61,21 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 					       (QSizePolicy::SizeType) 0,
 					       0, 0, 
 					       m_guessButton->sizePolicy().hasHeightForWidth() ) );
-    m_guessButton->setAutoMask( TRUE );
-    m_guessButton->setFlat( TRUE );
+    m_guessButton->setAutoMask( true );
+    m_guessButton->setFlat( true );
     m_guessButton->setText( i18n( "G&uess" ) );
     
     // Get background from config file - default is sea
     loadAnimation();
     
-    setMinimumSize( QSize( 700, 535) );
+    setMinimumSize( QSize( 700, 535 ) );
     slotSetPixmap( m_originalBackground);
 
     // Some misc initializations.
-    missedChar=0;
-    m_lastWordNumber = -1;
-    m_accent = true;
-    hintBool = true;//assume tip exists
+    m_numMissedLetters = 0;
+    m_lastWordNumber   = -1;
+    m_accentedLetters  = true;
+    m_hintExists       = true;	// Assume hint exists
 
     connect( m_letterInput, SIGNAL( returnPressed() ),
 	     this,          SLOT( slotTry() ) );
@@ -131,7 +131,7 @@ void KHangManView::replaceLetters(const QString& sChar)
 	}
     }
 
-    if (m_accent && !Prefs::accentedLetters()) {
+    if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i") replaceLetters(QString::fromUtf8("í"));
         if (sChar=="a") replaceLetters(QString::fromUtf8("à"));
         if (sChar=="a") replaceLetters(QString::fromUtf8("á"));
@@ -158,7 +158,7 @@ void KHangManView::replaceLetters(const QString& sChar)
 bool KHangManView::containsChar(const QString &sChar)
 {
     bool b = false;
-    if (m_accent && !Prefs::accentedLetters()) {
+    if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i")
 	    b = m_word.contains(QString::fromUtf8("í"));
 
@@ -191,10 +191,10 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton && hintBool && Prefs::hint()) {
+    if (mouse->button() == RightButton && m_hintExists && Prefs::hint()) {
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
-        myPopup->setView(i18n("Hint"), tip );
+        myPopup->setView(i18n("Hint"), m_hint );
         myPopup->setPalette(QToolTip::palette());
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
@@ -256,11 +256,11 @@ void KHangManView::paintHangman(QPainter &p)
     if (Prefs::mode() == 0)  // sea
         p.drawPixmap(QRect(0, 0, 
 			   width()*630/700, height()*285/535),
-		     m_animationPics[missedChar]);
+		     m_animationPics[m_numMissedLetters]);
     else
         p.drawPixmap(QRect(width()*68/700, height()*170/535, 
 			   width()*259/700, height()*228/535), 
-		     m_animationPics[missedChar]);
+		     m_animationPics[m_numMissedLetters]);
 }
 
 
@@ -313,10 +313,10 @@ void KHangManView::paintMisses(QPainter &p)
     p.setFont(tFont);
 
     QFontMetrics  fm(tFont);
-    QRect         fmRect(fm.boundingRect(missedL));
+    QRect         fmRect(fm.boundingRect(m_missedLetters));
     QRect         myRect = QRect(width() - fmRect.width(), 15, 
 				 fmRect.width(), fm.height());
-    p.drawText(myRect, AlignLeft, missedL);
+    p.drawText(myRect, AlignLeft, m_missedLetters);
 
     // Draw the "Misses" word
     QString  misses = i18n("Misses");
@@ -446,13 +446,15 @@ void KHangManView::slotTry()
 	    // The char is missed.
 
 	    m_guessedLetters << guess;	
-	    missedL = missedL.replace((2*missedChar), 1, guess);
+	    m_missedLetters = m_missedLetters.replace((2 * m_numMissedLetters), 
+						      1, guess);
 
-	    missedChar++;
+	    m_numMissedLetters++;
 	    update();
 
 	    // Check if we have reached the limit of wrong guesses.
-	    if (missedChar >= MAXWRONGGUESSES) {
+	    if (m_numMissedLetters >= MAXWRONGGUESSES) {
+
 		//TODO sequence to finish when hanged
 		QStringList charList=QStringList::split("", m_word);
 		QString theWord=charList.join(" ");
@@ -498,8 +500,11 @@ void KHangManView::slotTry()
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
 
-	int x =0, y = 0;
-	if (missedL.contains(guess)>0) { //TODO popup should be better placed
+	int  x = 0;
+	int  y = 0;
+	if (m_missedLetters.contains(guess) > 0) {
+	    //TODO popup should be better placed.
+
 	    QPoint abspos = popup->pos();
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
@@ -571,9 +576,9 @@ void KHangManView::reset()
     goodWord = "";
     m_word   = "";
 
-    missedChar = 0;
-    missedL    = "_ _ _ _ _ _ _ _ _ _  ";
     m_guessedLetters.clear();
+    m_numMissedLetters = 0;
+    m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
 
     // Clear the input field.
     m_letterInput->setText("");
@@ -624,30 +629,36 @@ void KHangManView::game()
     
     kdDebug() << goodWord << endl;
     stripWord=goodWord;
-    //if needed, display white space or - if in word or semi dot
-    f = m_word.find( "-" );
-    if (f>0)
-    {
-        g=0;
+
+    // If needed, display white space or - if in word or semi dot.
+    int f = m_word.find( "-" );
+    if (f>0) {
         goodWord.replace(2*f, 1, "-");
-        g = m_word.find( "-", f+1);
+
+        int g = m_word.find( "-", f+1);
         if (g>0) 
                 goodWord.replace(2*g, 3, "-");
         if (g>1)
                 goodWord.append("_");
     }
+
+    // Find another white space.
     c = m_word.find( " " );
-    if (c>0) //find another white space
-    {
+    if (c>0) {
         d=0;
         goodWord.replace(2*c, 1, " ");
         d = m_word.find( " ", c+1);
-        if (d>0)  goodWord.replace(2*d, c+1, " ");
+        if (d>0)
+	    goodWord.replace(2*d, c+1, " ");
     }
+
     int e = m_word.find( QString::fromUtf8("·") );
-    if (e>0) goodWord.replace(2*e, 1, QString::fromUtf8("·") );
+    if (e>0)
+	goodWord.replace(2*e, 1, QString::fromUtf8("·") );
+
     int h = m_word.find( "'" );
-    if (h>0) goodWord.replace(2*h, 1, "'");
+    if (h>0)
+	goodWord.replace(2*h, 1, "'");
 }
 
 void KHangManView::readFile()
@@ -671,21 +682,21 @@ void KHangManView::readFile()
     m_lastWordNumber = wordNumber;
 
     m_word = verbs[wordNumber].originalText();
-    tip  = verbs[wordNumber].translatedText(); 
+    m_hint = verbs[wordNumber].translatedText(); 
 
     if (m_word.isEmpty()) 
         readFile();
 
-    if (tip.isEmpty()) {
-        Prefs::setHint(false);//hint can't be enabled
+    if (m_hint.isEmpty()) {
+        Prefs::setHint(false);	// Hint can't be enabled.
         Prefs::writeConfig();
-        hintBool = false;//hint does not exist
+        m_hintExists = false;	// Hint does not exist.
 
 	// FIXME: Make this a signal instead.
         khangman->changeStatusbar("", 103);
     }
     else {
-        hintBool = true;
+        m_hintExists = true;
         khangman->setMessages();
     }
 

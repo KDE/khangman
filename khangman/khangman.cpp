@@ -342,8 +342,8 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-        mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
-        mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+	mAdvanced->kcfg_Hint->setEnabled(m_view->hintExists());
+        mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
         if (Prefs::selectedLanguage() == "de")
             mAdvanced->kcfg_UpperCase->setEnabled(true);
         else
@@ -358,9 +358,9 @@ void KHangMan::optionsPreferences()
     dialog->addPage(mNormal, i18n("General"), "colorize");
 
     // Add the Advanced Settings page
-    mAdvanced=  new advanced( 0, "Advanced" );
-    mAdvanced->kcfg_Hint->setEnabled( m_view->hintBool);
-    mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->m_accent);
+    mAdvanced = new advanced( 0, "Advanced" );
+    mAdvanced->kcfg_Hint->setEnabled( m_view->hintExists() );
+    mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 
     if (Prefs::selectedLanguage() == "de")
         mAdvanced->kcfg_UpperCase->setEnabled(true);
@@ -519,23 +519,24 @@ void KHangMan::setAccent()
 	|| Prefs::selectedLanguage() == "ca"
 	|| Prefs::selectedLanguage() == "pt"
 	|| Prefs::selectedLanguage() == "pt_BR")
-        m_view->m_accent = true;
+        m_view->setAccentedLetters( true );
     else
-        m_view->m_accent = false;
+        m_view->setAccentedLetters( false );
 }
+
 
 void KHangMan::setMessages()
 {
     // Tell the user about if there is a hint.
-    if ((Prefs::hint()) && (m_view->hintBool))
+    if (Prefs::hint() && m_view->hintExists())
         changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
-    else if (m_view->hintBool && !Prefs::hint() )
+    else if (m_view->hintExists() && !Prefs::hint() )
         changeStatusbar(i18n("Hint available"), IDS_HINT);
     else
         changeStatusbar("", IDS_HINT);
 
     // Tell the user about accented characters
-    if (m_view->m_accent && Prefs::accentedLetters())
+    if (m_view->accentedLetters() && Prefs::accentedLetters())
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else
         changeStatusbar("", IDS_ACCENTS);

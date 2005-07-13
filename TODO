@@ -3,15 +3,16 @@ KHANGMAN - NEW IDEAS - NEW DESIGN
 TODO
 ---------
 - fix hint position							DONE
-- get a new Languages Settings icon
-- get a new KHangMan crystal icon
-- bundle the fonts with install
-- fix the font size
-- tooltip if no Win dialog - DONE
-- find a way to better finish game (win or loose)
-- allow to change font in Settings (add a Fonts tab)
-- add a Quick STart dialog in doc
-- finish German ß->SS
+- get a new Languages Settings icon					----
+- get a new KHangMan crystal icon					----
+- bundle the fonts with install						----
+- fix the font size							----
+- tooltip if no Win dialog - DONE					----
+- find a way to better finish game (win or loose)			----
+- allow to change font in Settings (add a Fonts tab)			----
+- add a Quick STart dialog in doc					----
+- finish German ß->SS							----
+
 
 Code cleaning (ingwa):
 
@@ -23,7 +24,7 @@ Code cleaning (ingwa):
 * Special for khangman
   - Rename the c, d, f, g members in khangmanview!
   - Make the themes parameterized.  Now the tests and values 
-    for different themes are spread out during the whole code.
+    for different themes are spread out throughout the whole code.
 
 
 14 June 2005

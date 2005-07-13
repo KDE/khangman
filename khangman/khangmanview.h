@@ -31,6 +31,7 @@ class KHangMan;
 
 #define MAXWRONGGUESSES  10
 
+
 /**
  * This is the main view class for KHangMan.  Most of the non-menu,
  * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
@@ -51,11 +52,12 @@ public:
 
     void setTheme();
     
-    ///true if hint exists
-    bool hintBool;
-    ///true if language = es, ca, pt or pt_BR
-    bool m_accent;
-    
+    bool  hintExists() const          { return m_hintExists;            }
+
+    bool  accentedLetters() const     { return m_accentedLetters;       }
+    void  setAccentedLetters( bool _accentedLetters )
+                                      { m_accentedLetters = _accentedLetters; }
+
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
 
@@ -77,25 +79,27 @@ private:
 
     // Events
     void paintEvent( QPaintEvent * );
-    void resizeEvent(QResizeEvent *);
+    void resizeEvent( QResizeEvent * );
 
-    ///Enable hints on mouse right click if Hints exist
-    virtual void mousePressEvent(QMouseEvent *mouse);
+    /// Enable hints on mouse right click if Hints exist.
+    virtual void mousePressEvent( QMouseEvent *mouse );
 
-    ///set the background pixmap to the QPixmap argument
+    /// Set the background pixmap to the QPixmap argument.
     void slotSetPixmap(QPixmap& );
 
     /// If true, the word contains the QString
     bool containsChar(const QString &);
     void replaceLetters(const QString &);
 
-    ///store the hint when there is one
-    QString tip;
+    QString  stripWord;
+    QString  sword;
     
-    QString stripWord, sword;
-    
-    int c, d, f, g;
-
+    // FIXME:  Rename these into something sensible!
+    //         (or better yet: remove them altogether)
+    int  c;
+    int  d;
+    //int  f;
+    //int  g;
 
 
  private:
@@ -139,30 +143,44 @@ private:
 
     // The basic data ----------------
 
+    // FIXME: Rewrite the whole handling of this so that goodWord,
+    //        guessedLetters, and missedLetters all lack spaces.  
+    //        These spaces will then be added at draw time.
+
     /// The word to be guessed.
     QString          m_word;
     /// goodWord is the hidden word that is filled in during the game.
     /// Initialized to "_ " * (number of letters in the word).
     QString goodWord;
+
     /// Contains all letters already guessed.
     QStringList      m_guessedLetters;
+
     // Stores the missed letters that are shown on the screen.
     // Initialiazed to "_ " * MAXWRONGGUESSES.
-    QString missedL;
+    QString          m_missedLetters;
     /// How many times you missed.  
     /// When this reaches MAXWRONGGUESSES, you are hanged.
-    int missedChar;
+    int              m_numMissedLetters;
 
 
     // Misc data  ----------------
 
-    // Stores the last word.  This is to make sure that the same word
-    // is not given twice in a row.
+    // Stores the number of the last word.  This is to make sure that
+    // the same word is not given twice in a row.
     int              m_lastWordNumber;
 
     QString          m_themeName;
     KRandomSequence  m_random;
 
+    /// true if a hint exists
+    bool             m_hintExists;
+    QString          m_hint;
+
+    /// true if the language contains accented letters.  
+    /// This is true for, among others, es, ca, pt or pt_BR
+    bool             m_accentedLetters;
+    
 
     // Graphics  ----------------
 
