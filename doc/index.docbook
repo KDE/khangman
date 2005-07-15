@@ -353,7 +353,7 @@ In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will
 <screeninfo>&khangman; general settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="normalsettings.png" format="PNG"/>
+	    <imagedata fileref="settings1.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; general settings</phrase>
@@ -381,7 +381,7 @@ In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a soun
 <screeninfo>&khangman; Languages Settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="advancedsettings.png" format="PNG"/>
+	    <imagedata fileref="settings2.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; Languages Settings</phrase>
