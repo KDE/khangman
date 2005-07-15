@@ -421,7 +421,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>New</guimenuitem>
+<guisubmenu>New</guisubmenu>
 </menuchoice></term>
 <listitem><para><action>New</action> game (&ie; new word)</para></listitem>
 </varlistentry>
@@ -431,7 +431,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <keycombo action="simul">&Ctrl;<keycap>G</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Get Words in New Language...</guimenuitem>
+<guisubmenu>Get Words in New Language...</guisubmenu>
 </menuchoice></term>
 <listitem><para><action>Display</action> the KNewStuff dialog which lists all the data available in the different languages. </para></listitem>
 </varlistentry>
@@ -743,7 +743,7 @@ you.</para>
 </qandaentry>
 <qandaentry>
 <question>
-<para>&khangman; does not start correctly after I upgraded from an earlier version to the &kde; 3.35 version</para>
+<para>&khangman; does not start correctly after I upgraded from an earlier version to the &kde; 3.5 version</para>
 </question>
 <answer>
 <para>
@@ -762,7 +762,7 @@ There might be a problem due to the change of the configuration file. Please rem
 &khangman;
 </para>
 <para>
-Program copyright 2001-2004 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
+Program copyright 2001-2005 Anne-Marie Mahfouf <email>annma AT kde DOT org</email>
 </para>
 <para>
 Contributors:
