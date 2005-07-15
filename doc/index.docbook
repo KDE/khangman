@@ -346,17 +346,17 @@ A toolbar is provided for quick access to some settings. You can click on a butt
 In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for General settings.
 </para>
 
-<sect2 id="normal-settings">
+<sect2 id="general-settings">
 <title>General Settings</title>
 
 <screenshot>
-<screeninfo>&khangman; general settings</screeninfo>
+<screeninfo>&khangman; General settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="settings1.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>&khangman; general settings</phrase>
+	    <phrase>&khangman; General settings</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
@@ -372,9 +372,9 @@ In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a soun
 </para>
 
 </sect2>
-<sect2 id="advanced-settings">
+<sect2 id="languages-settings">
 <title>Languages Settings</title>
-<para>The Languages Settings tab allows you to set some settings specific to some languages. If the settings are not available for the language you are playing in then those settings will be grayed and disabled.
+<para>The Languages Settings tab allows you to set some settings specific to some languages. If the settings are not available for the language you are playing in then those settings will be grayed and disabled so you cannot choose them.
 </para>
 
 <screenshot>
@@ -401,6 +401,33 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 </para>
 
 </sect2>
+
+<sect2 id="timers-settings">
+<title>Timers Settings</title>
+<para>The Timers Settings tab allows you to set the time for displaying the hint and the Already Guessed Letter tooltip.
+</para>
+
+<screenshot>
+<screeninfo>&khangman; Timers Settings</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="settings3.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>&khangman; Timers Settings</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+<guilabel>Set the time for displaying the hint</guilabel> allows you to set a greater time for showing the hint label. It is necessary to increase the time for younger children for example as they read more slowly than adults.
+</para>
+
+<para><guilabel>Set the time for displaying the Already Guessed Letter</guilabel> allows you to increase or decrease the time for displaying the Already Guessed Letter tooltip. This tooltip is a label which appears when you tried a letter that was already tried. Some people will want not to see it for long while children will need time to understand it and thus will need to set the display for a longer duration.
+</para>
+
+</sect2>
+
 </sect1>
 
 </chapter>
@@ -421,17 +448,18 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guisubmenu>New</guisubmenu>
+<guimenuitem>New</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>New</action> game (&ie; new word)</para></listitem>
 </varlistentry>
+
 <varlistentry>
 <term><menuchoice>
 <shortcut>
 <keycombo action="simul">&Ctrl;<keycap>G</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guisubmenu>Get Words in New Language...</guisubmenu>
+<guimenuitem>Get Words in New Language...</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Display</action> the KNewStuff dialog which lists all the data available in the different languages. </para></listitem>
 </varlistentry>
@@ -529,7 +557,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Toolbars</guimenuitem>
+<guisubmenu>Toolbars</guisubmenu>
 <guimenuitem>Show Main</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
@@ -537,7 +565,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Toolbars</guimenuitem>
+<guisubmenu>Toolbars</guisubmenu>
 <guimenuitem>Show Characters</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the Characters Toolbar</para></listitem>
