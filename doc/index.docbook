@@ -84,7 +84,7 @@ must guess the word before being hanged! You have 10 tries.
 
 <para>
 Here you can see &khangman; as it is the first time you run it. Level is Animals,
-language is default (English here, the default is your current KDE language if the data exists), the theme is "Sea". Any changes in level, language or teme (background)  are written in the configuration file and restored in your next game.
+language is default (English here, the default is your current KDE language if the data exists), the theme is "Sea". Any changes in level, language or theme (background)  are written in the configuration file and restored in your next game.
 </para>
 
 <para>
