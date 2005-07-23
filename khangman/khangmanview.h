@@ -77,29 +77,20 @@ private:
     //        that, rename them (if necessary), and regroup them into 
     //        logical groups.
 
+    // FIXME:  Rename these into something sensible!
+    //         (or better yet: remove them altogether)
+    int  c;    // These two are the positions of the first and second
+    int  dd;   // spaces in the word.
+
+
+ protected:
+
     // Events
     void paintEvent( QPaintEvent * );
     void resizeEvent( QResizeEvent * );
 
     /// Enable hints on mouse right click if Hints exist.
     virtual void mousePressEvent( QMouseEvent *mouse );
-
-    /// Set the background pixmap to the QPixmap argument.
-    void slotSetPixmap(QPixmap& );
-
-    /// If true, the word contains the QString
-    bool containsChar(const QString &);
-    void replaceLetters(const QString &);
-
-    QString  stripWord;
-    QString  sword;
-    
-    // FIXME:  Rename these into something sensible!
-    //         (or better yet: remove them altogether)
-    int  c;
-    int  d;
-    //int  f;
-    //int  g;
 
 
  private:
@@ -121,6 +112,14 @@ private:
     ///load the K animated sequence depending of the theme
     void loadAnimation();
 
+    /// Set the background pixmap to the QPixmap argument.
+    void setBackground(QPixmap& );
+
+    /// Return true if the word contains the char in the QString.
+    bool  containsChar(const QString &);
+
+    void  replaceLetters(const QString &);
+
 public slots:
     ///if you want to play with a new word
     void slotNewGame();
@@ -131,13 +130,10 @@ private slots:
     /// new letter, see if the letter is in the word or not
     void slotTry();
 
-    /// When an already guessed letter is entered, if it is in Missed,
-    /// redraw the missed letters area.
-    void timerDone();
-
-    /// When an already guessed letter is entered, if it is in the
-    /// word, redraw the word area.
-    void timerWordDone();
+    /// Reenable user input.  This is used as a target for timers when
+    /// the user has made a guess that was already made earlier, and a
+    /// popup informing about this is closed.
+    void enableUserInput();
 
 private:
 

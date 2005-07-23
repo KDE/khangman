@@ -69,7 +69,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     loadAnimation();
     
     setMinimumSize( QSize( 700, 535 ) );
-    slotSetPixmap( m_originalBackground);
+    setBackground( m_originalBackground );
 
     // Some misc initializations.
     m_numMissedLetters = 0;
@@ -147,7 +147,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     if (!Prefs::oneLetter()) 
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
 
-    if (m_word.contains(sChar)==1) 
+    if (m_word.contains(sChar) == 1) 
         m_guessedLetters << sChar; //append if only one instance
 
     if (Prefs::oneLetter() && b_end) 
@@ -223,7 +223,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
-    slotSetPixmap(m_originalBackground); 
+    setBackground(m_originalBackground); 
     update();
 }
 
@@ -337,7 +337,7 @@ void KHangManView::paintMisses(QPainter &p)
 void KHangManView::resizeEvent(QResizeEvent *)
 {
     if(!m_originalBackground.isNull())
-        slotSetPixmap(m_originalBackground);
+        setBackground(m_originalBackground);
     
     m_letterInput->setMinimumSize( QSize( height()/18, 0 ) );
 
@@ -360,7 +360,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 //                             Slots
 
 
-void KHangManView::slotSetPixmap(QPixmap& bgPix)
+void KHangManView::setBackground(QPixmap& bgPix)
 {
     QImage img = bgPix.convertToImage();
     m_resizedBackground.resize(size());
@@ -391,19 +391,20 @@ void KHangManView::slotTry()
 	
 	if (containsChar(guess)) {
 	    replaceLetters(guess);
-	    stripWord = goodWord;//need that because of the white spaces
-	    sword = m_word;
-	    if (d>0)  {
-		stripWord.replace(2*c, 1, "");
+
+	    // This is needed because of the white spaces.
+	    QString  stripWord = goodWord;
+	    QString  sword     = m_word;
+	    if (dd > 0)  {
+		stripWord.replace(2*c,   1, "");
 		stripWord.replace(2*c-1, 1, "");
-	    }
-	    if (d>0)  {
-		stripWord.replace(2*(d-1), 1, "");
-		stripWord.replace(2*(d-1)-1, 1, "");
+
+		stripWord.replace(2*(dd-1),   1, "");
+		stripWord.replace(2*(dd-1)-1, 1, "");
 	    }
 
-	    QStringList rightChars=QStringList::split(" ", stripWord, true);
-	    QString rightWord= rightChars.join("");
+	    QStringList  rightChars = QStringList::split(" ", stripWord, true);
+	    QString      rightWord  = rightChars.join("");
 	    update();
 	    sword.remove(QRegExp(" "));
 
@@ -428,6 +429,7 @@ void KHangManView::slotTry()
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 		    popup->setView(i18n("Congratulations,\nyou won!") );
+
 		    int x =0, y = 0;
 		    QPoint abspos = popup->pos();
 		    x = abspos.x() + width()*50/700;
@@ -469,18 +471,18 @@ void KHangManView::slotTry()
 		    popup->setTimeout( 4*1000 );
 
 		    QVBox *vb = new QVBox( popup );
+
 		    QLabel *popLabel = new QLabel( vb);
 		    popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
-		    popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(sword));
+		    popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(m_word));
 		    popup->setView( vb );
 
-		    int x =0, y = 0;
 		    QPoint abspos = popup->pos();
-		    x = abspos.x() + width()*50/700;
-		    y = abspos.y() + height()*20/535;
-		    point = QPoint(x, y);
-		    popup->show(mapToGlobal(point));
-		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
+		    int  x = abspos.x() + width()  * 50 / 700;
+		    int  y = abspos.y() + height() * 20 / 535;
+		    popup->show(mapToGlobal(QPoint(x, y)));
+
+		    QTimer::singleShot( 4 * 1000, this, SLOT(slotNewGame()) );
 		}
 		else if (KMessageBox::questionYesNo(this, newGameString) == 3)
 		    slotNewGame();
@@ -503,16 +505,19 @@ void KHangManView::slotTry()
 	int  x = 0;
 	int  y = 0;
 	if (m_missedLetters.contains(guess) > 0) {
-	    //TODO popup should be better placed.
+	    // FIXME: popup should be better placed.
 
 	    QPoint abspos = popup->pos();
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
 	    point = QPoint(x, y);
-	    QTimer *timer = new QTimer( this);
-	    connect( timer, SIGNAL(timeout()), this, SLOT(timerDone()) );
-	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
-	    //disable any possible entry
+
+	    // Create a 1 second single-shot timer, and reenable user
+	    // input after this time.
+	    QTimer::singleShot( Prefs::missedTimer() * 1000, 
+				this, SLOT(enableUserInput()) );
+
+	    // Disable any possible entry
 	    m_letterInput->setEnabled(false);
 	}
 
@@ -530,10 +535,10 @@ void KHangManView::slotTry()
 	    }
 	    point = QPoint(x, y);
 
-	    QTimer *timer = new QTimer( this);
-	    connect( timer, SIGNAL(timeout()), this, SLOT(timerWordDone()) );
-	    timer->start( Prefs::missedTimer()*1000, TRUE ); // 1 second single-shot timer
-	    //disable any possible entry
+	    QTimer::singleShot( Prefs::missedTimer() * 1000,
+				this, SLOT(enableUserInput()) );
+
+	    // Disable any possible entry
 	    m_letterInput->setEnabled(false);	
 	}
 
@@ -545,17 +550,12 @@ void KHangManView::slotTry()
 }
 
 
-void KHangManView::timerDone()
+void KHangManView::enableUserInput()
 {
     m_letterInput->setEnabled(true);
     m_letterInput->setFocus();
 }
 
-void KHangManView::timerWordDone()
-{
-    m_letterInput->setEnabled(true);
-    m_letterInput->setFocus();
-}
 
 void KHangManView::slotNewGame()
 {
@@ -564,8 +564,8 @@ void KHangManView::slotNewGame()
 	if (soundFile != 0) 
 	    KAudioPlayer::play(soundFile);
     }
-    reset();
 
+    reset();
     game();
     m_letterInput->setFocus();
 }
@@ -586,51 +586,59 @@ void KHangManView::reset()
     update();
 }
 
+
 void KHangManView::game()
 {
-    //if the data files are not installed in the correct dir
-    QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
     kdDebug() << "language " << Prefs::selectedLanguage() << endl;
-    kdDebug() << "level " << Prefs::levelFile() << endl;
-    QFile myFile;
+    kdDebug() << "level "    << Prefs::levelFile()        << endl;
+
+    // Check if the data files are installed in the correct dir.
+    QString  myString = QString("khangman/data/%1/%2")
+                          .arg(Prefs::selectedLanguage())
+                          .arg(Prefs::levelFile());
+    QFile    myFile;
     myFile.setName(locate("data", myString));
-    if (!myFile.exists())
-    {
-            QString mString=i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
-                                    "Check your installation, please!").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-            KMessageBox::sorry( this, mString,
-                                i18n("Error") );
-            kapp->quit();
+    if (!myFile.exists()) {
+	QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+				"Check your installation, please!")
+	             .arg(Prefs::selectedLanguage())
+	             .arg(Prefs::levelFile());
+	KMessageBox::sorry( this, mString, i18n("Error") );
+	kapp->quit();
     }
-    //update();
-    //we open the file and store info into the stream...
-    QFile openFileStream(myFile.name());
+
+    // We open the file and store info into the stream...
+    QFile  openFileStream(myFile.name());
     openFileStream.open(IO_ReadOnly);
     QTextStream readFileStr(&openFileStream);
     readFileStr.setEncoding(QTextStream::UnicodeUTF8);
-    //allData contains all the words from the file
+
+    // Alldata contains all the words from the file
     QStringList allData = QStringList::split("\n", readFileStr.read(), true);
     openFileStream.close();
-    //detects if file is a kvtml file so that it's a hint enable file
+
+    // Detects if file is a kvtml file so that it's a hint enable file
     if (allData.first() == "<?xml version=\"1.0\"?>") {
         readFile();
     }
-    else {//TODO abort if not a kvtml file maybe
+    else {
+	//TODO abort if not a kvtml file maybe
         kdDebug() << "Not a kvtml file!" << endl;
     }
     kdDebug() << m_word << endl;
-    //display the number of letters to guess with _
-    for(unsigned int i = 0; i < m_word.length(); i++)
-    {
-        goodWord.append("_");
-        goodWord.append(" ");
-    }        
+
+    // Display the number of letters to guess with _
+    for (unsigned int i = 0; i < m_word.length(); i++)
+        goodWord.append("_ ");
+
+    // Remove the last trailing space.
     goodWord.remove(goodWord.length()-1);
     
     kdDebug() << goodWord << endl;
-    stripWord=goodWord;
 
     // If needed, display white space or - if in word or semi dot.
+
+    // 1. Find dashes.
     int f = m_word.find( "-" );
     if (f>0) {
         goodWord.replace(2*f, 1, "-");
@@ -642,24 +650,26 @@ void KHangManView::game()
                 goodWord.append("_");
     }
 
-    // Find another white space.
+    // 2. Find white space.
     c = m_word.find( " " );
-    if (c>0) {
-        d=0;
+    if (c > 0) {
         goodWord.replace(2*c, 1, " ");
-        d = m_word.find( " ", c+1);
-        if (d>0)
-	    goodWord.replace(2*d, c+1, " ");
+        dd = m_word.find( " ", c+1);
+        if (dd > 0)
+	    goodWord.replace(2*dd, c+1, " ");
     }
 
+    // 3. Find ·
     int e = m_word.find( QString::fromUtf8("·") );
     if (e>0)
 	goodWord.replace(2*e, 1, QString::fromUtf8("·") );
 
+    // 4. Find '
     int h = m_word.find( "'" );
     if (h>0)
 	goodWord.replace(2*h, 1, "'");
 }
+
 
 void KHangManView::readFile()
 {
