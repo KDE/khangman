@@ -438,7 +438,7 @@ void KHangManView::slotTry()
 		    popup->show(mapToGlobal(point));
 		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
 		}
-		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?")) == 3)
+		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?"),QString::null,i18n("Play Again"), i18n("Do Not Play")) == 3)
 		    slotNewGame();
 		else
 		    kapp->quit();
@@ -484,7 +484,7 @@ void KHangManView::slotTry()
 
 		    QTimer::singleShot( 4 * 1000, this, SLOT(slotNewGame()) );
 		}
-		else if (KMessageBox::questionYesNo(this, newGameString) == 3)
+		else if (KMessageBox::questionYesNo(this, newGameString, QString::null, i18n("Play Again"), i18n("Do Not Play")) == 3)
 		    slotNewGame();
 		else
 		    kapp->quit();
