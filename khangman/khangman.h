@@ -34,6 +34,7 @@ class KSelectAction;
 class KToggleAction;
 class KHNewStuff;
 class advanced;
+class normal;
 
 
 // Id tags for the status bar.
@@ -158,8 +159,9 @@ private:
     // Contains all the words that are read from the data file.
     QStringList     m_allData;
     
-    ///Instance of an advanced page of the config dialog
-    advanced *mAdvanced;
+    // Settings.
+    normal         *m_generalSettingsDlg;
+    advanced       *m_languageSettingsDlg;
 
 };
 

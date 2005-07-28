@@ -58,6 +58,7 @@ KHangMan::KHangMan()
     // Toolbar for special characters
     secondToolbar = toolBar("Special Characters");
     secondToolbar->setBarPos(KToolBar::Bottom);
+
     loadSettings();
     setAccent();
     loadLangToolBar();
@@ -342,32 +343,33 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	mAdvanced->kcfg_Hint->setEnabled(m_view->hintExists());
-        mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+	m_generalSettingsDlg->kcfg_Hint->setEnabled(m_view->hintExists());
+        m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
         if (Prefs::selectedLanguage() == "de")
-            mAdvanced->kcfg_UpperCase->setEnabled(true);
+            m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
         else
-            mAdvanced->kcfg_UpperCase->setEnabled(false);
+            m_languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
         return;
     }
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-    // Add the Normal Settings page
-    normal *mNormal =  new normal( 0, "Normal Settings" );
-    dialog->addPage(mNormal, i18n("General"), "colorize");
+    // Add the General Settings page
+    m_generalSettingsDlg = new normal( 0, "General Settings" );
+    dialog->addPage(m_generalSettingsDlg, i18n("General"), "colorize");
+    m_generalSettingsDlg->kcfg_Hint->setEnabled( m_view->hintExists() );
 
-    // Add the Advanced Settings page
-    mAdvanced = new advanced( 0, "Advanced" );
-    mAdvanced->kcfg_Hint->setEnabled( m_view->hintExists() );
-    mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+    // Add the Language Settings page
+    m_languageSettingsDlg = new advanced( 0, "Advanced" );
+    dialog->addPage(m_languageSettingsDlg, i18n("Languages"), "kvoctrain");
+
+    m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 
     if (Prefs::selectedLanguage() == "de")
-        mAdvanced->kcfg_UpperCase->setEnabled(true);
+        m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
     else
-        mAdvanced->kcfg_UpperCase->setEnabled(false);
+        m_languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
 
-    dialog->addPage(mAdvanced, i18n("Languages"), "kvoctrain");
 
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "clock");

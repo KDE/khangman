@@ -26,6 +26,10 @@ Code cleaning (ingwa):
   - Make the themes parameterized.  Now the tests and values 
     for different themes are spread out throughout the whole code.
 
+* Renaming
+  - normal.ui   --> generalconfigdlg.ui?
+  - advanced.ui --> languageconfigdlg.ui?
+
 
 14 June 2005
 -------------------

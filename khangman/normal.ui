@@ -8,45 +8,61 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>334</width>
-            <height>128</height>
+            <width>422</width>
+            <height>245</height>
         </rect>
     </property>
-    <grid>
+    <property name="caption">
+        <string>normal</string>
+    </property>
+    <widget class="QLayoutWidget">
         <property name="name">
-            <cstring>unnamed</cstring>
+            <cstring>layout8</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0">
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>402</width>
+                <height>225</height>
+            </rect>
+        </property>
+        <vbox>
             <property name="name">
-                <cstring>layout4</cstring>
+                <cstring>unnamed</cstring>
             </property>
-            <vbox>
+            <widget class="QGroupBox">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>groupBox6</cstring>
                 </property>
-                <widget class="QCheckBox">
-                    <property name="name">
-                        <cstring>kcfg_OneLetter</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Require more &amp;guesses for duplicate letters</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Check this if you do not want to display each instance of the same letter</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
-For example, the word to guess is "potato". If this option is unchecked, when you try "o", the 2 "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
-
-Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
-                    </property>
-                </widget>
+                <property name="sizePolicy">
+                    <sizepolicy>
+                        <hsizetype>7</hsizetype>
+                        <vsizetype>5</vsizetype>
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                    </sizepolicy>
+                </property>
+                <property name="title">
+                    <string>General</string>
+                </property>
                 <widget class="QCheckBox">
                     <property name="name">
                         <cstring>kcfg_WonDialog</cstring>
                     </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>11</x>
+                            <y>54</y>
+                            <width>360</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
                     <property name="text">
                         <string>Do not display the 'Congratulations! You &amp;won!' dialog</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+W</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
@@ -58,37 +74,125 @@ This is the default state.
 If this option is checked, this dialog will not appear and a new game will automatically start after four seconds. A passive popup tells you you have won the game. When this opton is checked you don't have an intrusive dialog each time you won a game.</string>
                     </property>
                 </widget>
-                <widget class="QGroupBox">
+                <widget class="QCheckBox">
                     <property name="name">
-                        <cstring>groupBox3_2</cstring>
+                        <cstring>kcfg_Hint</cstring>
                     </property>
-                    <property name="title">
-                        <string>Sounds</string>
+                    <property name="enabled">
+                        <bool>true</bool>
                     </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QCheckBox">
-                            <property name="name">
-                                <cstring>kcfg_Sound</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Enable &amp;sounds</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If checked, sounds will be played for New Game and Win Game</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
-Default is no sound.</string>
-                            </property>
-                        </widget>
-                    </vbox>
+                    <property name="geometry">
+                        <rect>
+                            <x>11</x>
+                            <y>84</y>
+                            <width>360</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Show hints if available</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If you check it, a hint will be displayed by right-clicking on the game window.</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Some languages have hints to help you guess the word more easily. If this is &lt;b&gt;disabled&lt;/b&gt;, there is no such option for your current language data file.
+If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get them by checking this box. You will then see the hint for the word you are trying to guess by right-clicking somewhere on the KHangMan window, the hint will then be displayed for 4 seconds in a tooltip.</string>
+                    </property>
                 </widget>
-            </vbox>
-        </widget>
-    </grid>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_OneLetter</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>11</x>
+                            <y>24</y>
+                            <width>360</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>Require more &amp;guesses for duplicate letters</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+G</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Check this if you do not want to display each instance of the same letter</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
+For example, the word to guess is "potato". If this option is unchecked, when you try "o", the 2 "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
+
+Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
+                    </property>
+                </widget>
+            </widget>
+            <widget class="QGroupBox">
+                <property name="name">
+                    <cstring>groupBox3_2</cstring>
+                </property>
+                <property name="sizePolicy">
+                    <sizepolicy>
+                        <hsizetype>7</hsizetype>
+                        <vsizetype>5</vsizetype>
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                    </sizepolicy>
+                </property>
+                <property name="title">
+                    <string>Sounds</string>
+                </property>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_Sound</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>380</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>Enable &amp;sounds</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If checked, sounds will be played for New Game and Win Game</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this box is checked, you will have some sounds played for each new game and when you win a game. If this is not checked, there will be no sound in KHangMan.
+Default is no sound.</string>
+                    </property>
+                </widget>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer6</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Vertical</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>20</width>
+                        <height>21</height>
+                    </size>
+                </property>
+            </spacer>
+        </vbox>
+    </widget>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

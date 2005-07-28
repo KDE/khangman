@@ -32,8 +32,11 @@ Timer::Timer()
 {
     timeHintLabel->setText(QString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
     timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
-    connect(kcfg_HintTimer, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged()));
-    connect(kcfg_MissedTimer, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged()));
+
+    connect(kcfg_HintTimer,   SIGNAL(valueChanged(int)),
+	    this,             SLOT(sliderValueChanged()));
+    connect(kcfg_MissedTimer, SIGNAL(valueChanged(int)),
+	    this,             SLOT(sliderValueChanged()));
 }
 
 
