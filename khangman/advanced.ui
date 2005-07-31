@@ -29,7 +29,7 @@
                         <cstring>groupBox5</cstring>
                     </property>
                     <property name="title">
-                        <string>When available</string>
+                        <string>When Available</string>
                     </property>
                     <grid>
                         <property name="name">
@@ -106,7 +106,7 @@ For example, in Catalan, if this is unchecked and you type "o", the o and ò wil
                                 <bool>false</bool>
                             </property>
                             <property name="text">
-                                <string>Play in Upper Case Letters</string>
+                                <string>Play in upper case letters</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>If checked, the word will be displayed all in upper case letters</string>

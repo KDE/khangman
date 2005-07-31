@@ -117,7 +117,7 @@
                                 <cstring>kActiveLabel1</cstring>
                             </property>
                             <property name="text">
-                                <string>Set the time for displaying the hint.</string>
+                                <string>Set the time for displaying the hint:</string>
                             </property>
                         </widget>
                     </grid>
@@ -135,7 +135,7 @@
                                 <cstring>kActiveLabel1_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Set the time for displaying the Already Guessed Letter.</string>
+                                <string>Set the time for displaying the Already Guessed Letter:</string>
                             </property>
                         </widget>
                         <widget class="QLabel" row="2" column="1">
