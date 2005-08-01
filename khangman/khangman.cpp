@@ -75,11 +75,11 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *action = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
+    KAction *action = new KAction(i18n("&New"), "filenew", Qt::CTRL+Qt::Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
     action->setToolTip(i18n( "Play with a new word" ));
 
     // Game->Get Words in New Language
-    new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+    new KAction( i18n("&Get Words in New Language..."), "knewstuff", Qt::CTRL+Qt::Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
@@ -215,14 +215,14 @@ void KHangMan::setLanguages()
     //find duplicated entries in KDEDIR and KDEHOME
 
     QStringList temp_languages;
-    for (uint i=0;  i<m_languages.count(); i++) {
+    for (int i=0;  i<m_languages.count(); i++) {
         if (m_languages.contains(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
             m_languages.remove(m_languages[i]);
         }
     }
 
-    for (uint i=0;  i<temp_languages.count(); i++) {
+    for (int i=0;  i<temp_languages.count(); i++) {
 	// Append 1 of the 2 instances found.
         if (i%2==0)
             m_languages.append(temp_languages[i]);
@@ -232,7 +232,7 @@ void KHangMan::setLanguages()
     // Write the present languages in config so they cannot be downloaded.
     KConfig *config=kapp->config();
     config->setGroup("KNewStuffStatus");
-    for (uint i=0;  i<m_languages.count(); i++) {
+    for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
         if (!config->readEntry(tmp))
             config->writeEntry(tmp, QDate::currentDate().toString());
