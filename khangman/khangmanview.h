@@ -79,8 +79,8 @@ private:
 
     // FIXME:  Rename these into something sensible!
     //         (or better yet: remove them altogether)
-    int  c;    // These two are the positions of the first and second
-    int  dd;   // spaces in the word.
+    int  c;    // These two are the positions of the first and 
+    int  dd;   // second spaces in the word.
 
 
  protected:
@@ -97,19 +97,19 @@ private:
 
     // Painting
 
-    ///Paint the animated hanged K sequence
+    /// Paint the animated hanged K sequence.
     void paintHangman(QPainter &p);
     void paintWord(QPainter &p);
     void paintMisses(QPainter &p);
 
-    ///Reset everything to start a new game, missed letters is empty
+    /// Reset everything to start a new game, missed letters is empty.
     void reset();
-    ///Load kvtml file and get a word and its tip in random
+    /// Load kvtml file and get a word and its tip in random.
     void readFile();
-    ///Play a game: look for a word to be guessed and load its tip
+    /// Play a game: look for a word to be guessed and load its tip.
     void game();
 
-    ///load the K animated sequence depending of the theme
+    /// Load the K animated sequence depending of the theme.
     void loadAnimation();
 
     /// Set the background pixmap to the QPixmap argument.
@@ -121,7 +121,7 @@ private:
     void  replaceLetters(const QString &);
 
 public slots:
-    ///if you want to play with a new word
+    /// If you want to play with a new word
     void slotNewGame();
 
 private slots:
@@ -147,7 +147,7 @@ private:
     QString          m_word;
     /// goodWord is the hidden word that is filled in during the game.
     /// Initialized to "_ " * (number of letters in the word).
-    QString goodWord;
+    QString          m_goodWord;
 
     /// Contains all letters already guessed.
     QStringList      m_guessedLetters;
@@ -182,7 +182,7 @@ private:
 
     // Background picture (sea or desert)
     QPixmap          m_originalBackground;   // Original image
-    QPixmap          m_resizedBackground; // Resized to fit the window.
+    QPixmap          m_resizedBackground;    // Resized to fit the window.
 
     /// The hanged K animation sequence.
     QPixmap          m_animationPics[MAXWRONGGUESSES + 1];

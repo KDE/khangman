@@ -105,10 +105,10 @@ void KHangManView::replaceLetters(const QString& sChar)
         for (int count=0; count < m_word.contains(sChar); count++) {
 
             index = m_word.find(sChar, index);
-            if (goodWord.at(2*index)=='_') {
-                goodWord.replace((2*index), 1, sChar);
+            if (m_goodWord.at(2*index)=='_') {
+		m_goodWord.replace((2*index), 1, sChar);
 
-                kdDebug() << "goodword " << goodWord << endl;
+                kdDebug() << "m_goodword " << m_goodWord << endl;
                 if (count == m_word.contains(sChar)-1)
 		    b_end = true;
                 break;
@@ -126,7 +126,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             index = m_word.find(sChar, index);
 
             //we replace it...
-            goodWord.replace((2*index), 1,sChar);
+            m_goodWord.replace((2*index), 1,sChar);
             index++;
 	}
     }
@@ -289,7 +289,7 @@ void KHangManView::paintWord(QPainter &p)
     tFont.setPixelSize( 28 ); 
 
     p.setFont(tFont);
-    p.drawText(myRect, AlignCenter|AlignCenter, goodWord);
+    p.drawText(myRect, AlignCenter|AlignCenter, m_goodWord);
 }
 
 
@@ -393,7 +393,7 @@ void KHangManView::slotTry()
 	    replaceLetters(guess);
 
 	    // This is needed because of the white spaces.
-	    QString  stripWord = goodWord;
+	    QString  stripWord = m_goodWord;
 	    QString  sword     = m_word;
 	    if (dd > 0)  {
 		stripWord.replace(2*c,   1, "");
@@ -460,7 +460,7 @@ void KHangManView::slotTry()
 		//TODO sequence to finish when hanged
 		QStringList charList=QStringList::split("", m_word);
 		QString theWord=charList.join(" ");
-		goodWord = theWord;
+		m_goodWord = theWord;
 		//usability: find another way to start a new game
 		QString newGameString = i18n("You lost. Do you want to play again?");
 		if (Prefs::wonDialog()) {
@@ -521,7 +521,7 @@ void KHangManView::slotTry()
 	    m_letterInput->setEnabled(false);
 	}
 
-	if (goodWord.contains(guess) > 0) {
+	if (m_goodWord.contains(guess) > 0) {
 	    QPoint abspos = popup->pos();
 
 	    if (Prefs::mode() == 0) {
@@ -573,8 +573,8 @@ void KHangManView::slotNewGame()
 
 void KHangManView::reset()
 {
-    goodWord = "";
-    m_word   = "";
+    m_goodWord = "";
+    m_word     = "";
 
     m_guessedLetters.clear();
     m_numMissedLetters = 0;
@@ -629,45 +629,45 @@ void KHangManView::game()
 
     // Display the number of letters to guess with _
     for (unsigned int i = 0; i < m_word.length(); i++)
-        goodWord.append("_ ");
+        m_goodWord.append("_ ");
 
     // Remove the last trailing space.
-    goodWord.remove(goodWord.length()-1);
+    m_goodWord.remove(m_goodWord.length()-1);
     
-    kdDebug() << goodWord << endl;
+    kdDebug() << m_goodWord << endl;
 
     // If needed, display white space or - if in word or semi dot.
 
     // 1. Find dashes.
     int f = m_word.find( "-" );
     if (f>0) {
-        goodWord.replace(2*f, 1, "-");
+        m_goodWord.replace(2*f, 1, "-");
 
         int g = m_word.find( "-", f+1);
         if (g>0) 
-                goodWord.replace(2*g, 3, "-");
+	    m_goodWord.replace(2*g, 3, "-");
         if (g>1)
-                goodWord.append("_");
+	    m_goodWord.append("_");
     }
 
     // 2. Find white space.
     c = m_word.find( " " );
     if (c > 0) {
-        goodWord.replace(2*c, 1, " ");
+        m_goodWord.replace(2*c, 1, " ");
         dd = m_word.find( " ", c+1);
         if (dd > 0)
-	    goodWord.replace(2*dd, c+1, " ");
+	    m_goodWord.replace(2*dd, c+1, " ");
     }
 
     // 3. Find ·
     int e = m_word.find( QString::fromUtf8("·") );
     if (e>0)
-	goodWord.replace(2*e, 1, QString::fromUtf8("·") );
+	m_goodWord.replace(2*e, 1, QString::fromUtf8("·") );
 
     // 4. Find '
     int h = m_word.find( "'" );
     if (h>0)
-	goodWord.replace(2*h, 1, "'");
+	m_goodWord.replace(2*h, 1, "'");
 }
 
 
