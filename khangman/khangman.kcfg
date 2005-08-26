@@ -82,6 +82,17 @@
         </entry>
      </group>
 
+    <group name="Fonts">
+        <entry name="GuessFontFamily" type="String">
+            <label>Default font family for the Guess button</label>
+            <default code="true">"Dustismo Roman"</default>
+        </entry>
+        <entry name="MissesFontFamily" type="String">
+            <label>Default font family for the MIsses button</label>
+            <default code="true">"Domestic Manners"</default>
+        </entry>
+    </group>
+
     <group name="KNewStuff">
         <entry name="ProvidersUrl" type="Path">
             <label>The Providers path for KHangMan</label>

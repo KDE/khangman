@@ -320,7 +320,7 @@ void KHangManView::paintMisses(QPainter &p)
 
     // Draw the "Misses" word
     QString  misses = i18n("Misses");
-    QFont  mFont = QFont("Domestic Manners");
+    QFont  mFont = QFont(Prefs::missesFontFamily());
     mFont.setPointSize(30);
     p.setFont(mFont);
 
@@ -348,7 +348,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     m_letterInput->setFont( charWrite_font ); 
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16, 
 			       height()/10, height()/10);
-    m_guessButton->setFont(QFont("Dustismo Roman", height()/22));
+    m_guessButton->setFont(QFont(Prefs::guessFontFamily(), height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12 
 			       - m_guessButton->width()-5, 
 			       height() - 2*height()/16, 
