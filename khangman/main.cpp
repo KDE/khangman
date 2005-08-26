@@ -23,6 +23,10 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
+#include <kprocess.h>
+#include <kstandarddirs.h>
+
+#include "fontchecker.h"
 
 static const char description[] =
     I18N_NOOP("Classical hangman game for KDE");
@@ -110,25 +114,41 @@ int main(int argc, char **argv)
     KApplication app;
     KHangMan *mainWin = 0;
 
-    if (app.isRestored())
+    QFont f("Domestic Manners", 12, QFont::Normal, true);
+    QFont fd("Dustismo Roman", 12, QFont::Normal, true);
+    if (!fontChecker::checkInstalled(f, locate("appdata", "fonts/Domestic_Manners.ttf")))
     {
-        RESTORE(KHangMan);
+            KProcess *proc = new KProcess;
+            for (int i = 0; i < argc; i++) *proc << argv[i];
+            proc->start();
     }
-    else
+    else if (!fontChecker::checkInstalled(fd, locate("appdata", "fonts/Dustismo_Roman.ttf")))
     {
-        // no session.. just start up normally
-        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
-        /// @todo do something with the command line args here
-
-        mainWin = new KHangMan();
-        app.setMainWidget( mainWin );
-        mainWin->show();
-
-        args->clear();
+        KProcess *proc = new KProcess;
+        for (int i = 0; i < argc; i++) *proc << argv[i];
+        proc->start();
     }
-
-    // mainWin has WDestructiveClose flag by default, so it will delete itself.
-    return app.exec();
+    else 
+    {
+            if (app.isRestored())
+            {
+                RESTORE(KHangMan);
+            }
+            else
+            {
+                // no session.. just start up normally
+                KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+        
+                /// @todo do something with the command line args here
+        
+                mainWin = new KHangMan();
+                app.setMainWidget( mainWin );
+                mainWin->show();
+        
+                args->clear();
+                // mainWin has WDestructiveClose flag by default, so it will delete itself.
+                return app.exec();
+                }
+    }
 }
 

@@ -348,7 +348,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     m_letterInput->setFont( charWrite_font ); 
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16, 
 			       height()/10, height()/10);
-    m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
+    m_guessButton->setFont(QFont("Dustismo Roman", height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12 
 			       - m_guessButton->width()-5, 
 			       height() - 2*height()/16, 
@@ -466,7 +466,7 @@ void KHangManView::slotTry()
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
 		    QPoint point;
-		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
+		    KPassivePopup *popup = new KPassivePopup(KPassivePopup::Boxed,  this, "popup" );
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 
@@ -496,8 +496,7 @@ void KHangManView::slotTry()
 
 	// Show a popup that says as much.
 	QPoint point;
-	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, 
-						  this, "popup" );
+	KPassivePopup *popup = new KPassivePopup(KPassivePopup::Balloon, this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
