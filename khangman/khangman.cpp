@@ -311,18 +311,21 @@ void KHangMan::loadLevels()
     //TODO else tell no files had been found
     }
     levels.sort();
-    kdDebug() << "Levels:  " << levels << endl;
+
     //find duplicated entries in KDEDIR and KDEHOME
-    for ( QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+    QString last;
+    for ( QStringList::Iterator it = levels.begin(); it != levels.end(); )
     {
-        if (levels.contains(*it)>1) {
-            *it="";//makes duplicate empty string
+        QStringList::Iterator it2 = it++;
+        if (*it2 == last)
+        {
+            // remove duplicate
+            levels.remove(it2);
         }
-    }
-    for (uint i=0;  i<levels.count(); i++)
-    {
-            if (levels[i].isEmpty())
-                levels.remove(levels[i]);//remove empty entries
+        else
+        {
+            last = *it2;
+        }
     }
 
     if (currentLevel>levels.count())
