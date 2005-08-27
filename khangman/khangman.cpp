@@ -322,7 +322,7 @@ void KHangMan::loadLevels()
     for (uint i=0;  i<levels.count(); i++)
     {
             if (levels[i].isEmpty())
-                levels.remove(levels[i]);//append 1 of the 2 instances found
+                levels.remove(levels[i]);//remove empty entries
     }
 
     if (currentLevel>levels.count())
