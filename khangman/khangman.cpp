@@ -311,14 +311,23 @@ void KHangMan::loadLevels()
     //TODO else tell no files had been found
     }
     levels.sort();
+    kdDebug() << "Levels:  " << levels << endl;
     //find duplicated entries in KDEDIR and KDEHOME
+    for ( QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+    {
+        if (levels.contains(*it)>1) {
+            *it="";//makes duplicate empty string
+        }
+    }
     for (uint i=0;  i<levels.count(); i++)
     {
-        if (levels.contains(levels[i])>1)
-            levels.remove(levels[i]);
+            if (levels[i].isEmpty())
+                levels.remove(levels[i]);//append 1 of the 2 instances found
     }
+
     if (currentLevel>levels.count())
         currentLevel = levels.count();
+
     if (levelBool == false)
     {
         Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
@@ -514,7 +523,6 @@ QString KHangMan::charIcon(const QChar & c)
 
 void KHangMan::setAccent()
 {
-    kdDebug() << "in slot accent  " << endl;
     if (Prefs::selectedLanguage()=="es"
 	|| Prefs::selectedLanguage() == "ca"
 	|| Prefs::selectedLanguage() == "pt"
