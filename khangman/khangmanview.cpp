@@ -707,9 +707,12 @@ void KHangManView::readFile()
         khangman->setMessages();
     }
 
-    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
+    if (Prefs::selectedLanguage() =="de")
     {
-        m_word = m_word.upper();// only for German currently
+        if (Prefs::upperCase())
+            m_word = m_word.upper();// only for German currently
+        else if (!Prefs::upperCase())
+            m_word = m_word.lower();
 
         // Replace ß with SS in German 
         if (m_word.contains(QString::fromUtf8("ß"))) {
