@@ -106,7 +106,7 @@ int main(int argc, char **argv)
    aboutData.addCredit("Danny Allen",
                              I18N_NOOP("SVG icon"), "danny@dannyallen.co.uk");
    aboutData.addCredit("Peter Hedlund",
-                             I18N_NOOP("Code for generating icons for the characters toolbar"), "peter@peterandlinda.com");
+                             I18N_NOOP("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
     aboutData.addCredit("Inge Wallin",
                              I18N_NOOP("Code cleaning"), "inge@lysator.liu.se");
     KCmdLineArgs::init( argc, argv, &aboutData );
