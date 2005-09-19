@@ -15,18 +15,18 @@
 <authorgroup>
 <author>
 <firstname>Anne-Marie</firstname>
-<othername></othername>
 <surname>Mahfouf</surname>
 <affiliation>
-<address><email>annma@kde.org</email></address>
+<address>&Anne-Marie.Mahfouf.mail;</address>
 </affiliation>
 </author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 
 <copyright>
 <year>2001</year><year>2005</year>
-<holder>Anne-Marie Mahfouf</holder>
+<holder>&Anne-Marie.Mahfouf;</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
@@ -97,8 +97,8 @@ toolbar.
 <sect1 id="general-usage">
 <title>General usage</title>
 
-<!-- FIXME: A word can't really be displayed and hidden at the same time, -->
-<!-- although I can't think of a better way to phrase this -->
+<!-- FIXME: A word cannot really be displayed and hidden at the same time, -->
+<!-- although I cannot think of a better way to phrase this -->
 <para>A word is chosen and its letters are hidden. You know how many letters there are in the
 word. You have to guess the word by trying one letter after another. You enter the letter in the text box and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
 
@@ -113,7 +113,7 @@ converts all input into lowercase (except for German words for which you can set
 </para>
 
 <para> 
-The current level and current language are displayed in the statusbar.
+The current level and current language are displayed in the status bar.
 </para>
 
 <para>
@@ -176,7 +176,7 @@ By default, after the first installation of &khangman;, only English and your &k
 </para>
 
 <para>
-You can still play &khangman; in other languages. It is very easy to add new data in &khangman;. All you need is a working internet connection. 
+You can still play &khangman; in other languages. It is very easy to add new data in &khangman;. All you need is a working Internet connection. 
 You click on the <guimenu>File</guimenu> menu and then on <guimenu>Get Words in New Language...</guimenu>. A dialog appears, similar to this one:
 </para>
 
@@ -273,8 +273,8 @@ The <guimenu>Look</guimenu> menu proposes two themes: the Sea theme and the Dese
 <para>
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
-<guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
-hide/show the toolbars and statusbar.
+<guimenuitem>Show Status bar</guimenuitem> give you the possibility to
+hide/show the toolbars and status bar.
 </para>
 
 <para>There are two toolbars: the main one which is the one on top
@@ -333,7 +333,7 @@ or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen level
- is  then displayed on the statusbar.</para>
+ is  then displayed on the status bar.</para>
 <para>Only letters are allowed to be typed in the text box.</para>
 </sect1>
 
@@ -397,7 +397,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 </para>
 
 <para>
-<guimenu>Play in Upper Case Letters</guimenu> is a setting only available for German. The user can choose to have the word all in upper case. It does not matter how he enters the letter (lower case or upper case), the game converts it automatically to the choosen setting. Children for example might prefer to see upper case letters.
+<guimenu>Play in Uppercase Letters</guimenu> is a setting only available for German. The user can choose to have the word all in uppercase. It does not matter how he enters the letter (lowercase or uppercase), the game converts it automatically to the choosen setting. Children for example might prefer to see uppercase letters.
 </para>
 
 </sect2>
@@ -574,9 +574,9 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
+<guimenuitem>Show Status bar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the statusbar</para></listitem>
+<listitem><para><action>Toggle</action> the status bar</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -666,13 +666,13 @@ with your language  code.</para>
 </markup></programlisting>
 </step>
 <step>
-<para>Edit all indicated text files in the new directory with a text editor,
+<para>Edit all indicated text files in the new folder with a text editor,
 and replace each word inside the <sgmltag class="starttag">o</sgmltag> tag with a translated word and each hint inside a <sgmltag class="starttag">t</sgmltag> with a translated hint. It is not really important
 that the exact meaning is preserved, but try to keep the length and
 level of difficulty roughly the same.
 You can include words with white space or - in them, in that case the white space or the -
 will be shown instead of the _.
-Please contact Anne-Marie Mahfouf <email>annemarie.mahfouf@free.fr</email> if there is anything special related to your language so I can adapt the code to it (especially the special and accented characters).</para> 
+Please contact &Anne-Marie.Mahfouf; <email>annemarie.mahfouf@free.fr</email> if there is anything special related to your language so I can adapt the code to it (especially the special and accented characters).</para> 
 	
 <para>You can just translate the words but you can also adapt them
 following the level and add new words if you want. For example,
@@ -705,7 +705,7 @@ install</command>, depending on your installation.</para>
 <para>Run the game and check that your language has been added:</para>
 <screen><userinput><command>khangman</command></userinput></screen>
 </step>
-<step><para>Instead of committing your files, please sent them to Anne-Marie Mahfouf <email>annemarie.mahfouf@free.fr</email> tarred and gzipped. As there are now twenty three languages, a wizard (KNewStuff) is now included in KHangMan to easily download and install new languages that are placed on the website. This is done to reduce the size of the kdeedu module and it will also be done in KLettres, KStars and maybe KTouch.
+<step><para>Instead of committing your files, please sent them to &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; tarred and gzipped. As there are now twenty three languages, a wizard (KNewStuff) is now included in KHangMan to easily download and install new languages that are placed on the website. This is done to reduce the size of the kdeedu module and it will also be done in &klettres;, &kstars; and maybe &ktouch;.
 Please contact Anne-Marie by email if you need further information.</para>
 <para>When you send me the files, please don't forget to mention any <emphasis role="bold">special characters</emphasis> used in your language (put them in a text file, one per line and add this file in the tarball) and please mention any other specificity.</para>
 <para><emphasis>Please never commit files in a BRANCH as it might break the game.</emphasis></para>
@@ -790,7 +790,7 @@ There might be a problem due to the change of the configuration file. Please rem
 &khangman;
 </para>
 <para>
-Program copyright 2001-2005 Anne-Marie Mahfouf <email>annma@kde.org</email>
+Program copyright 2001-2005 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 <para>
 Contributors:
@@ -799,7 +799,7 @@ Contributors:
 <email>kisukuma@chez.com</email></para> </listitem>
 <listitem><para>Sounds: Ludovic Grossard
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
-<listitem><para>Blue theme, icons and code: Primoz Anzur
+<listitem><para>Blue theme, icons and code: &Primoz.Anzur;
 <email>zerokode@yahoo.com</email></para> </listitem>
 <listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserhäll
 <email>stefan.asserhall@telia.com
@@ -866,7 +866,7 @@ Contributors:
     <email>scannell@slu.edu
 </email></para> </listitem>
 
-<listitem><para>Coding help: Robert Gogolok
+<listitem><para>Coding help: &Robert.Gogolok;
 <email>robertgogolok@gmx.de</email></para> </listitem>
 <listitem><para>Coding help: Benjamin Meyer
 <email>ben@meyerhome.net</email></para> </listitem>
@@ -880,12 +880,13 @@ Contributors:
 </para>
 
 <para>
-Documentation copyright 2001-2005 Anne-Marie Mahfouf <email>annma@kde.org</email>
+Documentation copyright 2001-2005 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
-&underFDL;               <!-- FDL: do not remove -->
-&underGPL;        	 <!-- GPL License -->
+&underFDL;
+&underGPL;
 
 </chapter>
 
