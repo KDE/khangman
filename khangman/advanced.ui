@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>217</width>
-            <height>192</height>
+            <width>225</width>
+            <height>134</height>
         </rect>
     </property>
     <grid>
@@ -83,37 +83,6 @@ If this is &lt;b&gt;enabled&lt;/b&gt;, then hints are available and you can get 
                                 <string>If this is &lt;b&gt;disabled&lt;/b&gt;, then the selected language does not support it. If this is &lt;b&gt;enabled&lt;/b&gt; and if you check it, then you should type accented letters on their own. If it is not checked, accented letters will be displayed with normal letters.&lt;br&gt;
 Default is that accented letters will be shown when the corresponding unaccented letter is guessed.&lt;br&gt;
 For example, in Catalan, if this is unchecked and you type "o", the o and ò will be displayed in the word &lt;b&gt;xenofòbia&lt;/b&gt;. If this option is checked, when you type "o", only "o" will be displayed and you will then have to type "ò" for this letter to be displayed.</string>
-                            </property>
-                        </widget>
-                    </grid>
-                </widget>
-                <widget class="QGroupBox">
-                    <property name="name">
-                        <cstring>groupBox4</cstring>
-                    </property>
-                    <property name="title">
-                        <string>German</string>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QCheckBox" row="0" column="0">
-                            <property name="name">
-                                <cstring>kcfg_UpperCase</cstring>
-                            </property>
-                            <property name="enabled">
-                                <bool>false</bool>
-                            </property>
-                            <property name="text">
-                                <string>Play in upper case letters</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If checked, the word will be displayed all in upper case letters</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If this is checked, the word will be displayed in upper case letters, even if you enter lower case. If this is unchecked (default), the word will be lower case.&lt;br&gt;
-This setting is currently only available for the German language.</string>
                             </property>
                         </widget>
                     </grid>

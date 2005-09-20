@@ -102,31 +102,30 @@ void KHangManView::replaceLetters(const QString& sChar)
     // Replace letter in the word
     if (Prefs::oneLetter()) {
 	// We just replace the next instance.
-        for (int count=0; count < m_word.contains(sChar); count++) {
+        for (int count=0; count < m_word.contains(sChar, false); count++) {
 
-            index = m_word.find(sChar, index);
+            index = m_word.find(sChar, index, false);
             if (m_goodWord.at(2*index)=='_') {
-		m_goodWord.replace((2*index), 1, sChar);
+		m_goodWord.replace((2*index), 1, m_word.at(index));
 
                 kdDebug() << "m_goodword " << m_goodWord << endl;
-                if (count == m_word.contains(sChar)-1)
+                if (count == m_word.contains(sChar, false)-1)
 		    b_end = true;
                 break;
             }
 	    else
 		index++;
 
-	    if (count == m_word.contains(sChar)-1)
+	    if (count == m_word.contains(sChar, false)-1)
 		b_end = true;
         }
     }
     else {
-        for (int count=0; count < m_word.contains(sChar); count++) {
+        for (int count=0; count < m_word.contains(sChar, false); count++) {
             //searching for letter location
-            index = m_word.find(sChar, index);
-
+            index = m_word.find(sChar, index, false);
             //we replace it...
-            m_goodWord.replace((2*index), 1,sChar);
+            m_goodWord.replace((2*index), 1,m_word.at(index));
             index++;
 	}
     }
@@ -147,7 +146,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     if (!Prefs::oneLetter()) 
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
 
-    if (m_word.contains(sChar) == 1) 
+    if (m_word.contains(sChar, false) == 1) 
         m_guessedLetters << sChar; //append if only one instance
 
     if (Prefs::oneLetter() && b_end) 
@@ -160,28 +159,28 @@ bool KHangManView::containsChar(const QString &sChar)
     bool b = false;
     if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i")
-	    b = m_word.contains(QString::fromUtf8("í"));
+	    b = m_word.contains(QString::fromUtf8("í"), false);
 
         if (sChar=="a")
-	    b = m_word.contains(QString::fromUtf8("à"))
-		|| m_word.contains(QString::fromUtf8("á"))
-		|| m_word.contains(QString::fromUtf8("ã"));
+	    b = m_word.contains(QString::fromUtf8("à"), false)
+		|| m_word.contains(QString::fromUtf8("á"), false)
+		|| m_word.contains(QString::fromUtf8("ã"), false);
 
         if (sChar=="u")
-	    b = m_word.contains(QString::fromUtf8("ü"))
-		|| m_word.contains(QString::fromUtf8("ù"));
+	    b = m_word.contains(QString::fromUtf8("ü"), false)
+		|| m_word.contains(QString::fromUtf8("ù"), false);
 
         if (sChar=="o")
-	    b = m_word.contains(QString::fromUtf8("ò"))
-		|| m_word.contains(QString::fromUtf8("ó"))
-		|| m_word.contains(QString::fromUtf8("õ"));
+	    b = m_word.contains(QString::fromUtf8("ò"), false)
+		|| m_word.contains(QString::fromUtf8("ó"), false)
+		|| m_word.contains(QString::fromUtf8("õ"), false);
 
         if (sChar=="e")
-	    b = m_word.contains(QString::fromUtf8("è"))
-		|| m_word.contains(QString::fromUtf8("é"));
+	    b = m_word.contains(QString::fromUtf8("è"), false)
+		|| m_word.contains(QString::fromUtf8("é"), false);
     }
 
-    return (b || m_word.contains(sChar));
+    return (b || m_word.contains(sChar, false));
 }
 
 
@@ -373,12 +372,6 @@ void KHangManView::slotTry()
     QString guess = m_letterInput->text();
     kdDebug() << "guess as entered: " << guess << endl;
 
-    // If German, make upper case, otherwise make lower case.
-    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
-        guess = guess.upper();
-    else
-        guess = guess.lower();
-
     // If the char is not a letter, empty the input and return.
     if (!guess.at(0).isLetter()) {
 	m_letterInput->setText("");
@@ -503,7 +496,7 @@ void KHangManView::slotTry()
 
 	int  x = 0;
 	int  y = 0;
-	if (m_missedLetters.contains(guess) > 0) {
+	if (m_missedLetters.contains(guess, false) > 0) {
 	    // FIXME: popup should be better placed.
 
 	    QPoint abspos = popup->pos();
@@ -520,7 +513,7 @@ void KHangManView::slotTry()
 	    m_letterInput->setEnabled(false);
 	}
 
-	if (m_goodWord.contains(guess) > 0) {
+	if (m_goodWord.contains(guess, false) > 0) {
 	    QPoint abspos = popup->pos();
 
 	    if (Prefs::mode() == 0) {
@@ -705,21 +698,6 @@ void KHangManView::readFile()
     else {
         m_hintExists = true;
         khangman->setMessages();
-    }
-
-    if (Prefs::selectedLanguage() =="de")
-    {
-        if (Prefs::upperCase())
-            m_word = m_word.upper();// only for German currently
-        else if (!Prefs::upperCase())
-            m_word = m_word.lower();
-
-        // Replace ß with SS in German 
-        if (m_word.contains(QString::fromUtf8("ß"))) {
-            int index = m_word.find(QString::fromUtf8("ß"),0);
-            m_word.replace(index,1, "S");
-            //TODO add a S here
-        }
     }
 }
 

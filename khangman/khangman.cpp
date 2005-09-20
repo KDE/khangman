@@ -356,10 +356,6 @@ void KHangMan::optionsPreferences()
     if ( KConfigDialog::showDialog( "settings" ) )  {
 	mAdvanced->kcfg_Hint->setEnabled(m_view->hintExists());
         mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-        if (Prefs::selectedLanguage() == "de")
-            mAdvanced->kcfg_UpperCase->setEnabled(true);
-        else
-            mAdvanced->kcfg_UpperCase->setEnabled(false);
         return;
     }
 
@@ -373,11 +369,6 @@ void KHangMan::optionsPreferences()
     mAdvanced = new advanced( 0, "Advanced" );
     mAdvanced->kcfg_Hint->setEnabled( m_view->hintExists() );
     mAdvanced->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-
-    if (Prefs::selectedLanguage() == "de")
-        mAdvanced->kcfg_UpperCase->setEnabled(true);
-    else
-        mAdvanced->kcfg_UpperCase->setEnabled(false);
 
     dialog->addPage(mAdvanced, i18n("Languages"), "kvoctrain");
 
@@ -393,8 +384,6 @@ void KHangMan::updateSettings()
 {
     //after upperCase() changed, reload new game
     setAccent();
-    if (Prefs::selectedLanguage() == "de")
-        loadLangToolBar();
     setMessages();
     m_view->slotNewGame();
 }
@@ -458,9 +447,6 @@ void KHangMan::loadLangToolBar()
 	// FIXME: Better name
 	m_allData = QStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
-	if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
-	    for (int i=0; i<(int) m_allData.count(); i++)
-		m_allData[i] = m_allData[i].upper();
 
 	for (int i=0; i<(int) m_allData.count(); i++)
 	    secondToolbar->insertButton (charIcon(m_allData[i].at(0)), i, 
