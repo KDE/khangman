@@ -440,9 +440,10 @@ void KHangManView::slotTry()
 	else {
 	    // The char is missed.
 
-	    m_guessedLetters << guess;	
+	    m_guessedLetters << guess.lower();	
+            m_guessedLetters << guess.upper();
 	    m_missedLetters = m_missedLetters.replace((2 * m_numMissedLetters), 
-						      1, guess);
+						      1, guess.lower());
 	    m_numMissedLetters++;
 	    update();
 
