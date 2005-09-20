@@ -306,7 +306,7 @@ void KHangManView::paintMisses(QPainter &p)
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
     else
-        tFont.setFamily( "Sans Serif" );
+        tFont.setFamily( "Arial" );
     tFont.setPixelSize( 28 );
     p.setPen( letterColor );
     p.setFont(tFont);
@@ -443,7 +443,6 @@ void KHangManView::slotTry()
 	    m_guessedLetters << guess;	
 	    m_missedLetters = m_missedLetters.replace((2 * m_numMissedLetters), 
 						      1, guess);
-
 	    m_numMissedLetters++;
 	    update();
 
