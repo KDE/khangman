@@ -379,7 +379,7 @@ void KHangManView::slotTry()
     }
 
     // Handle the guess.
-    if (!m_guessedLetters.contains(guess)) {
+    if (!m_guessedLetters.contains(guess.lower())) {
 	// The letter is not already guessed.
 	
 	if (containsChar(guess)) {
