@@ -396,10 +396,6 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <para><guimenu>Type Accented Letters</guimenu> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check <guimenu> Type Accented Letters</guimenu>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
 </para>
 
-<para>
-<guimenu>Play in Uppercase Letters</guimenu> is a setting only available for German. The user can choose to have the word all in uppercase. It does not matter how he enters the letter (lowercase or uppercase), the game converts it automatically to the choosen setting. Children for example might prefer to see uppercase letters.
-</para>
-
 </sect2>
 
 <sect2 id="timers-settings">
