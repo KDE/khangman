@@ -23,6 +23,8 @@
 class KPushButton;
 class KHangMan;
 
+#include <qpixmap.h>
+
 #include <klineedit.h>
 
 #include <krandomsequence.h>
