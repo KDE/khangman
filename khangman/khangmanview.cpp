@@ -47,13 +47,14 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     khangman = parent;
     
     // The widget for entering letters.
-    m_letterInput = new KLineEdit( this, "charWrite" );
+    m_letterInput = new KLineEdit( this );
+	m_letterInput->setObjectName("charWrite" )
     m_letterInput->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
 					       (QSizePolicy::SizeType) 0, 
 					       0, 0, 
 					       m_letterInput->sizePolicy().hasHeightForWidth() ) );
     m_letterInput->setMaxLength( 1 );
-    m_letterInput->setAlignment( int( QLineEdit::AlignHCenter ) );
+    m_letterInput->setAlignment( Qt::AlignHCenter  );
 
     // Press this button to enter a letter (or press enter)
     m_guessButton = new KPushButton( this, "guessButton" );
@@ -191,7 +192,7 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == RightButton && m_hintExists && Prefs::hint()) {
+    if (mouse->button() == Qt::RightButton && m_hintExists && Prefs::hint()) {
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), m_hint );
@@ -289,7 +290,7 @@ void KHangManView::paintWord(QPainter &p)
     tFont.setPixelSize( 28 ); 
 
     p.setFont(tFont);
-    p.drawText(myRect, AlignCenter|AlignCenter, goodWord);
+    p.drawText(myRect, Qt::AlignCenter|Qt::AlignCenter, goodWord);
 }
 
 
@@ -316,7 +317,7 @@ void KHangManView::paintMisses(QPainter &p)
     QRect         fmRect(fm.boundingRect(m_missedLetters));
     QRect         myRect = QRect(width() - fmRect.width(), 15, 
 				 fmRect.width(), fm.height());
-    p.drawText(myRect, AlignLeft, m_missedLetters);
+    p.drawText(myRect, Qt::AlignLeft, m_missedLetters);
 
     // Draw the "Misses" word
     QString  misses = i18n("Misses");
@@ -330,7 +331,7 @@ void KHangManView::paintMisses(QPainter &p)
 			  15 - fm2.height() + fm.height(),
 			  fmRect2.width(), fm2.height());
     p.setPen( letterColor );
-    p.drawText(myRect2, AlignLeft|AlignCenter, misses);
+    p.drawText(myRect2, Qt::AlignLeft|Qt::AlignCenter, misses);
 }
 
 

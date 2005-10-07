@@ -216,7 +216,7 @@ void KHangMan::setLanguages()
 
     QStringList temp_languages;
     for (int i=0;  i<m_languages.count(); i++) {
-        if (m_languages.contains(m_languages[i])>1) {
+        if (m_languages.count(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
             m_languages.remove(m_languages[i]);
         }
@@ -234,7 +234,7 @@ void KHangMan::setLanguages()
     config->setGroup("KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
-        if (!config->readEntry(tmp))
+        if (config->readEntry(tmp).isEmpty())
             config->writeEntry(tmp, QDate::currentDate().toString());
     }
 
@@ -313,9 +313,9 @@ void KHangMan::loadLevels()
     }
     levels.sort();
     //find duplicated entries in KDEDIR and KDEHOME
-    for (uint i=0;  i<levels.count(); i++)
+    for (int i=0;  i<levels.count(); i++)
     {
-        if (levels.contains(levels[i])>1)
+        if (levels.count(levels[i])>1)
             levels.remove(levels[i]);
     }
     if (currentLevel>levels.count())
