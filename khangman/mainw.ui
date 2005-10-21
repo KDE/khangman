@@ -751,6 +751,6 @@ The Guess button has the same function as to press the Enter key on your keyboar
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
-    <includehint>kpushbutton.h</includehint>
+    
 </includehints>
 </UI>
