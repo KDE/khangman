@@ -42,6 +42,7 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <ktoolbarbutton.h>
+#include <kglobal.h>
 
 
 KHangMan::KHangMan()
@@ -230,7 +231,7 @@ void KHangMan::setLanguages()
     temp_languages.clear();
 
     // Write the present languages in config so they cannot be downloaded.
-    KConfig *config=kapp->config();
+    KConfig *config=KGlobal::config();
     config->setGroup("KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
