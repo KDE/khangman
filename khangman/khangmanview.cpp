@@ -410,8 +410,8 @@ void KHangManView::slotTry()
 	    sword.remove(QRegExp(" "));
 
 	    // If the user made it...
-	    if (rightWord.stripWhiteSpace().lower() 
-		== sword.stripWhiteSpace().lower()) { 
+	    if (rightWord.trimmed().lower() 
+		== sword.trimmed().lower()) { 
 
 		// We reset everything...
 		// pixImage->setPixmap(m_animationPics[10]);
