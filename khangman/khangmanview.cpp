@@ -610,7 +610,7 @@ void KHangManView::game()
 
     // We open the file and store info into the stream...
     QFile  openFileStream(myFile.name());
-    openFileStream.open(IO_ReadOnly);
+    openFileStream.open(QIODevice::ReadOnly);
     QTextStream readFileStr(&openFileStream);
     readFileStr.setEncoding(QTextStream::UnicodeUTF8);
 
