@@ -32,7 +32,7 @@
 #include <qregexp.h>
 #include <qtimer.h>
 #include <qtooltip.h>
-#include <qvbox.h>
+#include <kvbox.h>
 #include <qwidget.h>
 
 //project headers
@@ -57,7 +57,8 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     m_letterInput->setAlignment( Qt::AlignHCenter  );
 
     // Press this button to enter a letter (or press enter)
-    m_guessButton = new KPushButton( this, "guessButton" );
+    m_guessButton = new KPushButton( this);
+	m_guessButton->setObjectName( "guessButton" );
     m_guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
 					       (QSizePolicy::SizeType) 0,
 					       0, 0, 
@@ -471,7 +472,7 @@ void KHangManView::slotTry()
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 
-		    QVBox *vb = new QVBox( popup );
+		    KVBox *vb = new KVBox( popup );
 
 		    QLabel *popLabel = new QLabel( vb);
 		    popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
