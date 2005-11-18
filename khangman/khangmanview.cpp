@@ -34,7 +34,7 @@
 #include <qtooltip.h>
 #include <kvbox.h>
 #include <qwidget.h>
-
+#include <QMouseEvent>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -42,13 +42,14 @@
 
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
-    : QWidget(parent, name, WStaticContents | WNoAutoErase)
+    : QWidget(parent /*WStaticContents | WNoAutoErase*/)
 {
+	setAttribute(Qt::WA_StaticContents);
     khangman = parent;
     
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
-	m_letterInput->setObjectName("charWrite" )
+	m_letterInput->setObjectName("charWrite" );
     m_letterInput->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
 					       (QSizePolicy::SizeType) 0, 
 					       0, 0, 
@@ -630,7 +631,7 @@ void KHangManView::game()
     kdDebug() << m_word << endl;
 
     // Display the number of letters to guess with _
-    for (unsigned int i = 0; i < m_word.length(); i++)
+    for (int i = 0; i < m_word.length(); i++)
         goodWord.append("_ ");
 
     // Remove the last trailing space.
