@@ -64,7 +64,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
 					       (QSizePolicy::SizeType) 0,
 					       0, 0, 
 					       m_guessButton->sizePolicy().hasHeightForWidth() ) );
-    m_guessButton->setAutoMask( true );
+    //m_guessButton->setAutoMask( true );
     m_guessButton->setFlat( true );
     m_guessButton->setText( i18n( "G&uess" ) );
     
@@ -105,26 +105,26 @@ void KHangManView::replaceLetters(const QString& sChar)
     // Replace letter in the word
     if (Prefs::oneLetter()) {
 	// We just replace the next instance.
-        for (int count=0; count < m_word.contains(sChar); count++) {
+        for (int count=0; count < m_word.count(sChar); count++) {
 
             index = m_word.find(sChar, index);
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
 
                 kdDebug() << "goodword " << goodWord << endl;
-                if (count == m_word.contains(sChar)-1)
+                if (count == m_word.count(sChar)-1)
 		    b_end = true;
                 break;
             }
 	    else
 		index++;
 
-	    if (count == m_word.contains(sChar)-1)
+	    if (count == m_word.count(sChar)-1)
 		b_end = true;
         }
     }
     else {
-        for (int count=0; count < m_word.contains(sChar); count++) {
+        for (int count=0; count < m_word.count(sChar); count++) {
             //searching for letter location
             index = m_word.find(sChar, index);
 
