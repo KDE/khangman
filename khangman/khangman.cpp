@@ -375,7 +375,7 @@ void KHangMan::optionsPreferences()
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "clock");
 
-    connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+    connect(dialog, SIGNAL(settingsChanged( const QString &)), this, SLOT(updateSettings()));
 
     dialog->show();
 }
