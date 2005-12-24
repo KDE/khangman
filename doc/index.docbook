@@ -84,7 +84,10 @@ must guess the word before being hanged! You have 10 tries.
 
 <para>
 Here you can see &khangman; as it is the first time you run it. Level is Animals,
-language is default (English here, the default is your current KDE language if the data exists), the theme is "Sea". Any changes in level, language or theme (background)  are written in the configuration file and restored in your next game.
+language is default (English here, the default is your current &kde; language if
+the data exists), the theme is "Sea". Any changes in level, language or theme
+(background)  are written in the configuration file and restored in your next
+game.
 </para>
 
 <para>
@@ -160,7 +163,8 @@ the level with the level button on the toolbar (this will bring you a new word
 for the new level).</para>
 
 <para>
-Future improvement (in KDE 4) will allow you to create your own words file or to load a file different from the four included ones.
+Future improvement (in &kde; 4) will allow you to create your own words file or
+to load a file different from the four included ones.
 </para>
 </sect1>
 
@@ -620,7 +624,8 @@ The twenty four available languages so far by code are: bg ca cs da de en es fr 
 </para>
 <para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg fr en it only have hints so the other above languages must be updated as soon as possible.
 </para>
-<para>Be sure you are working with the latest cvs HEAD sources of KHangMan by issuing a
+<para>Be sure you are working with the latest cvs HEAD sources of &khangman; by
+issuing a
 <screen><userinput><command>
 cvs up -dPA khangman
 </command></userinput></screen>
@@ -701,7 +706,12 @@ install</command>, depending on your installation.</para>
 <para>Run the game and check that your language has been added:</para>
 <screen><userinput><command>khangman</command></userinput></screen>
 </step>
-<step><para>Instead of committing your files, please sent them to &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; tarred and gzipped. As there are now twenty three languages, a wizard (KNewStuff) is now included in KHangMan to easily download and install new languages that are placed on the website. This is done to reduce the size of the kdeedu module and it will also be done in &klettres;, &kstars; and maybe &ktouch;.
+<step><para>Instead of committing your files, please sent them to
+&Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; tarred and gzipped. As there are
+now twenty three languages, a wizard (KNewStuff) is now included in &khangman;
+to easily download and install new languages that are placed on the website.
+This is done to reduce the size of the kdeedu module and it will also be done in
+&klettres;, &kstars; and maybe &ktouch;.
 Please contact Anne-Marie by email if you need further information.</para>
 <para>When you send me the files, please don't forget to mention any <emphasis role="bold">special characters</emphasis> used in your language (put them in a text file, one per line and add this file in the tarball) and please mention any other specificity.</para>
 <para><emphasis>Please never commit files in a BRANCH as it might break the game.</emphasis></para>
@@ -733,7 +743,7 @@ A planned feature is of course to have more language data and also hints in ever
 </para>
 <para>
 What can also be done is to use other kvtml files like the ones that are on the
-KDE-Edu website to play &khangman;. For example, imagine you can play the
+&kde;-Edu website to play &khangman;. For example, imagine you can play the
 capitals of the world, the hint will tell you the country and you have to guess
 the capital. Or learn words in another language, the hint is the word in your
 language, the word to guess is the translation in the new language.
@@ -795,8 +805,8 @@ Contributors:
 <email>kisukuma@chez.com</email></para> </listitem>
 <listitem><para>Sounds: Ludovic Grossard
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
-<listitem><para>Blue theme, icons and code: Primoz Anzur
-<email>zerokode@yahoo.com</email></para> </listitem>
+<listitem><para>Blue theme, icons and code: &Primoz.Anzur;
+<email>&Primoz.Anzur.mail;</email></para> </listitem>
 <listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserhäll
 <email>stefan.asserhall@telia.com
 </email></para> </listitem>
@@ -861,9 +871,8 @@ Contributors:
 <listitem><para>Irish (Gaelic) data files: Kevin Patrick Scannell
     <email>scannell@slu.edu
 </email></para> </listitem>
-
-<listitem><para>Coding help: Robert Gogolok
-<email>robertgogolok@gmx.de</email></para> </listitem>
+<listitem><para>Coding help: &Robert.Gogolok;
+<email>&Robert.Gogolok.mail;</email></para> </listitem>
 <listitem><para>Coding help: Benjamin Meyer
 <email>ben@meyerhome.net</email></para> </listitem>
 <listitem><para>Code fixes: Lubos Lun&agrave;k
@@ -880,7 +889,6 @@ Documentation copyright 2001-2005 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
 &underFDL;               <!-- FDL: do not remove -->
 &underGPL;        	 <!-- GPL License -->
 
