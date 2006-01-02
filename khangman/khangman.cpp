@@ -235,7 +235,7 @@ void KHangMan::setLanguages()
     config->setGroup("KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
-        if (config->readEntry(tmp, QString::null).isEmpty())
+        if (config->readEntry(tmp, QString()).isEmpty())
             config->writeEntry(tmp, QDate::currentDate().toString());
     }
 
