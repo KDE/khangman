@@ -1,6 +1,6 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = khangman
-khangman_SOURCES = khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc khnewstuff.cpp normal.ui advanced.ui timerdlg.ui timer.cpp
+khangman_SOURCES = khangman.cpp main.cpp khangmanview.cpp prefs.kcfgc khnewstuff.cpp generalui.ui languageui.ui timerdlg.ui timer.cpp
 khangman_LDADD   =  $(LIB_KDEUI) $(top_builddir)/libkdeedu/kdeeducore/libkdeeducore.la -lknewstuff
 
 SUBDIRS = data pics sounds icons

@@ -21,7 +21,6 @@
 
 #include "khangman.h"
 #include "prefs.h"
-#include "advanced.h"
 #include "timer.h"
 #include "khnewstuff.h"
 
@@ -342,35 +341,37 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	//m_languageSettingsDlg->kcfg_Hint->setEnabled(m_view->hintExists());
-        m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+	ui_language.kcfg_Hint->setEnabled(m_view->hintExists());
+        ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+	/*
         if (Prefs::selectedLanguage() == "de")
-            m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
+            languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
         else
-            m_languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
+            languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
+	*/
         return;
     }
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
     // Add the General Settings page
-    QWidget *window = new QWidget;
-    Ui::normal ui;
-    ui.setupUi(window);
-    dialog->addPage(window, i18n("General"), "colorize");
+    QWidget *generalSettingsDlg = new QWidget;
+    ui_general.setupUi(generalSettingsDlg);
+    dialog->addPage(generalSettingsDlg, i18n("General"), "colorize");
 
     // Add the Language Settings page
-    m_languageSettingsDlg = new advanced( 0, "Advanced" );
-    dialog->addPage(m_languageSettingsDlg, i18n("Languages"), "kvoctrain");
+    QWidget *languageSettingsDlg = new QWidget;
+    ui_language.setupUi(languageSettingsDlg);
+    dialog->addPage(languageSettingsDlg, i18n("Languages"), "kvoctrain");
 
-    m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-   //m_languageSettingsDlg->kcfg_Hint->setEnabled( m_view->hintExists() );
-
+    ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+    ui_language.kcfg_Hint->setEnabled( m_view->hintExists() );
+    /*
     if (Prefs::selectedLanguage() == "de")
-        m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
+        languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
     else
-        m_languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
-
+        languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
+    */
 
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "clock");

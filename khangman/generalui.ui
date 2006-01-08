@@ -2,8 +2,8 @@
  <author></author>
  <comment></comment>
  <exportmacro></exportmacro>
- <class>normal</class>
- <widget class="QWidget" name="normal" >
+ <class>generalui</class>
+ <widget class="QWidget" name="generalui" >
   <property name="geometry" >
    <rect>
     <x>0</x>

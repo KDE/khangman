@@ -29,7 +29,8 @@
 #include <kmainwindow.h>
 
 #include "khangmanview.h"
-#include "normal.h"
+#include "generalui.h"
+#include "languageui.h"
 
 class KSelectAction;
 class KToggleAction;
@@ -162,7 +163,8 @@ private:
     QStringList     m_allData;
     
     // Settings.
-    advanced       *m_languageSettingsDlg;
+    Ui::generalui ui_general;
+    Ui::languageui ui_language;
 
 };
 
