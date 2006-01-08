@@ -22,7 +22,6 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "advanced.h"
-#include "normal.h"
 #include "timer.h"
 #include "khnewstuff.h"
 
@@ -43,7 +42,6 @@
 #include <kstatusbar.h>
 #include <ktoolbarbutton.h>
 #include <kglobal.h>
-
 
 KHangMan::KHangMan()
     : KMainWindow( 0, "KHangMan" ),
@@ -344,7 +342,7 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	m_generalSettingsDlg->kcfg_Hint->setEnabled(m_view->hintExists());
+	//m_languageSettingsDlg->kcfg_Hint->setEnabled(m_view->hintExists());
         m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
         if (Prefs::selectedLanguage() == "de")
             m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
@@ -356,15 +354,17 @@ void KHangMan::optionsPreferences()
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
     // Add the General Settings page
-    m_generalSettingsDlg = new normal( 0, "General Settings" );
-    dialog->addPage(m_generalSettingsDlg, i18n("General"), "colorize");
-    m_generalSettingsDlg->kcfg_Hint->setEnabled( m_view->hintExists() );
+    QWidget *window = new QWidget;
+    Ui::normal ui;
+    ui.setupUi(window);
+    dialog->addPage(window, i18n("General"), "colorize");
 
     // Add the Language Settings page
     m_languageSettingsDlg = new advanced( 0, "Advanced" );
     dialog->addPage(m_languageSettingsDlg, i18n("Languages"), "kvoctrain");
 
     m_languageSettingsDlg->kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
+   //m_languageSettingsDlg->kcfg_Hint->setEnabled( m_view->hintExists() );
 
     if (Prefs::selectedLanguage() == "de")
         m_languageSettingsDlg->kcfg_UpperCase->setEnabled(true);

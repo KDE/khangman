@@ -29,12 +29,13 @@
 #include <kmainwindow.h>
 
 #include "khangmanview.h"
+#include "normal.h"
 
 class KSelectAction;
 class KToggleAction;
 class KHNewStuff;
 class advanced;
-class normal;
+
 
 
 // Id tags for the status bar.
@@ -49,6 +50,7 @@ const int IDS_HINT     = 103;
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
  * @version 0.1
  */
+
 class KHangMan : public KMainWindow
 {
     Q_OBJECT
@@ -160,7 +162,6 @@ private:
     QStringList     m_allData;
     
     // Settings.
-    normal         *m_generalSettingsDlg;
     advanced       *m_languageSettingsDlg;
 
 };
