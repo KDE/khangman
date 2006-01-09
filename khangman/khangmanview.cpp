@@ -428,7 +428,7 @@ void KHangManView::slotTry()
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
 		    QPoint point;
-		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
+		    KPassivePopup *popup = new KPassivePopup( this);
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 		    popup->setView(i18n("Congratulations,\nyou won!") );
@@ -469,7 +469,7 @@ void KHangManView::slotTry()
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
 		    QPoint point;
-		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
+		    KPassivePopup *popup = new KPassivePopup( this);
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 
@@ -500,7 +500,7 @@ void KHangManView::slotTry()
 	// Show a popup that says as much.
 	QPoint point;
 	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Boxed, 
-						  this, "popup" );
+						  this );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
 	popup->setView(i18n("This letter has already been guessed.") );
