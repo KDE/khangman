@@ -31,6 +31,7 @@
 #include "khangmanview.h"
 #include "generalui.h"
 #include "languageui.h"
+//#include "timerui.h"
 
 class KSelectAction;
 class KToggleAction;
@@ -165,7 +166,7 @@ private:
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
-
+    //Ui::timerui ui_timer;
 };
 
 #endif // _KHANGMAN_H_

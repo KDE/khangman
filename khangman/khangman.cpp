@@ -316,7 +316,7 @@ void KHangMan::loadLevels()
         if (levels.count(levels[i])>1)
             levels.remove(levels[i]);
     }
-    if (currentLevel>levels.count())
+    if ((int)currentLevel>levels.count())
         currentLevel = levels.count();
     if (levelBool == false)
     {

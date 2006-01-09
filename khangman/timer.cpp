@@ -1,6 +1,8 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Michael Goettsche                               *
  *   michael.goettsche@kdemail.net                                         *
+ *   Copyright (C) 2006 by Anne-Marie Mahfouf                               *
+ *   annemarie.mahfouf@free.fr   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -28,22 +30,24 @@
 
 
 Timer::Timer()
-    :timerdlg()
+    :QWidget()
 {
-    timeHintLabel->setText(QString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
-    timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
+    //QWidget *timerSettingsDlg = new QWidget;
+    ui_timer.setupUi(this);
+    ui_timer.timeHintLabel->setText(QString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
+    ui_timer.timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
 
-    connect(kcfg_HintTimer,   SIGNAL(valueChanged(int)),
+    connect(ui_timer.kcfg_HintTimer,   SIGNAL(valueChanged(int)),
 	    this,             SLOT(sliderValueChanged()));
-    connect(kcfg_MissedTimer, SIGNAL(valueChanged(int)),
+    connect(ui_timer.kcfg_MissedTimer, SIGNAL(valueChanged(int)),
 	    this,             SLOT(sliderValueChanged()));
 }
 
 
 void Timer::sliderValueChanged()
 {
-    timeMissedLabel->setText(QString::number(kcfg_MissedTimer->value()) + " " + i18n("seconds"));
-    timeHintLabel->setText(QString::number(kcfg_HintTimer->value()) + " " + i18n("seconds"));
+    ui_timer.timeMissedLabel->setText(QString::number(ui_timer.kcfg_MissedTimer->value()) + " " + i18n("seconds"));
+    ui_timer.timeHintLabel->setText(QString::number(ui_timer.kcfg_HintTimer->value()) + " " + i18n("seconds"));
 }
 
 
