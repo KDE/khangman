@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -499,7 +499,7 @@ void KHangManView::slotTry()
 
 	// Show a popup that says as much.
 	QPoint point;
-	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Balloon, 
+	KPassivePopup *popup = new KPassivePopup( KPassivePopup::Boxed, 
 						  this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
@@ -570,6 +570,8 @@ void KHangManView::slotNewGame()
 
     reset();
     game();
+
+    update();
     m_letterInput->setFocus();
 }
 
@@ -585,8 +587,6 @@ void KHangManView::reset()
 
     // Clear the input field.
     m_letterInput->setText("");
-
-    update();
 }
 
 
