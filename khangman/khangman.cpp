@@ -24,10 +24,10 @@
 #include "timer.h"
 #include "khnewstuff.h"
 
-#include <qbitmap.h>
-#include <qcheckbox.h>
-#include <qpainter.h>
-#include <qdir.h>
+#include <QBitmap>
+#include <QCheckBox>
+#include <QPainter>
+#include <QDir>
 
 #include <kapplication.h>
 #include <kactionclasses.h>

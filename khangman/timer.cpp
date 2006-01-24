@@ -32,7 +32,6 @@
 Timer::Timer()
     :QWidget()
 {
-    //QWidget *timerSettingsDlg = new QWidget;
     ui_timer.setupUi(this);
     ui_timer.timeHintLabel->setText(QString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
     ui_timer.timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
