@@ -34,4 +34,8 @@
         <Action name="file_new"/>
 	<Action name="file_quit"/>
 </ToolBar>
+
+<ToolBar name="secondToolBar" noMerge="1"><text>Special Characters</text>
+</ToolBar>
+
 </kpartgui>

@@ -56,7 +56,7 @@ KHangMan::KHangMan()
     setupActions();
 
     // Toolbar for special characters
-    secondToolbar = toolBar("Special Characters");
+    secondToolbar = toolBar("secondToolBar");
     secondToolbar->setBarPos(KToolBar::Bottom);
     loadSettings();
     setAccent();
