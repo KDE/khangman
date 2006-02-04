@@ -25,15 +25,14 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 
-#include <qimage.h>
-#include <qlabel.h>
-#include <qpainter.h>
-#include <qpoint.h>
-#include <qregexp.h>
-#include <qtimer.h>
-#include <qtooltip.h>
-#include <kvbox.h>
-#include <qwidget.h>
+#include <QImage>
+#include <QLabel>
+#include <QPainter>
+#include <QPoint>
+#include <QRegExp>
+#include <QTimer>
+#include <QToolTip>
+#include <QWidget>
 #include <QMouseEvent>
 //project headers
 #include "prefs.h"
