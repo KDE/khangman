@@ -39,7 +39,7 @@ KHNewStuff::KHNewStuff( KHangManView *view ) :
 
 bool KHNewStuff::install( const QString &fileName )
 {
-    kdDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
+    kDebug(5850) << "KHNewStuff::install(): " << fileName << endl;
     
     KTar archive( fileName );
     if ( !archive.open( QIODevice::ReadOnly ) )

@@ -99,7 +99,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     int   index = 0;
     bool  b_end = false;
 
-    kdDebug() << "word " << m_word << endl;
+    kDebug() << "word " << m_word << endl;
 
     // Replace letter in the word
     if (Prefs::oneLetter()) {
@@ -110,7 +110,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
 
-                kdDebug() << "goodword " << goodWord << endl;
+                kDebug() << "goodword " << goodWord << endl;
                 if (count == m_word.count(sChar)-1)
 		    b_end = true;
                 break;
@@ -373,7 +373,7 @@ void KHangManView::setBackground(QPixmap& bgPix)
 void KHangManView::slotTry()
 {
     QString guess = m_letterInput->text();
-    kdDebug() << "guess as entered: " << guess << endl;
+    kDebug() << "guess as entered: " << guess << endl;
 
     // If German, make upper case, otherwise make lower case.
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
@@ -591,8 +591,8 @@ void KHangManView::reset()
 
 void KHangManView::game()
 {
-    kdDebug() << "language " << Prefs::selectedLanguage() << endl;
-    kdDebug() << "level "    << Prefs::levelFile()        << endl;
+    kDebug() << "language " << Prefs::selectedLanguage() << endl;
+    kDebug() << "level "    << Prefs::levelFile()        << endl;
 
     // Check if the data files are installed in the correct dir.
     QString  myString = QString("khangman/data/%1/%2")
@@ -625,9 +625,9 @@ void KHangManView::game()
     }
     else {
 	//TODO abort if not a kvtml file maybe
-        kdDebug() << "Not a kvtml file!" << endl;
+        kDebug() << "Not a kvtml file!" << endl;
     }
-    kdDebug() << m_word << endl;
+    kDebug() << m_word << endl;
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++)
@@ -636,7 +636,7 @@ void KHangManView::game()
     // Remove the last trailing space.
     goodWord.remove(goodWord.length()-1);
     
-    kdDebug() << goodWord << endl;
+    kDebug() << goodWord << endl;
 
     // If needed, display white space or - if in word or semi dot.
 
@@ -675,7 +675,7 @@ void KHangManView::game()
 
 void KHangManView::readFile()
 {
-    kdDebug() << "in read kvtml file " << endl;
+    kDebug() << "in read kvtml file " << endl;
     QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
     myString= locate("data", myString);
     KEduVocDataItemList verbs = KEduVocData::parse(myString);
