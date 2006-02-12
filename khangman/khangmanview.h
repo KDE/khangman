@@ -28,7 +28,8 @@ class KHangMan;
 #include <klineedit.h>
 
 #include <krandomsequence.h>
-#include <keduvocdata.h>
+#include <keduvocdocument.h>
+#include <keduvocexpression.h>
 
 
 #define MAXWRONGGUESSES  10
@@ -53,7 +54,7 @@ public:
     KHangMan *khangman;
 
     void setTheme();
-    
+
     bool  hintExists() const          { return m_hintExists;            }
 
     bool  accentedLetters() const     { return m_accentedLetters;       }
@@ -63,7 +64,7 @@ public:
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
 
-    
+
 signals:
 
      /// Use this signal to change the content of the statusbar
@@ -76,7 +77,7 @@ signals:
 private:
 
     // FIXME: Move all these below the next "private:" and when doing
-    //        that, rename them (if necessary), and regroup them into 
+    //        that, rename them (if necessary), and regroup them into
     //        logical groups.
 
     // FIXME:  Rename these into something sensible!
@@ -142,7 +143,7 @@ private:
     // The basic data ----------------
 
     // FIXME: Rewrite the whole handling of this so that goodWord,
-    //        guessedLetters, and missedLetters all lack spaces.  
+    //        guessedLetters, and missedLetters all lack spaces.
     //        These spaces will then be added at draw time.
 
     /// The word to be guessed.
@@ -157,7 +158,7 @@ private:
     // Stores the missed letters that are shown on the screen.
     // Initialiazed to "_ " * MAXWRONGGUESSES.
     QString          m_missedLetters;
-    /// How many times you missed.  
+    /// How many times you missed.
     /// When this reaches MAXWRONGGUESSES, you are hanged.
     int              m_numMissedLetters;
 
@@ -175,10 +176,10 @@ private:
     bool             m_hintExists;
     QString          m_hint;
 
-    /// true if the language contains accented letters.  
+    /// true if the language contains accented letters.
     /// This is true for, among others, es, ca, pt or pt_BR
     bool             m_accentedLetters;
-    
+
 
     // Graphics  ----------------
 
@@ -198,7 +199,9 @@ private:
     /// After you entered a letter in the line edit click this button
     /// to see if the letter is in the word or not.
     KPushButton     *m_guessButton;
+
+    KEduVocDocument *m_doc;
 };
 
 #endif // KHANGMANVIEW_H
- 
+
