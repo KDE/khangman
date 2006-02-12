@@ -702,7 +702,7 @@ void KHangManView::readFile()
     m_lastWordNumber = wordNumber;
 
     m_word = m_doc->entry(wordNumber)->original();
-    m_hint = m_doc->entry(wordNumber)->translation(0);
+    m_hint = m_doc->entry(wordNumber)->translation(1);
 
     if (m_word.isEmpty())
         readFile();
