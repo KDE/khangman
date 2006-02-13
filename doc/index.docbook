@@ -116,7 +116,7 @@ converts all input into lowercase (except for German words beginning with an upp
 </para>
 
 <para> 
-The current level and current language are displayed in the status bar.
+The current level and current language are displayed in the statusbar.
 </para>
 
 <para>
@@ -276,7 +276,7 @@ The <guimenu>Look</guimenu> menu proposes two themes: the Sea theme and the Dese
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
 <guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
-hide/show the toolbars and status bar.
+hide/show the toolbars and statusbar.
 </para>
 
 <para>There are two toolbars: the main one which is the one on top
@@ -331,7 +331,7 @@ or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen level
- is  then displayed on the status bar.</para>
+ is  then displayed on the statusbar.</para>
 <para>Only letters are allowed to be typed in the text box.</para>
 </sect1>
 
@@ -570,7 +570,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <guimenu>Settings</guimenu>
 <guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the status bar</para></listitem>
+<listitem><para><action>Toggle</action> the statusbar</para></listitem>
 </varlistentry>
 
 <varlistentry>
