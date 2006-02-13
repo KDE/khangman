@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2005-06-14</date>
+<date>2006-02-01</date>
 <releaseinfo>1.6</releaseinfo>
 
 <abstract>
@@ -102,7 +102,7 @@ toolbar.
 
 <!-- FIXME: A word cannot really be displayed and hidden at the same time, -->
 <!-- although I cannot think of a better way to phrase this -->
-<para>A word is chosen and its letters are hidden. You know how many letters there are in the
+<para>A word is chosen and its letters are displayed as an underscore (_) symbol. You know how many letters there are in the
 word. You have to guess the word by trying one letter after another. You enter the letter in the text box and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
 
 <para>The word is picked at random and it is not the same as the previous word.
@@ -112,7 +112,7 @@ word. You have to guess the word by trying one letter after another. You enter t
 
 <para>
 Usually, it is not important whether you type in lowercase or uppercase. The program
-converts all input into lowercase (except for German words for which you can set to play whith uppercase or lowercase). The program does that automatically.
+converts all input into lowercase (except for German words beginning with an uppercase letter). The program does that automatically.
 </para>
 
 <para> 
@@ -163,8 +163,7 @@ the level with the level button on the toolbar (this will bring you a new word
 for the new level).</para>
 
 <para>
-Future improvement (in &kde; 4) will allow you to create your own words file or
-to load a file different from the four included ones.
+Future improvement (in &kde; 4) will allow you to create your own words file.
 </para>
 </sect1>
 
@@ -228,11 +227,10 @@ When you see <quote>io</quote>, try n after that, in French and English.
 In Brazilian Portuguese, Catalan, Spanish and Portuguese, the accented
 vowels can be discovered when you type the non accented corresponding
 vowel. For example, all the accented <quote>a</quote> are displayed in
-the word when you type <quote>a</quote>. This is when
-<menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &khangman;</guimenuitem> <guimenuitem>Advanced Settings</guimenuitem> <guimenuitem>Type Accented
-Letters</guimenuitem></menuchoice> is not checked. When
-<guimenuitem>Type Accented
-Letters</guimenuitem> is checked, then you have to type
+the word when you type <quote>a</quote>. This is when <guilabel>Type accented
+letters</guilabel> on the <guilabel>Languages</guilabel> page of &khangman;'s
+configuration dialog is not checked. When <guilabel>Type accented
+letters</guilabel> is checked, then you have to type
 the accented letters yourself. When you type <quote>a</quote>, only
 <quote>a</quote> is displayed and you have to type for example
 &atilde; for this letter to be displayed.
@@ -263,7 +261,7 @@ main window and writing the actual settings in the configuration
 file.</para>
 
 <para>
-The <guimenu>Levels</guimenu> menu allows you to choose the level, &ie; the difficulty of the word to guess.
+The <guimenu>Level</guimenu> menu allows you to choose the level, &ie; the difficulty of the word to guess.
 </para>
 
 <para>
@@ -277,13 +275,13 @@ The <guimenu>Look</guimenu> menu proposes two themes: the Sea theme and the Dese
 <para>
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
-<guimenuitem>Show Status bar</guimenuitem> give you the possibility to
+<guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
 hide/show the toolbars and status bar.
 </para>
 
 <para>There are two toolbars: the main one which is the one on top
 with the buttons and combo boxes and the
-<interface>Characters</interface> toolbar which, when it is shown, is
+<guilabel>Special Characters</guilabel> toolbar which, when it is shown, is
 on the bottom. This toolbar has buttons with the special characters
 for each language: accented letters and other special characters. This
 allows users to easily play in another language without having to configure
@@ -305,17 +303,13 @@ options for the toolbar.
 </para>
 </tip>
 <para>
-<guimenuitem>Configure Shortcuts...</guimenuitem> is a standard &kde; setting that allows you to
+<guimenuitem>Configure Shortcuts...</guimenuitem> is a standard &kde; setting dialog that allows you to
 choose different shortcut keys for different actions. For example,
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> is the
 standard shortcut for <guimenuitem>Quit</guimenuitem>.</para>
 <para><guimenuitem>Configure Toolbars...</guimenuitem> is also a
 standard &kde; menu item that allows you to add or suppress items from
-the toolbar. When <guimenuitem>Full-Screen Mode</guimenuitem> is
-checked, it brings you in full-screen mode, with only the toolbar on
-top and &khangman; occupies the whole screen. On the main toolbar, the
-icon <guiicon>Back to Normal Size</guiicon> allows you to come back
-from full-screen mode to the window size you had before.</para>
+the toolbar.</para>
 
 <screenshot>
 <screeninfo>&khangman; Desert theme</screeninfo>
@@ -332,7 +326,7 @@ from full-screen mode to the window size you had before.</para>
 <para> Here you have &khangman; with the Desert theme, Catalan language and level Easy. The
 <interface>Characters</interface> toolbar is shown here.</para>
 
-<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Levels</guimenu> menu in the menubar. The available levels are easy, medium, animals and hard. Easy is related to common objects a child aged six
+<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Level</guimenu> menu in the menubar. The available levels are easy, medium, animals and hard. Easy is related to common objects a child aged six
 or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
@@ -344,7 +338,7 @@ quite difficult and animals is only animals nouns. </para>
 <sect1 id="settings">
 <title>Available Settings</title>
 <para>
-A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), to quit the game and to have full-screen mode (provided for low resolution screens and to play with several people). This user manual also will open if you click on the &khangman; handbook icon. The level and the theme are easily changed via 2 combo boxes on the toolbar.
+A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), or to quit the game. The level and the theme are easily changed via 2 combo boxes on the toolbar.
 </para>
 <para>
 In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for General settings.
@@ -365,7 +359,7 @@ In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will
 	</mediaobject>
 </screenshot>
 
-<para><guimenu>Requires more guesses for duplicate letters</guimenu>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the firts "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
+<para><guimenu>Require more guesses for duplicate letters</guimenu>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the firts "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
 </para>
 
 <para><guimenu>Do not display the 'Congratulations! You won!' dialog</guimenu>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
@@ -397,7 +391,7 @@ In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a soun
 Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if you check the option <guimenu>Show hints</guimenu>, you can &RMB; click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word more easily.
 </para>
 
-<para><guimenu>Type Accented Letters</guimenu> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish. If you check <guimenu> Type Accented Letters</guimenu>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
+<para><guilabel>Type accented letters</guilabel> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish in &khangman;'s configuration dialog. If you check <guilabel>Type accented letters</guilabel>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
 </para>
 
 </sect2>
@@ -420,7 +414,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 </screenshot>
 
 <para>
-<guilabel>Set the time for displaying the hint</guilabel> allows you to set a greater time for showing the hint label. It is necessary to increase the time for younger children for example as they read more slowly than adults.
+<guilabel>Set the time for displaying the hint:</guilabel> allows you to set a greater time for showing the hint label. It is necessary to increase the time for younger children for example as they read more slowly than adults.
 </para>
 
 <para><guilabel>Set the time for displaying the Already Guessed Letter</guilabel> allows you to increase or decrease the time for displaying the Already Guessed Letter tooltip. This tooltip is a label which appears when you tried a letter that was already tried. Some people will want not to see it for long while children will need time to understand it and thus will need to set the display for a longer duration.
@@ -558,7 +552,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Show Main</guimenuitem>
+<guimenuitem>Main (&khangman;)</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
 </varlistentry>
@@ -566,7 +560,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Show Characters</guimenuitem>
+<guimenuitem>Special Characters</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the Characters Toolbar</para></listitem>
 </varlistentry>
@@ -574,7 +568,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Status bar</guimenuitem>
+<guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the status bar</para></listitem>
 </varlistentry>
@@ -585,6 +579,16 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Configure</action> the items you want to put in the toolbar
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Open</action> standard &kde; setting dialog that allows you to
+choose different shortcut keys for different actions.
 </para></listitem>
 </varlistentry>
 
@@ -624,10 +628,10 @@ The twenty four available languages so far by code are: bg ca cs da de en es fr 
 </para>
 <para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg fr en it only have hints so the other above languages must be updated as soon as possible.
 </para>
-<para>Be sure you are working with the latest cvs HEAD sources of &khangman; by
+<para>Be sure you are working with the latest svn trunk sources of &khangman; by
 issuing a
 <screen><userinput><command>
-cvs up -dPA khangman
+svn up khangman
 </command></userinput></screen>
 in the kdeedu module. Then 
 <screen><userinput><command>
@@ -723,8 +727,7 @@ Please contact Anne-Marie by email if you need further information.</para>
 <sect1 id="internal">
 <title>What is stored by &khangman; and where</title>
 <para>
-When you get a new language via  <guimenu>Game </guimenu> ->  <guimenu>Get Data in New Language ...</guimenu>, the new language data is stored in <filename
-class="directory">$~/.kde/share/apps/khangman/data</filename> in the language code folder. The available language dir names are also stored in the &khangman; config file in <filename>~/.kde/share/config/khangmanrc</filename>.
+When you get a new language via <menuchoice><guimenu>Game</guimenu> <guimenuitem>Get Words in New Language...</guimenuitem></menuchoice>, the new language data is stored in <filename class="directory">$~/.kde/share/apps/khangman/data</filename> in the language code folder. The available language dir names are also stored in the &khangman; config file in <filename>~/.kde/share/config/khangmanrc</filename>.
 </para>
 <para>
 The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
@@ -796,7 +799,7 @@ There might be a problem due to the change of the configuration file. Please rem
 &khangman;
 </para>
 <para>
-Program copyright 2001-2005 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
+Program copyright 2001-2006 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 <para>
 Contributors:
