@@ -12,7 +12,7 @@
             <height>166</height>
         </rect>
     </property>
-    <property name="caption">
+    <property name="windowTitle">
         <string>advanced</string>
     </property>
     <widget class="QLayoutWidget">
