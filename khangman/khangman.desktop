@@ -6,6 +6,7 @@ Icon=khangman
 DocPath=khangman/index.html
 Comment=KDE Hangman Game
 GenericName=Hangman Game
+GenericName[fr]=Jeu du pendu
 GenericName[x-test]=xxHangman Gamexx
 Terminal=false
 Name=KHangMan
