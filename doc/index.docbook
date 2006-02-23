@@ -341,7 +341,7 @@ quite difficult and animals is only animals nouns. </para>
 A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), or to quit the game. The level and the theme are easily changed via 2 combo boxes on the toolbar.
 </para>
 <para>
-In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find two tabs. The first one is for General settings.
+In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
 </para>
 
 <sect2 id="general-settings">
@@ -359,20 +359,20 @@ In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will
 	</mediaobject>
 </screenshot>
 
-<para><guimenu>Require more guesses for duplicate letters</guimenu>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the firts "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
+<para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the firts "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
 </para>
 
-<para><guimenu>Do not display the 'Congratulations! You won!' dialog</guimenu>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
+<para><guilabel>Do not display the 'Congratulations! You won!' dialog</guilabel>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
 </para>
 
 <para>
-In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a sound will be played on new game and another sound will be played when you win a game.
+In the Sounds section, if you check <guilabel>Enable sounds</guilabel> then a sound will be played on new game and another sound will be played when you win a game.
 </para>
 
 </sect2>
 <sect2 id="languages-settings">
 <title>Languages Settings</title>
-<para>The Languages Settings tab allows you to set some settings specific to some languages. If the settings are not available for the language you are playing in then those settings will be grayed and disabled so you cannot choose them.
+<para>The <guilabel>Languages</guilabel> Settings tab allows you to set some settings specific to some languages. If the settings are not available for the language you are playing in then those settings will be grayed and disabled so you cannot choose them.
 </para>
 
 <screenshot>
@@ -388,7 +388,7 @@ In the Sounds section, if you check <guimenu>Enable sounds</guimenu> then a soun
 </screenshot>
 
 <para>
-Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if you check the option <guimenu>Show hints</guimenu>, you can &RMB; click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word more easily.
+Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if you check the option <guilabel>Show hints</guilabel>, you can &RMB; click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word more easily.
 </para>
 
 <para><guilabel>Type accented letters</guilabel> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish in &khangman;'s configuration dialog. If you check <guilabel>Type accented letters</guilabel>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
@@ -398,7 +398,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 
 <sect2 id="timers-settings">
 <title>Timers Settings</title>
-<para>The Timers Settings tab allows you to set the time for displaying the hint and the Already Guessed Letter tooltip.
+<para>The <guilabel>Timers</guilabel> Settings tab allows you to set the time for displaying the hint and the Already Guessed Letter tooltip.
 </para>
 
 <screenshot>
@@ -430,7 +430,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <title>Command Reference</title>
 
 <sect1 id="khangman-mainwindow">
-<title>Menus and shortcut keys</title>
+<title>Menus and Shortcut Keys</title>
 
 <sect2>
 <title>The <guimenu>Game</guimenu> Menu</title>
@@ -576,19 +576,19 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Configure</action> the items you want to put in the toolbar
+<listitem><para><action>Open</action> standard &kde; setting dialog that allows you to
+choose different shortcut keys for different actions.
 </para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
+<guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Open</action> standard &kde; setting dialog that allows you to
-choose different shortcut keys for different actions.
+<listitem><para><action>Configure</action> the items you want to put in the toolbar
 </para></listitem>
 </varlistentry>
 
