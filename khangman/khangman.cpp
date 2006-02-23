@@ -328,12 +328,12 @@ void KHangMan::loadLevels()
     }    
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
-        translatedLevels+=i18n((*it).utf8());
+        translatedLevels+=i18n((*it).toUtf8());
     m_levelAction->setItems(translatedLevels);
     m_levelAction->setCurrentItem(Prefs::currentLevel());
     
     setLevel();
-    QString m_lstring = translatedLevels[currentLevel].utf8();
+    QString m_lstring = translatedLevels[currentLevel].toUtf8();
     m_lstring.replace(0, 1, m_lstring.left(1).upper());
     changeStatusbar(m_lstring, IDS_LEVEL);
 }
