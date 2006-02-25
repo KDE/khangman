@@ -686,7 +686,7 @@ void KHangManView::readFile()
     myString= locate("data", myString);
 
     m_doc = new KEduVocDocument(this);
-    m_doc->open(KUrl(myString), false);
+    m_doc->open(KUrl::fromPathOrURL(myString), false);
 
     //how many words in the file
     int NumberOfWords = m_doc->numEntries() /*verbs.count()*/;
