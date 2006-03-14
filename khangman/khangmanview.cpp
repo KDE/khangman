@@ -498,7 +498,8 @@ void KHangManView::slotTry()
 
         // Show a popup that says as much.
         QPoint point;
-        KPassivePopup *popup = new KPassivePopup( KPassivePopup::Boxed, this );
+        KPassivePopup *popup = new KPassivePopup( this );
+        popup->setPopupStyle( KPassivePopup::Boxed );
         popup->setAutoDelete( true );
         popup->setTimeout( 1000 );
         popup->setView(i18n("This letter has already been guessed.") );
