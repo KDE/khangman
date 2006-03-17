@@ -1,4 +1,5 @@
 kde4_header()
+project(khangman)
 
 add_subdirectory( khangman ) 
 

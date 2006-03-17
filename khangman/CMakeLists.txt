@@ -25,7 +25,7 @@ kde4_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
 kde4_add_executable(khangman ${khangman_SRCS})
 
-target_link_libraries(khangman  ${QT_AND_KDECORE_LIBS} kdeui kdeeducore knewstuff )
+target_link_libraries(khangman  ${LIB_KDEUI} kdeeducore knewstuff )
 
 install_targets(/bin khangman )
 
