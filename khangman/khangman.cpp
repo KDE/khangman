@@ -56,7 +56,7 @@ KHangMan::KHangMan()
 
     // Toolbar for special characters
     secondToolbar = toolBar("secondToolBar");
-    secondToolbar->setBarPos(KToolBar::Bottom);
+    addToolBar ( Qt::BottomToolBarArea, secondToolbar);
 
     loadSettings();
     setAccent();
@@ -74,20 +74,23 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *action = new KAction(i18n("&New"), "filenew", Qt::CTRL+Qt::Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
+    KAction *action = new KAction(i18n("&New"), actionCollection(), "file_new");
+    action->setShortcut(Qt::CTRL+Qt::Key_N);
+    action->setIcon(KIcon("filenew"));
     action->setToolTip(i18n( "Play with a new word" ));
-
+    connect(action, SIGNAL(triggered()), this, SLOT(slotNewGame()));
     // Game->Get Words in New Language
     new KAction( i18n("&Get Words in New Language..."), "knewstuff", Qt::CTRL+Qt::Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
-    m_levelAction = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
+    m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
+    connect(m_levelAction, SIGNAL(triggered()), this, SLOT(slotChangeLevel()));
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
     // Action for selecting language.
-    m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
+    m_languageAction = new KSelectAction(i18n("&Language"), actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(activated(int)), this, SLOT(slotChangeLanguage(int)));
@@ -96,7 +99,7 @@ void KHangMan::setupActions()
 
     // Mode. Currently hard coded into Sea and Desert themes.
     QStringList modes;
-    m_modeAction = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
+    m_modeAction = new KSelectAction(i18n("L&ook"), 0, 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
     modes += i18n("&Sea Theme");
     modes += i18n("&Desert Theme");
     m_modeAction->setItems(modes);
@@ -456,10 +459,11 @@ void KHangMan::loadLangToolBar()
 		m_allData[i] = m_allData[i].upper();
 
 	for (int i=0; i<(int) m_allData.count(); i++)
-	    secondToolbar->insertButton (charIcon(m_allData[i].at(0)), i, 
-					 SIGNAL( clicked() ), this, 
-					 SLOT( slotPasteChar()), true,  
-					 i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
+	    secondToolbar->addAction (charIcon(m_allData[i].at(0)));
+				//TODO port to kde4 // i, 
+					 //SIGNAL( clicked() ), this, 
+					 //SLOT( slotPasteChar()), true,  
+					 //i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
     }
 
     if (Prefs::showCharToolbar())
@@ -475,8 +479,11 @@ void KHangMan::loadLangToolBar()
 
 void KHangMan::slotPasteChar()
 {
+#warning "kde4: port it";
+#if 0	
 	KToolBarButton *charBut = (KToolBarButton* ) sender();
 	m_view->enterLetter(m_allData[charBut->id()]);
+#endif
 }
 
 QString KHangMan::charIcon(const QChar & c)
