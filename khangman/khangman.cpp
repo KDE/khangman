@@ -74,14 +74,17 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *action = new KAction(i18n("&New"), actionCollection(), "file_new");
-    action->setShortcut(Qt::CTRL+Qt::Key_N);
-    action->setIcon(KIcon("filenew"));
-    action->setToolTip(i18n( "Play with a new word" ));
-    connect(action, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
+    KAction *newAct = KStdAction::openNew(this, SLOT(fileNew()),
+                                       actionCollection());
+    newAct->setToolTip(i18n( "Play with a new word" ));
+    connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
+
     // Game->Get Words in New Language
-    new KAction( i18n("&Get Words in New Language..."), "knewstuff", Qt::CTRL+Qt::Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
-    
+    KAction *newStuffAct = new KAction( i18n("&Get Words in New Language..."), actionCollection(), "downloadnewstuff" );
+    newStuffAct->setIcon(KIcon("knewstuff"));
+    newStuffAct->setShortcut(Qt::CTRL+Qt::Key_G);
+    connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
+
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
     m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
