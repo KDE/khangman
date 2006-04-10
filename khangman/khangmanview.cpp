@@ -475,7 +475,7 @@ void KHangManView::slotTry()
 
                 QLabel *popLabel = new QLabel( vb);
                 popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
-                popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(m_word));
+                popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>", m_word));
                 popup->setView( vb );
 
                 QPoint abspos = popup->pos();
@@ -602,9 +602,9 @@ void KHangManView::game()
     myFile.setName(locate("data", myString));
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
-                                "Check your installation, please!")
-                                .arg(Prefs::selectedLanguage())
-                                .arg(Prefs::levelFile());
+                                "Check your installation, please!",
+                                 Prefs::selectedLanguage(),
+                                 Prefs::levelFile());
         KMessageBox::sorry( this, mString, i18n("Error") );
         kapp->quit();
     }
