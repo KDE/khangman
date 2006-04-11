@@ -29,8 +29,8 @@
 #include <kmainwindow.h>
 
 #include "khangmanview.h"
-#include "generalui.h"
-#include "languageui.h"
+#include "ui_generalui.h"
+#include "ui_languageui.h"
 //#include "timerui.h"
 
 class KSelectAction;
