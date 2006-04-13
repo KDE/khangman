@@ -105,7 +105,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     // We just replace the next instance.
         for (int count=0; count < m_word.count(sChar); count++) {
 
-            index = m_word.find(sChar, index);
+            index = m_word.indexOf(sChar, index);
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
 
@@ -124,7 +124,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     else {
         for (int count=0; count < m_word.count(sChar); count++) {
             //searching for letter location
-            index = m_word.find(sChar, index);
+            index = m_word.indexOf(sChar, index);
 
             //we replace it...
             goodWord.replace((2*index), 1,sChar);
@@ -404,7 +404,7 @@ void KHangManView::slotTry()
             stripWord.replace(2*(dd-1)-1, 1, "");
         }
 
-        QStringList  rightChars = QStringList::split(" ", stripWord, true);
+        QStringList  rightChars =  stripWord.split(" ");
         QString      rightWord  = rightChars.join("");
         update();
         sword.remove(QRegExp(" "));
@@ -459,7 +459,7 @@ void KHangManView::slotTry()
         if (m_numMissedLetters >= MAXWRONGGUESSES) {
 
             //TODO sequence to finish when hanged
-            QStringList charList=QStringList::split("", m_word);
+            QStringList charList=m_word.split(" ");
             QString theWord=charList.join(" ");
             goodWord = theWord;
             //usability: find another way to start a new game
@@ -613,10 +613,10 @@ void KHangManView::game()
     QFile  openFileStream(myFile.fileName());
     openFileStream.open(QIODevice::ReadOnly);
     QTextStream readFileStr(&openFileStream);
-    readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+    readFileStr.setCodec("UTF-8");
 
     // Alldata contains all the words from the file
-    QStringList allData = QStringList::split("\n", readFileStr.read(), true);
+    QStringList allData = readFileStr.readAll().split("\n");
     openFileStream.close();
 
     // Detects if file is a kvtml file so that it's a hint enable file
