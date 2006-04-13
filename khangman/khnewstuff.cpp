@@ -54,8 +54,8 @@ bool KHNewStuff::install( const QString &fileName )
     m_view->khangman->setLanguages();
     //refresh Languages menu
     m_view->khangman->m_languageAction->setItems(m_view->khangman->m_languageNames);
-    m_view->khangman->slotChangeLanguage(m_view->khangman->m_languages.findIndex(Prefs::selectedLanguage()));
-    m_view->khangman->m_languageAction->setCurrentItem(m_view->khangman->m_languages.findIndex(Prefs::selectedLanguage()));
+    m_view->khangman->slotChangeLanguage(m_view->khangman->m_languages.indexOf(Prefs::selectedLanguage()));
+    m_view->khangman->m_languageAction->setCurrentItem(m_view->khangman->m_languages.indexOf(Prefs::selectedLanguage()));
     return true;
 }
 

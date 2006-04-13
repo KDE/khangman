@@ -376,9 +376,9 @@ void KHangManView::slotTry()
 
     // If German, make upper case, otherwise make lower case.
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
-        guess = guess.upper();
+        guess = guess.toUpper();
     else
-        guess = guess.lower();
+        guess = guess.toLower();
 
     // If the char is not a letter, empty the input and return.
     if (!guess.at(0).isLetter()) {
@@ -410,7 +410,7 @@ void KHangManView::slotTry()
         sword.remove(QRegExp(" "));
 
         // If the user made it...
-        if (rightWord.trimmed().lower() == sword.trimmed().lower()) {
+        if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
 
             // We reset everything...
             // pixImage->setPixmap(m_animationPics[10]);
@@ -599,7 +599,7 @@ void KHangManView::game()
                           .arg(Prefs::selectedLanguage())
                           .arg(Prefs::levelFile());
     QFile    myFile;
-    myFile.setName(locate("data", myString));
+    myFile.setFileName(locate("data", myString));
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
                                 "Check your installation, please!",
@@ -610,7 +610,7 @@ void KHangManView::game()
     }
 
     // We open the file and store info into the stream...
-    QFile  openFileStream(myFile.name());
+    QFile  openFileStream(myFile.fileName());
     openFileStream.open(QIODevice::ReadOnly);
     QTextStream readFileStr(&openFileStream);
     readFileStr.setEncoding(QTextStream::UnicodeUTF8);
@@ -641,11 +641,11 @@ void KHangManView::game()
     // If needed, display white space or - if in word or semi dot.
 
     // 1. Find dashes.
-    int f = m_word.find( "-" );
+    int f = m_word.indexOf( "-" );
     if (f>0) {
         goodWord.replace(2*f, 1, "-");
 
-        int g = m_word.find( "-", f+1);
+        int g = m_word.indexOf( "-", f+1);
         if (g>0)
             goodWord.replace(2*g, 3, "-");
         if (g>1)
@@ -653,21 +653,21 @@ void KHangManView::game()
     }
 
     // 2. Find white space.
-    c = m_word.find( " " );
+    c = m_word.indexOf( " " );
     if (c > 0) {
         goodWord.replace(2*c, 1, " ");
-        dd = m_word.find( " ", c+1);
+        dd = m_word.indexOf( " ", c+1);
         if (dd > 0)
             goodWord.replace(2*dd, c+1, " ");
     }
 
     // 3. Find ·
-    int e = m_word.find( QString::fromUtf8("·") );
+    int e = m_word.indexOf( QString::fromUtf8("·") );
     if (e>0)
         goodWord.replace(2*e, 1, QString::fromUtf8("·") );
 
     // 4. Find '
-    int h = m_word.find( "'" );
+    int h = m_word.indexOf( "'" );
     if (h>0)
         goodWord.replace(2*h, 1, "'");
 }
@@ -723,11 +723,11 @@ void KHangManView::readFile()
 
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
-        m_word = m_word.upper();// only for German currently
+        m_word = m_word.toUpper();// only for German currently
 
         // Replace ß with SS in German
         if (m_word.contains(QString::fromUtf8("ß"))) {
-            int index = m_word.find(QString::fromUtf8("ß"),0);
+            int index = m_word.indexOf(QString::fromUtf8("ß"),0);
             m_word.replace(index,1, "S");
             //TODO add a S here
         }

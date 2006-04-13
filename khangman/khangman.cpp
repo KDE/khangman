@@ -272,7 +272,7 @@ void KHangMan::loadSettings()
 {
     // Language //TODO is selectedLanguage necessary??? only used here
     selectedLanguage = Prefs::selectedLanguage();
-    if (m_languages.grep(selectedLanguage).isEmpty())
+    if (m_languages.filter(selectedLanguage).isEmpty())
             selectedLanguage = "en";
     changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     // Show/hide characters toolbar
@@ -322,7 +322,7 @@ void KHangMan::loadLevels()
     for (int i=0;  i<levels.count(); i++)
     {
         if (levels.count(levels[i])>1)
-            levels.remove(levels[i]);
+            levels.removeAt(i);
     }
     if ((int)currentLevel>levels.count())
         currentLevel = levels.count();
@@ -428,14 +428,14 @@ void KHangMan::loadLangToolBar()
     if (!m_noSpecialChars) {
 	QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
 	QFile myFile;
-	myFile.setName(locate("data", myString));
+	myFile.setFileName(locate("data", myString));
 
 	// Let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
 	    QString  myString=QString("khangman/data/%1/%1.txt")
 		.arg(Prefs::selectedLanguage())
 		.arg(Prefs::selectedLanguage());
-	    myFile.setName(locate("data",myString));
+	    myFile.setFileName(locate("data",myString));
 	    kDebug() << myString << endl;
 	}
 
@@ -449,7 +449,7 @@ void KHangMan::loadLangToolBar()
 	update();
 
 	// We open the file and store info into the stream...
-	QFile openFileStream(myFile.name());
+	QFile openFileStream(myFile.fileName());
 	openFileStream.open(QIODevice::ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
