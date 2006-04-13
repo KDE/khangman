@@ -95,7 +95,7 @@ void KHangMan::setupActions()
     // Action for selecting language.
     m_languageAction = new KSelectAction(i18n("&Language"), actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
-    m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
+    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
     
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
@@ -154,7 +154,7 @@ void KHangMan::slotChangeLevel()
     };
     currentLevel = m_levelAction->currentItem();
     levelString = levels[currentLevel];
-    levelString.replace(0, 1, levelString.left(1).lower());
+    levelString.replace(0, 1, levelString.left(1).toLower());
     changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
 #if 0
     if (m_view->levelFile == "world_capitals.kvtml" 
@@ -172,12 +172,12 @@ void KHangMan::slotChangeLevel()
 void KHangMan::slotChangeLanguage(int index)
 {
     //good when no in English
-    kDebug() << "Change to " << m_languages[m_languageNames.findIndex(m_languageNames[index])] << endl;
-    Prefs::setSelectedLanguage(m_languages[m_languageNames.findIndex(m_languageNames[index])]);
+    kDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])] << endl;
+    Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
     Prefs::writeConfig();
     loadLevels();
     loadLangToolBar();
-    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
     setMessages();
     m_view->slotNewGame();   
@@ -209,8 +209,8 @@ void KHangMan::setLanguages()
     for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
         QDir dir(*it);
         m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-        m_languages.remove(m_languages.find("."));
-        m_languages.remove(m_languages.find(".."));
+        m_languages.removeAll(".");
+        m_languages.removeAll("..");
     }
     m_languages.sort();
 
@@ -224,7 +224,7 @@ void KHangMan::setLanguages()
     for (int i=0;  i<m_languages.count(); i++) {
         if (m_languages.count(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
-            m_languages.remove(m_languages[i]);
+            m_languages.removeAt(i);
         }
     }
 
@@ -274,7 +274,7 @@ void KHangMan::loadSettings()
     selectedLanguage = Prefs::selectedLanguage();
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
-    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar())
         secondToolbar->show();
@@ -289,8 +289,8 @@ void KHangMan::setLevel()
     if (currentLevel > (uint) levels.count()) 
         currentLevel= 0;
     levelString = levels[currentLevel];
-    levelString.replace(0, 1, levelString.left(1).lower());
-    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
+    levelString.replace(0, 1, levelString.left(1).toLower());
+    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).toLower()) ;
 }
 
 void KHangMan::loadLevels()
@@ -305,14 +305,14 @@ void KHangMan::loadLevels()
         for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
             QFile f( *it);
             //find the last / in the file name
-            int location = f.name().findRev("/");
+            int location = f.fileName().findRev("/");
             //strip the string to keep only the filename and not the path
-            QString mString = f.name().right(f.name().length()-location-1);
+            QString mString = f.fileName().right(f.fileName().length()-location-1);
             if (mString == Prefs::levelFile())
                 levelBool = true;
             mString = mString.left(mString.length()-6);
             //Put the first letter in Upper case
-            mString = mString.replace(0, 1, mString.left(1).upper());
+            mString = mString.replace(0, 1, mString.left(1).toUpper());
         levels+=mString;
     }
     //TODO else tell no files had been found
@@ -328,7 +328,7 @@ void KHangMan::loadLevels()
         currentLevel = levels.count();
     if (levelBool == false)
     {
-        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
+        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).toLower())+".kvtml");
         Prefs::setCurrentLevel(0);
         currentLevel =0;
         Prefs::writeConfig();
@@ -341,7 +341,7 @@ void KHangMan::loadLevels()
     
     setLevel();
     QString m_lstring = translatedLevels[currentLevel].toUtf8();
-    m_lstring.replace(0, 1, m_lstring.left(1).upper());
+    m_lstring.replace(0, 1, m_lstring.left(1).toUpper());
     changeStatusbar(m_lstring, IDS_LEVEL);
 }
 
@@ -460,7 +460,7 @@ void KHangMan::loadLangToolBar()
 	openFileStream.close();
 	if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
 	    for (int i=0; i<(int) m_allData.count(); i++)
-		m_allData[i] = m_allData[i].upper();
+		m_allData[i] = m_allData[i].toUpper();
 
 	for (int i=0; i<(int) m_allData.count(); i++)
 	    secondToolbar->addAction (charIcon(m_allData[i].at(0)));
