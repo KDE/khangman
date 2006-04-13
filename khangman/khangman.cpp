@@ -305,7 +305,7 @@ void KHangMan::loadLevels()
         for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
             QFile f( *it);
             //find the last / in the file name
-            int location = f.fileName().findRev("/");
+            int location = f.fileName().indexOf("/", 0);
             //strip the string to keep only the filename and not the path
             QString mString = f.fileName().right(f.fileName().length()-location-1);
             if (mString == Prefs::levelFile())
@@ -452,11 +452,11 @@ void KHangMan::loadLangToolBar()
 	QFile openFileStream(myFile.fileName());
 	openFileStream.open(QIODevice::ReadOnly);
 	QTextStream readFileStr(&openFileStream);
-	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+	readFileStr.setCodec("UTF-8");
 
 	// m_allData contains all the words from the file
 	// FIXME: Better name
-	m_allData = QStringList::split("\n", readFileStr.read(), true);
+	m_allData = readFileStr.readAll().split("\n");
 	openFileStream.close();
 	if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
 	    for (int i=0; i<(int) m_allData.count(); i++)
