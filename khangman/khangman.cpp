@@ -88,7 +88,7 @@ void KHangMan::setupActions()
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
     m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
-    connect(m_levelAction, SIGNAL(triggered(bool)), this, SLOT(slotChangeLevel()));
+    connect(m_levelAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLevel(int)));
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
@@ -103,7 +103,7 @@ void KHangMan::setupActions()
     // Mode. Currently hard coded into Sea and Desert themes.
     QStringList modes;
     m_modeAction = new KSelectAction(i18n("L&ook"), actionCollection(), "combo_mode");
-    connect(m_modeAction, SIGNAL(triggered(bool)), this, SLOT(slotChangeMode()));
+    connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
     modes += i18n("&Sea Theme");
     modes += i18n("&Desert Theme");
     m_modeAction->setItems(modes);
@@ -144,7 +144,7 @@ void KHangMan::slotQuit()
 }
 
 
-void KHangMan::slotChangeLevel()
+void KHangMan::slotChangeLevel(int index)
 {
     static const char *levelStrings[] = {
         I18N_NOOP("Animals"),
@@ -152,10 +152,9 @@ void KHangMan::slotChangeLevel()
         I18N_NOOP("Hard"),
         I18N_NOOP("Medium"),
     };
-    currentLevel = m_levelAction->currentItem();
-    levelString = levels[currentLevel];
+    levelString = levels[index];
     levelString.replace(0, 1, levelString.left(1).toLower());
-    changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
+    changeStatusbar(i18n(levelStrings[index]), IDS_LEVEL);
 #if 0
     if (m_view->levelFile == "world_capitals.kvtml" 
 	|| m_view->levelFile == "departements.kvtml")
@@ -163,7 +162,7 @@ void KHangMan::slotChangeLevel()
     else
         changeStatusbar("", IDS_ACCENTS);
 #endif
-    Prefs::setCurrentLevel( currentLevel);
+    Prefs::setCurrentLevel( index);
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
     m_view->slotNewGame();
@@ -183,9 +182,9 @@ void KHangMan::slotChangeLanguage(int index)
     m_view->slotNewGame();   
 }
 
-void KHangMan::slotChangeMode()
+void KHangMan::slotChangeMode(int index)
 {
-    if (m_modeAction->currentItem() == 0)
+    if (index==0)
         Prefs::setMode(Prefs::EnumMode::sea);
     else
         Prefs::setMode(Prefs::EnumMode::desert);
@@ -308,7 +307,6 @@ void KHangMan::loadLevels()
             int location = f.fileName().lastIndexOf("/");
             //strip the string to keep only the filename and not the path
             QString mString = f.fileName().right(f.fileName().length()-location-1);
-            kDebug() << "------------ mString"    << mString        << endl;
             if (mString == Prefs::levelFile())
                 levelBool = true;
             mString = mString.left(mString.length()-6);

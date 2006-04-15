@@ -599,7 +599,6 @@ void KHangManView::game()
                           .arg(Prefs::selectedLanguage())
                           .arg(Prefs::levelFile());
     QFile    myFile;
-    kDebug() << "myString "    << myString        << endl;
     myFile.setFileName(locate("data", myString));
     
     if (!myFile.exists()) {

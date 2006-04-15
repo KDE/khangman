@@ -128,8 +128,8 @@ public slots:
     
 private slots:
     // Slots for when the user changes level, setting, etc.
-    void  slotChangeLevel();
-    void  slotChangeMode();
+    void  slotChangeLevel(int);
+    void  slotChangeMode(int);
 
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
