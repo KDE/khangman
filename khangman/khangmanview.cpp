@@ -599,7 +599,9 @@ void KHangManView::game()
                           .arg(Prefs::selectedLanguage())
                           .arg(Prefs::levelFile());
     QFile    myFile;
+    kDebug() << "myString "    << myString        << endl;
     myFile.setFileName(locate("data", myString));
+    
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
                                 "Check your installation, please!",
@@ -737,25 +739,26 @@ void KHangManView::readFile()
 
 void KHangManView::loadAnimation()
 {
+    QPalette pal, letterPal;
     switch (Prefs::mode())  {
         case Prefs::EnumMode::sea:
             m_originalBackground = QPixmap(locate("data", "khangman/pics/sea/sea_theme.png") );
             m_themeName = "sea";
-            m_letterInput->setPaletteForegroundColor( QColor(  83,  40,  14) );
-            m_guessButton->setPaletteBackgroundColor( QColor( 115,  64,  49) );
-            m_guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
-            m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+            pal.setBrush( QPalette::Window, QColor( 115,  64,  49));
+            pal.setBrush( QPalette::WindowText, QColor(148, 156, 16));
+            letterPal.setBrush( QPalette::WindowText, ( QColor(  83,  40,  14) ));
             break;
 
         case Prefs::EnumMode::desert:
             m_originalBackground = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
             m_themeName = "desert";
-            m_letterInput->setPaletteForegroundColor( QColor(  87,   0,  0) );
-            m_guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
-            m_guessButton->setPaletteForegroundColor( QColor(  87,   0,  0) );
-            m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
+            pal.setBrush( QPalette::Window, QColor( 205, 214, 90));
+            pal.setBrush( QPalette::WindowText, QColor(87,   0,  0));
+            letterPal.setBrush( QPalette::WindowText, ( QColor(  87,   0,  0) ));
             break;
     }
+    m_guessButton->setPalette(pal);
+    m_letterInput->setPalette(letterPal);
 
     // Now we load the pixmaps...
     for (uint i = 0; i < 11; i++) {

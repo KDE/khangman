@@ -74,10 +74,10 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *newAct = KStdAction::openNew(this, SLOT(fileNew()),
+    KAction *newAct = KStdAction::openNew(m_view, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
-    connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
+    //connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
 
     // Game->Get Words in New Language
     KAction *newStuffAct = new KAction( i18n("&Get Words in New Language..."), actionCollection(), "downloadnewstuff" );
@@ -305,9 +305,10 @@ void KHangMan::loadLevels()
         for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
             QFile f( *it);
             //find the last / in the file name
-            int location = f.fileName().indexOf("/", 0);
+            int location = f.fileName().lastIndexOf("/");
             //strip the string to keep only the filename and not the path
             QString mString = f.fileName().right(f.fileName().length()-location-1);
+            kDebug() << "------------ mString"    << mString        << endl;
             if (mString == Prefs::levelFile())
                 levelBool = true;
             mString = mString.left(mString.length()-6);
