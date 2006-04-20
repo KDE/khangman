@@ -104,8 +104,8 @@ void KHangMan::setupActions()
     QStringList modes;
     m_modeAction = new KSelectAction(i18n("L&ook"), actionCollection(), "combo_mode");
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
-    modes += i18n("&Sea Theme");
-    modes += i18n("&Desert Theme");
+    modes += i18n("Sea Theme");
+    modes += i18n("Desert Theme");
     m_modeAction->setItems(modes);
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));

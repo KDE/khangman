@@ -363,9 +363,9 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
 void KHangManView::setBackground(QPixmap& bgPix)
 {
-    QImage img = bgPix.convertToImage();
-    m_resizedBackground.resize(size());
-    m_resizedBackground.convertFromImage(img.smoothScale( width(), height()));
+    QImage img = bgPix.toImage();
+    m_resizedBackground=QPixmap(size());
+    m_resizedBackground.fromImage(img.scaled( width(), height(), Qt::IgnoreAspectRatio));
 }
 
 
