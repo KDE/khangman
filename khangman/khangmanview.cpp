@@ -40,7 +40,7 @@
 #include "khangmanview.h"
 
 
-KHangManView::KHangManView(KHangMan*parent, const char *name)
+KHangManView::KHangManView(KHangMan*parent)
     : QWidget(parent /*WStaticContents | WNoAutoErase*/)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -148,7 +148,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     if (!Prefs::oneLetter())
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
 
-    if (m_word.contains(sChar) == 1)
+    if (m_word.count(sChar) == 1)
         m_guessedLetters << sChar; //append if only one instance
 
     if (Prefs::oneLetter() && b_end)
@@ -600,7 +600,7 @@ void KHangManView::game()
                           .arg(Prefs::levelFile());
     QFile    myFile;
     myFile.setFileName(locate("data", myString));
-    
+
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
                                 "Check your installation, please!",

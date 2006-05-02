@@ -46,7 +46,7 @@ class KHangManView : public QWidget
     Q_OBJECT
 public:
 
-    KHangManView(KHangMan *parent=0, const char *name=0);
+    KHangManView(KHangMan *parent=0);
 
     virtual ~KHangManView();
 
