@@ -37,6 +37,7 @@
 #include <klocale.h>
 #include <kmainwindow.h>
 #include <kmessagebox.h>
+#include <kstdaction.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>

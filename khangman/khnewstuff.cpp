@@ -24,6 +24,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
+#include <kselectaction.h>
 #include <ktar.h>
 #include <qdir.h>
 #include <kaction.h>
