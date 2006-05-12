@@ -16,7 +16,6 @@
  */
 
 #include <kapplication.h>
-#include <kaudioplayer.h>
 #include <kdebug.h>
 #include <klineedit.h>
 #include <klocale.h>
