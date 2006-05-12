@@ -25,6 +25,8 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 
+#include <phonon/simpleplayer.h>
+
 #include <QImage>
 #include <QLabel>
 #include <QPainter>
@@ -418,8 +420,9 @@ void KHangManView::slotTry()
             //
             if (Prefs::sound()) {
                 QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+                Phonon::SimplePlayer s;
                 if (soundFile != 0)
-                KAudioPlayer::play(soundFile);
+                 s.play(KUrl::fromPathOrURL(soundFile));
             }
 
             if (Prefs::wonDialog()) {
@@ -563,8 +566,9 @@ void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
         QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+        Phonon::SimplePlayer s;
         if (soundFile != 0)
-            KAudioPlayer::play(soundFile);
+            s.play(KUrl::fromPathOrURL(soundFile));
     }
 
     reset();
