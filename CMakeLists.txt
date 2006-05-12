@@ -1,4 +1,3 @@
-kde4_header()
 project(khangman)
 
 add_subdirectory( khangman ) 
@@ -9,7 +8,6 @@ add_subdirectory( khangman )
 ########### install files ###############
 
 
-kde4_footer()
 
 
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( data ) 
 add_subdirectory( pics ) 
@@ -37,7 +36,6 @@ install_files( ${KCFG_INSTALL_DIR} FILES khangman.kcfg )
 install_files( ${CONFIG_INSTALL_DIR} FILES khangmanrc )
 install_files( ${DATA_INSTALL_DIR}/khangman FILES khangmanui.rc )
 
-kde4_footer()
 
 
 

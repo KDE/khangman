@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -7,7 +6,6 @@ kde4_header()
 
 install_files( ${DATA_INSTALL_DIR}/khangman/data/en FILES easy.kvtml animals.kvtml hard.kvtml medium.kvtml )
 
-kde4_footer()
 
 
 
