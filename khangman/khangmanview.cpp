@@ -430,7 +430,7 @@ void KHangManView::slotTry()
                 KPassivePopup *popup = new KPassivePopup( this);
                 popup->setAutoDelete( true );
                 popup->setTimeout( 4*1000 );
-                popup->setView(i18n("Congratulations,\nyou won.") );
+                popup->setView(i18n("Congratulations,\nyou won!") );
 
                 int x =0, y = 0;
                 QPoint abspos = popup->pos();
@@ -441,7 +441,7 @@ void KHangManView::slotTry()
                 QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
             }
             else if (KMessageBox::questionYesNo(this,
-                                        i18n("Congratulations, you won. Do you want to play again?"),
+                                        i18n("Congratulations! You won! Do you want to play again?"),
                                         QString(),i18n("Play Again"), i18n("Do Not Play")) == 3)
                 slotNewGame();
             else
