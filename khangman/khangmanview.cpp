@@ -421,7 +421,7 @@ void KHangManView::slotTry()
                 QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                 Phonon::SimplePlayer s;
                 if (soundFile != 0)
-                 s.play(KUrl::fromPathOrUrl(soundFile));
+                 s.play(soundFile);
             }
 
             if (Prefs::wonDialog()) {
@@ -567,7 +567,7 @@ void KHangManView::slotNewGame()
         QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
         Phonon::SimplePlayer s;
         if (soundFile != 0)
-            s.play(KUrl::fromPathOrUrl(soundFile));
+            s.play(soundFile);
     }
 
     reset();
@@ -691,7 +691,7 @@ void KHangManView::readFile()
     myString= locate("data", myString);
 
     m_doc = new KEduVocDocument(this);
-    m_doc->open(KUrl::fromPathOrUrl(myString), false);
+    m_doc->open(myString, false);
 
     //how many words in the file
     int NumberOfWords = m_doc->numEntries() /*verbs.count()*/;
