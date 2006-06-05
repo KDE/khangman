@@ -419,7 +419,7 @@ void KHangManView::slotTry()
             //
             if (Prefs::sound()) {
                 QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
-                Phonon::SimplePlayer s;
+                Phonon::SimplePlayer s(Phonon::GameCategory);
                 if (soundFile != 0)
                  s.play(soundFile);
             }
@@ -565,7 +565,7 @@ void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
         QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
-        Phonon::SimplePlayer s;
+        Phonon::SimplePlayer s(Phonon::GameCategory);
         if (soundFile != 0)
             s.play(soundFile);
     }
