@@ -24,7 +24,7 @@ kde4_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
 kde4_add_executable(khangman ${khangman_SRCS})
 
-target_link_libraries(khangman  ${KDE4_KDEUI_LIBS} kdeeducore knewstuff ${KDE4_PHONONCORE_LIBS} )
+target_link_libraries(khangman  ${KDE4_KDEUI_LIBS} kdeeducore knewstuff ${KDE4_PHONONCORE_LIBRARY} )
 
 install_targets(/bin khangman )
 
