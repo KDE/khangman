@@ -483,7 +483,9 @@ void KHangMan::loadLangToolBar()
 
 void KHangMan::slotPasteChar()
 {
+#ifdef __GNUC__
 #warning "kde4: port it";
+#endif		
 #if 0	
 	KToolBarButton *charBut = (KToolBarButton* ) sender();
 	m_view->enterLetter(m_allData[charBut->id()]);
