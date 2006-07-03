@@ -23,6 +23,7 @@
 #include <kpassivepopup.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
+#include <kvbox.h>
 
 #include <phonon/simpleplayer.h>
 
