@@ -495,7 +495,7 @@ void KHangMan::slotPasteChar()
 QString KHangMan::charIcon(const QChar & c)
 {
     ///Create a name and path for the icon
-    QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
+    QString s = KStandardDirs::locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
 
     QRect r(4, 4, 120, 120);
 
