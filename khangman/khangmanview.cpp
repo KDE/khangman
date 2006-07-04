@@ -753,7 +753,7 @@ void KHangManView::loadAnimation()
             break;
 
         case Prefs::EnumMode::desert:
-            m_originalBackground = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
+            m_originalBackground = QPixmap(KStandardDirs::locate("data","khangman/pics/desert/desert_theme.png") );
             m_themeName = "desert";
             pal.setBrush( QPalette::Window, QColor( 205, 214, 90));
             pal.setBrush( QPalette::WindowText, QColor(87,   0,  0));

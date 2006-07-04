@@ -435,7 +435,7 @@ void KHangMan::loadLangToolBar()
 	    QString  myString=QString("khangman/data/%1/%1.txt")
 		.arg(Prefs::selectedLanguage())
 		.arg(Prefs::selectedLanguage());
-	    myFile.setFileName(locate("data",myString));
+	    myFile.setFileName(KStandardDirs::locate("data",myString));
 	    kDebug() << myString << endl;
 	}
 
