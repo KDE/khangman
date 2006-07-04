@@ -765,7 +765,7 @@ void KHangManView::loadAnimation()
 
     // Now we load the pixmaps...
     for (uint i = 0; i < 11; i++) {
-        m_animationPics[i].load(locate( "data",
+        m_animationPics[i].load(KStandardDirs::locate( "data",
                                         QString("khangman/pics/%1/animation%2.png")
                                         .arg(m_themeName).arg(i) ));
     }
