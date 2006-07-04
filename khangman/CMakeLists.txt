@@ -31,10 +31,10 @@ install_targets(/bin khangman )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES khangman.desktop )
-install_files( ${KCFG_INSTALL_DIR} FILES khangman.kcfg )
-install_files( ${CONFIG_INSTALL_DIR} FILES khangmanrc )
-install_files( ${DATA_INSTALL_DIR}/khangman FILES khangmanui.rc )
+install( FILES khangman.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES khangman.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
+install( FILES khangmanrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
+install( FILES khangmanui.rc  DESTINATION  ${DATA_INSTALL_DIR}/khangman )
 
 
 

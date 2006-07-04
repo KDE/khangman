@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/khangman/data/en FILES easy.kvtml animals.kvtml hard.kvtml medium.kvtml )
+install( FILES easy.kvtml animals.kvtml hard.kvtml medium.kvtml  DESTINATION  ${DATA_INSTALL_DIR}/khangman/data/en )
 
 
 
