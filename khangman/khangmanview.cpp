@@ -419,7 +419,7 @@ void KHangManView::slotTry()
             //TODO find a better way to finish
             //
             if (Prefs::sound()) {
-                QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+                QString soundFile = KStandardDirs::locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                 Phonon::SimplePlayer s(Phonon::GameCategory);
                 if (soundFile != 0)
                  s.play(soundFile);
@@ -565,7 +565,7 @@ void KHangManView::enableUserInput()
 void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
-        QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+        QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
         Phonon::SimplePlayer s(Phonon::GameCategory);
         if (soundFile != 0)
             s.play(soundFile);
@@ -603,7 +603,7 @@ void KHangManView::game()
                           .arg(Prefs::selectedLanguage())
                           .arg(Prefs::levelFile());
     QFile    myFile;
-    myFile.setFileName(locate("data", myString));
+    myFile.setFileName(KStandardDirs::locate("data", myString));
 
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -689,7 +689,7 @@ void KHangManView::readFile()
     }
 
     QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-    myString= locate("data", myString);
+    myString= KStandardDirs::locate("data", myString);
 
     m_doc = new KEduVocDocument(this);
     m_doc->open(myString, false);
@@ -745,7 +745,7 @@ void KHangManView::loadAnimation()
     QPalette pal, letterPal;
     switch (Prefs::mode())  {
         case Prefs::EnumMode::sea:
-            m_originalBackground = QPixmap(locate("data", "khangman/pics/sea/sea_theme.png") );
+            m_originalBackground = QPixmap(KStandardDirs::locate("data", "khangman/pics/sea/sea_theme.png") );
             m_themeName = "sea";
             pal.setBrush( QPalette::Window, QColor( 115,  64,  49));
             pal.setBrush( QPalette::WindowText, QColor(148, 156, 16));

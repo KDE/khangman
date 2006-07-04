@@ -247,7 +247,7 @@ void KHangMan::setLanguages()
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
-    KConfig entry(locate("locale", "all_languages"));
+    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
     for (QStringList::Iterator it = m_languages.begin(); 
 	 it != m_languages.end(); ++it) {
@@ -428,7 +428,7 @@ void KHangMan::loadLangToolBar()
     if (!m_noSpecialChars) {
 	QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
 	QFile myFile;
-	myFile.setFileName(locate("data", myString));
+	myFile.setFileName(KStandardDirs::locate("data", myString));
 
 	// Let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
