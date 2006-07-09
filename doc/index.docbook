@@ -170,8 +170,8 @@ Future improvement (in &kde; 4) will allow you to create your own words file.
 <sect1 id="languages">
 <title>Playing in different languages</title>
 <para>
-You can play &khangman; in twenty-two languages: Brazilian Portuguese, Bulgarian, Catalan, Czech, Danish, Dutch, English,
-Finnish, French, German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik and Swedish. 
+You can play &khangman; in twenty-four languages: Brazilian Portuguese, Bulgarian, Catalan, Czech, Danish, Dutch, English,
+Finnish, French, German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik, Swedish, Russian and Turkish.
 </para>
 
 <para>
@@ -196,11 +196,11 @@ You click on the <guimenu>File</guimenu> menu and then on <guimenu>Get Words in 
 </screenshot>
 
 <para>
-Click on the language name you want to install and then on the Install button. A dialog will tell you when the language is installed by displaying: Successfully installed hot new stuff. You click on <guibutton>OK</guibutton> to close this information dialog then on <guibutton>Close</guibutton> to close the Get New Words dialog (if you want another language, you get repeat these steps). The new language is now available in the <guimenu>Languages</guimenu> menu!
+Click on the language name you want to install and then on the <guibutton>Install</guibutton> button. If the language is successfully installed, a green tick is displayed in front of the language name. You click on the <guibutton>Close</guibutton> button to close the Get New Words dialog (if you want another language, you get repeat these steps).
 </para>
 
 <para>
-You can then easily change the language by going in the <guimenu>Languages</guimenu> and choose another language.
+You can then easily change the language by going in the <guimenu>Languages</guimenu> and choose the new language.
 </para>
 
 <para>
@@ -210,7 +210,7 @@ button will write the corresponding letter in the input line and you validate yo
 </para>
 
 <important><para>
-Please note that you need Arial and URW Bookman fonts in order to display the special characters correctly in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small squares instead of letters, then you may not have one of these fonts installed. Type fonts:/ into the konqueror address bar to check which fonts you have installed.
+Please note that you need Arial and URW Bookman fonts in order to display the special characters correctly in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small squares instead of letters, then you may not have one of these fonts installed. Type <command>fonts:/</command> into the &konqueror; address bar to check which fonts you have installed.
 </para></important>
 
 </sect1>
@@ -220,8 +220,8 @@ Please note that you need Arial and URW Bookman fonts in order to display the sp
 Try to guess the vowels first. Then have a go with the most common consonants:
 l, t, r, n, s
 </para>
-<para>corresponding
-When you see <quote>io</quote>, try n after that, in French and English.
+<para>corresponding:
+when you see <quote>io</quote>, try n after that, in French and English.
 </para>
 <para>
 In Brazilian Portuguese, Catalan, Spanish and Portuguese, the accented
@@ -269,7 +269,7 @@ The <guimenu>Languages</guimenu> menu allows you to change the language the word
 </para>
 
 <para>
-The <guimenu>Look</guimenu> menu proposes two themes: the Sea theme and the Desert theme. The background and the font colors changes for each theme.
+The <guimenu>Look</guimenu> menu proposes two themes: the <guimenuitem>Sea Theme</guimenuitem> and the <guimenuitem>Desert Theme</guimenuitem>. The background and the font colors changes for each theme.
 </para>
 
 <para>
@@ -326,7 +326,7 @@ the toolbar.</para>
 <para> Here you have &khangman; with the Desert theme, Catalan language and level Easy. The
 <interface>Characters</interface> toolbar is shown here.</para>
 
-<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Level</guimenu> menu in the menubar. The available levels are easy, medium, animals and hard. Easy is related to common objects a child aged six
+<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Level</guimenu> menu in the menubar. The available levels are <guimenuitem>Easy</guimenuitem>, <guimenuitem>Medium</guimenuitem>, <guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem>. Easy is related to common objects a child aged six
 or seven knows. Medium regards nouns a bit more challenging, hard is
 quite difficult and animals is only animals nouns. </para>
 
@@ -341,7 +341,7 @@ quite difficult and animals is only animals nouns. </para>
 A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), or to quit the game. The level and the theme are easily changed via 2 combo boxes on the toolbar.
 </para>
 <para>
-In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
+In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;...</guimenu> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
 </para>
 
 <sect2 id="general-settings">
@@ -359,7 +359,7 @@ In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;</guimenu> you will
 	</mediaobject>
 </screenshot>
 
-<para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the firts "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
+<para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the first "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
 </para>
 
 <para><guilabel>Do not display the 'Congratulations! You won!' dialog</guilabel>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
@@ -398,7 +398,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 
 <sect2 id="timers-settings">
 <title>Timers Settings</title>
-<para>The <guilabel>Timers</guilabel> Settings tab allows you to set the time for displaying the hint and the Already Guessed Letter tooltip.
+<para>The <guilabel>Timers</guilabel> Settings tab allows you to <guilabel>Set the time for displaying the hint</guilabel> and to <guilabel>Set the time for Already Guessed Letter</guilabel> tooltip.
 </para>
 
 <screenshot>
@@ -516,7 +516,8 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <guimenu>Language</guimenu>
 <guimenuitem>English</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the English language for the words to guess</para></listitem>
+<listitem><para><action>Choose</action> the English language for the words to guess.</para>
+<para>All other installed languages are displayed as items in this menu as well.</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -560,7 +561,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Special Characters</guimenuitem>
+<guimenuitem>Special Characters (&khangman;)</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Toggle</action> the Characters Toolbar</para></listitem>
 </varlistentry>
@@ -626,7 +627,7 @@ in the file <filename>README.languages</filename>. Please follow the procedure a
 <para>
 The twenty four available languages so far by code are: bg ca cs da de en es fr fi ga hu it nb nl nn pt pt_BR ru sl sr sr@Ltn sv tg and tr. If your language code is not among those, you can proceed further. 
 </para>
-<para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg fr en it only have hints so the other above languages must be updated as soon as possible.
+<para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg de fr en it only have hints so the other above languages must be updated as soon as possible.
 </para>
 <para>Be sure you are working with the latest svn trunk sources of &khangman; by
 issuing a
@@ -644,7 +645,7 @@ cd kdeedu/khangman
 <filename>medium.txt</filename> is for level medium, the file
 <filename>animals.txt</filename> is for level animals and the file
 <filename>hard.txt</filename> is for level hard.</para>
-<para>English is the default and thus the only language to be shipped with &khangman;. All other languages data are put in the correct kde-i18n.
+<para>English is the default and thus the only language to be shipped with &khangman;. All other languages data are put in the correct kde-l10n.
 </para>
 <procedure>
 <step><para>Enter the following commands in a &konsole; to create the folder
@@ -809,7 +810,7 @@ Contributors:
 <listitem><para>Sounds: Ludovic Grossard
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
 <listitem><para>Blue theme, icons and code: &Primoz.Anzur;
-<email>&Primoz.Anzur.mail;</email></para> </listitem>
+&Primoz.Anzur.mail;</para> </listitem>
 <listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserhäll
 <email>stefan.asserhall@telia.com
 </email></para> </listitem>
@@ -875,7 +876,7 @@ Contributors:
     <email>scannell@slu.edu
 </email></para> </listitem>
 <listitem><para>Coding help: &Robert.Gogolok;
-<email>&Robert.Gogolok.mail;</email></para> </listitem>
+&Robert.Gogolok.mail;</para> </listitem>
 <listitem><para>Coding help: Benjamin Meyer
 <email>ben@meyerhome.net</email></para> </listitem>
 <listitem><para>Code fixes: Lubos Lun&agrave;k
