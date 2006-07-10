@@ -28,9 +28,9 @@
 #include <QCheckBox>
 #include <QPainter>
 #include <QDir>
+#include <kselectaction.h>
 
 #include <kapplication.h>
-#include <kactionclasses.h>
 #include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klineedit.h>
@@ -87,7 +87,7 @@ void KHangMan::setupActions()
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
-    
+
     m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
     connect(m_levelAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLevel(int)));
     m_levelAction->setToolTip(i18n( "Choose the level" ));
@@ -98,7 +98,7 @@ void KHangMan::setupActions()
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
-    
+
     KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
     // Mode. Currently hard coded into Sea and Desert themes.
@@ -111,7 +111,7 @@ void KHangMan::setupActions()
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
-    
+
     setupGUI();
 }
 
@@ -157,7 +157,7 @@ void KHangMan::slotChangeLevel(int index)
     levelString.replace(0, 1, levelString.left(1).toLower());
     changeStatusbar(i18n(levelStrings[index]), IDS_LEVEL);
 #if 0
-    if (m_view->levelFile == "world_capitals.kvtml" 
+    if (m_view->levelFile == "world_capitals.kvtml"
 	|| m_view->levelFile == "departements.kvtml")
         changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
     else
@@ -180,7 +180,7 @@ void KHangMan::slotChangeLanguage(int index)
     changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
     setMessages();
-    m_view->slotNewGame();   
+    m_view->slotNewGame();
 }
 
 void KHangMan::slotChangeMode(int index)
@@ -249,21 +249,21 @@ void KHangMan::setLanguages()
     // corresponding to the code and the language the user set.
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
-    for (QStringList::Iterator it = m_languages.begin(); 
+    for (QStringList::Iterator it = m_languages.begin();
 	 it != m_languages.end(); ++it) {
         entry.setGroup(*it);
         if (*it == "sr")
             m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
         else if (*it == "sr@Latn") {
             entry.setGroup("sr");
-	    m_languageNames.append(entry.readEntry("Name") 
+	    m_languageNames.append(entry.readEntry("Name")
 				   + " ("+i18n("Latin")+")");
         }
         else
 	    m_languageNames.append(entry.readEntry("Name"));
     }
 
-    // Never sort m_languageNames as it's m_languages translated 
+    // Never sort m_languageNames as it's m_languages translated
     m_sortedNames = m_languageNames;
 }
 
@@ -286,7 +286,7 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     currentLevel = Prefs::currentLevel();
-    if (currentLevel > (uint) levels.count()) 
+    if (currentLevel > (uint) levels.count())
         currentLevel= 0;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).toLower());
@@ -332,13 +332,13 @@ void KHangMan::loadLevels()
         Prefs::setCurrentLevel(0);
         currentLevel =0;
         Prefs::writeConfig();
-    }    
+    }
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).toUtf8());
     m_levelAction->setItems(translatedLevels);
     m_levelAction->setCurrentItem(Prefs::currentLevel());
-    
+
     setLevel();
     QString m_lstring = translatedLevels[currentLevel].toUtf8();
     m_lstring.replace(0, 1, m_lstring.left(1).toUpper());
@@ -464,9 +464,9 @@ void KHangMan::loadLangToolBar()
 
 	for (int i=0; i<(int) m_allData.count(); i++)
 	    secondToolbar->addAction (charIcon(m_allData[i].at(0)));
-				//TODO port to kde4 // i, 
-					 //SIGNAL( clicked() ), this, 
-					 //SLOT( slotPasteChar()), true,  
+				//TODO port to kde4 // i,
+					 //SIGNAL( clicked() ), this,
+					 //SLOT( slotPasteChar()), true,
 					 //i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
     }
 
@@ -485,8 +485,8 @@ void KHangMan::slotPasteChar()
 {
 #ifdef __GNUC__
 #warning "kde4: port it";
-#endif		
-#if 0	
+#endif
+#if 0
 	KToolBarButton *charBut = (KToolBarButton* ) sender();
 	m_view->enterLetter(m_allData[charBut->id()]);
 #endif
