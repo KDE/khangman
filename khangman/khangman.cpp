@@ -45,9 +45,11 @@
 #include <kglobal.h>
 
 KHangMan::KHangMan()
-    : KMainWindow( 0, "KHangMan" ),
+    : KMainWindow(),
       m_view(new KHangManView(this))
 {
+    setObjectName(QLatin1String("KHangMan"));
+
     m_newStuff = 0;
 
     setCentralWidget(m_view);
