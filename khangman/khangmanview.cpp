@@ -76,6 +76,8 @@ KHangManView::KHangManView(KHangMan*parent)
     setBackground( m_originalBackground );
 
     // Some misc initializations.
+    c                  = -1;
+    dd                 = -1;
     m_numMissedLetters = 0;
     m_lastWordNumber   = -1;
     m_accentedLetters  = true;
@@ -380,7 +382,7 @@ void KHangManView::slotTry()
         guess = guess.toLower();
 
     // If the char is not a letter, empty the input and return.
-    if (!guess.at(0).isLetter()) {
+    if ( guess.isEmpty() || !guess.at(0).isLetter()) {
         m_letterInput->setText("");
         return;
     }
@@ -407,7 +409,7 @@ void KHangManView::slotTry()
         QString      rightWord  = rightChars.join("");
         update();
         sword.remove(QRegExp(" "));
-
+        
         // If the user made it...
         if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
 
