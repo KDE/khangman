@@ -23,6 +23,7 @@
 class KPushButton;
 class KHangMan;
 
+#include <qimage.h>
 #include <qpixmap.h>
 
 #include <klineedit.h>
@@ -188,7 +189,8 @@ private:
     QPixmap          m_resizedBackground; // Resized to fit the window.
 
     /// The hanged K animation sequence.
-    QPixmap          m_animationPics[MAXWRONGGUESSES + 1];
+    QImage          m_animationPics[MAXWRONGGUESSES + 1];
+    QPixmap          m_animationPicsResized[MAXWRONGGUESSES + 1]; // resized to fit the window
 
     // Widgets ----------------
 

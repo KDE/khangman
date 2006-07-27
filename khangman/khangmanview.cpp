@@ -248,15 +248,20 @@ void KHangManView::paintEvent( QPaintEvent * )
 
 void KHangManView::paintHangman(QPainter &p)
 {
+    QRect drawRect;
+    
     // Draw the animated hanged K
     if (Prefs::mode() == 0)  // sea
-        p.drawPixmap(QRect(0, 0,
-                     width()*630/700, height()*285/535),
-                     m_animationPics[m_numMissedLetters]);
+        drawRect = QRect(0, 0, width()*630/700, height()*285/535);
     else
-        p.drawPixmap(QRect(width()*68/700, height()*170/535,
-                     width()*259/700, height()*228/535),
-                     m_animationPics[m_numMissedLetters]);
+        drawRect = QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535);
+	
+    if ( m_animationPicsResized[m_numMissedLetters].size() != drawRect.size() )
+    {
+        m_animationPicsResized[m_numMissedLetters] = QPixmap::fromImage(m_animationPics[m_numMissedLetters].scaled( drawRect.size(), Qt::IgnoreAspectRatio)); 
+    }
+    
+    p.drawPixmap( drawRect, m_animationPicsResized[m_numMissedLetters]);
 }
 
 
