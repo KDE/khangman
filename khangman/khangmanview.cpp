@@ -237,19 +237,12 @@ void KHangManView::setTheme()
 
 void KHangManView::paintEvent( QPaintEvent * )
 {
-    // This pixmap implements double buffering to remove all forms of
-    // flicker in the repainting.
-    QPixmap   buf(width(), height());
-
-    // Repaint the contents of the khangman view into the pixmap.
-    QPainter  p(&buf);
+    // Repaint the contents of the khangman view
+    QPainter  p(this);
     p.drawPixmap(0, 0, m_resizedBackground);
     paintHangman(p);
     paintWord(p);
     paintMisses(p);
-
-    // ...and finally, put the pixmap into the widget.
-    bitBlt(this, 0, 0, &buf);
 }
 
 
@@ -366,8 +359,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 void KHangManView::setBackground(QPixmap& bgPix)
 {
     QImage img = bgPix.toImage();
-    m_resizedBackground=QPixmap(size());
-    m_resizedBackground.fromImage(img.scaled( width(), height(), Qt::IgnoreAspectRatio));
+	m_resizedBackground = QPixmap::fromImage(img.scaled( width(), height(), Qt::IgnoreAspectRatio));
 }
 
 
