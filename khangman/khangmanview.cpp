@@ -47,24 +47,23 @@ KHangManView::KHangManView(KHangMan*parent)
 {
     setAttribute(Qt::WA_StaticContents);
     khangman = parent;
+    
 
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
     m_letterInput->setObjectName("charWrite" );
-    m_letterInput->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1,
-        (QSizePolicy::SizeType) 0,
-         0, 0,
-         m_letterInput->sizePolicy().hasHeightForWidth() ) );
+    QSizePolicy policy( (QSizePolicy::Policy) 1, (QSizePolicy::Policy) 0 );
+    policy.setHorizontalStretch( 0 );
+    policy.setVerticalStretch( 0 );
+    policy.setHeightForWidth( m_letterInput->sizePolicy().hasHeightForWidth() );
+    m_letterInput->setSizePolicy( policy );
     m_letterInput->setMaxLength( 1 );
     m_letterInput->setAlignment( Qt::AlignHCenter  );
 
     // Press this button to enter a letter (or press enter)
     m_guessButton = new KPushButton( this);
     m_guessButton->setObjectName( "guessButton" );
-    m_guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1,
-        (QSizePolicy::SizeType) 0,
-         0, 0,
-         m_guessButton->sizePolicy().hasHeightForWidth() ) );
+    m_guessButton->setSizePolicy( policy );
     //m_guessButton->setAutoMask( true );
     m_guessButton->setFlat( true );
     m_guessButton->setText( i18n( "G&uess" ) );
