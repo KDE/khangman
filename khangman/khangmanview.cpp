@@ -352,9 +352,9 @@ void KHangManView::resizeEvent(QResizeEvent *)
                                height()/10, height()/10);
     m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12
-                               - m_guessButton->width()-5,
+                               - m_guessButton->sizeHint().width()-5,
                                height() - 2*height()/16,
-                               m_guessButton->width(), height()/10);
+                               m_guessButton->sizeHint().width(), height()/10);
 }
 
 
