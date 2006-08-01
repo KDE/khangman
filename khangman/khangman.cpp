@@ -142,8 +142,8 @@ void KHangMan::slotChangeLevel()
     static const char *levelStrings[] = {
         I18N_NOOP("Animals"),
         I18N_NOOP("Easy"),
-        I18N_NOOP("Hard"),
         I18N_NOOP("Medium"),
+        I18N_NOOP("Hard"),
     };
     currentLevel = m_levelAction->currentItem();
     levelString = levels[currentLevel];
@@ -310,7 +310,18 @@ void KHangMan::loadLevels()
     }
     //TODO else tell no files had been found
     }
+
+    // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
+    QString replace[3] = { "Easy", "Medium", "Hard" };
+    for ( int i = 0; i < 3; ++i )
+    {
+        if ( levels.findIndex( replace[i] ) > -1 )
+        {
+            levels.remove( replace[i] );
+            levels.append( replace[i] );
+        }
+    }
 
     //find duplicated entries in KDEDIR and KDEHOME
     QString last;
