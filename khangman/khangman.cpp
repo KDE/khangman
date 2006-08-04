@@ -41,7 +41,7 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
-
+#include <kicon.h>
 #include <kglobal.h>
 
 KHangMan::KHangMan()
