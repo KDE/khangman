@@ -5,6 +5,7 @@ Exec=khangman -caption "%c" %i %m
 Icon=khangman
 DocPath=khangman/index.html
 Comment=KDE Hangman Game
+Comment[x-test]=xxKDE Hangman Gamexx
 GenericName=Hangman Game
 GenericName[fr]=Jeu du pendu
 GenericName[x-test]=xxHangman Gamexx
