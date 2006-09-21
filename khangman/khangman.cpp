@@ -255,11 +255,11 @@ void KHangMan::setLanguages()
 	 it != m_languages.end(); ++it) {
         entry.setGroup(*it);
         if (*it == "sr")
-            m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+            m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')');
         else if (*it == "sr@Latn") {
             entry.setGroup("sr");
 	    m_languageNames.append(entry.readEntry("Name")
-				   + " ("+i18n("Latin")+")");
+				   + " ("+i18n("Latin")+')');
         }
         else
 	    m_languageNames.append(entry.readEntry("Name"));
