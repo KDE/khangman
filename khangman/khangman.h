@@ -22,9 +22,7 @@
 #ifndef _KHANGMAN_H_
 #define _KHANGMAN_H_
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <kmainwindow.h>
 
