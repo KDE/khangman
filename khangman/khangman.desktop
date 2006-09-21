@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=khangman -caption "%c" %i %m
+Exec=khangman -caption "%c" %i 
 Icon=khangman
 DocPath=khangman/index.html
 Comment=KDE Hangman Game
