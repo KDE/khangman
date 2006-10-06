@@ -31,7 +31,7 @@ class KHangMan;
 class KHNewStuff : public KNewStuff
 {
   public:
-    KHNewStuff( KHangManView * );
+    explicit KHNewStuff( KHangManView * );
     
     bool install( const QString &fileName );
     bool createUploadFile( const QString &fileName );
