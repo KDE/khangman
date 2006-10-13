@@ -19,7 +19,7 @@ set(khangman_SRCS
    khnewstuff.cpp 
    timer.cpp )
 
-kde4_automoc(${khangman_SRCS})
+kde4_automoc(khangman ${khangman_SRCS})
 
 kde4_add_ui_files(khangman_SRCS generalui.ui languageui.ui timerui.ui )
 
