@@ -180,7 +180,7 @@ By default, after the first installation of &khangman;, only English and your &k
 
 <para>
 You can still play &khangman; in other languages. It is very easy to add new data in &khangman;. All you need is a working Internet connection. 
-You click on the <guimenu>File</guimenu> menu and then on <guimenu>Get Words in New Language...</guimenu>. A dialog appears, similar to this one:
+You click on the <guimenu>File</guimenu> menu and then on <guimenuitem>Get Words in New Language...</guimenuitem>. A dialog appears, similar to this one:
 </para>
 
 <screenshot>
@@ -341,7 +341,7 @@ quite difficult and animals is only animals nouns. </para>
 A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), or to quit the game. The level and the theme are easily changed via 2 combo boxes on the toolbar.
 </para>
 <para>
-In <guimenu>Settings</guimenu>, <guimenu>Configure &khangman;...</guimenu> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
+In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;...</guimenuitem> </menuchoice> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
 </para>
 
 <sect2 id="general-settings">
