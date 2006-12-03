@@ -43,7 +43,8 @@ int main(int argc, char **argv)
 {
     KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
                               KHM_VERSION, description, KAboutData::License_GPL,
-                              "(c) 2001-2003, Anne-Marie Mahfouf", 0, "http://edu.kde.org/khangman");
+                              "(c) 2001-2006, Anne-Marie Mahfouf", 0,
+"http://edu.kde.org/khangman");
     aboutData.addAuthor("Primoz Anzur", I18N_NOOP("Previous maintainer"), "zerokode@gmx.net");
     //write the names with accents and all and this file save with utf8 encoding
     aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Actual maintainer, author"), "annma@kde.org");
