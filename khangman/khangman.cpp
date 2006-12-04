@@ -243,7 +243,7 @@ void KHangMan::setLanguages()
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
         if (config->readEntry(tmp, QString()).isEmpty())
-            config->writeEntry(tmp, QDate::currentDate().toString());
+            config->writeEntry(tmp, QDate::currentDate().toString(Qt::ISODate));
     }
 
     // We look in $KDEDIR/share/locale/all_languages from
