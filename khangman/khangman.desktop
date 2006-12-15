@@ -12,4 +12,4 @@ GenericName[x-test]=xxHangman Gamexx
 Terminal=false
 Name=KHangMan
 Name[x-test]=xxKHangManxx
-Categories=Qt;KDE;Education;X-KDE-Edu-Language;
+Categories=Qt;KDE;Education;Languages;
