@@ -37,7 +37,7 @@
 #include <klocale.h>
 #include <kmainwindow.h>
 #include <kmessagebox.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
@@ -77,7 +77,7 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *newAct = KStdAction::openNew(m_view, SLOT(slotNewGame()),
+    KAction *newAct = KStandardAction::openNew(m_view, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
     //connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
@@ -88,7 +88,7 @@ void KHangMan::setupActions()
     newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
-    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
+    KStandardAction::quit(this, SLOT(slotQuit()), actionCollection());
 
     m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
     connect(m_levelAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLevel(int)));
@@ -101,7 +101,7 @@ void KHangMan::setupActions()
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
 
-    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
     // Mode. Currently hard coded into Sea and Desert themes.
     QStringList modes;
