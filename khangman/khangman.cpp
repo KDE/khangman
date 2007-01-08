@@ -29,6 +29,7 @@
 #include <QPainter>
 #include <QDir>
 #include <kselectaction.h>
+#include <kactioncollection.h>
 
 #include <kapplication.h>
 #include <kconfigdialog.h>
@@ -77,26 +78,29 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *newAct = KStandardAction::openNew(m_view, SLOT(slotNewGame()),
+    QAction *newAct = KStandardAction::openNew(m_view, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
     //connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
 
     // Game->Get Words in New Language
-    KAction *newStuffAct = new KAction( i18n("&Get Words in New Language..."), actionCollection(), "downloadnewstuff" );
+    KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
+    actionCollection()->addAction("downloadnewstuff", newStuffAct );
     newStuffAct->setIcon(KIcon("knewstuff"));
     newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
     KStandardAction::quit(this, SLOT(slotQuit()), actionCollection());
 
-    m_levelAction = new KSelectAction(i18n("Le&vel"), actionCollection(), "combo_level");
+    m_levelAction  = new KSelectAction(i18n("Le&vel"), this);
+    actionCollection()->addAction("combo_level", m_levelAction );
     connect(m_levelAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLevel(int)));
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
 
     // Action for selecting language.
-    m_languageAction = new KSelectAction(i18n("&Language"), actionCollection(), "languages");
+    m_languageAction  = new KSelectAction(i18n("&Language"), this);
+    actionCollection()->addAction("languages", m_languageAction );
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
@@ -105,7 +109,8 @@ void KHangMan::setupActions()
 
     // Mode. Currently hard coded into Sea and Desert themes.
     QStringList modes;
-    m_modeAction = new KSelectAction(i18n("L&ook"), actionCollection(), "combo_mode");
+    m_modeAction  = new KSelectAction(i18n("L&ook"), this);
+    actionCollection()->addAction("combo_mode", m_modeAction );
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
     modes += i18n("Sea Theme");
     modes += i18n("Desert Theme");
