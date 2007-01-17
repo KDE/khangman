@@ -181,15 +181,8 @@ private:
 
 
     // Graphics  ----------------
-
-    // Background picture (sea or desert)
-    QPixmap          m_originalBackground;   // Original image
-    QPixmap          m_resizedBackground; // Resized to fit the window.
-
-    /// The hanged K animation sequence.
-    QImage          m_animationPics[MAXWRONGGUESSES + 1];
-    QPixmap          m_animationPicsResized[MAXWRONGGUESSES + 1]; // resized to fit the window
-
+    QSvgRenderer *m_renderer;
+    
     // Widgets ----------------
 
     /// The widget where the user enters the letter. Upper case is
