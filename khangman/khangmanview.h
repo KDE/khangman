@@ -22,6 +22,7 @@
 
 class KPushButton;
 class KHangMan;
+class QSvgRenderer;
 
 #include <qimage.h>
 #include <qpixmap.h>
@@ -116,9 +117,6 @@ private:
     ///load the K animated sequence depending of the theme
     void loadAnimation();
 
-    /// Set the background pixmap to the QPixmap argument.
-    void setBackground(QPixmap& );
-
     /// Return true if the word contains the char in the QString.
     bool  containsChar(const QString &);
 
@@ -203,6 +201,7 @@ private:
     KPushButton     *m_guessButton;
 
     KEduVocDocument *m_doc;
+
 };
 
 #endif // KHANGMANVIEW_H

@@ -36,6 +36,7 @@
 #include <QToolTip>
 #include <QWidget>
 #include <QMouseEvent>
+#include <QSvgRenderer>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -72,7 +73,6 @@ KHangManView::KHangManView(KHangMan*parent)
     loadAnimation();
 
     setMinimumSize( QSize( 700, 535 ) );
-    setBackground( m_originalBackground );
 
     // Some misc initializations.
     c                  = -1;
@@ -90,6 +90,7 @@ KHangManView::KHangManView(KHangMan*parent)
 
 KHangManView::~KHangManView()
 {
+    delete m_renderer;
 }
 
 
@@ -227,7 +228,6 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
-    setBackground(m_originalBackground);
     update();
 }
 
@@ -240,7 +240,6 @@ void KHangManView::paintEvent( QPaintEvent * )
 {
     // Repaint the contents of the khangman view
     QPainter  p(this);
-    p.drawPixmap(0, 0, m_resizedBackground);
     paintHangman(p);
     paintWord(p);
     paintMisses(p);
@@ -251,18 +250,16 @@ void KHangManView::paintHangman(QPainter &p)
 {
     QRect drawRect;
     
-    // Draw the animated hanged K
-    if (Prefs::mode() == 0)  // sea
+    if (Prefs::mode() == 0) { // sea
+        // Draw the background
+        m_renderer = new QSvgRenderer(KStandardDirs::locate("data", "khangman/pics/sea/khangman_sea.svg"));
+        m_renderer->render(&p, "background"); //m_renderer->render(&p); //
+        // Draw the animated hanged K
         drawRect = QRect(0, 0, width()*630/700, height()*285/535);
-    else
+        m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), drawRect);
+        }
+    else //Desert not re-implemented yet
         drawRect = QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535);
-	
-    if ( m_animationPicsResized[m_numMissedLetters].size() != drawRect.size() )
-    {
-        m_animationPicsResized[m_numMissedLetters] = QPixmap::fromImage(m_animationPics[m_numMissedLetters].scaled( drawRect.size(), Qt::IgnoreAspectRatio)); 
-    }
-    
-    p.drawPixmap( drawRect, m_animationPicsResized[m_numMissedLetters]);
 }
 
 
@@ -338,9 +335,6 @@ void KHangManView::paintMisses(QPainter &p)
 
 void KHangManView::resizeEvent(QResizeEvent *)
 {
-    if(!m_originalBackground.isNull())
-        setBackground(m_originalBackground);
-
     m_letterInput->setMinimumSize( QSize( height()/18, 0 ) );
 
     QFont charWrite_font( m_letterInput->font() );
@@ -360,14 +354,6 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
 // ----------------------------------------------------------------
 //                             Slots
-
-
-void KHangManView::setBackground(QPixmap& bgPix)
-{
-    QImage img = bgPix.toImage();
-	m_resizedBackground = QPixmap::fromImage(img.scaled( width(), height(), Qt::IgnoreAspectRatio));
-}
-
 
 void KHangManView::slotTry()
 {
@@ -413,7 +399,6 @@ void KHangManView::slotTry()
         if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
 
             // We reset everything...
-            // pixImage->setPixmap(m_animationPics[10]);
             //TODO find a better way to finish
             //
             if (Prefs::sound()) {
@@ -743,7 +728,6 @@ void KHangManView::loadAnimation()
     QPalette pal, letterPal;
     switch (Prefs::mode())  {
         case Prefs::EnumMode::sea:
-            m_originalBackground = QPixmap(KStandardDirs::locate("data", "khangman/pics/sea/sea_theme.png") );
             m_themeName = "sea";
             pal.setBrush( QPalette::Window, QColor( 115,  64,  49));
             pal.setBrush( QPalette::WindowText, QColor(148, 156, 16));
@@ -751,7 +735,6 @@ void KHangManView::loadAnimation()
             break;
 
         case Prefs::EnumMode::desert:
-            m_originalBackground = QPixmap(KStandardDirs::locate("data","khangman/pics/desert/desert_theme.png") );
             m_themeName = "desert";
             pal.setBrush( QPalette::Window, QColor( 205, 214, 90));
             pal.setBrush( QPalette::WindowText, QColor(87,   0,  0));
@@ -760,13 +743,6 @@ void KHangManView::loadAnimation()
     }
     m_guessButton->setPalette(pal);
     m_letterInput->setPalette(letterPal);
-
-    // Now we load the pixmaps...
-    for (uint i = 0; i < 11; i++) {
-        m_animationPics[i].load(KStandardDirs::locate( "data",
-                                        QString("khangman/pics/%1/animation%2.png")
-                                        .arg(m_themeName).arg(i) ));
-    }
 }
 
 #include "khangmanview.moc"
