@@ -9,9 +9,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeducore  )
 
 ########### next target ###############
 
-remove_definitions(-DQT3_SUPPORT_WARNINGS)
-remove_definitions(-DQT3_SUPPORT)
-
 set(khangman_SRCS 
    khangman.cpp 
    main.cpp 
