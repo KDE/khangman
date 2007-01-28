@@ -47,7 +47,7 @@ bool KHNewStuff::install( const QString &fileName )
                     return false;
     const KArchiveDirectory *archiveDir = archive.directory();
     KStandardDirs myStdDir;
-    const QString destDir =myStdDir.saveLocation("data", kapp->instanceName() + "/data/", true);      
+    const QString destDir =myStdDir.saveLocation("data", KGlobal::mainComponent().componentName() + "/data/", true);      
     KStandardDirs::makeDir( destDir );
     archiveDir->copyTo(destDir);
     archive.close();
