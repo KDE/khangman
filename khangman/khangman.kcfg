@@ -20,7 +20,7 @@
         <entry name="SelectedLanguage" type="String">
             <label>The language selected by the user</label>
             <code>
-                KConfigBase *globalConf = KGlobal::config();
+                KSharedConfigPtr globalConf = KGlobal::config();
                 globalConf->setGroup("Locale");
                 QString userLanguage = globalConf->readEntry("Language", "en");
                 if (userLanguage.isEmpty())
