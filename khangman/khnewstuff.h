@@ -24,20 +24,19 @@
 #define KHNEWSTUFF_H
 
 #include "knewstuff/knewstuff.h"
-#include "khangman.h"
 
 class KHangMan;
 
 class KHNewStuff : public KNewStuff
 {
   public:
-    explicit KHNewStuff( KHangManView * );
+    explicit KHNewStuff( KHangMan * hangMan );
     
     bool install( const QString &fileName );
     bool createUploadFile( const QString &fileName );
 
   private:
-    KHangManView *m_view;
+    KHangMan *m_hangMan;
 };
 
 #endif

@@ -419,7 +419,7 @@ void KHangMan::updateSettings()
 void KHangMan::slotDownloadNewStuff()
 {
     if ( !m_newStuff )
-        m_newStuff = new KHNewStuff( m_view );
+        m_newStuff = new KHNewStuff( this );
     m_newStuff->download();
 }
 

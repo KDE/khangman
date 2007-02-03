@@ -26,15 +26,14 @@
 #include <kstandarddirs.h>
 #include <kselectaction.h>
 #include <ktar.h>
-#include <qdir.h>
-#include <kaction.h>
 
 #include "prefs.h"
 #include "khnewstuff.h"
+#include "khangman.h"
 
-KHNewStuff::KHNewStuff( KHangManView *view ) :
-  KNewStuff( "khangman", view ),
-  m_view( view )
+KHNewStuff::KHNewStuff( KHangMan *hangMan ) :
+  KNewStuff( "khangman", hangMan ),
+  m_hangMan( hangMan )
 {
 }
 
@@ -52,11 +51,11 @@ bool KHNewStuff::install( const QString &fileName )
     archiveDir->copyTo(destDir);
     archive.close();
         //look for languages dirs installed
-    m_view->khangman->setLanguages();
+    m_hangMan->setLanguages();
     //refresh Languages menu
-    m_view->khangman->m_languageAction->setItems(m_view->khangman->m_languageNames);
-    m_view->khangman->slotChangeLanguage(m_view->khangman->m_languages.indexOf(Prefs::selectedLanguage()));
-    m_view->khangman->m_languageAction->setCurrentItem(m_view->khangman->m_languages.indexOf(Prefs::selectedLanguage()));
+    m_hangMan->m_languageAction->setItems(m_hangMan->m_languageNames);
+    m_hangMan->slotChangeLanguage(m_hangMan->m_languages.indexOf(Prefs::selectedLanguage()));
+    m_hangMan->m_languageAction->setCurrentItem(m_hangMan->m_languages.indexOf(Prefs::selectedLanguage()));
     return true;
 }
 
