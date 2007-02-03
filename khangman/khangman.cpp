@@ -68,6 +68,9 @@ KHangMan::KHangMan()
     loadLangToolBar();
     loadLevels();
 
+    // set the theme
+    slotChangeMode(Prefs::mode());
+
     // Start a new game.
     m_view->slotNewGame();
 }
@@ -108,14 +111,11 @@ void KHangMan::setupActions()
 
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
-    // Mode. Currently hard coded into Sea and Desert themes.
-    QStringList modes;
+    // Mode.
     m_modeAction  = new KSelectAction(i18n("L&ook"), this);
     actionCollection()->addAction("combo_mode", m_modeAction );
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
-    modes += i18n("Sea Theme");
-    modes += i18n("Desert Theme");
-    m_modeAction->setItems(modes);
+    m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
@@ -193,11 +193,7 @@ void KHangMan::slotChangeLanguage(int index)
 
 void KHangMan::slotChangeMode(int index)
 {
-    if (index==0)
-        Prefs::setMode(Prefs::EnumMode::sea);
-    else
-        Prefs::setMode(Prefs::EnumMode::desert);
-
+    Prefs::setMode(index);
     Prefs::writeConfig();
     m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
 }

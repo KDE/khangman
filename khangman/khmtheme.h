@@ -19,6 +19,7 @@
 #define KHANGMANTHEME_H
 
 #include <QPalette>
+#include <QStringList>
 
 class KHMTheme
 {
@@ -33,6 +34,7 @@ public:
     };
 
     virtual QString name() const = 0;
+    virtual QString uiName() const = 0;
     virtual QString svgFileName() const = 0;
     virtual QRect wordRect(const QSize& windowsize) const = 0;
     virtual QColor letterColor() const = 0;
@@ -48,6 +50,7 @@ public:
     ~KHMThemeFactory();
 
     KHMTheme* buildTheme(int id) const;
+    QStringList themeList() const;
 
 private:
     KHMThemeFactory();

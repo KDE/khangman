@@ -15,6 +15,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <klocale.h>
+
 //project headers
 #include "khmtheme.h"
 
@@ -38,6 +40,11 @@ public:
     virtual QString name() const
     {
         return "sea";
+    }
+
+    virtual QString uiName() const
+    {
+        return i18n("Sea Theme");
     }
 
     virtual QString svgFileName() const
@@ -101,6 +108,11 @@ public:
     virtual QString name() const
     {
         return "desert";
+    }
+
+    virtual QString uiName() const
+    {
+        return i18n("Desert Theme");
     }
 
     virtual QString svgFileName() const
@@ -178,6 +190,18 @@ KHMTheme* KHMThemeFactory::buildTheme(int id) const
     return 0;
 }
 
+#define ADD_THEME_NAME( themeclass, list ) \
+{ \
+   themeclass x; \
+   list.append( x.uiName() ); \
+}
+QStringList KHMThemeFactory::themeList() const
+{
+    QStringList ret;
+    ADD_THEME_NAME( KHMThemeSea, ret )
+    ADD_THEME_NAME( KHMThemeDesert, ret )
+    return ret;
+}
 
 
 
