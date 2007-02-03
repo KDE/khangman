@@ -25,6 +25,7 @@
 #include "khnewstuff.h"
 #include "khmtheme.h"
 
+#include <QApplication>
 #include <QBitmap>
 #include <QCheckBox>
 #include <QPainter>
@@ -32,7 +33,6 @@
 #include <kselectaction.h>
 #include <kactioncollection.h>
 
-#include <kapplication.h>
 #include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klineedit.h>
@@ -150,7 +150,7 @@ void KHangMan::slotQuit()
 {
     Prefs::setShowCharToolbar( secondToolbar->isVisible());
     Prefs::writeConfig();
-    kapp->quit();
+    qApp->quit();
 }
 
 
@@ -461,7 +461,7 @@ void KHangMan::loadLangToolBar()
 				 "check your installation.", Prefs::selectedLanguage());
 	    KMessageBox::sorry( this, mString,
 				i18n("Error") );
-	    kapp->quit();
+	    qApp->quit();
 	}
 	update();
 

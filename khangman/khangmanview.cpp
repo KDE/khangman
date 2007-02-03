@@ -15,7 +15,6 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <kapplication.h>
 #include <kdebug.h>
 #include <klineedit.h>
 #include <klocale.h>
@@ -27,6 +26,7 @@
 
 #include <phonon/audioplayer.h>
 
+#include <QApplication>
 #include <QImage>
 #include <QLabel>
 #include <QPainter>
@@ -436,7 +436,7 @@ void KHangManView::slotTry()
                                         QString(),KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
                 slotNewGame();
             else
-                kapp->quit();
+                qApp->quit();
         }
     }
     else {
@@ -482,7 +482,7 @@ void KHangManView::slotTry()
                                                 KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
                 slotNewGame();
             else
-                kapp->quit();
+                qApp->quit();
         }
     }
     }
@@ -590,7 +590,7 @@ void KHangManView::game()
                                  Prefs::selectedLanguage(),
                                  Prefs::levelFile());
         KMessageBox::sorry( this, mString, i18n("Error") );
-        kapp->quit();
+        qApp->quit();
     }
 
     // We open the file and store info into the stream...
