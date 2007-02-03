@@ -231,6 +231,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 void KHangManView::setTheme()
 {
     loadAnimation();
+    m_letterInput->setFocus();
     update();
 }
 
@@ -252,17 +253,22 @@ void KHangManView::paintEvent( QPaintEvent * )
 void KHangManView::paintHangman(QPainter &p)
 {
     QRect drawRect;
-    
+    m_renderer = new QSvgRenderer();
     if (Prefs::mode() == 0) { // sea
         // Draw the background
-        m_renderer = new QSvgRenderer(KStandardDirs::locate("data", "khangman/pics/sea/khangman_sea.svg"));
-        m_renderer->render(&p, "background"); //m_renderer->render(&p); //
+        m_renderer->load(KStandardDirs::locate("data", "khangman/pics/sea/khangman_sea.svg"));
+        m_renderer->render(&p, "background"); 
         // Draw the animated hanged K
         drawRect = QRect(0, 0, width()*630/700, height()*285/535);
         m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), drawRect);
         }
-    else //Desert not re-implemented yet
+    else  {//desert 
+        m_renderer->load(KStandardDirs::locate("data", "khangman/pics/desert/khangman_desert.svg"));
+        m_renderer->render(&p, "background"); 
         drawRect = QRect(width()*68/700, height()*170/535, width()*259/700, height()*228/535);
+        //m_renderer->render(&p, "cactus"); 
+        m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), drawRect);
+    }
 }
 
 
@@ -740,6 +746,7 @@ void KHangManView::loadAnimation()
     }
     m_guessButton->setPalette(pal);
     m_letterInput->setPalette(letterPal);
+    update();
 }
 
 #include "khangmanview.moc"
