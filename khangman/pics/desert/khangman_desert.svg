@@ -13,7 +13,7 @@
    inkscape:export-xdpi="72.000000"
    inkscape:export-filename="/home/danny/desert_theme.png"
    sodipodi:docname="khangman_desert.svg"
-   sodipodi:docbase="/home/danny/work/kde/EDU/khangman/clean_svg"
+   sodipodi:docbase="/home/danny/CVS/TRUNK/kdeedu/khangman/khangman/pics/desert"
    inkscape:version="0.44"
    sodipodi:version="0.32"
    id="svg1"
@@ -381,6 +381,26 @@
        y1="282.44822"
        x2="897.44466"
        y2="282.44822" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient17648"
+       id="linearGradient6224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.783707,0,0,1.08515,-976.4629,-94.1979)"
+       x1="681.07147"
+       y1="379.99728"
+       x2="892.46918"
+       y2="171.67482" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient18274"
+       id="linearGradient6226"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.851279,0,0,1.174702,-1033.417,-112.9066)"
+       x1="662.07464"
+       y1="282.44822"
+       x2="897.44466"
+       y2="282.44822" />
   </defs>
   <sodipodi:namedview
      inkscape:guide-bbox="true"
@@ -390,7 +410,7 @@
      inkscape:window-height="714"
      inkscape:window-width="1024"
      inkscape:current-layer="svg1"
-     inkscape:cy="157.03747"
+     inkscape:cy="546.22004"
      inkscape:cx="-139.30517"
      inkscape:zoom="0.36982095"
      inkscape:pageshadow="2"
@@ -440,10 +460,17 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1" />
-  <path
-     id="ani1"
-     d="M -477.48412,15.02994 L -254.87739,15.02994 L -254.87739,49.291 L -477.48412,49.291 L -477.48412,15.02994 z "
-     style="color:black;fill:#c84d1d;fill-opacity:1;fill-rule:evenodd;stroke:#4f1616;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+  <g
+     id="ani1">
+    <path
+       id="rect5333"
+       d="M -479.60242,-219.59634 L -252.75934,-219.59634 L -252.75934,64.979736 L -479.60242,64.979736 L -479.60242,-219.59634 z "
+       style="color:black;fill:white;fill-opacity:0;fill-rule:nonzero;stroke:white;stroke-width:0.76392084;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
+    <path
+       style="color:black;fill:#c84d1d;fill-opacity:1;fill-rule:evenodd;stroke:#4f1616;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -477.48412,28.60064 L -254.87739,28.60064 L -254.87739,62.8617 L -477.48412,62.8617 L -477.48412,28.60064 z "
+       id="path6237" />
+  </g>
   <g
      id="sand">
     <path
@@ -471,16 +498,19 @@
        style="fill:url(#linearGradient3591);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
   <g
-     id="ani2"
-     transform="translate(-480,-120)">
+     id="ani2">
+    <path
+       id="rect5331"
+       d="M -479.60242,80.403664 L -252.75934,80.403664 L -252.75934,364.97974 L -479.60242,364.97974 L -479.60242,80.403664 z "
+       style="color:black;fill:white;fill-opacity:0;fill-rule:nonzero;stroke:white;stroke-width:0.76392084;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
     <path
        sodipodi:nodetypes="ccccccc"
        id="path7638"
-       d="M 72.365357,191.53125 L 12.0625,250.09375 L 28.0625,266.71875 L 72.365357,223.21875 L 116.40625,266.71875 L 132.375,250.09375 L 72.365357,191.53125 z "
-       style="font-size:12px;fill:url(#linearGradient7646);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient7648);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1" />
+       d="M -407.63464,271.53125 L -467.9375,330.09375 L -451.9375,346.71875 L -407.63464,303.21875 L -363.59375,346.71875 L -347.625,330.09375 L -407.63464,271.53125 z "
+       style="font-size:12px;fill:url(#linearGradient6224);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient6226);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1" />
     <path
        style="color:black;fill:#c84d1d;fill-opacity:1;fill-rule:evenodd;stroke:#4f1616;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 2.51588,248.60064 L 225.12261,248.60064 L 225.12261,282.8617 L 2.51588,282.8617 L 2.51588,248.60064 z "
+       d="M -477.48412,328.60064 L -254.87739,328.60064 L -254.87739,362.8617 L -477.48412,362.8617 L -477.48412,328.60064 z "
        id="path7640"
        sodipodi:nodetypes="ccccc" />
   </g>
@@ -6876,7 +6906,7 @@
   </g>
   <g
      id="ani3"
-     transform="translate(-220,0)">
+     transform="matrix(1,0,0,1.000033,-220,199.9844)">
     <path
        style="font-size:12px;fill:url(#linearGradient12655);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient12657);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
        d="M -187.03125,182.53125 C -189.04423,182.53125 -191.07962,183.04587 -192.875,184.09375 C -196.46577,186.18948 -198.62129,190.06155 -198.5625,194.21875 L -198.84375,382.03125 L -247.9375,430.09375 L -231.9375,446.71875 L -198.90625,414.0625 L -198.90625,455.1875 L -175.84375,455.25 L -175.84375,414.78125 L -143.59375,446.71875 L -127.625,430.09375 L -175.8125,382.90625 L -175.5,194.21875 C -175.44121,190.06155 -177.62799,186.18951 -181.21875,184.09375 C -183.01413,183.04586 -185.01827,182.53125 -187.03125,182.53125 z "
@@ -6890,7 +6920,7 @@
   </g>
   <g
      id="ani4"
-     transform="translate(-480,480)">
+     transform="matrix(1,0,0,1.000034,-480,679.9904)">
     <path
        sodipodi:nodetypes="ccccccccccccccccccccccc"
        id="path12859"
@@ -6904,7 +6934,7 @@
   </g>
   <g
      id="ani5"
-     transform="translate(-480,780)">
+     transform="translate(-480,980)">
     <path
        sodipodi:nodetypes="ccccccccccccccccccccccc"
        id="path16366"
@@ -7023,7 +7053,7 @@
   </g>
   <g
      id="ani6"
-     transform="translate(-480,1080)">
+     transform="translate(-240,-220)">
     <path
        id="path15372"
        style="font-size:12px;fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#4f1616;stroke-width:12.49999332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:12.499994, 12.499994;stroke-dashoffset:0;stroke-opacity:1"
@@ -7042,6 +7072,6 @@
      id="ani0"
      width="32"
      height="32"
-     x="-479.98413"
-     y="-47.470062" />
+     x="-539.98413"
+     y="152.52994" />
 </svg>
