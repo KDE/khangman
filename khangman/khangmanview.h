@@ -182,6 +182,7 @@ private:
 
     // Graphics  ----------------
     QSvgRenderer *m_renderer;
+    QPixmap       m_backgroundCache;
     
     // Widgets ----------------
 
