@@ -23,6 +23,7 @@
 class KPushButton;
 class KHangMan;
 class QSvgRenderer;
+class KHMTheme;
 
 #include <qimage.h>
 #include <qpixmap.h>
@@ -55,7 +56,7 @@ public:
     ///parent instance
     KHangMan *khangman;
 
-    void setTheme();
+    void setTheme(KHMTheme *theme);
 
     bool  hintExists() const          { return m_hintExists;            }
 
@@ -168,7 +169,6 @@ private:
     // the same word is not given twice in a row.
     int              m_lastWordNumber;
 
-    QString          m_themeName;
     KRandomSequence  m_random;
 
     /// true if a hint exists
@@ -196,6 +196,7 @@ private:
 
     KEduVocDocument *m_doc;
 
+    KHMTheme *m_theme;
 };
 
 #endif // KHANGMANVIEW_H

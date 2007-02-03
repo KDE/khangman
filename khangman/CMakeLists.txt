@@ -14,6 +14,7 @@ set(khangman_SRCS
    main.cpp 
    khangmanview.cpp 
    khnewstuff.cpp 
+   khmtheme.cpp
    timer.cpp )
 
 kde4_automoc(${khangman_SRCS})

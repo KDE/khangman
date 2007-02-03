@@ -23,6 +23,7 @@
 #include "prefs.h"
 #include "timer.h"
 #include "khnewstuff.h"
+#include "khmtheme.h"
 
 #include <QBitmap>
 #include <QCheckBox>
@@ -198,7 +199,7 @@ void KHangMan::slotChangeMode(int index)
         Prefs::setMode(Prefs::EnumMode::desert);
 
     Prefs::writeConfig();
-    m_view->setTheme();
+    m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
 }
 
 

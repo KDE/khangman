@@ -42,6 +42,7 @@
 #include "prefs.h"
 #include "khangman.h"
 #include "khangmanview.h"
+#include "khmtheme.h"
 
 
 KHangManView::KHangManView(KHangMan*parent)
@@ -72,9 +73,6 @@ KHangManView::KHangManView(KHangMan*parent)
     m_guessButton->setFlat( true );
     m_guessButton->setText( i18n( "G&uess" ) );
 
-    // Get background from config file - default is sea
-    loadAnimation();
-
     setMinimumSize( QSize( 700, 535 ) );
 
     // Some misc initializations.
@@ -85,12 +83,18 @@ KHangManView::KHangManView(KHangMan*parent)
     m_accentedLetters  = true;
     m_hintExists       = true;	// Assume hint exists
     m_doc              = 0;
+    m_theme            = 0; // essential
 
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     
     m_renderer = new QSvgRenderer();
-    setTheme();
+
+    // not the best thing to do, but at least avoid no theme set
+    setTheme(KHMThemeFactory::instance()->buildTheme(0));
+
+    // Get background from config file - default is sea
+    loadAnimation();
 }
 
 
@@ -231,13 +235,22 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 // FIXME: Move this function somewhere logical
 
 
-void KHangManView::setTheme()
+void KHangManView::setTheme(KHMTheme *theme)
 {
-    if (Prefs::mode() == 0) {
-        m_renderer->load(KStandardDirs::locate("data", "khangman/pics/sea/khangman_sea.svg"));
-    } else  { //desert
-        m_renderer->load(KStandardDirs::locate("data", "khangman/pics/desert/khangman_desert.svg"));
-    }
+    // we don't allow null themes
+    if (!theme)
+        return;
+
+    QString svgpath = KStandardDirs::locate("data", QString("khangman/pics/%1/%2").arg(theme->name(), theme->svgFileName()));
+    // we don't allow themes with no svg installed
+    if (!QFile::exists(svgpath))
+        return;
+
+    delete m_theme;
+    m_theme = theme;
+
+    m_renderer->load(svgpath);
+
     m_backgroundCache = QPixmap();
     loadAnimation();
     m_letterInput->setFocus();
@@ -277,19 +290,10 @@ void KHangManView::paintHangman(QPainter &p)
 
 void KHangManView::paintWord(QPainter &p)
 {
-    QRect  myRect;
-    if (Prefs::mode() == 0)   //sea
-        myRect = QRect(0, height()-height()*126/535,
-                       width()*417/700, height()*126/535);
-    else
-        myRect = QRect(0, height()-height()*126/535,
-                       width()*327/700, height()*126/535);
+    QRect myRect = m_theme->wordRect(size());
 
     QFont tFont;
-    if (Prefs::mode() == 0)   //sea
-        p.setPen( QColor(148, 156, 167));
-    else
-        p.setPen( QColor(87, 0, 0));
+    p.setPen(m_theme->fontColor());
 
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
@@ -307,11 +311,7 @@ void KHangManView::paintWord(QPainter &p)
 void KHangManView::paintMisses(QPainter &p)
 {
     // Get the color for the letters.
-    QColor  letterColor;
-    if (Prefs::mode() == 0)   //sea
-        letterColor = QColor(148, 156, 167);
-    else
-        letterColor = QColor(87, 0, 0);
+    QColor letterColor = m_theme->letterColor();
 
     // Draw the missed letters
     QFont tFont;
@@ -516,18 +516,7 @@ void KHangManView::slotTry()
         }
 
         if (goodWord.contains(guess) > 0) {
-            QPoint abspos = popup->pos();
-
-            if (Prefs::mode() == 0) {
-                // sea
-                x = abspos.x() + width()*250/700;
-                y = abspos.y() + height()*485/535;
-            }
-            else {
-                x = abspos.x() + width()*200/700;
-                y = abspos.y() + height()*485/535;
-            }
-            point = QPoint(x, y);
+            point = m_theme->goodWordPos(size(), popup->pos());
 
             QTimer::singleShot( Prefs::missedTimer() * 1000,
                                 this, SLOT(enableUserInput()) );
@@ -731,24 +720,8 @@ void KHangManView::readFile()
 
 void KHangManView::loadAnimation()
 {
-    QPalette pal, letterPal;
-    switch (Prefs::mode())  {
-        case Prefs::EnumMode::sea:
-            m_themeName = "sea";
-            pal.setBrush( QPalette::Window, QColor( 115,  64,  49));
-            pal.setBrush( QPalette::WindowText, QColor(148, 156, 16));
-            letterPal.setBrush( QPalette::WindowText, ( QColor(  83,  40,  14) ));
-            break;
-
-        case Prefs::EnumMode::desert:
-            m_themeName = "desert";
-            pal.setBrush( QPalette::Window, QColor( 205, 214, 90));
-            pal.setBrush( QPalette::WindowText, QColor(87,   0,  0));
-            letterPal.setBrush( QPalette::WindowText, ( QColor(  87,   0,  0) ));
-            break;
-    }
-    m_guessButton->setPalette(pal);
-    m_letterInput->setPalette(letterPal);
+    m_guessButton->setPalette(m_theme->palette(KHMTheme::GuessButtonPalette));
+    m_letterInput->setPalette(m_theme->palette(KHMTheme::LetterInputPalette));
     update();
 }
 
