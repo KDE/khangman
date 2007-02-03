@@ -43,6 +43,7 @@
 #include "khangman.h"
 #include "khangmanview.h"
 #include "khmtheme.h"
+#include "langutils.h"
 
 
 KHangManView::KHangManView(KHangMan*parent)
@@ -293,13 +294,9 @@ void KHangManView::paintWord(QPainter &p)
 {
     QRect myRect = m_theme->wordRect(size());
 
-    QFont tFont;
     p.setPen(m_theme->fontColor());
 
-    if (Prefs::selectedLanguage() =="tg")
-        tFont.setFamily( "URW Bookman" );
-    else
-        tFont.setFamily( "Sans Serif" );
+    QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
 
     // FIXME: This has to be scaled depending of the dpi
     tFont.setPixelSize( 28 );
@@ -315,11 +312,7 @@ void KHangManView::paintMisses(QPainter &p)
     QColor letterColor = m_theme->letterColor();
 
     // Draw the missed letters
-    QFont tFont;
-    if (Prefs::selectedLanguage() =="tg")
-        tFont.setFamily( "URW Bookman" );
-    else
-        tFont.setFamily( "Sans Serif" );
+    QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
     tFont.setPixelSize( 28 );
     p.setPen( letterColor );
     p.setFont(tFont);
@@ -373,11 +366,7 @@ void KHangManView::slotTry()
     QString guess = m_letterInput->text();
     kDebug() << "guess as entered: " << guess << endl;
 
-    // If German, make upper case, otherwise make lower case.
-    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
-        guess = guess.toUpper();
-    else
-        guess = guess.toLower();
+    guess = LangUtils::capitalize(guess, Prefs::selectedLanguage(), Prefs::upperCase());
 
     // Handle the guess.
     if (!m_guessedLetters.contains(guess)) {

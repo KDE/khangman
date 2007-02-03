@@ -24,6 +24,7 @@
 #include "timer.h"
 #include "khnewstuff.h"
 #include "khmtheme.h"
+#include "langutils.h"
 
 #include <QApplication>
 #include <QBitmap>
@@ -291,7 +292,7 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     currentLevel = Prefs::currentLevel();
-    if (currentLevel > (uint) levels.count())
+    if (currentLevel > levels.count())
         currentLevel= 0;
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).toLower());
@@ -425,14 +426,8 @@ void KHangMan::slotDownloadNewStuff()
 
 void KHangMan::loadLangToolBar()
 {
-    if (Prefs::selectedLanguage() == "en"
-	|| Prefs::selectedLanguage() == "it"
-	|| Prefs::selectedLanguage() == "nl"
-	|| Prefs::selectedLanguage() == "ru"
-	|| Prefs::selectedLanguage() == "bg")
-	m_noSpecialChars = true;
-    else
-	m_noSpecialChars = false;
+    QString lang = Prefs::selectedLanguage();
+    m_noSpecialChars = LangUtils::hasSpecialChars(lang);
 
     if (secondToolbar->isVisible() && !m_noSpecialChars) {
 	Prefs::setShowCharToolbar(true);
@@ -443,22 +438,22 @@ void KHangMan::loadLangToolBar()
 
     m_allData.clear();
     if (!m_noSpecialChars) {
-	QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
+	QString myString=QString("khangman/%1.txt").arg(lang);
 	QFile myFile;
 	myFile.setFileName(KStandardDirs::locate("data", myString));
 
 	// Let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
 	    QString  myString=QString("khangman/data/%1/%1.txt")
-		.arg(Prefs::selectedLanguage())
-		.arg(Prefs::selectedLanguage());
+		.arg(lang)
+		.arg(lang);
 	    myFile.setFileName(KStandardDirs::locate("data",myString));
 	    kDebug() << myString << endl;
 	}
 
 	if (!myFile.exists()) {
 	    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
-				 "check your installation.", Prefs::selectedLanguage());
+				 "check your installation.", lang);
 	    KMessageBox::sorry( this, mString,
 				i18n("Error") );
 	    qApp->quit();
