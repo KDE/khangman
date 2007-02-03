@@ -37,6 +37,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <QSvgRenderer>
+ #include <QRegExpValidator>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -53,6 +54,8 @@ KHangManView::KHangManView(KHangMan*parent)
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
     m_letterInput->setObjectName("charWrite" );
+    QRegExp regExp("[A-Za-z]");
+    m_letterInput->setValidator(new QRegExpValidator(regExp, this));
     QSizePolicy policy( (QSizePolicy::Policy) 1, (QSizePolicy::Policy) 0 );
     policy.setHorizontalStretch( 0 );
     policy.setVerticalStretch( 0 );
@@ -365,12 +368,6 @@ void KHangManView::slotTry()
         guess = guess.toUpper();
     else
         guess = guess.toLower();
-
-    // If the char is not a letter, empty the input and return.
-    if ( guess.isEmpty() || !guess.at(0).isLetter()) {
-        m_letterInput->setText("");
-        return;
-    }
 
     // Handle the guess.
     if (!m_guessedLetters.contains(guess)) {
