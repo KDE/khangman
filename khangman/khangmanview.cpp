@@ -101,6 +101,7 @@ KHangManView::KHangManView(KHangMan*parent)
 KHangManView::~KHangManView()
 {
     delete m_renderer;
+    delete m_theme;
 }
 
 

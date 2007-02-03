@@ -53,6 +53,7 @@ KHangMan::KHangMan()
     setObjectName(QLatin1String("KHangMan"));
 
     m_newStuff = 0;
+    currentLevel = -1;
 
     setCentralWidget(m_view);
     setLanguages();
@@ -340,7 +341,7 @@ void KHangMan::loadLevels()
         if (levels.count(levels[i])>1)
             levels.removeAt(i);
     }
-    if ((int)currentLevel>levels.count())
+    if (currentLevel!=-1 && currentLevel>levels.count())
         currentLevel = levels.count();
     if (levelBool == false)
     {

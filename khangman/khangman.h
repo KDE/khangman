@@ -100,7 +100,7 @@ public:
     QStringList levels;
 
     ///Current level ID
-    uint currentLevel;
+    int currentLevel;
     ///hold the current level
     QString levelString;
 
