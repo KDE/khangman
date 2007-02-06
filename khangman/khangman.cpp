@@ -474,12 +474,14 @@ void KHangMan::loadLangToolBar()
 	    for (int i=0; i<(int) m_allData.count(); i++)
 		m_allData[i] = m_allData[i].toUpper();
 
-	for (int i=0; i<(int) m_allData.count(); i++)
-	    secondToolbar->addAction (charIcon(m_allData[i].at(0)));
-				//TODO port to kde4 // i,
-					 //SIGNAL( clicked() ), this,
-					 //SLOT( slotPasteChar()), true,
-					 //i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
+        for (int i=0; i<m_allData.count(); ++i)
+        {
+            QAction *act = secondToolbar->addAction(m_allData.at(i));
+            act->setIcon(QIcon(charIcon(m_allData.at(i).at(0))));
+            // used to carry the id
+            act->setData(i);
+            connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
+        }
     }
 
     if (Prefs::showCharToolbar())
@@ -495,13 +497,16 @@ void KHangMan::loadLangToolBar()
 
 void KHangMan::slotPasteChar()
 {
-#ifdef __GNUC__
-#warning "kde4: port it";
-#endif
-#if 0
-	KToolBarButton *charBut = (KToolBarButton* ) sender();
-	m_view->enterLetter(m_allData[charBut->id()]);
-#endif
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (!act)
+        return;
+
+    bool ok = true;
+    int id = act->data().toInt(&ok);
+    if (!ok || id < 0 || id >= m_allData.count())
+        return;
+
+    m_view->enterLetter(m_allData.at(id));
 }
 
 QString KHangMan::charIcon(const QChar & c)
