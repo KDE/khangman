@@ -444,7 +444,7 @@ void KHangMan::loadLangToolBar()
 
 	// Let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
-	    QString  myString=QString("khangman/data/%1/%1.txt")
+	    QString  myString=QString("khangman/data/%1/%2.txt")
 		.arg(lang)
 		.arg(lang);
 	    myFile.setFileName(KStandardDirs::locate("data",myString));
@@ -526,6 +526,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
     p.setFont(font);
     p.setPen(Qt::black);
     p.drawText(r, Qt::AlignCenter, (QString) c);
+    p.end();
 
     ///Create transparency mask
     QBitmap bm(128, 128);
@@ -534,6 +535,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
     b.setFont(font);
     b.setPen(Qt::color1);
     b.drawText(r, Qt::AlignCenter, (QString) c);
+    b.end();
 
     ///Mask the pixmap
     pm.setMask(bm);
