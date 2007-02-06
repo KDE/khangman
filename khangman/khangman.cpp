@@ -477,7 +477,7 @@ void KHangMan::loadLangToolBar()
         for (int i=0; i<m_allData.count(); ++i)
         {
             QAction *act = secondToolbar->addAction(m_allData.at(i));
-            act->setIcon(QIcon(charIcon(m_allData.at(i).at(0))));
+            act->setIcon(charIcon(m_allData.at(i).at(0)));
             // used to carry the id
             act->setData(i);
             connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
@@ -509,11 +509,8 @@ void KHangMan::slotPasteChar()
     m_view->enterLetter(m_allData.at(id));
 }
 
-QString KHangMan::charIcon(const QChar & c)
+QIcon KHangMan::charIcon(const QChar & c) const
 {
-    ///Create a name and path for the icon
-    QString s = KStandardDirs::locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
-
     QRect r(4, 4, 120, 120);
 
     ///A font to draw the character with
@@ -541,10 +538,7 @@ QString KHangMan::charIcon(const QChar & c)
     ///Mask the pixmap
     pm.setMask(bm);
 
-    ///Save the icon to disk
-    pm.save(s, "PNG");
-
-    return s;
+    return QIcon(pm);
 }
 
 void KHangMan::setAccent()

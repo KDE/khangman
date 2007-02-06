@@ -117,8 +117,8 @@ public:
     // current language has special characters.
     void loadLangToolBar();
 
-    ///Create a png image with the argument (special character) and return the path to this png image
-    QString charIcon(const QChar &);
+    ///Create a pixmap with the argument (special character) and return the QIcon containing the pixmap
+    QIcon charIcon(const QChar &) const;
 
 public slots:
     ///When the langugae is changed in the Language menu
