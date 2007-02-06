@@ -22,6 +22,9 @@
 
 class KPushButton;
 class KHangMan;
+namespace Phonon {
+class AudioPlayer;
+}
 class QSvgRenderer;
 class KHMTheme;
 
@@ -123,6 +126,8 @@ private:
 
     void  replaceLetters(const QString &);
 
+    void play(const QString& soundFile);
+
 public slots:
     ///if you want to play with a new word
     void slotNewGame();
@@ -197,6 +202,8 @@ private:
     KEduVocDocument *m_doc;
 
     KHMTheme *m_theme;
+
+    Phonon::AudioPlayer *m_player;
 };
 
 #endif // KHANGMANVIEW_H

@@ -85,6 +85,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_hintExists       = true;	// Assume hint exists
     m_doc              = 0;
     m_theme            = 0; // essential
+    m_player           = 0;
 
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
@@ -101,6 +102,7 @@ KHangManView::KHangManView(KHangMan*parent)
 
 KHangManView::~KHangManView()
 {
+    delete m_player;
     delete m_renderer;
     delete m_theme;
 }
@@ -169,6 +171,19 @@ void KHangManView::replaceLetters(const QString& sChar)
 
     if (Prefs::oneLetter() && b_end)
         m_guessedLetters << sChar;
+}
+
+void KHangManView::play(const QString& soundFile)
+{
+    if (soundFile.isEmpty())
+        return;
+
+    if (!m_player)
+    {
+        m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+    }
+    m_player->stop();
+    m_player->play(soundFile);
 }
 
 
@@ -399,9 +414,7 @@ void KHangManView::slotTry()
             //
             if (Prefs::sound()) {
                 QString soundFile = KStandardDirs::locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
-                Phonon::AudioPlayer s(Phonon::GameCategory);
-                if (soundFile != 0)
-                 s.play(soundFile);
+                play(soundFile);
             }
 
             if (Prefs::wonDialog()) {
@@ -534,9 +547,7 @@ void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
-        Phonon::AudioPlayer s(Phonon::GameCategory);
-        if (soundFile != 0)
-            s.play(soundFile);
+        play(soundFile);
     }
 
     reset();
