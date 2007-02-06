@@ -25,6 +25,7 @@ class KHangMan;
 namespace Phonon {
 class AudioPlayer;
 }
+class QRect;
 class QSvgRenderer;
 class KHMTheme;
 
@@ -107,9 +108,9 @@ private:
     // Painting
 
     ///Paint the animated hanged K sequence
-    void paintHangman(QPainter &p);
-    void paintWord(QPainter &p);
-    void paintMisses(QPainter &p);
+    void paintHangman(QPainter &p, const QRect& rect);
+    void paintWord(QPainter &p, const QRect& rect);
+    void paintMisses(QPainter &p, const QRect& rect);
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();

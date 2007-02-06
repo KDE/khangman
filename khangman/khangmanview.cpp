@@ -279,17 +279,17 @@ void KHangManView::setTheme(KHMTheme *theme)
 //                           Painting
 
 
-void KHangManView::paintEvent( QPaintEvent * )
+void KHangManView::paintEvent( QPaintEvent * e )
 {
     // Repaint the contents of the khangman view
-    QPainter  p(this);
-    paintHangman(p);
-    paintWord(p);
-    paintMisses(p);
+    QPainter p(this);
+    paintHangman(p, e->rect());
+    paintWord(p, e->rect());
+    paintMisses(p, e->rect());
 }
 
 
-void KHangManView::paintHangman(QPainter &p)
+void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 {
     QRect drawRect;
     // Draw the background
@@ -301,13 +301,15 @@ void KHangManView::paintHangman(QPainter &p)
         // drawRect = QRect(0, 0, width()*630/700, height()*285/535);
         // m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), drawRect);*/
     }
-    p.drawPixmap(0, 0, m_backgroundCache);
+    p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
 }
 
 
-void KHangManView::paintWord(QPainter &p)
+void KHangManView::paintWord(QPainter &p, const QRect& rect)
 {
     QRect myRect = m_theme->wordRect(size());
+    if (!myRect.intersects(rect))
+        return;
 
     p.setPen(m_theme->fontColor());
 
@@ -321,7 +323,7 @@ void KHangManView::paintWord(QPainter &p)
 }
 
 
-void KHangManView::paintMisses(QPainter &p)
+void KHangManView::paintMisses(QPainter &p, const QRect& )
 {
     // Get the color for the letters.
     QColor letterColor = m_theme->letterColor();
