@@ -22,8 +22,6 @@
 #ifndef _KHANGMAN_H_
 #define _KHANGMAN_H_
 
-#include <config.h>
-
 #include <kmainwindow.h>
 
 #include "khangmanview.h"
