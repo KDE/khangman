@@ -151,7 +151,7 @@ void KHangMan::slotQuit()
 {
     Prefs::setShowCharToolbar( secondToolbar->isVisible());
     Prefs::writeConfig();
-    qApp->quit();
+    qApp->closeAllWindows();
 }
 
 
