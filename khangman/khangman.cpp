@@ -544,13 +544,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
 void KHangMan::setAccent()
 {
     kDebug() << "in slot accent  " << endl;
-    if (Prefs::selectedLanguage()=="es"
-	|| Prefs::selectedLanguage() == "ca"
-	|| Prefs::selectedLanguage() == "pt"
-	|| Prefs::selectedLanguage() == "pt_BR")
-        m_view->setAccentedLetters( true );
-    else
-        m_view->setAccentedLetters( false );
+    m_view->setAccentedLetters(LangUtils::hasAccentedLetters(Prefs::selectedLanguage()));
 }
 
 

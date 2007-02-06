@@ -24,6 +24,7 @@ class LangUtils
 {
 public:
     static bool hasSpecialChars(const QString& lang);
+    static bool hasAccentedLetters(const QString& lang);
     static QFont fontForLanguage(const QString& lang);
     static QString capitalize(const QString& str, const QString& lang, bool uppercase);
 };

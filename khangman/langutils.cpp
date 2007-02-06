@@ -29,6 +29,16 @@ bool LangUtils::hasSpecialChars(const QString& lang)
     return false;
 }
 
+bool LangUtils::hasAccentedLetters(const QString& lang)
+{
+    if (lang == QLatin1String("es")
+        || lang == QLatin1String("ca")
+        || lang == QLatin1String("pt")
+        || lang == QLatin1String("pt_BR"))
+        return true;
+    return false;
+}
+
 QFont LangUtils::fontForLanguage(const QString& lang)
 {
     QFont f;
