@@ -56,7 +56,7 @@ KHangManView::KHangManView(KHangMan*parent)
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
     m_letterInput->setObjectName("charWrite" );
-    QRegExp regExp("[A-Za-z]");
+    QRegExp regExp("[A-Za-z\\x0080-\\x00FF\\x0100-\\x017E\\x0400-\\x04FF]");
     m_letterInput->setValidator(new QRegExpValidator(regExp, this));
     QSizePolicy policy( (QSizePolicy::Policy) 1, (QSizePolicy::Policy) 0 );
     policy.setHorizontalStretch( 0 );
@@ -299,7 +299,7 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
         m_renderer->render(&aux, "background");
         // Draw the animated hanged K
         // drawRect = QRect(0, 0, width()*630/700, height()*285/535);
-        // m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), drawRect);*/
+        // m_renderer->render(&aux, QString("ani%2").arg(m_numMissedLetters), drawRect);
     }
     p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
 }
