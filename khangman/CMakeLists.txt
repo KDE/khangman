@@ -1,11 +1,5 @@
 
-add_subdirectory( data ) 
-add_subdirectory( pics ) 
-add_subdirectory( sounds ) 
-add_subdirectory( icons ) 
-
 include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeducore  )
-
 
 ########### next target ###############
 
