@@ -1,6 +1,6 @@
 project(khangman)
 
-add_subdirectory( khangman ) 
+add_subdirectory( src )
 
 add_subdirectory( data )
 add_subdirectory( themes )
