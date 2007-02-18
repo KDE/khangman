@@ -403,7 +403,7 @@ void KHangMan::optionsPreferences()
     dialog->addPage(m_timer, i18n("Timers"), "clock");
 
     connect(dialog, SIGNAL(settingsChanged( const QString &)), this, SLOT(updateSettings()));
-
+    dialog->setAttribute( Qt::WA_DeleteOnClose );
     dialog->show();
 }
 
