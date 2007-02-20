@@ -252,20 +252,21 @@ void KHangMan::setLanguages()
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
+
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
     for (QStringList::Iterator it = m_languages.begin();
 	 it != m_languages.end(); ++it) {
-        entry.setGroup(*it);
+        KConfigGroup group = entry.group(*it);
         if (*it == "sr")
-            m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')');
+            m_languageNames.append(group.readEntry("Name")+" ("+i18n("Cyrillic")+')');
         else if (*it == "sr@Latn") {
-            entry.setGroup("sr");
-	    m_languageNames.append(entry.readEntry("Name")
+            KConfigGroup group = entry.group("sr");
+	    m_languageNames.append(group.readEntry("Name")
 				   + " ("+i18n("Latin")+')');
         }
         else
-	    m_languageNames.append(entry.readEntry("Name"));
+	    m_languageNames.append(group.readEntry("Name"));
     }
 
     // Never sort m_languageNames as it's m_languages translated
@@ -366,7 +367,7 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	ui_language.kcfg_Hint->setEnabled(m_view->hintExists());
+	   ui_language.kcfg_Hint->setEnabled(m_view->hintExists());
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 	/*
         if (Prefs::selectedLanguage() == "de")
