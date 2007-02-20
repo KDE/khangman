@@ -242,12 +242,11 @@ void KHangMan::setLanguages()
     temp_languages.clear();
 
     // Write the present languages in config so they cannot be downloaded.
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup("KNewStuffStatus");
+    KConfigGroup config(KGlobal::config(), "KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
-        if (config->readEntry(tmp, QString()).isEmpty())
-            config->writeEntry(tmp, QDate::currentDate().toString(Qt::ISODate));
+        if (config.readEntry(tmp, QString()).isEmpty())
+            config.writeEntry(tmp, QDate::currentDate().toString(Qt::ISODate));
     }
 
     // We look in $KDEDIR/share/locale/all_languages from
@@ -323,7 +322,7 @@ void KHangMan::loadLevels()
     }
     //TODO else tell no files had been found
     }
-    
+
     // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
     QString replace[3] = { "Easy", "Medium", "Hard" };
@@ -335,7 +334,7 @@ void KHangMan::loadLevels()
             levels.append( replace[i] );
         }
     }
-    
+
     //find duplicated entries in KDEDIR and KDEHOME
     for (int i=0;  i<levels.count(); i++)
     {
