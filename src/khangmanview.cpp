@@ -676,7 +676,7 @@ void KHangManView::readFile()
     m_doc->open(myString, false);
 
     //how many words in the file
-    int NumberOfWords = m_doc->numEntries() /*verbs.count()*/;
+    int NumberOfWords = m_doc->entryCount() /*verbs.count()*/;
 
     //pick a number in random
 
