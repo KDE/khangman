@@ -92,7 +92,7 @@ void KHangMan::setupActions()
     // Game->Get Words in New Language
     KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
-    newStuffAct->setIcon(KIcon("knewstuff"));
+    newStuffAct->setIcon(KIcon("get-hot-new-stuff"));
     newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
