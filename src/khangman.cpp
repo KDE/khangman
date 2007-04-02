@@ -22,7 +22,6 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "timer.h"
-#include "khnewstuff.h"
 #include "khmtheme.h"
 #include "langutils.h"
 
@@ -46,6 +45,7 @@
 #include <ktoolbar.h>
 #include <kicon.h>
 #include <kglobal.h>
+#include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
     : KMainWindow(),
@@ -53,7 +53,6 @@ KHangMan::KHangMan()
 {
     setObjectName(QLatin1String("KHangMan"));
 
-    m_newStuff = 0;
     currentLevel = -1;
 
     setCentralWidget(m_view);
@@ -242,12 +241,7 @@ void KHangMan::setLanguages()
     temp_languages.clear();
 
     // Write the present languages in config so they cannot be downloaded.
-    KConfigGroup config(KGlobal::config(), "KNewStuffStatus");
-    for (int i=0;  i<m_languages.count(); i++) {
-        QString tmp = m_languages[i];
-        if (config.readEntry(tmp, QString()).isEmpty())
-            config.writeEntry(tmp, QDate::currentDate().toString(Qt::ISODate));
-    }
+    // FIXME: use pre-seeding here
 
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
@@ -419,9 +413,14 @@ void KHangMan::updateSettings()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    if ( !m_newStuff )
-        m_newStuff = new KHNewStuff( this );
-    m_newStuff->download();
+    KNS::Entry::List entries = KNS::Engine::download();
+
+    //look for languages dirs installed
+    setLanguages();
+    //refresh Languages menu
+    m_languageAction->setItems(m_languageNames);
+    slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
+    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 }
 
 void KHangMan::loadLangToolBar()

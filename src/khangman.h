@@ -31,7 +31,6 @@
 
 class KSelectAction;
 class KToggleAction;
-class KHNewStuff;
 class advanced;
 
 
@@ -143,7 +142,6 @@ private:
 
     // Some important members: the view and newStuff.
     KHangManView   *m_view;
-    KHNewStuff     *m_newStuff;
 
     // Actions in the Game menu
     KSelectAction  *m_levelAction;
