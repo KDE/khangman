@@ -119,9 +119,6 @@ private:
     ///Play a game: look for a word to be guessed and load its tip
     void game();
 
-    ///load the K animated sequence depending of the theme
-    void loadAnimation();
-
     /// Return true if the word contains the char in the QString.
     bool  containsChar(const QString &);
 

@@ -93,9 +93,6 @@ KHangManView::KHangManView(KHangMan*parent)
 
     // not the best thing to do, but at least avoid no theme set
     setTheme(KHMThemeFactory::instance()->buildTheme(0));
-
-    // Get background from config file - default is sea
-    loadAnimation();
 }
 
 
@@ -268,7 +265,8 @@ void KHangManView::setTheme(KHMTheme *theme)
     m_renderer->load(svgpath);
 
     m_backgroundCache = QPixmap();
-    loadAnimation();
+    m_guessButton->setPalette(m_theme->palette(KHMTheme::GuessButtonPalette));
+    m_letterInput->setPalette(m_theme->palette(KHMTheme::LetterInputPalette));
     m_letterInput->setFocus();
     update();
 }
@@ -718,14 +716,6 @@ void KHangManView::slotSetWordsSequence()
         m_randomList.append(qMakePair(m_doc->entry(j)->original(), m_doc->entry(j)->translation(1)));
     //shuffle the list
     randomSequence.randomize(m_randomList);
-}
-
-
-void KHangManView::loadAnimation()
-{
-    m_guessButton->setPalette(m_theme->palette(KHMTheme::GuessButtonPalette));
-    m_letterInput->setPalette(m_theme->palette(KHMTheme::LetterInputPalette));
-    update();
 }
 
 #include "khangmanview.moc"
