@@ -128,10 +128,11 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar( )->insertItem("   ",IDS_LEVEL,   0);
-    statusBar( )->insertItem("   ",IDS_LANG,    0);
-    statusBar( )->insertItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ",IDS_HINT,    0);
+    statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
+    statusBar( )->insertPermanentItem("   ",IDS_LANG,    0);
+    statusBar( )->insertPermanentItem("   ",IDS_ACCENTS, 0);
+    statusBar( )->insertItem("   ",IDS_HINT,    1);
+    statusBar()->setItemAlignment(IDS_HINT, Qt::AlignLeft);
 }
 
 
