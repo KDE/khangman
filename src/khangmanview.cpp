@@ -80,13 +80,12 @@ KHangManView::KHangManView(KHangMan*parent)
     c                  = -1;
     dd                 = -1;
     m_numMissedLetters = 0;
-    m_lastWordNumber   = -1;
     m_accentedLetters  = true;
     m_hintExists       = true;	// Assume hint exists
     m_doc              = 0;
     m_theme            = 0; // essential
     m_player           = 0;
-
+    randomInt          = -1;
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     
@@ -551,34 +550,17 @@ void KHangManView::slotNewGame()
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
         play(soundFile);
     }
-
+    
     reset();
+    randomInt++;
     game();
 
     update();
     m_letterInput->setFocus();
 }
 
-
-void KHangManView::reset()
+void KHangManView::readFile()
 {
-    goodWord = "";
-    m_word   = "";
-
-    m_guessedLetters.clear();
-    m_numMissedLetters = 0;
-    m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
-
-    // Clear the input field.
-    m_letterInput->setText("");
-}
-
-
-void KHangManView::game()
-{
-    kDebug() << "language " << Prefs::selectedLanguage() << endl;
-    kDebug() << "level "    << Prefs::levelFile()        << endl;
-
     // Check if the data files are installed in the correct dir.
     QString  myString = QString("khangman/data/%1/%2")
                           .arg(Prefs::selectedLanguage())
@@ -607,12 +589,66 @@ void KHangManView::game()
 
     // Detects if file is a kvtml file so that it's a hint enable file
     if (allData.first() == "<?xml version=\"1.0\"?>") {
-        readFile();
+        slotSetWordsSequence();
     }
     else {
         //TODO abort if not a kvtml file maybe
         kDebug() << "Not a kvtml file!" << endl;
     }
+}
+
+void KHangManView::reset()
+{
+    goodWord = "";
+    m_word   = "";
+
+    m_guessedLetters.clear();
+    m_numMissedLetters = 0;
+    m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
+
+    // Clear the input field.
+    m_letterInput->setText("");
+}
+
+
+void KHangManView::game()
+{
+    kDebug() << "language " << Prefs::selectedLanguage() << endl;
+    kDebug() << "level "    << Prefs::levelFile()        << endl;
+
+    m_word = m_randomList[randomInt%NumberOfWords].first;
+    m_hint = m_randomList[randomInt%NumberOfWords].second;
+
+    if (m_word.isEmpty()){
+        randomInt++;
+	game();
+	}
+
+    if (m_hint.isEmpty()) {
+        Prefs::setHint(false);	// Hint can't be enabled.
+        Prefs::writeConfig();
+        m_hintExists = false;	// Hint does not exist.
+
+        // FIXME: Make this a signal instead.
+        khangman->changeStatusbar("", 103);
+    }
+    else {
+        m_hintExists = true;
+        khangman->setMessages();
+    }
+
+    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
+    {
+        m_word = m_word.toUpper();// only for German currently
+
+        // Replace ß with SS in German
+        if (m_word.contains(QString::fromUtf8("ß"))) {
+            int index = m_word.indexOf(QString::fromUtf8("ß"),0);
+            m_word.replace(index,1, "S");
+            //TODO add a S here
+        }
+    }
+
     kDebug() << m_word << endl;
 
     // Display the number of letters to guess with _
@@ -659,7 +695,7 @@ void KHangManView::game()
 }
 
 
-void KHangManView::readFile()
+void KHangManView::slotSetWordsSequence()
 {
     kDebug() << "in read kvtml file " << endl;
 
@@ -676,48 +712,15 @@ void KHangManView::readFile()
     m_doc->open(myString);
 
     //how many words in the file
-    int NumberOfWords = m_doc->entryCount() /*verbs.count()*/;
+    NumberOfWords = m_doc->entryCount() /*verbs.count()*/;
 
-    //pick a number in random
-
-    // Make sure the same word is not chosen twice in a row.
-    int  wordNumber = m_random.getLong(NumberOfWords);
-    if (m_lastWordNumber != -1) {
-        while (wordNumber == m_lastWordNumber)
-            wordNumber = m_random.getLong(NumberOfWords);
-    }
-    m_lastWordNumber = wordNumber;
-
-    m_word = m_doc->entry(wordNumber)->original();
-    m_hint = m_doc->entry(wordNumber)->translation(1);
-
-    if (m_word.isEmpty())
-        readFile();
-
-    if (m_hint.isEmpty()) {
-        Prefs::setHint(false);	// Hint can't be enabled.
-        Prefs::writeConfig();
-        m_hintExists = false;	// Hint does not exist.
-
-        // FIXME: Make this a signal instead.
-        khangman->changeStatusbar("", 103);
-    }
-    else {
-        m_hintExists = true;
-        khangman->setMessages();
-    }
-
-    if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
-    {
-        m_word = m_word.toUpper();// only for German currently
-
-        // Replace ß with SS in German
-        if (m_word.contains(QString::fromUtf8("ß"))) {
-            int index = m_word.indexOf(QString::fromUtf8("ß"),0);
-            m_word.replace(index,1, "S");
-            //TODO add a S here
-        }
-    }
+    //get the words+hints
+    KRandomSequence randomSequence;
+    m_randomList.clear();
+    for (int j = 0; j < NumberOfWords; j++) 
+        m_randomList.append(qMakePair(m_doc->entry(j)->original(), m_doc->entry(j)->translation(1)));
+    //shuffle the list
+    randomSequence.randomize(m_randomList);
 }
 
 

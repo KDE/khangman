@@ -114,8 +114,8 @@ private:
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
-    ///Load kvtml file and get a word and its tip in random
-    void readFile();
+    ///shuffle words+hints
+    void slotSetWordsSequence();
     ///Play a game: look for a word to be guessed and load its tip
     void game();
 
@@ -132,6 +132,8 @@ private:
 public slots:
     ///if you want to play with a new word
     void slotNewGame();
+    ///Load kvtml file and get a word and its tip in random
+    void readFile();
 
 private slots:
 
@@ -171,12 +173,12 @@ private:
 
     // Misc data  ----------------
 
-    // Stores the number of the last word.  This is to make sure that
-    // the same word is not given twice in a row.
-    int              m_lastWordNumber;
+    ///The index to the random sequence
+    int randomInt;
 
-    KRandomSequence  m_random;
-
+    int NumberOfWords;
+    ///The random sequence of words
+    QList<QPair<QString, QString> > m_randomList;
     /// true if a hint exists
     bool             m_hintExists;
     QString          m_hint;

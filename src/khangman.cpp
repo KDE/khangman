@@ -163,6 +163,7 @@ void KHangMan::slotChangeLevel(int index)
     Prefs::setCurrentLevel( index);
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
+    m_view->readFile();
     m_view->slotNewGame();
 }
 
@@ -199,7 +200,8 @@ void KHangMan::setLanguages()
     //the program scans in khangman/data/ to see what languages data is found
     QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
     if (mdirs.isEmpty()) return;
-    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+    QStringList::const_iterator it;
+    for (it = mdirs.constBegin(); it != mdirs.constEnd(); ++it) {
         QDir dir(*it);
         m_languages += dir.entryList(QDir::Dirs, QDir::Name);
         m_languages.removeAll(".");
@@ -279,6 +281,7 @@ void KHangMan::setLevel()
     levelString = levels[currentLevel];
     levelString.replace(0, 1, levelString.left(1).toLower());
     levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).toLower()) ;
+    m_view->readFile();
 }
 
 void KHangMan::loadLevels()
@@ -305,19 +308,7 @@ void KHangMan::loadLevels()
     }
     //TODO else tell no files had been found
     }
-
-    // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
-    /*QString replace[3] = { "Easy", "Medium", "Hard" };
-    for ( int i = 0; i < 3; ++i )
-    {
-        if ( levels.contains( replace[i] ) )
-        {
-            levels.removeAll( replace[i] );
-            levels.append( replace[i] );
-        }
-    }*/
-
     //find duplicated entries in KDEDIR and KDEHOME
     for (int i=0;  i<levels.count(); i++)
     {
