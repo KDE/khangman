@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org> *
+ *   Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org> *
  *   annemarie.mahfouf@free.fr   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -156,22 +156,9 @@ void KHangMan::slotQuit()
 
 void KHangMan::slotChangeLevel(int index)
 {
-    static const char *levelStrings[] = {
-        I18N_NOOP("Animals"),
-        I18N_NOOP("Easy"),
-        I18N_NOOP("Medium"),
-        I18N_NOOP("Hard"),
-    };
     levelString = levels[index];
+    changeStatusbar(levelString, IDS_LEVEL);
     levelString.replace(0, 1, levelString.left(1).toLower());
-    changeStatusbar(i18n(levelStrings[index]), IDS_LEVEL);
-#if 0
-    if (m_view->levelFile == "world_capitals.kvtml"
-	|| m_view->levelFile == "departements.kvtml")
-        changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
-    else
-        changeStatusbar("", IDS_ACCENTS);
-#endif
     Prefs::setCurrentLevel( index);
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
@@ -320,7 +307,7 @@ void KHangMan::loadLevels()
 
     // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
-    QString replace[3] = { "Easy", "Medium", "Hard" };
+    /*QString replace[3] = { "Easy", "Medium", "Hard" };
     for ( int i = 0; i < 3; ++i )
     {
         if ( levels.contains( replace[i] ) )
@@ -328,7 +315,7 @@ void KHangMan::loadLevels()
             levels.removeAll( replace[i] );
             levels.append( replace[i] );
         }
-    }
+    }*/
 
     //find duplicated entries in KDEDIR and KDEHOME
     for (int i=0;  i<levels.count(); i++)

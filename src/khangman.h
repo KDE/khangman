@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org> *
+ *   Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org> *
  *   annemarie.mahfouf@free.fr   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
