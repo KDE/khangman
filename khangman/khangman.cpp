@@ -82,9 +82,10 @@ void KHangMan::setupActions()
 
     KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
     
-    m_levelAction = new KSelectAction(i18n("Le&vel"), 0, this, SLOT(slotChangeLevel()), actionCollection(), "combo_level");
+    m_levelAction = new KSelectAction(i18n("Le&vel"), 0,  actionCollection(), "combo_level");
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
+	connect(m_levelAction, SIGNAL(activated(int)), this, SLOT(slotChangeLevel(int)));
 
     // Action for selecting language.
     m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
@@ -137,18 +138,10 @@ void KHangMan::slotQuit()
 }
 
 
-void KHangMan::slotChangeLevel()
+void KHangMan::slotChangeLevel(int index)
 {
-    static const char *levelStrings[] = {
-        I18N_NOOP("Animals"),
-        I18N_NOOP("Easy"),
-        I18N_NOOP("Medium"),
-        I18N_NOOP("Hard"),
-    };
-    currentLevel = m_levelAction->currentItem();
-    levelString = levels[currentLevel];
-    levelString.replace(0, 1, levelString.left(1).lower());
-    changeStatusbar(i18n(levelStrings[currentLevel]), IDS_LEVEL);
+    levelString = levels[index];
+    changeStatusbar(levelString, IDS_LEVEL);
 #if 0
     if (m_view->levelFile == "world_capitals.kvtml" 
 	|| m_view->levelFile == "departements.kvtml")
@@ -156,7 +149,8 @@ void KHangMan::slotChangeLevel()
     else
         changeStatusbar("", IDS_ACCENTS);
 #endif
-    Prefs::setCurrentLevel( currentLevel);
+    Prefs::setCurrentLevel(index);
+	levelString.replace(0, 1, levelString.left(1).lower());
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
     m_view->slotNewGame();
