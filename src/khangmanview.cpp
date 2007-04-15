@@ -625,10 +625,7 @@ void KHangManView::game()
 	}
 
     if (m_hint.isEmpty()) {
-        Prefs::setHint(false);	// Hint can't be enabled.
-        Prefs::writeConfig();
         m_hintExists = false;	// Hint does not exist.
-
         // FIXME: Make this a signal instead.
         khangman->changeStatusbar("", 103);
     }
