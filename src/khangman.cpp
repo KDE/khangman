@@ -37,7 +37,7 @@
 #include <kdebug.h>
 #include <klineedit.h>
 #include <klocale.h>
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <kmessagebox.h>
 #include <kstandardaction.h>
 #include <kstandarddirs.h>
@@ -48,7 +48,7 @@
 #include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
-    : KMainWindow(),
+    : KXmlGuiWindow(),
       m_view(new KHangManView(this))
 {
     setObjectName(QLatin1String("KHangMan"));

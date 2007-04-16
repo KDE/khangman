@@ -22,7 +22,7 @@
 #ifndef _KHANGMAN_H_
 #define _KHANGMAN_H_
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 #include "khangmanview.h"
 #include "ui_generalui.h"
@@ -48,7 +48,7 @@ const int IDS_HINT     = 103;
  * @version 0.1
  */
 
-class KHangMan : public KMainWindow
+class KHangMan : public KXmlGuiWindow
 {
     Q_OBJECT
 public:
