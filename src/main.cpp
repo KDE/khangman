@@ -19,10 +19,10 @@
 #include "khangman.h"
 #include "version.h"
 
-#include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
+#include <kapplication.h>
 
 static const char description[] =
     I18N_NOOP("Classical hangman game for KDE");
