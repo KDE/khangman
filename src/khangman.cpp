@@ -158,7 +158,7 @@ void KHangMan::slotQuit()
 void KHangMan::slotChangeLevel(int index)
 {
     levelString = levels[index];
-    changeStatusbar(levelString, IDS_LEVEL);
+    changeStatusbar(levelString.replace(0, 1, levelString.left(1).toUpper()), IDS_LEVEL);
     levelString.replace(0, 1, levelString.left(1).toLower());
     Prefs::setCurrentLevel( index);
     Prefs::setLevelFile(levelString +".kvtml");

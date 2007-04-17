@@ -59,7 +59,7 @@ public:
 
     ///parent instance
     KHangMan *khangman;
-
+    ///set the chosen theme
     void setTheme(KHMTheme *theme);
 
     bool  hintExists() const          { return m_hintExists;            }
@@ -80,17 +80,6 @@ signals:
     /// Emit this signal to say if this is a kvtml file or not (hints
     /// enabled or not).
     void signalKvtml(bool);
-
-private:
-
-    // FIXME: Move all these below the next "private:" and when doing
-    //        that, rename them (if necessary), and regroup them into
-    //        logical groups.
-
-    // FIXME:  Rename these into something sensible!
-    //         (or better yet: remove them altogether)
-    int  c;    // These two are the positions of the first and second
-    int  dd;   // spaces in the word.
 
 
  protected:
@@ -166,18 +155,21 @@ private:
     /// How many times you missed.
     /// When this reaches MAXWRONGGUESSES, you are hanged.
     int              m_numMissedLetters;
-
+    /// These two are the positions of the first and second spaces in the word.
+    int  	     m_posFirstSpace;   
+    int      	     m_posSecondSpace;    
 
     // Misc data  ----------------
 
     ///The index to the random sequence
     int randomInt;
-
+    ///The number of words in the current level file.
     int NumberOfWords;
-    ///The random sequence of words
+    ///The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
     /// true if a hint exists
     bool             m_hintExists;
+    ///Current hint
     QString          m_hint;
 
     /// true if the language contains accented letters.
@@ -198,9 +190,9 @@ private:
     /// After you entered a letter in the line edit click this button
     /// to see if the letter is in the word or not.
     KPushButton     *m_guessButton;
-
+    ///Current level file
     KEduVocDocument *m_doc;
-
+    ///Current theme
     KHMTheme *m_theme;
 
     Phonon::AudioPlayer *m_player;

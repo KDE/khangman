@@ -77,8 +77,8 @@ KHangManView::KHangManView(KHangMan*parent)
     setMinimumSize( QSize( 700, 535 ) );
 
     // Some misc initializations.
-    c                  = -1;
-    dd                 = -1;
+    m_posFirstSpace    = -1;
+    m_posSecondSpace   = -1;
     m_numMissedLetters = 0;
     m_accentedLetters  = true;
     m_hintExists       = true;	// Assume hint exists
@@ -185,31 +185,31 @@ void KHangManView::play(const QString& soundFile)
 
 bool KHangManView::containsChar(const QString &sChar)
 {
-    bool b = false;
+    bool b_isInWord = false;
     if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i")
-            b = m_word.contains(QString::fromUtf8("í"));
+            b_isInWord = m_word.contains(QString::fromUtf8("í"));
 
         if (sChar=="a")
-            b = m_word.contains(QString::fromUtf8("à"))
+            b_isInWord = m_word.contains(QString::fromUtf8("à"))
                 || m_word.contains(QString::fromUtf8("á"))
                 || m_word.contains(QString::fromUtf8("ã"));
 
         if (sChar=="u")
-            b = m_word.contains(QString::fromUtf8("ü"))
+            b_isInWord = m_word.contains(QString::fromUtf8("ü"))
                 || m_word.contains(QString::fromUtf8("ù"));
 
         if (sChar=="o")
-            b = m_word.contains(QString::fromUtf8("ò"))
+            b_isInWord = m_word.contains(QString::fromUtf8("ò"))
                 || m_word.contains(QString::fromUtf8("ó"))
                 || m_word.contains(QString::fromUtf8("õ"));
 
         if (sChar=="e")
-            b = m_word.contains(QString::fromUtf8("è"))
+            b_isInWord = m_word.contains(QString::fromUtf8("è"))
                 || m_word.contains(QString::fromUtf8("é"));
     }
 
-    return (b || m_word.contains(sChar));
+    return (b_isInWord || m_word.contains(sChar));
 }
 
 
@@ -392,12 +392,12 @@ void KHangManView::slotTry()
         // This is needed because of the white spaces.
         QString  stripWord = goodWord;
         QString  sword     = m_word;
-        if (dd > 0)  {
-            stripWord.replace(2*c,   1, "");
-            stripWord.replace(2*c-1, 1, "");
+        if (m_posSecondSpace > 0)  {
+            stripWord.replace(2*m_posFirstSpace,   1, "");
+            stripWord.replace(2*m_posFirstSpace-1, 1, "");
 
-            stripWord.replace(2*(dd-1),   1, "");
-            stripWord.replace(2*(dd-1)-1, 1, "");
+            stripWord.replace(2*(m_posSecondSpace-1),   1, "");
+            stripWord.replace(2*(m_posSecondSpace-1)-1, 1, "");
         }
 
         QStringList  rightChars =  stripWord.split(" ");
@@ -658,35 +658,35 @@ void KHangManView::game()
     // If needed, display white space or - if in word or semi dot.
 
     // 1. Find dashes.
-    int f = m_word.indexOf( "-" );
-    if (f>0) {
-        goodWord.replace(2*f, 1, "-");
+    int posOfFirstDash = m_word.indexOf( "-" );
+    if (posOfFirstDash>0) {
+        goodWord.replace(2*posOfFirstDash, 1, "-");
 
-        int g = m_word.indexOf( "-", f+1);
-        if (g>0)
-            goodWord.replace(2*g, 3, "-");
-        if (g>1)
+        int posOfSecondDash = m_word.indexOf( "-", posOfFirstDash+1);
+        if (posOfSecondDash>0)
+            goodWord.replace(2*posOfSecondDash, 3, "-");
+        if (posOfSecondDash>1)
             goodWord.append("_");
     }
 
     // 2. Find white space.
-    c = m_word.indexOf( " " );
-    if (c > 0) {
-        goodWord.replace(2*c, 1, " ");
-        dd = m_word.indexOf( " ", c+1);
-        if (dd > 0)
-            goodWord.replace(2*dd, c+1, " ");
+    m_posFirstSpace = m_word.indexOf( " " );
+    if (m_posFirstSpace > 0) {
+        goodWord.replace(2*m_posFirstSpace, 1, " ");
+        m_posSecondSpace = m_word.indexOf( " ", m_posFirstSpace+1);
+        if (m_posSecondSpace > 0)
+            goodWord.replace(2*m_posSecondSpace, m_posFirstSpace+1, " ");
     }
 
     // 3. Find ·
-    int e = m_word.indexOf( QString::fromUtf8("·") );
-    if (e>0)
-        goodWord.replace(2*e, 1, QString::fromUtf8("·") );
+    int posOfDot = m_word.indexOf( QString::fromUtf8("·") );
+    if (posOfDot>0)
+        goodWord.replace(2*posOfDot, 1, QString::fromUtf8("·") );
 
     // 4. Find '
-    int h = m_word.indexOf( "'" );
-    if (h>0)
-        goodWord.replace(2*h, 1, "'");
+    int posOfApos = m_word.indexOf( "'" );
+    if (posOfApos>0)
+        goodWord.replace(2*posOfApos, 1, "'");
 }
 
 
