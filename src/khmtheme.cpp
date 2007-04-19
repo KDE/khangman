@@ -15,10 +15,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <klocale.h>
-
 //project headers
 #include "khmtheme.h"
+
+#include <klocale.h>
 
 KHMTheme::KHMTheme()
 {

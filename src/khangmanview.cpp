@@ -15,6 +15,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "khangmanview.h"
+
 #include <kdebug.h>
 #include <klineedit.h>
 #include <klocale.h>
@@ -41,7 +43,6 @@
 //project headers
 #include "prefs.h"
 #include "khangman.h"
-#include "khangmanview.h"
 #include "khmtheme.h"
 #include "langutils.h"
 

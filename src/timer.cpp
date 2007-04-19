@@ -20,12 +20,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
+#include "timer.h"
+
 #include <klocale.h>
 
 #include <qlabel.h>
 #include <qslider.h>
 
-#include "timer.h"
 #include "prefs.h"
 
 
