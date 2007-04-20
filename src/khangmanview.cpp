@@ -289,7 +289,7 @@ void KHangManView::paintEvent( QPaintEvent * e )
 
 void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 {
-    QRect drawRect;
+    //QRect drawRect;
     // Draw the background
     if (m_backgroundCache.size() != size()) {
         m_backgroundCache = QPixmap(size());
