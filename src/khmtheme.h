@@ -29,20 +29,17 @@ public:
     KHMTheme();
     virtual ~KHMTheme();
 
-    enum PaletteKind
-    {
-        GuessButtonPalette,
-        LetterInputPalette
-    };
-
     virtual QString name() const = 0;
     virtual QString uiName() const = 0;
     virtual QString svgFileName() const = 0;
     virtual QRect wordRect(const QSize& windowsize) const = 0;
     virtual QColor letterColor() const = 0;
     virtual QColor fontColor() const = 0;
+    virtual QColor guessButtonTextColor() const = 0;
+    virtual QColor guessButtonColor() const = 0;
+    virtual QColor guessButtonHoverColor() const = 0;
+    virtual QColor letterInputTextColor() const = 0;
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const = 0;
-    virtual QPalette palette(PaletteKind kind) const = 0;
 };
 
 class KHMThemeFactory

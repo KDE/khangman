@@ -71,8 +71,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_guessButton = new KPushButton( this);
     m_guessButton->setObjectName( "guessButton" );
     m_guessButton->setSizePolicy( policy );
-    //m_guessButton->setAutoMask( true );
-    m_guessButton->setFlat( true );
+    m_guessButton->setCursor(Qt::PointingHandCursor);
     m_guessButton->setText( i18n( "G&uess" ) );
 
     setMinimumSize( QSize( 700, 535 ) );
@@ -224,7 +223,8 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), m_hint );
-        myPopup->setPalette(QToolTip::palette());
+        myPopup->setPopupStyle(KPassivePopup::Balloon);
+	myPopup->setAutoFillBackground(true);
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
 
@@ -239,7 +239,6 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         // case kill the popup before new click
         //myPopup->move(mouse->pos());
     }
-
     //update();
 }
 
@@ -265,9 +264,17 @@ void KHangManView::setTheme(KHMTheme *theme)
 
     m_renderer->load(svgpath);
 
+    
     m_backgroundCache = QPixmap();
-    m_guessButton->setPalette(m_theme->palette(KHMTheme::GuessButtonPalette));
-    m_letterInput->setPalette(m_theme->palette(KHMTheme::LetterInputPalette));
+    int r1, g1, b1;
+    m_theme->guessButtonColor().getRgb(&r1, &g1, &b1);
+    int r2, g2, b2;
+    m_theme->guessButtonTextColor().getRgb(&r2, &g2, &b2);
+    int r3, g3, b3;
+    m_theme->guessButtonHoverColor().getRgb(&r3, &g3, &b3);
+    m_guessButton->setStyleSheet(QString("QPushButton{border-style: solid; background-color: rgb(%1, %2, %3); color: rgb(%4, %5, %6) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px;} QPushButton:hover{ background-color: rgb(%7, %8, %9)}").arg(r1).arg(g1).arg(b1).arg(r2).arg(g2).arg(b2).arg(r3).arg(g3).arg(b3));  
+    m_theme->letterInputTextColor().getRgb(&r1, &g1, &b1);
+    m_letterInput->setStyleSheet(QString("QLineEdit{border-style: solid; background-color: white; color: rgb(%1, %2, %3) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px; border-color: rgb(%1, %2, %3)}").arg(r1).arg(g1).arg(b1));
     m_letterInput->setFocus();
     update();
 }
@@ -379,6 +386,10 @@ void KHangManView::resizeEvent(QResizeEvent *)
 void KHangManView::slotTry()
 {
     QString guess = m_letterInput->text();
+    if (guess.isEmpty()) {
+	m_letterInput->setFocus();
+	return;
+    }
     kDebug() << "guess as entered: " << guess << endl;
 
     guess = LangUtils::capitalize(guess, Prefs::selectedLanguage(), Prefs::upperCase());
@@ -533,6 +544,7 @@ void KHangManView::slotTry()
 
     // Reset the entry field after guess.
     m_letterInput->setText("");
+    m_letterInput->setFocus();
 }
 
 

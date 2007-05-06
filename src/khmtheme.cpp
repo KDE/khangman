@@ -20,7 +20,7 @@
 //project headers
 #include "khmtheme.h"
 
-#include <klocale.h>
+#include <KLocale>
 
 KHMTheme::KHMTheme()
 {
@@ -76,25 +76,26 @@ public:
                       popupPos.y() + windowsize.height()*485/535);
     }
 
-    virtual QPalette palette(PaletteKind kind) const
+    virtual QColor guessButtonColor() const
     {
-        QPalette pal;
-        switch (kind)
-        {
-            case GuessButtonPalette:
-            {
-                pal.setBrush( QPalette::Window, QColor( 115,  64,  49));
-                pal.setBrush( QPalette::WindowText, QColor(148, 156, 16));
-                break;
-            }
-            case LetterInputPalette:
-            {
-                pal.setBrush( QPalette::WindowText, QColor(  83,  40,  14));
-                break;
-            }
-        }
-        return pal;
+      return QColor( 115,  64,  49);
     }
+
+    virtual QColor guessButtonTextColor() const
+    {
+      return QColor( 165, 165, 165);
+    }
+
+    virtual QColor guessButtonHoverColor() const
+    {
+      return QColor( 115, 55, 55);
+    }
+
+    virtual QColor letterInputTextColor() const
+    {
+      return QColor(  83,  40,  14);
+    }
+
 };
 
 
@@ -138,31 +139,32 @@ public:
         return QColor(87, 0, 0);
     }
 
+    virtual QColor guessButtonColor() const
+    {
+      return QColor( 205, 214, 90);
+    }
+
+    virtual QColor guessButtonTextColor() const
+    {
+      return QColor( 82, 119, 70);
+    }
+
+    virtual QColor guessButtonHoverColor() const
+    {
+      return QColor( 205, 220, 100);
+    }
+
+    virtual QColor letterInputTextColor() const
+    {
+      return QColor( 82, 119, 70);
+    }
+
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
     {
         return QPoint(popupPos.x() + windowsize.width()*200/700,
                       popupPos.y() + windowsize.height()*485/535);
     }
 
-    virtual QPalette palette(PaletteKind kind) const
-    {
-        QPalette pal;
-        switch (kind)
-        {
-            case GuessButtonPalette:
-            {
-                pal.setBrush( QPalette::Window, QColor( 205, 214, 90));
-                pal.setBrush( QPalette::WindowText, QColor(87,   0,  0));
-                break;
-            }
-            case LetterInputPalette:
-            {
-                pal.setBrush( QPalette::WindowText, QColor(  87,   0,  0));
-                break;
-            }
-        }
-        return pal;
-    }
 };
 
 
