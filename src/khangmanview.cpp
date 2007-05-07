@@ -279,7 +279,6 @@ void KHangManView::setTheme(KHMTheme *theme)
     update();
 }
 
-
 // ----------------------------------------------------------------
 //                           Painting
 

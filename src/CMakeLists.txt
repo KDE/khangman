@@ -9,7 +9,8 @@ set(khangman_SRCS
    khangmanview.cpp 
    khmtheme.cpp
    langutils.cpp
-   timer.cpp )
+   timer.cpp 
+   fontchecker.cpp)
 
 kde4_automoc(${khangman_SRCS})
 

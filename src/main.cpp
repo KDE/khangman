@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -19,10 +19,15 @@
 #include "khangman.h"
 #include "version.h"
 
+#include <k3process.h>
+
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
-#include <klocale.h>
 #include <kapplication.h>
+#include <kstandarddirs.h>
+#include <KLocale>
+
+#include "fontchecker.h"
 
 static const char description[] =
     I18N_NOOP("Classical hangman game for KDE");
@@ -40,7 +45,7 @@ int main(int argc, char **argv)
 {
     KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
 			  KHM_VERSION, description, KAboutData::License_GPL,
-			  "(c) 2001-2006, Anne-Marie Mahfouf", 0,
+			  "(c) 2001-2007, Anne-Marie Mahfouf", 0,
 			  "http://edu.kde.org/khangman");
     aboutData.addAuthor("Primoz Anzur", I18N_NOOP("Previous maintainer"), 
 			"zerokode@gmx.net");
@@ -114,25 +119,33 @@ int main(int argc, char **argv)
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
     KHangMan *mainWin = 0;
+    app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
-    if (app.isSessionRestored())
+    QFont f("Domestic Manners", 12, QFont::Normal, true);
+    QFont fd("Dustismo Roman", 12, QFont::Normal, true);
+    if (!fontChecker::checkInstalled(f, KStandardDirs::locate("appdata", "fonts/Domestic_Manners.ttf")))
     {
-        RESTORE(KHangMan);
+	K3Process *proc = new K3Process;
+	for (int i = 0; i < argc; i++) *proc << argv[i];
+	proc->start();
     }
-    else
+    else if (!fontChecker::checkInstalled(fd, KStandardDirs::locate("appdata", "fonts/Dustismo_Roman.ttf")))
     {
-        // no session.. just start up normally
-        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
-        /// @todo do something with the command line args here
-
-        mainWin = new KHangMan();
-        mainWin->show();
-
-        args->clear();
+        K3Process *proc = new K3Process;
+        for (int i = 0; i < argc; i++) *proc << argv[i];
+        proc->start();
     }
-
-    // mainWin has WDestructiveClose flag by default, so it will delete itself.
-    return app.exec();
+    else 
+    {
+      if (app.isSessionRestored())
+      {
+	  RESTORE(KHangMan);
+      }
+	else
+	{
+		app.setTopWidget(new KHangMan());
+		return app.exec();
+	}
+    }
 }
 

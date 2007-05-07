@@ -36,7 +36,7 @@
 #include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klineedit.h>
-#include <klocale.h>
+#include <KLocale>
 #include <kxmlguiwindow.h>
 #include <kmessagebox.h>
 #include <kstandardaction.h>
@@ -71,7 +71,7 @@ KHangMan::KHangMan()
 
     // set the theme
     slotChangeMode(Prefs::mode());
-
+    show();
     // Start a new game.
     m_view->slotNewGame();
 }

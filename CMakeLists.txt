@@ -6,4 +6,4 @@ add_subdirectory( data )
 add_subdirectory( themes )
 add_subdirectory( sounds )
 add_subdirectory( icons )
-
+add_subdirectory( fonts )
