@@ -118,7 +118,6 @@ int main(int argc, char **argv)
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
-    KHangMan *mainWin = 0;
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
     QFont f("Domestic Manners", 12, QFont::Normal, true);
@@ -141,11 +140,11 @@ int main(int argc, char **argv)
       {
 	  RESTORE(KHangMan);
       }
-	else
-	{
-		app.setTopWidget(new KHangMan());
-		return app.exec();
-	}
+      else
+      {
+	  app.setTopWidget(new KHangMan());
+	  return app.exec();
+      }
     }
 }
 

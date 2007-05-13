@@ -272,9 +272,9 @@ void KHangManView::setTheme(KHMTheme *theme)
     m_theme->guessButtonTextColor().getRgb(&r2, &g2, &b2);
     int r3, g3, b3;
     m_theme->guessButtonHoverColor().getRgb(&r3, &g3, &b3);
-    m_guessButton->setStyleSheet(QString("QPushButton{border-style: solid; background-color: rgb(%1, %2, %3); color: rgb(%4, %5, %6) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px;} QPushButton:hover{ background-color: rgb(%7, %8, %9)}").arg(r1).arg(g1).arg(b1).arg(r2).arg(g2).arg(b2).arg(r3).arg(g3).arg(b3));  
+    m_guessButton->setStyleSheet(QString("QPushButton{border-style: solid; background-color: rgb(%1, %2, %3); color: rgb(%4, %5, %6) ; padding: 3px; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px;} QPushButton:hover{ background-color: rgb(%7, %8, %9)}").arg(r1).arg(g1).arg(b1).arg(r2).arg(g2).arg(b2).arg(r3).arg(g3).arg(b3));  
     m_theme->letterInputTextColor().getRgb(&r1, &g1, &b1);
-    m_letterInput->setStyleSheet(QString("QLineEdit{border-style: solid; background-color: white; color: rgb(%1, %2, %3) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px; border-color: rgb(%1, %2, %3)}").arg(r1).arg(g1).arg(b1));
+    m_letterInput->setStyleSheet(QString("QLineEdit{border-style: solid; background-color: white; color: rgb(%1, %2, %3) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px; padding: 3px; border-color: rgb(%1, %2, %3)}").arg(r1).arg(g1).arg(b1));
     m_letterInput->setFocus();
     update();
 }
@@ -373,7 +373,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
                                height()/10, height()/10);
     m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12
-                               - m_guessButton->sizeHint().width()-5,
+                               - m_guessButton->sizeHint().width()-7,
                                height() - 2*height()/16,
                                m_guessButton->sizeHint().width(), height()/10);
 }

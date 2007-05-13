@@ -125,7 +125,7 @@ void KHangMan::setupActions()
 }
 
 // Set up the status bar with 4 different fields.
-void KHangMan::setupStatusbar()
+void KHangMan::setupStatusbar() 
 {
     // set up the status bar
     statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
