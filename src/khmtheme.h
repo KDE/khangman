@@ -29,16 +29,27 @@ public:
     KHMTheme();
     virtual ~KHMTheme();
 
+    ///The name of theme as in the folder
     virtual QString name() const = 0;
+    ///The name of the theme in the menu
     virtual QString uiName() const = 0;
+    ///Get the svg name of the theme
     virtual QString svgFileName() const = 0;
+    ///Set the position and size for drawing the word to guess
     virtual QRect wordRect(const QSize& windowsize) const = 0;
+    ///Set the position and size for drawing the hanged K
+    virtual QRect kRect(const QSize& windowsize) const = 0;
+    ///Set the color for the word and the missed letters
     virtual QColor letterColor() const = 0;
-    virtual QColor fontColor() const = 0;
+    ///Set the color of the Guess word
     virtual QColor guessButtonTextColor() const = 0;
+    ///Set the color of the Guess button background
     virtual QColor guessButtonColor() const = 0;
+    ///Set the color of the Guess button background when the mouse is over it
     virtual QColor guessButtonHoverColor() const = 0;
+    ///Set the color of the input text in the input widget
     virtual QColor letterInputTextColor() const = 0;
+    ///Set the already guessed popup position
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const = 0;
 };
 

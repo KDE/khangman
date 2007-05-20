@@ -223,8 +223,6 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), m_hint );
-        myPopup->setPopupStyle(KPassivePopup::Balloon);
-	myPopup->setAutoFillBackground(true);
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
 
@@ -295,17 +293,20 @@ void KHangManView::paintEvent( QPaintEvent * e )
 
 void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 {
-    //QRect drawRect;
+    
     // Draw the background
     if (m_backgroundCache.size() != size()) {
         m_backgroundCache = QPixmap(size());
         QPainter aux(&m_backgroundCache);
         m_renderer->render(&aux, "background");
-        // Draw the animated hanged K
-        // drawRect = QRect(0, 0, width()*630/700, height()*285/535);
-        // m_renderer->render(&aux, QString("ani%2").arg(m_numMissedLetters), drawRect);
+	
     }
     p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
+    // Draw the animated hanged K
+    QRect myRect = m_theme->kRect(size());
+    if (!myRect.intersects(rect))
+        return;
+    m_renderer->render(&p, QString("ani%2").arg(m_numMissedLetters), myRect);
 }
 
 
@@ -315,7 +316,7 @@ void KHangManView::paintWord(QPainter &p, const QRect& rect)
     if (!myRect.intersects(rect))
         return;
 
-    p.setPen(m_theme->fontColor());
+    p.setPen(m_theme->letterColor());
 
     QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
 
@@ -459,7 +460,6 @@ void KHangManView::slotTry()
 
         m_numMissedLetters++;
         update();
-
         // Check if we have reached the limit of wrong guesses.
         if (m_numMissedLetters >= MAXWRONGGUESSES) {
 

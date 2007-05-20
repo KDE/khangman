@@ -60,20 +60,20 @@ public:
                      windowsize.width()*417/700, windowsize.height()*126/535);
     }
 
-    virtual QColor letterColor() const
+    virtual QRect kRect(const QSize& windowsize) const
     {
-        return QColor(148, 156, 167);
-    }
-
-    virtual QColor fontColor() const
-    {
-        return QColor(148, 156, 167);
+        return QRect(0, 0, windowsize.width()*630/700, windowsize.height()*285/535);
     }
 
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
     {
         return QPoint(popupPos.x() + windowsize.width()*250/700,
                       popupPos.y() + windowsize.height()*485/535);
+    }
+
+    virtual QColor letterColor() const
+    {
+        return QColor(148, 156, 167);
     }
 
     virtual QColor guessButtonColor() const
@@ -129,12 +129,13 @@ public:
                      windowsize.width()*327/700, windowsize.height()*126/535);
     }
 
-    virtual QColor letterColor() const
+    virtual QRect kRect(const QSize& windowsize) const
     {
-        return QColor(87, 0, 0);
+        return QRect(windowsize.width()*68/700, windowsize.height()*170/535, 
+			   windowsize.width()*200/700, windowsize.height()*220/535);
     }
 
-    virtual QColor fontColor() const
+    virtual QColor letterColor() const
     {
         return QColor(87, 0, 0);
     }
