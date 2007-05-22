@@ -24,6 +24,7 @@
 #include "timer.h"
 #include "khmtheme.h"
 #include "langutils.h"
+#include "khangmanview.h"
 
 #include <QApplication>
 #include <QBitmap>
@@ -131,7 +132,9 @@ void KHangMan::setupStatusbar()
     statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
     statusBar( )->insertPermanentItem("   ",IDS_LANG,    0);
     statusBar( )->insertPermanentItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ",IDS_HINT,    1);
+    statusBar( )->insertItem("   ", IDS_HINT,    1);
+    statusBar( )->insertItem("   ", IDS_WINS,    1);
+    statusBar( )->insertItem("   ", IDS_LOSSES,  1);
     statusBar()->setItemAlignment(IDS_HINT, Qt::AlignLeft);
 }
 
@@ -545,4 +548,9 @@ void KHangMan::setMessages()
         changeStatusbar("", IDS_ACCENTS);
 }
 
+void KHangMan::setGameCount()
+{
+    changeStatusbar(i18n("Wins: %1", m_view->winCount), IDS_WINS); 
+    changeStatusbar(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
+}
 #include "khangman.moc"

@@ -93,6 +93,11 @@ KHangManView::KHangManView(KHangMan*parent)
 
     // not the best thing to do, but at least avoid no theme set
     setTheme(KHMThemeFactory::instance()->buildTheme(0));
+
+    //initialise win-loss counter
+    winCount = 0;
+    lossCount = 0;
+    //khangman->setGameCount();
 }
 
 
@@ -423,6 +428,7 @@ void KHangManView::slotTry()
             // We reset everything...
             //TODO find a better way to finish
             //
+
             if (Prefs::sound()) {
                 QString soundFile = KStandardDirs::locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                 play(soundFile);
@@ -450,6 +456,10 @@ void KHangManView::slotTry()
                 slotNewGame();
             else
                 qApp->quit();
+
+            ++winCount;
+            khangman->setGameCount();
+
         }
     }
     else {
@@ -467,6 +477,7 @@ void KHangManView::slotTry()
             QStringList charList=m_word.split(" ");
             QString theWord=charList.join(" ");
             goodWord = theWord;
+
             //usability: find another way to start a new game
             QString newGameString = i18n("You lost. Do you want to play again?");
             if (Prefs::wonDialog()) {
@@ -495,6 +506,9 @@ void KHangManView::slotTry()
                 slotNewGame();
             else
                 qApp->quit();
+
+            ++lossCount;
+            khangman->setGameCount();
         }
     }
     }

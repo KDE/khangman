@@ -38,7 +38,6 @@ class KHMTheme;
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
 
-
 #define MAXWRONGGUESSES  10
 
 
@@ -70,6 +69,9 @@ public:
 
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
+
+    int winCount;
+    int lossCount;
 
 
 signals:

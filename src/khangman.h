@@ -40,6 +40,8 @@ const int IDS_LEVEL    = 100;
 const int IDS_LANG     = 101;
 const int IDS_ACCENTS  = 102;
 const int IDS_HINT     = 103;
+const int IDS_WINS     = 104;
+const int IDS_LOSSES   = 105;
 
 
 /**
@@ -82,6 +84,9 @@ public:
 
     ///Display the correct messages in the statusbar
     void setMessages();
+    
+    ///Display the win/loss count in the statusbar
+    void setGameCount();
 
  private:
     ///Create the actions
