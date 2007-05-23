@@ -151,7 +151,7 @@ void KHangMan::changeStatusbar(const QString& text, int id)
 void KHangMan::slotQuit()
 {
     Prefs::setShowCharToolbar( secondToolbar->isVisible());
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     qApp->closeAllWindows();
 }
 
@@ -163,7 +163,7 @@ void KHangMan::slotChangeLevel(int index)
     levelString.replace(0, 1, levelString.left(1).toLower());
     Prefs::setCurrentLevel( index);
     Prefs::setLevelFile(levelString +".kvtml");
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     m_view->readFile();
     m_view->slotNewGame();
 }
@@ -173,7 +173,7 @@ void KHangMan::slotChangeLanguage(int index)
     //good when no in English
     kDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])] << endl;
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     loadLevels();
     loadLangToolBar();
     changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
@@ -185,7 +185,7 @@ void KHangMan::slotChangeLanguage(int index)
 void KHangMan::slotChangeMode(int index)
 {
     Prefs::setMode(index);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
 }
 
@@ -323,7 +323,7 @@ void KHangMan::loadLevels()
         Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).toLower())+".kvtml");
         Prefs::setCurrentLevel(0);
         currentLevel =0;
-        Prefs::writeConfig();
+        Prefs::self()->writeConfig();
     }
     QStringList translatedLevels;
     for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
@@ -410,7 +410,7 @@ void KHangMan::loadLangToolBar()
 
     if (secondToolbar->isVisible() && !m_noSpecialChars) {
 	Prefs::setShowCharToolbar(true);
-	Prefs::writeConfig();
+	Prefs::self()->writeConfig();
     }
 
     secondToolbar->clear();
