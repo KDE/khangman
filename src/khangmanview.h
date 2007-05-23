@@ -77,11 +77,11 @@ public:
 signals:
 
      /// Use this signal to change the content of the statusbar
-    void signalChangeLanguage(int);
+    void signalChangeStatusbar(const QString &message, int id);
 
     /// Emit this signal to say if this is a kvtml file or not (hints
     /// enabled or not).
-    void signalKvtml(bool);
+    //void signalKvtml(bool);
 
 
  protected:
@@ -116,6 +116,8 @@ signals:
     void  replaceLetters(const QString &);
 
     void play(const QString& soundFile);
+    ///Display the win/loss count in the statusbar
+    void setGameCount();
 
 public slots:
     ///if you want to play with a new word

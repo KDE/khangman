@@ -87,7 +87,6 @@ void KHangMan::setupActions()
     QAction *newAct = KStandardAction::openNew(m_view, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
-    //connect(newAct, SIGNAL(triggered(bool)), m_view, SLOT(slotNewGame()));
 
     // Game->Get Words in New Language
     KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
@@ -139,7 +138,6 @@ void KHangMan::setupStatusbar()
 }
 
 
-// FIXME: Make this into a slot?
 void KHangMan::changeStatusbar(const QString& text, int id)
 {
     statusBar()->changeItem(text, id);
@@ -548,9 +546,4 @@ void KHangMan::setMessages()
         changeStatusbar("", IDS_ACCENTS);
 }
 
-void KHangMan::setGameCount()
-{
-    changeStatusbar(i18n("Wins: %1", m_view->winCount), IDS_WINS); 
-    changeStatusbar(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
-}
 #include "khangman.moc"

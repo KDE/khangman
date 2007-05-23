@@ -64,12 +64,6 @@ public:
     */
     virtual ~KHangMan();
     
-    /**
-    Update the text in the Statusbar
-    @param text the text that will be written in the statusbar
-    @param id the label in which the text will be written
-    */
-    void changeStatusbar(const QString& text, int id);
 
     ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
@@ -85,8 +79,6 @@ public:
     ///Display the correct messages in the statusbar
     void setMessages();
     
-    ///Display the win/loss count in the statusbar
-    void setGameCount();
 
  private:
     ///Create the actions
@@ -142,6 +134,13 @@ private slots:
 
     ///Quit the application and save special toolbar settings
     void slotQuit();
+
+    /**
+    Update the text in the Statusbar
+    @param text the text that will be written in the statusbar
+    @param id the label in which the text will be written
+    */
+    void changeStatusbar(const QString& text, int id);
 
 private:
 

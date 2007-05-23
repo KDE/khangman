@@ -88,7 +88,7 @@ KHangManView::KHangManView(KHangMan*parent)
     randomInt          = -1;
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
-    
+    connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
     m_renderer = new QSvgRenderer();
 
     // not the best thing to do, but at least avoid no theme set
@@ -97,7 +97,6 @@ KHangManView::KHangManView(KHangMan*parent)
     //initialise win-loss counter
     winCount = 0;
     lossCount = 0;
-    //khangman->setGameCount();
 }
 
 
@@ -458,7 +457,7 @@ void KHangManView::slotTry()
                 qApp->quit();
 
             ++winCount;
-            khangman->setGameCount();
+            setGameCount();
 
         }
     }
@@ -508,7 +507,7 @@ void KHangManView::slotTry()
                 qApp->quit();
 
             ++lossCount;
-            khangman->setGameCount();
+            setGameCount();
         }
     }
     }
@@ -518,7 +517,7 @@ void KHangManView::slotTry()
         // Show a popup that says as much.
         QPoint point;
         KPassivePopup *popup = new KPassivePopup( this );
-        popup->setPopupStyle( KPassivePopup::Boxed );
+        popup->setPopupStyle( KPassivePopup::Balloon );
         popup->setAutoDelete( true );
         popup->setTimeout( 1000 );
         popup->setView(i18n("This letter has already been guessed.") );
@@ -570,6 +569,8 @@ void KHangManView::enableUserInput()
 
 void KHangManView::slotNewGame()
 {
+    setGameCount();
+
     if (Prefs::sound()) {
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
         play(soundFile);
@@ -650,8 +651,7 @@ void KHangManView::game()
 
     if (m_hint.isEmpty()) {
         m_hintExists = false;	// Hint does not exist.
-        // FIXME: Make this a signal instead.
-        khangman->changeStatusbar("", 103);
+        emit signalChangeStatusbar("", 103);
     }
     else {
         m_hintExists = true;
@@ -742,6 +742,12 @@ void KHangManView::slotSetWordsSequence()
         m_randomList.append(qMakePair(m_doc->entry(j)->original(), m_doc->entry(j)->translation(1)));
     //shuffle the list
     randomSequence.randomize(m_randomList);
+}
+
+void KHangManView::setGameCount()
+{
+    emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS); 
+    emit signalChangeStatusbar(i18n("Losses: %1", lossCount), IDS_LOSSES);
 }
 
 #include "khangmanview.moc"
