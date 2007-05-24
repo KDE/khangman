@@ -74,7 +74,7 @@ KHangMan::KHangMan()
     slotChangeMode(Prefs::mode());
     show();
     // Start a new game.
-    m_view->slotNewGame();
+    m_view->newGame();
 }
 
 KHangMan::~KHangMan()
@@ -84,7 +84,7 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    QAction *newAct = KStandardAction::openNew(m_view, SLOT(slotNewGame()),
+    QAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
 
@@ -128,8 +128,8 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar() 
 {
     // set up the status bar
-    statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
     statusBar( )->insertPermanentItem("   ",IDS_LANG,    0);
+    statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
     statusBar( )->insertPermanentItem("   ",IDS_ACCENTS, 0);
     statusBar( )->insertItem("   ", IDS_HINT,    1);
     statusBar( )->insertItem("   ", IDS_WINS,    1);
@@ -165,7 +165,7 @@ void KHangMan::slotChangeLevel(int index)
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::self()->writeConfig();
     m_view->readFile();
-    m_view->slotNewGame();
+    m_view->newGame();
 }
 
 void KHangMan::slotChangeLanguage(int index)
@@ -179,7 +179,7 @@ void KHangMan::slotChangeLanguage(int index)
     changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
     setMessages();
-    m_view->slotNewGame();
+    m_view->newGame();
 }
 
 void KHangMan::slotChangeMode(int index)
@@ -388,7 +388,7 @@ void KHangMan::updateSettings()
     if (Prefs::selectedLanguage() == "de")
         loadLangToolBar();
     setMessages();
-    m_view->slotNewGame();
+    m_view->newGame();
 }
 
 void KHangMan::slotDownloadNewStuff()
@@ -454,7 +454,7 @@ void KHangMan::loadLangToolBar()
 		m_allData[i] = m_allData[i].toUpper();
 
         for (int i=0; i<m_allData.count(); ++i)
-        {
+        {   
             QAction *act = secondToolbar->addAction(m_allData.at(i));
             act->setIcon(charIcon(m_allData.at(i).at(0)));
             // used to carry the id
@@ -544,6 +544,13 @@ void KHangMan::setMessages()
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else
         changeStatusbar("", IDS_ACCENTS);
+}
+
+void KHangMan::slotNewGame()
+{
+    m_view->lossCount++;
+    statusBar()->changeItem(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
+    m_view->newGame();
 }
 
 #include "khangman.moc"

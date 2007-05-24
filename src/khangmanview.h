@@ -79,10 +79,6 @@ signals:
      /// Use this signal to change the content of the statusbar
     void signalChangeStatusbar(const QString &message, int id);
 
-    /// Emit this signal to say if this is a kvtml file or not (hints
-    /// enabled or not).
-    //void signalKvtml(bool);
-
 
  protected:
 
@@ -120,10 +116,11 @@ signals:
     void setGameCount();
 
 public slots:
-    ///if you want to play with a new word
-    void slotNewGame();
+
     ///Load kvtml file and get a word and its tip in random
     void readFile();
+    ///if you want to play with a new word
+    void newGame();
 
 private slots:
 

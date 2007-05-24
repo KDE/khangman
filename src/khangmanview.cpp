@@ -447,12 +447,12 @@ void KHangManView::slotTry()
                 y = abspos.y() + height()*20/535;
                 point = QPoint(x, y);
                 popup->show(mapToGlobal(point));
-                QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
+                QTimer::singleShot( 4*1000, this, SLOT(newGame()) );
             }
             else if (KMessageBox::questionYesNo(this,
                                         i18n("Congratulations! You won! Do you want to play again?"),
                                         QString(),KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
-                slotNewGame();
+                newGame();
             else
                 qApp->quit();
 
@@ -498,11 +498,11 @@ void KHangManView::slotTry()
                 int  y = abspos.y() + height() * 20 / 535;
                 popup->show(mapToGlobal(QPoint(x, y)));
 
-                QTimer::singleShot( 4 * 1000, this, SLOT(slotNewGame()) );
+                QTimer::singleShot( 4 * 1000, this, SLOT(newGame()) );
             }
             else if (KMessageBox::questionYesNo(this, newGameString, QString(),
                                                 KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
-                slotNewGame();
+                newGame();
             else
                 qApp->quit();
 
@@ -567,10 +567,9 @@ void KHangManView::enableUserInput()
 }
 
 
-void KHangManView::slotNewGame()
+void KHangManView::newGame()
 {
     setGameCount();
-
     if (Prefs::sound()) {
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
         play(soundFile);

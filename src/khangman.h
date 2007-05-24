@@ -36,8 +36,8 @@ class advanced;
 
 
 // Id tags for the status bar.
-const int IDS_LEVEL    = 100;
-const int IDS_LANG     = 101;
+const int IDS_LANG     = 100;
+const int IDS_LEVEL    = 101;
 const int IDS_ACCENTS  = 102;
 const int IDS_HINT     = 103;
 const int IDS_WINS     = 104;
@@ -134,6 +134,8 @@ private slots:
 
     ///Quit the application and save special toolbar settings
     void slotQuit();
+    ///if you want to play with a new word
+    void slotNewGame();
 
     /**
     Update the text in the Statusbar
