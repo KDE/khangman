@@ -30,8 +30,6 @@
 //#include "timerui.h"
 
 class KSelectAction;
-class KToggleAction;
-class advanced;
 
 
 
