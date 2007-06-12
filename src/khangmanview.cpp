@@ -52,7 +52,7 @@ KHangManView::KHangManView(KHangMan*parent)
 {
     setAttribute(Qt::WA_StaticContents);
     khangman = parent;
-    
+
 
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
@@ -266,7 +266,7 @@ void KHangManView::setTheme(KHMTheme *theme)
 
     m_renderer->load(svgpath);
 
-    
+
     m_backgroundCache = QPixmap();
     int r1, g1, b1;
     m_theme->guessButtonColor().getRgb(&r1, &g1, &b1);
@@ -274,7 +274,7 @@ void KHangManView::setTheme(KHMTheme *theme)
     m_theme->guessButtonTextColor().getRgb(&r2, &g2, &b2);
     int r3, g3, b3;
     m_theme->guessButtonHoverColor().getRgb(&r3, &g3, &b3);
-    m_guessButton->setStyleSheet(QString("QPushButton{border-style: solid; background-color: rgb(%1, %2, %3); color: rgb(%4, %5, %6) ; padding: 3px; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px;} QPushButton:hover{ background-color: rgb(%7, %8, %9)}").arg(r1).arg(g1).arg(b1).arg(r2).arg(g2).arg(b2).arg(r3).arg(g3).arg(b3));  
+    m_guessButton->setStyleSheet(QString("QPushButton{border-style: solid; background-color: rgb(%1, %2, %3); color: rgb(%4, %5, %6) ; padding: 3px; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px;} QPushButton:hover{ background-color: rgb(%7, %8, %9)}").arg(r1).arg(g1).arg(b1).arg(r2).arg(g2).arg(b2).arg(r3).arg(g3).arg(b3));
     m_theme->letterInputTextColor().getRgb(&r1, &g1, &b1);
     m_letterInput->setStyleSheet(QString("QLineEdit{border-style: solid; background-color: white; color: rgb(%1, %2, %3) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px; padding: 3px; border-color: rgb(%1, %2, %3)}").arg(r1).arg(g1).arg(b1));
     m_letterInput->setFocus();
@@ -297,13 +297,13 @@ void KHangManView::paintEvent( QPaintEvent * e )
 
 void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 {
-    
+
     // Draw the background
     if (m_backgroundCache.size() != size()) {
         m_backgroundCache = QPixmap(size());
         QPainter aux(&m_backgroundCache);
         m_renderer->render(&aux, "background");
-	
+
     }
     p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
     // Draw the animated hanged K
@@ -420,7 +420,7 @@ void KHangManView::slotTry()
         QString      rightWord  = rightChars.join("");
         update();
         sword.remove(QRegExp(" "));
-        
+
         // If the user made it...
         if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
 
@@ -574,7 +574,7 @@ void KHangManView::newGame()
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
         play(soundFile);
     }
-    
+
     reset();
     randomInt++;
     game();
@@ -737,15 +737,15 @@ void KHangManView::slotSetWordsSequence()
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
-    for (int j = 0; j < NumberOfWords; j++) 
-        m_randomList.append(qMakePair(m_doc->entry(j)->original(), m_doc->entry(j)->translation(1)));
+    for (int j = 0; j < NumberOfWords; j++)
+        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).translation(), m_doc->entry(j)->translation(1).translation()));
     //shuffle the list
     randomSequence.randomize(m_randomList);
 }
 
 void KHangManView::setGameCount()
 {
-    emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS); 
+    emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS);
     emit signalChangeStatusbar(i18n("Losses: %1", lossCount), IDS_LOSSES);
 }
 
