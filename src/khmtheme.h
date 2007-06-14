@@ -21,7 +21,6 @@
 #define KHANGMANTHEME_H
 
 #include <QPalette>
-#include <QStringList>
 
 class KHMTheme
 {
