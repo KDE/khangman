@@ -19,7 +19,7 @@
 #include "khangman.h"
 #include "version.h"
 
-#include <k3process.h>
+#include <kprocess.h>
 
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
@@ -124,14 +124,16 @@ int main(int argc, char **argv)
     QFont fd("Dustismo Roman", 12, QFont::Normal, true);
     if (!fontChecker::checkInstalled(f, KStandardDirs::locate("appdata", "fonts/Domestic_Manners.ttf")))
     {
-	K3Process *proc = new K3Process;
-	for (int i = 0; i < argc; i++) *proc << argv[i];
+	KProcess *proc = new KProcess;
+	for (int i = 0; i < argc; i++)
+	    *proc << argv[i];
 	proc->start();
     }
     else if (!fontChecker::checkInstalled(fd, KStandardDirs::locate("appdata", "fonts/Dustismo_Roman.ttf")))
     {
-        K3Process *proc = new K3Process;
-        for (int i = 0; i < argc; i++) *proc << argv[i];
+        KProcess *proc = new KProcess;
+        for (int i = 0; i < argc; i++)
+            *proc << argv[i];
         proc->start();
     }
     else 
