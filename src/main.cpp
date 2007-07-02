@@ -34,88 +34,84 @@ static const char description[] =
 
 static const char version[] = "0.1";
 
-static KCmdLineOptions options[] =
-{
-//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
-    KCmdLineLastOption
-};
-
 
 int main(int argc, char **argv)
 {
-    KAboutData aboutData( "khangman", I18N_NOOP("KHangMan"),
-			  KHM_VERSION, description, KAboutData::License_GPL,
-			  "(c) 2001-2007, Anne-Marie Mahfouf", 0,
+    KAboutData aboutData( "khangman", 0, ki18n("KHangMan"),
+			  KHM_VERSION, ki18n(description), KAboutData::License_GPL,
+			  ki18n("(c) 2001-2007, Anne-Marie Mahfouf"), KLocalizedString(),
 			  "http://edu.kde.org/khangman");
-    aboutData.addAuthor("Primoz Anzur", I18N_NOOP("Previous maintainer"), 
+    aboutData.addAuthor(ki18n("Primoz Anzur"), ki18n("Previous maintainer"), 
 			"zerokode@gmx.net");
 
     // Write the names with accents and all and this file save with
     // utf8 encoding.
-    aboutData.addAuthor("Anne-Marie Mahfouf", I18N_NOOP("Current maintainer, author"), "annma@kde.org");
-    aboutData.addCredit("Renaud Blanchard",
-                            I18N_NOOP("Graphics"), "kisukuma@chez.com");
-    aboutData.addCredit("Stefan Asserhäll",
-                            I18N_NOOP("Swedish data files, coding help, transparent pictures and i18n fixes"), "stefan.asserhall@telia.com");
-    aboutData.addCredit("Joe Bolin",
-                            I18N_NOOP("Nature theme background"), "jbolin@zoominternet.net");
-    aboutData.addCredit("Primoz Anzur",
-                            I18N_NOOP("Blue theme background, icons"), "zerokode@gmx.net");
-    aboutData.addCredit("eXParTaKus",
-                            I18N_NOOP("Spanish data files"), "expartakus@expartakus.com");
-    aboutData.addCredit("Erik Kjær Pedersenn",
-                            I18N_NOOP("Danish data files"), "erik@mpim-bonn.mpg.de" );
-    aboutData.addCredit("Niko Lewman",
-                            I18N_NOOP("Finnish data files"), "niko.lewman@edu.hel.fi" );
-    aboutData.addCredit("João Sebastião de Oliveira Bueno",
-                            I18N_NOOP("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
-    aboutData.addCredit("Antoni Bella",
-                            I18N_NOOP("Catalan data files"), "bella5@teleline.es");
-    aboutData.addCredit("Giovanni Venturi",
-                            I18N_NOOP("Italian data files"), "jumpyj@tiscali.it");
-    aboutData.addCredit("Rinse",
-                            I18N_NOOP("Dutch data files"), "rinse@kde.nl");
-    aboutData.addCredit("Lukáš Tinkl",
-                            I18N_NOOP("Czech data files"), "lukas@kde.org");
-    aboutData.addCredit("Tamas Szanto",
-                            I18N_NOOP("Hungarian data files"), "tszanto@mol.hu");
-    aboutData.addCredit("Torger Åge Sinnes",
-                            I18N_NOOP("Norwegian (Bokmål) data files"), "org-a-s@online.no");
-    aboutData.addCredit("Roger Kovacs",
-                            I18N_NOOP("Tajik data files"), "rkovacs@khujand.org");
-    aboutData.addCredit("Chusslove Illich",
-                            I18N_NOOP("Serbian (Cyrillic and Latin) data files"), "chaslav@sezampro.yu");
-    aboutData.addCredit("Jure Repinc",
-                            I18N_NOOP("Slovenian data files"), "jlp@holodeck1.com");
-    aboutData.addCredit("Pedro Morais",
-                            I18N_NOOP("Portuguese data files"), "Morais@kde.org");
-    aboutData.addCredit("Gaute Hvoslef Kvalnes",
-                            I18N_NOOP("Norwegian (Nynorsk) data files"), "gaute@verdsveven.com");
-    aboutData.addCredit("Mehmet Özel",
-                            I18N_NOOP("Turkish data files"), "mehmet_ozel2003@hotmail.com");
-     aboutData.addCredit("Черепанов Андрей",
-                            I18N_NOOP("Russian data files"), "sibskull@mail.ru"); 
-     aboutData.addCredit("Radostin Radnev",
-			 I18N_NOOP("Bulgarian data files"), "radnev@yahoo.com");
-     aboutData.addCredit("Kevin Patrick Scannell",
-			 I18N_NOOP("Irish (Gaelic) data files"), "scannell@slu.edu");
-     aboutData.addCredit("Matt Howe",
-                            I18N_NOOP("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
-    aboutData.addCredit("Benjamin Meyer",
-                            I18N_NOOP("Coding help"), "ben@meyerhome.net");
-    aboutData.addCredit("Robert Gogolok",
-                            I18N_NOOP("Coding help"), "robertgogolok@gmx.de");
-    aboutData.addCredit("Lubos Lunàk",
-                            I18N_NOOP("Coding help"), "l.lunak@kde.org");
-    aboutData.addCredit("Albert Astals Cid",
-                            I18N_NOOP("Coding help, fixed a lot of things"), "tsdgeos@terra.es");
-   aboutData.addCredit("Danny Allen",
-                             I18N_NOOP("SVG icon"), "danny@dannyallen.co.uk");
-   aboutData.addCredit("Peter Hedlund",
-                             I18N_NOOP("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
-    aboutData.addCredit("Inge Wallin",
-                             I18N_NOOP("Code cleaning"), "inge@lysator.liu.se");
+    aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"), "annma@kde.org");
+    aboutData.addCredit(ki18n("Renaud Blanchard"),
+                            ki18n("Graphics"), "kisukuma@chez.com");
+    aboutData.addCredit(ki18n("Stefan Asserhäll"),
+                            ki18n("Swedish data files, coding help, transparent pictures and i18n fixes"), "stefan.asserhall@telia.com");
+    aboutData.addCredit(ki18n("Joe Bolin"),
+                            ki18n("Nature theme background"), "jbolin@zoominternet.net");
+    aboutData.addCredit(ki18n("Primoz Anzur"),
+                            ki18n("Blue theme background, icons"), "zerokode@gmx.net");
+    aboutData.addCredit(ki18n("eXParTaKus"),
+                            ki18n("Spanish data files"), "expartakus@expartakus.com");
+    aboutData.addCredit(ki18n("Erik Kjær Pedersenn"),
+                            ki18n("Danish data files"), "erik@mpim-bonn.mpg.de" );
+    aboutData.addCredit(ki18n("Niko Lewman"),
+                            ki18n("Finnish data files"), "niko.lewman@edu.hel.fi" );
+    aboutData.addCredit(ki18n("João Sebastião de Oliveira Bueno"),
+                            ki18n("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
+    aboutData.addCredit(ki18n("Antoni Bella"),
+                            ki18n("Catalan data files"), "bella5@teleline.es");
+    aboutData.addCredit(ki18n("Giovanni Venturi"),
+                            ki18n("Italian data files"), "jumpyj@tiscali.it");
+    aboutData.addCredit(ki18n("Rinse"),
+                            ki18n("Dutch data files"), "rinse@kde.nl");
+    aboutData.addCredit(ki18n("Lukáš Tinkl"),
+                            ki18n("Czech data files"), "lukas@kde.org");
+    aboutData.addCredit(ki18n("Tamas Szanto"),
+                            ki18n("Hungarian data files"), "tszanto@mol.hu");
+    aboutData.addCredit(ki18n("Torger Åge Sinnes"),
+                            ki18n("Norwegian (Bokmål) data files"), "org-a-s@online.no");
+    aboutData.addCredit(ki18n("Roger Kovacs"),
+                            ki18n("Tajik data files"), "rkovacs@khujand.org");
+    aboutData.addCredit(ki18n("Chusslove Illich"),
+                            ki18n("Serbian (Cyrillic and Latin) data files"), "chaslav@sezampro.yu");
+    aboutData.addCredit(ki18n("Jure Repinc"),
+                            ki18n("Slovenian data files"), "jlp@holodeck1.com");
+    aboutData.addCredit(ki18n("Pedro Morais"),
+                            ki18n("Portuguese data files"), "Morais@kde.org");
+    aboutData.addCredit(ki18n("Gaute Hvoslef Kvalnes"),
+                            ki18n("Norwegian (Nynorsk) data files"), "gaute@verdsveven.com");
+    aboutData.addCredit(ki18n("Mehmet Özel"),
+                            ki18n("Turkish data files"), "mehmet_ozel2003@hotmail.com");
+     aboutData.addCredit(ki18n("Черепанов Андрей"),
+                            ki18n("Russian data files"), "sibskull@mail.ru"); 
+     aboutData.addCredit(ki18n("Radostin Radnev"),
+			 ki18n("Bulgarian data files"), "radnev@yahoo.com");
+     aboutData.addCredit(ki18n("Kevin Patrick Scannell"),
+			 ki18n("Irish (Gaelic) data files"), "scannell@slu.edu");
+     aboutData.addCredit(ki18n("Matt Howe"),
+                            ki18n("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
+    aboutData.addCredit(ki18n("Benjamin Meyer"),
+                            ki18n("Coding help"), "ben@meyerhome.net");
+    aboutData.addCredit(ki18n("Robert Gogolok"),
+                            ki18n("Coding help"), "robertgogolok@gmx.de");
+    aboutData.addCredit(ki18n("Lubos Lunàk"),
+                            ki18n("Coding help"), "l.lunak@kde.org");
+    aboutData.addCredit(ki18n("Albert Astals Cid"),
+                            ki18n("Coding help, fixed a lot of things"), "tsdgeos@terra.es");
+   aboutData.addCredit(ki18n("Danny Allen"),
+                             ki18n("SVG icon"), "danny@dannyallen.co.uk");
+   aboutData.addCredit(ki18n("Peter Hedlund"),
+                             ki18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
+    aboutData.addCredit(ki18n("Inge Wallin"),
+                             ki18n("Code cleaning"), "inge@lysator.liu.se");
     KCmdLineArgs::init( argc, argv, &aboutData );
+
+    KCmdLineOptions options;
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
