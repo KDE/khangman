@@ -12,7 +12,6 @@ set(khangman_SRCS
    timer.cpp 
    fontchecker.cpp)
 
-kde4_automoc(${khangman_SRCS})
 
 kde4_add_ui_files(khangman_SRCS generalui.ui languageui.ui timerui.ui )
 
