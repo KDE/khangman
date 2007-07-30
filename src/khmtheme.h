@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
-#ifndef KHANGMANTHEME_H
-#define KHANGMANTHEME_H
+#ifndef KHMTHEME_H
+#define KHMTHEME_H
 
 #include <QPalette>
 
