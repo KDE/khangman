@@ -171,7 +171,7 @@ void KHangMan::slotChangeLevel(int index)
 void KHangMan::slotChangeLanguage(int index)
 {
     //good when no in English
-    kDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])] << endl;
+    kDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
     Prefs::self()->writeConfig();
     loadLevels();
@@ -210,7 +210,7 @@ void KHangMan::setLanguages()
     }
     m_languages.sort();
 
-    kDebug() << "languages :" << m_languages << endl;
+    kDebug() << "languages :" << m_languages;
 
     if (m_languages.isEmpty())
 	return;
@@ -419,7 +419,7 @@ void KHangMan::loadLangToolBar()
 		.arg(lang)
 		.arg(lang);
 	    myFile.setFileName(KStandardDirs::locate("data",myString));
-	    kDebug() << myString << endl;
+	    kDebug() << myString;
 	}
 
 	if (!myFile.exists()) {
@@ -516,7 +516,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
 
 void KHangMan::setAccent()
 {
-    kDebug() << "in slot accent  " << endl;
+    kDebug() << "in slot accent  ";
     m_view->setAccentedLetters(LangUtils::hasAccentedLetters(Prefs::selectedLanguage()));
 }
 

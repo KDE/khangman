@@ -116,7 +116,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     int   index = 0;
     bool  b_end = false;
 
-    kDebug() << "word " << m_word << endl;
+    kDebug() << "word " << m_word;
 
     // Replace letter in the word
     if (Prefs::oneLetter()) {
@@ -127,7 +127,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
 
-                kDebug() << "goodword " << goodWord << endl;
+                kDebug() << "goodword " << goodWord;
                 if (count == m_word.count(sChar)-1)
                 b_end = true;
                 break;
@@ -394,7 +394,7 @@ void KHangManView::slotTry()
 	m_letterInput->setFocus();
 	return;
     }
-    kDebug() << "guess as entered: " << guess << endl;
+    kDebug() << "guess as entered: " << guess;
 
     guess = LangUtils::capitalize(guess, Prefs::selectedLanguage(), Prefs::upperCase());
 
@@ -617,7 +617,7 @@ void KHangManView::readFile()
     }
     else {
         //TODO abort if not a kvtml file maybe
-        kDebug() << "Not a kvtml file!" << endl;
+        kDebug() << "Not a kvtml file!";
     }
 }
 
@@ -637,8 +637,8 @@ void KHangManView::reset()
 
 void KHangManView::game()
 {
-    kDebug() << "language " << Prefs::selectedLanguage() << endl;
-    kDebug() << "level "    << Prefs::levelFile()        << endl;
+    kDebug() << "language " << Prefs::selectedLanguage();
+    kDebug() << "level "    << Prefs::levelFile()       ;
 
     m_word = m_randomList[randomInt%NumberOfWords].first;
     m_hint = m_randomList[randomInt%NumberOfWords].second;
@@ -669,7 +669,7 @@ void KHangManView::game()
         }
     }
 
-    kDebug() << m_word << endl;
+    kDebug() << m_word;
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++)
@@ -678,7 +678,7 @@ void KHangManView::game()
     // Remove the last trailing space.
     goodWord.remove(goodWord.length()-1);
 
-    kDebug() << goodWord << endl;
+    kDebug() << goodWord;
 
     // If needed, display white space or - if in word or semi dot.
 
@@ -717,7 +717,7 @@ void KHangManView::game()
 
 void KHangManView::slotSetWordsSequence()
 {
-    kDebug() << "in read kvtml file " << endl;
+    kDebug() << "in read kvtml file ";
 
     if (m_doc != 0)
     {
