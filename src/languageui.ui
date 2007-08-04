@@ -12,9 +12,6 @@
     <height>142</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>Form</string>
-  </property>
   <property name="toolTip" >
    <string>This page lets you choose special settings for some languages.</string>
   </property>

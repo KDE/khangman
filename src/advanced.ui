@@ -12,9 +12,6 @@
         <height>166</height>
       </rect>
     </property>
-    <property name="windowTitle" >
-      <string>advanced</string>
-    </property>
     <widget class="QWidget" name="layout10" >
       <property name="geometry" >
         <rect>
@@ -52,9 +49,6 @@
                   </property>
                   <property name="text" >
                     <string>Type accented &amp;letters</string>
-                  </property>
-                  <property name="shortcut" >
-                    <string>Alt+L</string>
                   </property>
                   <property name="toolTip" stdset="0" >
                     <string>If this is checked, you must type accented letters yourself (i.e. they are differentiated from the corresponding unaccented letter).</string>
