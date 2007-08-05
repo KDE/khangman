@@ -1,5 +1,5 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeducore  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/keduvocdocument  )
 
 ########### next target ###############
 
