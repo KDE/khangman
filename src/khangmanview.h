@@ -23,7 +23,7 @@
 class KPushButton;
 class KHangMan;
 namespace Phonon {
-class AudioPlayer;
+class MediaObject;
 }
 class QRect;
 class QSvgRenderer;
@@ -196,7 +196,7 @@ private:
     ///Current theme
     KHMTheme *m_theme;
 
-    Phonon::AudioPlayer *m_player;
+    Phonon::MediaObject *m_player;
 };
 
 #endif // KHANGMANVIEW_H

@@ -26,7 +26,7 @@
 #include <kstandarddirs.h>
 #include <kvbox.h>
 
-#include <phonon/audioplayer.h>
+#include <Phonon/MediaObject>
 
 #include <QApplication>
 #include <QImage>
@@ -180,10 +180,14 @@ void KHangManView::play(const QString& soundFile)
 
     if (!m_player)
     {
-        m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+        m_player = Phonon::createPlayer(Phonon::GameCategory);
     }
-    m_player->stop();
-    m_player->play(soundFile);
+    else
+    {
+        m_player->stop();
+    }
+    m_player->setCurrentSource(soundFile);
+    m_player->play();
 }
 
 
