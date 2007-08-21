@@ -13,7 +13,7 @@
    </rect>
   </property>
   <property name="toolTip" >
-   <string>This page lets you choose settings for all languages.</string>
+   <string>Here you can choose settings for all languages.</string>
   </property>
   <layout class="QGridLayout" >
    <property name="margin" >
@@ -53,29 +53,29 @@
    <item row="1" column="0" >
     <widget class="QCheckBox" name="kcfg_WonDialog" >
      <property name="toolTip" >
-      <string>If checked, the dialog 'Congratulations! You won!' is not displayed. After 3 seconds, a new game will start automatically.</string>
+      <string>If checked, the congratulations dialog is not displayed. After four seconds, a new game will start automatically.</string>
      </property>
      <property name="whatsThis" >
-      <string>If this option is not checked, when a game is won a dialog will appear saying 'Congratulations! You won!'. It also asks you if you want to play again and you have to say Yes or No.
+      <string>If this option is not checked, a congratulations dialog will appear when a game is won. It also asks you if you want to play again.
 This is the default state.
 
-If this option is checked, this dialog will not appear and a new game will automatically start after four seconds. A passive popup tells you you have won the game. When this opton is checked you don't have an intrusive dialog each time you won a game.</string>
+If this option is checked, the dialog will not appear and a new game will automatically be started after four seconds. A passive popup tells you that you have won the game. You do not have an intrusive dialog every time you win a game.</string>
      </property>
      <property name="text" >
-      <string>Do not display the 'Congratulations! You won!' dialog</string>
+      <string>Do not display the congratulations dialog</string>
      </property>
     </widget>
    </item>
    <item row="0" column="0" >
     <widget class="QCheckBox" name="kcfg_OneLetter" >
      <property name="toolTip" >
-      <string>Check this if you do not want to display each instance of the same letter.</string>
+      <string>Check this if you do not want to discover each instance of the same letter.</string>
      </property>
      <property name="whatsThis" >
-      <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
-For example, the word to guess is "potato". If this option is unchecked, when you try "o", the 2 "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
+      <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then you have to rechoose the same letter, to replace the second instance in the word until there are no more instances of this letter.
+For example, the word to guess is "potato". If this option is unchecked, when you try "o", the two instances of "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
 
-Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
+Default is that for one letter typed, all instances of that letter in the word are discovered.</string>
      </property>
      <property name="text" >
       <string>Require more guesses for duplicate letters</string>
