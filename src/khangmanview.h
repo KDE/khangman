@@ -163,7 +163,7 @@ private:
     // Misc data  ----------------
 
     ///The index to the random sequence
-    int randomInt;
+    int m_randomInt;
     ///The number of words in the current level file.
     int NumberOfWords;
     ///The random sequence of words of the current level file

@@ -61,7 +61,6 @@ public:
     * Default Destructor
     */
     virtual ~KHangMan();
-    
 
     ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
@@ -69,48 +68,8 @@ public:
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
 
-    ///Translated names of languages
-    QStringList m_languageNames;
-    ///Language codes of available languages
-    QStringList m_languages;
-
     ///Display the correct messages in the statusbar
     void setMessages();
-    
-
- private:
-    ///Create the actions
-    void setupActions();
-    ///Create the Statusbar
-    void setupStatusbar();
-
-    ///Selected language
-    QString selectedLanguage;
-    ///Translated and sorted names of languages
-    QStringList m_sortedNames;
-    ///the different data files in each language dir
-    QStringList levels;
-
-    ///Current level ID
-    int currentLevel;
-    ///hold the current level
-    QString levelString;
-
-    ///At start, restore settings from config file and apply them
-    void loadSettings();
-    ///Set the level and make sure it exists
-    void setLevel();
-    ///Scan the files in the selected language dir to set the levels
-    void loadLevels();
-    ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
-    void setAccent();
-
-    // Populate the second toolbar with the correct buttons if the
-    // current language has special characters.
-    void loadLangToolBar();
-
-    ///Create a pixmap with the argument (special character) and return the QIcon containing the pixmap
-    QIcon charIcon(const QChar &) const;
 
 public slots:
     ///When the langugae is changed in the Language menu
@@ -143,6 +102,43 @@ private slots:
     void changeStatusbar(const QString& text, int id);
 
 private:
+    ///Create the actions
+    void setupActions();
+    ///Create the Statusbar
+    void setupStatusbar();
+
+    ///At start, restore settings from config file and apply them
+    void loadSettings();
+    ///Set the level and make sure it exists
+    void setLevel();
+    ///Scan the files in the selected language dir to set the levels
+    void loadLevels();
+    ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
+    void setAccent();
+
+    // Populate the second toolbar with the correct buttons if the
+    // current language has special characters.
+    void loadLangToolBar();
+
+    ///Create a pixmap with the argument (special character) and return the QIcon containing the pixmap
+    QIcon charIcon(const QChar &) const;
+
+    ///Selected language
+    QString selectedLanguage;
+    ///the different data files in the current language dir
+    QStringList m_levels;
+	///the different data files titles from the current language dir
+	QStringList m_titles;
+
+    ///Current level ID
+    int m_currentLevel;
+    ///hold the current level
+    QString m_levelString;
+
+
+	// language information
+	QStringList m_languages;
+	QStringList m_languageNames;
 
     // Some important members: the view and newStuff.
     KHangManView   *m_view;

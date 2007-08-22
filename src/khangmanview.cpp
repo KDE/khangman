@@ -85,7 +85,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_doc              = 0;
     m_theme            = 0; // essential
     m_player           = 0;
-    randomInt          = -1;
+    m_randomInt        = -1;
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
@@ -580,7 +580,7 @@ void KHangManView::newGame()
     }
 
     reset();
-    randomInt++;
+    m_randomInt++;
     game();
 
     update();
@@ -590,11 +590,8 @@ void KHangManView::newGame()
 void KHangManView::readFile()
 {
     // Check if the data files are installed in the correct dir.
-    QString  myString = QString("khangman/data/%1/%2")
-                          .arg(Prefs::selectedLanguage())
-                          .arg(Prefs::levelFile());
     QFile    myFile;
-    myFile.setFileName(KStandardDirs::locate("data", myString));
+    myFile.setFileName(Prefs::levelFile());
 
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -605,24 +602,8 @@ void KHangManView::readFile()
         qApp->quit();
     }
 
-    // We open the file and store info into the stream...
-    QFile  openFileStream(myFile.fileName());
-    openFileStream.open(QIODevice::ReadOnly);
-    QTextStream readFileStr(&openFileStream);
-    readFileStr.setCodec("UTF-8");
-
-    // Alldata contains all the words from the file
-    QStringList allData = readFileStr.readAll().split("\n");
-    openFileStream.close();
-
     // Detects if file is a kvtml file so that it's a hint enable file
-    if (allData.first() == "<?xml version=\"1.0\"?>") {
-        slotSetWordsSequence();
-    }
-    else {
-        //TODO abort if not a kvtml file maybe
-        kDebug() << "Not a kvtml file!";
-    }
+	slotSetWordsSequence();
 }
 
 void KHangManView::reset()
@@ -644,12 +625,12 @@ void KHangManView::game()
     kDebug() << "language " << Prefs::selectedLanguage();
     kDebug() << "level "    << Prefs::levelFile()       ;
 
-    m_word = m_randomList[randomInt%NumberOfWords].first;
-    m_hint = m_randomList[randomInt%NumberOfWords].second;
+    m_word = m_randomList[m_randomInt%NumberOfWords].first;
+    m_hint = m_randomList[m_randomInt%NumberOfWords].second;
 
     if (m_word.isEmpty()){
-        randomInt++;
-	game();
+        m_randomInt++;
+		game();
 	}
 
     if (m_hint.isEmpty()) {
@@ -729,20 +710,27 @@ void KHangManView::slotSetWordsSequence()
         m_doc = 0;
     }
 
-    QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
-    myString= KStandardDirs::locate("data", myString);
-
     m_doc = new KEduVocDocument(this);
-    m_doc->open(myString);
+    m_doc->open(Prefs::levelFile());
 
     //how many words in the file
-    NumberOfWords = m_doc->entryCount() /*verbs.count()*/;
+    NumberOfWords = m_doc->entryCount();
 
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
     for (int j = 0; j < NumberOfWords; j++)
-        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).translation(), m_doc->entry(j)->translation(1).translation()));
+    {
+        QString hint = m_doc->entry(j)->translation(0).comment();
+        if (hint.isEmpty() && m_doc->identifierCount() > 0)
+        {
+            // if there is no comment or it's empty, use the first translation if
+            // there is one
+            hint = m_doc->entry(j)->translation(1).translation();
+        }
+        
+        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).translation(), m_doc->entry(j)->translation(0).comment()));
+    }
     //shuffle the list
     randomSequence.randomize(m_randomList);
 }
