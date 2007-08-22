@@ -27,8 +27,6 @@
 <ToolBar name="mainToolBar" noMerge="1"><text>Main</text>
 	<Action name="fullscreen"/>
         <Separator/>
-        <Action name="combo_level"/>
-        <Separator/>
         <Action name="combo_mode"/>
         <Separator/>
         <Action name="file_new"/>
