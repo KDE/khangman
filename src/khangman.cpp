@@ -344,6 +344,7 @@ void KHangMan::slotDownloadNewStuff()
     m_languageAction->setItems(m_languageNames);
     slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+    SharedKvtmlFiles::sortDownloadedFiles();
 }
 
 void KHangMan::loadLangToolBar()
@@ -360,13 +361,13 @@ void KHangMan::loadLangToolBar()
 
     m_allData.clear();
     if (!m_noSpecialChars) {
-		QString myString=QString("khangman/%1.txt").arg(lang);
+		QString myString=QString("kvtml/%1.txt").arg(lang);
 		QFile myFile;
 		myFile.setFileName(KStandardDirs::locate("data", myString));
 
 		// Let's look in local KDEHOME dir then
 		if (!myFile.exists()) {
-			QString  myString=QString("khangman/data/%1/%2.txt")
+			QString  myString=QString("kvtml/%1/%2.txt")
 			.arg(lang)
 			.arg(lang);
 			myFile.setFileName(KStandardDirs::locate("data",myString));
@@ -374,7 +375,7 @@ void KHangMan::loadLangToolBar()
 		}
 
 		if (!myFile.exists()) {
-			QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+			QString mString=i18n("File $KDEDIR/share/apps/kvtml/%1.txt not found;\n"
 					 "check your installation.", lang);
 			KMessageBox::sorry( this, mString,
 					i18n("Error") );
