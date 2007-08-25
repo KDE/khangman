@@ -74,7 +74,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_guessButton->setCursor(Qt::PointingHandCursor);
     m_guessButton->setText( i18n( "G&uess" ) );
 
-    setMinimumSize( QSize( 700, 535 ) );
+    setMinimumSize( QSize( 660, 370 ) );
 
     // Some misc initializations.
     m_posFirstSpace    = -1;
