@@ -3,8 +3,8 @@
 <kvtml version="2.0" >
   <information>
     <generator>converter</generator>
-    <title>Medium</title>
-    <comment>Medium Words</comment>
+    <title>Medium</title><!--Translate tag content-->
+    <comment>Medium Words</comment><!--Translate tag content-->
   </information>
   <identifiers>
     <identifier id="0" >
@@ -102,8 +102,8 @@
       <inactive>false</inactive>
       <inquery>false</inquery>
       <translation id="0" >
-        <text>machine</text>
-        <comment>apparatus for applying mechanical power</comment>
+        <text>machine</text><!--Translate all text tags content-->
+        <comment>apparatus for applying mechanical power</comment><!--Translate all comment tags content-->
       </translation>
     </entry>
     <entry id="1" >

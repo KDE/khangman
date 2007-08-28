@@ -3,8 +3,8 @@
 <kvtml version="2.0" >
   <information>
     <generator>converter</generator>
-    <title>Animals</title>
-    <comment>Animals from across the planet</comment>
+    <title>Animals</title><!--Translate tag content-->
+    <comment>Animals from across the planet</comment><!--Translate tag content-->
   </information>
   <identifiers>
     <identifier id="0" >
@@ -16,8 +16,8 @@
       <inactive>false</inactive>
       <inquery>false</inquery>
       <translation id="0" >
-        <text>bear</text>
-        <comment>Large heavy animal with thick fur</comment>
+        <text>bear</text><!--Translate all text tags content-->
+        <comment>Large heavy animal with thick fur</comment><!--Translate all comment tags content-->
       </translation>
     </entry>
     <entry id="1" >

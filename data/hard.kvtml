@@ -3,8 +3,8 @@
 <kvtml version="2.0" >
   <information>
     <generator>converter</generator>
-    <title>Hard</title>
-    <comment>Hard Words</comment>
+    <title>Hard</title><!--Translate tag content-->
+    <comment>Hard Words</comment><!--Translate tag content-->
   </information>
   <identifiers>
     <identifier id="0" >
@@ -102,8 +102,8 @@
       <inactive>false</inactive>
       <inquery>false</inquery>
       <translation id="0" >
-        <text>knuckle</text>
-        <comment></comment>
+        <text>knuckle</text><!--Translate all text tags content-->
+        <comment></comment><!--Translate all comment tags content-->
       </translation>
     </entry>
     <entry id="1" >
