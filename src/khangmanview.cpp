@@ -726,10 +726,10 @@ void KHangManView::slotSetWordsSequence()
         {
             // if there is no comment or it's empty, use the first translation if
             // there is one
-            hint = m_doc->entry(j)->translation(1).translation();
+            hint = m_doc->entry(j)->translation(1).text();
         }
         
-        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).translation(), m_doc->entry(j)->translation(0).comment()));
+        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).text(), m_doc->entry(j)->translation(0).comment()));
     }
     //shuffle the list
     randomSequence.randomize(m_randomList);
