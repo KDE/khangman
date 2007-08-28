@@ -361,13 +361,13 @@ void KHangMan::loadLangToolBar()
 
     m_allData.clear();
     if (!m_noSpecialChars) {
-		QString myString=QString("kvtml/%1.txt").arg(lang);
+		QString myString=QString("khangman/%1.txt").arg(lang);
 		QFile myFile;
 		myFile.setFileName(KStandardDirs::locate("data", myString));
 
 		// Let's look in local KDEHOME dir then
 		if (!myFile.exists()) {
-			QString  myString=QString("kvtml/%1/%2.txt")
+			QString  myString=QString("khangman/%1/%2.txt")
 			.arg(lang)
 			.arg(lang);
 			myFile.setFileName(KStandardDirs::locate("data",myString));
@@ -375,7 +375,7 @@ void KHangMan::loadLangToolBar()
 		}
 
 		if (!myFile.exists()) {
-			QString mString=i18n("File $KDEDIR/share/apps/kvtml/%1.txt not found;\n"
+			QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
 					 "check your installation.", lang);
 			KMessageBox::sorry( this, mString,
 					i18n("Error") );
@@ -399,11 +399,14 @@ void KHangMan::loadLangToolBar()
 
         for (int i=0; i<m_allData.count(); ++i)
         {   
-            QAction *act = secondToolbar->addAction(m_allData.at(i));
-            act->setIcon(charIcon(m_allData.at(i).at(0)));
-            // used to carry the id
-            act->setData(i);
-            connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
+            if (!m_allData.at(i).isEmpty())
+            {
+                QAction *act = secondToolbar->addAction(m_allData.at(i));
+                act->setIcon(charIcon(m_allData.at(i).at(0)));
+                // used to carry the id
+                act->setData(i);
+                connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
+            }
         }
     }
 
