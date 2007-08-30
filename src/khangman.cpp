@@ -262,6 +262,13 @@ void KHangMan::loadLevels()
 	
 	if (!m_levels.contains(Prefs::levelFile()))
 	{
+        if (m_levels.size() == 0)
+        {
+            Prefs::setSelectedLanguage("en");
+            m_levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+            m_titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+        }
+
         Prefs::setLevelFile(m_levels[0]);
         Prefs::setCurrentLevel(0);
         m_currentLevel = 0;
