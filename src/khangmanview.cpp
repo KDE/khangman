@@ -599,7 +599,7 @@ void KHangManView::readFile()
                                  Prefs::selectedLanguage(),
                                  Prefs::levelFile());
         KMessageBox::sorry( this, mString, i18n("Error") );
-        qApp->quit();
+        //qApp->quit();
     }
 
     // Detects if file is a kvtml file so that it's a hint enable file

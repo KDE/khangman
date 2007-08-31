@@ -364,7 +364,7 @@ void KHangMan::loadLangToolBar()
 		Prefs::self()->writeConfig();
     }
 
-	  secondToolbar->clear();
+    secondToolbar->clear();
 
     m_allData.clear();
     if (!m_noSpecialChars) {
@@ -386,7 +386,7 @@ void KHangMan::loadLangToolBar()
 					 "check your installation.", lang);
 			KMessageBox::sorry( this, mString,
 					i18n("Error") );
-			qApp->quit();
+			//qApp->quit();
 		}
 		update();
 
