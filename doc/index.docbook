@@ -32,8 +32,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2006-02-01</date>
-<releaseinfo>1.6</releaseinfo>
+<date>2007-09-08</date>
+<releaseinfo>1.7</releaseinfo>
 
 <abstract>
 <para>
@@ -58,11 +58,12 @@
 
 <para>
 &khangman; is a game based on the well-known hangman game. It is aimed at
-children aged six and over. The game has four levels of difficulty: Animals (animals
-words), Easy, Medium and Hard. A word is picked at random, the letters are
-hidden, and you must guess the word by trying one letter after another. Each
-time you guess a wrong letter, part of a picture of a hangman is drawn. You
-must guess the word before being hanged! You have 10 tries.
+children aged six and over. The game has several categories of words to play
+with and among them: Animals (animals words)and three difficulty levels: Easy,
+Medium and Hard. A word is picked at random, the letters are hidden, and you
+must guess the word by trying one letter after another. Each time you guess a
+wrong letter, part of a picture of a hangman is drawn. You must guess the word
+before being hanged! You have 10 tries.
 </para>
 
 </chapter>
@@ -71,10 +72,11 @@ must guess the word before being hanged! You have 10 tries.
 <title>Using &khangman;</title>
 
 <screenshot>
-<screeninfo>Here's a screenshot of &khangman; when you start it for the first time</screeninfo>
+<screeninfo>Here's a screenshot of &khangman; when you start it for the first
+time</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="khangman1.png" format="PNG"/>
+	    <imagedata fileref="khangman-main.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; screenshot</phrase>
@@ -83,40 +85,40 @@ must guess the word before being hanged! You have 10 tries.
 </screenshot>
 
 <para>
-Here you can see &khangman; as it is the first time you run it. Level is Animals,
-language is default (English here, the default is your current &kde; language if
-the data exists), the theme is "Sea". Any changes in level, language or theme
-(background)  are written in the configuration file and restored in your next
-game.
+Here you can see &khangman; as it is the first time you run it. Category is
+Animals, language is default (English here, the default is your current &kde;
+language if the data exists), the theme is "Sea". Any changes in category,
+language or theme (background) are written in the configuration file and
+restored in your next game.
 </para>
 
 <para>
-Please note how easy it is to change the level and the theme, just
-click on the combo boxes on the toolbar. Getting a new word and quitting the
-game are also easily done by clicking on the corresponding buttons on the
-toolbar.
+Please note how easy it is to change the theme, just click on the combo box on
+the toolbar. Getting a new word and quitting the game are also easily done by
+clicking on the corresponding buttons on the toolbar.
 </para>
 
 <sect1 id="general-usage">
 <title>General usage</title>
 
-<!-- FIXME: A word cannot really be displayed and hidden at the same time, -->
-<!-- although I cannot think of a better way to phrase this -->
-<para>A word is chosen and its letters are displayed as an underscore (_) symbol. You know how many letters there are in the
-word. You have to guess the word by trying one letter after another. You enter the letter in the text box and you either press the Enter key or click on the Guess button to see if the letter belongs or not to the word. </para>
+<para>A word is chosen and its letters are displayed as an underscore (_)
+symbol. You know how many letters there are in the word. You have to guess the
+word by trying one letter after another. You enter the letter in the text box
+and you either press the Enter key or click on the Guess button to see if the
+letter belongs or not to the word. </para>
 
 <para>The word is picked at random and it is not the same as the previous word.
 </para>
 
-<important><para>All the words are nouns (there are no verbs or adjectives, &etc;).</para></important>
+<important><para>All the words are nouns (there are no verbs or
+adjectives, &etc;).</para></important>
 
-<para>
-Usually, it is not important whether you type in lowercase or uppercase. The program
-converts all input into lowercase (except for German words beginning with an uppercase letter). The program does that automatically.
-</para>
+<para> Usually, it is not important whether you type in lowercase or uppercase.
+The program converts all input into lowercase (except for German words beginning
+with an uppercase letter). The program does that automatically. </para>
 
 <para> 
-The current level and current language are displayed in the statusbar.
+The current category and current language are displayed in the statusbar.
 </para>
 
 <para>
@@ -128,7 +130,7 @@ answer is displayed.
 <para>
 There are 4 levels: easy, medium, hard and animals, plus levels for other
 topics in some languages. The program scans for all data files in all
-languages.
+languages and uses &kanagram; words files as well.
  </para>
  
 <para>
@@ -149,38 +151,44 @@ say <guilabel>Yes</guilabel>, another word is ready to be guessed.
 </para>
 
 <para>You type the letter you want to try in the text box (the mouse cursor is
-ready in the text box) and you hit the &Enter; key. If the letter belongs to the
-word, it takes its place, as many times as it appears in the word. If the
-letter does not belong to the word, it goes in the Misses field and a further
-part of the hangman is drawn on the right. You have ten tries and after that
-you lose and the correct word is displayed.
+ready in the text box) and you hit the &Enter; key or click the Guess button. If
+the letter belongs to the word, it takes its place, as many times as it appears
+in the word. If the letter does not belong to the word, it goes in the Misses
+field and a further part of the hangman is drawn on the right. You have ten
+tries and after that you lose and the correct word is displayed.
 </para>
 
 <para>During the game, you can choose to start a new game by going in the
 <guimenu>Game</guimenu> menu and choosing <guimenuitem>New</guimenuitem> or
 clicking on the <guiicon>New</guiicon> icon on the toolbar. You can also change
-the level with the level button on the toolbar (this will bring you a new word
-for the new level).</para>
+the category of words using the <guimenuitem>Category</guimenuitem> menu (this
+will bring you a new word for the new category).</para>
 
-<para>
-Future improvement (in &kde; 4) will allow you to create your own words file.
-</para>
 </sect1>
 
 <sect1 id="languages">
 <title>Playing in different languages</title>
 <para>
-You can play &khangman; in twenty-four languages: Brazilian Portuguese, Bulgarian, Catalan, Czech, Danish, Dutch, English,
-Finnish, French, German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian (Nynorsk), Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian, Tajik, Swedish, Russian and Turkish.
+You can play &khangman; in many languages including: Brazilian Portuguese,
+Bulgarian, Catalan, Czech, Danish, Dutch, English (US and GB), Finnish, French,
+German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian
+(Nynorsk), Polish, Portuguese, Spanish, Serbian (Latin and Cyrillic), Slovenian,
+Tajik, Swedish, Russian and Turkish. You can even try Chinese if you install
+the files from &kanagram;!!
 </para>
 
 <para>
-By default, after the first installation of &khangman;, only English and your &kde; language if it is one of the above and if you have the corresponding kde-i18n package will be installed. For example if you are a Danish user and if you have &kde; in Danish, in <guimenu>Languages</guimenu> you will see two items: English and Danish and Danish will be the default. 
-</para>
+By default, after the first installation of &khangman;, only English and your
+&kde; language if it is one of the above and if you have the corresponding
+kde-i18n package will be installed. For example if you are a Danish user and if
+you have &kde; in Danish, in <guimenu>Languages</guimenu> you will see two
+items: English and Danish and Danish will be the default. </para>
 
 <para>
-You can still play &khangman; in other languages. It is very easy to add new data in &khangman;. All you need is a working Internet connection. 
-You click on the <guimenu>File</guimenu> menu and then on <guimenuitem>Get Words in New Language...</guimenuitem>. A dialog appears, similar to this one:
+You can still play &khangman; in other languages. It is very easy to add new
+data in &khangman;. All you need is a working Internet connection. You click on
+the <guimenu>Game</guimenu> menu and then on <guimenuitem>Get Words in New
+Language...</guimenuitem>. A dialog appears, similar to this one:
 </para>
 
 <screenshot>
@@ -196,32 +204,44 @@ You click on the <guimenu>File</guimenu> menu and then on <guimenuitem>Get Words
 </screenshot>
 
 <para>
-Click on the language name you want to install and then on the <guibutton>Install</guibutton> button. If the language is successfully installed, a green tick is displayed in front of the language name. You click on the <guibutton>Close</guibutton> button to close the Get New Words dialog (if you want another language, you get repeat these steps).
-</para>
+Click on the language name you want to install and then on the
+<guibutton>Install</guibutton> button. <!--If the language is successfully
+installed, a green tick is displayed in front of the language name. --> The
+data is immediately installed and available in &khangman;. You click on the
+<guibutton>Close</guibutton> button to close the Get New Words dialog (if you
+want another language, you get repeat these steps). </para>
 
 <para>
-You can then easily change the language by going in the <guimenu>Languages</guimenu> and choose the new language.
-</para>
+You can then easily change the language by going in the
+<guimenu>Languages</guimenu> and choose the new language. </para>
 
 <para>
-Please note that you can now type the special characters in a language by displaying the <interface>Special Characters Toolbar</interface>.
-This toolbar holds buttons with an icon of each special character per language like &eacute; in French for example. Clicking on such a
-button will write the corresponding letter in the input line and you validate your choice with Enter. You can of course also use the keyboard layout corresponding to the language. This toolbar can be shown or hidden. The setting is restored next time you play &khangman;.
+Please note that you can now type the special characters in a language by
+displaying the <interface>Special Characters Toolbar</interface>. This toolbar
+holds buttons with an icon of each special character per language like &eacute;
+in French for example. Clicking on such a button will write the corresponding
+letter in the input line and you validate your choice with Enter. You can of
+course also use the keyboard layout corresponding to the language. This toolbar
+can be shown or hidden. The setting is restored next time you play &khangman;.
 </para>
 
 <important><para>
-Please note that you need Arial and URW Bookman fonts in order to display the special characters correctly in some languages. Provided you have those fonts installed, &khangman; will automatically use them. If you see small squares instead of letters, then you may not have one of these fonts installed. Type <command>fonts:/</command> into the &konqueror; address bar to check which fonts you have installed.
-</para></important>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command>fonts:/</command> into the &konqueror; address bar to check which fonts
+you have installed. </para></important>
 
 </sect1>
 <sect1 id="few-tips">
 <title>A few tips</title>
 <para>
-Try to guess the vowels first. Then have a go with the most common consonants:
+In English, try to guess the vowels first. Then have a go with the most common
+consonants:
 l, t, r, n, s
 </para>
-<para>corresponding:
-when you see <quote>io</quote>, try n after that, in French and English.
+<para>When you see <quote>io</quote>, try n after that, in French and English.
 </para>
 <para>
 In Brazilian Portuguese, Catalan, Spanish and Portuguese, the accented
@@ -235,10 +255,8 @@ the accented letters yourself. When you type <quote>a</quote>, only
 <quote>a</quote> is displayed and you have to type for example
 &atilde; for this letter to be displayed.
 </para>
-<para>
-Did you know? In English, the most common letter is e (12.7%), followed by t
-(9.1%) then a (8.2%), i (7.0%) and n (6.7%).
-</para>
+<para> Did you know? In English, the most common letter is e (12.7%), followed
+by t (9.1%) then a (8.2%), i (7.0%) and n (6.7%). </para>
 </sect1>
 
 
@@ -251,25 +269,30 @@ Did you know? In English, the most common letter is e (12.7%), followed by t
 <title>The Main &khangman; Window</title>
 
 <para>The <guimenu>Game</guimenu> menu has 3 items:
-<guimenuitem>New</guimenuitem>, <guimenuitem>Get Words in New Language...</guimenuitem> and
-<guimenuitem>Quit</guimenuitem>.</para>
+<guimenuitem>New</guimenuitem>, <guimenuitem>Get Words in New
+Language...</guimenuitem> and <guimenuitem>Quit</guimenuitem>.</para>
 
-<para><guimenuitem>New</guimenuitem> brings you a new game, &ie; a new
-word to guess, in the same level you already
-are. <guimenuitem>Get Words in New Language...</guimenuitem> will display the Get New Stuff dialog to allow you to download data in a new language. <guimenuitem>Quit</guimenuitem> quits the game by closing the
-main window and writing the actual settings in the configuration
+<para><guimenuitem>New</guimenuitem> brings you a new game, &ie; a new word to
+guess, in the same level you already are. <guimenuitem>Get Words in New
+Language...</guimenuitem> will display the Get New Stuff dialog to allow you to
+download data in a new language. <guimenuitem>Quit</guimenuitem> quits the game
+by closing the main window and writing the actual settings in the configuration
 file.</para>
 
 <para>
-The <guimenu>Level</guimenu> menu allows you to choose the level, &ie; the difficulty of the word to guess.
+The <guimenu>Category</guimenu> menu allows you to choose the category of words
+you want to play with and also the difficulty of the word to guess. 
 </para>
 
 <para>
-The <guimenu>Languages</guimenu> menu allows you to change the language the words are displayed in.
+The <guimenu>Languages</guimenu> menu allows you to change the language the
+words are displayed in. 
 </para>
 
 <para>
-The <guimenu>Look</guimenu> menu proposes two themes: the <guimenuitem>Sea Theme</guimenuitem> and the <guimenuitem>Desert Theme</guimenuitem>. The background and the font colors changes for each theme.
+The <guimenu>Look</guimenu> menu proposes two themes: the <guimenuitem>Sea
+Theme</guimenuitem> and the <guimenuitem>Desert Theme</guimenuitem>. The
+background and the font colors change for each theme. 
 </para>
 
 <para>
@@ -292,6 +315,7 @@ hidden if you don't want it. This is saved in the configuration file
 so if the toolbar is hidden, it will be hidden next time you run
 &khangman;.
 </para>
+
 <tip>
 <para>
 It is of course possible to move the toolbars around. Put the mouse
@@ -302,20 +326,21 @@ mouse button, a context menu appears to let you choose different
 options for the toolbar.
 </para>
 </tip>
+
 <para>
-<guimenuitem>Configure Shortcuts...</guimenuitem> is a standard &kde; setting dialog that allows you to
-choose different shortcut keys for different actions. For example,
-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> is the
+<guimenuitem>Configure Shortcuts...</guimenuitem> is a standard &kde; setting
+dialog that allows you to choose different shortcut keys for different actions.
+For example, <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> is the
 standard shortcut for <guimenuitem>Quit</guimenuitem>.</para>
-<para><guimenuitem>Configure Toolbars...</guimenuitem> is also a
-standard &kde; menu item that allows you to add or suppress items from
-the toolbar.</para>
+<para><guimenuitem>Configure Toolbars...</guimenuitem> is also a standard &kde;
+menu item that allows you to add or suppress items from the toolbar.
+</para>
 
 <screenshot>
 <screeninfo>&khangman; Desert theme</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="khangman2.png" format="PNG"/>
+	    <imagedata fileref="khangman-desert.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; Desert theme</phrase>
@@ -323,12 +348,19 @@ the toolbar.</para>
 	</mediaobject>
 </screenshot>
 
-<para> Here you have &khangman; with the Desert theme, Catalan language and level Easy. The
-<interface>Characters</interface> toolbar is shown here.</para>
+<para> Here you have &khangman; with the Desert theme, French language and level
+Easy. The <interface>Characters</interface> toolbar is shown here.</para>
 
-<para>The level is chosen with a combo box in the toolbar or via the <guimenu>Level</guimenu> menu in the menubar. The available levels are <guimenuitem>Easy</guimenuitem>, <guimenuitem>Medium</guimenuitem>, <guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem>. Easy is related to common objects a child aged six
-or seven knows. Medium regards nouns a bit more challenging, hard is
-quite difficult and animals is only animals nouns. </para>
+<para>
+The level is chosen with a combo box in the toolbar or via the
+<guimenu>Category</guimenu> menu in the menubar. The available levels are
+<guimenuitem>Easy</guimenuitem>, <guimenuitem>Medium</guimenuitem>,
+<guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem>. Easy is
+related to common objects a child aged six or seven knows. Medium regards nouns
+a bit more challenging, hard is quite difficult and animals is only animals
+nouns. There are also some other categories of words, depending on the
+language.
+</para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen level
  is  then displayed on the statusbar.</para>
@@ -338,10 +370,14 @@ quite difficult and animals is only animals nouns. </para>
 <sect1 id="settings">
 <title>Available Settings</title>
 <para>
-A toolbar is provided for quick access to some settings. You can click on a button to have a new game (i.e. a new word), or to quit the game. The level and the theme are easily changed via 2 combo boxes on the toolbar.
+A toolbar is provided for quick access to some settings. You can click on a
+button to have a new game (i.e. a new word), or to quit the game. The level and
+the theme are easily changed via 2 combo boxes on the toolbar. 
 </para>
 <para>
-In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;...</guimenuitem> </menuchoice> you will find tree pages. The first one is for <guilabel>General</guilabel> settings.
+In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure
+&khangman;...</guimenuitem> </menuchoice> you will find tree pages. The first
+one is for <guilabel>General</guilabel> settings. 
 </para>
 
 <sect2 id="general-settings">
@@ -351,7 +387,7 @@ In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure &khangman;...<
 <screeninfo>&khangman; General settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="settings1.png" format="PNG"/>
+	    <imagedata fileref="settings-general.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; General settings</phrase>
@@ -379,7 +415,7 @@ In the Sounds section, if you check <guilabel>Enable sounds</guilabel> then a so
 <screeninfo>&khangman; Languages Settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="settings2.png" format="PNG"/>
+	    <imagedata fileref="settings-languages.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; Languages Settings</phrase>
@@ -405,7 +441,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <screeninfo>&khangman; Timers Settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="settings3.png" format="PNG"/>
+	    <imagedata fileref="settings-timers.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
 	    <phrase>&khangman; Timers Settings</phrase>
@@ -472,7 +508,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 </sect2>
 
 <sect2>
-<title>The <guimenu>Level</guimenu> Menu</title>
+<title>The <guimenu>Category</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -508,12 +544,12 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 </sect2>
 
 <sect2>
-<title>The <guimenu>Language</guimenu> Menu</title>
+<title>The <guimenu>Languages</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Language</guimenu>
+<guimenu>Languages</guimenu>
 <guimenuitem>English</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the English language for the words to guess.</para>
