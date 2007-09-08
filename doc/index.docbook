@@ -653,69 +653,111 @@ choose different shortcut keys for different actions.
 <title>Developer's Guide to &khangman;</title>
 
 <sect1 id="changing-words">
-<title>How to add words in a new language for the game</title>
+<title>How to translate words in a new language for the game</title>
 
-<para>Thanks to Stefan Asserhäll, it is very easy to add a new language
-directly to the game. The procedure described here can also be
-found in the <filename class="directory">khangman</filename> source folder
-in the file <filename>README.languages</filename>. Please follow the procedure and then send me the files tarred and gzipped to annemarie.mahfouf@free.fr.
+<para>Please follow the procedure and then send me the files tarred and gzipped
+to &Anne-Marie.Mahfouf.mail;.
 </para>
 <para>
-The twenty four available languages so far by code are: bg ca cs da de en es fr fi ga hu it nb nl nn pt pt_BR ru sl sr sr@Ltn sv tg and tr. If your language code is not among those, you can proceed further. 
+Please have a look in KHangMan <guimenuitem>Get Words in New
+Language...</guimenuitem> in the <guimenu>Game</guimenu> menu to see if your
+language is available yet. If it is, then you can check if it countains
+<emphasis>hints</emphasis>.
 </para>
-<para>Most of this data should be completed to include <emphasis>hints</emphasis>, please see below. Complete data: bg de fr en it only have hints so the other above languages must be updated as soon as possible.
-</para>
-<para>Be sure you are working with the latest svn trunk sources of &khangman; by
-issuing a
-<screen><userinput><command>
-svn up khangman
-</command></userinput></screen>
-in the kdeedu module. Then 
-<screen><userinput><command>
-cd kdeedu/khangman
-</command></userinput></screen>
-</para>
-<para>The words are stored in 4 separate files, one for each level. The files are in
-<filename class="directory">/khangman/data/en</filename>. The file
-<filename>easy.txt</filename> is for level easy, the file
-<filename>medium.txt</filename> is for level medium, the file
-<filename>animals.txt</filename> is for level animals and the file
-<filename>hard.txt</filename> is for level hard.</para>
-<para>English is the default and thus the only language to be shipped with &khangman;. All other languages data are put in the correct kde-l10n.
+<para>The words are stored in 4 separate files, one for each level. The files
+are in
+<filename class="directory">/khangman/data/</filename>. The file
+<filename>easy.kvtml</filename> is for level easy, the file
+<filename>medium.kvtml</filename> is for level medium, the file
+<filename>animals.kvtml</filename> is for level animals and the file
+<filename>hard.kvtml</filename> is for level hard.</para>
+<para>English is the default and thus the only language to be shipped with
+&khangman;. All other languages data are put in the corresponding kde-l10n
+module.
 </para>
 <procedure>
-<step><para>Enter the following commands in a &konsole; to create the folder
-   and files for the new language:</para>
-<!-- Do not wrap or indent the next line, it's white space sensitive -->
-<screen><userinput><command>./add_language <replaceable>language_code</replaceable></command></userinput></screen>
-<para>Here you must replace <replaceable>language_code</replaceable>
-with your language  code.</para>
-</step>
 <step>
-<para>The files now use the kvtml format. The tag <sgmltag class="starttag">o</sgmltag> is for the word and the tag <sgmltag class="starttag">t</sgmltag> is for the hint. Try to match the hint with the level of difficulty. The level 'Easy' will require an easy hint but the level 'Hard' will require the definition in the dictionary. Try not to use words of the same family in the hint, that would give the word away too easily! </para>
+<para>The files use the kvtml format. The tag <sgmltag
+class="starttag">text</sgmltag> is for the word and the tag <sgmltag
+class="starttag">comment</sgmltag> is for the hint, those are within a <sgmltag
+class="starttag">entry</sgmltag> tag. Please try to match the hint with the
+level of difficulty. The level 'Easy' will require an easy hint but the level
+'Hard' will require the definition in the dictionary. Try not to use words of
+the same family in the hint, that would give the word away too easily!</para>
+
+<para> Note that you must use <emphasis role="bold">UTF-8 encoding</emphasis>
+when editing the files. If your editor cannot do this, try using &kwrite; or
+&kate;. When opening a file in &kwrite; or &kate; you can select utf8 encoding
+with the combo box at the top of the file open dialog.</para>
+
 <para>An example of a kvtml file is as follow:</para>
 <programlisting><markup>
-	&lt;?xml version="1.0"?&gt; 
-	&lt;!DOCTYPE kvtml SYSTEM "kvoctrain.dtd"&gt; 
-	&lt;kvtml&gt; 
-	&lt;e&gt; 
-	&lt;o&gt;cane&lt;/o&gt; 
-	&lt;t&gt;&egrave; il tuo animale domestico preferito&lt;/t&gt; 
-	&lt;/e&gt; 
-	...
-	...
-	&lt;/kvtml&gt;
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"http://edu.kde.org/kanagram/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
 </markup></programlisting>
 </step>
 <step>
-<para>Edit all indicated text files in the new folder with a text editor,
-and replace each word inside the <sgmltag class="starttag">o</sgmltag> tag with a translated word and each hint inside a <sgmltag class="starttag">t</sgmltag> with a translated hint. It is not really important
-that the exact meaning is preserved, but try to keep the length and
-level of difficulty roughly the same.
-You can include words with white space or - in them, in that case the white space or the -
-will be shown instead of the _.
-Please contact &Anne-Marie.Mahfouf; <email>annemarie.mahfouf@free.fr</email> if there is anything special related to your language so I can adapt the code to it (especially the special and accented characters).</para> 
-	
+<para>At the beginning of the file, you should translate the content of the
+<sgmltag class="starttag">title</sgmltag> and
+the <sgmltag class="starttag">comment</sgmltag> tags which are within the
+<sgmltag class="starttag">information</sgmltag> tag. The title will be the one
+that will appear in the Category menu of the game (where the user chooses the
+file to play with).
+</para>
+</step>
+<step>
+<para>Then within the <sgmltag class="starttag">identifier</sgmltag> tag, please
+put your language code instead of en in
+<sgmltag class="starttag">locale</sgmltag>.</para>
+
+<para>Please don't translate the file name itself as filenames should never
+contain any special charaters. Thus please save your file with the same English
+filenames.</para>
+</step>
+<step>
+<para>
+Edit the kvtml files with a text editor (it will be easier if you use the XML
+syntax highlighting) and replace each word inside the 
+<sgmltag class="starttag">text</sgmltag> tag with a translated word and each
+hint inside a <sgmltag class="starttag">comment</sgmltag> with a translated
+hint. It is not really important that the exact meaning is preserved, but try to
+keep the length and level of difficulty roughly the same.
+</para> 
+
+<para>You can include words with white space or - in them, in that case the
+white space or the - will be shown instead of the _. Please contact me if
+there is anything special related to your language so I can adapt the code to it
+(especially the special and accented characters).
+</para>
+</step>	
+
+<step>
 <para>You can just translate the words but you can also adapt them
 following the level and add new words if you want. For example,
 <quote>table</quote> is in level easy in English but in your language,
@@ -725,36 +767,17 @@ some if you want.</para>
 
 <para>Remember that all words are nouns.</para>
 
-<para> Note that you must use <emphasis role="bold">UTF-8 encoding</emphasis> when editing the
-files. If your editor cannot do this, try using &kwrite; or &kate;. When
-opening a file in &kwrite; or &kate; you can select utf8 encoding with
-the combo box at the top of the file open dialog.</para>
-
-<para>Please keep the actual English filenames in your
-<replaceable>language_code</replaceable> dir.</para>
 </step>
 
 <step>
-<para>Enter the following command to install the new data files:</para>
-<screen><userinput><command>make</command></userinput>
-<userinput><command>make install</command></userinput></screen>
-
-<para>You may have to become <systemitem
-class="username">root</systemitem> to run <command>make
-install</command>, depending on your installation.</para>
-</step>
-<step>
-<para>Run the game and check that your language has been added:</para>
-<screen><userinput><command>khangman</command></userinput></screen>
-</step>
-<step><para>Instead of committing your files, please sent them to
-&Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; tarred and gzipped. As there are
-now twenty three languages, a wizard (KNewStuff) is now included in &khangman;
-to easily download and install new languages that are placed on the website.
-This is done to reduce the size of the kdeedu module and it will also be done in
-&klettres;, &kstars; and maybe &ktouch;.
-Please contact Anne-Marie by email if you need further information.</para>
-<para>When you send me the files, please don't forget to mention any <emphasis role="bold">special characters</emphasis> used in your language (put them in a text file, one per line and add this file in the tarball) and please mention any other specificity.</para>
+<para>You can then commit your files in 
+<emphasis>l10n-kde4/&lt;lang_code&gt;/data/kdeedu/khangman</emphasis>. Don't
+forget to update the CMakeLists.txt file as well.
+Please contact me by email if you need further
+information.When you send me the files, please don't forget to mention any
+<emphasis role="bold">special characters</emphasis> used in your language (put
+them in a text file, one per line and add this file in the tarball) and please
+mention any other specificity.</para>
 <para><emphasis>Please never commit files in a BRANCH as it might break the game.</emphasis></para>
 </step>
 </procedure>
@@ -764,29 +787,23 @@ Please contact Anne-Marie by email if you need further information.</para>
 <sect1 id="internal">
 <title>What is stored by &khangman; and where</title>
 <para>
-When you get a new language via <menuchoice><guimenu>Game</guimenu> <guimenuitem>Get Words in New Language...</guimenuitem></menuchoice>, the new language data is stored in <filename class="directory">$~/.kde/share/apps/khangman/data</filename> in the language code folder. The available language dir names are also stored in the &khangman; config file in <filename>~/.kde/share/config/khangmanrc</filename>.
+When you get a new language via <menuchoice><guimenu>Game</guimenu>
+<guimenuitem>Get Words in New Language...</guimenuitem></menuchoice>, the new
+language data is stored in <filename
+class="directory">$~/.kde/share/apps/kvtml/</filename> in the language code
+folder. The available language dir names are also stored in the &khangman;
+config file in <filename>~/.kde/share/config/khangmanrc</filename>.
 </para>
 <para>
 The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
 </para>
 <para>
-The English language (default) and the user language from his i18n package(s) (if available) are stored in <filename class="directory">$KDEDIR/share/apps/khangman</filename>.
+The English language (default) and the user language from his i18n package(s)
+(if available) are stored in <filename
+class="directory">$KDEDIR/share/apps/kvtml</filename>.
 </para>
 <para>
 In the configuration file, stored for each user in his <filename>~/.kde/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
-</para>
-</sect1>
-<sect1 id="planned-features">
-<title>Planned Features for &khangman;</title>
-<para>
-A planned feature is of course to have more language data and also hints in every language. You can help for this in your own language if it is not done yet. Please contact me if you want to help with this, it's just a matter of translating the English words to your language (see <link linkend="changing-words">How to add words in a new language for the game</link>).
-</para>
-<para>
-What can also be done is to use other kvtml files like the ones that are on the
-&kde;-Edu website to play &khangman;. For example, imagine you can play the
-capitals of the world, the hint will tell you the country and you have to guess
-the capital. Or learn words in another language, the hint is the word in your
-language, the word to guess is the translation in the new language.
 </para>
 </sect1>
 </chapter>
@@ -821,7 +838,9 @@ you.</para>
 </question>
 <answer>
 <para>
-There might be a problem due to the change of the configuration file. Please remove the <filename>khangmanrc</filename> file in your <filename class="directory">$HOME/.kde/share/config</filename> folder.
+There might be a problem due to the change of the configuration file. Please
+remove the <filename>khangmanrc</filename> file in your <filename
+class="directory">$HOME/.kde/share/config</filename> folder. 
 </para>
 </answer>
 </qandaentry>
@@ -847,7 +866,8 @@ Contributors:
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
 <listitem><para>Blue theme, icons and code: &Primoz.Anzur;
 &Primoz.Anzur.mail;</para> </listitem>
-<listitem><para>Swedish data files, coding help, transparent pictures and i18n fixes: Stefan Asserhäll
+<listitem><para>Swedish data files, coding help, transparent pictures and i18n
+fixes: Stefan Asserhäll 
 <email>stefan.asserhall@telia.com
 </email></para> </listitem>
 <listitem><para>Nature theme: Joe Bolin
@@ -866,7 +886,8 @@ Contributors:
 <listitem><para>Finnish data files: Niko Lewman
 <email>niko.lewman@edu.hel.fi
 </email></para> </listitem>
-<listitem><para>Brazilian Portuguese data files: João Sebastião de Oliveira Bueno
+<listitem><para>Brazilian Portuguese data files: João Sebastião de Oliveira
+Bueno
 <email>gwidion@mpc.com.br
 </email></para> </listitem>
 <listitem><para>Catalan data files: Antoni Bella
