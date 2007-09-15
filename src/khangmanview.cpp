@@ -234,7 +234,7 @@ void KHangManView::mousePressEvent(QMouseEvent *mouse)
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
 
-        QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
+        QPoint abspos = QPoint( 0, 0 );
         x = abspos.x() + width()*70/700;
         y = abspos.y() + height()*150/535;
 
