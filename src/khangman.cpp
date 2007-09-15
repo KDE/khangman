@@ -298,7 +298,7 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	   ui_language.kcfg_Hint->setEnabled(m_view->hintExists());
+	   ui_general.kcfg_Hint->setEnabled(m_view->hintExists());
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 	/*
         if (Prefs::selectedLanguage() == "de")
@@ -314,6 +314,7 @@ void KHangMan::optionsPreferences()
     // Add the General Settings page
     QWidget *generalSettingsDlg = new QWidget;
     ui_general.setupUi(generalSettingsDlg);
+    ui_general.kcfg_Hint->setEnabled( m_view->hintExists() );
     dialog->addPage(generalSettingsDlg, i18n("General"), "colorize");
 
     // Add the Language Settings page
@@ -322,7 +323,7 @@ void KHangMan::optionsPreferences()
     dialog->addPage(languageSettingsDlg, i18n("Languages"), "kvoctrain");
 
     ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-    ui_language.kcfg_Hint->setEnabled( m_view->hintExists() );
+    
     /*
     if (Prefs::selectedLanguage() == "de")
         languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
@@ -498,7 +499,7 @@ void KHangMan::setMessages()
     else if (m_view->hintExists() && !Prefs::hint() )
         changeStatusbar(i18n("Hint available"), IDS_HINT);
     else
-        changeStatusbar("", IDS_HINT);
+        changeStatusbar("Hint disabled", IDS_HINT);
 
     // Tell the user about accented characters
     if (m_view->accentedLetters() && Prefs::accentedLetters())

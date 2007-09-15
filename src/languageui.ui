@@ -1,25 +1,34 @@
 <ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>languageui</class>
  <widget class="QWidget" name="languageui" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>154</width>
-    <height>142</height>
+    <width>220</width>
+    <height>97</height>
    </rect>
   </property>
   <property name="toolTip" >
    <string>Here you can choose special settings for some languages.</string>
   </property>
   <layout class="QGridLayout" >
-   <property name="margin" >
+   <property name="leftMargin" >
     <number>9</number>
    </property>
-   <property name="spacing" >
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
+   </property>
+   <property name="horizontalSpacing" >
+    <number>6</number>
+   </property>
+   <property name="verticalSpacing" >
     <number>6</number>
    </property>
    <item row="1" column="0" >
@@ -28,10 +37,22 @@
       <string>Spanish, Portuguese, Catalan</string>
      </property>
      <layout class="QGridLayout" >
-      <property name="margin" >
+      <property name="leftMargin" >
        <number>9</number>
       </property>
-      <property name="spacing" >
+      <property name="topMargin" >
+       <number>9</number>
+      </property>
+      <property name="rightMargin" >
+       <number>9</number>
+      </property>
+      <property name="bottomMargin" >
+       <number>9</number>
+      </property>
+      <property name="horizontalSpacing" >
+       <number>6</number>
+      </property>
+      <property name="verticalSpacing" >
        <number>6</number>
       </property>
       <item row="0" column="0" >
@@ -51,41 +72,8 @@ For example, in Catalan, if this is unchecked and you type "o", the o and ò wil
      </layout>
     </widget>
    </item>
-   <item row="0" column="0" >
-    <widget class="QGroupBox" name="hintGroup" >
-     <property name="title" >
-      <string>When available</string>
-     </property>
-     <layout class="QGridLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item row="0" column="0" >
-       <widget class="QCheckBox" name="kcfg_Hint" >
-        <property name="enabled" >
-         <bool>false</bool>
-        </property>
-        <property name="toolTip" >
-         <string>If you check it, a hint will be displayed by right-clicking on the game window.</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Some languages have hints to help you guess the word more easily. If this is &lt;b>disabled&lt;/b>, there is no such option for your current language data file.
-If this is &lt;b>enabled&lt;/b>, then hints are available and you can get them by checking this box. You will see the hint for the word you are trying to guess by right-clicking somewhere on the KHangMan window. The hint will be displayed for four seconds in a tooltip.</string>
-        </property>
-        <property name="text" >
-         <string>Show hints</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
   </layout>
  </widget>
- <pixmapfunction></pixmapfunction>
  <resources/>
  <connections/>
 </ui>
