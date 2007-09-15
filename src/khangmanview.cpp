@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -383,12 +383,12 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
     m_letterInput->setFont( charWrite_font );
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16,
-                               height()/10, height()/10);
+                               height()/9, height()/9);
     m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12
                                - m_guessButton->sizeHint().width()-7,
                                height() - 2*height()/16,
-                               m_guessButton->sizeHint().width(), height()/10);
+                               m_guessButton->sizeHint().width(), height()/9);
 }
 
 

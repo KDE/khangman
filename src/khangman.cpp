@@ -197,8 +197,8 @@ void KHangMan::setLanguages()
     m_languageNames.clear();
  	
     //the program scans in khangman/data/ to see what languages data is found
-	m_languages = SharedKvtmlFiles::languages();
-	
+    m_languages = SharedKvtmlFiles::languages();
+    kDebug() << "Languages " << m_languages << endl;
     if (m_languages.isEmpty())
 		return;
     //find duplicated entries in KDEDIR and KDEHOME
@@ -211,16 +211,16 @@ void KHangMan::setLanguages()
     // corresponding to the code and the language the user set.
 
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-	for (int i = 0; i < m_languages.size(); ++i)
-	{
-		KConfigGroup group = entry.group(m_languages[i]);
-		QString languageName = group.readEntry("Name");
-		if (languageName.isEmpty())
-		{
-			languageName = i18n("None");
-		}
-		m_languageNames.append(languageName);
-	}
+    for (int i = 0; i < m_languages.size(); ++i)
+    {
+	    KConfigGroup group = entry.group(m_languages[i]);
+	    QString languageName = group.readEntry("Name");
+	    if (languageName.isEmpty())
+	    {
+		    languageName = i18n("None");
+	    }
+	    m_languageNames.append(languageName);
+    }
 }
 
 
