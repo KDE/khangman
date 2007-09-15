@@ -34,8 +34,8 @@ Timer::Timer()
     :QWidget()
 {
     ui_timer.setupUi(this);
-    ui_timer.timeHintLabel->setText(QString::number(Prefs::hintTimer()) + ' ' + i18n("seconds"));
-    ui_timer.timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + ' ' + i18n("seconds"));
+    ui_timer.timeHintLabel->setText(i18np("1 second", "%1 seconds", Prefs::hintTimer()));
+    ui_timer.timeMissedLabel->setText(i18np("1 second", "%1 seconds", Prefs::missedTimer()));
 
     connect(ui_timer.kcfg_HintTimer,   SIGNAL(valueChanged(int)),
 	    this,             SLOT(sliderValueChanged()));
@@ -46,8 +46,8 @@ Timer::Timer()
 
 void Timer::sliderValueChanged()
 {
-    ui_timer.timeMissedLabel->setText(QString::number(ui_timer.kcfg_MissedTimer->value()) + ' ' + i18n("seconds"));
-    ui_timer.timeHintLabel->setText(QString::number(ui_timer.kcfg_HintTimer->value()) + ' ' + i18n("seconds"));
+    ui_timer.timeHintLabel->setText(i18np("1 second", "%1 seconds", ui_timer.kcfg_HintTimer->value()));
+    ui_timer.timeMissedLabel->setText(i18np("1 second", "%1 seconds", ui_timer.kcfg_MissedTimer->value()));
 }
 
 
