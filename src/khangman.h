@@ -125,16 +125,11 @@ private:
 
     ///Selected language
     QString selectedLanguage;
-    ///the different data files in the current language dir
-    QStringList m_levels;
-	///the different data files titles from the current language dir
-	QStringList m_titles;
+    ///the different data titles and files in the current language dir
+    QMap<QString, QString> m_titleLevels;
 
     ///Current level ID
     int m_currentLevel;
-    ///hold the current level
-    QString m_levelString;
-
 
 	// language information
 	QStringList m_languages;

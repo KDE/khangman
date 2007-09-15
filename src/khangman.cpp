@@ -156,11 +156,10 @@ void KHangMan::slotQuit()
 
 void KHangMan::slotChangeLevel(int index)
 {
-    m_levelString = m_levels[index];
-    changeStatusbar(m_titles[index], IDS_LEVEL);
-    //m_levelString.replace(0, 1, m_levelString.left(1).toLower());
+    QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
+    changeStatusbar(currentLevel.key(), IDS_LEVEL);
     Prefs::setCurrentLevel(index);
-    Prefs::setLevelFile(m_levelString);
+    Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->writeConfig();
     m_view->readFile();
     m_view->newGame();
@@ -248,43 +247,51 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     m_currentLevel = Prefs::currentLevel();
-    if (m_currentLevel > m_levels.count())
+    if (m_currentLevel > m_titleLevels.count())
         m_currentLevel= 0;
-    m_levelString = m_titles[m_currentLevel];
+
     m_view->readFile();
 }
 
 void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
-	m_levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
-	m_titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
-	
-	if (!m_levels.contains(Prefs::levelFile()))
-	{
-        if (m_levels.size() == 0)
+    m_titleLevels.clear();
+    QStringList levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+    QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+
+    Q_ASSERT(levels.count() == titles.count());
+    for(int i = 0; i < levels.count(); ++i)
+    {
+        m_titleLevels.insert(titles.at(i), levels.at(i));
+    }
+
+    if (!levels.contains(Prefs::levelFile()))
+    {
+        if (levels.size() == 0)
         {
             Prefs::setSelectedLanguage("en");
-            m_levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
-            m_titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+            levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+            titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
         }
 
-        Prefs::setLevelFile(m_levels[0]);
+        Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
         m_currentLevel = 0;
         Prefs::self()->writeConfig();
-	}
+    }
 
-	// don't run off the end of the list
-	if (m_currentLevel!=-1 && m_currentLevel > m_levels.count())
-        m_currentLevel = m_levels.count();
+    // don't run off the end of the list
+    if (m_currentLevel!=-1 && m_currentLevel > m_titleLevels.count())
+        m_currentLevel = m_titleLevels.count();
 
-	// titles should be translated in the data files themselves
-    m_levelAction->setItems(m_titles);
+    // titles should be translated in the data files themselves
+    m_levelAction->setItems(m_titleLevels.keys());
     m_levelAction->setCurrentItem(Prefs::currentLevel());
 
     setLevel();
-    changeStatusbar(m_titles[m_currentLevel], IDS_LEVEL);
+    QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
+    changeStatusbar(currentLevel.key(), IDS_LEVEL);
 }
 
 
