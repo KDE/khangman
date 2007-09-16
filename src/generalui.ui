@@ -78,7 +78,7 @@ If this option is checked, the dialog will not appear and a new game will automa
         <item row="0" column="0" >
          <widget class="QCheckBox" name="kcfg_Hint" >
           <property name="enabled" >
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="toolTip" >
            <string>If you check it, a hint will be displayed by right-clicking on the game window.</string>

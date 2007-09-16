@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org>            *
- *   annemarie.mahfouf@free.fr                                             *
+ *   Copyright 2001-2007 Anne-Marie Mahfouf <annma@kde.org>                *
+ *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,6 +33,7 @@
 #include <QPainter>
 #include <QDir>
 #include <kselectaction.h>
+#include <ktoggleaction.h>
 #include <kactioncollection.h>
 
 #include <kconfigdialog.h>
@@ -87,6 +88,13 @@ void KHangMan::setupActions()
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
 
+    KToggleAction *hintAct = new KToggleAction(i18n("&Show Hint"), this);;
+    hintAct->setToolTip(i18n( "Show the hint to guess the word more easily" ));
+    actionCollection()->addAction("show_hint", hintAct );
+    hintAct->setCheckedState(KGuiItem(i18n("Hint Shown")));
+    //hintAct->setIcon(KIcon("get-hot-new-stuff"));
+    hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
+    connect(hintAct, SIGNAL(slotToggled(bool)), this, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
     KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
@@ -352,14 +360,13 @@ void KHangMan::updateSettings()
 void KHangMan::slotDownloadNewStuff()
 {
     KNS::Entry::List entries = KNS::Engine::download();
-
+    SharedKvtmlFiles::sortDownloadedFiles();
     //look for languages dirs installed
     setLanguages();
     //refresh Languages menu
     m_languageAction->setItems(m_languageNames);
     slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
-    SharedKvtmlFiles::sortDownloadedFiles();
 }
 
 void KHangMan::loadLangToolBar()
@@ -380,9 +387,10 @@ void KHangMan::loadLangToolBar()
 		QFile myFile;
 		myFile.setFileName(KStandardDirs::locate("data", myString));
 
-		// Let's look in local KDEHOME dir then
+		// Let's look in local KDEHOME dir then KNS2 installs each .txt
+		// in kvtml/<lang> as it installs everything at the same place
 		if (!myFile.exists()) {
-			QString  myString=QString("khangman/%1/%2.txt")
+			QString  myString=QString("kvtml/%1/%2.txt")
 			.arg(lang)
 			.arg(lang);
 			myFile.setFileName(KStandardDirs::locate("data",myString));
@@ -506,6 +514,11 @@ void KHangMan::setMessages()
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else
         changeStatusbar("", IDS_ACCENTS);
+}
+
+void KHangMan::slotSetHint(bool hintBool)
+{
+
 }
 
 void KHangMan::slotNewGame()

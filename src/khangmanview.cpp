@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -81,7 +81,6 @@ KHangManView::KHangManView(KHangMan*parent)
     m_posSecondSpace   = -1;
     m_numMissedLetters = 0;
     m_accentedLetters  = true;
-    m_hintExists       = true;	// Assume hint exists
     m_doc              = 0;
     m_theme            = 0; // essential
     m_player           = 0;
@@ -227,7 +226,7 @@ bool KHangManView::containsChar(const QString &sChar)
 
 void KHangManView::mousePressEvent(QMouseEvent *mouse)
 {
-    if (mouse->button() == Qt::RightButton && m_hintExists && Prefs::hint()) {
+    if (mouse->button() == Qt::RightButton && Prefs::hint()) {
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), m_hint );
@@ -636,15 +635,6 @@ void KHangManView::game()
         m_randomInt++;
 		game();
 	}
-
-    if (m_hint.isEmpty()) {
-        m_hintExists = false;	// Hint does not exist.
-        emit signalChangeStatusbar("", 103);
-    }
-    else {
-        m_hintExists = true;
-        khangman->setMessages();
-    }
 
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
