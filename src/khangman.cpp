@@ -88,13 +88,14 @@ void KHangMan::setupActions()
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
 
-    KToggleAction *hintAct = new KToggleAction(i18n("&Show Hint"), this);;
+    hintAct = new KToggleAction(i18n("&Show Hint"), this);;
     hintAct->setToolTip(i18n( "Show the hint to guess the word more easily" ));
     actionCollection()->addAction("show_hint", hintAct );
-    hintAct->setCheckedState(KGuiItem(i18n("Hint Shown")));
-    //hintAct->setIcon(KIcon("get-hot-new-stuff"));
+    hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
+    //hintAct->setIcon(KIcon("get-hot-new-stuff")); TODO get an icon!!!
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
-    connect(hintAct, SIGNAL(slotToggled(bool)), this, SLOT(slotSetHint(bool)));
+    hintAct->setEnabled( m_view->hintExists() );
+    connect(hintAct, SIGNAL(triggered(bool)), m_view, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
     KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
@@ -138,10 +139,8 @@ void KHangMan::setupStatusbar()
     statusBar( )->insertPermanentItem("   ",IDS_LANG,    0);
     statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
     statusBar( )->insertPermanentItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ", IDS_HINT,    1);
     statusBar( )->insertItem("   ", IDS_WINS,    1);
     statusBar( )->insertItem("   ", IDS_LOSSES,  1);
-    statusBar()->setItemAlignment(IDS_HINT, Qt::AlignLeft);
 }
 
 
@@ -238,17 +237,18 @@ void KHangMan::loadSettings()
     if (!m_languages.contains(selectedLanguage))
             selectedLanguage = "en";
     int index = m_languages.indexOf(Prefs::selectedLanguage());
-    if (index < 0)
-    {
+    if (index < 0) {
       // if the selected language is not available, use the first available one
       index = 0;
     }
     changeStatusbar(m_languageNames[index], IDS_LANG);
     // Show/hide characters toolbar
-    if (Prefs::showCharToolbar())
+    if (Prefs::showCharToolbar()) {
         secondToolbar->show();
-    else
+    }
+    else  {
         secondToolbar->hide();
+    }
     setMessages();
 }
 
@@ -306,7 +306,6 @@ void KHangMan::loadLevels()
 void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
-	   ui_general.kcfg_Hint->setEnabled(m_view->hintExists());
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 	/*
         if (Prefs::selectedLanguage() == "de")
@@ -322,7 +321,7 @@ void KHangMan::optionsPreferences()
     // Add the General Settings page
     QWidget *generalSettingsDlg = new QWidget;
     ui_general.setupUi(generalSettingsDlg);
-    ui_general.kcfg_Hint->setEnabled( m_view->hintExists() );
+
     dialog->addPage(generalSettingsDlg, i18n("General"), "colorize");
 
     // Add the Language Settings page
@@ -501,24 +500,11 @@ void KHangMan::setAccent()
 
 void KHangMan::setMessages()
 {
-    // Tell the user about if there is a hint.
-    if (Prefs::hint() && m_view->hintExists())
-        changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
-    else if (m_view->hintExists() && !Prefs::hint() )
-        changeStatusbar(i18n("Hint available"), IDS_HINT);
-    else
-        changeStatusbar("Hint disabled", IDS_HINT);
-
     // Tell the user about accented characters
     if (m_view->accentedLetters() && Prefs::accentedLetters())
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else
         changeStatusbar("", IDS_ACCENTS);
-}
-
-void KHangMan::slotSetHint(bool hintBool)
-{
-
 }
 
 void KHangMan::slotNewGame()

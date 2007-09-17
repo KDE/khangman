@@ -29,14 +29,13 @@
 //#include "timerui.h"
 
 class KSelectAction;
-
+class KToggleAction;
 
 
 // Id tags for the status bar.
 const int IDS_LANG     = 100;
 const int IDS_LEVEL    = 101;
 const int IDS_ACCENTS  = 102;
-const int IDS_HINT     = 103;
 const int IDS_WINS     = 104;
 const int IDS_LOSSES   = 105;
 
@@ -64,6 +63,7 @@ public:
     ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
 
+    KToggleAction *hintAct;
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
 
@@ -93,7 +93,6 @@ private slots:
     ///if you want to play with a new word
     void slotNewGame();
 
-    void slotSetHint(bool);
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -131,9 +130,9 @@ private:
     ///Current level ID
     int m_currentLevel;
 
-	// language information
-	QStringList m_languages;
-	QStringList m_languageNames;
+    // language information
+    QStringList m_languages;
+    QStringList m_languageNames;
 
     // Some important members: the view and newStuff.
     KHangManView   *m_view;

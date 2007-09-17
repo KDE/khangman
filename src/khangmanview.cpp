@@ -24,6 +24,7 @@
 #include <kpassivepopup.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
+#include <ktoggleaction.h>
 #include <kvbox.h>
 
 #include <Phonon/MediaObject>
@@ -81,6 +82,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_posSecondSpace   = -1;
     m_numMissedLetters = 0;
     m_accentedLetters  = true;
+    m_hintExists       = true;
     m_doc              = 0;
     m_theme            = 0; // essential
     m_player           = 0;
@@ -218,35 +220,6 @@ bool KHangManView::containsChar(const QString &sChar)
 
     return (b_isInWord || m_word.contains(sChar));
 }
-
-
-// ----------------------------------------------------------------
-//                           Event handlers
-
-
-void KHangManView::mousePressEvent(QMouseEvent *mouse)
-{
-    if (mouse->button() == Qt::RightButton && Prefs::hint()) {
-
-        KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
-        myPopup->setView(i18n("Hint"), m_hint );
-        myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
-        int x=0, y=0;
-
-        QPoint abspos = QPoint( 0, 0 );
-        x = abspos.x() + width()*70/700;
-        y = abspos.y() + height()*150/535;
-
-        QPoint  point = QPoint(x, y);
-        myPopup->show(mapToGlobal(point));
-
-        // Maybe it's better to popup where the mouse clicks, in that
-        // case kill the popup before new click
-        //myPopup->move(mouse->pos());
-    }
-    //update();
-}
-
 
 // ----------------------------------------------------------------
 
@@ -576,6 +549,10 @@ void KHangManView::enableUserInput()
 
 void KHangManView::newGame()
 {
+    //reset Hint action
+    khangman->hintAct->setChecked(false);
+    slotSetHint(khangman->hintAct->isChecked());
+
     setGameCount();
     if (Prefs::sound()) {
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
@@ -634,8 +611,17 @@ void KHangManView::game()
     if (m_word.isEmpty()){
         m_randomInt++;
 		game();
-	}
+    }
 
+    if (m_hint.isEmpty()) {
+        m_hintExists = false;   // Hint does not exist.
+	//TODO refresh hint action
+    }
+    else {
+        m_hintExists = true;
+	//TODO refresh hint action
+    }
+    khangman->hintAct->setEnabled(m_hintExists);
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
         m_word = m_word.toUpper();// only for German currently
@@ -733,6 +719,26 @@ void KHangManView::setGameCount()
 {
     emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS);
     emit signalChangeStatusbar(i18n("Losses: %1", lossCount), IDS_LOSSES);
+}
+
+void KHangManView::slotSetHint(bool hintBool)
+{
+    myPopup = new KPassivePopup( m_letterInput);
+    if (hintBool)  {
+	myPopup->setView(i18n("Hint"), m_hint );
+	int x=0, y=0;
+    
+	QPoint abspos = QPoint( 0, 0 );
+	x = abspos.x() + width()*70/700;
+	y = abspos.y() + height()*150/535;
+    
+	QPoint  point = QPoint(x, y);
+	myPopup->show(mapToGlobal(point));
+    }
+    else  {
+	myPopup->setTimeout(0);
+	myPopup->hide();
+    }
 }
 
 #include "khangmanview.moc"

@@ -56,10 +56,6 @@
             <label>Enable Sounds on New Game and Win Game</label>
             <default code="true">false</default>
         </entry>
-        <entry name="HintTimer" type="Int">
-            <label>the time to display the Hint KPassiveTooltip, in seconds</label>
-            <default code="true">4</default>
-        </entry>
         <entry name="MissedTimer" type="Int">
             <label>the time to display the Missed KPassivePopup, in seconds</label>
             <default code="true">1</default>
@@ -67,10 +63,6 @@
     </group>
 
     <group name="Advanced">
-            <entry name="Hint" type="Bool">
-            <label>Enable Hint mode if available i.e. only if hintBool == true</label>
-            <default code="true">false</default>
-        </entry>
         <entry name="AccentedLetters" type="Bool">
             <label>Type accented letters separately from normal letters</label>
             <default code="true">false</default>

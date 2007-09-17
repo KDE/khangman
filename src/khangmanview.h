@@ -28,6 +28,7 @@ class MediaObject;
 class QRect;
 class QSvgRenderer;
 class KHMTheme;
+class KPassivePopup;
 
 #include <qimage.h>
 #include <qpixmap.h>
@@ -86,9 +87,6 @@ signals:
     void paintEvent( QPaintEvent * );
     void resizeEvent( QResizeEvent * );
 
-    /// Enable hints on mouse right click if Hints exist.
-    virtual void mousePressEvent( QMouseEvent *mouse );
-
 
  private:
 
@@ -132,6 +130,8 @@ private slots:
     /// the user has made a guess that was already made earlier, and a
     /// popup informing about this is closed.
     void enableUserInput();
+
+    void slotSetHint(bool);
 
 private:
 
@@ -196,6 +196,7 @@ private:
     ///Current theme
     KHMTheme *m_theme;
 
+    KPassivePopup *myPopup;
     Phonon::MediaObject *m_player;
 };
 
