@@ -691,6 +691,7 @@ void KHangManView::slotSetWordsSequence()
     }
 
     m_doc = new KEduVocDocument(this);
+    ///@todo open returns KEduVocDocument::ErrorCode
     m_doc->open(Prefs::levelFile());
 
     //how many words in the file
@@ -708,7 +709,7 @@ void KHangManView::slotSetWordsSequence()
             // there is one
             hint = m_doc->entry(j)->translation(1).text();
         }
-        
+
         m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).text(), m_doc->entry(j)->translation(0).comment()));
     }
     //shuffle the list
