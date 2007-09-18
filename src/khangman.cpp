@@ -89,9 +89,9 @@ void KHangMan::setupActions()
     newAct->setToolTip(i18n( "Play with a new word" ));
 
     hintAct = new KToggleAction(i18n("&Show Hint"), this);;
-    hintAct->setToolTip(i18n( "Show the hint to guess the word more easily" ));
+    hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
     actionCollection()->addAction("show_hint", hintAct );
-    hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
+    //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
     hintAct->setIcon(KIcon("plasmagik")); //TODO get an icon!!!
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
     hintAct->setEnabled( m_view->hintExists() );
@@ -397,8 +397,8 @@ void KHangMan::loadLangToolBar()
 		}
 
 		if (!myFile.exists()) {
-		    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
-					"Going back to English, please reinstall %1.", lang);
+		    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found.\n"
+					"Please reinstall '%1'. Going back to English.", lang);
 		    KMessageBox::sorry( this, mString,
 				    i18n("Error") );
 		    //going back to English as fallback

@@ -88,6 +88,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_player           = 0;
     m_randomInt        = -1;
     myPopup = new KPassivePopup( m_letterInput);
+    myPopup->setTimeout(100*1000);//so that it shows long enough
     connect(myPopup, SIGNAL( clicked() ), khangman, SLOT( slotChangeHintAction() ) );
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
