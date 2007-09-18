@@ -87,6 +87,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_theme            = 0; // essential
     m_player           = 0;
     m_randomInt        = -1;
+    myPopup = new KPassivePopup( m_letterInput);
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
@@ -724,7 +725,6 @@ void KHangManView::setGameCount()
 
 void KHangManView::slotSetHint(bool hintBool)
 {
-    myPopup = new KPassivePopup( m_letterInput);
     if (hintBool)  {
 	myPopup->setView(i18n("Hint"), m_hint );
 	int x=0, y=0;
