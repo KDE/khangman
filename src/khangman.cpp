@@ -92,7 +92,7 @@ void KHangMan::setupActions()
     hintAct->setToolTip(i18n( "Show the hint to guess the word more easily" ));
     actionCollection()->addAction("show_hint", hintAct );
     hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
-    //hintAct->setIcon(KIcon("get-hot-new-stuff")); TODO get an icon!!!
+    hintAct->setIcon(KIcon("plasmagik")); //TODO get an icon!!!
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
     hintAct->setEnabled( m_view->hintExists() );
     connect(hintAct, SIGNAL(triggered(bool)), m_view, SLOT(slotSetHint(bool)));
@@ -512,6 +512,11 @@ void KHangMan::slotNewGame()
     m_view->lossCount++;
     statusBar()->changeItem(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
     m_view->newGame();
+}
+
+void KHangMan::slotChangeHintAction()
+{
+    hintAct->setChecked(false);
 }
 
 #include "khangman.moc"

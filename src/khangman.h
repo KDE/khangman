@@ -92,7 +92,8 @@ private slots:
     void slotQuit();
     ///if you want to play with a new word
     void slotNewGame();
-
+    ///when tooltip is clicked, hint disappears and hintAct comes back to "Show Hint"
+    void slotChangeHintAction();
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar

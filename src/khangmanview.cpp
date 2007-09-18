@@ -88,6 +88,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_player           = 0;
     m_randomInt        = -1;
     myPopup = new KPassivePopup( m_letterInput);
+    connect(myPopup, SIGNAL( clicked() ), khangman, SLOT( slotChangeHintAction() ) );
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
@@ -737,7 +738,6 @@ void KHangManView::slotSetHint(bool hintBool)
 	myPopup->show(mapToGlobal(point));
     }
     else  {
-	myPopup->setTimeout(0);
 	myPopup->hide();
     }
 }
