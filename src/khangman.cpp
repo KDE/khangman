@@ -389,20 +389,26 @@ void KHangMan::loadLangToolBar()
 		// Let's look in local KDEHOME dir then KNS2 installs each .txt
 		// in kvtml/<lang> as it installs everything at the same place
 		if (!myFile.exists()) {
-			QString  myString=QString("kvtml/%1/%2.txt")
-			.arg(lang)
-			.arg(lang);
-			myFile.setFileName(KStandardDirs::locate("data",myString));
-			kDebug() << myString;
+		    QString  myString=QString("kvtml/%1/%2.txt")
+		    .arg(lang)
+		    .arg(lang);
+		    myFile.setFileName(KStandardDirs::locate("data",myString));
+		    kDebug() << myString;
 		}
 
 		if (!myFile.exists()) {
-			QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
-					 "check your installation.", lang);
-			KMessageBox::sorry( this, mString,
-					i18n("Error") );
-			//qApp->quit();
+		    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+					"Going back to English, please reinstall %1.", lang);
+		    KMessageBox::sorry( this, mString,
+				    i18n("Error") );
+		    //going back to English as fallback
+		    Prefs::setSelectedLanguage("en");
+		    Prefs::self()->writeConfig();
+		    slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
+		    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+		    loadLangToolBar();
 		}
+
 		update();
 
 		// We open the file and store info into the stream...
