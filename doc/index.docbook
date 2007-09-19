@@ -114,11 +114,10 @@ letter belongs or not to the word. </para>
 adjectives, &etc;).</para></important>
 
 <para>If you need help guessing the word, you can click on the <guiicon>Show
-Hint</guiicon> icon in the toolbar and a hint will be displayed to give you some
-clue about the word. Clicking the <guiicon>Hide Hint</guiicon> icon
-<inlinemediaobject><imageobject> <imagedata fileref="plasmagik.png"
-format="PNG"/></imageobject></inlinemediaobject> will hide the
-hint.
+Hint</guiicon> icon <inlinemediaobject><imageobject> <imagedata
+fileref="plasmagik.png" format="PNG"/></imageobject></inlinemediaobject> in the
+toolbar and a hint will be displayed to give you some clue about the word.
+Clicking the <guiicon>Show Hint</guiicon> icon again will hide the hint. 
 </para>
 
 <para> Usually, it is not important whether you type in lowercase or uppercase.
@@ -136,7 +135,7 @@ answer is displayed.
 </para>
 
 <para>
-There are 4 levels: easy, medium, hard and animals, plus levels for other
+There are 4 categories: easy, medium, hard and animals, plus levels for other
 topics in some languages. The program scans for all data files in all
 languages and uses &kanagram; words files as well.
  </para>
@@ -168,9 +167,18 @@ tries and after that you lose and the correct word is displayed.
 
 <para>During the game, you can choose to start a new game by going in the
 <guimenu>Game</guimenu> menu and choosing <guimenuitem>New</guimenuitem> or
-clicking on the <guiicon>New</guiicon> icon on the toolbar. You can also change
+clicking on the <guiicon>New</guiicon> icon <inlinemediaobject><imageobject>
+<imagedata
+fileref="document-new.png" format="PNG"/></imageobject></inlinemediaobject> on
+the toolbar. You can also change
 the category of words using the <guimenuitem>Category</guimenuitem> menu (this
 will bring you a new word for the new category).</para>
+
+<para>The <guiicon>Quit</guiicon> button on the toolbar
+<inlinemediaobject><imageobject> <imagedata
+fileref="application-exit.png"
+format="PNG"/></imageobject></inlinemediaobject> allows you to easily quit the
+game.</para>
 
 </sect1>
 
@@ -379,8 +387,8 @@ language.
 <title>Available Settings</title>
 <para>
 A toolbar is provided for quick access to some settings. You can click on a
-button to have a new game (i.e. a new word), or to quit the game. The level and
-the theme are easily changed via 2 combo boxes on the toolbar. 
+button to have a new game (i.e. a new word), to see the hint or to quit the
+game. The theme is easily changed via a combo boxes on the toolbar. 
 </para>
 <para>
 In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure
