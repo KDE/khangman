@@ -3,36 +3,36 @@
 
 <MenuBar>
 	<Menu name="file" noMerge="1"><text>&amp;Game</text>
-		<Action name="file_new"/>
-		<Action name="downloadnewstuff"/>
-		<Action name="file_quit"/>
+        <Action name="file_new"/>
+        <Action name="downloadnewstuff"/>
+        <Action name="file_quit"/>
 	</Menu>
-        
+
 	<Action name="combo_level"/>
-        
-        <Action name="languages"/>
-        
-        <Action name="combo_mode"/>
-        
-        <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
-		<Merge name="StandardToolBarMenuHandler" />
-		<Merge name="second_act" />
-		<Action name="show_hint"/>
-		<Action name="options_show_statusbar"/>
-		<Action name="options_configure_keybinding"/>
-		<Action name="options_configure_toolbars"/>
-		<Action name="options_configure"/>
-        </Menu>
+
+    <Action name="languages"/>
+
+    <Action name="combo_mode"/>
+
+    <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
+        <Merge name="StandardToolBarMenuHandler"/>
+        <Merge name="second_act"/>
+        <Action name="show_hint"/>
+        <Action name="options_show_statusbar"/>
+        <Action name="options_configure_keybinding"/>
+        <Action name="options_configure_toolbars"/>
+        <Action name="options_configure"/>
+    </Menu>
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1"><text>Main</text>
-	<Action name="fullscreen"/>
-        <Separator/>
-        <Action name="combo_mode"/>
-        <Separator/>
-        <Action name="file_new"/>
-	<Action name="show_hint"/>
-	<Action name="file_quit"/>
+    <Action name="fullscreen"/>
+    <Separator/>
+    <Action name="combo_mode"/>
+    <Separator/>
+    <Action name="file_new"/>
+    <Action name="show_hint"/>
+    <Action name="file_quit"/>
 </ToolBar>
 
 <ToolBar name="secondToolBar" noMerge="1"><text>Special Characters</text>
