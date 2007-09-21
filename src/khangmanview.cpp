@@ -1,9 +1,10 @@
 /*
  * Copyright 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
 
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of version 2 of the GNU General Public
-    License as published by the Free Software Foundation.
+     This program is free software; you can redistribute it and/or modify  
+     it under the terms of the GNU General Public License as published by  
+     the Free Software Foundation; either version 2 of the License, or     
+     (at your option) any later version.                                   
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -378,9 +379,8 @@ void KHangManView::slotTry()
 	return;
     }
     kDebug() << "guess as entered: " << guess;
-
-    guess = LangUtils::capitalize(guess, Prefs::selectedLanguage(), Prefs::upperCase());
-
+    if (guess == m_word.at(0).toLower())
+	guess = LangUtils::capitalize(guess, Prefs::selectedLanguage());//, Prefs::upperCase());
     // Handle the guess.
     if (!m_guessedLetters.contains(guess)) {
         // The letter is not already guessed.
@@ -625,6 +625,7 @@ void KHangManView::game()
 	//TODO refresh hint action
     }
     khangman->hintAct->setEnabled(m_hintExists);
+
     if (Prefs::upperCase() && Prefs::selectedLanguage() =="de")
     {
         m_word = m_word.toUpper();// only for German currently

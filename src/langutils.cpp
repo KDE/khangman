@@ -41,11 +41,11 @@ QFont LangUtils::fontForLanguage(const QString& lang)
     return f;
 }
 
-QString LangUtils::capitalize(const QString& str, const QString& lang, bool uppercase)
+QString LangUtils::capitalize(const QString& str, const QString& lang)
 {
     // If German, make upper case, otherwise make lower case.
     QString ret;
-    if (uppercase && lang == QLatin1String("de"))
+    if ( lang == QLatin1String("de"))
         ret = str.toUpper();
     else
         ret = str.toLower();
