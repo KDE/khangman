@@ -13,31 +13,37 @@
 bool LangUtils::hasSpecialChars(const QString& lang)
 {
     if (lang == QLatin1String("en")
-        || lang == QLatin1String("it")
-        || lang == QLatin1String("nl")
-        || lang == QLatin1String("ru")
-        || lang == QLatin1String("bg"))
+            || lang == QLatin1String("it")
+            || lang == QLatin1String("nl")
+            || lang == QLatin1String("ru")
+            || lang == QLatin1String("bg"))
+    {
         return true;
+    }
     return false;
 }
 
 bool LangUtils::hasAccentedLetters(const QString& lang)
 {
     if (lang == QLatin1String("es")
-        || lang == QLatin1String("ca")
-        || lang == QLatin1String("pt")
-        || lang == QLatin1String("pt_BR"))
+            || lang == QLatin1String("ca")
+            || lang == QLatin1String("pt")
+            || lang == QLatin1String("pt_BR"))
+    {
         return true;
+    }
     return false;
 }
 
 QFont LangUtils::fontForLanguage(const QString& lang)
 {
     QFont f;
-    if (lang == QLatin1String("tg"))
+    if (lang == QLatin1String("tg")) {
         f.setFamily( "URW Bookman" );
-    else
+    }
+    else {
         f.setFamily( "Sans Serif" );
+    }
     return f;
 }
 
@@ -45,11 +51,15 @@ QString LangUtils::capitalize(const QString& str, const QString& lang)
 {
     // If German, make upper case, otherwise make lower case.
     QString ret;
-    if ( lang == QLatin1String("de"))
+    if (lang == QLatin1String("de")) {
         ret = str.toUpper();
-    else
+    }
+    else {
         ret = str.toLower();
+    }
     return ret;
 }
 
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
 

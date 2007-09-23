@@ -32,10 +32,10 @@
 #include <QCheckBox>
 #include <QPainter>
 #include <QDir>
+
 #include <kselectaction.h>
 #include <ktoggleaction.h>
 #include <kactioncollection.h>
-
 #include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klineedit.h>
@@ -51,8 +51,8 @@
 #include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
-    : KXmlGuiWindow(), m_currentLevel(-1),
-      m_view(new KHangManView(this))
+        : KXmlGuiWindow(), m_currentLevel(-1),
+          m_view(new KHangManView(this))
 {
     setObjectName(QLatin1String("KHangMan"));
 
@@ -133,14 +133,14 @@ void KHangMan::setupActions()
 }
 
 // Set up the status bar with 4 different fields.
-void KHangMan::setupStatusbar() 
+void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar( )->insertPermanentItem("   ",IDS_LANG,    0);
-    statusBar( )->insertPermanentItem("   ",IDS_LEVEL,   0);
-    statusBar( )->insertPermanentItem("   ",IDS_ACCENTS, 0);
-    statusBar( )->insertItem("   ", IDS_WINS,    1);
-    statusBar( )->insertItem("   ", IDS_LOSSES,  1);
+    statusBar()->insertPermanentItem("   ",IDS_LANG,    0);
+    statusBar()->insertPermanentItem("   ",IDS_LEVEL,   0);
+    statusBar()->insertPermanentItem("   ",IDS_ACCENTS, 0);
+    statusBar()->insertItem("   ", IDS_WINS,    1);
+    statusBar()->insertItem("   ", IDS_LOSSES,  1);
 }
 
 
@@ -201,12 +201,13 @@ void KHangMan::setLanguages()
 {
     m_languages.clear();
     m_languageNames.clear();
- 	
+
     //the program scans in khangman/data/ to see what languages data is found
     m_languages = SharedKvtmlFiles::languages();
     kDebug() << "Languages " << m_languages << endl;
-    if (m_languages.isEmpty())
-		return;
+    if (m_languages.isEmpty()) {
+        return;
+    }
     //find duplicated entries in KDEDIR and KDEHOME
 
     // Write the present languages in config so they cannot be downloaded.
@@ -217,15 +218,13 @@ void KHangMan::setLanguages()
     // corresponding to the code and the language the user set.
 
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-    for (int i = 0; i < m_languages.size(); ++i)
-    {
-	    KConfigGroup group = entry.group(m_languages[i]);
-	    QString languageName = group.readEntry("Name");
-	    if (languageName.isEmpty())
-	    {
-		    languageName = i18n("None");
-	    }
-	    m_languageNames.append(languageName);
+    for (int i = 0; i < m_languages.size(); ++i) {
+        KConfigGroup group = entry.group(m_languages[i]);
+        QString languageName = group.readEntry("Name");
+        if (languageName.isEmpty()) {
+            languageName = i18n("None");
+        }
+        m_languageNames.append(languageName);
     }
 }
 
@@ -234,19 +233,20 @@ void KHangMan::loadSettings()
 {
     // Language //TODO is selectedLanguage necessary??? only used here
     selectedLanguage = Prefs::selectedLanguage();
-    if (!m_languages.contains(selectedLanguage))
-            selectedLanguage = "en";
+    if (!m_languages.contains(selectedLanguage)) {
+        selectedLanguage = "en";
+    }
     int index = m_languages.indexOf(Prefs::selectedLanguage());
     if (index < 0) {
-      // if the selected language is not available, use the first available one
-      index = 0;
+        // if the selected language is not available, use the first available one
+        index = 0;
     }
     changeStatusbar(m_languageNames[index], IDS_LANG);
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar()) {
         secondToolbar->show();
     }
-    else  {
+    else {
         secondToolbar->hide();
     }
     setMessages();
@@ -255,9 +255,9 @@ void KHangMan::loadSettings()
 void KHangMan::setLevel()
 {
     m_currentLevel = Prefs::currentLevel();
-    if (m_currentLevel > m_titleLevels.count())
-        m_currentLevel= 0;
-
+    if (m_currentLevel > m_titleLevels.count()) {
+        m_currentLevel = 0;
+    }
     m_view->readFile();
 }
 
@@ -269,15 +269,12 @@ void KHangMan::loadLevels()
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
 
     Q_ASSERT(levels.count() == titles.count());
-    for(int i = 0; i < levels.count(); ++i)
-    {
+    for(int i = 0; i < levels.count(); ++i) {
         m_titleLevels.insert(titles.at(i), levels.at(i));
     }
 
-    if (!levels.contains(Prefs::levelFile()))
-    {
-        if (levels.size() == 0)
-        {
+    if (!levels.contains(Prefs::levelFile())) {
+        if (levels.size() == 0) {
             Prefs::setSelectedLanguage("en");
             levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
             titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
@@ -290,8 +287,9 @@ void KHangMan::loadLevels()
     }
 
     // don't run off the end of the list
-    if (m_currentLevel!=-1 && m_currentLevel > m_titleLevels.count())
+    if (m_currentLevel!=-1 && m_currentLevel > m_titleLevels.count()) {
         m_currentLevel = m_titleLevels.count();
+    }
 
     // titles should be translated in the data files themselves
     m_levelAction->setItems(m_titleLevels.keys());
@@ -307,12 +305,12 @@ void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-	/*
+        /*
         if (Prefs::selectedLanguage() == "de")
             languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
         else
             languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
-	*/
+        */
         return;
     }
 
@@ -330,7 +328,7 @@ void KHangMan::optionsPreferences()
     dialog->addPage(languageSettingsDlg, i18n("Languages"), "kvoctrain");
 
     ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-    
+
     /*
     if (Prefs::selectedLanguage() == "de")
         languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
@@ -350,8 +348,9 @@ void KHangMan::updateSettings()
 {
     //after upperCase() changed, reload new game
     setAccent();
-    if (Prefs::selectedLanguage() == "de")
+    if (Prefs::selectedLanguage() == "de") {
         loadLangToolBar();
+    }
     setMessages();
     m_view->newGame();
 }
@@ -374,61 +373,61 @@ void KHangMan::loadLangToolBar()
     m_noSpecialChars = LangUtils::hasSpecialChars(lang);
 
     if (secondToolbar->isVisible() && !m_noSpecialChars) {
-		Prefs::setShowCharToolbar(true);
-		Prefs::self()->writeConfig();
+        Prefs::setShowCharToolbar(true);
+        Prefs::self()->writeConfig();
     }
 
     secondToolbar->clear();
 
     m_allData.clear();
     if (!m_noSpecialChars) {
-		QString myString=QString("khangman/%1.txt").arg(lang);
-		QFile myFile;
-		myFile.setFileName(KStandardDirs::locate("data", myString));
+        QString myString=QString("khangman/%1.txt").arg(lang);
+        QFile myFile;
+        myFile.setFileName(KStandardDirs::locate("data", myString));
 
-		// Let's look in local KDEHOME dir then KNS2 installs each .txt
-		// in kvtml/<lang> as it installs everything at the same place
-		if (!myFile.exists()) {
-		    QString  myString=QString("kvtml/%1/%2.txt")
-		    .arg(lang)
-		    .arg(lang);
-		    myFile.setFileName(KStandardDirs::locate("data",myString));
-		    kDebug() << myString;
-		}
+        // Let's look in local KDEHOME dir then KNS2 installs each .txt
+        // in kvtml/<lang> as it installs everything at the same place
+        if (!myFile.exists()) {
+            QString  myString=QString("kvtml/%1/%2.txt")
+                    .arg(lang)
+                    .arg(lang);
+            myFile.setFileName(KStandardDirs::locate("data",myString));
+            kDebug() << myString;
+        }
 
-		if (!myFile.exists()) {
-		    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found.\n"
-					"Please reinstall '%1'. Going back to English.", lang);
-		    KMessageBox::sorry( this, mString,
-				    i18n("Error") );
-		    //going back to English as fallback
-		    Prefs::setSelectedLanguage("en");
-		    Prefs::self()->writeConfig();
-		    slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-		    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
-		    loadLangToolBar();
-		}
+        if (!myFile.exists()) { //TODO use one placeholder for the whole path? --icwiener
+            QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found.\n"
+                    "Please reinstall '%1'. Going back to English.", lang);
+            KMessageBox::sorry( this, mString,
+                    i18n("Error") );
+            //going back to English as fallback
+            Prefs::setSelectedLanguage("en");
+            Prefs::self()->writeConfig();
+            slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
+            m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+            loadLangToolBar();
+        }
 
-		update();
+        update();
 
-		// We open the file and store info into the stream...
-		QFile openFileStream(myFile.fileName());
-		openFileStream.open(QIODevice::ReadOnly);
-		QTextStream readFileStr(&openFileStream);
-		readFileStr.setCodec("UTF-8");
+        // We open the file and store info into the stream...
+        QFile openFileStream(myFile.fileName());
+        openFileStream.open(QIODevice::ReadOnly);
+        QTextStream readFileStr(&openFileStream);
+        readFileStr.setCodec("UTF-8");
 
-		// m_allData contains all the words from the file
-		// FIXME: Better name
-		m_allData = readFileStr.readAll().split("\n");
-		openFileStream.close();
-		if (Prefs::selectedLanguage() == "de" && Prefs::upperCase())
-			for (int i=0; i<(int) m_allData.count(); i++)
-				m_allData[i] = m_allData[i].toUpper();
+        // m_allData contains all the words from the file
+        // FIXME: Better name
+        m_allData = readFileStr.readAll().split("\n");
+        openFileStream.close();
+        if (Prefs::selectedLanguage() == "de" && Prefs::upperCase()) {
+            for (int i=0; i<(int) m_allData.count(); i++) {
+                m_allData[i] = m_allData[i].toUpper();
+            }
+        }
 
-        for (int i=0; i<m_allData.count(); ++i)
-        {   
-            if (!m_allData.at(i).isEmpty())
-            {
+        for (int i=0; i<m_allData.count(); ++i) {
+            if (!m_allData.at(i).isEmpty()) {
                 QAction *act = secondToolbar->addAction(m_allData.at(i));
                 act->setIcon(charIcon(m_allData.at(i).at(0)));
                 // used to carry the id
@@ -438,27 +437,32 @@ void KHangMan::loadLangToolBar()
         }
     }
 
-    if (Prefs::showCharToolbar())
-	secondToolbar->show();
-    else
-	secondToolbar->hide();
+    if (Prefs::showCharToolbar()) {
+        secondToolbar->show();
+    }
+    else {
+        secondToolbar->hide();
+    }
 
     // Hide toolbar for special characters if the language doesn't have them.
-    if (m_noSpecialChars)
-	secondToolbar->hide();
+    if (m_noSpecialChars) {
+        secondToolbar->hide();
+    }
 }
 
 
 void KHangMan::slotPasteChar()
 {
     QAction *act = qobject_cast<QAction*>(sender());
-    if (!act)
+    if (!act) {
         return;
+    }
 
     bool ok = true;
     int id = act->data().toInt(&ok);
-    if (!ok || id < 0 || id >= m_allData.count())
+    if (!ok || id < 0 || id >= m_allData.count()) {
         return;
+    }
 
     m_view->enterLetter(m_allData.at(id));
 }
@@ -507,10 +511,12 @@ void KHangMan::setAccent()
 void KHangMan::setMessages()
 {
     // Tell the user about accented characters
-    if (m_view->accentedLetters() && Prefs::accentedLetters())
+    if (m_view->accentedLetters() && Prefs::accentedLetters()) {
         changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
-    else
+    }
+    else {
         changeStatusbar("", IDS_ACCENTS);
+    }
 }
 
 void KHangMan::slotNewGame()
@@ -526,3 +532,7 @@ void KHangMan::slotChangeHintAction()
 }
 
 #include "khangman.moc"
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
+

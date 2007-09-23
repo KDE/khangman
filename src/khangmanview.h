@@ -78,7 +78,7 @@ public:
 
 signals:
 
-     /// Use this signal to change the content of the statusbar
+    /// Use this signal to change the content of the statusbar
     void signalChangeStatusbar(const QString &message, int id);
 
 
@@ -158,8 +158,8 @@ private:
     /// When this reaches MAXWRONGGUESSES, you are hanged.
     int              m_numMissedLetters;
     /// These two are the positions of the first and second spaces in the word.
-    int  	     m_posFirstSpace;   
-    int      	     m_posSecondSpace;    
+    int  	     m_posFirstSpace;
+    int      	     m_posSecondSpace;
 
     // Misc data  ----------------
 
@@ -182,7 +182,7 @@ private:
     // Graphics  ----------------
     QSvgRenderer *m_renderer;
     QPixmap       m_backgroundCache;
-    
+
     // Widgets ----------------
 
     /// The widget where the user enters the letter. Upper case is
@@ -202,4 +202,7 @@ private:
 };
 
 #endif // KHANGMANVIEW_H
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
 

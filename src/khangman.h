@@ -73,7 +73,7 @@ public:
 public slots:
     ///When the langugae is changed in the Language menu
     void slotChangeLanguage(int);
-    
+
 private slots:
     // Slots for when the user changes level, setting, etc.
     void  slotChangeLevel(int);
@@ -85,7 +85,7 @@ private slots:
     void slotDownloadNewStuff();
     ///update settings after Settings->Configure KHangMan dialog is closed
     void updateSettings();
-    ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit  
+    ///When a button is clicked on the toolbar, the corresponding character is written in the lineedit
     void slotPasteChar();
 
     ///Quit the application and save special toolbar settings
@@ -151,7 +151,7 @@ private:
 
     // Contains all the words that are read from the data file.
     QStringList     m_allData;
-    
+
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
@@ -159,3 +159,7 @@ private:
 };
 
 #endif // _KHANGMAN_H_
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
+

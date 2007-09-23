@@ -1,8 +1,8 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Michael Goettsche                               *
  *   michael.goettsche@kdemail.net                                         *
- *   Copyright (C) 2006 by Anne-Marie Mahfouf                               *
- *   annemarie.mahfouf@free.fr   *
+ *   Copyright (C) 2006 by Anne-Marie Mahfouf                              *
+ *   annemarie.mahfouf@free.fr                                             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,7 +17,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include "timer.h"
@@ -31,12 +31,12 @@
 
 
 Timer::Timer()
-    :QWidget()
+        :QWidget()
 {
     ui_timer.setupUi(this);
     ui_timer.timeMissedLabel->setText(i18np("1 second", "%1 seconds", Prefs::missedTimer()));
-    connect(ui_timer.kcfg_MissedTimer, SIGNAL(valueChanged(int)),
-	    this,             SLOT(sliderValueChanged()));
+    connect(ui_timer.kcfg_MissedTimer,  SIGNAL(valueChanged(int)),
+            this,                       SLOT(sliderValueChanged()));
 }
 
 
@@ -47,3 +47,7 @@ void Timer::sliderValueChanged()
 
 
 #include "timer.moc"
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
+

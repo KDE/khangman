@@ -2,14 +2,14 @@
 <kpartgui name="khangman" version="3">
 
 <MenuBar>
-	<Menu name="file" noMerge="1"><text>&amp;Game</text>
+    <Menu name="file" noMerge="1"><text>&amp;Game</text>
         <Action name="file_new"/>
         <Action name="downloadnewstuff"/>
         <Separator/>
         <Action name="file_quit"/>
-	</Menu>
+    </Menu>
 
-	<Action name="combo_level"/>
+    <Action name="combo_level"/>
 
     <Action name="languages"/>
 
@@ -37,6 +37,10 @@
 </ToolBar>
 
 <ToolBar name="secondToolBar" noMerge="1"><text>Special Characters</text>
- </ToolBar>
+</ToolBar>
 
 </kpartgui>
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
+

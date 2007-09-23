@@ -16,12 +16,15 @@
 
 bool fontChecker::checkInstalled(const QFont &font, const QString &fontPath)
 {
-	QFontInfo fi(font);
-	// Works with Steve may need some tweaking to work with other fonts
-	if (!fi.exactMatch())
-	{
-		bool success = KIO::NetAccess::file_copy(KUrl::fromPath(fontPath), KUrl("fonts:/Personal"), 0);
-		return !success;
-	}
-	return true;
+    QFontInfo fi(font);
+    // Works with Steve may need some tweaking to work with other fonts
+    if (!fi.exactMatch()) {
+        bool success = KIO::NetAccess::file_copy(KUrl::fromPath(fontPath), KUrl("fonts:/Personal"), 0);
+        return !success;
+    }
+    return true;
 }
+
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
+

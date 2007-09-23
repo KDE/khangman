@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) Copyright (C) 2007      Pino Toscano <pino@kde.org>                                            *
+ *   Copyright (C) Copyright (C) 2007      Pino Toscano <pino@kde.org>     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -14,7 +14,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 //project headers
@@ -35,7 +35,7 @@ class KHMThemeSea : public KHMTheme
 {
 public:
     KHMThemeSea()
-        : KHMTheme()
+            : KHMTheme()
     {
     }
 
@@ -57,7 +57,7 @@ public:
     virtual QRect wordRect(const QSize& windowsize) const
     {
         return QRect(0, windowsize.height()-windowsize.height()*126/535,
-                     windowsize.width()*417/700, windowsize.height()*126/535);
+                windowsize.width()*417/700, windowsize.height()*126/535);
     }
 
     virtual QRect kRect(const QSize& windowsize) const
@@ -68,7 +68,7 @@ public:
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
     {
         return QPoint(popupPos.x() + windowsize.width()*250/700,
-                      popupPos.y() + windowsize.height()*485/535);
+                popupPos.y() + windowsize.height()*485/535);
     }
 
     virtual QColor letterColor() const
@@ -78,24 +78,23 @@ public:
 
     virtual QColor guessButtonColor() const
     {
-      return QColor( 115,  64,  49);
+        return QColor( 115,  64,  49);
     }
 
     virtual QColor guessButtonTextColor() const
     {
-      return QColor( 165, 165, 165);
+        return QColor( 165, 165, 165);
     }
 
     virtual QColor guessButtonHoverColor() const
     {
-      return QColor( 115, 55, 55);
+        return QColor( 115, 55, 55);
     }
 
     virtual QColor letterInputTextColor() const
     {
-      return QColor(  83,  40,  14);
+        return QColor(  83,  40,  14);
     }
-
 };
 
 
@@ -104,7 +103,7 @@ class KHMThemeDesert : public KHMTheme
 {
 public:
     KHMThemeDesert()
-        : KHMTheme()
+            : KHMTheme()
     {
     }
 
@@ -126,13 +125,13 @@ public:
     virtual QRect wordRect(const QSize& windowsize) const
     {
         return QRect(0, windowsize.height()-windowsize.height()*126/535,
-                     windowsize.width()*327/700, windowsize.height()*126/535);
+                windowsize.width()*327/700, windowsize.height()*126/535);
     }
 
     virtual QRect kRect(const QSize& windowsize) const
     {
-        return QRect(windowsize.width()*68/700, windowsize.height()*170/535, 
-			   windowsize.width()*200/700, windowsize.height()*220/535);
+        return QRect(windowsize.width()*68/700, windowsize.height()*170/535,
+                windowsize.width()*200/700, windowsize.height()*220/535);
     }
 
     virtual QColor letterColor() const
@@ -142,30 +141,29 @@ public:
 
     virtual QColor guessButtonColor() const
     {
-      return QColor( 205, 214, 90);
+        return QColor( 205, 214, 90);
     }
 
     virtual QColor guessButtonTextColor() const
     {
-      return QColor( 82, 119, 70);
+        return QColor( 82, 119, 70);
     }
 
     virtual QColor guessButtonHoverColor() const
     {
-      return QColor( 205, 220, 100);
+        return QColor( 205, 220, 100);
     }
 
     virtual QColor letterInputTextColor() const
     {
-      return QColor( 82, 119, 70);
+        return QColor( 82, 119, 70);
     }
 
     virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
     {
         return QPoint(popupPos.x() + windowsize.width()*200/700,
-                      popupPos.y() + windowsize.height()*485/535);
+                popupPos.y() + windowsize.height()*485/535);
     }
-
 };
 
 
@@ -208,6 +206,6 @@ QStringList KHMThemeFactory::themeList() const
     return ret;
 }
 
-
-
+// kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
+// vim: set et sw=4 ts=4 cino=l1,cs,U1:
 
