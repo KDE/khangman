@@ -420,11 +420,6 @@ void KHangMan::loadLangToolBar()
         // FIXME: Better name
         m_allData = readFileStr.readAll().split("\n");
         openFileStream.close();
-        if (Prefs::selectedLanguage() == "de" && Prefs::upperCase()) {
-            for (int i=0; i<(int) m_allData.count(); i++) {
-                m_allData[i] = m_allData[i].toUpper();
-            }
-        }
 
         for (int i=0; i<m_allData.count(); ++i) {
             if (!m_allData.at(i).isEmpty()) {
