@@ -326,6 +326,8 @@ void KHangManView::paintWord(QPainter &p, const QRect& rect)
     tFont.setPixelSize( 28 );
 
     p.setFont(tFont);
+    // Set first letter as upper case for German
+    goodWord.replace(0, 1, LangUtils::capitalize(goodWord.at(0), Prefs::selectedLanguage()));
     p.drawText(myRect, Qt::AlignCenter|Qt::AlignCenter, goodWord);
 }
 
@@ -393,8 +395,7 @@ void KHangManView::slotTry()
         return;
     }
     kDebug() << "guess as entered: " << guess;
-    if (guess == m_word.at(0).toLower())
-	guess = LangUtils::capitalize(guess, Prefs::selectedLanguage());//, Prefs::upperCase());
+
     // Handle the guess.
     if (!m_guessedLetters.contains(guess)) {
         // The letter is not already guessed.
@@ -628,6 +629,7 @@ void KHangManView::game()
     kDebug() << "level "    << Prefs::levelFile();
 
     m_word = m_randomList[m_randomInt%NumberOfWords].first;
+    m_word = m_word.toLower();
     m_hint = m_randomList[m_randomInt%NumberOfWords].second;
 
     if (m_word.isEmpty()) {
