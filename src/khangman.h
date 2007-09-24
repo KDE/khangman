@@ -143,7 +143,7 @@ private:
     KSelectAction  *m_modeAction;
 
     ///Create the Special Characters Toolbar
-    KToolBar *secondToolbar;
+    KToolBar *specialCharToolbar;
 
     // True if the language has no special chars, such as en, it and nl.
     // FIXME: Reverse the bool.  Negated bools are difficult to read.

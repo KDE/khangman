@@ -62,8 +62,8 @@ KHangMan::KHangMan()
     setupActions();
 
     // Toolbar for special characters
-    secondToolbar = toolBar("secondToolBar");
-    addToolBar ( Qt::BottomToolBarArea, secondToolbar);
+    specialCharToolbar = toolBar("specialCharToolBar");
+    addToolBar ( Qt::BottomToolBarArea, specialCharToolbar);
 
     loadSettings();
     setAccent();
@@ -136,9 +136,9 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar()->insertPermanentItem("   ",IDS_LANG,    0);
-    statusBar()->insertPermanentItem("   ",IDS_LEVEL,   0);
-    statusBar()->insertPermanentItem("   ",IDS_ACCENTS, 0);
+    statusBar()->insertPermanentItem("   ", IDS_LANG,    0);
+    statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
+    statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
     statusBar()->insertItem("   ", IDS_WINS,    1);
     statusBar()->insertItem("   ", IDS_LOSSES,  1);
 }
@@ -156,7 +156,7 @@ void KHangMan::changeStatusbar(const QString& text, int id)
 
 void KHangMan::slotQuit()
 {
-    Prefs::setShowCharToolbar( secondToolbar->isVisible());
+    Prefs::setShowCharToolbar( specialCharToolbar->isVisible() );
     Prefs::self()->writeConfig();
     qApp->closeAllWindows();
 }
@@ -244,10 +244,10 @@ void KHangMan::loadSettings()
     changeStatusbar(m_languageNames[index], IDS_LANG);
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar()) {
-        secondToolbar->show();
+        specialCharToolbar->show();
     }
     else {
-        secondToolbar->hide();
+        specialCharToolbar->hide();
     }
     setMessages();
 }
@@ -372,12 +372,12 @@ void KHangMan::loadLangToolBar()
     QString lang = Prefs::selectedLanguage();
     m_noSpecialChars = LangUtils::hasSpecialChars(lang);
 
-    if (secondToolbar->isVisible() && !m_noSpecialChars) {
+    if (specialCharToolbar->isVisible() && !m_noSpecialChars) {
         Prefs::setShowCharToolbar(true);
         Prefs::self()->writeConfig();
     }
 
-    secondToolbar->clear();
+    specialCharToolbar->clear();
 
     m_allData.clear();
     if (!m_noSpecialChars) {
@@ -423,7 +423,7 @@ void KHangMan::loadLangToolBar()
 
         for (int i=0; i<m_allData.count(); ++i) {
             if (!m_allData.at(i).isEmpty()) {
-                QAction *act = secondToolbar->addAction(m_allData.at(i));
+                QAction *act = specialCharToolbar->addAction(m_allData.at(i));
                 act->setIcon(charIcon(m_allData.at(i).at(0)));
                 // used to carry the id
                 act->setData(i);
@@ -433,15 +433,15 @@ void KHangMan::loadLangToolBar()
     }
 
     if (Prefs::showCharToolbar()) {
-        secondToolbar->show();
+        specialCharToolbar->show();
     }
     else {
-        secondToolbar->hide();
+        specialCharToolbar->hide();
     }
 
     // Hide toolbar for special characters if the language doesn't have them.
     if (m_noSpecialChars) {
-        secondToolbar->hide();
+        specialCharToolbar->hide();
     }
 }
 
