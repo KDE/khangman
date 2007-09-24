@@ -117,6 +117,8 @@ void KHangMan::setupActions()
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
+    m_languageAction->setToolTip(i18n( "Choose the language" ));
+    m_languageAction->setWhatsThis(i18n( "Choose the language" ));
 
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 

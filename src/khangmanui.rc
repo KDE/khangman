@@ -29,14 +29,20 @@
 <ToolBar name="mainToolBar" noMerge="1"><text>Main</text>
     <Action name="fullscreen"/>
     <Separator/>
-    <Action name="combo_mode"/>
-    <Separator/>
     <Action name="file_new"/>
     <Action name="show_hint"/>
     <Action name="file_quit"/>
 </ToolBar>
 
 <ToolBar name="specialCharToolBar" noMerge="1"><text>Special Characters</text>
+</ToolBar>
+
+<ToolBar name="themeToolBar" noMerge="1"><text>Theme</text>
+    <Action name="combo_mode"/>
+</ToolBar>
+
+<ToolBar name="languageToolBar" noMerge="1"><text>Language</text>
+    <Action name="languages"/>
 </ToolBar>
 
 </kpartgui>
