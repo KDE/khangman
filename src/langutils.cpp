@@ -13,6 +13,7 @@
 bool LangUtils::hasSpecialChars(const QString& lang)
 {
     if (lang == QLatin1String("en")
+            || lang == QLatin1String("en_GB")
             || lang == QLatin1String("it")
             || lang == QLatin1String("nl")
             || lang == QLatin1String("ru")
