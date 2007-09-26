@@ -88,7 +88,7 @@ void KHangMan::setupActions()
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
 
-    hintAct = new KToggleAction(i18n("&Show Hint"), this);;
+    hintAct = new KToggleAction(i18n("&Show Hint"), this);
     hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
     actionCollection()->addAction("show_hint", hintAct );
     //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
