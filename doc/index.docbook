@@ -25,14 +25,14 @@
 
 
 <copyright>
-<year>2001</year><year>2005</year>
+<year>2001</year><year>2007</year>
 <holder>&Anne-Marie.Mahfouf;</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2007-09-18</date>
+<date>2007-09-26</date>
 <releaseinfo>1.7</releaseinfo>
 
 <abstract>
@@ -173,6 +173,9 @@ fileref="document-new.png" format="PNG"/></imageobject></inlinemediaobject> on
 the toolbar. You can also change
 the category of words using the <guimenuitem>Category</guimenuitem> menu (this
 will bring you a new word for the new category).</para>
+
+<para>The look can easily be changed with the special toolbar holding the look
+dropdown box.</para>
 
 <para>The <guiicon>Quit</guiicon> button on the toolbar
 <inlinemediaobject><imageobject> <imagedata
