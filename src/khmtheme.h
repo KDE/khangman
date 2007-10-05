@@ -36,6 +36,9 @@ public:
     virtual QString svgFileName() const = 0;
     ///Set the position and size for drawing the word to guess
     virtual QRect wordRect(const QSize& windowsize) const = 0;
+
+    virtual QRect hintRect(const QSize& windowsize) const = 0;
+
     ///Set the position and size for drawing the hanged K
     virtual QRect kRect(const QSize& windowsize) const = 0;
     ///Set the color for the word and the missed letters

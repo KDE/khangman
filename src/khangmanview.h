@@ -90,13 +90,13 @@ signals:
 
 
  private:
-
     // Painting
 
     ///Paint the animated hanged K sequence
     void paintHangman(QPainter &p, const QRect& rect);
     void paintWord(QPainter &p, const QRect& rect);
     void paintMisses(QPainter &p, const QRect& rect);
+    void paintHint(QPainter &p, const QRect& );
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
@@ -135,6 +135,7 @@ private slots:
     void slotSetHint(bool);
 
 private:
+    bool m_showhint;
 
     // The basic data ----------------
 
@@ -197,7 +198,6 @@ private:
     ///Current theme
     KHMTheme *m_theme;
 
-    KPassivePopup *myPopup;
     Phonon::MediaObject *m_player;
 };
 

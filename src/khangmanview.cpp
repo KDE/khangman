@@ -49,8 +49,8 @@
 #include "langutils.h"
 
 
-KHangManView::KHangManView(KHangMan*parent)
-        : QWidget(parent /*WStaticContents | WNoAutoErase*/)
+KHangManView::KHangManView(KHangMan*parent) 
+        : QWidget(parent /*WStaticContents | WNoAutoErase*/), m_showhint(false)
 {
     setAttribute(Qt::WA_StaticContents);
     khangman = parent;
@@ -88,9 +88,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_theme            = 0; // essential
     m_player           = 0;
     m_randomInt        = -1;
-    myPopup = new KPassivePopup( m_letterInput);
-    myPopup->setTimeout(100*1000);//so that it shows long enough
-    connect(myPopup, SIGNAL( clicked() ), khangman, SLOT( slotChangeHintAction() ) );
+
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
@@ -115,7 +113,6 @@ KHangManView::~KHangManView()
 
 // Handle a guess of the letter in sChar.
 //
-
 void KHangManView::replaceLetters(const QString& sChar)
 {
     int   index = 0;
@@ -288,6 +285,7 @@ void KHangManView::paintEvent( QPaintEvent * e )
     paintHangman(p, e->rect());
     paintWord(p, e->rect());
     paintMisses(p, e->rect());
+    paintHint(p, e->rect());
 }
 
 
@@ -362,6 +360,43 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
                             fmRect2.width(), fm2.height());
     p.setPen( letterColor );
     p.drawText(myRect2, Qt::AlignLeft|Qt::AlignCenter, misses);
+}
+
+
+void KHangManView::paintHint(QPainter &p, const QRect &rect )
+{
+    if(!m_showhint)
+        return;
+
+    QRect myRect = m_theme->hintRect(size());
+    if(!myRect.intersects(rect))
+        return;
+
+/* Debug */  //p.fillRect(myRect, QBrush(Qt::cyan) );
+
+    QColor letterColor = m_theme->letterColor();
+    p.setPen(letterColor);
+
+    QString hint=i18n("Hint");
+    QFont hFont = QFont("Domestic Manners");
+    hFont.setPointSize(14);
+    QFontMetrics fm1(hFont);
+    QRect fm1Rect(fm1.boundingRect(hint));
+    
+    QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
+    tFont.setPixelSize(14);
+    QFontMetrics fm2(tFont);
+    QRect fm2Rect(fm2.boundingRect(m_hint));
+
+    QRect myRect1 = QRect(myRect.x(), myRect.y(), myRect.width(), fm1Rect.height());
+
+    QRect myRect2 = QRect(myRect.x(), myRect.y()+fm1Rect.height(), myRect.width(), myRect.height()-fm1Rect.height());
+
+    p.setFont(hFont);
+    p.drawText(myRect1, Qt::AlignHCenter, hint);
+
+    p.setFont(tFont);
+    p.drawText(myRect2, Qt::AlignHCenter | Qt::TextWordWrap, m_hint);
 }
 
 
@@ -576,6 +611,8 @@ void KHangManView::newGame()
     khangman->hintAct->setChecked(false);
     slotSetHint(khangman->hintAct->isChecked());
 
+    khangman->hintAct->setEnabled(m_hintExists);
+
     setGameCount();
     if (Prefs::sound()) {
         QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
@@ -747,20 +784,8 @@ void KHangManView::setGameCount()
 
 void KHangManView::slotSetHint(bool hintBool)
 {
-    if (hintBool) {
-        myPopup->setView(i18n("Hint"), m_hint );
-        int x=0, y=0;
-
-        QPoint abspos = QPoint( 0, 0 );
-        x = abspos.x() + width()*70/700;
-        y = abspos.y() + height()*150/535;
-
-        QPoint  point = QPoint(x, y);
-        myPopup->show(mapToGlobal(point));
-    }
-    else {
-        myPopup->hide();
-    }
+    m_showhint=hintBool;
+    update();
 }
 
 #include "khangmanview.moc"
