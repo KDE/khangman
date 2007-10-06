@@ -19,9 +19,9 @@ bool LangUtils::hasSpecialChars(const QString& lang)
             || lang == QLatin1String("ru")
             || lang == QLatin1String("bg"))
     {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 bool LangUtils::hasAccentedLetters(const QString& lang)

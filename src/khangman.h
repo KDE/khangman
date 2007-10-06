@@ -146,8 +146,7 @@ private:
     KToolBar *specialCharToolbar;
 
     // True if the language has no special chars, such as en, it and nl.
-    // FIXME: Reverse the bool.  Negated bools are difficult to read.
-    bool            m_noSpecialChars;
+    bool            m_specialChars;
 
     // Contains all the words that are read from the data file.
     QStringList     m_allData;

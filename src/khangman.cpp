@@ -383,9 +383,9 @@ void KHangMan::slotDownloadNewStuff()
 void KHangMan::loadLangToolBar()
 {
     QString lang = Prefs::selectedLanguage();
-    m_noSpecialChars = LangUtils::hasSpecialChars(lang);
+    m_specialChars = LangUtils::hasSpecialChars(lang);
 
-    if (specialCharToolbar->isVisible() && !m_noSpecialChars) {
+    if (specialCharToolbar->isVisible() && m_specialChars) {
         Prefs::setShowCharToolbar(true);
         Prefs::self()->writeConfig();
     }
@@ -393,7 +393,7 @@ void KHangMan::loadLangToolBar()
     specialCharToolbar->clear();
 
     m_allData.clear();
-    if (!m_noSpecialChars) {
+    if (m_specialChars) {
         QString myString=QString("khangman/%1.txt").arg(lang);
         QFile myFile;
         myFile.setFileName(KStandardDirs::locate("data", myString));
@@ -453,7 +453,7 @@ void KHangMan::loadLangToolBar()
     }
 
     // Hide toolbar for special characters if the language doesn't have them.
-    if (m_noSpecialChars) {
+    if (!m_specialChars) {
         specialCharToolbar->hide();
     }
 }
