@@ -401,16 +401,15 @@ void KHangMan::loadLangToolBar()
         // Let's look in local KDEHOME dir then KNS2 installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
         if (!myFile.exists()) {
-            QString  myString=QString("kvtml/%1/%2.txt")
-                    .arg(lang)
-                    .arg(lang);
+            myString = QString("kvtml/%1/%1.txt").arg(lang);
             myFile.setFileName(KStandardDirs::locate("data",myString));
             kDebug() << myString;
         }
 
-        if (!myFile.exists()) { //TODO use one placeholder for the whole path? --icwiener
-            QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found.\n"
-                    "Please reinstall '%1'. Going back to English.", lang);
+        if (!myFile.exists()) {
+            QString path = QString("$KDEDIR/share/apps/%1").arg(myString);
+            QString mString = i18n("File '%1' not found.\n"
+                    "Please reinstall '%2'. Going back to English.", path, lang);
             KMessageBox::sorry( this, mString,
                     i18n("Error") );
             //going back to English as fallback
