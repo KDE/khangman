@@ -48,6 +48,7 @@
 #include <ktoolbar.h>
 #include <kicon.h>
 #include <kglobal.h>
+#include <KSharedConfig>
 #include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
@@ -214,7 +215,14 @@ void KHangMan::setLanguages()
 
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
-
+    KConfigGroup cg( KGlobal::config() ,"KNewStuff2");
+    for (uint i=0;  i<m_languages.count(); i++) {
+        //QString tmp = cg.readEntry(m_languages[i]);
+       // if (!tmp)
+            cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
+    }
+    cg.config()->sync();
+    
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
@@ -269,6 +277,15 @@ void KHangMan::loadLevels()
     m_titleLevels.clear();
     QStringList levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+    
+    if (levels.size() == 0) {
+        Prefs::setSelectedLanguage("en");
+        Prefs::self()->writeConfig();
+        levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+        titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+    }
+
+    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
     Q_ASSERT(levels.count() == titles.count());
     for(int i = 0; i < levels.count(); ++i) {
@@ -276,12 +293,6 @@ void KHangMan::loadLevels()
     }
 
     if (!levels.contains(Prefs::levelFile())) {
-        if (levels.size() == 0) {
-            Prefs::setSelectedLanguage("en");
-            levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
-            titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
-        }
-
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
         m_currentLevel = 0;
@@ -468,13 +479,13 @@ QIcon KHangMan::charIcon(const QChar & c) const
 {
     QRect r(4, 4, 120, 120);
 
-    ///A font to draw the character with
+    //A font to draw the character with
     QFont font;
     font.setFamily( "Sans Serif" );
     font.setPointSize(96);
     font.setWeight(QFont::Normal);
 
-    ///Create the pixmap
+    //Create the pixmap
     QPixmap pm(128, 128);
     pm.fill(Qt::white);
     QPainter p(&pm);
@@ -483,7 +494,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
     p.drawText(r, Qt::AlignCenter, (QString) c);
     p.end();
 
-    ///Create transparency mask
+    //Create transparency mask
     QBitmap bm(128, 128);
     bm.fill(Qt::color0);
     QPainter b(&bm);
@@ -492,7 +503,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
     b.drawText(r, Qt::AlignCenter, (QString) c);
     b.end();
 
-    ///Mask the pixmap
+    //Mask the pixmap
     pm.setMask(bm);
 
     return QIcon(pm);
