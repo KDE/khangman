@@ -34,7 +34,7 @@
     <Action name="file_quit"/>
 </ToolBar>
 
-<ToolBar name="specialCharToolBar" noMerge="1" iconText="textonly"><text>Special Characters</text>
+<ToolBar name="specialCharToolBar" noMerge="1" iconText="icononly"><text>Special Characters</text>
 </ToolBar>
 
 <ToolBar name="themeToolBar" noMerge="1"><text>Theme</text>
