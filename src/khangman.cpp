@@ -394,23 +394,23 @@ void KHangMan::loadLangToolBar()
 
     m_allData.clear();
     if (m_specialChars) {
-        QString myString=QString("khangman/%1.txt").arg(lang);
-        QFile myFile;
-        myFile.setFileName(KStandardDirs::locate("data", myString));
+        QString langFileName=QString("khangman/%1.txt").arg(lang);
+        QFile langFile;
+        langFile.setFileName(KStandardDirs::locate("data", langFileName));
 
         // Let's look in local KDEHOME dir then KNS2 installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
-        if (!myFile.exists()) {
-            myString = QString("kvtml/%1/%1.txt").arg(lang);
-            myFile.setFileName(KStandardDirs::locate("data",myString));
-            kDebug() << myString;
+        if (!langFile.exists()) {
+            langFileName = QString("kvtml/%1/%1.txt").arg(lang);
+            langFile.setFileName(KStandardDirs::locate("data", langFileName));
+            kDebug() << langFileName;
         }
 
-        if (!myFile.exists()) {
-            QString path = QString("$KDEDIR/share/apps/%1").arg(myString);
-            QString mString = i18n("File '%1' not found.\n"
+        if (!langFile.exists()) {
+            QString path = QString("$KDEDIR/share/apps/%1").arg(langFileName);
+            QString message = i18n("File '%1' not found.\n"
                     "Please reinstall '%2'. Going back to English.", path, lang);
-            KMessageBox::sorry( this, mString,
+            KMessageBox::sorry( this, message,
                     i18n("Error") );
             //going back to English as fallback
             Prefs::setSelectedLanguage("en");
@@ -423,7 +423,7 @@ void KHangMan::loadLangToolBar()
         update();
 
         // We open the file and store info into the stream...
-        QFile openFileStream(myFile.fileName());
+        QFile openFileStream(langFile.fileName());
         openFileStream.open(QIODevice::ReadOnly);
         QTextStream readFileStr(&openFileStream);
         readFileStr.setCodec("UTF-8");
