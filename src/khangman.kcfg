@@ -48,8 +48,8 @@
             <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
             <default code="true">false</default>
         </entry>
-        <entry name="WonDialog" type="Bool">
-            <label>Do not display the 'Congratulations You won!' dialog</label>
+        <entry name="EnableAnimations" type="Bool">
+            <label>Enable Animations</label>
             <default code="true">false</default>
         </entry> 
         <entry name="Sound" type="Bool">

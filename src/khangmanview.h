@@ -96,7 +96,8 @@ signals:
     void paintHangman(QPainter &p, const QRect& rect);
     void paintWord(QPainter &p, const QRect& rect);
     void paintMisses(QPainter &p, const QRect& rect);
-    void paintHint(QPainter &p, const QRect& );
+    void paintHint(QPainter &p, const QRect& rect);
+    void paintGameOver(QPainter &p, const QRect& rect);
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
@@ -135,8 +136,8 @@ private slots:
     void slotSetHint(bool);
 
 private:
-    bool m_showhint;
-
+    bool m_showhint, m_winner, m_loser;
+    int m_bgfill;
     // The basic data ----------------
 
     // FIXME: Rewrite the whole handling of this so that goodWord,

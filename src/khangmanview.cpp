@@ -50,7 +50,7 @@
 
 
 KHangManView::KHangManView(KHangMan*parent) 
-        : QWidget(parent /*WStaticContents | WNoAutoErase*/), m_showhint(false)
+        : QWidget(parent /*WStaticContents | WNoAutoErase*/), m_showhint(false), m_winner(false), m_loser(false), m_bgfill(0)
 {
     setAttribute(Qt::WA_StaticContents);
     khangman = parent;
@@ -286,6 +286,8 @@ void KHangManView::paintEvent( QPaintEvent * e )
     paintWord(p, e->rect());
     paintMisses(p, e->rect());
     paintHint(p, e->rect());
+    if(m_loser || m_winner) 
+        paintGameOver(p, e->rect());
 }
 
 
@@ -363,7 +365,7 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 }
 
 
-void KHangManView::paintHint(QPainter &p, const QRect &rect )
+void KHangManView::paintHint(QPainter &p, const QRect &rect)
 {
     if(!m_showhint)
         return;
@@ -397,6 +399,43 @@ void KHangManView::paintHint(QPainter &p, const QRect &rect )
 
     p.setFont(tFont);
     p.drawText(myRect2, Qt::AlignHCenter | Qt::TextWordWrap, m_hint);
+}
+
+
+void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
+{
+    if(!Prefs::enableAnimations()) {
+        m_bgfill=100;
+    }
+    QString title=m_loser?i18n("You lost. The word was \"%1\".", m_word):i18n("Congratulations! You won!");
+    QString desc=i18n("Press \"New\" to play again.");
+
+    p.fillRect(QRect(rect.x(), rect.y(), rect.width(), rect.height()/100.0*m_bgfill), QBrush(QColor(0,0,0,70)));
+    p.setRenderHint(QPainter::Antialiasing, true);
+    QPen pen(Qt::black, 2);
+    p.setPen(pen);
+    QBrush brush(QColor(133,133,133,180));
+    p.setBrush(brush);
+    QRect rectangle=QRect(70, 125, width()-140, height()-250);
+    p.drawRoundRect(rectangle);
+    QFont tFont("Domestic Manners");
+    tFont.setPixelSize( 30 );
+    p.setPen(Qt::black);
+    p.setFont(tFont);
+    p.drawText(rectangle, Qt::AlignCenter, title);
+
+    tFont= LangUtils::fontForLanguage(Prefs::selectedLanguage());
+    tFont.setPixelSize( 20 );
+    p.setFont(tFont);
+    QRect rect2=QRect(70, height()/2+20, width()-140, 50);
+    p.drawText(rect2, Qt::AlignCenter, desc );
+    m_letterInput->setEnabled(false);
+    m_guessButton->setEnabled(false);
+
+    if(m_bgfill<100) {
+        m_bgfill+=5;
+        QTimer::singleShot(10, this, SLOT(update()));
+    }
 }
 
 
@@ -456,44 +495,15 @@ void KHangManView::slotTry()
 
             // If the user made it...
             if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
-
-                // We reset everything...
-                //TODO find a better way to finish
-                //
-
                 if (Prefs::sound()) {
                     QString soundFile = KStandardDirs::locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
                     play(soundFile);
                 }
-
-                if (Prefs::wonDialog()) {
-                    // TODO: hide Hint KPassivePopup if any
-                    QPoint point;
-                    KPassivePopup *popup = new KPassivePopup( this);
-                    popup->setAutoDelete( true );
-                    popup->setTimeout( 4*1000 );
-                    popup->setView(i18n("Congratulations,\nyou won!") );
-
-                    int x =0, y = 0;
-                    QPoint abspos = popup->pos();
-                    x = abspos.x() + width()*50/700;
-                    y = abspos.y() + height()*20/535;
-                    point = QPoint(x, y);
-                    popup->show(mapToGlobal(point));
-                    QTimer::singleShot( 4*1000, this, SLOT(newGame()) );
-                }
-                else if (KMessageBox::questionYesNo(this,
-                                        i18n("Congratulations! You won! Do you want to play again?"),
-                                        QString(),KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
-                {
-                    newGame();
-                }
-                else {
-                    qApp->quit();
-                }
-
+                m_winner=true;
                 ++winCount;
                 setGameCount();
+                m_letterInput->setEnabled(false);
+                m_guessButton->setEnabled(false);
             }
         }
         else {
@@ -506,46 +516,11 @@ void KHangManView::slotTry()
             update();
             // Check if we have reached the limit of wrong guesses.
             if (m_numMissedLetters >= MAXWRONGGUESSES) {
-
-                //TODO sequence to finish when hanged
-                QStringList charList=m_word.split(" ");
-                QString theWord=charList.join(" ");
-                goodWord = theWord;
-
-                //usability: find another way to start a new game
-                QString newGameString = i18n("You lost. Do you want to play again?");
-                if (Prefs::wonDialog()) {
-                    // TODO: hide Hint KPassivePopup if any
-                    QPoint point;
-                    KPassivePopup *popup = new KPassivePopup( this);
-                    popup->setAutoDelete( true );
-                    popup->setTimeout( 4*1000 );
-
-                    KVBox *vb = new KVBox( popup );
-
-                    QLabel *popLabel = new QLabel( vb);
-                    popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
-                    popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>", m_word));
-                    popup->setView( vb );
-
-                    QPoint abspos = popup->pos();
-                    int  x = abspos.x() + width()  * 50 / 700;
-                    int  y = abspos.y() + height() * 20 / 535;
-                    popup->show(mapToGlobal(QPoint(x, y)));
-
-                    QTimer::singleShot( 4 * 1000, this, SLOT(newGame()) );
-                }
-                else if (KMessageBox::questionYesNo(this, newGameString, QString(),
-                                                KGuiItem(i18n("Play Again")), KGuiItem(i18n("Do Not Play"))) == 3)
-                {
-                    newGame();
-                }
-                else {
-                    qApp->quit();
-                }
-
+                m_loser=true;
                 ++lossCount;
                 setGameCount();
+                m_letterInput->setEnabled(false);
+                m_guessButton->setEnabled(false);
             }
         }
     }
@@ -607,6 +582,13 @@ void KHangManView::enableUserInput()
 
 void KHangManView::newGame()
 {
+    m_loser=false;
+    m_winner=false;
+    m_bgfill=0;
+
+    m_letterInput->setEnabled(true);
+    m_guessButton->setEnabled(true);
+
     //reset Hint action
     khangman->hintAct->setChecked(false);
     slotSetHint(khangman->hintAct->isChecked());

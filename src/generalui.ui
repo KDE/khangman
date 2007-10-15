@@ -32,18 +32,9 @@ Default is that for one letter typed, all instances of that letter in the word a
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="kcfg_WonDialog" >
-       <property name="toolTip" >
-        <string>If checked, the congratulations dialog is not displayed. After four seconds, a new game will start automatically.</string>
-       </property>
-       <property name="whatsThis" >
-        <string>If this option is not checked, a congratulations dialog will appear when a game is won. It also asks you if you want to play again.
-This is the default state.
-
-If this option is checked, the dialog will not appear and a new game will automatically be started after four seconds. A passive popup tells you that you have won the game. You do not have an intrusive dialog every time you win a game.</string>
-       </property>
+      <widget class="QCheckBox" name="kcfg_EnableAnimations" >
        <property name="text" >
-        <string>Do not display the congratulations dialog</string>
+        <string>Enable animations</string>
        </property>
       </widget>
      </item>

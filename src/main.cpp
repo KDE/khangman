@@ -111,6 +111,8 @@ int main(int argc, char **argv)
                         ki18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
     aboutData.addCredit(ki18n("Inge Wallin"),
                         ki18n("Code cleaning"), "inge@lysator.liu.se");
+    aboutData.addCredit(ki18n("Stefan Böhmann"),
+                        ki18n("Coding help"), "kde@hilefoks.org");
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KCmdLineOptions options;
