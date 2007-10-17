@@ -193,7 +193,7 @@ private:
 
     /// After you entered a letter in the line edit click this button
     /// to see if the letter is in the word or not.
-    KPushButton     *m_guessButton;
+    KPushButton     *m_guessButton, *m_playAgainButton;
     ///Current level file
     KEduVocDocument *m_doc;
     ///Current theme

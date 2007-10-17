@@ -76,6 +76,12 @@ KHangManView::KHangManView(KHangMan*parent)
     m_guessButton->setCursor(Qt::PointingHandCursor);
     m_guessButton->setText( i18n( "G&uess" ) );
 
+    m_playAgainButton = new KPushButton(this);
+    m_playAgainButton->setCursor(Qt::PointingHandCursor);
+    m_playAgainButton->setText( "Play again" );
+    
+    m_playAgainButton->setStyleSheet( QString("QPushButton { border: 2px solid black; border-radius: 15px; background-color: #969696; padding: 6px; }  QPushButton:hover { background-color: #787878 } "));
+
     setMinimumSize( QSize( 660, 370 ) );
 
     // Some misc initializations.
@@ -91,6 +97,7 @@ KHangManView::KHangManView(KHangMan*parent)
 
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
+    connect( m_playAgainButton, SIGNAL( clicked() ), this, SLOT( newGame() ));
     connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
     m_renderer = new QSvgRenderer();
 
@@ -408,7 +415,6 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
         m_bgfill=100;
     }
     QString title=m_loser?i18n("You lost. The word was \"%1\".", m_word):i18n("Congratulations! You won!");
-    QString desc=i18n("Press \"New\" to play again.");
 
     p.fillRect(QRect(rect.x(), rect.y(), rect.width(), rect.height()/100.0*m_bgfill), QBrush(QColor(0,0,0,70)));
     p.setRenderHint(QPainter::Antialiasing, true);
@@ -416,21 +422,21 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     p.setPen(pen);
     QBrush brush(QColor(133,133,133,180));
     p.setBrush(brush);
-    QRect rectangle=QRect(70, 125, width()-140, height()-250);
+    QRect rectangle=QRect(width()*0.1, height()*0.2, width()-width()*0.2, height()-height()*0.4);
     p.drawRoundRect(rectangle);
     QFont tFont("Domestic Manners");
-    tFont.setPixelSize( 30 );
+    tFont.setPixelSize( width()/26 );
     p.setPen(Qt::black);
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
 
-    tFont= LangUtils::fontForLanguage(Prefs::selectedLanguage());
-    tFont.setPixelSize( 20 );
-    p.setFont(tFont);
-    QRect rect2=QRect(70, height()/2+20, width()-140, 50);
-    p.drawText(rect2, Qt::AlignCenter, desc );
+    m_playAgainButton->setFocus();
+    m_playAgainButton->setDefault(true);
+
     m_letterInput->setEnabled(false);
     m_guessButton->setEnabled(false);
+
+    m_playAgainButton->setVisible(true);
 
     if(m_bgfill<100) {
         m_bgfill+=5;
@@ -455,8 +461,14 @@ void KHangManView::resizeEvent(QResizeEvent *)
                                - m_guessButton->sizeHint().width()-7,
                                height() - 2*height()/16,
                                m_guessButton->sizeHint().width(), height()/9);
-}
 
+    m_playAgainButton->setFont(QFont("Dustimo Roman", height()/32));
+
+
+    m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 , 
+                                    height()/2 + m_playAgainButton->height()/2,
+				    m_playAgainButton->sizeHint().width(), height()/9 );
+}
 
 // ----------------------------------------------------------------
 //                             Slots
@@ -588,6 +600,7 @@ void KHangManView::newGame()
 
     m_letterInput->setEnabled(true);
     m_guessButton->setEnabled(true);
+    m_playAgainButton->setVisible(false);
 
     //reset Hint action
     khangman->hintAct->setChecked(false);
