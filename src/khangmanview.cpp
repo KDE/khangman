@@ -416,13 +416,13 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     }
     QString title=m_loser?i18n("You lost. The word was \"%1\".", m_word):i18n("Congratulations! You won!");
 
-    p.fillRect(QRect(rect.x(), rect.y(), rect.width(), rect.height()/100.0*m_bgfill), QBrush(QColor(0,0,0,70)));
+    p.fillRect(QRect(rect.x(), rect.y(), rect.width(), (int)(rect.height()/100.0*m_bgfill)), QBrush(QColor(0,0,0,70)));
     p.setRenderHint(QPainter::Antialiasing, true);
     QPen pen(Qt::black, 2);
     p.setPen(pen);
     QBrush brush(QColor(133,133,133,180));
     p.setBrush(brush);
-    QRect rectangle=QRect(width()*0.1, height()*0.2, width()-width()*0.2, height()-height()*0.4);
+    QRect rectangle=QRect(width()/10, height()*2/10, width()-width()*2/10, height()-height()*4/10);
     p.drawRoundRect(rectangle);
     QFont tFont("Domestic Manners");
     tFont.setPixelSize( width()/26 );

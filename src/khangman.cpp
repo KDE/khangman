@@ -216,7 +216,7 @@ void KHangMan::setLanguages()
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
     KConfigGroup cg( KGlobal::config() ,"KNewStuff2");
-    for (uint i=0;  i<m_languages.count(); i++) {
+    for (int i=0;  i<m_languages.count(); ++i) {
         //QString tmp = cg.readEntry(m_languages[i]);
        // if (!tmp)
             cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
