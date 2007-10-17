@@ -430,18 +430,15 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
 
-    m_playAgainButton->setFocus();
-    m_playAgainButton->setDefault(true);
-
-    m_letterInput->setEnabled(false);
-    m_guessButton->setEnabled(false);
-
-    m_playAgainButton->setVisible(true);
-
     if(m_bgfill<100) {
         m_bgfill+=5;
         QTimer::singleShot(10, this, SLOT(update()));
+	return;
     }
+    m_playAgainButton->setFocus();
+    m_playAgainButton->setDefault(true);
+    m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()/2);
+    m_playAgainButton->setVisible(true);
 }
 
 
