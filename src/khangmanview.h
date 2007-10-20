@@ -24,7 +24,7 @@
 class KPushButton;
 class KHangMan;
 namespace Phonon {
-class MediaObject;
+    class MediaObject;
 }
 class QRect;
 class QSvgRenderer;
@@ -75,6 +75,12 @@ public:
     int winCount;
     int lossCount;
 
+public slots:
+
+    ///Load kvtml file and get a word and its tip in random
+    void readFile();
+    ///if you want to play with a new word
+    void newGame();
 
 signals:
 
@@ -88,6 +94,19 @@ signals:
     void paintEvent( QPaintEvent * );
     void resizeEvent( QResizeEvent * );
 
+
+private slots:
+
+    /// After you click on Guess button or hit Enter when guessing a
+    /// new letter, see if the letter is in the word or not
+    void slotTry();
+
+    /// Reenable user input.  This is used as a target for timers when
+    /// the user has made a guess that was already made earlier, and a
+    /// popup informing about this is closed.
+    void enableUserInput();
+
+    void slotSetHint(bool);
 
  private:
     // Painting
@@ -114,29 +133,16 @@ signals:
     void play(const QString& soundFile);
     ///Display the win/loss count in the statusbar
     void setGameCount();
+    
+    /** Strip the accents off given string
+     * @params original string to strip accents off of
+     * @returns string without accents
+     */
+    QString stripAccents(const QString & original);
 
-public slots:
-
-    ///Load kvtml file and get a word and its tip in random
-    void readFile();
-    ///if you want to play with a new word
-    void newGame();
-
-private slots:
-
-    /// After you click on Guess button or hit Enter when guessing a
-    /// new letter, see if the letter is in the word or not
-    void slotTry();
-
-    /// Reenable user input.  This is used as a target for timers when
-    /// the user has made a guess that was already made earlier, and a
-    /// popup informing about this is closed.
-    void enableUserInput();
-
-    void slotSetHint(bool);
-
-private:
-    bool m_showhint, m_winner, m_loser;
+    bool m_showhint;
+    bool m_winner;
+    bool m_loser;
     int m_bgfill;
     // The basic data ----------------
 
@@ -156,23 +162,29 @@ private:
     // Stores the missed letters that are shown on the screen.
     // Initialiazed to "_ " * MAXWRONGGUESSES.
     QString          m_missedLetters;
+
     /// How many times you missed.
     /// When this reaches MAXWRONGGUESSES, you are hanged.
     int              m_numMissedLetters;
+
     /// These two are the positions of the first and second spaces in the word.
-    int  	     m_posFirstSpace;
-    int      	     m_posSecondSpace;
+    int       m_posFirstSpace;
+    int       m_posSecondSpace;
 
     // Misc data  ----------------
 
     ///The index to the random sequence
     int m_randomInt;
+
     ///The number of words in the current level file.
     int NumberOfWords;
+
     ///The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
+
     /// true if a hint exists
     bool             m_hintExists;
+
     ///Current hint
     QString          m_hint;
 
@@ -194,8 +206,10 @@ private:
     /// After you entered a letter in the line edit click this button
     /// to see if the letter is in the word or not.
     KPushButton     *m_guessButton, *m_playAgainButton;
+
     ///Current level file
     KEduVocDocument *m_doc;
+
     ///Current theme
     KHMTheme *m_theme;
 

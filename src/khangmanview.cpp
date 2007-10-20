@@ -204,39 +204,21 @@ void KHangManView::play(const QString& soundFile)
     m_player->play();
 }
 
+QString KHangManView::stripAccents(const QString & original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
+}
 
 bool KHangManView::containsChar(const QString &sChar)
 {
-    bool b_isInWord = false;
-    if (m_accentedLetters && !Prefs::accentedLetters()) {
-        if (sChar=="i") {
-            b_isInWord = m_word.contains(QString::fromUtf8("í"));
-        }
-
-        if (sChar=="a") {
-            b_isInWord = m_word.contains(QString::fromUtf8("à"))
-                    || m_word.contains(QString::fromUtf8("á"))
-                    || m_word.contains(QString::fromUtf8("ã"));
-        }
-
-        if (sChar=="u") {
-            b_isInWord = m_word.contains(QString::fromUtf8("ü"))
-                    || m_word.contains(QString::fromUtf8("ù"));
-        }
-
-        if (sChar=="o") {
-            b_isInWord = m_word.contains(QString::fromUtf8("ò"))
-                    || m_word.contains(QString::fromUtf8("ó"))
-                    || m_word.contains(QString::fromUtf8("õ"));
-        }
-
-        if (sChar=="e") {
-            b_isInWord = m_word.contains(QString::fromUtf8("è"))
-                    || m_word.contains(QString::fromUtf8("é"));
-        }
-    }
-
-    return (b_isInWord || m_word.contains(sChar));
+    return m_word.contains(sChar) || stripAccents(m_word).contains(sChar);
 }
 
 // ----------------------------------------------------------------
