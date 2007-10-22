@@ -721,11 +721,8 @@ void KHangManView::slotSetWordsSequence()
 {
     kDebug() << "in read kvtml file ";
 
-    if (m_doc != 0) {
-        delete m_doc;
-        m_doc = 0;
-    }
-
+    delete m_doc;
+    
     m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
     m_doc->open(Prefs::levelFile());
