@@ -78,7 +78,7 @@ KHangManView::KHangManView(KHangMan*parent)
 
     m_playAgainButton = new KPushButton(this);
     m_playAgainButton->setCursor(Qt::PointingHandCursor);
-    m_playAgainButton->setText( "Play again" );
+    m_playAgainButton->setText( i18n( "&Play again" ) );
     
     m_playAgainButton->setStyleSheet( QString("QPushButton { border: 2px solid black; border-radius: 15px; background-color: #969696; padding: 6px; }  QPushButton:hover { background-color: #787878 } "));
 
