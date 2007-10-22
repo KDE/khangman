@@ -50,11 +50,11 @@
 
 
 KHangManView::KHangManView(KHangMan*parent) 
-        : QWidget(parent /*WStaticContents | WNoAutoErase*/), m_showhint(false), m_winner(false), m_loser(false), m_bgfill(0)
+        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_showhint(false), m_winner(false), 
+	  m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1), 
+          m_randomInt(-1), m_hintExists(true), m_accentedLetters(true), m_doc(0), m_theme(0), m_player(0)
 {
     setAttribute(Qt::WA_StaticContents);
-    khangman = parent;
-
 
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
@@ -84,17 +84,6 @@ KHangManView::KHangManView(KHangMan*parent)
 
     setMinimumSize( QSize( 660, 370 ) );
 
-    // Some misc initializations.
-    m_posFirstSpace    = -1;
-    m_posSecondSpace   = -1;
-    m_numMissedLetters = 0;
-    m_accentedLetters  = true;
-    m_hintExists       = true;
-    m_doc              = 0;
-    m_theme            = 0; // essential
-    m_player           = 0;
-    m_randomInt        = -1;
-
     connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
     connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
     connect( m_playAgainButton, SIGNAL( clicked() ), this, SLOT( newGame() ));
@@ -103,10 +92,6 @@ KHangManView::KHangManView(KHangMan*parent)
 
     // not the best thing to do, but at least avoid no theme set
     setTheme(KHMThemeFactory::instance()->buildTheme(0));
-
-    //initialise win-loss counter
-    winCount = 0;
-    lossCount = 0;
 }
 
 
@@ -130,8 +115,7 @@ void KHangManView::replaceLetters(const QString& sChar)
     // Replace letter in the word
     if (Prefs::oneLetter()) {
     // We just replace the next instance.
-        for (int count=0; count < m_word.count(sChar); count++) {
-
+        for (int count=0; count < m_word.count(sChar); ++count) {
             index = m_word.indexOf(sChar, index);
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
@@ -142,7 +126,7 @@ void KHangManView::replaceLetters(const QString& sChar)
                 break;
             }
             else {
-                index++;
+                ++index;
             }
 
             if (count == m_word.count(sChar)-1) {
@@ -151,13 +135,13 @@ void KHangManView::replaceLetters(const QString& sChar)
         }
     }
     else {
-        for (int count=0; count < m_word.count(sChar); count++) {
+        for (int count=0; count < m_word.count(sChar); ++count) {
             //searching for letter location
             index = m_word.indexOf(sChar, index);
 
             //we replace it...
             goodWord.replace((2*index), 1,sChar);
-            index++;
+            ++index;
         }
     }
 
@@ -503,7 +487,7 @@ void KHangManView::slotTry()
             m_guessedLetters << guess;
             m_missedLetters = m_missedLetters.replace((2 * m_numMissedLetters), 1, guess);
 
-            m_numMissedLetters++;
+            ++m_numMissedLetters;
             update();
             // Check if we have reached the limit of wrong guesses.
             if (m_numMissedLetters >= MAXWRONGGUESSES) {
@@ -594,7 +578,7 @@ void KHangManView::newGame()
     }
 
     reset();
-    m_randomInt++;
+    ++m_randomInt;
     game();
 
     update();
@@ -644,7 +628,7 @@ void KHangManView::game()
     m_hint = m_randomList[m_randomInt%NumberOfWords].second;
 
     if (m_word.isEmpty()) {
-        m_randomInt++;
+        ++m_randomInt;
         game();
     }
 
@@ -733,7 +717,7 @@ void KHangManView::slotSetWordsSequence()
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
-    for (int j = 0; j < NumberOfWords; j++) {
+    for (int j = 0; j < NumberOfWords; ++j) {
         QString hint = m_doc->entry(j)->translation(0).comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if
