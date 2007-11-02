@@ -56,7 +56,7 @@ KHangMan::KHangMan()
           m_view(new KHangManView(this))
 {
     setObjectName(QLatin1String("KHangMan"));
-
+    
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
@@ -318,12 +318,6 @@ void KHangMan::optionsPreferences()
 {
     if ( KConfigDialog::showDialog( "settings" ) )  {
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-        /*
-        if (Prefs::selectedLanguage() == "de")
-            languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
-        else
-            languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
-        */
         return;
     }
 
@@ -342,13 +336,6 @@ void KHangMan::optionsPreferences()
 
     ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 
-    /*
-    if (Prefs::selectedLanguage() == "de")
-        languageSettingsDlg->kcfg_UpperCase->setEnabled(true);
-    else
-        languageSettingsDlg->kcfg_UpperCase->setEnabled(false);
-    */
-
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "clock");
 
@@ -365,7 +352,7 @@ void KHangMan::updateSettings()
         loadLangToolBar();
     }
     setMessages();
-    m_view->newGame();
+    //m_view->newGame();
 }
 
 void KHangMan::slotDownloadNewStuff()
