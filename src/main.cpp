@@ -21,7 +21,6 @@
 #include "version.h"
 
 #include <kprocess.h>
-
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <kapplication.h>
@@ -48,15 +47,11 @@ int main(int argc, char **argv)
     // Write the names with accents and all and this file save with
     // utf8 encoding.
     aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"), "annma@kde.org");
-    aboutData.addCredit(ki18n("Renaud Blanchard"),
-                        ki18n("Graphics"), "kisukuma@chez.com");
+    aboutData.addCredit(ki18n("Stefan Böhmann"),
+                        ki18n("Coding help"), "kde@hilefoks.org");
     aboutData.addCredit(ki18n("Stefan Asserhäll"),
                         ki18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
                                 "stefan.asserhall@telia.com");
-    aboutData.addCredit(ki18n("Joe Bolin"),
-                        ki18n("Nature theme background"), "jbolin@zoominternet.net");
-    aboutData.addCredit(ki18n("Primoz Anzur"),
-                        ki18n("Blue theme background, icons"), "zerokode@gmx.net");
     aboutData.addCredit(ki18n("eXParTaKus"),
                         ki18n("Spanish data files"), "expartakus@expartakus.com");
     aboutData.addCredit(ki18n("Erik Kjær Pedersenn"),
@@ -105,14 +100,11 @@ int main(int argc, char **argv)
                         ki18n("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit(ki18n("Albert Astals Cid"),
                         ki18n("Coding help, fixed a lot of things"), "tsdgeos@terra.es");
-    aboutData.addCredit(ki18n("Danny Allen"),
-                        ki18n("SVG icon"), "danny@dannyallen.co.uk");
     aboutData.addCredit(ki18n("Peter Hedlund"),
                         ki18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
     aboutData.addCredit(ki18n("Inge Wallin"),
                         ki18n("Code cleaning"), "inge@lysator.liu.se");
-    aboutData.addCredit(ki18n("Stefan Böhmann"),
-                        ki18n("Coding help"), "kde@hilefoks.org");
+
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KCmdLineOptions options;

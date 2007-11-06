@@ -29,7 +29,6 @@ namespace Phonon {
 class QRect;
 class QSvgRenderer;
 class KHMTheme;
-class KPassivePopup;
 
 #include <qimage.h>
 #include <qpixmap.h>

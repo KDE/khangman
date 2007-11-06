@@ -240,7 +240,7 @@ void KHangManView::setTheme(KHMTheme *theme)
     m_theme->letterInputTextColor().getRgb(&r1, &g1, &b1);
     m_letterInput->setStyleSheet(QString("QLineEdit{border-style: solid; background-color: white; color: rgb(%1, %2, %3) ; border-bottom-right-radius:10; border-radius: 15px; border-width: 3px; padding: 3px; border-color: rgb(%1, %2, %3)}").arg(r1).arg(g1).arg(b1));
     m_letterInput->setFocus();
-    m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
+    m_guessButton->setFont(QFont("Dustismo Roman", height()/22));
     QFont charWrite_font( m_letterInput->font() );
     charWrite_font.setPointSize( height()/18 );
     m_letterInput->setFont(charWrite_font);
@@ -419,13 +419,13 @@ void KHangManView::resizeEvent(QResizeEvent *)
     m_letterInput->setFont( charWrite_font );
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16,
                                height()/9, height()/9);
-    m_guessButton->setFont(QFont("Dustimo Roman", height()/22));
+    m_guessButton->setFont(QFont("Dustismo Roman", height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12
                                - m_guessButton->sizeHint().width()-7,
                                height() - 2*height()/16,
                                m_guessButton->sizeHint().width(), height()/9);
 
-    m_playAgainButton->setFont(QFont("Dustimo Roman", height()/32));
+    m_playAgainButton->setFont(QFont("Dustismo Roman", height()/32));
 
 
     m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 , 
