@@ -17,6 +17,14 @@ kde4_add_ui_files(khangman_SRCS generalui.ui languageui.ui timerui.ui )
 
 kde4_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
+if(MSVC)
+  set(khangman_SRCS ${khangman_SRCS} khangman.rc)
+endif(MSVC)
+
+if(MINGW)
+   KDE_ADD_RESOURCES2(khangman_SRCS khangman.rc)
+endif(MINGW)
+
 kde4_add_executable(khangman ${khangman_SRCS})
 
 target_link_libraries(khangman  keduvocdocument ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} )
