@@ -24,7 +24,7 @@ set(khangman_icons
     ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/64x64/apps/khangman.png
     ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/128x128/apps/khangman.png
 )
-kde4_add_win32_app_icon(khangman khangman_SRCS ${khangman_icons})
+kde4_add_win32_app_icon(khangman_SRCS ${khangman_icons})
 kde4_add_executable(khangman ${khangman_SRCS})
 
 target_link_libraries(khangman  keduvocdocument ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} )
