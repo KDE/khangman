@@ -224,11 +224,11 @@ Language...</guimenuitem>. A dialog appears, similar to this one:
 
 <para>
 Click on the language name you want to install and then on the
-<guibutton>Install</guibutton> button. <!--If the language is successfully
-installed, a green tick is displayed in front of the language name. --> The
+<guibutton>Install</guibutton> button. If the language is successfully
+installed, a green tick is displayed in front of the language name and the <guibutton>Install</guibutton> turns to <guibutton>Uninstall</guibutton>. The
 data is immediately installed and available in &khangman;. You click on the
 <guibutton>Close</guibutton> button to close the Get New Words dialog (if you
-want another language, you get repeat these steps). </para>
+want another data file, you can repeat these steps). </para>
 
 <para>
 You can then easily change the language by going in the
@@ -683,8 +683,7 @@ Language...</guimenuitem> in the <guimenu>Game</guimenu> menu to see if your
 language is available yet. If it is, then you can check if it countains
 <emphasis>hints</emphasis>.
 </para>
-<para>The words are stored in 4 separate files, one for each level. The files
-are in
+<para>The standard list words are stored in 4 separate files, so to make different levels. The files are in
 <filename class="directory">/khangman/data/</filename>. The file
 <filename>easy.kvtml</filename> is for level easy, the file
 <filename>medium.kvtml</filename> is for level medium, the file
@@ -793,7 +792,7 @@ some if you want.</para>
 <emphasis>l10n-kde4/&lt;lang_code&gt;/data/kdeedu/khangman</emphasis>. Don't
 forget to update the CMakeLists.txt file as well.
 Please contact me by email if you need further
-information.When you send me the files, please don't forget to mention any
+information. When you send me the files, please don't forget to mention any
 <emphasis role="bold">special characters</emphasis> used in your language (put
 them in a text file, one per line and add this file in the tarball) and please
 mention any other specificity.</para>
@@ -822,7 +821,7 @@ The English language (default) and the user language from his i18n package(s)
 class="directory">$KDEDIR/share/apps/kvtml</filename>.
 </para>
 <para>
-In the configuration file, stored for each user in his <filename>~/.kde/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
+In the configuration file, stored for each user in his <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
 </para>
 </sect1>
 </chapter>
@@ -848,18 +847,18 @@ game. An easy way is to configure &khangman; with the option
 <option>--prefix</option>=$<envar>KDEDIR</envar> where
 $<envar>KDEDIR</envar> is where the rest of &kde; is installed.  This
 could vary widely, depending on the distribution and operating system
-you.</para>
+you. Better install &khangman; from your distribution!</para>
 </answer>
 </qandaentry>
 <qandaentry>
 <question>
-<para>&khangman; does not start correctly after I upgraded from an earlier version to the &kde; 3.5 version</para>
+<para>&khangman; does not start correctly after I upgraded from an earlier version to the &kde; 4 version</para>
 </question>
 <answer>
 <para>
 There might be a problem due to the change of the configuration file. Please
 remove the <filename>khangmanrc</filename> file in your <filename
-class="directory">$HOME/.kde/share/config</filename> folder. 
+class="directory">$KDEHOME/share/config</filename> folder. 
 </para>
 </answer>
 </qandaentry>
@@ -874,7 +873,7 @@ class="directory">$HOME/.kde/share/config</filename> folder.
 &khangman;
 </para>
 <para>
-Program copyright 2001-2006 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
+Program copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 <para>
 Contributors:
@@ -965,7 +964,7 @@ Bueno
 </para>
 
 <para>
-Documentation copyright 2001-2005 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
+Documentation copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
