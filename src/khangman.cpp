@@ -207,7 +207,7 @@ void KHangMan::setLanguages()
 
     //the program scans in khangman/data/ to see what languages data is found
     m_languages = SharedKvtmlFiles::languages();
-    kDebug() << "Languages " << m_languages << endl;
+    kDebug() << "Languages " << m_languages;
     if (m_languages.isEmpty()) {
         return;
     }
