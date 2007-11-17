@@ -642,14 +642,14 @@ void KHangManView::game()
         //TODO refresh hint action
     }
     khangman->hintAct->setEnabled(m_hintExists);
-    if ( Prefs::selectedLanguage() =="de") {
+    /*if ( Prefs::selectedLanguage() =="de") {
         // Replace ß with SS in German
         if (m_word.contains(QString::fromUtf8("ß"))) {
             int index = m_word.indexOf(QString::fromUtf8("ß"),0);
             m_word.replace(index,1, "S");
             //TODO add a S here
         }
-    }
+    }*/
 
     kDebug() << m_word;
 
