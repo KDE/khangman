@@ -438,7 +438,8 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
 void KHangManView::slotTry()
 {
-    QString guess = m_letterInput->text();
+    QString guess = m_letterInput->text().toLower();
+    
     if (guess.isEmpty()) {
         m_letterInput->setFocus();
         return;
