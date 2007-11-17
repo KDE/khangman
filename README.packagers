@@ -3,7 +3,7 @@ Fonts in KHangMan
 
 KHangMan uses 2 special fonts: Domestic Manners and Dustismo Roman. This gives a nicer look to KHangMan!
 These 2 fonts are fully GPL, the licence is available for each of them, embedded in the font.
-Those 2 fonts are in kdeedu/khangman/khangman/fonts source and then the program looksif the fonts are installed or not for the user. If not, those fonts are installed in the personnal home of the user using the fonts:/ ioslave to copy them
+Those 2 fonts are in kdeedu/khangman/khangman/fonts source and then the program looks if the fonts are installed or not for the user. If not, those fonts are installed in the personnal home of the user using the fonts:/ ioslave to copy them
 to the user's fonts location.
 
 This can cause problems, because if the program

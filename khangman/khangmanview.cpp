@@ -68,7 +68,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     // Get background from config file - default is sea
     loadAnimation();
     
-    setMinimumSize( QSize( 700, 535 ) );
+    setMinimumSize( QSize( 660, 370 ) );
     setBackground( m_originalBackground );
 
     // Some misc initializations.
