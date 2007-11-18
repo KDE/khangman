@@ -45,7 +45,7 @@
           
     <group name="General">
         <entry name="OneLetter" type="Bool">
-            <label>Allow Only One Instance of Each Letter to be replaced in the word</label>
+            <label>Check this if you do not want to discover each instance of the same letter.</label>
             <default code="true">false</default>
         </entry>
         <entry name="EnableAnimations" type="Bool">
@@ -53,11 +53,11 @@
             <default code="true">false</default>
         </entry> 
         <entry name="Sound" type="Bool">
-            <label>Enable Sounds on New Game and Win Game</label>
+            <label>If checked, sounds will be played for New Game and Win Game</label>
             <default code="true">false</default>
         </entry>
         <entry name="MissedTimer" type="Int">
-            <label>the time to display the Missed KPassivePopup, in seconds</label>
+            <label>Time during which the "Already Guessed" tooltip is displayed.</label>
             <default code="true">1</default>
         </entry>
     </group>
