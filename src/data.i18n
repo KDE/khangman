@@ -1,4 +1,4 @@
-i18n("NOTE_TO_THE_TRANSLATORS",
+i18nc("NOTE_TO_THE_TRANSLATORS",
      "The translators have the opportunity to translate the\n"
      "words in the game.\n"
      "See the file README.languages in khangman's source directory\n"
