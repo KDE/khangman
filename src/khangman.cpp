@@ -357,7 +357,9 @@ void KHangMan::updateSettings()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    KNS::Entry::List entries = KNS::Engine::download();
+    // delete all the entry pointers that are returned
+    qDeleteAll(KNS::Engine::download());
+
     SharedKvtmlFiles::sortDownloadedFiles();
     //look for languages dirs installed
     setLanguages();
