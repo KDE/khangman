@@ -93,7 +93,7 @@ void KHangMan::setupActions()
     hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
     actionCollection()->addAction("show_hint", hintAct );
     //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
-    hintAct->setIcon(KIcon("plasmagik")); //TODO get an icon!!!
+    hintAct->setIcon(KIcon("games-hint"));
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
     hintAct->setEnabled( m_view->hintExists() );
     connect(hintAct, SIGNAL(triggered(bool)), m_view, SLOT(slotSetHint(bool)));
@@ -327,12 +327,12 @@ void KHangMan::optionsPreferences()
     QWidget *generalSettingsDlg = new QWidget;
     ui_general.setupUi(generalSettingsDlg);
 
-    dialog->addPage(generalSettingsDlg, i18n("General"), "colorize");
+    dialog->addPage(generalSettingsDlg, i18n("General"), "khangman");
 
     // Add the Language Settings page
     QWidget *languageSettingsDlg = new QWidget;
     ui_language.setupUi(languageSettingsDlg);
-    dialog->addPage(languageSettingsDlg, i18n("Languages"), "kvoctrain");
+    dialog->addPage(languageSettingsDlg, i18n("Languages"), "preferences-desktop-locale");
 
     ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 
