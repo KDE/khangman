@@ -109,9 +109,6 @@ void KHangManView::replaceLetters(const QString& sChar)
 {
     int   index = 0;
     bool  b_end = false;
-
-    kDebug() << "word " << m_word;
-
     // Replace letter in the word
     if (Prefs::oneLetter()) {
     // We just replace the next instance.
@@ -120,7 +117,6 @@ void KHangManView::replaceLetters(const QString& sChar)
             if (goodWord.at(2*index)=='_') {
                 goodWord.replace((2*index), 1, sChar);
 
-                kDebug() << "goodword " << goodWord;
                 if (count == m_word.count(sChar)-1)
                 b_end = true;
                 break;
@@ -642,16 +638,6 @@ void KHangManView::game()
         //TODO refresh hint action
     }
     khangman->hintAct->setEnabled(m_hintExists);
-    /*if ( Prefs::selectedLanguage() =="de") {
-        // Replace ß with SS in German
-        if (m_word.contains(QString::fromUtf8("ß"))) {
-            int index = m_word.indexOf(QString::fromUtf8("ß"),0);
-            m_word.replace(index,1, "S");
-            //TODO add a S here
-        }
-    }*/
-
-    kDebug() << m_word;
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++) {
@@ -660,8 +646,6 @@ void KHangManView::game()
 
     // Remove the last trailing space.
     goodWord.remove(goodWord.length()-1);
-
-    kDebug() << goodWord;
 
     // If needed, display white space or - if in word or semi dot.
 
