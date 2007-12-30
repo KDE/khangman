@@ -17,14 +17,8 @@ kde4_add_ui_files(khangman_SRCS generalui.ui languageui.ui timerui.ui )
 
 kde4_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
-set(khangman_icons
-    ${KDE4_ICON_DIR}/oxygen/16x16/apps/khangman.png
-    ${KDE4_ICON_DIR}/oxygen/32x32/apps/khangman.png
-    ${KDE4_ICON_DIR}/oxygen/48x48/apps/khangman.png
-    ${KDE4_ICON_DIR}/oxygen/64x64/apps/khangman.png
-    ${KDE4_ICON_DIR}/oxygen/128x128/apps/khangman.png
-)
-kde4_add_win32_app_icon(khangman_SRCS ${khangman_icons})
+kde4_add_app_icon(khangman_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/khangman.png")
+
 kde4_add_executable(khangman ${khangman_SRCS})
 
 target_link_libraries(khangman  keduvocdocument ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} )
