@@ -32,7 +32,7 @@
 static const char description[] =
         I18N_NOOP("Classical hangman game for KDE");
 
-static const char version[] = "1.7";
+static const char version[] = "2.0";
 
 
 int main(int argc, char **argv)
