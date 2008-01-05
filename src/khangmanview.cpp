@@ -691,26 +691,26 @@ void KHangManView::slotSetWordsSequence()
     kDebug() << "in read kvtml file ";
 
     delete m_doc;
-    
+
     m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
     m_doc->open(Prefs::levelFile());
 
     //how many words in the file
-    NumberOfWords = m_doc->entryCount();
+    NumberOfWords = m_doc->lesson()->entriesRecursive().count();
 
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
     for (int j = 0; j < NumberOfWords; ++j) {
-        QString hint = m_doc->entry(j)->translation(0).comment();
+        QString hint = m_doc->lesson()->entriesRecursive().value(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if
             // there is one
-            hint = m_doc->entry(j)->translation(1).text();
+            hint = m_doc->lesson()->entriesRecursive().value(j)->translation(1)->text();
         }
 
-        m_randomList.append(qMakePair(m_doc->entry(j)->translation(0).text(), m_doc->entry(j)->translation(0).comment()));
+        m_randomList.append(qMakePair(m_doc->lesson()->entriesRecursive().value(j)->translation(0)->text(), m_doc->lesson()->entriesRecursive().value(j)->translation(0)->comment()));
     }
     //shuffle the list
     randomSequence.randomize(m_randomList);
