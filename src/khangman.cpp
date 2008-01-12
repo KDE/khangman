@@ -341,6 +341,7 @@ void KHangMan::optionsPreferences()
 
     connect(dialog, SIGNAL(settingsChanged( const QString &)), this, SLOT(updateSettings()));
     dialog->setAttribute( Qt::WA_DeleteOnClose );
+    dialog->setHelp(QString(),"khangman");
     dialog->show();
 }
 
