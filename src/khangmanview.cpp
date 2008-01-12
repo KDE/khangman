@@ -697,20 +697,20 @@ void KHangManView::slotSetWordsSequence()
     m_doc->open(Prefs::levelFile());
 
     //how many words in the file
-    NumberOfWords = m_doc->lesson()->entriesRecursive().count();
+    NumberOfWords = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
 
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
     for (int j = 0; j < NumberOfWords; ++j) {
-        QString hint = m_doc->lesson()->entriesRecursive().value(j)->translation(0)->comment();
+        QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if
             // there is one
-            hint = m_doc->lesson()->entriesRecursive().value(j)->translation(1)->text();
+            hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
 
-        m_randomList.append(qMakePair(m_doc->lesson()->entriesRecursive().value(j)->translation(0)->text(), m_doc->lesson()->entriesRecursive().value(j)->translation(0)->comment()));
+        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment()));
     }
     //shuffle the list
     randomSequence.randomize(m_randomList);
