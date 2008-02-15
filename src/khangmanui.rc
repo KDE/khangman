@@ -37,7 +37,7 @@
 <ToolBar name="specialCharToolBar" noMerge="1" iconText="icononly"><text>Special Characters</text>
 </ToolBar>
 
-<ToolBar name="themeToolBar" noMerge="1"><text>Theme</text>
+<ToolBar name="themeToolBar" noMerge="1"><text>Look</text>
     <Action name="combo_mode"/>
 </ToolBar>
 
