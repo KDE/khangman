@@ -59,8 +59,10 @@
 <para>
 &khangman; is a game based on the well-known hangman game. It is aimed at
 children aged six and over. The game has several categories of words to play
-with and among them: Animals (animals words)and three difficulty levels: Easy,
-Medium and Hard. A word is picked at random, the letters are hidden, and you
+with and among them: <guimenuitem>Animals</guimenuitem> (animals words) and 
+three difficulty categories: <guimenuitem>Easy</guimenuitem>,
+<guimenuitem>Medium</guimenuitem> and <guimenuitem>Hard</guimenuitem>.
+A word is picked at random, the letters are hidden, and you
 must guess the word by trying one letter after another. Each time you guess a
 wrong letter, part of a picture of a hangman is drawn. You must guess the word
 before being hanged! You have 10 tries.
@@ -104,7 +106,7 @@ clicking on the corresponding buttons on the toolbar.
 <para>A word is chosen and its letters are displayed as an underscore (_)
 symbol. You know how many letters there are in the word. You have to guess the
 word by trying one letter after another. You enter the letter in the text box
-and you either press the Enter key or click on the Guess button to see if the
+and you either press the &Enter; key or click on the <guibutton>Guess</guibutton> button to see if the
 letter belongs or not to the word. </para>
 
 <para>The word is picked at random and it is not the same as the previous word.
@@ -135,32 +137,33 @@ answer is displayed.
 </para>
 
 <para>
-There are 4 categories: easy, medium, hard and animals, plus levels for other
+There are 4 categories: easy, medium, hard and animals, plus categories for other
 topics in some languages. The program scans for all data files in all
 languages and uses &kanagram; words files as well.
  </para>
  
 <para>
-In the easy level, the words are quite simple and related to everyday life. It
-is suitable for children from 6 to 9.  The animals level contains only names of
+In the easy category, the words are quite simple and related to everyday life. It
+is suitable for children from 6 to 9.  The animals category contains only names of
 animals so they are easier to find. Some of them are easy, others are more
-difficult. In the medium level, the words are longer and more difficult. It is
-suitable for ages 9+. The hard level is just that, hard, &ie; the words are
-difficult to spell and not very well known. This level is challenging, even for
+difficult. In the medium category, the words are longer and more difficult. It is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even for
 adults.
 </para>
 
 <para>After a word is guessed (or the hangman is completed), you are
-prompted for another word and you can either use the
-<keycap>Y</keycap> or <keycap>N</keycap> keys or the mouse to answer
-yes or no. If you say <guilabel>No</guilabel>, the game quits. If you
-say <guilabel>Yes</guilabel>, another word is ready to be guessed.
+congratulated and prompted for another word. You can either click on 
+<guilabel>Play again</guilabel> and another word is ready to be guessed or select
+another <guimenu>Category</guimenu> to play.
+To quit the game now select <menuchoice><guimenu>Game</guimenu><guimenuitem>Quit</guimenuitem>
+</menuchoice> or click the <guiicon>Quit</guiicon> icon in the toolbar.
 </para>
 
 <para>You type the letter you want to try in the text box (the mouse cursor is
-ready in the text box) and you hit the &Enter; key or click the Guess button. If
+ready in the text box) and you hit the &Enter; key or click the <guibutton>Guess</guibutton> button. If
 the letter belongs to the word, it takes its place, as many times as it appears
-in the word. If the letter does not belong to the word, it goes in the Misses
+in the word. If the letter does not belong to the word, it goes in the <guilabel>Misses</guilabel>
 field and a further part of the hangman is drawn on the right. You have ten
 tries and after that you lose and the correct word is displayed.
 </para>
@@ -171,10 +174,10 @@ clicking on the <guiicon>New</guiicon> icon <inlinemediaobject><imageobject>
 <imagedata
 fileref="document-new.png" format="PNG"/></imageobject></inlinemediaobject> on
 the toolbar. You can also change
-the category of words using the <guimenuitem>Category</guimenuitem> menu (this
+the category of words using the <guimenu>Category</guimenu> menu (this
 will bring you a new word for the new category).</para>
 
-<para>The look can easily be changed with the special toolbar holding the look
+<para>The look can easily be changed with the <guimenuitem>Look</guimenuitem> toolbar holding the look
 dropdown box.</para>
 
 <para>The <guiicon>Quit</guiicon> button on the toolbar
@@ -236,10 +239,10 @@ You can then easily change the language by going in the
 
 <para>
 Please note that you can now type the special characters in a language by
-displaying the <interface>Special Characters Toolbar</interface>. This toolbar
+displaying the <interface>Special Characters</interface> toolbar. This toolbar
 holds buttons with an icon of each special character per language like &eacute;
 in French for example. Clicking on such a button will write the corresponding
-letter in the input line and you validate your choice with Enter. You can of
+letter in the input line and you validate your choice with &Enter;. You can of
 course also use the keyboard layout corresponding to the language. This toolbar
 can be shown or hidden. The setting is restored next time you play &khangman;.
 </para>
@@ -292,7 +295,7 @@ by t (9.1%) then a (8.2%), i (7.0%) and n (6.7%). </para>
 Language...</guimenuitem> and <guimenuitem>Quit</guimenuitem>.</para>
 
 <para><guimenuitem>New</guimenuitem> brings you a new game, &ie; a new word to
-guess, in the same level you already are. <guimenuitem>Get Words in New
+guess, in the same category you already are. <guimenuitem>Get Words in New
 Language...</guimenuitem> will display the Get New Stuff dialog to allow you to
 download data in a new language. <guimenuitem>Quit</guimenuitem> quits the game
 by closing the main window and writing the actual settings in the configuration
@@ -300,7 +303,7 @@ file.</para>
 
 <para>
 The <guimenu>Category</guimenu> menu allows you to choose the category of words
-you want to play with and also the difficulty of the word to guess. 
+you want to play with and also three difficulty categories.
 </para>
 
 <para>
@@ -316,12 +319,13 @@ background and the font colors change for each theme.
 
 <para>
 The <guimenuitem>Settings</guimenuitem> menu allows you to configure
-&khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem> and
+&khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem>, <guimenuitem>Show Hint</guimenuitem> and
 <guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
-hide/show the toolbars and statusbar.
+hide or show the toolbars, hints and the statusbar.
 </para>
 
-<para>There are two toolbars: the main one which is the one on top
+<para>There are four toolbars: the <guimenuitem>Main</guimenuitem>, <guimenuitem>Look</guimenuitem>
+and <guimenuitem>Language</guimenuitem> toolbars which are the one on top
 with the buttons and combo boxes and the
 <guilabel>Special Characters</guilabel> toolbar which, when it is shown, is
 on the bottom. This toolbar has buttons with the special characters
@@ -367,22 +371,23 @@ menu item that allows you to add or suppress items from the toolbar.
 	</mediaobject>
 </screenshot>
 
-<para> Here you have &khangman; with the Desert theme, French language and level
-Easy. The <interface>Characters</interface> toolbar is shown here.</para>
+<para> Here you have &khangman; with the Desert theme, French language and category
+Easy. The <interface>Special Characters</interface> toolbar is shown here.</para>
 
 <para>
-The level is chosen with a combo box in the toolbar or via the
-<guimenu>Category</guimenu> menu in the menubar. The available levels are
+The category is chosen with a combo box in the toolbar or via the
+<guimenu>Category</guimenu> menu in the menubar. Available are
 <guimenuitem>Easy</guimenuitem>, <guimenuitem>Medium</guimenuitem>,
-<guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem>. Easy is
-related to common objects a child aged six or seven knows. Medium regards nouns
-a bit more challenging, hard is quite difficult and animals is only animals
-nouns. There are also some other categories of words, depending on the
-language.
+<guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem> and some more. 
+<guimenuitem>Easy</guimenuitem> is related to common objects a child 
+aged six or seven knows. <guimenuitem>Medium</guimenuitem> regards nouns
+a bit more challenging, <guimenuitem>Hard</guimenuitem> is quite difficult and 
+<guimenuitem>Animals</guimenuitem> is only animals nouns. There are also some 
+other categories of words, depending on thelanguage.
 </para>
 
-<para> All words are nouns. No verbs, no adjectives. The chosen level
- is  then displayed on the statusbar.</para>
+<para> All words are nouns. No verbs, no adjectives. The chosen category
+ is then displayed on the statusbar.</para>
 <para>Only letters are allowed to be typed in the text box.</para>
 </sect1>
 
@@ -417,11 +422,11 @@ one is for <guilabel>General</guilabel> settings.
 <para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the first "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
 </para>
 
-<para><guilabel>Do not display the 'Congratulations! You won!' dialog</guilabel>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
+<para><guilabel>Do not display the congratulations dialog</guilabel>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
 </para>
 
 <para>
-In the Sounds section, if you check <guilabel>Enable sounds</guilabel> then a sound will be played on new game and another sound will be played when you win a game.
+In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds</guilabel> then a sound will be played on new game and another sound will be played when you win a game.
 </para>
 
 </sect2>
@@ -442,18 +447,14 @@ In the Sounds section, if you check <guilabel>Enable sounds</guilabel> then a so
 	</mediaobject>
 </screenshot>
 
-<para>
-Some languages also have hints to help you guess the word. The hint is shown by a right-click and gives a short definition of the word to guess. If this setting is enabled and if you check the option <guilabel>Show hints</guilabel>, you can &RMB; click anywhere on the game and get a hint shown for four seconds. This hint should help you to guess the word more easily.
-</para>
-
-<para><guilabel>Type accented letters</guilabel> is available for Brazilian Portuguese, Catalan, Portuguese and Spanish in &khangman;'s configuration dialog. If you check <guilabel>Type accented letters</guilabel>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
+<para><guilabel>Type accented letters</guilabel> is available for Spanish, Portuguese and Catalan in &khangman;'s configuration dialog. If you check <guilabel>Type accented letters</guilabel>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
 </para>
 
 </sect2>
 
 <sect2 id="timers-settings">
 <title>Timers Settings</title>
-<para>The <guilabel>Timers</guilabel> Settings tab allows you to <guilabel>Set the time for displaying the hint</guilabel> and to <guilabel>Set the time for Already Guessed Letter</guilabel> tooltip.
+<para>The <guilabel>Timers</guilabel> Settings tab allows you to set <guilabel>Time for displaying the Already Guessed Letter tooltip</guilabel>.
 </para>
 
 <screenshot>
@@ -468,11 +469,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 	</mediaobject>
 </screenshot>
 
-<para>
-<guilabel>Set the time for displaying the hint:</guilabel> allows you to set a greater time for showing the hint label. It is necessary to increase the time for younger children for example as they read more slowly than adults.
-</para>
-
-<para><guilabel>Set the time for displaying the Already Guessed Letter</guilabel> allows you to increase or decrease the time for displaying the Already Guessed Letter tooltip. This tooltip is a label which appears when you tried a letter that was already tried. Some people will want not to see it for long while children will need time to understand it and thus will need to set the display for a longer duration.
+<para><guilabel>Time for displaying the Already Guessed Letter tooltip</guilabel> allows you to increase or decrease the time for displaying the Already Guessed Letter tooltip. This tooltip is a label which appears when you tried a letter that was already tried. Some people will want not to see it for long while children will need time to understand it and thus will need to set the display for a longer duration.
 </para>
 
 </sect2>
@@ -510,7 +507,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <guimenu>Game</guimenu>
 <guimenuitem>Get Words in New Language...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Display</action> the KNewStuff dialog which lists all the data available in the different languages. </para></listitem>
+<listitem><para><action>Display</action> the <guilabel>Get Hot New Stuff!</guilabel> dialog which lists all the data available in the different languages. </para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
@@ -532,28 +529,29 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Level</guimenu>
+<guimenu>Category</guimenu>
 <guimenuitem>Animals</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the list of animals words to guess</para></listitem>
+<listitem><para><action>Choose</action> the list of animals words to guess</para>
+<para>All other installed categories are displayed as items in this menu as well.</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Level</guimenu>
+<guimenu>Category</guimenu>
 <guimenuitem>Easy</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the list of easy words to guess</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Level</guimenu>
+<guimenu>Category</guimenu>
 <guimenuitem>Medium</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the list of medium difficulty words to guess</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Level</guimenu>
+<guimenu>Category</guimenu>
 <guimenuitem>Hard</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the list of difficult words to guess</para></listitem>
@@ -568,7 +566,7 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Languages</guimenu>
+<guimenu>Language</guimenu>
 <guimenuitem>English</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Choose</action> the English language for the words to guess.</para>
@@ -608,21 +606,13 @@ Some languages also have hints to help you guess the word. The hint is shown by 
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Main (&khangman;)</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
+<listitem><para><action>Toggle</action> the <guimenuitem>Main</guimenuitem>, <guimenuitem>Special Characters</guimenuitem>,
+<guimenuitem>Look</guimenuitem> and <guimenuitem>Language</guimenuitem> toolbars.</para></listitem>
 </varlistentry>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Special Characters (&khangman;)</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Toggle</action> the Characters Toolbar</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><menuchoice>
 
+<varlistentry>
+<term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
@@ -678,17 +668,17 @@ choose different shortcut keys for different actions.
 to &Anne-Marie.Mahfouf.mail;.
 </para>
 <para>
-Please have a look in KHangMan <guimenuitem>Get Words in New
+Please have a look in &khangman; <guimenuitem>Get Words in New
 Language...</guimenuitem> in the <guimenu>Game</guimenu> menu to see if your
-language is available yet. If it is, then you can check if it countains
+language is available yet. If it is, then you can check if it contains
 <emphasis>hints</emphasis>.
 </para>
-<para>The standard list words are stored in 4 separate files, so to make different levels. The files are in
+<para>The standard list words are stored in 4 separate files, so to make different categories. The files are in
 <filename class="directory">/khangman/data/</filename>. The file
-<filename>easy.kvtml</filename> is for level easy, the file
-<filename>medium.kvtml</filename> is for level medium, the file
-<filename>animals.kvtml</filename> is for level animals and the file
-<filename>hard.kvtml</filename> is for level hard.</para>
+<filename>easy.kvtml</filename> is for category easy, the file
+<filename>medium.kvtml</filename> is for category medium, the file
+<filename>animals.kvtml</filename> is for category animals and the file
+<filename>hard.kvtml</filename> is for category hard.</para>
 <para>English is the default and thus the only language to be shipped with
 &khangman;. All other languages data are put in the corresponding kde-l10n
 module.
@@ -699,8 +689,8 @@ module.
 class="starttag">text</sgmltag> is for the word and the tag <sgmltag
 class="starttag">comment</sgmltag> is for the hint, those are within a <sgmltag
 class="starttag">entry</sgmltag> tag. Please try to match the hint with the
-level of difficulty. The level 'Easy' will require an easy hint but the level
-'Hard' will require the definition in the dictionary. Try not to use words of
+category of difficulty. The category <guimenuitem>Easy</guimenuitem> will require an easy hint but the category
+<guimenuitem>Hard</guimenuitem> will require the definition in the dictionary. Try not to use words of
 the same family in the hint, that would give the word away too easily!</para>
 
 <para> Note that you must use <emphasis role="bold">UTF-8 encoding</emphasis>
@@ -760,12 +750,12 @@ filenames.</para>
 </step>
 <step>
 <para>
-Edit the kvtml files with a text editor (it will be easier if you use the XML
+Edit the kvtml files with a text editor (it will be easier if you use the &XML;
 syntax highlighting) and replace each word inside the 
 <sgmltag class="starttag">text</sgmltag> tag with a translated word and each
 hint inside a <sgmltag class="starttag">comment</sgmltag> with a translated
 hint. It is not really important that the exact meaning is preserved, but try to
-keep the length and level of difficulty roughly the same.
+keep the length and category of difficulty roughly the same.
 </para> 
 
 <para>You can include words with white space or - in them, in that case the
@@ -777,9 +767,9 @@ there is anything special related to your language so I can adapt the code to it
 
 <step>
 <para>You can just translate the words but you can also adapt them
-following the level and add new words if you want. For example,
-<quote>table</quote> is in level easy in English but in your language,
-it can be level medium. Feel free to adapt the files to your language
+following the category and add new words if you want. For example,
+<quote>table</quote> is in category easy in English but in your language,
+it can be category medium. Feel free to adapt the files to your language
 needs. The number of words in a file is not important, you can add
 some if you want.</para>
 
@@ -821,7 +811,7 @@ The English language (default) and the user language from his i18n package(s)
 class="directory">$KDEDIR/share/apps/kvtml</filename>.
 </para>
 <para>
-In the configuration file, stored for each user in his <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last level played, ... plus the files that were downloaded from the KNewStuff dialog.
+In the configuration file, stored for each user in his <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last category played, ... plus the files that were downloaded from the <guilabel>Get Hot New Stuff!</guilabel> dialog.
 </para>
 </sect1>
 </chapter>
