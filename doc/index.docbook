@@ -203,7 +203,7 @@ the files from &kanagram;!!
 By default, after the first installation of &khangman;, only English and your
 &kde; language if it is one of the above and if you have the corresponding
 kde-i18n package will be installed. For example if you are a Danish user and if
-you have &kde; in Danish, in <guimenu>Languages</guimenu> you will see two
+you have &kde; in Danish, in <guimenu>Language</guimenu> you will see two
 items: English and Danish and Danish will be the default. </para>
 
 <para>
@@ -235,7 +235,7 @@ want another data file, you can repeat these steps). </para>
 
 <para>
 You can then easily change the language by going in the
-<guimenu>Languages</guimenu> and choose the new language. </para>
+<guimenu>Language</guimenu> and choose the new language. </para>
 
 <para>
 Please note that you can now type the special characters in a language by
@@ -307,7 +307,7 @@ you want to play with and also three difficulty categories.
 </para>
 
 <para>
-The <guimenu>Languages</guimenu> menu allows you to change the language the
+The <guimenu>Language</guimenu> menu allows you to change the language the
 words are displayed in. 
 </para>
 
@@ -383,7 +383,7 @@ The category is chosen with a combo box in the toolbar or via the
 aged six or seven knows. <guimenuitem>Medium</guimenuitem> regards nouns
 a bit more challenging, <guimenuitem>Hard</guimenuitem> is quite difficult and 
 <guimenuitem>Animals</guimenuitem> is only animals nouns. There are also some 
-other categories of words, depending on thelanguage.
+other categories of words, depending on the language.
 </para>
 
 <para> All words are nouns. No verbs, no adjectives. The chosen category
@@ -422,7 +422,7 @@ one is for <guilabel>General</guilabel> settings.
 <para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the first "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
 </para>
 
-<para><guilabel>Do not display the congratulations dialog</guilabel>: the default is unchecked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you check this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
+<para><guilabel>Enable animations</guilabel>: the default is checked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you uncheck this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
 </para>
 
 <para>
@@ -561,7 +561,7 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 </sect2>
 
 <sect2>
-<title>The <guimenu>Languages</guimenu> Menu</title>
+<title>The <guimenu>Language</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -613,10 +613,21 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Hint</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the display of hints.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the statusbar</para></listitem>
+<listitem><para><action>Toggle</action> the statusbar.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -634,7 +645,7 @@ choose different shortcut keys for different actions.
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Configure</action> the items you want to put in the toolbar
+<listitem><para><action>Configure</action> the items you want to put in the toolbar.
 </para></listitem>
 </varlistentry>
 
@@ -643,7 +654,7 @@ choose different shortcut keys for different actions.
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure &khangman;...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Display</action> the &khangman; settings dialog
+<listitem><para><action>Display</action> the &khangman; settings dialog.
 </para></listitem>
 </varlistentry>
 
