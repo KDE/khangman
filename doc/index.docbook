@@ -318,7 +318,7 @@ background and the font colors change for each theme.
 </para>
 
 <para>
-The <guimenuitem>Settings</guimenuitem> menu allows you to configure
+The <guimenu>Settings</guimenu> menu allows you to configure
 &khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem>, <guimenuitem>Show Hint</guimenuitem> and
 <guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
 hide or show the toolbars, hints and the statusbar.
