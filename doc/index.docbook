@@ -396,7 +396,7 @@ other categories of words, depending on the language.
 <para>
 A toolbar is provided for quick access to some settings. You can click on a
 button to have a new game (i.e. a new word), to see the hint or to quit the
-game. The theme is easily changed via a combo boxes on the toolbar. 
+game. The theme is easily changed via a combo box on the toolbar. 
 </para>
 <para>
 In <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure
