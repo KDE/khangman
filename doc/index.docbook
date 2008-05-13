@@ -756,8 +756,8 @@ put your language code instead of en in
 <sgmltag class="starttag">locale</sgmltag>.</para>
 
 <para>Please don't translate the file name itself as filenames should never
-contain any special charaters. Thus please save your file with the same English
-filenames.</para>
+contain any special characters. Thus please save your file with the same English
+filename.</para>
 </step>
 <step>
 <para>
