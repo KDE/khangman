@@ -848,7 +848,7 @@ game. An easy way is to configure &khangman; with the option
 <option>--prefix</option>=$<envar>KDEDIR</envar> where
 $<envar>KDEDIR</envar> is where the rest of &kde; is installed.  This
 could vary widely, depending on the distribution and operating system
-you. Better install &khangman; from your distribution!</para>
+you have. Better install &khangman; from your distribution!</para>
 </answer>
 </qandaentry>
 <qandaentry>
