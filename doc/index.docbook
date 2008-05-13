@@ -809,9 +809,9 @@ mention any other specificity.</para>
 When you get a new language via <menuchoice><guimenu>Game</guimenu>
 <guimenuitem>Get Words in New Language...</guimenuitem></menuchoice>, the new
 language data is stored in <filename
-class="directory">$~/.kde/share/apps/kvtml/</filename> in the language code
+class="directory">$KDEHOME/share/apps/kvtml/</filename> in the language code
 folder. The available language dir names are also stored in the &khangman;
-config file in <filename>~/.kde/share/config/khangmanrc</filename>.
+config file in <filename>$KDEHOME/share/config/khangmanrc</filename>.
 </para>
 <para>
 The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
@@ -822,7 +822,7 @@ The English language (default) and the user language from his i18n package(s)
 class="directory">$KDEDIR/share/apps/kvtml</filename>.
 </para>
 <para>
-In the configuration file, stored for each user in his <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last category played, ... plus the files that were downloaded from the <guilabel>Get Hot New Stuff!</guilabel> dialog.
+In the configuration file, stored for each user in <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last category played, ... plus the files that were downloaded from the <guilabel>Get Hot New Stuff!</guilabel> dialog.
 </para>
 </sect1>
 </chapter>
