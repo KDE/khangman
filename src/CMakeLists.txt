@@ -25,7 +25,7 @@ kde4_add_executable(khangman ${khangman_SRCS})
 
 target_link_libraries(khangman  keduvocdocument ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} )
 
-install(TARGETS khangman  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS khangman  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
