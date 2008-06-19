@@ -540,7 +540,7 @@ void KHangManView::slotTry()
     }
 
     // Reset the entry field after guess.
-    m_letterInput->setText("");
+    m_letterInput->clear();
     m_letterInput->setFocus();
 }
 
@@ -611,7 +611,7 @@ void KHangManView::reset()
     m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
 
     // Clear the input field.
-    m_letterInput->setText("");
+    m_letterInput->clear();
 }
 
 
