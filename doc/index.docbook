@@ -177,14 +177,15 @@ the toolbar. You can also change
 the category of words using the <guimenu>Category</guimenu> menu (this
 will bring you a new word for the new category).</para>
 
-<para>The look can easily be changed with the <guimenuitem>Look</guimenuitem> toolbar holding the look
-dropdown box.</para>
+<para>The look can easily be changed with the <guimenuitem>Look</guimenuitem> toolbar holding the look dropdown box.</para>
 
 <para>The <guiicon>Quit</guiicon> button on the toolbar
 <inlinemediaobject><imageobject> <imagedata
 fileref="application-exit.png"
 format="PNG"/></imageobject></inlinemediaobject> allows you to easily quit the
 game.</para>
+
+<para>You can also play the game with a local file installed on your machine that you will open using the <guimenu>Game</guimenu> menu and choosing <guimenuitem>Open</guimenuitem>.</para>
 
 </sect1>
 
@@ -497,6 +498,17 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenuitem>New</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>New</action> game (&ie; new word)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Open</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Open</action> a local file to play with the words</para></listitem>
 </varlistentry>
 
 <varlistentry>
