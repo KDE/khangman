@@ -4,6 +4,7 @@
 <MenuBar>
     <Menu name="file" noMerge="1"><text>&amp;Game</text>
         <Action name="file_new"/>
+        <Action name="file_open"/>
         <Action name="downloadnewstuff"/>
         <Separator/>
         <Action name="file_quit"/>

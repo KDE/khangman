@@ -92,6 +92,8 @@ private slots:
     void slotQuit();
     ///if you want to play with a new word
     void slotNewGame();
+    ///open a local KVTML file
+    void slotFileOpen();
     ///when tooltip is clicked, hint disappears and hintAct comes back to "Show Hint"
     void slotChangeHintAction();
     /**

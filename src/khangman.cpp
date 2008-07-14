@@ -38,6 +38,7 @@
 #include <kactioncollection.h>
 #include <kconfigdialog.h>
 #include <kdebug.h>
+#include <kfiledialog.h>
 #include <klineedit.h>
 #include <KLocale>
 #include <kxmlguiwindow.h>
@@ -85,9 +86,13 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    QAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
+    KAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
+
+    KAction* fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
+    fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
+    fileOpen->setToolTip(fileOpen->whatsThis());
 
     hintAct = new KToggleAction(i18n("&Show Hint"), this);
     hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
@@ -520,6 +525,17 @@ void KHangMan::slotNewGame()
 {
     m_view->lossCount++;
     statusBar()->changeItem(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
+    m_view->newGame();
+}
+
+void KHangMan::slotFileOpen()
+{
+    KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
+    Prefs::setLevelFile(url.path());
+    Prefs::self()->writeConfig();
+    changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
+    changeStatusbar(i18n("Local file"), IDS_LANG);
+    m_view->readFile();
     m_view->newGame();
 }
 
