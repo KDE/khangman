@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2001-2007 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>                *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -531,12 +531,14 @@ void KHangMan::slotNewGame()
 void KHangMan::slotFileOpen()
 {
     KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
-    Prefs::setLevelFile(url.path());
-    Prefs::self()->writeConfig();
-    changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
-    changeStatusbar(i18n("Local file"), IDS_LANG);
-    m_view->readFile();
-    m_view->newGame();
+    if ( url.isValid() )  {
+        Prefs::setLevelFile(url.path());
+        Prefs::self()->writeConfig();
+        changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
+        changeStatusbar(i18n("Local file"), IDS_LANG);
+        m_view->readFile();
+        m_view->newGame();
+    }
 }
 
 void KHangMan::slotChangeHintAction()
