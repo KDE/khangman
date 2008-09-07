@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2007 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -589,7 +589,7 @@ void KHangManView::readFile()
     myFile.setFileName(Prefs::levelFile());
 
     if (!myFile.exists()) {
-        QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found!\n"
                                 "Check your installation, please!",
                                  Prefs::selectedLanguage(),
                                  Prefs::levelFile());
