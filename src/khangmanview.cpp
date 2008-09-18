@@ -696,31 +696,24 @@ void KHangManView::slotSetWordsSequence()
     ///@todo open returns KEduVocDocument::ErrorCode
     m_doc->open(Prefs::levelFile());
 
-    kDebug()<<"ffffffffffff";
     //how many words in the file
     NumberOfWords = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
 
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
-    kDebug()<<"fffffffffffTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
     for (int j = 0; j < NumberOfWords; ++j) {
-        kDebug()<<"fffffffffffggggggggggggg";
         QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
-            kDebug()<<"Ksss";
             // if there is no comment or it's empty, use the first translation if
             // there is one
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
-        kDebug()<<"TTTTTTTTTTTTTTTTTTTTT";
+
         m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment()));
     }
     //shuffle the list
-    kDebug()<<"fccccccccccccc";
-    if(!m_randomList.isEmpty())
-       randomSequence.randomize(m_randomList);
-    kDebug()<<"ggggggggggggg";
+    randomSequence.randomize(m_randomList);
 }
 
 void KHangManView::setGameCount()
