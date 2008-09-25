@@ -1,5 +1,12 @@
 ****** At the attention of packagers *******
 
+You MUST ship KHangMan at least the default English data so that 
+the user can play with the program. The program is designed to start with 
+the default data which is in /kdeedu/khangman/data.
+DO NOT SPLIT this data from KHangMan please!
+
+--------------------------------------
+
 In the scripts/ folder you will find a Ruby script which will extract all
 KHangMan svn data from l10n-kde4 in KDE svn, using anonsvn.
 
