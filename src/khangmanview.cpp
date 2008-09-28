@@ -460,7 +460,7 @@ void KHangManView::slotTry()
                 stripWord.replace(2*(m_posSecondSpace-1)-1, 1, "");
             }
 
-            QStringList  rightChars =  stripWord.split(" ");
+            QStringList  rightChars =  stripWord.split(' ');
             QString      rightWord  = rightChars.join("");
             update();
             sword.remove(QRegExp(" "));

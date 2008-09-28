@@ -425,7 +425,7 @@ void KHangMan::loadLangToolBar()
 
         // m_allData contains all the words from the file
         // FIXME: Better name
-        m_allData = readFileStr.readAll().split("\n");
+        m_allData = readFileStr.readAll().split('\n');
         openFileStream.close();
 
         for (int i=0; i<m_allData.count(); ++i) {
