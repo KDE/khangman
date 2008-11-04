@@ -1,9 +1,8 @@
 ****** At the attention of packagers *******
 
-You MUST ship KHangMan at least the default English data so that 
-the user can play with the program. The program is designed to start with 
-the default data which is in /kdeedu/khangman/data.
-DO NOT SPLIT this data from KHangMan please!
+KHangMan depends on /kdeedu/data/kvtml
+
+You MUST ship KHangMan with at least the default English data which is in kdeedu/data/kvtml.
 
 --------------------------------------
 
