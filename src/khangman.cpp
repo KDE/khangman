@@ -214,7 +214,7 @@ void KHangMan::setLanguages()
     m_languages = SharedKvtmlFiles::languages();
     kDebug() << "Languages " << m_languages;
     if (m_languages.isEmpty()) {
-        return;
+        qApp->closeAllWindows();
     }
     //find duplicated entries in KDEDIR and KDEHOME
 
@@ -247,6 +247,9 @@ void KHangMan::setLanguages()
 void KHangMan::loadSettings()
 {
     // Language //TODO is selectedLanguage necessary??? only used here
+    if (m_languages.isEmpty()){
+        qApp->closeAllWindows();
+    }
     selectedLanguage = Prefs::selectedLanguage();
     if (!m_languages.contains(selectedLanguage)) {
         selectedLanguage = "en";
@@ -290,6 +293,9 @@ void KHangMan::loadLevels()
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
 
+    if (levels.isEmpty()){
+        qApp->closeAllWindows();
+    }
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
     Q_ASSERT(levels.count() == titles.count());
