@@ -9,8 +9,7 @@ set(khangman_SRCS
    khangmanview.cpp 
    khmtheme.cpp
    langutils.cpp
-   timer.cpp 
-   fontchecker.cpp)
+   timer.cpp)
 
 
 kde4_add_ui_files(khangman_SRCS generalui.ui languageui.ui timerui.ui )

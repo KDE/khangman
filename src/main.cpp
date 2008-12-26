@@ -27,7 +27,8 @@
 #include <kstandarddirs.h>
 #include <KLocale>
 
-#include "fontchecker.h"
+#include <QFontDatabase>
+#include <QFontInfo>
 
 static const char description[] =
         I18N_NOOP("Classical hangman game for KDE");
@@ -113,29 +114,23 @@ int main(int argc, char **argv)
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
     QFont f("Domestic Manners", 12, QFont::Normal, true);
-    QFont fd("Dustismo Roman", 12, QFont::Normal, true);
-    if (!fontChecker::checkInstalled(f, KStandardDirs::locate("appdata", "fonts/Domestic_Manners.ttf"))) {
-        KProcess *proc = new KProcess;
-        for (int i = 0; i < argc; i++) {
-            *proc << argv[i];
-        }
-        proc->start();
+    if (!QFontInfo(f).exactMatch())
+    {
+        QFontDatabase::addApplicationFont(KStandardDirs::locate("appdata", "fonts/Domestic_Manners.ttf"));
     }
-    else if (!fontChecker::checkInstalled(fd, KStandardDirs::locate("appdata", "fonts/Dustismo_Roman.ttf"))) {
-        KProcess *proc = new KProcess;
-        for (int i = 0; i < argc; i++) {
-            *proc << argv[i];
-        }
-        proc->start();
+
+    QFont fd("Dustismo Roman", 12, QFont::Normal, true);
+    if (!QFontInfo(fd).exactMatch())
+    {
+        QFontDatabase::addApplicationFont(KStandardDirs::locate("appdata", "fonts/Dustismo_Roman.ttf"));
+    }
+
+    if (app.isSessionRestored()) {
+        RESTORE(KHangMan);
     }
     else {
-        if (app.isSessionRestored()) {
-            RESTORE(KHangMan);
-        }
-        else {
-            app.setTopWidget(new KHangMan());
-            return app.exec();
-        }
+        app.setTopWidget(new KHangMan());
+        return app.exec();
     }
 }
 
