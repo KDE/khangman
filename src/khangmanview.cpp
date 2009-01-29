@@ -59,7 +59,7 @@ KHangManView::KHangManView(KHangMan*parent)
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this );
     m_letterInput->setObjectName("charWrite" );
-    QRegExp regExp("[A-Za-z\\x0080-\\x00FF\\x0100-\\x017E\\x0400-\\x04FF]");
+    QRegExp regExp("[A-Za-z\\x0080-\\x00FF\\x0100-\\x017E\\x0370-\\x03FF\\x0400-\\x04FF]");
     m_letterInput->setValidator(new QRegExpValidator(regExp, this));
     QSizePolicy policy( (QSizePolicy::Policy) 1, (QSizePolicy::Policy) 0 );
     policy.setHorizontalStretch( 0 );
