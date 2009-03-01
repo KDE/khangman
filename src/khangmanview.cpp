@@ -589,8 +589,8 @@ void KHangManView::readFile()
     myFile.setFileName(Prefs::levelFile());
 
     if (!myFile.exists()) {
-        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found!\n"
-                                "Check your installation, please!",
+        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+                                "Please check your installation.",
                                  Prefs::selectedLanguage(),
                                  Prefs::levelFile());
         KMessageBox::sorry( this, mString, i18n("Error") );
