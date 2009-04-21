@@ -1,7 +1,4 @@
 <ui version="4.0" stdsetdef="1" >
-  <author></author>
-  <comment></comment>
-  <exportmacro></exportmacro>
   <class>advanced</class>
   <widget class="QWidget" name="advanced" >
     <property name="geometry" >
@@ -118,5 +115,4 @@ This setting is currently only available for the German language.</string>
       </layout>
     </widget>
   </widget>
-  <layoutdefault spacing="6" margin="11" />
   </ui>
