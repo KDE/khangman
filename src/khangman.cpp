@@ -348,7 +348,7 @@ void KHangMan::optionsPreferences()
     ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
 
     Timer *m_timer = new Timer();
-    dialog->addPage(m_timer, i18n("Timers"), "clock");
+    dialog->addPage(m_timer, i18n("Timers"), "chronometer");
 
     connect(dialog, SIGNAL(settingsChanged( const QString &)), this, SLOT(updateSettings()));
     dialog->setAttribute( Qt::WA_DeleteOnClose );
