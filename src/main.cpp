@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -32,9 +32,6 @@
 
 static const char description[] =
         I18N_NOOP("Classical hangman game for KDE");
-
-static const char version[] = "2.0";
-
 
 int main(int argc, char **argv)
 {

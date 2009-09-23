@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -70,7 +70,7 @@ public:
 
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
-
+    
     int winCount;
     int lossCount;
 
@@ -104,8 +104,6 @@ private slots:
     /// the user has made a guess that was already made earlier, and a
     /// popup informing about this is closed.
     void enableUserInput();
-
-    void slotSetHint(bool);
 
  private:
     // Painting
