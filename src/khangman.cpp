@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -101,7 +101,7 @@ void KHangMan::setupActions()
     hintAct->setIcon(KIcon("games-hint"));
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
     hintAct->setEnabled( m_view->hintExists() );
-    connect(hintAct, SIGNAL(triggered(bool)), m_view, SLOT(slotSetHint(bool)));
+    connect(hintAct, SIGNAL(triggered(bool)), this, SLOT(slotChangeHintAction(bool)));
     // Game->Get Words in New Language
     KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
@@ -363,8 +363,8 @@ void KHangMan::updateSettings()
     if (Prefs::selectedLanguage() == "de") {
         loadLangToolBar();
     }
+
     setMessages();
-    //m_view->newGame();
 }
 
 void KHangMan::slotDownloadNewStuff()
@@ -547,9 +547,12 @@ void KHangMan::slotFileOpen()
     }
 }
 
-void KHangMan::slotChangeHintAction()
+void KHangMan::slotChangeHintAction(bool hint)
 {
-    hintAct->setChecked(false);
+    Prefs::setHint(hint);
+    Prefs::self()->writeConfig();
+    m_view->update();
+
 }
 
 #include "khangman.moc"

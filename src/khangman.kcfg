@@ -52,6 +52,9 @@
             <label>Enable Animations</label>
             <default code="true">false</default>
         </entry> 
+        <entry name="Hint" type="Bool">           
+        <default code="true">false</default>
+        </entry>
         <entry name="Sound" type="Bool">
             <label>If checked, sounds will be played for New Game and Win Game</label>
             <default code="true">false</default>

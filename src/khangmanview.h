@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -105,7 +105,6 @@ private slots:
     /// popup informing about this is closed.
     void enableUserInput();
 
-    void slotSetHint(bool);
 
  private:
     // Painting
@@ -139,7 +138,6 @@ private slots:
      */
     QString stripAccents(const QString & original);
 
-    bool m_showhint;
     bool m_winner;
     bool m_loser;
     int m_bgfill;

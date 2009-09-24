@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -26,7 +26,6 @@
 #include "khangmanview.h"
 #include "ui_generalui.h"
 #include "ui_languageui.h"
-//#include "timerui.h"
 
 class KSelectAction;
 class KToggleAction;
@@ -78,7 +77,7 @@ private slots:
     // Slots for when the user changes level, setting, etc.
     void  slotChangeLevel(int);
     void  slotChangeMode(int);
-
+    void slotChangeHintAction(bool);
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
     ///access the KNewStuff class to install new data
@@ -94,8 +93,6 @@ private slots:
     void slotNewGame();
     ///open a local KVTML file
     void slotFileOpen();
-    ///when tooltip is clicked, hint disappears and hintAct comes back to "Show Hint"
-    void slotChangeHintAction();
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -156,7 +153,6 @@ private:
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
-    //Ui::timerui ui_timer;
 };
 
 #endif // _KHANGMAN_H_

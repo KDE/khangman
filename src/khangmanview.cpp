@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -50,7 +50,7 @@
 
 
 KHangManView::KHangManView(KHangMan*parent) 
-        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_showhint(false), m_winner(false), 
+        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_winner(false), 
 	  m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1), 
           m_randomInt(-1), m_hintExists(true), m_accentedLetters(true), m_doc(0), m_theme(0), m_player(0)
 {
@@ -336,7 +336,7 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 
 void KHangManView::paintHint(QPainter &p, const QRect &rect)
 {
-    if(!m_showhint)
+    if(!Prefs::hint())
         return;
 
     QRect myRect = m_theme->hintRect(size());
@@ -563,9 +563,7 @@ void KHangManView::newGame()
     m_playAgainButton->setVisible(false);
 
     //reset Hint action
-    khangman->hintAct->setChecked(false);
-    slotSetHint(khangman->hintAct->isChecked());
-
+    khangman->hintAct->setChecked(Prefs::hint());
     khangman->hintAct->setEnabled(m_hintExists);
 
     setGameCount();
@@ -720,12 +718,6 @@ void KHangManView::setGameCount()
 {
     emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS);
     emit signalChangeStatusbar(i18n("Losses: %1", lossCount), IDS_LOSSES);
-}
-
-void KHangManView::slotSetHint(bool hintBool)
-{
-    m_showhint=hintBool;
-    update();
 }
 
 #include "khangmanview.moc"
