@@ -237,7 +237,7 @@ void KHangMan::setLanguages()
         KConfigGroup group = entry.group(m_languages[i]);
         QString languageName = group.readEntry("Name");
         if (languageName.isEmpty()) {
-            languageName = i18n("None");
+            languageName = i18nc("@item:inlistbox no language for that locale","None");
         }
         m_languageNames.append(languageName);
     }

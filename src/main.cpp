@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 {
     KAboutData aboutData( "khangman", 0, ki18n("KHangMan"),
             KHM_VERSION, ki18n(description), KAboutData::License_GPL,
-            ki18n("(c) 2001-2008, Anne-Marie Mahfouf"), KLocalizedString(),
+            ki18n("(c) 2001-2009, Anne-Marie Mahfouf"), KLocalizedString(),
             "http://edu.kde.org/khangman");
     aboutData.addAuthor(ki18n("Primoz Anzur"), ki18n("Previous maintainer"),
             "zerokode@gmx.net");
