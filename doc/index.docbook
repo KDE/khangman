@@ -25,15 +25,15 @@
 
 
 <copyright>
-<year>2001</year><year>2007</year>
+<year>2001</year><year>2009</year>
 <holder>&Anne-Marie.Mahfouf;</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2007-09-26</date>
-<releaseinfo>1.7</releaseinfo>
+<date>2009-10-01</date>
+<releaseinfo>2.3</releaseinfo>
 
 <abstract>
 <para>
@@ -120,6 +120,9 @@ Hint</guiicon> icon <inlinemediaobject><imageobject> <imagedata
 fileref="games-hint.png" format="PNG"/></imageobject></inlinemediaobject> in the
 toolbar and a hint will be displayed to give you some clue about the word.
 Clicking the <guiicon>Show Hint</guiicon> icon again will hide the hint. 
+</para>
+
+<para>Hints are not displayed in default start mode. 
 </para>
 
 <para> Usually, it is not important whether you type in lowercase or uppercase.
@@ -424,6 +427,11 @@ one is for <guilabel>General</guilabel> settings.
 </para>
 
 <para><guilabel>Enable animations</guilabel>: the default is checked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you uncheck this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
+</para>
+
+<para><guilabel>Enable hints globally</guilabel>: the default is unchecked. Hints are not shown. If you check this (or use the <guilabel>Show Hints</guilabel> icon or 
+the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Hint</guimenuitem></menuchoice> menu or use the shortcut 
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>), a hint will be displayed above the word to guess to help you find the word more easily.
 </para>
 
 <para>
