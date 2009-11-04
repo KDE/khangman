@@ -20,11 +20,11 @@
 #include "khangman.h"
 #include "version.h"
 
-#include <kprocess.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kapplication.h>
-#include <kstandarddirs.h>
+#include <KProcess>
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KApplication>
+#include <KStandardDirs>
 #include <KLocale>
 
 #include <QFontDatabase>

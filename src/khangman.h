@@ -21,7 +21,7 @@
 #ifndef _KHANGMAN_H_
 #define _KHANGMAN_H_
 
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 
 #include "khangmanview.h"
 #include "ui_generalui.h"

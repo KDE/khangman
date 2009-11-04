@@ -30,10 +30,10 @@ class QRect;
 class QSvgRenderer;
 class KHMTheme;
 
-#include <qimage.h>
-#include <qpixmap.h>
+#include <QImage>
+#include <QPixmap>
 
-#include <klineedit.h>
+#include <KLineEdit>
 
 #include <krandomsequence.h>
 #include <keduvocdocument.h>

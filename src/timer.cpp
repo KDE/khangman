@@ -22,10 +22,10 @@
 
 #include "timer.h"
 
-#include <klocale.h>
+#include <KLocale>
 
-#include <qlabel.h>
-#include <qslider.h>
+#include <QLabel>
+#include <QSlider>
 
 #include "prefs.h"
 

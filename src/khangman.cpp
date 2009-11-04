@@ -33,23 +33,23 @@
 #include <QPainter>
 #include <QDir>
 
-#include <kselectaction.h>
-#include <ktoggleaction.h>
-#include <kactioncollection.h>
-#include <kconfigdialog.h>
-#include <kdebug.h>
-#include <kfiledialog.h>
-#include <klineedit.h>
+#include <KSelectAction>
+#include <KToggleAction>
+#include <KActionCollection>
+#include <KConfigDialog>
+#include <KDebug>
+#include <KFileDialog>
+#include <KLineEdit>
 #include <KLocale>
-#include <kxmlguiwindow.h>
-#include <kmessagebox.h>
-#include <kstandardaction.h>
-#include <kstandarddirs.h>
-#include <kstatusbar.h>
-#include <ktoolbar.h>
-#include <kicon.h>
-#include <kglobal.h>
+#include <KMessageBox>
+#include <KStandardAction>
+#include <KStandardDirs>
+#include <KStatusBar>
+#include <KToolBar>
+#include <KIcon>
+#include <KGlobal>
 #include <KSharedConfig>
+
 #include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()

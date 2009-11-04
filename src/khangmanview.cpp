@@ -18,15 +18,11 @@
 
 #include "khangmanview.h"
 
-#include <kdebug.h>
-#include <klineedit.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kpassivepopup.h>
-#include <kpushbutton.h>
-#include <kstandarddirs.h>
-#include <ktoggleaction.h>
-#include <kvbox.h>
+#include <KMessageBox>
+#include <KPassivePopup>
+#include <KPushButton>
+#include <KToggleAction>
+#include <KVBox>
 
 #include <Phonon/MediaObject>
 
