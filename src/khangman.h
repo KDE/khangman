@@ -32,11 +32,10 @@ class KToggleAction;
 
 
 // Id tags for the status bar.
-const int IDS_LANG     = 100;
-const int IDS_LEVEL    = 101;
-const int IDS_ACCENTS  = 102;
-const int IDS_WINS     = 104;
-const int IDS_LOSSES   = 105;
+const int IDS_LEVEL    = 100;
+const int IDS_ACCENTS  = 101;
+const int IDS_WINS     = 103;
+const int IDS_LOSSES   = 104;
 
 
 /**

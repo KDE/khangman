@@ -144,7 +144,6 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar()->insertPermanentItem("   ", IDS_LANG,    0);
     statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
     statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
     statusBar()->insertItem("   ", IDS_WINS,    1);
@@ -188,7 +187,6 @@ void KHangMan::slotChangeLanguage(int index)
     Prefs::self()->writeConfig();
     loadLevels();
     loadLangToolBar();
-    changeStatusbar(m_languageNames[m_languages.indexOf(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
     setMessages();
     m_view->newGame();
@@ -259,7 +257,6 @@ void KHangMan::loadSettings()
         // if the selected language is not available, use the first available one
         index = 0;
     }
-    changeStatusbar(m_languageNames[index], IDS_LANG);
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar()) {
         specialCharToolbar->show();
@@ -546,7 +543,6 @@ void KHangMan::slotFileOpen()
             Prefs::setLevelFile(url.path());
         Prefs::self()->writeConfig();
         changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
-        changeStatusbar(i18n("Local file"), IDS_LANG);
         m_view->readFile();
         m_view->newGame();
     }
