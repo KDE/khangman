@@ -1,7 +1,14 @@
 KHANGMAN - NEW IDEAS - NEW DESIGN
 
+TODO FOR KDE 4.5
+----------------
+- an add-on file creator to easily create .kvtml files for KHangMan
+- when loading .kvtml, check for validity for KHangMan
+- rearrange the menus: is the Languages menu needed?
+
+
 TODO
----------
+-----
 - fix hint position							DONE
 - get a new Languages Settings icon					----
 - get a new KHangMan crystal icon					----
