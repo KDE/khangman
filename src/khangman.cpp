@@ -51,6 +51,7 @@
 #include <KSharedConfig>
 
 #include <knewstuff3/downloaddialog.h>
+#include <knewstuff3/uploaddialog.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
@@ -89,7 +90,16 @@ void KHangMan::setupActions()
     KAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
-
+    
+    KAction* uploadFile =new KAction(this);
+    actionCollection()->addAction("file_upload", uploadFile);
+    uploadFile->setIcon(KIcon("get-hot-new-stuff"));
+    uploadFile->setText(i18n("&Upload KHangMan file..."));
+    uploadFile->setWhatsThis(i18n("Share the current KHangMan file with other users."));
+    uploadFile->setToolTip(uploadFile->whatsThis());
+    uploadFile->setStatusTip(uploadFile->whatsThis());
+    connect(uploadFile, SIGNAL(triggered()), this, SLOT(slotUploadFile()));
+    
     KAction* fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
     fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
     fileOpen->setToolTip(fileOpen->whatsThis());
@@ -547,6 +557,14 @@ void KHangMan::slotFileOpen()
         m_view->readFile();
         m_view->newGame();
     }
+}
+
+void KHangMan::slotUploadFile()
+{
+    // upload
+    KNS3::UploadDialog dialog(this);
+    dialog.setUploadFile(Prefs::levelFile());
+    dialog.exec();
 }
 
 void KHangMan::slotSetHint(bool hint)

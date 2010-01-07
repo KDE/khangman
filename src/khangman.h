@@ -94,6 +94,8 @@ private slots:
     void slotNewGame();
     ///open a local KVTML file
     void slotFileOpen();
+    ///upload a KVTML file
+    void slotUploadFile();
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
