@@ -50,7 +50,7 @@
 #include <KGlobal>
 #include <KSharedConfig>
 
-#include <knewstuff2/engine.h>
+#include <knewstuff3/downloaddialog.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
@@ -369,8 +369,9 @@ void KHangMan::updateSettings()
 void KHangMan::slotDownloadNewStuff()
 {
     // delete all the entry pointers that are returned
-    qDeleteAll(KNS::Engine::download());
-
+    //qDeleteAll(KNS3::DownloadDialog);
+    KNS3::DownloadDialog dialog("khangman.knsrc", this);
+    dialog.exec();
     SharedKvtmlFiles::sortDownloadedFiles();
     //look for languages dirs installed
     setLanguages();
