@@ -251,8 +251,9 @@ void KHangManView::paintEvent( QPaintEvent * e )
     paintWord(p, e->rect());
     paintMisses(p, e->rect());
     paintHint(p, e->rect());
-    if(m_loser || m_winner) 
+    if (m_loser || m_winner) {
         paintGameOver(p, e->rect());
+    }
 }
 
 
@@ -332,13 +333,14 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 
 void KHangManView::paintHint(QPainter &p, const QRect &rect)
 {
-    if(!Prefs::hint())
+    if (!Prefs::hint()) {
         return;
-
+    }
+    
     QRect myRect = m_theme->hintRect(size());
-    if(!myRect.intersects(rect))
+    if (!myRect.intersects(rect)) {
         return;
-
+    }
 /* Debug */  //p.fillRect(myRect, QBrush(Qt::cyan) );
 
     QColor letterColor = m_theme->letterColor();
@@ -391,8 +393,9 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     if(m_bgfill<100) {
         m_bgfill+=5;
         QTimer::singleShot(10, this, SLOT(update()));
-	return;
+        return;
     }
+    
     m_playAgainButton->setFocus();
     m_playAgainButton->setDefault(true);
     m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()/2);
@@ -422,7 +425,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
     m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 , 
                                     height()/2 + m_playAgainButton->height()/2,
-				    m_playAgainButton->sizeHint().width(), height()/9 );
+    m_playAgainButton->sizeHint().width(), height()/9 );
 }
 
 // ----------------------------------------------------------------
@@ -436,6 +439,7 @@ void KHangManView::slotTry()
         m_letterInput->setFocus();
         return;
     }
+    
     kDebug() << "guess as entered: " << guess;
 
     // Handle the guess.
