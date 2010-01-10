@@ -224,15 +224,15 @@ void KHangMan::setLanguages()
     if (m_languages.isEmpty()) {
         qApp->closeAllWindows();
     }
-    //find duplicated entries in KDEDIR and KDEHOME
+    // find duplicated entries in KDEDIR and KDEHOME
 
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
     KConfigGroup cg( KGlobal::config() ,"KNewStuff2");
     for (int i=0;  i<m_languages.count(); ++i) {
-        //QString tmp = cg.readEntry(m_languages[i]);
-       // if (!tmp)
-            cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
+        // QString tmp = cg.readEntry(m_languages[i]);
+        // if (!tmp)
+        cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
     }
     cg.config()->sync();
     
@@ -255,7 +255,7 @@ void KHangMan::setLanguages()
 void KHangMan::loadSettings()
 {
     // Language //TODO is selectedLanguage necessary??? only used here
-    if (m_languages.isEmpty()){
+    if (m_languages.isEmpty()) {
         qApp->closeAllWindows();
     }
     selectedLanguage = Prefs::selectedLanguage();
@@ -300,7 +300,7 @@ void KHangMan::loadLevels()
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
 
-    if (levels.isEmpty()){
+    if (levels.isEmpty()) {
         qApp->closeAllWindows();
     }
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
@@ -334,7 +334,7 @@ void KHangMan::loadLevels()
 
 void KHangMan::optionsPreferences()
 {
-    if ( KConfigDialog::showDialog( "settings" ) )  {
+    if ( KConfigDialog::showDialog( "settings" ) ) {
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
         return;
     }
@@ -547,7 +547,7 @@ void KHangMan::slotNewGame()
 void KHangMan::slotFileOpen()
 {
     KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
-    if ( url.isValid() )  {
+    if ( url.isValid() ) {
         if(url.isLocalFile())
             Prefs::setLevelFile(url.toLocalFile());
         else
