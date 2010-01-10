@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2010 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -704,8 +704,7 @@ void KHangManView::slotSetWordsSequence()
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
 
-        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment()));
-    }
+        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));    }
     //shuffle the list
     randomSequence.randomize(m_randomList);
 }
