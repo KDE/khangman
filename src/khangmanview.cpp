@@ -708,7 +708,7 @@ void KHangManView::slotSetWordsSequence()
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
 
-        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment()));
+        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));
     }
     //shuffle the list
     randomSequence.randomize(m_randomList);
