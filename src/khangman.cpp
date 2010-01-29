@@ -561,9 +561,14 @@ void KHangMan::slotFileOpen()
 
 void KHangMan::slotUploadFile()
 {
+    // get the doc title
+    KEduVocDocument *doc = new KEduVocDocument(this);
+    doc->open(Prefs::levelFile());
     // upload
     KNS3::UploadDialog dialog(this);
     dialog.setUploadFile(Prefs::levelFile());
+    // preset the doc title in the dialog title field
+    dialog.setUploadName(doc->title());
     dialog.exec();
 }
 
