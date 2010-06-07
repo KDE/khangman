@@ -117,7 +117,7 @@ private slots:
 
     ///Reset everything to start a new game, missed letters is empty
     void reset();
-    ///shuffle words+hints
+    ///Shuffle words+hints
     void slotSetWordsSequence();
     ///Play a game: look for a word to be guessed and load its tip
     void game();

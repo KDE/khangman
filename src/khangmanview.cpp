@@ -266,9 +266,11 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
         QPainter aux(&m_backgroundCache);
         m_renderer->render(&aux, "background");
     }
+    
     p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
     // Draw the animated hanged K
     QRect myRect = m_theme->kRect(size());
+    
     if (!myRect.intersects(rect)) {
         return;
     }
@@ -280,6 +282,7 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 void KHangManView::paintWord(QPainter &p, const QRect& rect)
 {
     QRect myRect = m_theme->wordRect(size());
+    
     if (!myRect.intersects(rect)) {
         return;
     }
@@ -385,7 +388,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     QRect rectangle=QRect(width()/10, height()*2/10, width()-width()*2/10, height()-height()*4/10);
     p.drawRoundRect(rectangle);
     QFont tFont("Domestic Manners");
-    tFont.setPixelSize( width()/26 );
+    tFont.setPixelSize( (int)   ((width()*42)    /   (26*title.length()))   );
     p.setPen(Qt::black);
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
