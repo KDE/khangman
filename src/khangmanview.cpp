@@ -383,7 +383,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     QRect rectangle=QRect(width()/10, height()*2/10, width()-width()*2/10, height()-height()*4/10);
     p.drawRoundRect(rectangle);
     QFont tFont("Domestic Manners");
-    tFont.setPixelSize( width()/26 );
+    tFont.setPixelSize( (int)   ((width()*42)    /   (26*title.length()))   );
     p.setPen(Qt::black);
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
