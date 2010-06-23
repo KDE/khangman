@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright 2001-2010 Anne-Marie Mahfouf <annma@kde.org>
 
      This program is free software; you can redistribute it and/or modify  
      it under the terms of the GNU General Public License as published by  
@@ -87,7 +87,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_renderer = new QSvgRenderer();
 
     // not the best thing to do, but at least avoid no theme set
-    setTheme(KHMThemeFactory::instance()->buildTheme(0));
+    //setTheme(KHMThemeFactory::instance()->buildTheme(0));
 }
 
 
@@ -251,9 +251,8 @@ void KHangManView::paintEvent( QPaintEvent * e )
     paintWord(p, e->rect());
     paintMisses(p, e->rect());
     paintHint(p, e->rect());
-    if (m_loser || m_winner) {
+    if(m_loser || m_winner) 
         paintGameOver(p, e->rect());
-    }
 }
 
 
@@ -266,11 +265,9 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
         QPainter aux(&m_backgroundCache);
         m_renderer->render(&aux, "background");
     }
-    
     p.drawPixmap(rect.topLeft(), m_backgroundCache, rect);
     // Draw the animated hanged K
     QRect myRect = m_theme->kRect(size());
-    
     if (!myRect.intersects(rect)) {
         return;
     }
@@ -282,7 +279,6 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 void KHangManView::paintWord(QPainter &p, const QRect& rect)
 {
     QRect myRect = m_theme->wordRect(size());
-    
     if (!myRect.intersects(rect)) {
         return;
     }
@@ -336,14 +332,13 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 
 void KHangManView::paintHint(QPainter &p, const QRect &rect)
 {
-    if (!Prefs::hint()) {
+    if(!Prefs::hint())
         return;
-    }
-    
+
     QRect myRect = m_theme->hintRect(size());
-    if (!myRect.intersects(rect)) {
+    if(!myRect.intersects(rect))
         return;
-    }
+
 /* Debug */  //p.fillRect(myRect, QBrush(Qt::cyan) );
 
     QColor letterColor = m_theme->letterColor();
@@ -396,9 +391,8 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     if(m_bgfill<100) {
         m_bgfill+=5;
         QTimer::singleShot(10, this, SLOT(update()));
-        return;
+	return;
     }
-    
     m_playAgainButton->setFocus();
     m_playAgainButton->setDefault(true);
     m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()/2);
@@ -428,7 +422,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 
     m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 , 
                                     height()/2 + m_playAgainButton->height()/2,
-    m_playAgainButton->sizeHint().width(), height()/9 );
+				    m_playAgainButton->sizeHint().width(), height()/9 );
 }
 
 // ----------------------------------------------------------------
@@ -442,7 +436,6 @@ void KHangManView::slotTry()
         m_letterInput->setFocus();
         return;
     }
-    
     kDebug() << "guess as entered: " << guess;
 
     // Handle the guess.
@@ -711,8 +704,7 @@ void KHangManView::slotSetWordsSequence()
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
 
-        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));
-    }
+        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));    }
     //shuffle the list
     randomSequence.randomize(m_randomList);
 }

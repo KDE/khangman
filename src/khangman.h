@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2001-2010 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -26,6 +26,7 @@
 #include "khangmanview.h"
 #include "ui_generalui.h"
 #include "ui_languageui.h"
+#include "khmthemefactory.h"
 
 class KSelectAction;
 class KToggleAction;
@@ -94,8 +95,6 @@ private slots:
     void slotNewGame();
     ///open a local KVTML file
     void slotFileOpen();
-    ///upload a KVTML file
-    void slotUploadFile();
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -156,6 +155,9 @@ private:
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
+    
+    //Theme manager
+    KHMThemeFactory khm_factory;
 };
 
 #endif // _KHANGMAN_H_

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright 2001-2010 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -22,7 +22,7 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "timer.h"
-#include "khmtheme.h"
+
 #include "langutils.h"
 #include "khangmanview.h"
 #include "sharedkvtmlfiles.h"
@@ -50,8 +50,7 @@
 #include <KGlobal>
 #include <KSharedConfig>
 
-#include <knewstuff3/downloaddialog.h>
-#include <knewstuff3/uploaddialog.h>
+#include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
@@ -62,6 +61,10 @@ KHangMan::KHangMan()
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
+
+    //load the standard set of themes
+    khm_factory.addTheme(KStandardDirs::locate("data", "khangman/pics/standardthemes.xml"));   //TODO move it to better place    
+
     setupActions();
 
     // Toolbar for special characters
@@ -90,16 +93,7 @@ void KHangMan::setupActions()
     KAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
-    
-    KAction* uploadFile =new KAction(this);
-    actionCollection()->addAction("file_upload", uploadFile);
-    uploadFile->setIcon(KIcon("get-hot-new-stuff"));
-    uploadFile->setText(i18n("&Upload KHangMan file..."));
-    uploadFile->setWhatsThis(i18n("Share the current KHangMan file with other users."));
-    uploadFile->setToolTip(uploadFile->whatsThis());
-    uploadFile->setStatusTip(uploadFile->whatsThis());
-    connect(uploadFile, SIGNAL(triggered()), this, SLOT(slotUploadFile()));
-    
+
     KAction* fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
     fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
     fileOpen->setToolTip(fileOpen->whatsThis());
@@ -142,7 +136,8 @@ void KHangMan::setupActions()
     m_modeAction  = new KSelectAction(i18n("L&ook"), this);
     actionCollection()->addAction("combo_mode", m_modeAction );
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
-    m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
+    //m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
+    m_modeAction->setItems(khm_factory.themeList());
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
@@ -206,7 +201,8 @@ void KHangMan::slotChangeMode(int index)
 {
     Prefs::setMode(index);
     Prefs::self()->writeConfig();
-    m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
+    //m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
+    m_view->setTheme(khm_factory.buildTheme(index));
 }
 
 
@@ -224,15 +220,15 @@ void KHangMan::setLanguages()
     if (m_languages.isEmpty()) {
         qApp->closeAllWindows();
     }
-    // find duplicated entries in KDEDIR and KDEHOME
+    //find duplicated entries in KDEDIR and KDEHOME
 
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
     KConfigGroup cg( KGlobal::config() ,"KNewStuff2");
     for (int i=0;  i<m_languages.count(); ++i) {
-        // QString tmp = cg.readEntry(m_languages[i]);
-        // if (!tmp)
-        cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
+        //QString tmp = cg.readEntry(m_languages[i]);
+       // if (!tmp)
+            cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
     }
     cg.config()->sync();
     
@@ -255,7 +251,7 @@ void KHangMan::setLanguages()
 void KHangMan::loadSettings()
 {
     // Language //TODO is selectedLanguage necessary??? only used here
-    if (m_languages.isEmpty()) {
+    if (m_languages.isEmpty()){
         qApp->closeAllWindows();
     }
     selectedLanguage = Prefs::selectedLanguage();
@@ -300,7 +296,7 @@ void KHangMan::loadLevels()
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
 
-    if (levels.isEmpty()) {
+    if (levels.isEmpty()){
         qApp->closeAllWindows();
     }
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
@@ -334,7 +330,7 @@ void KHangMan::loadLevels()
 
 void KHangMan::optionsPreferences()
 {
-    if ( KConfigDialog::showDialog( "settings" ) ) {
+    if ( KConfigDialog::showDialog( "settings" ) )  {
         ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
         return;
     }
@@ -379,9 +375,8 @@ void KHangMan::updateSettings()
 void KHangMan::slotDownloadNewStuff()
 {
     // delete all the entry pointers that are returned
-    //qDeleteAll(KNS3::DownloadDialog);
-    KNS3::DownloadDialog dialog("khangman.knsrc", this);
-    dialog.exec();
+    qDeleteAll(KNS::Engine::download());
+
     SharedKvtmlFiles::sortDownloadedFiles();
     //look for languages dirs installed
     setLanguages();
@@ -547,7 +542,7 @@ void KHangMan::slotNewGame()
 void KHangMan::slotFileOpen()
 {
     KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
-    if ( url.isValid() ) {
+    if ( url.isValid() )  {
         if(url.isLocalFile())
             Prefs::setLevelFile(url.toLocalFile());
         else
@@ -557,19 +552,6 @@ void KHangMan::slotFileOpen()
         m_view->readFile();
         m_view->newGame();
     }
-}
-
-void KHangMan::slotUploadFile()
-{
-    // get the doc title
-    KEduVocDocument *doc = new KEduVocDocument(this);
-    doc->open(Prefs::levelFile());
-    // upload
-    KNS3::UploadDialog dialog(this);
-    dialog.setUploadFile(Prefs::levelFile());
-    // preset the doc title in the dialog title field
-    dialog.setUploadName(doc->title());
-    dialog.exec();
 }
 
 void KHangMan::slotSetHint(bool hint)
