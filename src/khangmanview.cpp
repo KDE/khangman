@@ -87,7 +87,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_renderer = new QSvgRenderer();
 
     // not the best thing to do, but at least avoid no theme set
-    setTheme(KHMThemeFactory::instance()->buildTheme(0));
+    //setTheme(KHMThemeFactory::instance()->buildTheme(0));
 }
 
 

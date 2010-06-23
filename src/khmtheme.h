@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright (C) Copyright (C) 2007      Pino Toscano <pino@kde.org>                                            *
+ *   Copyright (C) 2007-2010 Pino Toscano <pino@kde.org>                   *
+ *   Updated by Adam Rakowski <foo-script@o2.pl> (GSoC 2010)               *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -14,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #ifndef KHMTHEME_H
@@ -24,48 +25,48 @@
 
 class KHMTheme
 {
-public:
-    KHMTheme();
-    virtual ~KHMTheme();
+  private:
+    QString KHMname, KHMuiName, KHMsvgFileName, KHMauthor, KHMthemeVersion;
+    QRect KHMwordRect, KHMhintRect, KHMkRect;
+    QColor KHMletterColor, KHMguessButtonTextColor, KHMguessButtonColor, KHMguessButtonHoverColor, KHMletterInputTextColor;
+    QPoint KHMgoodWordPos;
+    
+  public:
+    KHMTheme(   QString name, QString uiName, QString svgFileName, QString author, QString themeVersion,
+                QRect wordRect, QRect hintRect, QRect kRect,
+                QColor letterColor, QColor guessButtonTextColor, QColor guessButtonColor, QColor guessButtonHoverColor, QColor letterInputTextColor,
+                QPoint goodWordPos);
 
     ///The name of theme as in the folder
-    virtual QString name() const = 0;
+    QString name();
     ///The name of the theme in the menu
-    virtual QString uiName() const = 0;
-    ///Get the svg name of the theme
-    virtual QString svgFileName() const = 0;
+    QString uiName();
+    ///Get the svg n22 the theme
+    QString svgFileName();
     ///Set the position and size for drawing the word to guess
-    virtual QRect wordRect(const QSize& windowsize) const = 0;
+    QRect wordRect(const QSize& windowsize);
 
-    virtual QRect hintRect(const QSize& windowsize) const = 0;
+    QRect hintRect(const QSize& windowsize);
 
     ///Set the position and size for drawing the hanged K
-    virtual QRect kRect(const QSize& windowsize) const = 0;
+    QRect kRect(const QSize& windowsize);
     ///Set the color for the word and the missed letters
-    virtual QColor letterColor() const = 0;
+    QColor letterColor();
     ///Set the color of the Guess word
-    virtual QColor guessButtonTextColor() const = 0;
+    QColor guessButtonTextColor();
     ///Set the color of the Guess button background
-    virtual QColor guessButtonColor() const = 0;
+    QColor guessButtonColor();
     ///Set the color of the Guess button background when the mouse is over it
-    virtual QColor guessButtonHoverColor() const = 0;
+    QColor guessButtonHoverColor();
     ///Set the color of the input text in the input widget
-    virtual QColor letterInputTextColor() const = 0;
+    QColor letterInputTextColor();
     ///Set the already guessed popup position
-    virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const = 0;
-};
-
-class KHMThemeFactory
-{
-public:
-    static KHMThemeFactory* instance();
-    ~KHMThemeFactory();
-
-    KHMTheme* buildTheme(int id) const;
-    QStringList themeList() const;
-
-private:
-    KHMThemeFactory();
+    QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos);
+    //Find out who's the author
+    QString getAuthor();
+    //Version is equal to a KHMTheme format version declared in XML file
+    QString getThemeVersion();
+    
 };
 
 #endif
