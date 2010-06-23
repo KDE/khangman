@@ -26,7 +26,6 @@
 #include "khangmanview.h"
 #include "ui_generalui.h"
 #include "ui_languageui.h"
-#include "khmthemefactory.h"
 
 class KSelectAction;
 class KToggleAction;
@@ -155,9 +154,6 @@ private:
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
-    
-    //Theme manager
-    KHMThemeFactory khm_factory;
 };
 
 #endif // _KHANGMAN_H_

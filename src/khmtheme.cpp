@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2007-2010 Pino Toscano <pino@kde.org>                   *
- *   Updated by Adam Rakowski <foo-script@o2.pl> (GSoC 2010)               *
+ *   Copyright (C) 2007      Pino Toscano <pino@kde.org>                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,98 +22,200 @@
 
 #include <KLocale>
 
-KHMTheme::KHMTheme( QString name, QString uiName, QString svgFileName, QString author, QString themeVersion,
-            QRect wordRect, QRect hintRect, QRect kRect,
-            QColor letterColor, QColor guessButtonTextColor, QColor guessButtonColor, QColor guessButtonHoverColor, QColor letterInputTextColor,
-            QPoint goodWordPos)
+KHMTheme::KHMTheme()
 {
-  KHMname=name;
-  KHMuiName=uiName;
-  KHMsvgFileName=svgFileName;
-  KHMauthor=author;
-  KHMthemeVersion=themeVersion;
-  KHMwordRect=wordRect;
-  KHMhintRect=hintRect;
-  KHMkRect=kRect;
-  KHMletterColor=letterColor;
-  KHMguessButtonTextColor=guessButtonTextColor;
-  KHMguessButtonColor=guessButtonColor;
-  KHMguessButtonHoverColor=guessButtonHoverColor;
-  KHMletterInputTextColor=letterInputTextColor;
-  KHMgoodWordPos=goodWordPos;
 }
 
-QString KHMTheme::name()
+KHMTheme::~KHMTheme()
 {
-  return KHMname;
-}
-QString KHMTheme::uiName()
-{
-  return i18n(KHMuiName.toAscii());
 }
 
-QString KHMTheme::svgFileName()
+/// The 'sea' theme
+class KHMThemeSea : public KHMTheme
 {
-  return KHMsvgFileName;
+public:
+    KHMThemeSea()
+            : KHMTheme()
+    {
+    }
+
+    virtual QString name() const
+    {
+        return "sea";
+    }
+
+    virtual QString uiName() const
+    {
+        return i18n("Sea Theme");
+    }
+
+    virtual QString svgFileName() const
+    {
+        return "khangman_sea.svg";
+    }
+
+    virtual QRect wordRect(const QSize& windowsize) const
+    {
+        return QRect(0, windowsize.height()-windowsize.height()*15/100,
+                windowsize.width()*417/700, windowsize.height()*15/100);
+    }
+
+    virtual QRect hintRect(const QSize& windowsize) const
+    {
+        return QRect(0, windowsize.height()-windowsize.height()*210/700,
+                     windowsize.width()*410/700, windowsize.height()*130/700);
+    }
+
+    virtual QRect kRect(const QSize& windowsize) const
+    {
+        return QRect(0, 0, windowsize.width()*630/700, windowsize.height()*285/535);
+    }
+
+    virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
+    {
+        return QPoint(popupPos.x() + windowsize.width()*250/700,
+                popupPos.y() + windowsize.height()*485/535);
+    }
+
+    virtual QColor letterColor() const
+    {
+        return QColor(148, 156, 167);
+    }
+
+    virtual QColor guessButtonColor() const
+    {
+        return QColor( 115,  64,  49);
+    }
+
+    virtual QColor guessButtonTextColor() const
+    {
+        return QColor( 165, 165, 165);
+    }
+
+    virtual QColor guessButtonHoverColor() const
+    {
+        return QColor( 115, 55, 55);
+    }
+
+    virtual QColor letterInputTextColor() const
+    {
+        return QColor(  83,  40,  14);
+    }
+};
+
+
+/// The 'desert' theme
+class KHMThemeDesert : public KHMTheme
+{
+public:
+    KHMThemeDesert()
+            : KHMTheme()
+    {
+    }
+
+    virtual QString name() const
+    {
+        return "desert";
+    }
+
+    virtual QString uiName() const
+    {
+        return i18n("Desert Theme");
+    }
+
+    virtual QString svgFileName() const
+    {
+        return "khangman_desert.svg";
+    }
+
+    virtual QRect wordRect(const QSize& windowsize) const
+    {
+        return QRect(0, windowsize.height()-windowsize.height()*15/100,
+                windowsize.width()*327/700, windowsize.height()*15/100);
+    }
+
+    virtual QRect hintRect(const QSize& windowsize) const
+    {
+        return QRect(0, windowsize.height()-windowsize.height()*210/700,
+                     windowsize.width()*320/700, windowsize.height()*130/700);
+    }
+
+    virtual QRect kRect(const QSize& windowsize) const
+    {
+        return QRect(windowsize.width()*68/700, windowsize.height()*170/535,
+                windowsize.width()*200/700, windowsize.height()*220/535);
+    }
+
+    virtual QColor letterColor() const
+    {
+        return QColor(87, 0, 0);
+    }
+
+    virtual QColor guessButtonColor() const
+    {
+        return QColor( 205, 214, 90);
+    }
+
+    virtual QColor guessButtonTextColor() const
+    {
+        return QColor( 82, 119, 70);
+    }
+
+    virtual QColor guessButtonHoverColor() const
+    {
+        return QColor( 205, 220, 100);
+    }
+
+    virtual QColor letterInputTextColor() const
+    {
+        return QColor( 82, 119, 70);
+    }
+
+    virtual QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const
+    {
+        return QPoint(popupPos.x() + windowsize.width()*200/700,
+                popupPos.y() + windowsize.height()*485/535);
+    }
+};
+
+
+KHMThemeFactory* KHMThemeFactory::instance()
+{
+    static KHMThemeFactory factory;
+    return &factory;
 }
 
-QColor KHMTheme::letterInputTextColor()
+KHMThemeFactory::KHMThemeFactory()
 {
-  return KHMsvgFileName;
 }
 
-QString KHMTheme::getAuthor()
+KHMThemeFactory::~KHMThemeFactory()
 {
-  return KHMauthor;
 }
 
-QString KHMTheme::getThemeVersion()
+KHMTheme* KHMThemeFactory::buildTheme(int id) const
 {
-  return KHMthemeVersion;
+    switch (id)
+    {
+        case 0:
+            return new KHMThemeSea();
+        case 1:
+            return new KHMThemeDesert();
+    }
+    return 0;
 }
 
-QRect KHMTheme::wordRect(const QSize& windowsize)
-{
-  return QRect(windowsize.width()*KHMwordRect.x()/10000,    windowsize.height()*KHMwordRect.y()/10000,
-           windowsize.width()*KHMwordRect.width()/10000,    windowsize.height()*KHMwordRect.height()/10000);
+#define ADD_THEME_NAME( themeclass, list ) \
+{ \
+   themeclass x; \
+   list.append( x.uiName() ); \
 }
-
-QRect KHMTheme::hintRect(const QSize& windowsize)
+QStringList KHMThemeFactory::themeList() const
 {
-  return QRect(windowsize.width()*KHMhintRect.x()/10000,    windowsize.height()*KHMhintRect.y()/10000,
-           windowsize.width()*KHMhintRect.width()/10000,    windowsize.height()*KHMhintRect.height()/10000);
-}
-
-QRect KHMTheme::kRect(const QSize& windowsize)
-{
-  return QRect(windowsize.width()*KHMkRect.x()/10000,       windowsize.height()*KHMkRect.y()/10000,
-            windowsize.width()*KHMkRect.width()/10000,       windowsize.height()*KHMkRect.height()/10000);
-}
-
-QColor KHMTheme::letterColor()
-{
-  return KHMletterColor;
-}
-
-QColor KHMTheme::guessButtonTextColor()
-{
-  return KHMguessButtonTextColor;
-}
-
-QColor KHMTheme::guessButtonColor()
-{
-  return KHMguessButtonColor;
-}
-
-QColor KHMTheme::guessButtonHoverColor()
-{
-  return KHMguessButtonHoverColor;
-}
-
-QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos)   //works good
-{
-  return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
-                popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);
+    QStringList ret;
+    ADD_THEME_NAME( KHMThemeSea, ret )
+    ADD_THEME_NAME( KHMThemeDesert, ret )
+    return ret;
 }
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;

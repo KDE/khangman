@@ -8,7 +8,6 @@ set(khangman_SRCS
    main.cpp 
    khangmanview.cpp 
    khmtheme.cpp
-   khmthemefactory.cpp
    langutils.cpp
    timer.cpp)
 

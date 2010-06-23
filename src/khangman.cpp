@@ -22,7 +22,7 @@
 #include "khangman.h"
 #include "prefs.h"
 #include "timer.h"
-
+#include "khmtheme.h"
 #include "langutils.h"
 #include "khangmanview.h"
 #include "sharedkvtmlfiles.h"
@@ -61,10 +61,6 @@ KHangMan::KHangMan()
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
-
-    //load the standard set of themes
-    khm_factory.addTheme(KStandardDirs::locate("data", "khangman/pics/standardthemes.xml"));   //TODO move it to better place    
-
     setupActions();
 
     // Toolbar for special characters
@@ -136,8 +132,7 @@ void KHangMan::setupActions()
     m_modeAction  = new KSelectAction(i18n("L&ook"), this);
     actionCollection()->addAction("combo_mode", m_modeAction );
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
-    //m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
-    m_modeAction->setItems(khm_factory.themeList());
+    m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
@@ -201,8 +196,7 @@ void KHangMan::slotChangeMode(int index)
 {
     Prefs::setMode(index);
     Prefs::self()->writeConfig();
-    //m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
-    m_view->setTheme(khm_factory.buildTheme(index));
+    m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
 }
 
 
