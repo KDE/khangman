@@ -48,6 +48,7 @@ QString KHMTheme::name()
 {
     return KHMname;
 }
+
 QString KHMTheme::uiName()
 {
     return i18n(KHMuiName.toAscii());
@@ -60,7 +61,7 @@ QString KHMTheme::svgFileName()
 
 QColor KHMTheme::letterInputTextColor()
 {
-    return KHMsvgFileName;
+    return KHMletterInputTextColor;
 }
 
 QString KHMTheme::getAuthor()
