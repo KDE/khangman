@@ -28,93 +28,93 @@ KHMTheme::KHMTheme( QString name, QString uiName, QString svgFileName, QString a
             QColor letterColor, QColor guessButtonTextColor, QColor guessButtonColor, QColor guessButtonHoverColor, QColor letterInputTextColor,
             QPoint goodWordPos)
 {
-  KHMname=name;
-  KHMuiName=uiName;
-  KHMsvgFileName=svgFileName;
-  KHMauthor=author;
-  KHMthemeVersion=themeVersion;
-  KHMwordRect=wordRect;
-  KHMhintRect=hintRect;
-  KHMkRect=kRect;
-  KHMletterColor=letterColor;
-  KHMguessButtonTextColor=guessButtonTextColor;
-  KHMguessButtonColor=guessButtonColor;
-  KHMguessButtonHoverColor=guessButtonHoverColor;
-  KHMletterInputTextColor=letterInputTextColor;
-  KHMgoodWordPos=goodWordPos;
+    KHMname=name;
+    KHMuiName=uiName;
+    KHMsvgFileName=svgFileName;
+    KHMauthor=author;
+    KHMthemeVersion=themeVersion;
+    KHMwordRect=wordRect;
+    KHMhintRect=hintRect;
+    KHMkRect=kRect;
+    KHMletterColor=letterColor;
+    KHMguessButtonTextColor=guessButtonTextColor;
+    KHMguessButtonColor=guessButtonColor;
+    KHMguessButtonHoverColor=guessButtonHoverColor;
+    KHMletterInputTextColor=letterInputTextColor;
+    KHMgoodWordPos=goodWordPos;
 }
 
 QString KHMTheme::name()
 {
-  return KHMname;
+    return KHMname;
 }
 QString KHMTheme::uiName()
 {
-  return i18n(KHMuiName.toAscii());
+    return i18n(KHMuiName.toAscii());
 }
 
 QString KHMTheme::svgFileName()
 {
-  return KHMsvgFileName;
+    return KHMsvgFileName;
 }
 
 QColor KHMTheme::letterInputTextColor()
 {
-  return KHMsvgFileName;
+    return KHMsvgFileName;
 }
 
 QString KHMTheme::getAuthor()
 {
-  return KHMauthor;
+    return KHMauthor;
 }
 
 QString KHMTheme::getThemeVersion()
 {
-  return KHMthemeVersion;
+    return KHMthemeVersion;
 }
 
 QRect KHMTheme::wordRect(const QSize& windowsize)
 {
-  return QRect(windowsize.width()*KHMwordRect.x()/10000,    windowsize.height()*KHMwordRect.y()/10000,
+    return QRect(windowsize.width()*KHMwordRect.x()/10000,    windowsize.height()*KHMwordRect.y()/10000,
            windowsize.width()*KHMwordRect.width()/10000,    windowsize.height()*KHMwordRect.height()/10000);
 }
 
 QRect KHMTheme::hintRect(const QSize& windowsize)
 {
-  return QRect(windowsize.width()*KHMhintRect.x()/10000,    windowsize.height()*KHMhintRect.y()/10000,
+    return QRect(windowsize.width()*KHMhintRect.x()/10000,    windowsize.height()*KHMhintRect.y()/10000,
            windowsize.width()*KHMhintRect.width()/10000,    windowsize.height()*KHMhintRect.height()/10000);
 }
 
 QRect KHMTheme::kRect(const QSize& windowsize)
 {
-  return QRect(windowsize.width()*KHMkRect.x()/10000,       windowsize.height()*KHMkRect.y()/10000,
+    return QRect(windowsize.width()*KHMkRect.x()/10000,       windowsize.height()*KHMkRect.y()/10000,
             windowsize.width()*KHMkRect.width()/10000,       windowsize.height()*KHMkRect.height()/10000);
 }
 
 QColor KHMTheme::letterColor()
 {
-  return KHMletterColor;
+    return KHMletterColor;
 }
 
 QColor KHMTheme::guessButtonTextColor()
 {
-  return KHMguessButtonTextColor;
+    return KHMguessButtonTextColor;
 }
 
 QColor KHMTheme::guessButtonColor()
 {
-  return KHMguessButtonColor;
+    return KHMguessButtonColor;   
 }
 
 QColor KHMTheme::guessButtonHoverColor()
 {
-  return KHMguessButtonHoverColor;
+    return KHMguessButtonHoverColor;  
 }
 
 QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos)   //works good
 {
-  return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
-                popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);
+    return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
+                    popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);
 }
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;

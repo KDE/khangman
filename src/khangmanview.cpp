@@ -251,8 +251,9 @@ void KHangManView::paintEvent( QPaintEvent * e )
     paintWord(p, e->rect());
     paintMisses(p, e->rect());
     paintHint(p, e->rect());
-    if(m_loser || m_winner) 
+    if(m_loser || m_winner) {
         paintGameOver(p, e->rect());
+    }
 }
 
 
@@ -332,12 +333,14 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 
 void KHangManView::paintHint(QPainter &p, const QRect &rect)
 {
-    if(!Prefs::hint())
+    if(!Prefs::hint()) {
         return;
-
+    }
+    
     QRect myRect = m_theme->hintRect(size());
-    if(!myRect.intersects(rect))
+    if(!myRect.intersects(rect)) {
         return;
+    }
 
 /* Debug */  //p.fillRect(myRect, QBrush(Qt::cyan) );
 
@@ -369,11 +372,11 @@ void KHangManView::paintHint(QPainter &p, const QRect &rect)
 
 void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
 {
-    if(!Prefs::enableAnimations()) {
+    if (!Prefs::enableAnimations()) {
         m_bgfill=100;
     }
+    
     QString title=m_loser?i18n("You lost. The word was \"%1\".", m_word):i18n("Congratulations! You won!");
-
     p.fillRect(QRect(rect.x(), rect.y(), rect.width(), (int)(rect.height()/100.0*m_bgfill)), QBrush(QColor(0,0,0,70)));
     p.setRenderHint(QPainter::Antialiasing, true);
     QPen pen(Qt::black, 2);
@@ -388,11 +391,12 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
 
-    if(m_bgfill<100) {
+    if (m_bgfill<100) {
         m_bgfill+=5;
         QTimer::singleShot(10, this, SLOT(update()));
 	return;
     }
+    
     m_playAgainButton->setFocus();
     m_playAgainButton->setDefault(true);
     m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()/2);
@@ -645,9 +649,9 @@ void KHangManView::game()
 
     // 1. Find dashes.
     int posOfFirstDash = m_word.indexOf( "-" );
+    
     if (posOfFirstDash>0) {
         goodWord.replace(2*posOfFirstDash, 1, "-");
-
         int posOfSecondDash = m_word.indexOf( "-", posOfFirstDash+1);
         if (posOfSecondDash>0) {
             goodWord.replace(2*posOfSecondDash, 3, "-");
@@ -659,6 +663,7 @@ void KHangManView::game()
 
     // 2. Find white space.
     m_posFirstSpace = m_word.indexOf( " " );
+    
     if (m_posFirstSpace > 0) {
         goodWord.replace(2*m_posFirstSpace, 1, " ");
         m_posSecondSpace = m_word.indexOf( " ", m_posFirstSpace+1);
@@ -668,12 +673,14 @@ void KHangManView::game()
 
     // 3. Find ·
     int posOfDot = m_word.indexOf( QString::fromUtf8("·") );
+    
     if (posOfDot>0) {
         goodWord.replace(2*posOfDot, 1, QString::fromUtf8("·") );
     }
 
     // 4. Find '
     int posOfApos = m_word.indexOf( "'" );
+    
     if (posOfApos>0) {
         goodWord.replace(2*posOfApos, 1, "'");
     }

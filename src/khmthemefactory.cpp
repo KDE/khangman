@@ -19,102 +19,117 @@
 
 #include "khmthemefactory.h"
 #include <KDebug>
+
 KHMThemeFactory::KHMThemeFactory()
-{}
+{    
+}
 
 bool KHMThemeFactory::addTheme(QString themeFile)
 {
-  QFile file (themeFile);
-  QDomDocument tree("KHangManTheme");	//do we need it?
-  QDomElement root;
-  QDomNode themeNode;
-  QDomElement themeElement;
-  if (!file.exists()) { kDebug() << "Themes file doesn't exist"; return false; }
-  if (!file.open(QIODevice::ReadOnly)) {kDebug()<<"Can't open themes file"; return false;}
-  if (!tree.setContent(&file))
-  {
+    QFile file (themeFile);
+    QDomDocument tree("KHangManTheme");	//do we need it?
+    QDomElement root;
+    QDomNode themeNode;
+    QDomElement themeElement;
+    
+    if (!file.exists()) { 
+        kDebug() << "Themes file doesn't exist"; 
+        return false; 
+    }
+    
+    if (!file.open(QIODevice::ReadOnly)) {
+        kDebug()<<"Can't open themes file"; 
+        return false;
+    }
+    
+    if (!tree.setContent(&file)) {
+        file.close();
+        kDebug()<<"Can't set content for theme file";
+        return false;
+    }
+    
     file.close();
-    kDebug()<<"Can't set content for theme file";
-    return false;
-  }
-  file.close();
-  
-  root=tree.documentElement();
-  if (!checkTheme(root, "1")) {kDebug()<<"Incompatible version of theme loaded"; return false; }
-  QString themeVersion=root.attribute("version");
-  
-  themeNode=root.firstChild();
+    root=tree.documentElement();
+    
+    if (!checkTheme(root, "1")) {
+        kDebug()<<"Incompatible version of theme loaded"; 
+        return false; 
+    }
+    
+    QString themeVersion=root.attribute("version");
+    themeNode=root.firstChild();
 
-  do
-  {
-    doTheme(themeNode.toElement(), themeVersion);
-    themeNode=themeNode.nextSibling();
-  } while (!themeNode.isNull());
-  return true;
+    do {
+        doTheme(themeNode.toElement(), themeVersion);
+        themeNode=themeNode.nextSibling();
+    } while (!themeNode.isNull());
+    return true;
 }
 
 void KHMThemeFactory::walkDirectory(QDir dir)		//unused! (but works)
 {    
     QFileInfoList xmlFilesList;
     QStringList allowedExtenstion("*.xml");
-
     
-    if (dir.exists())
-    {
-      xmlFilesList=dir.entryInfoList(allowedExtenstion, QDir::Files);
+    if (dir.exists()) {
+        xmlFilesList=dir.entryInfoList(allowedExtenstion, QDir::Files);
       
-      for (QFileInfoList::iterator i=xmlFilesList.begin(); i!=xmlFilesList.end(); i++)
-	addTheme(i->absoluteFilePath());
+        for (QFileInfoList::iterator i=xmlFilesList.begin(); i!=xmlFilesList.end(); i++) {
+            addTheme(i->absoluteFilePath());
+        }
     }
 }
 
 int KHMThemeFactory::getQty() const
 {
-  return themesList.size();
+    return themesList.size();
 }
 
 QStringList KHMThemeFactory::getNames()
 {
-  QStringList list;
-  for (int i=0; i<themesList.size(); i++)
-    list.append(themesList[i].name());
-
-  return list;
+    QStringList list;
+    for (int i=0; i<themesList.size(); i++) {
+        list.append(themesList[i].name());
+    }
+    
+    return list;
 }
 
 QStringList KHMThemeFactory::themeList()
 {
-  QStringList list;
-  for (int i=0; i<themesList.size(); i++)
-    list.append(themesList[i].uiName());
-  return list;
+    QStringList list;
+    for (int i=0; i<themesList.size(); i++) {
+        list.append(themesList[i].uiName());
+    }
+    
+    return list;
 }
 
 KHMTheme * KHMThemeFactory::buildTheme (int id)
 {
-  return new KHMTheme(themesList[id]);
+    return new KHMTheme(themesList[id]);
 }
 
 QRect KHMThemeFactory::makeRect(QDomElement element, QString propertyName)
 {
-  QDomElement rect=element.firstChildElement(propertyName);
+    QDomElement rect=element.firstChildElement(propertyName);
   
-  return QRect(	(int)(rect.attribute("xratio").toDouble()*10000),	(int)(rect.attribute("yratio").toDouble()*10000),	//*10000 cause ratios are float
+    return QRect(	(int)(rect.attribute("xratio").toDouble()*10000),	(int)(rect.attribute("yratio").toDouble()*10000),	//*10000 cause ratios are float
 		(int)(rect.attribute("wratio").toDouble()*10000),	(int)(rect.attribute("hratio").toDouble()*10000));	//QPoint,QRect constructors expect ints
 }
 
 QColor KHMThemeFactory::getColor(QDomElement element, QString propertyName)
 {
-  QDomElement color=element.firstChildElement(propertyName);
+    QDomElement color=element.firstChildElement(propertyName);
   
-  return QColor ( color.attribute("r").toInt(), color.attribute("g").toInt(), color.attribute("b").toInt());
+    return QColor ( color.attribute("r").toInt(), color.attribute("g").toInt(), color.attribute("b").toInt());
 }
 
 bool KHMThemeFactory::checkTheme(QDomElement root, QString themeVersion)
 {
-  QString rootName=root.tagName();
+    QString rootName=root.tagName();
   
-  return (rootName.compare("KHangManThemes")==0)	&&	(themeVersion.compare(root.attribute("version"))==0);
+    return (rootName.compare("KHangManThemes")==0)	&&	(themeVersion.compare(root.attribute("version"))==0);
 }
 
 void KHMThemeFactory::doTheme(QDomElement theme, QString version)	//fetch all the properties from .xml and stick it together
@@ -152,5 +167,5 @@ void KHMThemeFactory::doTheme(QDomElement theme, QString version)	//fetch all th
 
 KHMThemeFactory::~KHMThemeFactory()
 {
-  themesList.clear();
+    themesList.clear();
 }
