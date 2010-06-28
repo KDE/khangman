@@ -56,7 +56,7 @@ QString KHMTheme::uiName()
 
 QString KHMTheme::svgFileName()
 {
-    return KHMsvgFileName;
+    return KHMsvgFileName;    
 }
 
 QColor KHMTheme::letterInputTextColor()
@@ -113,7 +113,7 @@ QColor KHMTheme::guessButtonHoverColor()
 }
 
 QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos)   //works good
-{
+{ 
     return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
                     popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);
 }

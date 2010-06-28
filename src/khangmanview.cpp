@@ -211,7 +211,9 @@ void KHangManView::setTheme(KHMTheme *theme)
 
     QString svgpath = KStandardDirs::locate("data", QString("khangman/pics/%1/%2").arg(theme->name(), theme->svgFileName()));
     // we don't allow themes with no svg installed
-    if (!QFile::exists(svgpath)) {
+
+    if (!QFile::exists(svgpath) || theme->svgFileName().isEmpty()) {
+        kDebug() << "SVG file doesn't exists";
         return;
     }
 
@@ -500,7 +502,7 @@ void KHangManView::slotTry()
         // The letter is already guessed.
 
         // Show a popup that says as much.
-        QPoint point;
+        QPoint point; 
         KPassivePopup *popup = new KPassivePopup( this );
         popup->setPopupStyle( KPassivePopup::Balloon );
         popup->setAutoDelete( true );
@@ -528,7 +530,7 @@ void KHangManView::slotTry()
 
         if (goodWord.contains(guess) > 0) {
             point = m_theme->goodWordPos(size(), popup->pos());
-
+            
             QTimer::singleShot( Prefs::missedTimer() * 1000,
                                 this, SLOT(enableUserInput()) );
 
