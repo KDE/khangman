@@ -505,7 +505,7 @@ void KHangManView::slotTry()
         popup->setPopupStyle( KPassivePopup::Balloon );
         popup->setAutoDelete( true );
         popup->setTimeout( Prefs::missedTimer()*1000 );
-        popup->setView(i18n("This letter has already been guessed.") );
+        popup->setView("KHangMan", i18n("This letter has already been guessed.") );
 
         int  x = 0;
         int  y = 0;
