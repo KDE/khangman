@@ -30,6 +30,7 @@
 
 class KSelectAction;
 class KToggleAction;
+class KRecentFilesAction;
 
 
 // Id tags for the status bar.
@@ -95,6 +96,9 @@ private slots:
     void slotNewGame();
     ///open a local KVTML file
     void slotFileOpen();
+    ///open a user's recent file
+    void slotOpenRecent(const KUrl &);
+    
     /**
     Update the text in the Statusbar
     @param text the text that will be written in the statusbar
@@ -116,7 +120,8 @@ private:
     void loadLevels();
     ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
-
+    ///Loads a file in URL, or displays file open dialog if argument is empty
+    void loadFile(const KUrl &);
     // Populate the second toolbar with the correct buttons if the
     // current language has special characters.
     void loadLangToolBar();
@@ -158,6 +163,11 @@ private:
     
     //Theme manager
     KHMThemeFactory khm_factory;
+    
+    //Config group
+    KSharedConfig::Ptr config;
+    //Recent files element
+    KRecentFilesAction * m_recent;
 };
 
 #endif // _KHANGMAN_H_

@@ -38,12 +38,12 @@ class KHMThemeFactory
       ~KHMThemeFactory();
       
       bool addTheme(QString filePath);	//returns "true" if theme has been added successfuly, "false" otherwise
-      void walkDirectory(QDir dir);
+      void walkDirectory(QDir dir);	//walks the directory loads valid themes files. No recursion
       
-      int getQty() const;
-      QStringList getNames();
-      QStringList themeList();
-      KHMTheme * buildTheme(int id);	//theme at index "index" must exists
+      int getQty() const;	//returns quantity of list
+      QStringList getNames();	//returns short names(worknames) of all the themes
+      QStringList themeList();	//returns user interface names of all the themes
+      KHMTheme * buildTheme(int id);	//Returns theme at "index". An "index" must exists
       
   private:
       QList<KHMTheme> themesList;

@@ -49,12 +49,14 @@
 #include <KIcon>
 #include <KGlobal>
 #include <KSharedConfig>
+#include <KRecentFilesAction>
 
 #include <knewstuff2/engine.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
-          m_view(new KHangManView(this))
+          m_view(new KHangManView(this)),
+          m_recent(0)
 {
     setObjectName(QLatin1String("KHangMan"));
     
@@ -77,7 +79,7 @@ KHangMan::KHangMan()
     loadLevels();
 
     // set the theme
-    slotChangeMode(Prefs::mode());
+    slotChangeMode(Prefs::mode());   
     show();
     // Start a new game.
     m_view->newGame();
@@ -142,6 +144,12 @@ void KHangMan::setupActions()
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
 
+    config = KGlobal::config();
+    
+    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(const KUrl &)), this);
+    m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
+    actionCollection()->addAction(m_recent->objectName(), m_recent);
+    m_recent->loadEntries(KConfigGroup(config, "KHangManRecent"));
     setupGUI();
 }
 
@@ -166,9 +174,10 @@ void KHangMan::changeStatusbar(const QString& text, int id)
 //                               Slots
 
 
-void KHangMan::slotQuit()
+void KHangMan::slotQuit()   //TODO: Isn't called when "X" pressed, only when File->Quit
 {
     Prefs::setShowCharToolbar( specialCharToolbar->isVisible() );
+    m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
     Prefs::self()->writeConfig();
     qApp->closeAllWindows();
 }
@@ -532,6 +541,23 @@ void KHangMan::setMessages()
     }
 }
 
+void KHangMan::loadFile(const KUrl & url)
+{
+    if ( url.isValid() )  {
+        if(url.isLocalFile())
+            Prefs::setLevelFile(url.toLocalFile());
+        else Prefs::setLevelFile(url.path());
+        
+        Prefs::self()->writeConfig();
+        m_recent->addUrl(url);
+        m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
+        
+        changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
+        m_view->readFile();
+        m_view->newGame();
+    }
+}
+
 void KHangMan::slotNewGame()
 {
     m_view->lossCount++;
@@ -539,19 +565,15 @@ void KHangMan::slotNewGame()
     m_view->newGame();
 }
 
+void KHangMan::slotOpenRecent(const KUrl & url)
+{
+    loadFile(url); 
+}
+
 void KHangMan::slotFileOpen()
 {
     KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
-    if ( url.isValid() )  {
-        if(url.isLocalFile())
-            Prefs::setLevelFile(url.toLocalFile());
-        else
-            Prefs::setLevelFile(url.path());
-        Prefs::self()->writeConfig();
-        changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
-        m_view->readFile();
-        m_view->newGame();
-    }
+    loadFile(url);
 }
 
 void KHangMan::slotSetHint(bool hint)
