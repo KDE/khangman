@@ -115,8 +115,8 @@ int main(int argc, char **argv)
     KApplication app;
     KHangMan *mainWin = 0;
 
-    QFont f("Domestic Manners", 12, QFont::Normal, true);
-    QFont fd("Dustismo Roman", 12, QFont::Normal, true);
+    TQFont f("Domestic Manners", 12, TQFont::Normal, true);
+    TQFont fd("Dustismo Roman", 12, TQFont::Normal, true);
     if (!fontChecker::checkInstalled(f, locate("appdata", "fonts/Domestic_Manners.ttf")))
     {
             KProcess *proc = new KProcess;

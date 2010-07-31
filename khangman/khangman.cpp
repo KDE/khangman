@@ -26,10 +26,10 @@
 #include "timer.h"
 #include "khnewstuff.h"
 
-#include <qbitmap.h>
-#include <qcheckbox.h>
-#include <qpainter.h>
-#include <qdir.h>
+#include <tqbitmap.h>
+#include <tqcheckbox.h>
+#include <tqpainter.h>
+#include <tqdir.h>
 
 #include <kapplication.h>
 #include <kactionclasses.h>
@@ -74,30 +74,30 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *action = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, SLOT(slotNewGame()), actionCollection(), "file_new");
+    KAction *action = new KAction(i18n("&New"), "filenew", CTRL+Key_N , m_view, TQT_SLOT(slotNewGame()), actionCollection(), "file_new");
     action->setToolTip(i18n( "Play with a new word" ));
 
     // Game->Get Words in New Language
-    new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
+    new KAction( i18n("&Get Words in New Language..."), "knewstuff", CTRL+Key_G, this, TQT_SLOT( slotDownloadNewStuff() ), actionCollection(), "downloadnewstuff" );
 
-    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
+    KStdAction::quit(this, TQT_SLOT(slotQuit()), actionCollection());
     
     m_levelAction = new KSelectAction(i18n("Le&vel"), 0,  actionCollection(), "combo_level");
     m_levelAction->setToolTip(i18n( "Choose the level" ));
     m_levelAction->setWhatsThis(i18n( "Choose the level of difficulty" ));
-	connect(m_levelAction, SIGNAL(activated(int)), this, SLOT(slotChangeLevel(int)));
+	connect(m_levelAction, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotChangeLevel(int)));
 
     // Action for selecting language.
     m_languageAction = new KSelectAction(i18n("&Language"), 0, actionCollection(), "languages");
     m_languageAction->setItems(m_languageNames);
     m_languageAction->setCurrentItem(m_languages.findIndex(Prefs::selectedLanguage()));
-    connect(m_languageAction, SIGNAL(activated(int)), this, SLOT(slotChangeLanguage(int)));
+    connect(m_languageAction, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotChangeLanguage(int)));
     
-    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    KStdAction::preferences(this, TQT_SLOT(optionsPreferences()), actionCollection());
 
     // Mode. Currently hard coded into Sea and Desert themes.
-    QStringList modes;
-    m_modeAction = new KSelectAction(i18n("L&ook"), 0, this, SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
+    TQStringList modes;
+    m_modeAction = new KSelectAction(i18n("L&ook"), 0, this, TQT_SLOT(slotChangeMode()),  actionCollection(), "combo_mode");
     modes += i18n("&Sea Theme");
     modes += i18n("&Desert Theme");
     m_modeAction->setItems(modes);
@@ -120,7 +120,7 @@ void KHangMan::setupStatusbar()
 
 
 // FIXME: Make this into a slot?
-void KHangMan::changeStatusbar(const QString& text, int id)
+void KHangMan::changeStatusbar(const TQString& text, int id)
 {
     statusBar()->changeItem(text, id);
 }
@@ -191,11 +191,11 @@ void KHangMan::setLanguages()
     m_languageNames.clear();
     m_sortedNames.clear();
     //the program scans in khangman/data/ to see what languages data is found
-    QStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
+    TQStringList mdirs = KGlobal::dirs()->findDirs("data", "khangman/data/");
     if (mdirs.isEmpty()) return;
-    for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
-        QDir dir(*it);
-        m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+    for (TQStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+        TQDir dir(*it);
+        m_languages += dir.entryList(TQDir::Dirs, TQDir::Name);
         m_languages.remove(m_languages.find("."));
         m_languages.remove(m_languages.find(".."));
     }
@@ -207,7 +207,7 @@ void KHangMan::setLanguages()
 	return;
     //find duplicated entries in KDEDIR and KDEHOME
 
-    QStringList temp_languages;
+    TQStringList temp_languages;
     for (uint i=0;  i<m_languages.count(); i++) {
         if (m_languages.contains(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
@@ -226,17 +226,17 @@ void KHangMan::setLanguages()
     KConfig *config=kapp->config();
     config->setGroup("KNewStuffStatus");
     for (uint i=0;  i<m_languages.count(); i++) {
-        QString tmp = m_languages[i];
+        TQString tmp = m_languages[i];
         if (!config->readEntry(tmp))
-            config->writeEntry(tmp, QDate::currentDate().toString(Qt::ISODate));
+            config->writeEntry(tmp, TQDate::currentDate().toString(Qt::ISODate));
     }
 
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
     KConfig entry(locate("locale", "all_languages"));
-    const QStringList::ConstIterator itEnd = m_languages.end();
-    for (QStringList::Iterator it = m_languages.begin(); 
+    const TQStringList::ConstIterator itEnd = m_languages.end();
+    for (TQStringList::Iterator it = m_languages.begin(); 
 	 it != m_languages.end(); ++it) {
         entry.setGroup(*it);
         if (*it == "sr")
@@ -283,18 +283,18 @@ void KHangMan::setLevel()
 void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
-    levels.clear();//initialize QStringList levels
+    levels.clear();//initialize TQStringList levels
     KStandardDirs *dirs = KGlobal::dirs();
-    QStringList mfiles = dirs->findAllResources("data","khangman/data/" + Prefs::selectedLanguage() + "/*.kvtml");
+    TQStringList mfiles = dirs->findAllResources("data","khangman/data/" + Prefs::selectedLanguage() + "/*.kvtml");
     bool levelBool = false;
     if (!mfiles.isEmpty())
     {
-        for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
-            QFile f( *it);
+        for (TQStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
+            TQFile f( *it);
             //find the last / in the file name
             int location = f.name().findRev("/");
             //strip the string to keep only the filename and not the path
-            QString mString = f.name().right(f.name().length()-location-1);
+            TQString mString = f.name().right(f.name().length()-location-1);
             if (mString == Prefs::levelFile())
                 levelBool = true;
             mString = mString.left(mString.length()-6);
@@ -307,7 +307,7 @@ void KHangMan::loadLevels()
 
     // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
-    QString replace[3] = { "Easy", "Medium", "Hard" };
+    TQString replace[3] = { "Easy", "Medium", "Hard" };
     for ( int i = 0; i < 3; ++i )
     {
         if ( levels.findIndex( replace[i] ) > -1 )
@@ -318,10 +318,10 @@ void KHangMan::loadLevels()
     }
 
     //find duplicated entries in KDEDIR and KDEHOME
-    QString last;
-    for ( QStringList::Iterator it = levels.begin(); it != levels.end(); )
+    TQString last;
+    for ( TQStringList::Iterator it = levels.begin(); it != levels.end(); )
     {
-        QStringList::Iterator it2 = it++;
+        TQStringList::Iterator it2 = it++;
         if (*it2 == last)
         {
             // remove duplicate
@@ -343,14 +343,14 @@ void KHangMan::loadLevels()
         currentLevel =0;
         Prefs::writeConfig();
     }    
-    QStringList translatedLevels;
-    for (QStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
+    TQStringList translatedLevels;
+    for (TQStringList::Iterator it = levels.begin(); it != levels.end(); ++it )
         translatedLevels+=i18n((*it).utf8());
     m_levelAction->setItems(translatedLevels);
     m_levelAction->setCurrentItem(Prefs::currentLevel());
     
     setLevel();
-    QString m_lstring = translatedLevels[currentLevel].utf8();
+    TQString m_lstring = translatedLevels[currentLevel].utf8();
     m_lstring.replace(0, 1, m_lstring.left(1).upper());
     changeStatusbar(m_lstring, IDS_LEVEL);
 }
@@ -380,7 +380,7 @@ void KHangMan::optionsPreferences()
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "clock");
 
-    connect(dialog, SIGNAL(settingsChanged()), this, SLOT(updateSettings()));
+    connect(dialog, TQT_SIGNAL(settingsChanged()), this, TQT_SLOT(updateSettings()));
 
     dialog->show();
 }
@@ -420,13 +420,13 @@ void KHangMan::loadLangToolBar()
 
     m_allData.clear();
     if (!m_noSpecialChars) {
-	QString myString=QString("khangman/%1.txt").arg(Prefs::selectedLanguage());
-	QFile myFile;
+	TQString myString=TQString("khangman/%1.txt").arg(Prefs::selectedLanguage());
+	TQFile myFile;
 	myFile.setName(locate("data", myString));
 
 	// Let's look in local KDEHOME dir then
 	if (!myFile.exists()) {
-	    QString  myString=QString("khangman/data/%1/%1.txt")
+	    TQString  myString=TQString("khangman/data/%1/%1.txt")
 		.arg(Prefs::selectedLanguage())
 		.arg(Prefs::selectedLanguage());
 	    myFile.setName(locate("data",myString));
@@ -434,7 +434,7 @@ void KHangMan::loadLangToolBar()
 	}
 
 	if (!myFile.exists()) {
-	    QString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+	    TQString mString=i18n("File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
 				 "check your installation.").arg(Prefs::selectedLanguage());
 	    KMessageBox::sorry( this, mString,
 				i18n("Error") );
@@ -443,20 +443,20 @@ void KHangMan::loadLangToolBar()
 	update();
 
 	// We open the file and store info into the stream...
-	QFile openFileStream(myFile.name());
+	TQFile openFileStream(myFile.name());
 	openFileStream.open(IO_ReadOnly);
-	QTextStream readFileStr(&openFileStream);
-	readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+	TQTextStream readFileStr(&openFileStream);
+	readFileStr.setEncoding(TQTextStream::UnicodeUTF8);
 
 	// m_allData contains all the words from the file
 	// FIXME: Better name
-	m_allData = QStringList::split("\n", readFileStr.read(), true);
+	m_allData = TQStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
 
 	for (int i=0; i<(int) m_allData.count(); i++)
 	    secondToolbar->insertButton (charIcon(m_allData[i].at(0)), i, 
-					 SIGNAL( clicked() ), this, 
-					 SLOT( slotPasteChar()), true,  
+					 TQT_SIGNAL( clicked() ), this, 
+					 TQT_SLOT( slotPasteChar()), true,  
 					 i18n("Inserts the character %1").arg(m_allData[i]), i+1 );
     }
 
@@ -477,34 +477,34 @@ void KHangMan::slotPasteChar()
 	m_view->enterLetter(m_allData[charBut->id()]);
 }
 
-QString KHangMan::charIcon(const QChar & c)
+TQString KHangMan::charIcon(const TQChar & c)
 {
     ///Create a name and path for the icon
-    QString s = locateLocal("icon", "char" + QString::number(c.unicode()) + ".png");
+    TQString s = locateLocal("icon", "char" + TQString::number(c.unicode()) + ".png");
 
-    QRect r(4, 4, 120, 120);
+    TQRect r(4, 4, 120, 120);
 
     ///A font to draw the character with
-    QFont font;
+    TQFont font;
     font.setFamily( "Sans Serif" );
     font.setPointSize(96);
-    font.setWeight(QFont::Normal);
+    font.setWeight(TQFont::Normal);
 
     ///Create the pixmap
-    QPixmap pm(128, 128);
+    TQPixmap pm(128, 128);
     pm.fill(Qt::white);
-    QPainter p(&pm);
+    TQPainter p(&pm);
     p.setFont(font);
     p.setPen(Qt::black);
-    p.drawText(r, Qt::AlignCenter, (QString) c);
+    p.drawText(r, Qt::AlignCenter, (TQString) c);
 
     ///Create transparency mask
-    QBitmap bm(128, 128);
+    TQBitmap bm(128, 128);
     bm.fill(Qt::color0);
-    QPainter b(&bm);
+    TQPainter b(&bm);
     b.setFont(font);
     b.setPen(Qt::color1);
-    b.drawText(r, Qt::AlignCenter, (QString) c);
+    b.drawText(r, Qt::AlignCenter, (TQString) c);
 
     ///Mask the pixmap
     pm.setMask(bm);

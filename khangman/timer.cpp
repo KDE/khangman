@@ -20,8 +20,8 @@
 
 #include <klocale.h>
 
-#include <qlabel.h>
-#include <qslider.h>
+#include <tqlabel.h>
+#include <tqslider.h>
 
 #include "timer.h"
 #include "prefs.h"
@@ -30,17 +30,17 @@
 Timer::Timer()
     :timerdlg()
 {
-    timeHintLabel->setText(QString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
-    timeMissedLabel->setText(QString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
-    connect(kcfg_HintTimer, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged()));
-    connect(kcfg_MissedTimer, SIGNAL(valueChanged(int)), this, SLOT(sliderValueChanged()));
+    timeHintLabel->setText(TQString::number(Prefs::hintTimer()) + " " + i18n("seconds"));
+    timeMissedLabel->setText(TQString::number(Prefs::missedTimer()) + " " + i18n("seconds"));
+    connect(kcfg_HintTimer, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(sliderValueChanged()));
+    connect(kcfg_MissedTimer, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(sliderValueChanged()));
 }
 
 
 void Timer::sliderValueChanged()
 {
-    timeMissedLabel->setText(QString::number(kcfg_MissedTimer->value()) + " " + i18n("seconds"));
-    timeHintLabel->setText(QString::number(kcfg_HintTimer->value()) + " " + i18n("seconds"));
+    timeMissedLabel->setText(TQString::number(kcfg_MissedTimer->value()) + " " + i18n("seconds"));
+    timeHintLabel->setText(TQString::number(kcfg_HintTimer->value()) + " " + i18n("seconds"));
 }
 
 

@@ -25,15 +25,15 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 
-#include <qimage.h>
-#include <qlabel.h>
-#include <qpainter.h>
-#include <qpoint.h>
-#include <qregexp.h>
-#include <qtimer.h>
-#include <qtooltip.h>
-#include <qvbox.h>
-#include <qwidget.h>
+#include <tqimage.h>
+#include <tqlabel.h>
+#include <tqpainter.h>
+#include <tqpoint.h>
+#include <tqregexp.h>
+#include <tqtimer.h>
+#include <tqtooltip.h>
+#include <tqvbox.h>
+#include <tqwidget.h>
 
 //project headers
 #include "prefs.h"
@@ -42,23 +42,23 @@
 
 
 KHangManView::KHangManView(KHangMan*parent, const char *name)
-    : QWidget(parent, name, WStaticContents | WNoAutoErase)
+    : TQWidget(parent, name, WStaticContents | WNoAutoErase)
 {
     khangman = parent;
     
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this, "charWrite" );
-    m_letterInput->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
-					       (QSizePolicy::SizeType) 0, 
+    m_letterInput->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
+					       (TQSizePolicy::SizeType) 0, 
 					       0, 0, 
 					       m_letterInput->sizePolicy().hasHeightForWidth() ) );
     m_letterInput->setMaxLength( 1 );
-    m_letterInput->setAlignment( int( QLineEdit::AlignHCenter ) );
+    m_letterInput->setAlignment( int( TQLineEdit::AlignHCenter ) );
 
     // Press this button to enter a letter (or press enter)
     m_guessButton = new KPushButton( this, "guessButton" );
-    m_guessButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType) 1, 
-					       (QSizePolicy::SizeType) 0,
+    m_guessButton->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
+					       (TQSizePolicy::SizeType) 0,
 					       0, 0, 
 					       m_guessButton->sizePolicy().hasHeightForWidth() ) );
     m_guessButton->setAutoMask( true );
@@ -68,7 +68,7 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     // Get background from config file - default is sea
     loadAnimation();
     
-    setMinimumSize( QSize( 660, 370 ) );
+    setMinimumSize( TQSize( 660, 370 ) );
     setBackground( m_originalBackground );
 
     // Some misc initializations.
@@ -77,10 +77,10 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     m_accentedLetters  = true;
     m_hintExists       = true;	// Assume hint exists
 
-    connect( m_letterInput, SIGNAL( returnPressed() ),
-	     this,          SLOT( slotTry() ) );
-    connect( m_guessButton, SIGNAL( clicked() ),
-	     this,          SLOT( slotTry() ));
+    connect( m_letterInput, TQT_SIGNAL( returnPressed() ),
+	     this,          TQT_SLOT( slotTry() ) );
+    connect( m_guessButton, TQT_SIGNAL( clicked() ),
+	     this,          TQT_SLOT( slotTry() ));
 }
 
 
@@ -92,7 +92,7 @@ KHangManView::~KHangManView()
 // Handle a guess of the letter in sChar.
 //
 
-void KHangManView::replaceLetters(const QString& sChar)
+void KHangManView::replaceLetters(const TQString& sChar)
 {
     int   index = 0;
     bool  b_end = false;
@@ -131,17 +131,17 @@ void KHangManView::replaceLetters(const QString& sChar)
     }
 
     if (m_accentedLetters && !Prefs::accentedLetters()) {
-        if (sChar=="i") replaceLetters(QString::fromUtf8("í"));
-        if (sChar=="a") replaceLetters(QString::fromUtf8("à"));
-        if (sChar=="a") replaceLetters(QString::fromUtf8("á"));
-        if (sChar=="a") replaceLetters(QString::fromUtf8("ã"));
-        if (sChar=="u") replaceLetters(QString::fromUtf8("ü"));
-        if (sChar=="o") replaceLetters(QString::fromUtf8("ò"));
-        if (sChar=="o") replaceLetters(QString::fromUtf8("ó"));
-        if (sChar=="o") replaceLetters(QString::fromUtf8("õ"));
-        if (sChar=="e") replaceLetters(QString::fromUtf8("è"));
-        if (sChar=="e") replaceLetters(QString::fromUtf8("é"));
-        if (sChar=="u") replaceLetters(QString::fromUtf8("ù"));
+        if (sChar=="i") replaceLetters(TQString::fromUtf8("í"));
+        if (sChar=="a") replaceLetters(TQString::fromUtf8("à"));
+        if (sChar=="a") replaceLetters(TQString::fromUtf8("á"));
+        if (sChar=="a") replaceLetters(TQString::fromUtf8("ã"));
+        if (sChar=="u") replaceLetters(TQString::fromUtf8("ü"));
+        if (sChar=="o") replaceLetters(TQString::fromUtf8("ò"));
+        if (sChar=="o") replaceLetters(TQString::fromUtf8("ó"));
+        if (sChar=="o") replaceLetters(TQString::fromUtf8("õ"));
+        if (sChar=="e") replaceLetters(TQString::fromUtf8("è"));
+        if (sChar=="e") replaceLetters(TQString::fromUtf8("é"));
+        if (sChar=="u") replaceLetters(TQString::fromUtf8("ù"));
     }
     if (!Prefs::oneLetter()) 
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
@@ -154,30 +154,30 @@ void KHangManView::replaceLetters(const QString& sChar)
 }
 
 
-bool KHangManView::containsChar(const QString &sChar)
+bool KHangManView::containsChar(const TQString &sChar)
 {
     bool b = false;
     if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i")
-	    b = m_word.contains(QString::fromUtf8("í"), false);
+	    b = m_word.contains(TQString::fromUtf8("í"), false);
 
         if (sChar=="a")
-	    b = m_word.contains(QString::fromUtf8("à"), false)
-		|| m_word.contains(QString::fromUtf8("á"), false)
-		|| m_word.contains(QString::fromUtf8("ã"), false);
+	    b = m_word.contains(TQString::fromUtf8("à"), false)
+		|| m_word.contains(TQString::fromUtf8("á"), false)
+		|| m_word.contains(TQString::fromUtf8("ã"), false);
 
         if (sChar=="u")
-	    b = m_word.contains(QString::fromUtf8("ü"), false)
-		|| m_word.contains(QString::fromUtf8("ù"), false);
+	    b = m_word.contains(TQString::fromUtf8("ü"), false)
+		|| m_word.contains(TQString::fromUtf8("ù"), false);
 
         if (sChar=="o")
-	    b = m_word.contains(QString::fromUtf8("ò"), false)
-		|| m_word.contains(QString::fromUtf8("ó"), false)
-		|| m_word.contains(QString::fromUtf8("õ"), false);
+	    b = m_word.contains(TQString::fromUtf8("ò"), false)
+		|| m_word.contains(TQString::fromUtf8("ó"), false)
+		|| m_word.contains(TQString::fromUtf8("õ"), false);
 
         if (sChar=="e")
-	    b = m_word.contains(QString::fromUtf8("è"), false)
-		|| m_word.contains(QString::fromUtf8("é"), false);
+	    b = m_word.contains(TQString::fromUtf8("è"), false)
+		|| m_word.contains(TQString::fromUtf8("é"), false);
     }
 
     return (b || m_word.contains(sChar, false));
@@ -188,21 +188,21 @@ bool KHangManView::containsChar(const QString &sChar)
 //                           Event handlers
 
 
-void KHangManView::mousePressEvent(QMouseEvent *mouse)
+void KHangManView::mousePressEvent(TQMouseEvent *mouse)
 {
     if (mouse->button() == RightButton && m_hintExists && Prefs::hint()) {
 
         KPassivePopup *myPopup = new KPassivePopup( m_letterInput);
         myPopup->setView(i18n("Hint"), m_hint );
-        myPopup->setPalette(QToolTip::palette());
+        myPopup->setPalette(TQToolTip::palette());
         myPopup->setTimeout(Prefs::hintTimer()*1000); //show for 4 seconds as default
         int x=0, y=0;
 
-        QPoint abspos = mapToGlobal( QPoint( 0, 0 ) );
+        TQPoint abspos = mapToGlobal( TQPoint( 0, 0 ) );
         x = abspos.x() + width()*70/700;
         y = abspos.y() + height()*150/535;
 
-	QPoint  point = QPoint(x, y);
+	TQPoint  point = TQPoint(x, y);
         myPopup->show(mapToGlobal(point));
 
         // Maybe it's better to popup where the mouse clicks, in that
@@ -231,14 +231,14 @@ void KHangManView::setTheme()
 //                           Painting
 
 
-void KHangManView::paintEvent( QPaintEvent * )
+void KHangManView::paintEvent( TQPaintEvent * )
 {
     // This pixmap implements double buffering to remove all forms of
     // flicker in the repainting.
-    QPixmap   buf(width(), height());
+    TQPixmap   buf(width(), height());
 
     // Repaint the contents of the khangman view into the pixmap.
-    QPainter  p(&buf);
+    TQPainter  p(&buf);
     p.drawPixmap(0, 0, m_resizedBackground);
     paintHangman(p);
     paintWord(p);
@@ -249,35 +249,35 @@ void KHangManView::paintEvent( QPaintEvent * )
 }
 
 
-void KHangManView::paintHangman(QPainter &p)
+void KHangManView::paintHangman(TQPainter &p)
 {
     // Draw the animated hanged K
     if (Prefs::mode() == 0)  // sea
-        p.drawPixmap(QRect(0, 0, 
+        p.drawPixmap(TQRect(0, 0, 
 			   width()*630/700, height()*285/535),
 		     m_animationPics[m_numMissedLetters]);
     else
-        p.drawPixmap(QRect(width()*68/700, height()*170/535, 
+        p.drawPixmap(TQRect(width()*68/700, height()*170/535, 
 			   width()*259/700, height()*228/535), 
 		     m_animationPics[m_numMissedLetters]);
 }
 
 
-void KHangManView::paintWord(QPainter &p)
+void KHangManView::paintWord(TQPainter &p)
 {
-    QRect  myRect;
+    TQRect  myRect;
     if (Prefs::mode() == 0)   //sea
-        myRect = QRect(0, height()-height()*126/535,
+        myRect = TQRect(0, height()-height()*126/535,
 		       width()*417/700, height()*126/535);
     else  
-        myRect = QRect(0, height()-height()*126/535, 
+        myRect = TQRect(0, height()-height()*126/535, 
 		       width()*327/700, height()*126/535);
 
-    QFont tFont;
+    TQFont tFont;
     if (Prefs::mode() == 0)   //sea
-        p.setPen( QColor(148, 156, 167));
+        p.setPen( TQColor(148, 156, 167));
     else  
-        p.setPen( QColor(87, 0, 0));
+        p.setPen( TQColor(87, 0, 0));
 
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
@@ -292,17 +292,17 @@ void KHangManView::paintWord(QPainter &p)
 }
 
 
-void KHangManView::paintMisses(QPainter &p)
+void KHangManView::paintMisses(TQPainter &p)
 {
     // Get the color for the letters.
-    QColor  letterColor;
+    TQColor  letterColor;
     if (Prefs::mode() == 0)   //sea
-	letterColor = QColor(148, 156, 167);
+	letterColor = TQColor(148, 156, 167);
     else
-	letterColor = QColor(87, 0, 0);
+	letterColor = TQColor(87, 0, 0);
 
     // Draw the missed letters
-    QFont tFont;
+    TQFont tFont;
     if (Prefs::selectedLanguage() =="tg")
         tFont.setFamily( "URW Bookman" );
     else
@@ -311,21 +311,21 @@ void KHangManView::paintMisses(QPainter &p)
     p.setPen( letterColor );
     p.setFont(tFont);
 
-    QFontMetrics  fm(tFont);
-    QRect         fmRect(fm.boundingRect(m_missedLetters));
-    QRect         myRect = QRect(width() - fmRect.width(), 15, 
+    TQFontMetrics  fm(tFont);
+    TQRect         fmRect(fm.boundingRect(m_missedLetters));
+    TQRect         myRect = TQRect(width() - fmRect.width(), 15, 
 				 fmRect.width(), fm.height());
     p.drawText(myRect, AlignLeft, m_missedLetters);
 
     // Draw the "Misses" word
-    QString  misses = i18n("Misses");
-    QFont  mFont = QFont(Prefs::missesFontFamily());
+    TQString  misses = i18n("Misses");
+    TQFont  mFont = TQFont(Prefs::missesFontFamily());
     mFont.setPointSize(30);
     p.setFont(mFont);
 
-    QFontMetrics  fm2(mFont);
-    QRect         fmRect2(fm2.boundingRect(misses));
-    QRect         myRect2(width()- fmRect.width() - fmRect2.width() - 15,
+    TQFontMetrics  fm2(mFont);
+    TQRect         fmRect2(fm2.boundingRect(misses));
+    TQRect         myRect2(width()- fmRect.width() - fmRect2.width() - 15,
 			  15 - fm2.height() + fm.height(),
 			  fmRect2.width(), fm2.height());
     p.setPen( letterColor );
@@ -333,21 +333,21 @@ void KHangManView::paintMisses(QPainter &p)
 }
 
 
-void KHangManView::resizeEvent(QResizeEvent *)
+void KHangManView::resizeEvent(TQResizeEvent *)
 {
     if(!m_originalBackground.isNull())
         setBackground(m_originalBackground);
     
-    m_letterInput->setMinimumSize( QSize( height()/18, 0 ) );
+    m_letterInput->setMinimumSize( TQSize( height()/18, 0 ) );
 
-    QFont charWrite_font( m_letterInput->font() );
+    TQFont charWrite_font( m_letterInput->font() );
     charWrite_font.setPointSize( height()/18 );
     charWrite_font.setFamily( "Sans Serif" );
 
     m_letterInput->setFont( charWrite_font ); 
     m_letterInput->setGeometry(width()-2*height()/12, height()-2*height()/16, 
 			       height()/10, height()/10);
-    m_guessButton->setFont(QFont(Prefs::guessFontFamily(), height()/22));
+    m_guessButton->setFont(TQFont(Prefs::guessFontFamily(), height()/22));
     m_guessButton->setGeometry(width() - 2*height()/12 
 			       - m_guessButton->width()-5, 
 			       height() - 2*height()/16, 
@@ -359,9 +359,9 @@ void KHangManView::resizeEvent(QResizeEvent *)
 //                             Slots
 
 
-void KHangManView::setBackground(QPixmap& bgPix)
+void KHangManView::setBackground(TQPixmap& bgPix)
 {
-    QImage img = bgPix.convertToImage();
+    TQImage img = bgPix.convertToImage();
     m_resizedBackground.resize(size());
     m_resizedBackground.convertFromImage(img.smoothScale( width(), height()));
 }
@@ -369,7 +369,7 @@ void KHangManView::setBackground(QPixmap& bgPix)
 
 void KHangManView::slotTry()
 {
-    QString guess = m_letterInput->text();
+    TQString guess = m_letterInput->text();
     kdDebug() << "guess as entered: " << guess << endl;
 
     // If the char is not a letter, empty the input and return.
@@ -386,8 +386,8 @@ void KHangManView::slotTry()
 	    replaceLetters(guess);
 
 	    // This is needed because of the white spaces.
-	    QString  stripWord = m_goodWord;
-	    QString  sword     = m_word;
+	    TQString  stripWord = m_goodWord;
+	    TQString  sword     = m_word;
 	    if (dd > 0)  {
 		stripWord.replace(2*c,   1, "");
 		stripWord.replace(2*c-1, 1, "");
@@ -396,10 +396,10 @@ void KHangManView::slotTry()
 		stripWord.replace(2*(dd-1)-1, 1, "");
 	    }
 
-	    QStringList  rightChars = QStringList::split(" ", stripWord, true);
-	    QString      rightWord  = rightChars.join("");
+	    TQStringList  rightChars = TQStringList::split(" ", stripWord, true);
+	    TQString      rightWord  = rightChars.join("");
 	    update();
-	    sword.remove(QRegExp(" "));
+	    sword.remove(TQRegExp(" "));
 
 	    // If the user made it...
 	    if (rightWord.stripWhiteSpace().lower() 
@@ -410,28 +410,28 @@ void KHangManView::slotTry()
 		//TODO find a better way to finish
 		//
 		if (Prefs::sound()) {
-		    QString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+		    TQString soundFile = locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
 		    if (soundFile != 0) 
 			KAudioPlayer::play(soundFile);
 		}
 
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
-		    QPoint point;
+		    TQPoint point;
 		    KPassivePopup *popup = new KPassivePopup( this, "popup" );
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 		    popup->setView(i18n("Congratulations,\nyou won!") );
 
 		    int x =0, y = 0;
-		    QPoint abspos = popup->pos();
+		    TQPoint abspos = popup->pos();
 		    x = abspos.x() + width()*50/700;
 		    y = abspos.y() + height()*20/535;
-		    point = QPoint(x, y);
+		    point = TQPoint(x, y);
 		    popup->show(mapToGlobal(point));
-		    QTimer::singleShot( 4*1000, this, SLOT(slotNewGame()) );
+		    TQTimer::singleShot( 4*1000, this, TQT_SLOT(slotNewGame()) );
 		}
-		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?"),QString::null,i18n("Play Again"), i18n("Do Not Play")) == 3)
+		else if (KMessageBox::questionYesNo(this, i18n("Congratulations! You won! Do you want to play again?"),TQString::null,i18n("Play Again"), i18n("Do Not Play")) == 3)
 		    slotNewGame();
 		else
 		    kapp->quit();
@@ -451,33 +451,33 @@ void KHangManView::slotTry()
 	    if (m_numMissedLetters >= MAXWRONGGUESSES) {
 
 		//TODO sequence to finish when hanged
-		QStringList charList=QStringList::split("", m_word);
-		QString theWord=charList.join(" ");
+		TQStringList charList=TQStringList::split("", m_word);
+		TQString theWord=charList.join(" ");
 		m_goodWord = theWord;
 		//usability: find another way to start a new game
-		QString newGameString = i18n("You lost. Do you want to play again?");
+		TQString newGameString = i18n("You lost. Do you want to play again?");
 		if (Prefs::wonDialog()) {
 		    // TODO: hide Hint KPassivePopup if any
-		    QPoint point;
+		    TQPoint point;
 		    KPassivePopup *popup = new KPassivePopup(KPassivePopup::Boxed,  this, "popup" );
 		    popup->setAutoDelete( true );
 		    popup->setTimeout( 4*1000 );
 
-		    QVBox *vb = new QVBox( popup );
+		    TQVBox *vb = new TQVBox( popup );
 
-		    QLabel *popLabel = new QLabel( vb);
-		    popLabel->setFont(QFont("Sans Serif", 14, QFont::Normal));
+		    TQLabel *popLabel = new TQLabel( vb);
+		    popLabel->setFont(TQFont("Sans Serif", 14, TQFont::Normal));
 		    popLabel->setText(i18n("<qt>You lost!\nThe word was\n<b>%1</b></qt>").arg(m_word));
 		    popup->setView( vb );
 
-		    QPoint abspos = popup->pos();
+		    TQPoint abspos = popup->pos();
 		    int  x = abspos.x() + width()  * 50 / 700;
 		    int  y = abspos.y() + height() * 20 / 535;
-		    popup->show(mapToGlobal(QPoint(x, y)));
+		    popup->show(mapToGlobal(TQPoint(x, y)));
 
-		    QTimer::singleShot( 4 * 1000, this, SLOT(slotNewGame()) );
+		    TQTimer::singleShot( 4 * 1000, this, TQT_SLOT(slotNewGame()) );
 		}
-		else if (KMessageBox::questionYesNo(this, newGameString, QString::null, i18n("Play Again"), i18n("Do Not Play")) == 3)
+		else if (KMessageBox::questionYesNo(this, newGameString, TQString::null, i18n("Play Again"), i18n("Do Not Play")) == 3)
 		    slotNewGame();
 		else
 		    kapp->quit();
@@ -488,7 +488,7 @@ void KHangManView::slotTry()
 	// The letter is already guessed.
 
 	// Show a popup that says as much.
-	QPoint point;
+	TQPoint point;
 	KPassivePopup *popup = new KPassivePopup(KPassivePopup::Balloon, this, "popup" );
 	popup->setAutoDelete( true );
 	popup->setTimeout( 1000 );
@@ -499,22 +499,22 @@ void KHangManView::slotTry()
 	if (m_missedLetters.contains(guess, false) > 0) {
 	    // FIXME: popup should be better placed.
 
-	    QPoint abspos = popup->pos();
+	    TQPoint abspos = popup->pos();
 	    x = abspos.x() + width()*400/700;
 	    y = abspos.y() + height()*50/535;
-	    point = QPoint(x, y);
+	    point = TQPoint(x, y);
 
 	    // Create a 1 second single-shot timer, and reenable user
 	    // input after this time.
-	    QTimer::singleShot( Prefs::missedTimer() * 1000, 
-				this, SLOT(enableUserInput()) );
+	    TQTimer::singleShot( Prefs::missedTimer() * 1000, 
+				this, TQT_SLOT(enableUserInput()) );
 
 	    // Disable any possible entry
 	    m_letterInput->setEnabled(false);
 	}
 
 	if (m_goodWord.contains(guess, false) > 0) {
-	    QPoint abspos = popup->pos();
+	    TQPoint abspos = popup->pos();
 
 	    if (Prefs::mode() == 0) {
 		// sea
@@ -525,10 +525,10 @@ void KHangManView::slotTry()
 		x = abspos.x() + width()*200/700;
 		y = abspos.y() + height()*485/535;
 	    }
-	    point = QPoint(x, y);
+	    point = TQPoint(x, y);
 
-	    QTimer::singleShot( Prefs::missedTimer() * 1000,
-				this, SLOT(enableUserInput()) );
+	    TQTimer::singleShot( Prefs::missedTimer() * 1000,
+				this, TQT_SLOT(enableUserInput()) );
 
 	    // Disable any possible entry
 	    m_letterInput->setEnabled(false);	
@@ -552,7 +552,7 @@ void KHangManView::enableUserInput()
 void KHangManView::slotNewGame()
 {
     if (Prefs::sound()) {
-	QString soundFile = locate("data", "khangman/sounds/new_game.ogg");
+	TQString soundFile = locate("data", "khangman/sounds/new_game.ogg");
 	if (soundFile != 0) 
 	    KAudioPlayer::play(soundFile);
     }
@@ -585,13 +585,13 @@ void KHangManView::game()
     kdDebug() << "level "    << Prefs::levelFile()        << endl;
 
     // Check if the data files are installed in the correct dir.
-    QString  myString = QString("khangman/data/%1/%2")
+    TQString  myString = TQString("khangman/data/%1/%2")
                           .arg(Prefs::selectedLanguage())
                           .arg(Prefs::levelFile());
-    QFile    myFile;
+    TQFile    myFile;
     myFile.setName(locate("data", myString));
     if (!myFile.exists()) {
-	QString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+	TQString  mString = i18n("File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
 				"Check your installation, please!")
 	             .arg(Prefs::selectedLanguage())
 	             .arg(Prefs::levelFile());
@@ -600,13 +600,13 @@ void KHangManView::game()
     }
 
     // We open the file and store info into the stream...
-    QFile  openFileStream(myFile.name());
+    TQFile  openFileStream(myFile.name());
     openFileStream.open(IO_ReadOnly);
-    QTextStream readFileStr(&openFileStream);
-    readFileStr.setEncoding(QTextStream::UnicodeUTF8);
+    TQTextStream readFileStr(&openFileStream);
+    readFileStr.setEncoding(TQTextStream::UnicodeUTF8);
 
     // Alldata contains all the words from the file
-    QStringList allData = QStringList::split("\n", readFileStr.read(), true);
+    TQStringList allData = TQStringList::split("\n", readFileStr.read(), true);
     openFileStream.close();
 
     // Detects if file is a kvtml file so that it's a hint enable file
@@ -652,9 +652,9 @@ void KHangManView::game()
     }
 
     // 3. Find ·
-    int e = m_word.find( QString::fromUtf8("·") );
+    int e = m_word.find( TQString::fromUtf8("·") );
     if (e>0)
-	m_goodWord.replace(2*e, 1, QString::fromUtf8("·") );
+	m_goodWord.replace(2*e, 1, TQString::fromUtf8("·") );
 
     // 4. Find '
     int h = m_word.find( "'" );
@@ -666,7 +666,7 @@ void KHangManView::game()
 void KHangManView::readFile()
 {
     kdDebug() << "in read kvtml file " << endl;
-    QString myString=QString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
+    TQString myString=TQString("khangman/data/%1/%2").arg(Prefs::selectedLanguage()).arg(Prefs::levelFile());
     myString= locate("data", myString);
     KEduVocDataItemList verbs = KEduVocData::parse(myString);
 
@@ -706,20 +706,20 @@ void KHangManView::loadAnimation()
 {
     switch (Prefs::mode())  {
         case Prefs::EnumMode::sea:
-            m_originalBackground = QPixmap(locate("data", "khangman/pics/sea/sea_theme.png") );
+            m_originalBackground = TQPixmap(locate("data", "khangman/pics/sea/sea_theme.png") );
             m_themeName = "sea";
-            m_letterInput->setPaletteForegroundColor( QColor(  83,  40,  14) );
-            m_guessButton->setPaletteBackgroundColor( QColor( 115,  64,  49) );
-            m_guessButton->setPaletteForegroundColor( QColor( 148, 156, 167) );
+            m_letterInput->setPaletteForegroundColor( TQColor(  83,  40,  14) );
+            m_guessButton->setPaletteBackgroundColor( TQColor( 115,  64,  49) );
+            m_guessButton->setPaletteForegroundColor( TQColor( 148, 156, 167) );
             m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
 
         case Prefs::EnumMode::desert:
-            m_originalBackground = QPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
+            m_originalBackground = TQPixmap(locate("data","khangman/pics/desert/desert_theme.png") );
             m_themeName = "desert";
-            m_letterInput->setPaletteForegroundColor( QColor(  87,   0,  0) );
-            m_guessButton->setPaletteBackgroundColor( QColor( 205, 214, 90) );
-            m_guessButton->setPaletteForegroundColor( QColor(  87,   0,  0) );
+            m_letterInput->setPaletteForegroundColor( TQColor(  87,   0,  0) );
+            m_guessButton->setPaletteBackgroundColor( TQColor( 205, 214, 90) );
+            m_guessButton->setPaletteForegroundColor( TQColor(  87,   0,  0) );
             m_guessButton->setBackgroundOrigin( KPushButton::ParentOrigin );
             break;
     }	
@@ -727,7 +727,7 @@ void KHangManView::loadAnimation()
     // Now we load the pixmaps...
     for (uint i = 0; i < 11; i++) {
 	m_animationPics[i].load(locate( "data", 
-		 	   QString("khangman/pics/%1/animation%2.png")
+		 	   TQString("khangman/pics/%1/animation%2.png")
 			   .arg(m_themeName).arg(i) ));
     }
 }

@@ -59,7 +59,7 @@ public:
                                       { m_accentedLetters = _accentedLetters; }
 
     /// Enter a letter into the input widget.
-    void  enterLetter(QString letter) { m_letterInput->setText(letter); }
+    void  enterLetter(TQString letter) { m_letterInput->setText(letter); }
 
     
 signals:
@@ -86,11 +86,11 @@ private:
  protected:
 
     // Events
-    void paintEvent( QPaintEvent * );
-    void resizeEvent( QResizeEvent * );
+    void paintEvent( TQPaintEvent * );
+    void resizeEvent( TQResizeEvent * );
 
     /// Enable hints on mouse right click if Hints exist.
-    virtual void mousePressEvent( QMouseEvent *mouse );
+    virtual void mousePressEvent( TQMouseEvent *mouse );
 
 
  private:
@@ -98,9 +98,9 @@ private:
     // Painting
 
     /// Paint the animated hanged K sequence.
-    void paintHangman(QPainter &p);
-    void paintWord(QPainter &p);
-    void paintMisses(QPainter &p);
+    void paintHangman(TQPainter &p);
+    void paintWord(TQPainter &p);
+    void paintMisses(TQPainter &p);
 
     /// Reset everything to start a new game, missed letters is empty.
     void reset();
@@ -112,13 +112,13 @@ private:
     /// Load the K animated sequence depending of the theme.
     void loadAnimation();
 
-    /// Set the background pixmap to the QPixmap argument.
-    void setBackground(QPixmap& );
+    /// Set the background pixmap to the TQPixmap argument.
+    void setBackground(TQPixmap& );
 
-    /// Return true if the word contains the char in the QString.
-    bool  containsChar(const QString &);
+    /// Return true if the word contains the char in the TQString.
+    bool  containsChar(const TQString &);
 
-    void  replaceLetters(const QString &);
+    void  replaceLetters(const TQString &);
 
 public slots:
     /// If you want to play with a new word
@@ -144,17 +144,17 @@ private:
     //        These spaces will then be added at draw time.
 
     /// The word to be guessed.
-    QString          m_word;
+    TQString          m_word;
     /// goodWord is the hidden word that is filled in during the game.
     /// Initialized to "_ " * (number of letters in the word).
-    QString          m_goodWord;
+    TQString          m_goodWord;
 
     /// Contains all letters already guessed.
-    QStringList      m_guessedLetters;
+    TQStringList      m_guessedLetters;
 
     // Stores the missed letters that are shown on the screen.
     // Initialiazed to "_ " * MAXWRONGGUESSES.
-    QString          m_missedLetters;
+    TQString          m_missedLetters;
     /// How many times you missed.  
     /// When this reaches MAXWRONGGUESSES, you are hanged.
     int              m_numMissedLetters;
@@ -166,12 +166,12 @@ private:
     // the same word is not given twice in a row.
     int              m_lastWordNumber;
 
-    QString          m_themeName;
+    TQString          m_themeName;
     KRandomSequence  m_random;
 
     /// true if a hint exists
     bool             m_hintExists;
-    QString          m_hint;
+    TQString          m_hint;
 
     /// true if the language contains accented letters.  
     /// This is true for, among others, es, ca, pt or pt_BR
@@ -181,11 +181,11 @@ private:
     // Graphics  ----------------
 
     // Background picture (sea or desert)
-    QPixmap          m_originalBackground;   // Original image
-    QPixmap          m_resizedBackground;    // Resized to fit the window.
+    TQPixmap          m_originalBackground;   // Original image
+    TQPixmap          m_resizedBackground;    // Resized to fit the window.
 
     /// The hanged K animation sequence.
-    QPixmap          m_animationPics[MAXWRONGGUESSES + 1];
+    TQPixmap          m_animationPics[MAXWRONGGUESSES + 1];
 
     // Widgets ----------------
 

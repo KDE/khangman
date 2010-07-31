@@ -67,7 +67,7 @@ public:
     @param text the text that will be written in the statusbar
     @param id the label in which the text will be written
     */
-    void changeStatusbar(const QString& text, int id);
+    void changeStatusbar(const TQString& text, int id);
 
     ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
@@ -76,9 +76,9 @@ public:
     void setLanguages();
 
     ///Translated names of languages
-    QStringList m_languageNames;
+    TQStringList m_languageNames;
     ///Language codes of available languages
-    QStringList m_languages;
+    TQStringList m_languages;
 
     ///Display the correct messages in the statusbar
     void setMessages();
@@ -90,16 +90,16 @@ public:
     void setupStatusbar();
 
     ///Selected language
-    QString selectedLanguage;
+    TQString selectedLanguage;
     ///Translated and sorted names of languages
-    QStringList m_sortedNames;
+    TQStringList m_sortedNames;
     ///the different data files in each language dir
-    QStringList levels;
+    TQStringList levels;
 
     ///Current level ID
     uint currentLevel;
     ///hold the current level
-    QString levelString;
+    TQString levelString;
 
     ///At start, restore settings from config file and apply them
     void loadSettings();
@@ -115,7 +115,7 @@ public:
     void loadLangToolBar();
 
     ///Create a png image with the argument (special character) and return the path to this png image
-    QString charIcon(const QChar &);
+    TQString charIcon(const TQChar &);
 
 public slots:
     ///When the langugae is changed in the Language menu
@@ -156,7 +156,7 @@ private:
     bool            m_noSpecialChars;
 
     // Contains all the words that are read from the data file.
-    QStringList     m_allData;
+    TQStringList     m_allData;
     
     ///Instance of an advanced page of the config dialog
     advanced *mAdvanced;

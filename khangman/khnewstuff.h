@@ -34,8 +34,8 @@ class KHNewStuff : public KNewStuff
   public:
     KHNewStuff( KHangManView * );
     
-    bool install( const QString &fileName );
-    bool createUploadFile( const QString &fileName );
+    bool install( const TQString &fileName );
+    bool createUploadFile( const TQString &fileName );
 
   private:
     KHangManView *m_view;
