@@ -620,9 +620,9 @@ void KHangManView::game()
     kDebug() << "language " << Prefs::selectedLanguage();
     kDebug() << "level "    << Prefs::levelFile();
 
-    m_word = m_randomList[m_randomInt%NumberOfWords].first;
+    m_word = m_randomList[m_randomInt%m_randomList.count()].first;
     m_word = m_word.toLower();
-    m_hint = m_randomList[m_randomInt%NumberOfWords].second;
+    m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
 
     if (m_word.isEmpty()) {
         ++m_randomInt;
@@ -712,8 +712,10 @@ void KHangManView::slotSetWordsSequence()
             // there is one
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
         }
-
-        m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));    }
+        if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text().isEmpty()) {
+            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));  
+        }
+    }
     //shuffle the list
     randomSequence.randomize(m_randomList);
 }
