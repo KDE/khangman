@@ -51,7 +51,7 @@
 #include <KSharedConfig>
 #include <KRecentFilesAction>
 
-#include <knewstuff2/engine.h>
+#include <KNS3/DownloadDialog>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
@@ -383,16 +383,17 @@ void KHangMan::updateSettings()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    // delete all the entry pointers that are returned
-    qDeleteAll(KNS::Engine::download());
-
-    SharedKvtmlFiles::sortDownloadedFiles();
-    //look for languages dirs installed
-    setLanguages();
-    //refresh Languages menu
-    m_languageAction->setItems(m_languageNames);
-    slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+    KNS3::DownloadDialog dialog("khangman.knsrc", this);
+    dialog.exec();
+    if (!dialog.changedEntries().isEmpty()) {
+        SharedKvtmlFiles::sortDownloadedFiles();
+        //look for languages dirs installed
+        setLanguages();
+        //refresh Languages menu
+        m_languageAction->setItems(m_languageNames);
+        slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
+        m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+    }
 }
 
 void KHangMan::loadLangToolBar()
