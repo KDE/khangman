@@ -237,7 +237,7 @@ void KHangMan::setLanguages()
     for (int i=0;  i<m_languages.count(); ++i) {
         //QString tmp = cg.readEntry(m_languages[i]);
        // if (!tmp)
-            cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
+        cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
     }
     cg.config()->sync();
     
@@ -414,7 +414,7 @@ void KHangMan::loadLangToolBar()
         QFile langFile;
         langFile.setFileName(KStandardDirs::locate("data", langFileName));
 
-        // Let's look in local KDEHOME dir then KNS2 installs each .txt
+        // Let's look in local KDEHOME dir then KNS installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
         if (!langFile.exists()) {
             langFileName = QString("kvtml/%1/%1.txt").arg(lang);
