@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"), 
                         "annma@kde.org", "http://annma.blogspot.com", "annma");
     aboutData.addCredit(ki18n("Stefan Böhmann"),
-                        ki18n("Coding help"), "kde@hilefoks.org");
+                        ki18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");
     aboutData.addCredit(ki18n("Stefan Asserhäll"),
                         ki18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
                                 "stefan.asserhall@telia.com");
