@@ -45,9 +45,9 @@ int main(int argc, char **argv)
     // Write the names with accents and all and this file save with
     // utf8 encoding.
     aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"), 
-                        "annma@kde.org", "http://annma.blogspot.com", "annma");
+                        "annma@kde.org", "http://annma.blogspot.com");
     aboutData.addCredit(ki18n("Stefan Böhmann"),
-                        ki18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");
+                        ki18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org");
     aboutData.addCredit(ki18n("Stefan Asserhäll"),
                         ki18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
                                 "stefan.asserhall@telia.com");
