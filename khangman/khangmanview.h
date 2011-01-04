@@ -115,10 +115,10 @@ private:
     /// Set the background pixmap to the TQPixmap argument.
     void setBackground(TQPixmap& );
 
-    /// Return true if the word contains the char in the TQString.
-    bool  containsChar(const TQString &);
+    /// Return true if the word tqcontains the char in the TQString.
+    bool  tqcontainsChar(const TQString &);
 
-    void  replaceLetters(const TQString &);
+    void  tqreplaceLetters(const TQString &);
 
 public slots:
     /// If you want to play with a new word
@@ -173,7 +173,7 @@ private:
     bool             m_hintExists;
     TQString          m_hint;
 
-    /// true if the language contains accented letters.  
+    /// true if the language tqcontains accented letters.  
     /// This is true for, among others, es, ca, pt or pt_BR
     bool             m_accentedLetters;
     

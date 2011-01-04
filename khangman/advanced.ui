@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>advanced</cstring>
     </property>
-    <property name="geometry">
+    <property name="tqgeometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -18,7 +18,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout2</cstring>
+                <cstring>tqlayout2</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -91,5 +91,5 @@ For example, in Catalan, if this is unchecked and you type "o", the o and ò wil
         </widget>
     </grid>
 </widget>
-<layoutdefaults spacing="6" margin="11"/>
+<tqlayoutdefaults spacing="6" margin="11"/>
 </UI>

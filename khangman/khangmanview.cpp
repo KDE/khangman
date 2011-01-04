@@ -48,16 +48,16 @@ KHangManView::KHangManView(KHangMan*parent, const char *name)
     
     // The widget for entering letters.
     m_letterInput = new KLineEdit( this, "charWrite" );
-    m_letterInput->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
+    m_letterInput->tqsetSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
 					       (TQSizePolicy::SizeType) 0, 
 					       0, 0, 
 					       m_letterInput->sizePolicy().hasHeightForWidth() ) );
     m_letterInput->setMaxLength( 1 );
-    m_letterInput->setAlignment( int( TQLineEdit::AlignHCenter ) );
+    m_letterInput->tqsetAlignment( int( TQLineEdit::AlignHCenter ) );
 
     // Press this button to enter a letter (or press enter)
     m_guessButton = new KPushButton( this, "guessButton" );
-    m_guessButton->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
+    m_guessButton->tqsetSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType) 1, 
 					       (TQSizePolicy::SizeType) 0,
 					       0, 0, 
 					       m_guessButton->sizePolicy().hasHeightForWidth() ) );
@@ -92,7 +92,7 @@ KHangManView::~KHangManView()
 // Handle a guess of the letter in sChar.
 //
 
-void KHangManView::replaceLetters(const TQString& sChar)
+void KHangManView::tqreplaceLetters(const TQString& sChar)
 {
     int   index = 0;
     bool  b_end = false;
@@ -101,52 +101,52 @@ void KHangManView::replaceLetters(const TQString& sChar)
 
     // Replace letter in the word
     if (Prefs::oneLetter()) {
-	// We just replace the next instance.
-        for (int count=0; count < m_word.contains(sChar, false); count++) {
+	// We just tqreplace the next instance.
+        for (int count=0; count < m_word.tqcontains(sChar, false); count++) {
 
             index = m_word.find(sChar, index, false);
             if (m_goodWord.at(2*index)=='_') {
-		m_goodWord.replace((2*index), 1, m_word.at(index));
+		m_goodWord.tqreplace((2*index), 1, m_word.at(index));
 
                 kdDebug() << "m_goodword " << m_goodWord << endl;
-                if (count == m_word.contains(sChar, false)-1)
+                if (count == m_word.tqcontains(sChar, false)-1)
 		    b_end = true;
                 break;
             }
 	    else
 		index++;
 
-	    if (count == m_word.contains(sChar, false)-1)
+	    if (count == m_word.tqcontains(sChar, false)-1)
 		b_end = true;
         }
     }
     else {
-        for (int count=0; count < m_word.contains(sChar, false); count++) {
+        for (int count=0; count < m_word.tqcontains(sChar, false); count++) {
             //searching for letter location
             index = m_word.find(sChar, index, false);
-            //we replace it...
-            m_goodWord.replace((2*index), 1,m_word.at(index));
+            //we tqreplace it...
+            m_goodWord.tqreplace((2*index), 1,m_word.at(index));
             index++;
 	}
     }
 
     if (m_accentedLetters && !Prefs::accentedLetters()) {
-        if (sChar=="i") replaceLetters(TQString::fromUtf8("í"));
-        if (sChar=="a") replaceLetters(TQString::fromUtf8("à"));
-        if (sChar=="a") replaceLetters(TQString::fromUtf8("á"));
-        if (sChar=="a") replaceLetters(TQString::fromUtf8("ã"));
-        if (sChar=="u") replaceLetters(TQString::fromUtf8("ü"));
-        if (sChar=="o") replaceLetters(TQString::fromUtf8("ò"));
-        if (sChar=="o") replaceLetters(TQString::fromUtf8("ó"));
-        if (sChar=="o") replaceLetters(TQString::fromUtf8("õ"));
-        if (sChar=="e") replaceLetters(TQString::fromUtf8("è"));
-        if (sChar=="e") replaceLetters(TQString::fromUtf8("é"));
-        if (sChar=="u") replaceLetters(TQString::fromUtf8("ù"));
+        if (sChar=="i") tqreplaceLetters(TQString::fromUtf8("í"));
+        if (sChar=="a") tqreplaceLetters(TQString::fromUtf8("à"));
+        if (sChar=="a") tqreplaceLetters(TQString::fromUtf8("á"));
+        if (sChar=="a") tqreplaceLetters(TQString::fromUtf8("ã"));
+        if (sChar=="u") tqreplaceLetters(TQString::fromUtf8("ü"));
+        if (sChar=="o") tqreplaceLetters(TQString::fromUtf8("ò"));
+        if (sChar=="o") tqreplaceLetters(TQString::fromUtf8("ó"));
+        if (sChar=="o") tqreplaceLetters(TQString::fromUtf8("õ"));
+        if (sChar=="e") tqreplaceLetters(TQString::fromUtf8("è"));
+        if (sChar=="e") tqreplaceLetters(TQString::fromUtf8("é"));
+        if (sChar=="u") tqreplaceLetters(TQString::fromUtf8("ù"));
     }
     if (!Prefs::oneLetter()) 
         m_guessedLetters << sChar; //appends the list only if not in One Letter only mode...
 
-    if (m_word.contains(sChar, false) == 1) 
+    if (m_word.tqcontains(sChar, false) == 1) 
         m_guessedLetters << sChar; //append if only one instance
 
     if (Prefs::oneLetter() && b_end) 
@@ -154,33 +154,33 @@ void KHangManView::replaceLetters(const TQString& sChar)
 }
 
 
-bool KHangManView::containsChar(const TQString &sChar)
+bool KHangManView::tqcontainsChar(const TQString &sChar)
 {
     bool b = false;
     if (m_accentedLetters && !Prefs::accentedLetters()) {
         if (sChar=="i")
-	    b = m_word.contains(TQString::fromUtf8("í"), false);
+	    b = m_word.tqcontains(TQString::fromUtf8("í"), false);
 
         if (sChar=="a")
-	    b = m_word.contains(TQString::fromUtf8("à"), false)
-		|| m_word.contains(TQString::fromUtf8("á"), false)
-		|| m_word.contains(TQString::fromUtf8("ã"), false);
+	    b = m_word.tqcontains(TQString::fromUtf8("à"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("á"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("ã"), false);
 
         if (sChar=="u")
-	    b = m_word.contains(TQString::fromUtf8("ü"), false)
-		|| m_word.contains(TQString::fromUtf8("ù"), false);
+	    b = m_word.tqcontains(TQString::fromUtf8("ü"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("ù"), false);
 
         if (sChar=="o")
-	    b = m_word.contains(TQString::fromUtf8("ò"), false)
-		|| m_word.contains(TQString::fromUtf8("ó"), false)
-		|| m_word.contains(TQString::fromUtf8("õ"), false);
+	    b = m_word.tqcontains(TQString::fromUtf8("ò"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("ó"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("õ"), false);
 
         if (sChar=="e")
-	    b = m_word.contains(TQString::fromUtf8("è"), false)
-		|| m_word.contains(TQString::fromUtf8("é"), false);
+	    b = m_word.tqcontains(TQString::fromUtf8("è"), false)
+		|| m_word.tqcontains(TQString::fromUtf8("é"), false);
     }
 
-    return (b || m_word.contains(sChar, false));
+    return (b || m_word.tqcontains(sChar, false));
 }
 
 
@@ -234,7 +234,7 @@ void KHangManView::setTheme()
 void KHangManView::paintEvent( TQPaintEvent * )
 {
     // This pixmap implements double buffering to remove all forms of
-    // flicker in the repainting.
+    // flicker in the tqrepainting.
     TQPixmap   buf(width(), height());
 
     // Repaint the contents of the khangman view into the pixmap.
@@ -379,21 +379,21 @@ void KHangManView::slotTry()
     }
 
     // Handle the guess.
-    if (!m_guessedLetters.contains(guess.lower())) {
+    if (!m_guessedLetters.tqcontains(guess.lower())) {
 	// The letter is not already guessed.
 	
-	if (containsChar(guess)) {
-	    replaceLetters(guess);
+	if (tqcontainsChar(guess)) {
+	    tqreplaceLetters(guess);
 
 	    // This is needed because of the white spaces.
 	    TQString  stripWord = m_goodWord;
 	    TQString  sword     = m_word;
 	    if (dd > 0)  {
-		stripWord.replace(2*c,   1, "");
-		stripWord.replace(2*c-1, 1, "");
+		stripWord.tqreplace(2*c,   1, "");
+		stripWord.tqreplace(2*c-1, 1, "");
 
-		stripWord.replace(2*(dd-1),   1, "");
-		stripWord.replace(2*(dd-1)-1, 1, "");
+		stripWord.tqreplace(2*(dd-1),   1, "");
+		stripWord.tqreplace(2*(dd-1)-1, 1, "");
 	    }
 
 	    TQStringList  rightChars = TQStringList::split(" ", stripWord, true);
@@ -442,7 +442,7 @@ void KHangManView::slotTry()
 
 	    m_guessedLetters << guess.lower();	
             m_guessedLetters << guess.upper();
-	    m_missedLetters = m_missedLetters.replace((2 * m_numMissedLetters), 
+	    m_missedLetters = m_missedLetters.tqreplace((2 * m_numMissedLetters), 
 						      1, guess.lower());
 	    m_numMissedLetters++;
 	    update();
@@ -496,7 +496,7 @@ void KHangManView::slotTry()
 
 	int  x = 0;
 	int  y = 0;
-	if (m_missedLetters.contains(guess, false) > 0) {
+	if (m_missedLetters.tqcontains(guess, false) > 0) {
 	    // FIXME: popup should be better placed.
 
 	    TQPoint abspos = popup->pos();
@@ -513,7 +513,7 @@ void KHangManView::slotTry()
 	    m_letterInput->setEnabled(false);
 	}
 
-	if (m_goodWord.contains(guess, false) > 0) {
+	if (m_goodWord.tqcontains(guess, false) > 0) {
 	    TQPoint abspos = popup->pos();
 
 	    if (Prefs::mode() == 0) {
@@ -605,7 +605,7 @@ void KHangManView::game()
     TQTextStream readFileStr(&openFileStream);
     readFileStr.setEncoding(TQTextStream::UnicodeUTF8);
 
-    // Alldata contains all the words from the file
+    // Alldata tqcontains all the words from the file
     TQStringList allData = TQStringList::split("\n", readFileStr.read(), true);
     openFileStream.close();
 
@@ -633,11 +633,11 @@ void KHangManView::game()
     // 1. Find dashes.
     int f = m_word.find( "-" );
     if (f>0) {
-        m_goodWord.replace(2*f, 1, "-");
+        m_goodWord.tqreplace(2*f, 1, "-");
 
         int g = m_word.find( "-", f+1);
         if (g>0) 
-	    m_goodWord.replace(2*g, 3, "-");
+	    m_goodWord.tqreplace(2*g, 3, "-");
         if (g>1)
 	    m_goodWord.append("_");
     }
@@ -645,21 +645,21 @@ void KHangManView::game()
     // 2. Find white space.
     c = m_word.find( " " );
     if (c > 0) {
-        m_goodWord.replace(2*c, 1, " ");
+        m_goodWord.tqreplace(2*c, 1, " ");
         dd = m_word.find( " ", c+1);
         if (dd > 0)
-	    m_goodWord.replace(2*dd, c+1, " ");
+	    m_goodWord.tqreplace(2*dd, c+1, " ");
     }
 
     // 3. Find ·
     int e = m_word.find( TQString::fromUtf8("·") );
     if (e>0)
-	m_goodWord.replace(2*e, 1, TQString::fromUtf8("·") );
+	m_goodWord.tqreplace(2*e, 1, TQString::fromUtf8("·") );
 
     // 4. Find '
     int h = m_word.find( "'" );
     if (h>0)
-	m_goodWord.replace(2*h, 1, "'");
+	m_goodWord.tqreplace(2*h, 1, "'");
 }
 
 
@@ -693,7 +693,7 @@ void KHangManView::readFile()
         m_hintExists = false;	// Hint does not exist.
 
 	// FIXME: Make this a signal instead.
-        khangman->changeStatusbar("", 103);
+        khangman->changetqStatusbar("", 103);
     }
     else {
         m_hintExists = true;
