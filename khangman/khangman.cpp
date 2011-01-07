@@ -52,7 +52,7 @@ KHangMan::KHangMan()
 
     setCentralWidget(m_view);
     setLanguages();
-    setuptqStatusbar();
+    setupStatusbar();
     setupActions();
 
     // Toolbar for special characters
@@ -109,7 +109,7 @@ void KHangMan::setupActions()
 }
 
 // Set up the status bar with 4 different fields.
-void KHangMan::setuptqStatusbar()
+void KHangMan::setupStatusbar()
 {
     // set up the status bar
     statusBar( )->insertItem("   ",IDS_LEVEL,   0);
@@ -120,7 +120,7 @@ void KHangMan::setuptqStatusbar()
 
 
 // FIXME: Make this into a slot?
-void KHangMan::changetqStatusbar(const TQString& text, int id)
+void KHangMan::changeStatusbar(const TQString& text, int id)
 {
     statusBar()->changeItem(text, id);
 }
@@ -141,16 +141,16 @@ void KHangMan::slotQuit()
 void KHangMan::slotChangeLevel(int index)
 {
     levelString = levels[index];
-    changetqStatusbar(levelString, IDS_LEVEL);
+    changeStatusbar(levelString, IDS_LEVEL);
 #if 0
     if (m_view->levelFile == "world_capitals.kvtml" 
 	|| m_view->levelFile == "departements.kvtml")
-        changetqStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
+        changeStatusbar(i18n("First letter upper case"), IDS_ACCENTS);
     else
-        changetqStatusbar("", IDS_ACCENTS);
+        changeStatusbar("", IDS_ACCENTS);
 #endif
     Prefs::setCurrentLevel(index);
-	levelString.tqreplace(0, 1, levelString.left(1).lower());
+	levelString.replace(0, 1, levelString.left(1).lower());
     Prefs::setLevelFile(levelString +".kvtml");
     Prefs::writeConfig();
     m_view->slotNewGame();
@@ -164,7 +164,7 @@ void KHangMan::slotChangeLanguage(int index)
     Prefs::writeConfig();
     loadLevels();
     loadLangToolBar();
-    changetqStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     setAccent();
     setMessages();
     m_view->slotNewGame();   
@@ -209,7 +209,7 @@ void KHangMan::setLanguages()
 
     TQStringList temp_languages;
     for (uint i=0;  i<m_languages.count(); i++) {
-        if (m_languages.tqcontains(m_languages[i])>1) {
+        if (m_languages.contains(m_languages[i])>1) {
             temp_languages.append(m_languages[i]);
             m_languages.remove(m_languages[i]);
         }
@@ -224,11 +224,11 @@ void KHangMan::setLanguages()
 
     // Write the present languages in config so they cannot be downloaded.
     KConfig *config=kapp->config();
-    config->setGroup("KNewStufftqStatus");
+    config->setGroup("KNewStuffStatus");
     for (uint i=0;  i<m_languages.count(); i++) {
         TQString tmp = m_languages[i];
         if (!config->readEntry(tmp))
-            config->writeEntry(tmp, TQDate::tqcurrentDate().toString(Qt::ISODate));
+            config->writeEntry(tmp, TQDate::currentDate().toString(Qt::ISODate));
     }
 
     // We look in $KDEDIR/share/locale/all_languages from
@@ -261,7 +261,7 @@ void KHangMan::loadSettings()
     selectedLanguage = Prefs::selectedLanguage();
     if (m_languages.grep(selectedLanguage).isEmpty())
             selectedLanguage = "en";
-    changetqStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
+    changeStatusbar(m_languageNames[m_languages.findIndex(Prefs::selectedLanguage())], IDS_LANG);
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar())
         secondToolbar->show();
@@ -276,8 +276,8 @@ void KHangMan::setLevel()
     if (currentLevel > (uint) levels.count()) 
         currentLevel= 0;
     levelString = levels[currentLevel];
-    levelString.tqreplace(0, 1, levelString.left(1).lower());
-    levelString = levels[currentLevel].tqreplace(0, 1, levels[currentLevel].left(1).lower()) ;
+    levelString.replace(0, 1, levelString.left(1).lower());
+    levelString = levels[currentLevel].replace(0, 1, levels[currentLevel].left(1).lower()) ;
 }
 
 void KHangMan::loadLevels()
@@ -299,7 +299,7 @@ void KHangMan::loadLevels()
                 levelBool = true;
             mString = mString.left(mString.length()-6);
             //Put the first letter in Upper case
-            mString = mString.tqreplace(0, 1, mString.left(1).upper());
+            mString = mString.replace(0, 1, mString.left(1).upper());
         levels+=mString;
     }
     //TODO else tell no files had been found
@@ -307,13 +307,13 @@ void KHangMan::loadLevels()
 
     // Sort easy, medium, hard at bottom, with the other categories at the top
     levels.sort();
-    TQString tqreplace[3] = { "Easy", "Medium", "Hard" };
+    TQString replace[3] = { "Easy", "Medium", "Hard" };
     for ( int i = 0; i < 3; ++i )
     {
-        if ( levels.findIndex( tqreplace[i] ) > -1 )
+        if ( levels.findIndex( replace[i] ) > -1 )
         {
-            levels.remove( tqreplace[i] );
-            levels.append( tqreplace[i] );
+            levels.remove( replace[i] );
+            levels.append( replace[i] );
         }
     }
 
@@ -338,7 +338,7 @@ void KHangMan::loadLevels()
 
     if (levelBool == false)
     {
-        Prefs::setLevelFile(levels[0].tqreplace(0, 1, levels[0].left(1).lower())+".kvtml");
+        Prefs::setLevelFile(levels[0].replace(0, 1, levels[0].left(1).lower())+".kvtml");
         Prefs::setCurrentLevel(0);
         currentLevel =0;
         Prefs::writeConfig();
@@ -351,8 +351,8 @@ void KHangMan::loadLevels()
     
     setLevel();
     TQString m_lstring = translatedLevels[currentLevel].utf8();
-    m_lstring.tqreplace(0, 1, m_lstring.left(1).upper());
-    changetqStatusbar(m_lstring, IDS_LEVEL);
+    m_lstring.replace(0, 1, m_lstring.left(1).upper());
+    changeStatusbar(m_lstring, IDS_LEVEL);
 }
 
 
@@ -448,7 +448,7 @@ void KHangMan::loadLangToolBar()
 	TQTextStream readFileStr(&openFileStream);
 	readFileStr.setEncoding(TQTextStream::UnicodeUTF8);
 
-	// m_allData tqcontains all the words from the file
+	// m_allData contains all the words from the file
 	// FIXME: Better name
 	m_allData = TQStringList::split("\n", readFileStr.read(), true);
 	openFileStream.close();
@@ -480,7 +480,7 @@ void KHangMan::slotPasteChar()
 TQString KHangMan::charIcon(const TQChar & c)
 {
     ///Create a name and path for the icon
-    TQString s = locateLocal("icon", "char" + TQString::number(c.tqunicode()) + ".png");
+    TQString s = locateLocal("icon", "char" + TQString::number(c.unicode()) + ".png");
 
     TQRect r(4, 4, 120, 120);
 
@@ -498,7 +498,7 @@ TQString KHangMan::charIcon(const TQChar & c)
     p.setPen(Qt::black);
     p.drawText(r, Qt::AlignCenter, (TQString) c);
 
-    ///Create transparency tqmask
+    ///Create transparency mask
     TQBitmap bm(128, 128);
     bm.fill(Qt::color0);
     TQPainter b(&bm);
@@ -531,17 +531,17 @@ void KHangMan::setMessages()
 {
     // Tell the user about if there is a hint.
     if (Prefs::hint() && m_view->hintExists())
-        changetqStatusbar(i18n("Hint on right-click"), IDS_HINT);
+        changeStatusbar(i18n("Hint on right-click"), IDS_HINT);
     else if (m_view->hintExists() && !Prefs::hint() )
-        changetqStatusbar(i18n("Hint available"), IDS_HINT);
+        changeStatusbar(i18n("Hint available"), IDS_HINT);
     else
-        changetqStatusbar("", IDS_HINT);
+        changeStatusbar("", IDS_HINT);
 
     // Tell the user about accented characters
     if (m_view->accentedLetters() && Prefs::accentedLetters())
-        changetqStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+        changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
     else
-        changetqStatusbar("", IDS_ACCENTS);
+        changeStatusbar("", IDS_ACCENTS);
 }
 
 #include "khangman.moc"

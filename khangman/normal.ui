@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>normal</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -18,7 +18,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>tqlayout4</cstring>
+                <cstring>layout4</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -35,7 +35,7 @@
                         <string>Check this if you do not want to display each instance of the same letter</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will tqreplace the second instance in the word until there are no more instances of this letter.
+                        <string>If you check this box, only the first letter will be written if the letter is found in several places in the word. Then when you rechoose this letter, it will replace the second instance in the word until there are no more instances of this letter.
 For example, the word to guess is "potato". If this option is unchecked, when you try "o", the 2 "o" in the word will be discovered at the same time. If this is checked, you will need to try "o" twice.
 
 Default is that for one letter typed, all instances of that letter in the word are displayed.</string>
@@ -90,5 +90,5 @@ Default is no sound.</string>
         </widget>
     </grid>
 </widget>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 </UI>

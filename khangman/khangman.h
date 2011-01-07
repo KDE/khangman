@@ -63,16 +63,16 @@ public:
     virtual ~KHangMan();
     
     /**
-    Update the text in the tqStatusbar
+    Update the text in the Statusbar
     @param text the text that will be written in the statusbar
     @param id the label in which the text will be written
     */
-    void changetqStatusbar(const TQString& text, int id);
+    void changeStatusbar(const TQString& text, int id);
 
     ///Action that sets up the Language menu
     KSelectAction *m_languageAction;
 
-    ///Method to set the current language into the tqStatusbar and to pass it to KHangManView
+    ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
 
     ///Translated names of languages
@@ -86,8 +86,8 @@ public:
  private:
     ///Create the actions
     void setupActions();
-    ///Create the tqStatusbar
-    void setuptqStatusbar();
+    ///Create the Statusbar
+    void setupStatusbar();
 
     ///Selected language
     TQString selectedLanguage;

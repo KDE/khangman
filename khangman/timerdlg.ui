@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>timerdlg</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -29,7 +29,7 @@
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>tqlayout5</cstring>
+                        <cstring>layout5</cstring>
                     </property>
                     <grid>
                         <property name="name">
@@ -77,7 +77,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>295</width>
                                     <height>20</height>
@@ -94,7 +94,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>25</width>
                                     <height>16</height>
@@ -124,7 +124,7 @@
                 </widget>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>tqlayout6</cstring>
+                        <cstring>layout6</cstring>
                     </property>
                     <grid>
                         <property name="name">
@@ -191,7 +191,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>25</width>
                                     <height>16</height>
@@ -208,7 +208,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>295</width>
                                     <height>20</height>
@@ -221,7 +221,7 @@
         </widget>
     </grid>
 </widget>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>kactivelabel.h</includehint>
     <includehint>kactivelabel.h</includehint>
