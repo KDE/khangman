@@ -399,6 +399,8 @@ void KHangMan::slotDownloadNewStuff()
 void KHangMan::loadLangToolBar()
 {
     QString lang = Prefs::selectedLanguage();
+    if (lang.isEmpty())
+        return;
     m_specialChars = LangUtils::hasSpecialChars(lang);
 
     if (specialCharToolbar->isVisible() && m_specialChars) {
@@ -423,17 +425,7 @@ void KHangMan::loadLangToolBar()
         }
 
         if (!langFile.exists()) {
-            QString path = QString("$KDEDIR/share/apps/%1").arg(langFileName);
-            QString message = i18n("File '%1' not found.\n"
-                    "Please reinstall '%2'. Going back to English.", path, lang);
-            KMessageBox::sorry( this, message,
-                    i18n("Error") );
-            //going back to English as fallback
-            Prefs::setSelectedLanguage("en");
-            Prefs::self()->writeConfig();
-            slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-            m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
-            loadLangToolBar();
+            return;
         }
 
         update();
