@@ -1,6 +1,12 @@
 
-find_path(LIBKEDUVOCDOCUMENT_INCLUDE_DIR keduvocdocument.h PATH_SUFFIXES libkdeedu)
-include_directories( ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR} )
+if(${CMAKE_SOURCE_DIR} STREQUAL ${khangman_SOURCE_DIR})
+    find_package(LibKdeEdu REQUIRED)
+    include_directories( ${LIBKDEEDU_INCLUDE_DIR} )
+else()
+    include_directories("${CMAKE_SOURCE_DIR}/libkdeedu/keduvocdocument")
+    set(LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES keduvocdocument)
+endif()
+
 
 ########### next target ###############
 
@@ -25,7 +31,7 @@ kde4_add_app_icon(khangman_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app-kh
 kde4_add_executable(khangman ${khangman_SRCS})
 add_dependencies(khangman kvtml_data)
 
-target_link_libraries(khangman keduvocdocument ${KDE4_KIO_LIBS} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS} )
+target_link_libraries(khangman ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES} ${KDE4_KIO_LIBS} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS} )
 
 install(TARGETS khangman  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
