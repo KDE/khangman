@@ -541,11 +541,12 @@ void KHangMan::loadFile(const KUrl & url)
             Prefs::setLevelFile(url.toLocalFile());
         else Prefs::setLevelFile(url.path());
         
-        Prefs::self()->writeConfig();
+       changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
+       
         m_recent->addUrl(url);
         m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
-        
-        changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
+        Prefs::self()->writeConfig();
+                
         m_view->readFile();
         m_view->newGame();
     }
