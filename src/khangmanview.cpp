@@ -401,7 +401,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     
     m_playAgainButton->setFocus();
     m_playAgainButton->setDefault(true);
-    m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()/2);
+    m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()+20);
     m_playAgainButton->setVisible(true);
 }
 
