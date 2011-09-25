@@ -32,8 +32,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2009-10-01</date>
-<releaseinfo>2.3</releaseinfo>
+<date>2011-09-25</date>
+<releaseinfo>2.5</releaseinfo>
 
 <abstract>
 <para>
@@ -106,7 +106,8 @@ clicking on the corresponding buttons on the toolbar.
 <para>A word is chosen and its letters are displayed as an underscore (_)
 symbol. You know how many letters there are in the word. You have to guess the
 word by trying one letter after another. You enter the letter in the text box
-and you either press the &Enter; key or click on the <guibutton>Guess</guibutton> button to see if the
+and you either press the &Enter; key or click on the
+<guibutton>Guess</guibutton> button to see if the
 letter belongs or not to the word. </para>
 
 <para>The word is picked at random and it is not the same as the previous word.
@@ -140,33 +141,42 @@ answer is displayed.
 </para>
 
 <para>
-There are 4 categories: easy, medium, hard and animals, plus categories for other
+There are 4 categories: easy, medium, hard and animals, plus categories for
+other
 topics in some languages. The program scans for all data files in all
 languages and uses &kanagram; words files as well.
  </para>
  
 <para>
-In the easy category, the words are quite simple and related to everyday life. It
-is suitable for children from 6 to 9.  The animals category contains only names of
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
 animals so they are easier to find. Some of them are easy, others are more
-difficult. In the medium category, the words are longer and more difficult. It is
+difficult. In the medium category, the words are longer and more difficult. It
+is
 suitable for ages 9+. The hard category is just that, hard, &ie; the words are
-difficult to spell and not very well known. This category is challenging, even for
+difficult to spell and not very well known. This category is challenging, even
+for
 adults.
 </para>
 
 <para>After a word is guessed (or the hangman is completed), you are
 congratulated and prompted for another word. You can either click on 
-<guilabel>Play again</guilabel> and another word is ready to be guessed or select
+<guilabel>Play again</guilabel> and another word is ready to be guessed or
+select
 another <guimenu>Category</guimenu> to play.
-To quit the game now select <menuchoice><guimenu>Game</guimenu><guimenuitem>Quit</guimenuitem>
+To quit the game now select
+<menuchoice><guimenu>Game</guimenu><guimenuitem>Quit</guimenuitem>
 </menuchoice> or click the <guiicon>Quit</guiicon> icon in the toolbar.
 </para>
 
 <para>You type the letter you want to try in the text box (the mouse cursor is
-ready in the text box) and you hit the &Enter; key or click the <guibutton>Guess</guibutton> button. If
+ready in the text box) and you hit the &Enter; key or click the
+<guibutton>Guess</guibutton> button. If
 the letter belongs to the word, it takes its place, as many times as it appears
-in the word. If the letter does not belong to the word, it goes in the <guilabel>Misses</guilabel>
+in the word. If the letter does not belong to the word, it goes in the
+<guilabel>Misses</guilabel>
 field and a further part of the hangman is drawn on the right. You have ten
 tries and after that you lose and the correct word is displayed.
 </para>
@@ -180,7 +190,8 @@ the toolbar. You can also change
 the category of words using the <guimenu>Category</guimenu> menu (this
 will bring you a new word for the new category).</para>
 
-<para>The look can easily be changed with the <guimenuitem>Look</guimenuitem> toolbar holding the look dropdown box.</para>
+<para>The look can easily be changed with the <guimenuitem>Look</guimenuitem>
+toolbar holding the look dropdown box.</para>
 
 <para>The <guiicon>Quit</guiicon> button on the toolbar
 <inlinemediaobject><imageobject> <imagedata
@@ -188,7 +199,9 @@ fileref="application-exit.png"
 format="PNG"/></imageobject></inlinemediaobject> allows you to easily quit the
 game.</para>
 
-<para>You can also play the game with a local file installed on your machine that you will open using the <guimenu>Game</guimenu> menu and choosing <guimenuitem>Open</guimenuitem>.</para>
+<para>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu>Game</guimenu> menu and choosing
+<guimenuitem>Open</guimenuitem>.</para>
 
 </sect1>
 
@@ -198,7 +211,8 @@ game.</para>
 You can play &khangman; in many languages including: Brazilian Portuguese,
 Bulgarian, Catalan, Czech, Danish, Dutch, English (US and GB), Finnish, French,
 German, Hungarian, Irish (Gaelic), Italian, Norwegian (Bokm&#229;l), Norwegian
-(Nynorsk), Polish, Portuguese, Romanian, Spanish, Serbian (Latin and Cyrillic), Slovenian,
+(Nynorsk), Polish, Portuguese, Romanian, Spanish, Serbian (Latin and Cyrillic),
+Slovenian,
 Tajik, Swedish, Russian and Turkish. You can even try Chinese if you install
 the files from &kanagram;!!
 </para>
@@ -232,7 +246,8 @@ Language...</guimenuitem>. A dialog appears, similar to this one:
 <para>
 Click on the language name you want to install and then on the
 <guibutton>Install</guibutton> button. If the language is successfully
-installed, a green tick is displayed in front of the language name and the <guibutton>Install</guibutton> turns to <guibutton>Uninstall</guibutton>. The
+installed, a green tick is displayed in front of the language name and the
+<guibutton>Install</guibutton> turns to <guibutton>Uninstall</guibutton>. The
 data is immediately installed and available in &khangman;. You click on the
 <guibutton>Close</guibutton> button to close the Get New Words dialog (if you
 want another data file, you can repeat these steps). </para>
@@ -316,19 +331,22 @@ words are displayed in.
 </para>
 
 <para>
-The <guimenu>Look</guimenu> menu proposes two themes: the <guimenuitem>Sea
-Theme</guimenuitem> and the <guimenuitem>Desert Theme</guimenuitem>. The
+The <guimenu>Look</guimenu> menu proposes three themes: the <guimenuitem>Sea
+Theme</guimenuitem>, the <guimenuitem>Bees Theme</guimenuitem> and the
+<guimenuitem>Desert Theme</guimenuitem>. The
 background and the font colors change for each theme. 
 </para>
 
 <para>
 The <guimenu>Settings</guimenu> menu allows you to configure
-&khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem>, <guimenuitem>Show Hint</guimenuitem> and
+&khangman; easily.  First, <guimenuitem>Toolbars</guimenuitem>,
+<guimenuitem>Show Hint</guimenuitem> and
 <guimenuitem>Show Statusbar</guimenuitem> give you the possibility to
 hide or show the toolbars, hints and the statusbar.
 </para>
 
-<para>There are four toolbars: the <guimenuitem>Main</guimenuitem>, <guimenuitem>Look</guimenuitem>
+<para>There are four toolbars: the <guimenuitem>Main</guimenuitem>,
+<guimenuitem>Look</guimenuitem>
 and <guimenuitem>Language</guimenuitem> toolbars which are the one on top
 with the buttons and combo boxes and the
 <guilabel>Special Characters</guilabel> toolbar which, when it is shown, is
@@ -375,14 +393,17 @@ menu item that allows you to add or suppress items from the toolbar.
 	</mediaobject>
 </screenshot>
 
-<para> Here you have &khangman; with the Desert theme, French language and category
-Easy. The <interface>Special Characters</interface> toolbar is shown here.</para>
+<para> Here you have &khangman; with the Desert theme, French language and
+category
+Easy. The <interface>Special Characters</interface> toolbar is shown
+here.</para>
 
 <para>
 The category is chosen with a combo box in the toolbar or via the
 <guimenu>Category</guimenu> menu in the menubar. Available are
 <guimenuitem>Easy</guimenuitem>, <guimenuitem>Medium</guimenuitem>,
-<guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem> and some more. 
+<guimenuitem>Animals</guimenuitem> and <guimenuitem>Hard</guimenuitem> and some
+more. 
 <guimenuitem>Easy</guimenuitem> is related to common objects a child 
 aged six or seven knows. <guimenuitem>Medium</guimenuitem> regards nouns
 a bit more challenging, <guimenuitem>Hard</guimenuitem> is quite difficult and 
@@ -423,25 +444,43 @@ one is for <guilabel>General</guilabel> settings.
 	</mediaobject>
 </screenshot>
 
-<para><guilabel>Require more guesses for duplicate letters</guilabel>: this is unchecked as default. When unchecked, if you try the letter "a" and the word has several as, they will be all displayed. For example if the word is "potato" and you try "o", both os will be diaplayed. If you check this option however, only the first "o" will be displayed and you will have to try it one more time to display the second "o" in "potato". This increases the difficulty.
+<para><guilabel>Require more guesses for duplicate letters</guilabel>: this is
+unchecked as default. When unchecked, if you try the letter "a" and the word has
+several as, they will be all displayed. For example if the word is "potato" and
+you try "o", both os will be diaplayed. If you check this option however, only
+the first "o" will be displayed and you will have to try it one more time to
+display the second "o" in "potato". This increases the difficulty.
 </para>
 
-<para><guilabel>Enable animations</guilabel>: the default is checked, that means that when you win a game, a message box will be displayed to tell you that you won and ask you if you want to play again. If you uncheck this option, this dialog is not displayed anymore, instead a new game starts directly after 3 seconds.
+<para><guilabel>Enable animations</guilabel>: the default is checked, that means
+that when you win a game, a message box will be displayed to tell you that you
+won and ask you if you want to play again. If you uncheck this option, this
+dialog is not displayed anymore, instead a new game starts directly after 3
+seconds.
 </para>
 
-<para><guilabel>Enable hints globally</guilabel>: the default is unchecked. Hints are not shown. If you check this (or use the <guilabel>Show Hints</guilabel> icon or 
-the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Hint</guimenuitem></menuchoice> menu or use the shortcut 
-<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>), a hint will be displayed above the word to guess to help you find the word more easily.
+<para><guilabel>Enable hints globally</guilabel>: the default is unchecked.
+Hints are not shown. If you check this (or use the <guilabel>Show
+Hints</guilabel> icon or 
+the <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show
+Hint</guimenuitem></menuchoice> menu or use the shortcut 
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>), a hint will be
+displayed above the word to guess to help you find the word more easily.
 </para>
 
 <para>
-In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds</guilabel> then a sound will be played on new game and another sound will be played when you win a game.
+In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable
+sounds</guilabel> then a sound will be played on new game and another sound will
+be played when you win a game.
 </para>
 
 </sect2>
 <sect2 id="languages-settings">
 <title>Languages Settings</title>
-<para>The <guilabel>Languages</guilabel> Settings tab allows you to set some settings specific to some languages. If the settings are not available for the language you are playing in then those settings will be grayed and disabled so you cannot choose them.
+<para>The <guilabel>Languages</guilabel> Settings tab allows you to set some
+settings specific to some languages. If the settings are not available for the
+language you are playing in then those settings will be grayed and disabled so
+you cannot choose them.
 </para>
 
 <screenshot>
@@ -456,14 +495,19 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 	</mediaobject>
 </screenshot>
 
-<para><guilabel>Type accented letters</guilabel> is available for Spanish, Portuguese and Catalan in &khangman;'s configuration dialog. If you check <guilabel>Type accented letters</guilabel>  then you will have to type all accented vowels (like &atilde;). If this remains unchecked, when you type any vowel, all accented vowels will be displayed as well.
+<para><guilabel>Type accented letters</guilabel> is available for Spanish,
+Portuguese and Catalan in &khangman;'s configuration dialog. If you check
+<guilabel>Type accented letters</guilabel>  then you will have to type all
+accented vowels (like &atilde;). If this remains unchecked, when you type any
+vowel, all accented vowels will be displayed as well.
 </para>
 
 </sect2>
 
 <sect2 id="timers-settings">
 <title>Timers Settings</title>
-<para>The <guilabel>Timers</guilabel> Settings tab allows you to set <guilabel>Time for displaying the Already Guessed Letter tooltip</guilabel>.
+<para>The <guilabel>Timers</guilabel> Settings tab allows you to set
+<guilabel>Time for displaying the Already Guessed Letter tooltip</guilabel>.
 </para>
 
 <screenshot>
@@ -478,7 +522,12 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 	</mediaobject>
 </screenshot>
 
-<para><guilabel>Time for displaying the Already Guessed Letter tooltip</guilabel> allows you to increase or decrease the time for displaying the Already Guessed Letter tooltip. This tooltip is a label which appears when you tried a letter that was already tried. Some people will want not to see it for long while children will need time to understand it and thus will need to set the display for a longer duration.
+<para><guilabel>Time for displaying the Already Guessed Letter
+tooltip</guilabel> allows you to increase or decrease the time for displaying
+the Already Guessed Letter tooltip. This tooltip is a label which appears when
+you tried a letter that was already tried. Some people will want not to see it
+for long while children will need time to understand it and thus will need to
+set the display for a longer duration.
 </para>
 
 </sect2>
@@ -516,7 +565,8 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Game</guimenu>
 <guimenuitem>Open</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Open</action> a local file to play with the words</para></listitem>
+<listitem><para><action>Open</action> a local file to play with the
+words</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -527,7 +577,9 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Game</guimenu>
 <guimenuitem>Get Words in New Language...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Display</action> the <guilabel>Get Hot New Stuff!</guilabel> dialog which lists all the data available in the different languages. </para></listitem>
+<listitem><para><action>Display</action> the <guilabel>Get Hot New
+Stuff!</guilabel> dialog which lists all the data available in the different
+languages. </para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
@@ -552,29 +604,34 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Category</guimenu>
 <guimenuitem>Animals</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the list of animals words to guess</para>
-<para>All other installed categories are displayed as items in this menu as well.</para></listitem>
+<listitem><para><action>Choose</action> the list of animals words to
+guess</para>
+<para>All other installed categories are displayed as items in this menu as
+well.</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Category</guimenu>
 <guimenuitem>Easy</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the list of easy words to guess</para></listitem>
+<listitem><para><action>Choose</action> the list of easy words to
+guess</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Category</guimenu>
 <guimenuitem>Medium</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the list of medium difficulty words to guess</para></listitem>
+<listitem><para><action>Choose</action> the list of medium difficulty words to
+guess</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Category</guimenu>
 <guimenuitem>Hard</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the list of difficult words to guess</para></listitem>
+<listitem><para><action>Choose</action> the list of difficult words to
+guess</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -589,8 +646,10 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Language</guimenu>
 <guimenuitem>English</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the English language for the words to guess.</para>
-<para>All other installed languages are displayed as items in this menu as well.</para></listitem>
+<listitem><para><action>Choose</action> the English language for the words to
+guess.</para>
+<para>All other installed languages are displayed as items in this menu as
+well.</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -605,14 +664,16 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Look</guimenu>
 <guimenuitem>Sea Theme</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the Sea background picture and associated font colors</para></listitem>
+<listitem><para><action>Choose</action> the Sea background picture and
+associated font colors</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Look</guimenu>
 <guimenuitem>Desert Theme</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Choose</action> the Desert background picture and associated font colors</para></listitem>
+<listitem><para><action>Choose</action> the Desert background picture and
+associated font colors</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -627,8 +688,10 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Settings</guimenu>
 <guisubmenu>Toolbars</guisubmenu>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the <guimenuitem>Main</guimenuitem>, <guimenuitem>Special Characters</guimenuitem>,
-<guimenuitem>Look</guimenuitem> and <guimenuitem>Language</guimenuitem> toolbars.</para></listitem>
+<listitem><para><action>Toggle</action> the <guimenuitem>Main</guimenuitem>,
+<guimenuitem>Special Characters</guimenuitem>,
+<guimenuitem>Look</guimenuitem> and <guimenuitem>Language</guimenuitem>
+toolbars.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -655,7 +718,8 @@ In the <guilabel>Sounds</guilabel> section, if you check <guilabel>Enable sounds
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Shortcuts...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Open</action> standard &kde; setting dialog that allows you to
+<listitem><para><action>Open</action> standard &kde; setting dialog that allows
+you to
 choose different shortcut keys for different actions.
 </para></listitem>
 </varlistentry>
@@ -665,7 +729,8 @@ choose different shortcut keys for different actions.
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Configure</action> the items you want to put in the toolbar.
+<listitem><para><action>Configure</action> the items you want to put in the
+toolbar.
 </para></listitem>
 </varlistentry>
 
@@ -704,7 +769,8 @@ Language...</guimenuitem> in the <guimenu>Game</guimenu> menu to see if your
 language is available yet. If it is, then you can check if it contains
 <emphasis>hints</emphasis>.
 </para>
-<para>The standard list words are stored in 4 separate files, so to make different categories. The files are in
+<para>The standard list words are stored in 4 separate files, so to make
+different categories. The files are in
 <filename class="directory">/khangman/data/</filename>. The file
 <filename>easy.kvtml</filename> is for category easy, the file
 <filename>medium.kvtml</filename> is for category medium, the file
@@ -720,8 +786,10 @@ module.
 class="starttag">text</sgmltag> is for the word and the tag <sgmltag
 class="starttag">comment</sgmltag> is for the hint, those are within a <sgmltag
 class="starttag">entry</sgmltag> tag. Please try to match the hint with the
-category of difficulty. The category <guimenuitem>Easy</guimenuitem> will require an easy hint but the category
-<guimenuitem>Hard</guimenuitem> will require the definition in the dictionary. Try not to use words of
+category of difficulty. The category <guimenuitem>Easy</guimenuitem> will
+require an easy hint but the category
+<guimenuitem>Hard</guimenuitem> will require the definition in the dictionary.
+Try not to use words of
 the same family in the hint, that would give the word away too easily!</para>
 
 <para> Note that you must use <emphasis role="bold">UTF-8 encoding</emphasis>
@@ -817,7 +885,8 @@ information. When you send me the files, please don't forget to mention any
 <emphasis role="bold">special characters</emphasis> used in your language (put
 them in a text file, one per line and add this file in the tarball) and please
 mention any other specificity.</para>
-<para><emphasis>Please never commit files in a BRANCH as it might break the game.</emphasis></para>
+<para><emphasis>Please never commit files in a BRANCH as it might break the
+game.</emphasis></para>
 </step>
 </procedure>
 <para>Many thanks for your contribution!</para>
@@ -834,7 +903,9 @@ folder. The available language dir names are also stored in the &khangman;
 config file in <filename>$KDEHOME/share/config/khangmanrc</filename>.
 </para>
 <para>
-The provider name (i.e. the address of the website where to download the new languages) is stored in <filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
+The provider name (i.e. the address of the website where to download the new
+languages) is stored in
+<filename>$KDEDIR/share/apps/khangman/khangmanrc</filename>.
 </para>
 <para>
 The English language (default) and the user language from his i18n package(s)
@@ -842,7 +913,10 @@ The English language (default) and the user language from his i18n package(s)
 class="directory">$KDEDIR/share/apps/kvtml</filename>.
 </para>
 <para>
-In the configuration file, stored for each user in <filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game settings such as the background, last category played, ... plus the files that were downloaded from the <guilabel>Get Hot New Stuff!</guilabel> dialog.
+In the configuration file, stored for each user in
+<filename>$KDEHOME/share/config/khangmanrc</filename> are saved all the game
+settings such as the background, last category played, ... plus the files that
+were downloaded from the <guilabel>Get Hot New Stuff!</guilabel> dialog.
 </para>
 </sect1>
 </chapter>
@@ -873,7 +947,8 @@ you have. Better install &khangman; from your distribution!</para>
 </qandaentry>
 <qandaentry>
 <question>
-<para>&khangman; does not start correctly after I upgraded from an earlier version to the &kde; 4 version</para>
+<para>&khangman; does not start correctly after I upgraded from an earlier
+version to the &kde; 4 version</para>
 </question>
 <answer>
 <para>
@@ -903,16 +978,12 @@ Contributors:
 <email>kisukuma@chez.com</email></para> </listitem>
 <listitem><para>Sounds: Ludovic Grossard
 <email>ludovic.grossard@libertysurf.fr</email></para> </listitem>
-<listitem><para>Blue theme, icons and code: &Primoz.Anzur;
+<listitem><para>Former maintainer: &Primoz.Anzur;
 &Primoz.Anzur.mail;</para> </listitem>
 <listitem><para>Swedish data files, coding help, transparent pictures and i18n
 fixes: Stefan Asserhäll 
 <email>stefan.asserhall@telia.com
 </email></para> </listitem>
-<listitem><para>Nature theme: Joe Bolin
-<email>jbolin@users.sourceforge.net</email></para> </listitem>
-<listitem><para>Softer Hangman Pictures: Matt Howe
-<email>mdhowe@bigfoot.com</email></para> </listitem>
 <listitem><para>Spanish data files: eXParTaKus
 <email>expartakus@expartakus.com
 </email></para> </listitem>
