@@ -23,7 +23,7 @@
       <guessButtonColor r="148" g="156" b="167" />
       <guessButtonTextColor r="255" g="255" b="0" />
       <guessButtonHoverColor r="99" g="105" b="112" />
-      <letterInputTextColor r="255" g="0" b="0" />
+      <letterInputTextColor r="148" g="156" b="167" />
     </colors>
     <coords>
       <goodWordPos wratio="0.3571" hratio="0.5327" />
