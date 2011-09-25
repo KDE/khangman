@@ -33,14 +33,9 @@
         </group>
 
         <group name="Look">
-        <entry name="Mode" type="Enum">
+        <entry name="Mode" type="Int">
             <label>Background theme</label>
-            <choices>
-                <choice name="sea"/>
-		<choice name="bees"/>
-                <choice name="desert"/>
-            </choices>
-            <default>sea</default>
+            <default>0</default>
         </entry>
         </group>
           
