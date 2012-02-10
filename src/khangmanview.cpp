@@ -700,12 +700,12 @@ void KHangManView::slotSetWordsSequence()
     m_doc->open(Prefs::levelFile());
 
     //how many words in the file
-    NumberOfWords = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
+    int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
 
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
-    for (int j = 0; j < NumberOfWords; ++j) {
+    for (int j = 0; j < wordCount; ++j) {
         QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if

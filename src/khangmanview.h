@@ -173,9 +173,6 @@ private slots:
     ///The index to the random sequence
     int m_randomInt;
 
-    ///The number of words in the current level file.
-    int NumberOfWords;
-
     ///The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
 
