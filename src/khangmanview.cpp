@@ -80,10 +80,10 @@ KHangManView::KHangManView(KHangMan*parent)
 
     setMinimumSize( QSize( 660, 370 ) );
 
-    connect( m_letterInput, SIGNAL( returnPressed() ), this, SLOT( slotTry() ) );
-    connect( m_guessButton, SIGNAL( clicked() ), this, SLOT( slotTry() ));
-    connect( m_playAgainButton, SIGNAL( clicked() ), this, SLOT( newGame() ));
-    connect( this, SIGNAL(signalChangeStatusbar(const QString&, int)), khangman, SLOT(changeStatusbar(const QString&, int)));
+    connect( m_letterInput, SIGNAL(returnPressed()), this, SLOT(slotTry()) );
+    connect( m_guessButton, SIGNAL(clicked()), this, SLOT(slotTry()));
+    connect( m_playAgainButton, SIGNAL(clicked()), this, SLOT(newGame()));
+    connect( this, SIGNAL(signalChangeStatusbar(QString,int)), khangman, SLOT(changeStatusbar(QString,int)));
     m_renderer = new QSvgRenderer();
 
     // not the best thing to do, but at least avoid no theme set

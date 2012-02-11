@@ -146,7 +146,7 @@ void KHangMan::setupActions()
 
     config = KGlobal::config();
     
-    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(const KUrl &)), this);
+    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(KUrl)), this);
     m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
     actionCollection()->addAction(m_recent->objectName(), m_recent);
     m_recent->loadEntries(KConfigGroup(config, "KHangManRecent"));
@@ -362,7 +362,7 @@ void KHangMan::optionsPreferences()
     Timer *m_timer = new Timer();
     dialog->addPage(m_timer, i18n("Timers"), "chronometer");
 
-    connect(dialog, SIGNAL(settingsChanged( const QString &)), this, SLOT(updateSettings()));
+    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(updateSettings()));
     dialog->setAttribute( Qt::WA_DeleteOnClose );
     dialog->setHelp(QString(),"khangman");
     dialog->show();
