@@ -383,9 +383,9 @@ void KHangMan::updateSettings()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    KNS3::DownloadDialog dialog("khangman.knsrc", this);
-    dialog.exec();
-    if (!dialog.changedEntries().isEmpty()) {
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog("khangman.knsrc", this);
+    dialog->exec();
+    if (!dialog->changedEntries().isEmpty()) {
         SharedKvtmlFiles::sortDownloadedFiles();
         //look for languages dirs installed
         setLanguages();
@@ -394,6 +394,8 @@ void KHangMan::slotDownloadNewStuff()
         slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
         m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     }
+
+    delete dialog;
 }
 
 void KHangMan::loadLangToolBar()
