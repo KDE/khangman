@@ -74,7 +74,7 @@ void KHMThemeFactory::walkDirectory(QDir dir)		//unused! (but works)
     if (dir.exists()) {
         xmlFilesList=dir.entryInfoList(allowedExtenstion, QDir::Files);
       
-        for (QFileInfoList::iterator i=xmlFilesList.begin(); i!=xmlFilesList.end(); i++) {
+        for (QFileInfoList::iterator i=xmlFilesList.begin(); i!=xmlFilesList.end(); ++i) {
             addTheme(i->absoluteFilePath());
         }
     }
