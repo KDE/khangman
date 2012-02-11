@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+
+        <file>main.qml</file>
+        <file>MainPage.qml</file>
+        <file>MainSettingsPage.qml</file>
+
+        <file alias="chalk.wav">../../sounds/chalk.wav</file>
+        <file alias="right.wav">../../sounds/right.wav</file>
+        <file alias="wrong.wav">../../sounds/wrong.wav</file>
+
+        <file>UIConstants.js</file>
+        <file>array.js</file>
+        <file>CommonDialog.qml</file>
+        <file>MySelectionDialog.qml</file>
+        <file>ListItem.qml</file>
+        <file>LetterElement.qml</file>
+
+        <file alias="khangman-background-landscape.png">../../icons/common/khangman-background-landscape.png</file>
+        <file alias="khangman-background--portrait.png">../../icons/common/khangman-background-portrait.png</file>
+        <file alias="help-hint.png">../../icons/common/help-hint.png</file>
+        <file alias="games-solve.png">../../icons/common/games-solve.png</file>
+        <file alias="preferences-desktop-locale.png">../../icons/common/preferences-desktop-locale.png</file>
+        <file alias="dialog-information.png">../../icons/common/dialog-information.png</file>
+        <file alias="separator.png">../../icons/common/separator.png</file>
+        <file alias="go-next.png">../../icons/common/go-next.png</file>
+        <file alias="settings.png">../../icons/common/settings.png</file>
+
+    </qresource>
+</RCC>
+

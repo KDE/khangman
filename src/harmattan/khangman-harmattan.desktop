@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=KHangMan
+GenericName=KHangMan Launcher
+GenericName[x-test]=xxKHangMan Launcherxx
+Exec=/opt/khangman/bin/khangman.sh
+Icon=/usr/share/icons/hicolor/80x80/apps/khangman.png
+Type=Application
+Categories=Qt;KDE;Game;
+Terminal=false
