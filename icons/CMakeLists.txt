@@ -1,10 +1,2 @@
-kde4_install_icons( ${ICON_INSTALL_DIR} )
-
-install(DIRECTORY 16x16 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 24x24 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 32x32 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 48x48 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 64x64 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 80x80 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY 128x128 DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
-install(DIRECTORY scalable DESTINATION ${SHARE_INSTALL_DIR}/icons/hicolor)
+kde4_install_icons( ${ICON_INSTALL_DIR}   )
+#
