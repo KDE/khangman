@@ -26,6 +26,8 @@
 #include <KDE/KStandardDirs>
 #include <KDE/KLocale>
 
+#include <QtGui/QApplication>
+
 KHangManEngineHelper::KHangManEngineHelper(KHangManEngine* khangmanEngine, QObject* parent)
     : QObject(parent)
     , m_khangmanEngine(khangmanEngine)
@@ -41,9 +43,16 @@ KHangManEngineHelper::~KHangManEngineHelper()
 QStringList KHangManEngineHelper::languageNames() const
 {
     QStringList languageCodes = SharedKvtmlFiles::languages();
+    if (languageCodes.isEmpty()) {
+        QApplication::instance()->quit();
+    }
+
     QStringList languageNames;
 
     // Get the language names from the language codes
+    // Look in $KDEDIR/share/locale/all_languages from
+    // kdelibs/kdecore/all_languages to find the name of the country
+    // corresponding to the code and the language the user set.
 
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 
@@ -90,15 +99,15 @@ void KHangManEngineHelper::setResolveTime(int resolveTime)
     emit resolveTimeChanged();
 }
 
-bool KHangManEngineHelper::useSounds()
+bool KHangManEngineHelper::isSound()
 {
-    return Prefs::useSounds();
+    return Prefs::Sound();
 }
 
-void KHangManEngineHelper::setUseSounds(bool useSounds)
+void KHangManEngineHelper::setSound(bool sound)
 {
-    Prefs::setUseSounds(useSounds);
-    emit useSoundsToggled();
+    Prefs::setSound(sound);
+    emit soundToggled();
 }
 
 QString KHangManEngineHelper::defaultVocabulary()
@@ -112,15 +121,15 @@ void KHangManEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary
     emit defaultVocabularyChanged();
 }
 
-QString KHangManEngineHelper::dataLanguage()
+QString KHangManEngineHelper::selectedLanguage()
 {
-    return Prefs::dataLanguage();
+    return Prefs::selectedLanguage();
 }
 
-void KHangManEngineHelper::setDataLanguage(const QString& dataLanguage)
+void KHangManEngineHelper::setSelectedLanguage(const QString& selectedLanguage)
 {
-    Prefs::setDataLanguage(dataLanguage);
-    emit dataLanguageChanged();
+    Prefs::setSelectedLanguage(selectedLanguage);
+    emit selectedLanguageChanged();
 }
 
 void KHangManEngineHelper::saveSettings()

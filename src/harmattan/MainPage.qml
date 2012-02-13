@@ -29,13 +29,12 @@ Page {
     orientationLock: PageOrientation.LockLandscape;
 
     property variant anagram: khangmanEngineHelper.createNextAnagram();
-    property int anagramStatus: anagramStatusEnumeration.init;
-    property int currentOriginalWordIndex: 0;
+    property int originalWordStatus: originalWordStatusEnumeration.init;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
-      id: anagramStatusEnumeration;
+      id: originalWordStatusEnumeration;
       property int init: 1;
       property int active: 2;
       property int resolved: 3;
@@ -58,18 +57,16 @@ Page {
 
     function resolveWord() {
         originalWordLetterRepeater.model = khangmanEngineHelper.anagramOriginalWord();
-        currentOriginalWordIndex = originalWordLetterRepeater.model.length;
-        anagramStatus = anagramStatusEnumeration.resolved;
+        originalWordStatus = originalWordStatusEnumeration.resolved;
         anagramHintInfoBanner.hide();
     }
 
     function nextAnagram() {
         anagramHintInfoBanner.hide();
-        anagramStatus = anagramStatusEnumeration.init;
+        originalWordStatus = originalWordStatusEnumeration.init;
         anagram = khangmanEngineHelper.createNextAnagram();
         anagramLetterRepeater.model = anagram;
         originalWordLetterRepeater.model = anagram;
-        currentOriginalWordIndex = 0;
         countDownTimerValue = khangmanEngineHelper.resolveTime;
         MyArray.sourceDestinationLetterIndexHash = [];
     }
@@ -129,7 +126,7 @@ Page {
             iconSource: "go-next.png";
 
             onClicked: {
-                if (khangmanEngineHelper.useSounds) {
+                if (khangmanEngineHelper.sound) {
                     nextWordSoundEffect.play();
                 }
 
@@ -164,7 +161,7 @@ Page {
 
         onSelectedIndexChanged: {
 
-            if (khangmanEngineHelper.useSounds) {
+            if (khangmanEngineHelper.sound) {
                 nextWordSoundEffect.play();
             }
 
@@ -183,7 +180,7 @@ Page {
         onTriggered: {
              if (khangmanEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
                  stop();
-                 if (khangmanEngineHelper.useSounds) {
+                 if (khangmanEngineHelper.sound) {
                     ewDialogAppearSoundEffect.play();
                  }
              }
@@ -249,6 +246,7 @@ Page {
         }
 
         spacing: 20;
+
         Row {
             id: originalWordRow;
             anchors {
@@ -261,56 +259,8 @@ Page {
                 model: anagram;
                 LetterElement {
                     id: originalWordLetterId;
-                    letterText: modelData;
-
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
-
-                        onClicked: {
-                            if (anagramStatus != anagramStatusEnumeration.resolved)
-                            {
-                                if (anagramLetterId.letterText != "")
-                                {
-                                    anagramStatus = anagramStatusEnumeration.active;
-
-                                    originalWordLetterRepeater.model =
-                                        khangmanEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
-
-                                    ++currentOriginalWordIndex;
-
-                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                    tmpAnagramLetterRepeaterModel[[index]] = "";
-                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                    MyArray.sourceDestinationLetterIndexHash.push(index);
-                                }
-
-                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
-                                {
-                                    khangmanResultTimer.start();
-                                    anagramStatus = anagramStatusEnumeration.resolved;
-                                    jhangmanHintInfoBanner.hide();
-                                    if (khangmanEngineHelper.compareWords() == true)
-                                    {
-                                        originalWordLetterRectangleColor = "green";
-
-                                        if (khangmanEngineHelper.useSounds) {
-                                            rightSoundEffect.play();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        originalWordLetterRectangleColor = "red";
-
-                                        if (khangmanEngineHelper.useSounds) {
-                                            wrongSoundEffect.play();
-                                        }
-                                    }
-                                }
-                            }
-                       }
-                    }
+                    color: originalWordLetterRectangleColor;
+                    letterText: originalWordStatus == originalWordStatusEnumeration.init ? "" : modelData;
                 }
             }
         }
@@ -339,29 +289,60 @@ Page {
                 model: anagram;
                 LetterElement {
                     id: originalWordLetterId;
-                    color: originalWordLetterRectangleColor;
-                    letterText: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
+                    letterText: modelData;
 
                     MouseArea {
                         anchors.fill: parent;
                         hoverEnabled: true;
 
                         onClicked: {
-                            if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
+                            if (originalWordStatus != originalWordStatusEnumeration.resolved)
+                            {
+                                if (anagramLetterId.letterText != "")
+                                {
+                                    originalWordStatus = originalWordStatusEnumeration.active;
 
-                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
-                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+                                    originalWordLetterRepeater.model =
+                                        khangmanEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
 
-                                MyArray.sourceDestinationLetterIndexHash.pop();
+                                    ++currentOriginalWordIndex;
 
-                                originalWordLetterRepeater.model = khangmanEngineHelper.removeInCurrentOriginalWord(index);
-                                --currentOriginalWordIndex;
+                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
+                                    tmpAnagramLetterRepeaterModel[[index]] = "";
+                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+
+                                    MyArray.sourceDestinationLetterIndexHash.push(index);
+                                }
+
+                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
+                                {
+                                    khangmanResultTimer.start();
+                                    originalWordStatus = originalWordStatusEnumeration.resolved;
+                                    jhangmanHintInfoBanner.hide();
+                                    if (khangmanEngineHelper.compareWords() == true)
+                                    {
+                                        originalWordLetterRectangleColor = "green";
+
+                                        if (khangmanEngineHelper.sound) {
+                                            rightSoundEffect.play();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        originalWordLetterRectangleColor = "red";
+
+                                        if (khangmanEngineHelper.sound) {
+                                            wrongSoundEffect.play();
+                                        }
+                                    }
+                                }
                             }
-                        }
+                       }
                     }
                 }
             }
         }
+
+
     }
 }

@@ -24,7 +24,6 @@
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeContext>
-#include <QtGui/QApplication>
 
 #include <QtCore/QUrl>
 

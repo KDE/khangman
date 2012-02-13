@@ -27,9 +27,9 @@ class KHangManEngineHelper : public QObject
     Q_OBJECT
     Q_PROPERTY( int hintHideTime READ hintHideTime WRITE setHintHideTime NOTIFY hintHideTimeChanged )
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
-    Q_PROPERTY( bool useSounds READ useSounds WRITE setUseSounds NOTIFY useSoundsToggled )
+    Q_PROPERTY( bool sound READ isSound WRITE setSound NOTIFY soundToggled )
     Q_PROPERTY( QString defaultVocabulary READ defaultVocabulary WRITE setDefaultVocabulary NOTIFY defaultVocabularyChanged )
-    Q_PROPERTY( QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged )
+    Q_PROPERTY( QString selectedLanguage READ selectedLanguage WRITE setSelectedLanguage NOTIFY selectedLanguageChanged )
 
 	public:
         explicit KHangManEngineHelper(KHangManEngine *khangmanEngine, QObject* parent = 0);
@@ -48,14 +48,14 @@ class KHangManEngineHelper : public QObject
         int resolveTime();
         void setResolveTime(int resolveTime);
 
-        bool useSounds();
-        void setUseSounds(bool useSounds);
+        bool isSound();
+        void setSound(bool sound);
 
         QString defaultVocabulary();
         void setDefaultVocabulary(const QString& defaultVocabulary);
 
-        QString dataLanguage();
-        void setDataLanguage(const QString& dataLanguage);
+        QString selectedLanguage();
+        void setSelectedLanguage(const QString& selectedLanguage);
 
     public Q_SLOTS:
         void saveSettings();
@@ -63,9 +63,9 @@ class KHangManEngineHelper : public QObject
     Q_SIGNALS:
         void hintHideTimeChanged();
         void resolveTimeChanged();
-        void useSoundsToggled();
+        void soundToggled();
         void defaultVocabularyChanged();
-        void dataLanguageChanged();
+        void selectedLanguageChanged();
 
 	private:
         KHangManEngine *m_khangmanEngine;

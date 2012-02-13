@@ -39,7 +39,7 @@ Page {
         model: khangmanEngineHelper.languageNames();
 
         onSelectedIndexChanged: {
-            khangmanEngineHelper.dataLanguage = model[selectedIndex];
+            khangmanEngineHelper.selectedLanguage = model[selectedIndex];
         }
     }
 
@@ -54,15 +54,15 @@ Page {
             resolveTimeSlider.value = khangmanEngineHelper.resolveTime;
         }
 
-        onUseSoundsChanged: {
-            soundsSwitch.checked = khangmanEngineHelper.useSounds;
+        soundChanged: {
+            soundsSwitch.checked = khangmanEngineHelper.sound;
         }
     }
 
     Component.onCompleted: {
         hintAppearanceSlider.value = khangmanEngineHelper.hintHideTime;
         resolveTimeSlider.value = khangmanEngineHelper.resolveTime;
-        soundsSwitch.checked = khangmanEngineHelper.useSounds;
+        soundsSwitch.checked = khangmanEngineHelper.sound;
     }
 
 
@@ -174,7 +174,7 @@ Page {
 
                     Label {
                         anchors.left: parent.left;
-                        text: qsTr("Sounds");
+                        text: qsTr("Sound");
                         font.bold: true;
                     }
 
@@ -183,7 +183,7 @@ Page {
                         anchors.right: parent.right;
 
                         onCheckedChanged: {
-                            khangmanEngineHelper.useSounds = checked;
+                            khangmanEngineHelper.sound = checked;
                         }
                     }
                 }
@@ -199,7 +199,7 @@ Page {
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
-                    subtitleText: khangmanEngineHelper.dataLanguage ?  khangmanEngineHelper.dataLanguage : "English";
+                    subtitleText: khangmanEngineHelper.selectedLanguage ? khangmanEngineHelper.selectedLanguage : "English";
                     iconId: "textinput-combobox-arrow";
                     iconVisible: true;
                     mousePressed: languageSelectionMouseArea.pressed;
