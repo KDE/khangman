@@ -267,11 +267,6 @@ void KHangMan::loadSettings()
     if (!m_languages.contains(selectedLanguage)) {
         selectedLanguage = "en";
     }
-    int index = m_languages.indexOf(Prefs::selectedLanguage());
-    if (index < 0) {
-        // if the selected language is not available, use the first available one
-        index = 0;
-    }
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar()) {
         specialCharToolbar->show();
