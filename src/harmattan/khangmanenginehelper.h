@@ -57,6 +57,8 @@ class KHangManEngineHelper : public QObject
         QString selectedLanguage();
         void setSelectedLanguage(const QString& selectedLanguage);
 
+        Q_INVOKABLE QStringList alphabet() const;
+
     public Q_SLOTS:
         void saveSettings();
 

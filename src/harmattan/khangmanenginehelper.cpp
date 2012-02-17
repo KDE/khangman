@@ -132,6 +132,21 @@ void KHangManEngineHelper::setSelectedLanguage(const QString& selectedLanguage)
     emit selectedLanguageChanged();
 }
 
+QStringList KHangManEngineHelper::alphabet() const
+{
+    QStringList letterList;
+    char c = 'A';
+
+    while( c != 'Z') {
+        letterList.append(QChar(c));
+        ++c;
+    }
+
+    letterList.append(QChar(c));
+
+    return letterList;
+}
+
 void KHangManEngineHelper::saveSettings()
 {
     Prefs::self()->writeConfig();
