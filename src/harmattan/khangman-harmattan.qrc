@@ -25,6 +25,7 @@
         <file alias="separator.png">../../icons/common/separator.png</file>
         <file alias="go-next.png">../../icons/common/go-next.png</file>
         <file alias="settings.png">../../icons/common/settings.png</file>
+        <file alias="kde-edu-logo.png">../../icons/common/kde-edu-logo.png</file>
 
     </qresource>
 </RCC>

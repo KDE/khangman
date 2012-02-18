@@ -20,329 +20,88 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
-import QtMultimediaKit 1.1
-
-import "array.js" as MyArray
 
 Page {
-
-    orientationLock: PageOrientation.LockLandscape;
-
-    property variant anagram: khangmanEngineHelper.createNextAnagram();
-    property int originalWordStatus: originalWordStatusEnumeration.init;
-    property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
-    property int countDownTimerValue: khangmanEngineHelper.resolveTime;
-
-    QtObject {  // status enum hackery :)
-      id: originalWordStatusEnumeration;
-      property int init: 1;
-      property int active: 2;
-      property int resolved: 3;
-    }
-
-    onStatusChanged: {
-        if (status == PageStatus.Active) {
-            secondTimer.repeat = true;
-            secondTimer.restart();
-        }
-    }
-
-    function pushPage(file) {
-        var component = Qt.createComponent(file)
-        if (component.status == Component.Ready)
-            pageStack.push(component);
-        else
-            console.log("Error loading component:", component.errorString());
-    }
-
-    function resolveWord() {
-        originalWordLetterRepeater.model = khangmanEngineHelper.anagramOriginalWord();
-        originalWordStatus = originalWordStatusEnumeration.resolved;
-        anagramHintInfoBanner.hide();
-    }
-
-    function nextAnagram() {
-        anagramHintInfoBanner.hide();
-        originalWordStatus = originalWordStatusEnumeration.init;
-        anagram = khangmanEngineHelper.createNextAnagram();
-        anagramLetterRepeater.model = anagram;
-        originalWordLetterRepeater.model = anagram;
-        countDownTimerValue = khangmanEngineHelper.resolveTime;
-        MyArray.sourceDestinationLetterIndexHash = [];
-    }
-
-    // Create an info banner with icon
-    InfoBanner {
-        id: khangmanHintInfoBanner;
-        text: qsTr("This is an info banner with icon");
-        iconSource: "dialog-information.png";
-    }
-
-    SoundEffect {
-        id: ewDialogAppearSoundEffect;
-        source: "EW_Dialogue_Appear.wav";
-    }
-
-    SoundEffect {
-        id: nextWordSoundEffect;
-        source: "new_game.wav";
-    }
-
-    SoundEffect {
-        id: splashSoundEffect;
-        source: "splash.wav";
-    }
-
-    // These tools are available for the main page by assigning the
-    // id to the main page's tools property
-    ToolBarLayout {
-        id: mainPageTools;
-        visible: false;
-
-        ToolIcon {
-            iconSource: "help-hint.png";
-
-            onClicked: {
-                khangmanHintInfoBanner.text = khangmanEngine.hint();
-                khangmanHintInfoBanner.timerShowTime = khangmanEngineHelper.hintHideTime * 1000;
-
-                // Display the info banner
-                khangmanHintInfoBanner.show();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "games-solve.png";
-
-            onClicked: {
-                resolveWord();
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "go-next.png";
-
-            onClicked: {
-                if (khangmanEngineHelper.sound) {
-                    nextWordSoundEffect.play();
-                }
-
-                nextWord();
-                secondTimer.repeat = true;
-                secondTimer.restart();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "settings.png";
-
-            onClicked: {
-                khangmanHintInfoBanner.hide();
-                pageStack.push(mainSettingsPage);
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }
-    }
-
-    tools: mainPageTools;
-
-    // Create a selection dialog with the vocabulary titles to choose from.
-    MySelectionDialog {
-        id: categorySelectionDialog;
-        titleText: "Choose the word category"
-        selectedIndex: 1;
-
-        model: khangmanGame.vocabularyList();
-
-        onSelectedIndexChanged: {
-
-            if (khangmanEngineHelper.sound) {
-                nextWordSoundEffect.play();
-            }
-
-            khangmanGame.useVocabulary(selectedIndex);
-            nextWord();
-        }
-    }
-
-    Timer {
-        id: secondTimer;
-        interval: 1000;
-        repeat: true;
-        running: false;
-        triggeredOnStart: false;
-
-        onTriggered: {
-             if (khangmanEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
-                 stop();
-                 if (khangmanEngineHelper.sound) {
-                    ewDialogAppearSoundEffect.play();
-                 }
-             }
-        }
-    }
-
-    Timer {
-        id: khangmanResultTimer;
-        interval: 1000;
-        repeat: false;
-        running: false;
-        triggeredOnStart: false;
-
-        onTriggered: {
-            originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
-            nextAnagram();
-
-            secondTimer.repeat = true;
-            secondTimer.start();
-        }
-    }
-
-    Row {
-        spacing: 5;
-
-        anchors {
-            right: parent.right;
-            top: parent.top;
-            topMargin: 5;
-            rightMargin: 5;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 / 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 % 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: ":";
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 / 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 % 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
-        }
-    }
-
     Column {
+        id: mainPageColumn;
+
         anchors {
+            fill: parent;
             horizontalCenter: parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
         }
 
         spacing: 20;
 
-        Row {
-            id: originalWordRow;
+        Button {
+            id: playResumeGameButton;
+
             anchors {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            spacing: 10;
-            Repeater {
-                id: originalWordLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: originalWordLetterId;
-                    color: originalWordLetterRectangleColor;
-                    letterText: originalWordStatus == originalWordStatusEnumeration.init ? "" : modelData;
+            text: qsTr("Play Game");
+            font.pixelSize: 48;
+
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    nextWordSoundEffect.play();
                 }
+
+                pageStack.push(gamePage);
             }
         }
 
         Button {
-            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+            id: settingsButton;
 
             anchors {
                 horizontalCenter: parent.horizontalCenter;
             }
+
+            text: qsTr("Settings");
+            font.pixelSize: 48;
 
             onClicked: {
-                categorySelectionDialog.open();
+                if (kanagramEngineHelper.useSounds) {
+                    nextWordSoundEffect.play();
+                }
+
+                pageStack.push(mainSettingsPage);
             }
         }
 
-        Row {
-            id: originalWordRow;
+        Button {
+            id: helpButton;
+
             anchors {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            spacing: 10;
-            Repeater {
-                id: originalWordLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: originalWordLetterId;
-                    letterText: modelData;
+            text: qsTr("Help");
+            font.pixelSize: 48;
 
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
-
-                        onClicked: {
-                            if (originalWordStatus != originalWordStatusEnumeration.resolved)
-                            {
-                                if (anagramLetterId.letterText != "")
-                                {
-                                    originalWordStatus = originalWordStatusEnumeration.active;
-
-                                    originalWordLetterRepeater.model =
-                                        khangmanEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
-
-                                    ++currentOriginalWordIndex;
-
-                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                    tmpAnagramLetterRepeaterModel[[index]] = "";
-                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                    MyArray.sourceDestinationLetterIndexHash.push(index);
-                                }
-
-                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
-                                {
-                                    khangmanResultTimer.start();
-                                    originalWordStatus = originalWordStatusEnumeration.resolved;
-                                    jhangmanHintInfoBanner.hide();
-                                    if (khangmanEngineHelper.compareWords() == true)
-                                    {
-                                        originalWordLetterRectangleColor = "green";
-
-                                        if (khangmanEngineHelper.sound) {
-                                            rightSoundEffect.play();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        originalWordLetterRectangleColor = "red";
-
-                                        if (khangmanEngineHelper.sound) {
-                                            wrongSoundEffect.play();
-                                        }
-                                    }
-                                }
-                            }
-                       }
-                    }
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    nextWordSoundEffect.play();
                 }
+
+                pageStack.push(helpPage);
             }
         }
+    }
 
+    Image {
+        id: kdeEduLogo;
 
+        anchors {
+            right: parent.right;
+            bottom: parent.bottom;
+            rightMargin: 10;
+            bottomMargin: 40;
+        }
+
+        fillMode: Image.PreserveAspectFit;
+        source: "kde-edu-logo.png";
     }
 }
