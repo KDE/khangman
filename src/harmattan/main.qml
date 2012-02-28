@@ -19,6 +19,7 @@
 
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import QtMultimediaKit 1.1
 
 PageStackWindow {
     id: rootWindow;
@@ -29,6 +30,14 @@ PageStackWindow {
 
     MainPage {
         id: mainPage;
+    }
+
+    HelpPage {
+        id: helpPage;
+    }
+
+    GamePage {
+        id: gamePage;
     }
 
     MainSettingsPage {
@@ -66,5 +75,25 @@ PageStackWindow {
         landscapeBackground: "qrc:/khangman-background-landscape.png";
         portraitBackground: "qrc:/khangman-background-portrait.png";
         backgroundFillMode: Image.Tile;
+    }
+
+    SoundEffect {
+        id: chalkSoundEffect;
+        source: "chalk.wav";
+    }
+
+    SoundEffect {
+        id: rightSoundEffect;
+        source: "right.wav";
+    }
+
+    SoundEffect {
+        id: wrongSoundEffect;
+        source: "wrong.wav";
+    }
+
+    SoundEffect {
+        id: anagramLetterPressSoundEffect;
+        source: "anagram-letter-press.wav";
     }
 }
