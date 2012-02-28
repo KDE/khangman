@@ -149,6 +149,11 @@ QString KHangManEngine::stripAccents(const QString &original)
     return noAccents;
 }
 
+QString KHangManGame::hint() const
+{
+    return m_hint;
+}
+
 QString KHangManEngine::word() const
 {
     return m_originalWord;
