@@ -290,27 +290,27 @@ void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
     m_titleLevels.clear();
-    QStringList levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+    QStringList levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     
-    if (levels.size() == 0) {
+    if (levelFilenames.size() == 0) {
         Prefs::setSelectedLanguage("en");
         Prefs::self()->writeConfig();
-        levels = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
+        levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
 
-    if (levels.isEmpty()){
-        qApp->closeAllWindows();
+    if (levelFilenames.isEmpty()){
+        QApplication::instance()->quit();
     }
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
-    Q_ASSERT(levels.count() == titles.count());
-    for(int i = 0; i < levels.count(); ++i) {
-        m_titleLevels.insert(titles.at(i), levels.at(i));
+    Q_ASSERT(levelFilenames.count() == titles.count());
+    for(int i = 0; i < levelFilenames.count(); ++i) {
+        m_titleLevels.insert(titles.at(i), levelFilenames.at(i));
     }
 
-    if (!levels.contains(Prefs::levelFile())) {
+    if (!levelFilenames.contains(Prefs::levelFile())) {
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
         m_currentLevel = 0;

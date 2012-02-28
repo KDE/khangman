@@ -57,6 +57,14 @@
             hints will be displayed only per word when the user chooses to show the hint.</label>
             <default>false</default>
         </entry>
+        <entry name="hintHideTime" type="int">
+            <label>This setting allows you to set in seconds how long KHangMan's hint bubble is shown.</label>
+            <default>5</default>
+        </entry>
+        <entry name="resolveTime" type="int">
+            <label>This setting allows you to set in seconds how much time is available for resolving the word.</label>
+            <default>120</default>
+        </entry>
         <entry name="MissedTimer" type="Int">
             <label>Time during which the "Already Guessed" tooltip is displayed.</label>
             <default>1</default>

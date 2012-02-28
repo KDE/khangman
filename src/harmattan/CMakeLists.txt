@@ -1,15 +1,18 @@
 cmake_minimum_required(VERSION 2.8)
 
+set(khangman-harmattan_SRCS
+    main.cpp
+    khangmanengine.cpp
+    khangmanenginehelper.cpp
+)
+
+kde4_add_kcfg_files(khangman-harmattan_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/prefs.kcfgc)
+
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
 
     ${KHANGMAN_ENGINE_INCLUDE_DIRS}
-)
-
-set(khangman-harmattan_SRCS
-    main.cpp
-    khangmanenginehelper.cpp
 )
 
 # generate rules for building source files from the resources
@@ -27,7 +30,7 @@ target_link_libraries(khangman-harmattan
     ${KDE4_KDECORE_LIBS}
 )
 
-install(TARGETS hangman-harmattan
+install(TARGETS khangman-harmattan
         DESTINATION ${BIN_INSTALL_DIR}
         COMPONENT khangmanharmattan)
 

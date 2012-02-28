@@ -41,7 +41,7 @@ int main( int argc, char** argv )
 
     KGlobal::dirs()->addResourceDir("data", "/opt/khangman/share/");
 
-    KHangMan *khangmanEngine = new KHangManEngine();
+    KHangManEngine *khangmanEngine = new KHangManEngine();
     ctxt->setContextProperty("khangmanEngine", khangmanEngine);
 
     KHangManEngineHelper khangmanEngineHelper(khangmanEngine);

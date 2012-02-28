@@ -26,9 +26,9 @@ Rectangle {
     color: Qt.rgba(0, 0, 0, 0);
     width: 48;
     height: 48;
-    border.color: "white";
-    border.width: 2;
-    radius: 6;
+    // border.color: "white";
+    // border.width: 2;
+    // radius: 6;
 
     Text {
         id: letterId;

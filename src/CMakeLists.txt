@@ -1,6 +1,15 @@
 
 include_directories( ${LIBKDEEDU_INCLUDE_DIR} )
 
+####### KHangMan Harmattan ########
+if(BUILD_KHANGMAN_HARMATTAN)
+    if(QT_QTDECLARATIVE_FOUND)
+        add_subdirectory(harmattan)
+    else(QT_QTDECLARATIVE_FOUND)
+        message(WARNING "Qt installation lacks Qt Declarative - disabling harmattan based frontend")
+    endif(QT_QTDECLARATIVE_FOUND)
+endif()
+
 ########### next target ###############
 
 set(khangman_SRCS 

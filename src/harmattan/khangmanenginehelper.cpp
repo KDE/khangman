@@ -123,13 +123,31 @@ void KHangManEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary
 
 QString KHangManEngineHelper::selectedLanguage()
 {
-    return Prefs::selectedLanguage();
+    QStringList languageNames = SharedKvtmlFiles::languages();
+    if (languageNames.isEmpty()) {
+        QApplication::instance()->quit();
+    }
+
+    QString selectedLanguage = Prefs::selectedLanguage();
+    if (!languageNames.contains(selectedLanguage)) {
+        selectedLanguage = "en";
+    }
+
+    return selectedLanguage;
 }
 
 void KHangManEngineHelper::setSelectedLanguage(const QString& selectedLanguage)
 {
     Prefs::setSelectedLanguage(selectedLanguage);
     emit selectedLanguageChanged();
+}
+
+int KHangManEngineHelper::level()
+{
+    int currentLevel = Prefs::currentLevel();
+    if (currentLevel > m_titleLevels.count()) {
+        currentLevel = 0;
+    }
 }
 
 QStringList KHangManEngineHelper::alphabet() const
