@@ -22,8 +22,6 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 import QtMultimediaKit 1.1
 
-import "array.js" as MyArray
-
 Page {
 
     orientationLock: PageOrientation.LockLandscape;
@@ -34,10 +32,10 @@ Page {
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
-      id: originalWordStatusEnumeration;
-      property int init: 1;
-      property int active: 2;
-      property int resolved: 3;
+        id: originalWordStatusEnumeration;
+        property int init: 1;
+        property int active: 2;
+        property int resolved: 3;
     }
 
     onStatusChanged: {
@@ -55,20 +53,13 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
-    function resolveWord() {
-        originalWordLetterRepeater.model = khangmanEngineHelper.anagramOriginalWord();
-        originalWordStatus = originalWordStatusEnumeration.resolved;
-        anagramHintInfoBanner.hide();
-    }
-
-    function nextAnagram() {
+    function nextWord() {
         anagramHintInfoBanner.hide();
         originalWordStatus = originalWordStatusEnumeration.init;
-        anagram = khangmanEngineHelper.createNextAnagram();
+        anagram = khangmanEngineHelper.createNextWord();
         anagramLetterRepeater.model = anagram;
         originalWordLetterRepeater.model = anagram;
         countDownTimerValue = khangmanEngineHelper.resolveTime;
-        MyArray.sourceDestinationLetterIndexHash = [];
     }
 
     // Create an info banner with icon
@@ -111,6 +102,18 @@ Page {
             }
         }
 
+        ToolButton {
+            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+
+            anchors {
+                centerIn: parent;
+            }
+
+            onClicked: {
+                categorySelectionDialog.open();
+            }
+        }
+
         ToolIcon {
             iconSource: "go-next.png";
 
@@ -126,14 +129,16 @@ Page {
         }
 
         ToolIcon {
-            iconSource: "settings.png";
+            iconSource: "timer-pause.png";
 
             onClicked: {
-                khangmanHintInfoBanner.hide();
-                pageStack.push(mainSettingsPage);
+                anagramHintInfoBanner.hide();
+
+                pageStack.pop();
 
                 secondTimer.repeat = false;
                 secondTimer.stop();
+
             }
         }
     }
@@ -249,7 +254,7 @@ Page {
                 LetterElement {
                     id: originalWordLetterId;
                     color: originalWordLetterRectangleColor;
-                    letterText: originalWordStatus == originalWordStatusEnumeration.init ? "" : modelData;
+                    letterText: originalWordStatus == originalWordStatusEnumeration.init ? "_" : modelData;
                 }
             }
         }
