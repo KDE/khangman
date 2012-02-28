@@ -21,9 +21,12 @@
 
 #include <KDE/KGlobal>
 #include <KDE/KStandardDirs>
+#include <KDE/KComponentData>
+#include <kdeclarative.h>
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeContext>
+#include <QtGui/QApplication>
 
 #include <QtCore/QUrl>
 
@@ -38,11 +41,19 @@ int main( int argc, char** argv )
 
     KGlobal::dirs()->addResourceDir("data", "/opt/khangman/share/");
 
-    KHangManEngine *khangmanEngine = new KHangManEngine();
+    KHangMan *khangmanEngine = new KHangManEngine();
     ctxt->setContextProperty("khangmanEngine", khangmanEngine);
 
     KHangManEngineHelper khangmanEngineHelper(khangmanEngine);
     ctxt->setContextProperty("khangmanEngineHelper", &khangmanEngineHelper);
+
+    KComponentData data("khangman-harmattan");
+
+    KDeclarative kdeclarative;
+    kdeclarative.setDeclarativeEngine(view.engine());
+    kdeclarative.initialize();
+    // Binds things like KConfig and Icons
+    kdeclarative.setupBindings();
 
     view.setSource(QUrl("qrc:/main.qml"));
     view.showFullScreen();
