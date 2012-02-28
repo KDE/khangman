@@ -18,14 +18,16 @@
  */
 
 import QtQuick 1.1
+import QtMultimediaKit 1.1
+
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
-import QtMultimediaKit 1.1
 
 Page {
 
     orientationLock: PageOrientation.LockLandscape;
 
+    property string originalWord;
     property variant alphabet: khangmanEngineHelper.alphabet();
     property int originalWordStatus: originalWordStatusEnumeration.init;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
@@ -56,7 +58,7 @@ Page {
     function nextWord() {
         anagramHintInfoBanner.hide();
         originalWordStatus = originalWordStatusEnumeration.init;
-        anagram = khangmanEngineHelper.createNextWord();
+        originalWord = khangmanEngineHelper.createNextWord();
         anagramLetterRepeater.model = anagram;
         originalWordLetterRepeater.model = anagram;
         countDownTimerValue = khangmanEngineHelper.resolveTime;
@@ -65,23 +67,8 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: khangmanHintInfoBanner;
-        text: qsTr("This is an info banner with icon");
+        text: qsTr("This is an info banner for the hints with icon");
         iconSource: "dialog-information.png";
-    }
-
-    SoundEffect {
-        id: ewDialogAppearSoundEffect;
-        source: "EW_Dialogue_Appear.wav";
-    }
-
-    SoundEffect {
-        id: nextWordSoundEffect;
-        source: "new_game.wav";
-    }
-
-    SoundEffect {
-        id: splashSoundEffect;
-        source: "splash.wav";
     }
 
     // These tools are available for the main page by assigning the
