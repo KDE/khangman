@@ -67,7 +67,7 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: khangmanHintInfoBanner;
-        text: qsTr("This is an info banner for the hints with icon");
+        text: qsTr("This is an info banner with icon for the hints");
         iconSource: "dialog-information.png";
     }
 
@@ -102,20 +102,6 @@ Page {
         }
 
         ToolIcon {
-            iconSource: "go-next.png";
-
-            onClicked: {
-                if (khangmanEngineHelper.sound) {
-                    nextWordSoundEffect.play();
-                }
-
-                nextWord();
-                secondTimer.repeat = true;
-                secondTimer.restart();
-            }
-        }
-
-        ToolIcon {
             iconSource: "timer-pause.png";
 
             onClicked: {
@@ -126,6 +112,20 @@ Page {
                 secondTimer.repeat = false;
                 secondTimer.stop();
 
+            }
+        }
+
+        ToolIcon {
+            iconSource: "go-next.png";
+
+            onClicked: {
+                if (khangmanEngineHelper.sound) {
+                    nextWordSoundEffect.play();
+                }
+
+                nextWord();
+                secondTimer.repeat = true;
+                secondTimer.restart();
             }
         }
     }
