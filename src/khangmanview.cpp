@@ -706,14 +706,14 @@ void KHangManView::slotSetWordsSequence()
     KRandomSequence randomSequence;
     m_randomList.clear();
     for (int j = 0; j < wordCount; ++j) {
-        QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->comment();
+        QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if
             // there is one
-            hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(1)->text();
+            hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(1)->text();
         }
-        if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text().isEmpty()) {
-            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(j)->translation(0)->text(), hint));  
+        if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text().isEmpty()) {
+            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text(), hint));  
         }
     }
     //shuffle the list
