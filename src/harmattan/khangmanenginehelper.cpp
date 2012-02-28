@@ -21,7 +21,7 @@
 
 #include <prefs.h>
 
-#include <sharedkvtmlfiles.h>
+#include <libkdeedu/sharedkvtmlfiles.h>
 
 #include <KDE/KStandardDirs>
 #include <KDE/KLocale>
