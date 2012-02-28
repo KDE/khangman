@@ -22,51 +22,49 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 
 Page {
+
+    QueryDialog {
+        id: aboutDialog;
+        icon: "hi80-app-khangman-harmattan.png";
+        message: "KHangMan (Version 0.1.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
+        acceptButtonText: "OK";
+    }
+
     Column {
         id: mainPageColumn;
 
         anchors {
-            fill: parent;
-            horizontalCenter: parent.horizontalCenter;
-            verticalCenter: parent.verticalCenter;
+            centerIn: parent;
+            verticalCenterOffset: -5;
         }
+
+        width: 400;
 
         spacing: 20;
 
         Button {
             id: playResumeGameButton;
 
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            text: qsTr("Play Game");
+            text: i18n("Play Game");
             font.pixelSize: 48;
 
-            onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    nextWordSoundEffect.play();
-                }
+            width: parent.width;
 
+            onClicked: {
                 pageStack.push(gamePage);
+                text = i18n("Resume Game");
             }
         }
 
         Button {
             id: settingsButton;
 
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            text: qsTr("Settings");
+            text: i18n("Settings");
             font.pixelSize: 48;
 
-            onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    nextWordSoundEffect.play();
-                }
+            width: parent.width;
 
+            onClicked: {
                 pageStack.push(mainSettingsPage);
             }
         }
@@ -78,15 +76,13 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            text: qsTr("Help");
+            text: i18n("About");
             font.pixelSize: 48;
 
-            onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    nextWordSoundEffect.play();
-                }
+            width: parent.width;
 
-                pageStack.push(helpPage);
+            onClicked: {
+                aboutDialog.open();
             }
         }
     }
@@ -97,8 +93,7 @@ Page {
         anchors {
             right: parent.right;
             bottom: parent.bottom;
-            rightMargin: 10;
-            bottomMargin: 40;
+            rightMargin: 5;
         }
 
         fillMode: Image.PreserveAspectFit;
