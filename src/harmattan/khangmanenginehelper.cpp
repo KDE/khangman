@@ -101,7 +101,7 @@ void KHangManEngineHelper::setResolveTime(int resolveTime)
 
 bool KHangManEngineHelper::isSound()
 {
-    return Prefs::Sound();
+    return Prefs::sound();
 }
 
 void KHangManEngineHelper::setSound(bool sound)
@@ -112,12 +112,15 @@ void KHangManEngineHelper::setSound(bool sound)
 
 QString KHangManEngineHelper::defaultVocabulary()
 {
-    return Prefs::defaultVocabulary();
+    // TODO: Fix it with the proper accessor for sure
+    // return Prefs::defaultVocabulary();
+    return QString();
 }
 
 void KHangManEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary)
 {
-    Prefs::setDefaultVocabulary(defaultVocabulary);
+    // TODO: Fix it with the proper mutator for sure
+    // Prefs::setDefaultVocabulary(defaultVocabulary);
     emit defaultVocabularyChanged();
 }
 
@@ -140,14 +143,6 @@ void KHangManEngineHelper::setSelectedLanguage(const QString& selectedLanguage)
 {
     Prefs::setSelectedLanguage(selectedLanguage);
     emit selectedLanguageChanged();
-}
-
-int KHangManEngineHelper::level()
-{
-    int currentLevel = Prefs::currentLevel();
-    if (currentLevel > m_titleLevels.count()) {
-        currentLevel = 0;
-    }
 }
 
 QStringList KHangManEngineHelper::alphabet() const

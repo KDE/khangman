@@ -58,6 +58,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
          */
         Q_INVOKABLE QString stripAccents(const QString & original);
 
+        /** Get the current answer */
+        QString word() const;
+
     public Q_SLOTS:
         /** Generate a new word */
         void newWord();

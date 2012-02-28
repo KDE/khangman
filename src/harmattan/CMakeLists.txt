@@ -26,8 +26,9 @@ target_link_libraries(khangman-harmattan
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTGUI_LIBRARY}
     ${QT_QTCORE_LIBRARY}
-    ${KHANGMAN_ENGINE_LIBRARIES}
     ${KDE4_KDECORE_LIBS}
+    ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
+    kdeclarative
 )
 
 install(TARGETS khangman-harmattan

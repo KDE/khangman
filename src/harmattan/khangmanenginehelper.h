@@ -57,7 +57,6 @@ class KHangManEngineHelper : public QObject
         QString selectedLanguage();
         void setSelectedLanguage(const QString& selectedLanguage);
 
-        int level();
         void setLevel(int levelId);
 
         Q_INVOKABLE QStringList alphabet() const;

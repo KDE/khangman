@@ -149,6 +149,11 @@ QString KHangManEngine::stripAccents(const QString &original)
     return noAccents;
 }
 
+QString KHangManEngine::word() const
+{
+    return m_originalWord;
+}
+
 bool KHangManEngine::containsChar(const QString &sChar)
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
