@@ -3,6 +3,7 @@
 
         <file>main.qml</file>
         <file>MainPage.qml</file>
+        <file>GamePage.qml</file>
         <file>MainSettingsPage.qml</file>
 
         <file alias="new_game.wav">../../sounds/new_game.wav</file>
