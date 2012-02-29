@@ -32,10 +32,6 @@ PageStackWindow {
         id: mainPage;
     }
 
-    HelpPage {
-        id: helpPage;
-    }
-
     GamePage {
         id: gamePage;
     }
