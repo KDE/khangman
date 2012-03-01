@@ -16,6 +16,8 @@
         <file>ListItem.qml</file>
         <file>LetterElement.qml</file>
 
+        <file alias="khangman-background-landscape.png">../../icons/common/kanagram-background-landscape.png</file>
+        <file alias="khangman-background-portrait.png">../../icons/common/kanagram-background-portrait.png</file>
         <file alias="help-hint.png">../../icons/common/help-hint.png</file>
         <file alias="games-solve.png">../../icons/common/games-solve.png</file>
         <file alias="preferences-desktop-locale.png">../../icons/common/preferences-desktop-locale.png</file>
@@ -24,6 +26,8 @@
         <file alias="go-next.png">../../icons/common/go-next.png</file>
         <file alias="settings.png">../../icons/common/settings.png</file>
         <file alias="kde-edu-logo.png">../../icons/common/kde-edu-logo.png</file>
+        <file alias="hi80-app-kanagram-harmattan.png">../../icons/hi80-app-kanagram-harmattan.png</file>
+        <file alias="timer-pause.png">../../icons/common/timer-pause.png</file>
 
     </qresource>
 </RCC>

@@ -138,7 +138,7 @@ Page {
         titleText: "Choose the word category"
         selectedIndex: 1;
 
-        model: khangmanGame.vocabularyList();
+        model: khangmanEngine.vocabularyList();
 
         onSelectedIndexChanged: {
 
@@ -146,7 +146,7 @@ Page {
                 nextWordSoundEffect.play();
             }
 
-            khangmanGame.useVocabulary(selectedIndex);
+            khangmanEngine.useVocabulary(selectedIndex);
             nextWord();
         }
     }
