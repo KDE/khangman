@@ -237,36 +237,6 @@ Page {
             spacing: 10;
             Repeater {
                 id: originalWordLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: originalWordLetterId;
-                    color: originalWordLetterRectangleColor;
-                    letterText: originalWordStatus == originalWordStatusEnumeration.init ? "_" : modelData;
-                }
-            }
-        }
-
-        Button {
-            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
-
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            onClicked: {
-                categorySelectionDialog.open();
-            }
-        }
-
-        Row {
-            id: originalWordRow;
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            spacing: 10;
-            Repeater {
-                id: originalWordLetterRepeater;
                 model: alphabet;
                 LetterElement {
                     id: originalWordLetterId;
@@ -279,22 +249,6 @@ Page {
                         onClicked: {
                             if (originalWordStatus != originalWordStatusEnumeration.resolved)
                             {
-                                if (anagramLetterId.letterText != "")
-                                {
-                                    originalWordStatus = originalWordStatusEnumeration.active;
-
-                                    originalWordLetterRepeater.model =
-                                        khangmanEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
-
-                                    ++currentOriginalWordIndex;
-
-                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                    tmpAnagramLetterRepeaterModel[[index]] = "";
-                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                    MyArray.sourceDestinationLetterIndexHash.push(index);
-                                }
-
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                                 {
                                     khangmanResultTimer.start();
