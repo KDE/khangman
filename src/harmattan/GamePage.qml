@@ -234,43 +234,53 @@ Page {
 
             spacing: 10;
             Repeater {
-                id: originalWordLetterRepeater;
+                id: alphabetLetterRepeater;
                 model: alphabet;
-                LetterElement {
-                    id: originalWordLetterId;
-                    letterText: modelData;
+                Button {
+                    id: alphabetLetterId;
+                    text: modelData;
 
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
+                    platformStyle: ButtonStyle {
+                        background: "image://theme/meegotouch-button-inverted-background";
+                        fontFamily: "Arial";
+                        fontPixelSize: 40;
+                        fontCapitalization: Font.AllUppercase;
+                        fontWeight: Font.Bold;
+                        horizontalAlignment: Text.AlignHCenter;
+                        textColor: "white";
+                        pressedTextColor: "pink";
+                        disabledTextColor: "gray";
+                        checkedTextColor: "blue";
+                        buttonWidth: 45;
+                        buttonHeight: 60;
+                    }
 
-                        onClicked: {
-                            if (originalWordStatus != originalWordStatusEnumeration.resolved)
+                    onClicked: {
+                        if (originalWordStatus != originalWordStatusEnumeration.resolved)
+                        {
+                            if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                             {
-                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
+                                khangmanResultTimer.start();
+                                originalWordStatus = originalWordStatusEnumeration.resolved;
+                                jhangmanHintInfoBanner.hide();
+                                if (khangmanEngineHelper.compareWords() == true)
                                 {
-                                    khangmanResultTimer.start();
-                                    originalWordStatus = originalWordStatusEnumeration.resolved;
-                                    jhangmanHintInfoBanner.hide();
-                                    if (khangmanEngineHelper.compareWords() == true)
-                                    {
-                                        originalWordLetterRectangleColor = "green";
+                                    originalWordLetterRectangleColor = "green";
 
-                                        if (khangmanEngineHelper.sound) {
-                                            rightSoundEffect.play();
-                                        }
+                                    if (khangmanEngineHelper.sound) {
+                                        rightSoundEffect.play();
                                     }
-                                    else
-                                    {
-                                        originalWordLetterRectangleColor = "red";
+                                }
+                                else
+                                {
+                                    originalWordLetterRectangleColor = "red";
 
-                                        if (khangmanEngineHelper.sound) {
-                                            wrongSoundEffect.play();
-                                        }
+                                    if (khangmanEngineHelper.sound) {
+                                        wrongSoundEffect.play();
                                     }
                                 }
                             }
-                       }
+                        }
                     }
                 }
             }
