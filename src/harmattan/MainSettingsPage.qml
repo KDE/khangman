@@ -54,7 +54,7 @@ Page {
             resolveTimeSlider.value = khangmanEngineHelper.resolveTime;
         }
 
-        soundChanged: {
+        onSoundChanged: {
             soundsSwitch.checked = khangmanEngineHelper.sound;
         }
     }
