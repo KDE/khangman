@@ -71,6 +71,25 @@ Page {
         iconSource: "dialog-information.png";
     }
 
+    // Create a selection dialog with the vocabulary titles to choose from.
+    MySelectionDialog {
+        id: categorySelectionDialog;
+        titleText: "Choose the word category"
+        selectedIndex: 1;
+
+        model: khangmanEngine.categoryList();
+
+        onSelectedIndexChanged: {
+
+            if (khangmanEngineHelper.sound) {
+                nextWordSoundEffect.play();
+            }
+
+            khangmanEngine.useVocabulary(selectedIndex);
+            nextWord();
+        }
+    }
+
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
     ToolBarLayout {
@@ -131,25 +150,6 @@ Page {
     }
 
     tools: mainPageTools;
-
-    // Create a selection dialog with the vocabulary titles to choose from.
-    MySelectionDialog {
-        id: categorySelectionDialog;
-        titleText: "Choose the word category"
-        selectedIndex: 1;
-
-        model: khangmanEngine.categoryList();
-
-        onSelectedIndexChanged: {
-
-            if (khangmanEngineHelper.sound) {
-                nextWordSoundEffect.play();
-            }
-
-            khangmanEngine.useVocabulary(selectedIndex);
-            nextWord();
-        }
-    }
 
     Timer {
         id: secondTimer;
