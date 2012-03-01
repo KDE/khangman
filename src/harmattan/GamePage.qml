@@ -45,6 +45,20 @@ Page {
         }
     }
 
+    state: (screen.currentOrientation == Screen.Portrait || screen.currentOrientation == Screen.PortraitInverted) ? "portrait" : "landscape"
+
+    states: [
+        State {
+            name: "landscape"
+            PropertyChanges { target: alphabetGrid; columns: 13; rows: 2 }
+        },
+
+        State {
+            name: "portrait"
+            PropertyChanges { target: alphabetGrid; columns: 10; rows: 3 }
+        }
+    ]
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -232,6 +246,24 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
+            spacing: 8;
+            Repeater {
+                id: originalWordLetterRepeater;
+                model: anagram;
+                LetterElement {
+                    id: originalWordLetterId;
+                    text: originalWordStatus == originalWordStatusEnumeration.init ? "" : modelData;
+                }
+            }
+        }
+
+        Grid {
+            id: alphabetGrid;
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
+            columns: 10;
             spacing: 10;
             Repeater {
                 id: alphabetLetterRepeater;
