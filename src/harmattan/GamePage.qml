@@ -54,7 +54,7 @@ Page {
     }
 
     function nextWord() {
-        anagramHintInfoBanner.hide();
+        khangmanHintInfoBanner.hide();
         originalWordStatus = originalWordStatusEnumeration.init;
         originalWord = khangmanEngineHelper.createNextWord();
         anagramLetterRepeater.model = anagram;
@@ -122,7 +122,7 @@ Page {
             iconSource: "timer-pause.png";
 
             onClicked: {
-                anagramHintInfoBanner.hide();
+                khangmanHintInfoBanner.hide();
 
                 pageStack.pop();
 
