@@ -25,8 +25,6 @@ import com.nokia.extras 1.0
 
 Page {
 
-    orientationLock: PageOrientation.LockLandscape;
-
     property string originalWord;
     property variant alphabet: khangmanEngineHelper.alphabet();
     property int originalWordStatus: originalWordStatusEnumeration.init;
