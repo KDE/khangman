@@ -33,6 +33,7 @@
 
 KHangManEngine::KHangManEngine()
 {
+    loadVocabularies();
 }
 
 KHangManEngine::~KHangManEngine()
@@ -68,9 +69,8 @@ bool KHangManEngine::hasAccentedLetters(const QString& languageCode)
     return false;
 }
 
-void KHangManEngine::loadLevels()
+void KHangManEngine::loadVocabularies()
 {
-    //build the Level combobox menu dynamically depending of the data for each language
     m_titleLevels.clear();
     QStringList levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());

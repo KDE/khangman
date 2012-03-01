@@ -76,7 +76,7 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
 
     private:
         /** Scan the files in the selected language dir to set the levels */
-        void loadLevels();
+        void loadVocabularies();
 
         /** the different data titles and files in the current language dir */
         QMap<QString, QString> m_titleLevels;
