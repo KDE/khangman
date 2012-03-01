@@ -64,6 +64,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** Get the current answer */
         Q_INVOKABLE QString word() const;
 
+        /** Get the current categories available */
+        Q_INVOKABLE QStringList categoryList() const;
+
     public Q_SLOTS:
         /** Generate a new word */
         void newWord();

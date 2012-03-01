@@ -138,7 +138,7 @@ Page {
         titleText: "Choose the word category"
         selectedIndex: 1;
 
-        model: khangmanEngine.vocabularyList();
+        model: khangmanEngine.categoryList();
 
         onSelectedIndexChanged: {
 

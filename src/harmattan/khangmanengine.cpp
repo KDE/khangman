@@ -159,6 +159,11 @@ QString KHangManEngine::word() const
     return m_originalWord;
 }
 
+QStringList KHangManEngine::categoryList() const
+{
+    return m_titleLevels.keys();
+}
+
 bool KHangManEngine::containsChar(const QString &sChar)
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
