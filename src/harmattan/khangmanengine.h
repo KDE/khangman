@@ -74,6 +74,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** Method to set the current language into the Statusbar and to pass it to KHangManView */
         void readFile();
 
+        /** Handle the guessed letter */
+        void replaceLetters(const QString& charString);
+
     private:
         /** Scan the files in the selected language dir to set the levels */
         void loadVocabularies();
@@ -95,6 +98,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
 
         /** The word to be guessed */
         QString m_originalWord;
+
+        /** The hidden word that is filled in during the game. */
+        QString m_currentWord;
 
         /** Which index the current filename is in m_fileList */
         int m_index;

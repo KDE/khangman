@@ -169,6 +169,21 @@ bool KHangManEngine::containsChar(const QString &sChar)
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
 
+void KHangManEngine::replaceLetters(const QString& charString)
+{
+    QChar ch = charString.at(0);
+    bool oneLetter = Prefs::oneLetter();
+
+    for (int i = 0; i < m_originalWord.size(); ++i) {
+        if (m_originalWord.at(i) == ch) {
+            m_currentWord[i] = ch;
+
+            if (oneLetter)
+                break;
+        }
+    }
+}
+
 void KHangManEngine::newWord()
 {
     m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
