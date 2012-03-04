@@ -186,6 +186,8 @@ void KHangManEngine::replaceLetters(const QString& charString)
 
 void KHangManEngine::newWord()
 {
+    m_currentWord.clear();
+
     m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
     m_originalWord = m_originalWord.toLower();
     m_hint = m_randomList[m_randomInt%m_randomList.count()].second;

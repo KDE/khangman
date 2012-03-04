@@ -25,14 +25,14 @@ import com.nokia.extras 1.0
 
 Page {
 
-    property string originalWord;
+    property string currentWord: khangmanEngineHelper.currentWord();
     property variant alphabet: khangmanEngineHelper.alphabet();
-    property int originalWordStatus: originalWordStatusEnumeration.init;
-    property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
+    property int currentWordStatus: currentWordStatusEnumeration.init;
+    property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
-        id: originalWordStatusEnumeration;
+        id: currentWordStatusEnumeration;
         property int init: 1;
         property int active: 2;
         property int resolved: 3;
@@ -51,11 +51,13 @@ Page {
         State {
             name: "landscape"
             PropertyChanges { target: alphabetGrid; columns: 13; rows: 2 }
+            PropertyChanges { target: currentWordGrid; columns: 13; }
         },
 
         State {
             name: "portrait"
             PropertyChanges { target: alphabetGrid; columns: 10; rows: 3 }
+            PropertyChanges { target: currentWordGrid; columns: 10; }
         }
     ]
 
@@ -69,9 +71,8 @@ Page {
 
     function nextWord() {
         khangmanHintInfoBanner.hide();
-        originalWordStatus = originalWordStatusEnumeration.init;
+        currentWordStatus = currentWordStatusEnumeration.init;
         originalWord = khangmanEngineHelper.createNextWord();
-        anagramLetterRepeater.model = anagram;
         originalWordLetterRepeater.model = anagram;
         countDownTimerValue = khangmanEngineHelper.resolveTime;
     }
@@ -240,8 +241,8 @@ Page {
 
         spacing: 20;
 
-        Row {
-            id: originalWordRow;
+        Grid {
+            id: currentWordGrid;
             anchors {
                 horizontalCenter: parent.horizontalCenter;
             }
@@ -263,7 +264,6 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            columns: 10;
             spacing: 10;
             Repeater {
                 id: alphabetLetterRepeater;
@@ -288,28 +288,25 @@ Page {
                     }
 
                     onClicked: {
-                        if (originalWordStatus != originalWordStatusEnumeration.resolved)
+                        if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                         {
-                            if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
+                            khangmanResultTimer.start();
+                            originalWordStatus = originalWordStatusEnumeration.resolved;
+                            jhangmanHintInfoBanner.hide();
+                            if (khangmanEngineHelper.compareWords() == true)
                             {
-                                khangmanResultTimer.start();
-                                originalWordStatus = originalWordStatusEnumeration.resolved;
-                                jhangmanHintInfoBanner.hide();
-                                if (khangmanEngineHelper.compareWords() == true)
-                                {
-                                    originalWordLetterRectangleColor = "green";
+                                originalWordLetterRectangleColor = "green";
 
-                                    if (khangmanEngineHelper.sound) {
-                                        rightSoundEffect.play();
-                                    }
+                                if (khangmanEngineHelper.sound) {
+                                    rightSoundEffect.play();
                                 }
-                                else
-                                {
-                                    originalWordLetterRectangleColor = "red";
+                            }
+                            else
+                            {
+                                originalWordLetterRectangleColor = "red";
 
-                                    if (khangmanEngineHelper.sound) {
-                                        wrongSoundEffect.play();
-                                    }
+                                if (khangmanEngineHelper.sound) {
+                                    wrongSoundEffect.play();
                                 }
                             }
                         }
