@@ -159,6 +159,11 @@ QString KHangManEngine::word() const
     return m_originalWord;
 }
 
+QString KHangManEngine::currentWord() const
+{
+    return m_currentWord;
+}
+
 QStringList KHangManEngine::categoryList() const
 {
     return m_titleLevels.keys();
@@ -200,7 +205,7 @@ void KHangManEngine::newWord()
     int originalWordSize = m_originalWord.size();
 
     while (m_currentWord.size() < originalWordSize)
-        m_currentOriginalWord.append("_");
+        m_currentWord.append("_");
 }
 
 #include "khangmanengine.moc"
