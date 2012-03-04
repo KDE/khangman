@@ -186,8 +186,6 @@ void KHangManEngine::replaceLetters(const QString& charString)
 
 void KHangManEngine::newWord()
 {
-    m_currentWord.clear();
-
     m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
     m_originalWord = m_originalWord.toUpper();
     m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
@@ -196,6 +194,13 @@ void KHangManEngine::newWord()
         ++m_randomInt;
         newWord();
     }
+
+    m_currentWord.clear();
+
+    int originalWordSize = m_originalWord.size();
+
+    while (m_currentWord.size() < originalWordSize)
+        m_currentOriginalWord.append("_");
 }
 
 #include "khangmanengine.moc"
