@@ -27,16 +27,8 @@ Page {
 
     property string currentWord: khangmanEngineHelper.currentWord();
     property variant alphabet: khangmanEngineHelper.alphabet();
-    property int currentWordStatus: currentWordStatusEnumeration.init;
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
-
-    QtObject {  // status enum hackery :)
-        id: currentWordStatusEnumeration;
-        property int init: 1;
-        property int active: 2;
-        property int resolved: 3;
-    }
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
@@ -71,9 +63,7 @@ Page {
 
     function nextWord() {
         khangmanHintInfoBanner.hide();
-        currentWordStatus = currentWordStatusEnumeration.init;
-        originalWord = khangmanEngineHelper.createNextWord();
-        originalWordLetterRepeater.model = anagram;
+        currentWordLetterRepeater.model = anagram;
         countDownTimerValue = khangmanEngineHelper.resolveTime;
     }
 
@@ -249,11 +239,11 @@ Page {
 
             spacing: 8;
             Repeater {
-                id: originalWordLetterRepeater;
-                model: anagram;
+                id: currentWordLetterRepeater;
+                model: currentWord;
                 LetterElement {
-                    id: originalWordLetterId;
-                    text: originalWordStatus == originalWordStatusEnumeration.init ? "" : modelData;
+                    id: currentWordLetterId;
+                    text: modelData;
                 }
             }
         }
