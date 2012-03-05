@@ -32,7 +32,7 @@
 #include <QtGui/QApplication>
 
 KHangManEngine::KHangManEngine()
-    : m_randomInt(-1)
+    : m_randomInt(0)
     , m_doc(0)
 {
     loadVocabularies();
