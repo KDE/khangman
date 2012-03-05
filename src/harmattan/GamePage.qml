@@ -227,7 +227,8 @@ Page {
     Column {
         anchors {
             horizontalCenter: parent.horizontalCenter;
-            verticalCenter: parent.verticalCenter;
+            bottom: parent.bottom;
+            bottomMargin: 10;
         }
 
         spacing: 20;
