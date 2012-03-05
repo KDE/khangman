@@ -75,7 +75,7 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
 
     public Q_SLOTS:
         /** Generate a new word */
-        void newWord();
+        void nextWord();
 
         /** Method to set the current language into the Statusbar and to pass it to KHangManView */
         void readFile();

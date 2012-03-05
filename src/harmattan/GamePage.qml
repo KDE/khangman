@@ -63,7 +63,7 @@ Page {
 
     function nextWord() {
         khangmanHintInfoBanner.hide();
-        khangmanEngine.newWord();
+        khangmanEngine.nextWord();
         currentWord = khangmanEngineHelper.currentWordLetters();
         countDownTimerValue = khangmanEngineHelper.resolveTime;
     }

@@ -196,7 +196,7 @@ void KHangManEngine::replaceLetters(const QString& charString)
     }
 }
 
-void KHangManEngine::newWord()
+void KHangManEngine::nextWord()
 {
     m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
     m_originalWord = m_originalWord.toUpper();
@@ -204,7 +204,7 @@ void KHangManEngine::newWord()
 
     if (m_originalWord.isEmpty()) {
         ++m_randomInt;
-        newWord();
+        nextWord();
     }
 
     m_currentWord.clear();
