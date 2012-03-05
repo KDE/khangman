@@ -244,7 +244,7 @@ Page {
                 model: currentWord;
                 LetterElement {
                     id: currentWordLetterId;
-                    text: modelData;
+                    letterText: modelData;
                 }
             }
         }
