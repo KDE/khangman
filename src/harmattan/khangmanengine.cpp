@@ -100,6 +100,7 @@ void KHangManEngine::loadVocabularies()
     }
 
     readFile();
+    nextWord();
 }
 
 void KHangManEngine::readFile()
