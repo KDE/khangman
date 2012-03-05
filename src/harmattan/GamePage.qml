@@ -284,7 +284,7 @@ Page {
                             khangmanHintInfoBanner.hide();
                             rightSoundEffect.play();
                         } else if (khangmanEngine.containsChar(text)) {
-                            khangmanEngine.replaceLetter(text);
+                            khangmanEngine.replaceLetters(text);
                             currentWord = khangmanEngineHelper.currentWordLetters();
                             enabled = false;
                         } else {
