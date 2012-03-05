@@ -52,6 +52,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** Return true if the word contains the char in the QString */
         Q_INVOKABLE bool containsChar(const QString &original); 
 
+        /** Return true if the answer and the current word match */
+        Q_INVOKABLE bool isResolved() const;
+
         /** Strip the accents off given string
          * @params original string to strip accents off of
          * @returns string without accents

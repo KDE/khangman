@@ -174,6 +174,11 @@ bool KHangManEngine::containsChar(const QString &sChar)
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
 
+bool KHangManEngine::isResolved() const
+{
+    return m_currentWord == m_originalWord;
+}
+
 void KHangManEngine::replaceLetters(const QString& charString)
 {
     QChar ch = charString.at(0);
