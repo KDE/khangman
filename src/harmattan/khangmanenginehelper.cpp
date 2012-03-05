@@ -31,7 +31,6 @@
 KHangManEngineHelper::KHangManEngineHelper(KHangManEngine* khangmanEngine, QObject* parent)
     : QObject(parent)
     , m_khangmanEngine(khangmanEngine)
-    , m_insertCounter(0)
 {
 }
 
@@ -84,11 +83,6 @@ QStringList KHangManEngineHelper::languageNames() const
     }
 
     return languageNames;
-}
-
-bool KHangManEngineHelper::compareWords() const
-{
-    return m_currentOriginalWord.join("") == m_khangmanEngine->word();
 }
 
 int KHangManEngineHelper::hintHideTime()

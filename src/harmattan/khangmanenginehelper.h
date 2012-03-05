@@ -38,7 +38,6 @@ class KHangManEngineHelper : public QObject
         Q_INVOKABLE QStringList currentWordLetters() const;
 
         Q_INVOKABLE QStringList languageNames() const;
-        Q_INVOKABLE bool compareWords() const;
 
         // These accessor and mutator methods are not needed once the
         // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
@@ -75,8 +74,6 @@ class KHangManEngineHelper : public QObject
 
 	private:
         KHangManEngine *m_khangmanEngine;
-        QStringList m_currentOriginalWord;
-        int m_insertCounter;
 };
 
 #endif // KHANGMAN_ENGINE_HELPER_H
