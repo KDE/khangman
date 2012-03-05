@@ -64,6 +64,7 @@ Page {
     function nextWord() {
         khangmanHintInfoBanner.hide();
         khangmanEngine.newWord();
+        currentWord = khangmanEngineHelper.currentWordLetters();
         countDownTimerValue = khangmanEngineHelper.resolveTime;
     }
 
@@ -278,27 +279,11 @@ Page {
                     }
 
                     onClicked: {
-                        if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
-                        {
+                        if (khangmanEngine.isResolved()) {
                             khangmanResultTimer.start();
-                            originalWordStatus = originalWordStatusEnumeration.resolved;
-                            jhangmanHintInfoBanner.hide();
-                            if (khangmanEngineHelper.compareWords() == true)
-                            {
-                                originalWordLetterRectangleColor = "green";
-
-                                if (khangmanEngineHelper.sound) {
-                                    rightSoundEffect.play();
-                                }
-                            }
-                            else
-                            {
-                                originalWordLetterRectangleColor = "red";
-
-                                if (khangmanEngineHelper.sound) {
-                                    wrongSoundEffect.play();
-                                }
-                            }
+                            khangmanHintInfoBanner.hide();
+                            rightSoundEffect.play();
+                        } else {
                         }
                     }
                 }
