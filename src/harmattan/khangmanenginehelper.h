@@ -35,6 +35,8 @@ class KHangManEngineHelper : public QObject
         explicit KHangManEngineHelper(KHangManEngine *khangmanEngine, QObject* parent = 0);
         ~KHangManEngineHelper();
 
+        Q_INVOKABLE QStringList currentWordLetters() const;
+
         Q_INVOKABLE QStringList languageNames() const;
         Q_INVOKABLE bool compareWords() const;
 

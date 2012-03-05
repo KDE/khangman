@@ -40,6 +40,20 @@ KHangManEngineHelper::~KHangManEngineHelper()
     delete m_khangmanEngine;
 }
 
+QStringList KHangManEngineHelper::currentWordLetters() const
+{
+    QStringList currentWordLetters;
+
+    QString currentWord = m_khangmanEngine->currentWord();
+
+    foreach (const QChar& currentWordLetter, currentWord)
+    {
+        currentWordLetters.append(currentWordLetter);
+    }
+
+    return currentWordLetters;
+}
+
 QStringList KHangManEngineHelper::languageNames() const
 {
     QStringList languageCodes = SharedKvtmlFiles::languages();
