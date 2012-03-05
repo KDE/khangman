@@ -25,7 +25,7 @@ import com.nokia.extras 1.0
 
 Page {
 
-    property string currentWord: khangmanEngineHelper.currentWord();
+    property string currentWord: khangmanEngineHelper.currentWordLetters();
     property variant alphabet: khangmanEngineHelper.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
@@ -63,7 +63,7 @@ Page {
 
     function nextWord() {
         khangmanHintInfoBanner.hide();
-        currentWordLetterRepeater.model = anagram;
+        khangmanEngine.newWord();
         countDownTimerValue = khangmanEngineHelper.resolveTime;
     }
 
