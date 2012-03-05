@@ -283,7 +283,12 @@ Page {
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
                             rightSoundEffect.play();
+                        } else if (khangmanEngine.containsChar(text)) {
+                            khangmanEngine.replaceLetter(text);
+                            currentWord = khangmanEngineHelper.currentWordLetters();
+                            enabled = false;
                         } else {
+                            enabled = false;
                         }
                     }
                 }
