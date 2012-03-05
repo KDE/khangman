@@ -181,7 +181,7 @@ Page {
 
         onTriggered: {
             originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
-            nextAnagram();
+            nextWord();
 
             secondTimer.repeat = true;
             secondTimer.start();
