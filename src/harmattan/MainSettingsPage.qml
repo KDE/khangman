@@ -26,13 +26,13 @@ Page {
     property int settingsPageMargins: 15;
 
     QueryDialog {
-        id: anagramResolveTimeUserGuideDialog;
-        message: i18n("<b>Anagram resolve time</b>: Maximum allowed time for resolving the anagram");
+        id: khangmanWordResolveTimeUserGuideDialog;
+        message: i18n("<b>KHangMan word resolve time</b>: Maximum allowed time for resolving the word in KHangMan");
     }
 
     QueryDialog {
         id: hintShowDurationUserGuideDialog;
-        message: i18n("<b>Hint show duration:</b> The duration for showing the hint for the actual anagram");
+        message: i18n("<b>Hint show duration:</b> The duration for showing the hint for the actual word");
     }
 
     QueryDialog {
@@ -121,11 +121,34 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Label {
-                        id: hintAppearanceLabel;
-                        anchors.left: parent.left;
-                        text: i18n("Hint appearance in seconds");
-                        font.bold: true;
+                    Item {
+                        height: childrenRect.height;
+                        width: parent.width;
+
+                        Label {
+                            id: hintAppearanceLabel;
+
+                            anchors {
+                                left: parent.left;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
+                            text: i18n("Hint show duration in seconds");
+                            font.bold: true;
+                        }
+
+                        ToolIcon {
+                            iconSource: "image://theme/icon-l-user-guide-main-view"
+
+                            anchors {
+                                right: parent.right;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
+                            onClicked: {
+                                hintShowDurationUserGuideDialog.open();
+                            }
+                        }
                     }
 
                     Slider {
@@ -155,11 +178,34 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Label {
-                        id: resolveTimeLabel;
-                        anchors.left: parent.left;
-                        text: i18n("Resolve time in seconds");
-                        font.bold: true;
+                    Item {
+                        height: childrenRect.height;
+                        width: parent.width;
+
+                        Label {
+                            id: resolveTimeLabel;
+
+                            anchors {
+                                left: parent.left;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
+                            text: i18n("Word resolve time in seconds");
+                            font.bold: true;
+                        }
+
+                        ToolIcon {
+                            iconSource: "image://theme/icon-l-user-guide-main-view"
+
+                            anchors {
+                                right: parent.right;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
+                            onClicked: {
+                                khangmanWordResolveTimeUserGuideDialog.open();
+                            }
+                        }
                     }
 
                     Slider {
@@ -211,9 +257,13 @@ Page {
                             soundsUserGuideDialog.open();
                         }
                     }
+
                     Switch {
                         id: soundsSwitch;
-                        anchors.right: parent.right;
+                        anchors {
+                            right: parent.right;
+                            verticalCenter: parent.verticalCenter;
+                        }
 
                         onCheckedChanged: {
                             khangmanEngineHelper.sound = checked;
