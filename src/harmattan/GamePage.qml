@@ -90,6 +90,7 @@ Page {
             }
 
             khangmanEngine.useVocabulary(selectedIndex);
+            khangmanEngine.readFile();
             nextWord();
         }
     }
