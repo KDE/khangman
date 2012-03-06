@@ -71,7 +71,7 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: khangmanHintInfoBanner;
-        text: qsTr("This is an info banner with icon for the hints");
+        text: i18n("This is an info banner with icon for the hints");
         iconSource: "dialog-information.png";
     }
 
