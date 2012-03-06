@@ -190,11 +190,27 @@ Page {
                     width: parent.width;
 
                     Label {
-                        anchors.left: parent.left;
-                        text: i18n("Sound");
+                        anchors {
+                            left: parent.left;
+                            verticalCenter: parent.verticalCenter;
+                        }
+
+                        text: i18n("Sounds");
                         font.bold: true;
                     }
 
+                    ToolIcon {
+                        iconSource: "image://theme/icon-l-user-guide-main-view"
+
+                        anchors {
+                            right: soundsSwitch.left;
+                            verticalCenter: parent.verticalCenter;
+                        }
+
+                        onClicked: {
+                            soundsUserGuideDialog.open();
+                        }
+                    }
                     Switch {
                         id: soundsSwitch;
                         anchors.right: parent.right;
