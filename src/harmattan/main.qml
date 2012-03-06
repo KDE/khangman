@@ -89,7 +89,7 @@ PageStackWindow {
     }
 
     SoundEffect {
-        id: anagramLetterPressSoundEffect;
-        source: "anagram-letter-press.wav";
+        id: khangmanAlphabetButtonPressSoundEffect;
+        source: "khangman-alphabet-button-press.wav";
     }
 }

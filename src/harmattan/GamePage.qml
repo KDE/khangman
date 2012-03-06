@@ -281,6 +281,10 @@ Page {
                     }
 
                     onClicked: {
+                        if (khangmanEngineHelper.sound) {
+                            khangmanAlphabetButtonPressSoundEffect.play();
+                        }
+
                         if (khangmanEngine.isResolved()) {
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
