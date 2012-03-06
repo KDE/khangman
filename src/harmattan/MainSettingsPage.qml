@@ -23,6 +23,7 @@ import com.nokia.extras 1.0
 
 Page {
 
+    property int settingsPageMargins: 15;
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -72,14 +73,17 @@ Page {
         anchors.fill: parent;
 
         Flickable {
-            width: parent.width;
-            height: parent.height;
+            anchors {
+                fill: parent;
+                margins: settingsPageMargins;
+            }
+
             contentWidth: settingsPageMainColumn.width;
             contentHeight: settingsPageMainColumn.height;
 
             Column {
                 id: settingsPageMainColumn;
-                width: settingsPageMainRectangle.width;
+                width: settingsPageMainRectangle.width - 2*settingsPageMargins;
                 anchors {
                     margins: 5;
                 }
@@ -212,7 +216,6 @@ Page {
                        }
                     }
                 }
-
             }
         }
     }
