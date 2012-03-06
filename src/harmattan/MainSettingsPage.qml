@@ -24,6 +24,22 @@ import com.nokia.extras 1.0
 Page {
 
     property int settingsPageMargins: 15;
+
+    QueryDialog {
+        id: anagramResolveTimeUserGuideDialog;
+        message: i18n("<b>Anagram resolve time</b>: Maximum allowed time for resolving the anagram");
+    }
+
+    QueryDialog {
+        id: hintShowDurationUserGuideDialog;
+        message: i18n("<b>Hint show duration:</b> The duration for showing the hint for the actual anagram");
+    }
+
+    QueryDialog {
+        id: soundsUserGuideDialog;
+        message: i18n("<b>Sounds:</b> Turn all the sounds on or off inside the game");
+    }
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -84,9 +100,6 @@ Page {
             Column {
                 id: settingsPageMainColumn;
                 width: settingsPageMainRectangle.width - 2*settingsPageMargins;
-                anchors {
-                    margins: 5;
-                }
 
                 spacing: 10;
 
@@ -173,8 +186,8 @@ Page {
                 }
 
                 Item {
-                    width: parent.width;
                     height: childrenRect.height;
+                    width: parent.width;
 
                     Label {
                         anchors.left: parent.left;
