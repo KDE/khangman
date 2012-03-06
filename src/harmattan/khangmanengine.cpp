@@ -36,6 +36,7 @@ KHangManEngine::KHangManEngine()
     , m_doc(0)
 {
     loadVocabularies();
+    nextWord();
 }
 
 KHangManEngine::~KHangManEngine()
@@ -100,7 +101,6 @@ void KHangManEngine::loadVocabularies()
     }
 
     readFile();
-    nextWord();
 }
 
 void KHangManEngine::readFile()
