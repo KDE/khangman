@@ -83,6 +83,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** Handle the guessed letter */
         void replaceLetters(const QString& charString);
 
+        /** Select the desired level file in the list as the current active one */
+        void selectLevelFile(int index);
+
     private:
         /** Scan the files in the selected language dir to set the levels */
         void loadVocabularies();

@@ -89,7 +89,7 @@ Page {
                 nextWordSoundEffect.play();
             }
 
-            khangmanEngine.useVocabulary(selectedIndex);
+            khangmanEngine.selectLevelFile(selectedIndex);
             khangmanEngine.readFile();
             nextWord();
         }

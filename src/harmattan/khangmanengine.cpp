@@ -197,6 +197,11 @@ void KHangManEngine::replaceLetters(const QString& charString)
     }
 }
 
+void KHangManEngine::selectLevelFile(int index)
+{
+    Prefs::setLevelFile(m_titleLevels.values().at(index));
+}
+
 void KHangManEngine::nextWord()
 {
     m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
