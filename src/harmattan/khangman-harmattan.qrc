@@ -29,6 +29,7 @@
         <file alias="kde-edu-logo.png">../../icons/common/kde-edu-logo.png</file>
         <file alias="hi80-app-khangman-harmattan.png">../../icons/hi80-app-khangman-harmattan.png</file>
         <file alias="timer-pause.png">../../icons/common/timer-pause.png</file>
+        <file alias="get-hot-new-stuff.png">../../icons/common/get-hot-new-stuff.png</file>
 
     </qresource>
 </RCC>
