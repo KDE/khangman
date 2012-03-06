@@ -118,18 +118,15 @@ void KHangManEngineHelper::setSound(bool sound)
     emit soundToggled();
 }
 
-QString KHangManEngineHelper::defaultVocabulary()
+QString KHangManEngineHelper::levelFile()
 {
-    // TODO: Fix it with the proper accessor for sure
-    // return Prefs::defaultVocabulary();
-    return QString();
+    return Prefs::levelFile();
 }
 
-void KHangManEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary)
+void KHangManEngineHelper::setLevelFile(const QString& levelFile)
 {
-    // TODO: Fix it with the proper mutator for sure
-    // Prefs::setDefaultVocabulary(defaultVocabulary);
-    emit defaultVocabularyChanged();
+    Prefs::setLevelFile(levelFile);
+    emit levelFileChanged();
 }
 
 QString KHangManEngineHelper::selectedLanguage()
