@@ -74,18 +74,18 @@ PageStackWindow {
     }
 
     SoundEffect {
-        id: chalkSoundEffect;
-        source: "chalk.wav";
+        id: ewDialogAppearSoundEffect;
+        source: "EW_Dialogue_Appear.wav";
     }
 
     SoundEffect {
-        id: rightSoundEffect;
-        source: "right.wav";
+        id: newWordSoundEffect;
+        source: "new_game.wav";
     }
 
     SoundEffect {
-        id: wrongSoundEffect;
-        source: "wrong.wav";
+        id: splashSoundEffect;
+        source: "splash.wav";
     }
 
     SoundEffect {
