@@ -219,6 +219,8 @@ void KHangManEngine::nextWord()
 
     while (m_currentWord.size() < originalWordSize)
         m_currentWord.append("_");
+
+    ++m_randomInt;
 }
 
 #include "khangmanengine.moc"
