@@ -29,8 +29,7 @@ MainWindow::MainWindow()
 {
     declarativeView()->setPackageName("org.kde.khangman");
 
-    declarativeView()->rootContext()->setContextProperty( "khangmanEngine",
-                                                          khangmanEngine );
+    declarativeView()->rootContext()->setContextProperty( "khangmanEngine", 0 );
 }
 
 #include "mainwindow.moc"
