@@ -1,7 +1,8 @@
 project(khangman)
 
-option(BUILD_KHANGMAN_HARMATTAN "Build KHangMan for Harmattan"      ON)
-option(BUILD_KHANGMAN_DESKTOP   "Build KHangMan for KDE Desktop"    ON)
+option(BUILD_KHANGMAN_DESKTOP       "Build KHangMan for KDE Desktop"        ON)
+option(BUILD_KHANGMAN_HARMATTAN     "Build KHangMan for Harmattan"          OFF)
+option(BUILD_KHANGMAN_PLASMA_ACTIVE "Build KHangMan for Plasma Active"      OFF)
 
 find_package(KDE4 REQUIRED)
 include(KDE4Defaults)
