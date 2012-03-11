@@ -22,7 +22,6 @@ set(SHARE_INSTALL_DIR
 
 set(khangman-harmattan_SRCS
     main.cpp
-    khangmanengine.cpp
     khangmanenginehelper.cpp
 )
 
