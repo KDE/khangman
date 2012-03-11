@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=KHangMan Active
-Name[x-test]=xxKHangMan Activexx
 Comment=KHangMan Active for tablets
-Comment[x-test]=xxKHangMan Active for tabletsxx
 Encoding=UTF-8
 Type=Service
 Icon=khangman-active

@@ -1,10 +1,7 @@
 [Desktop Entry]
 Name=KHangMan Active
-Name[x-test]=xxKHangMan Activexx
 GenericName=KHangMan Active
-GenericName[x-test]=xxKHangMan Activexx
 Comment=KHangMan Active for tablets
-Comment[x-test]=xxKHangMan Active for tabletsxx
 Exec=khangman-active -graphicssystem raster %u
 Terminal=false
 Icon=khangman-active
