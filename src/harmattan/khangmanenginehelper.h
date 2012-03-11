@@ -20,7 +20,7 @@
 #ifndef KHANGMAN_ENGINE_HELPER_H
 #define KHANGMAN_ENGINE_HELPER_H
 
-#include "khangmanengine.h"
+#include <khangmanengine.h>
 
 class KHangManEngineHelper : public QObject
 {
