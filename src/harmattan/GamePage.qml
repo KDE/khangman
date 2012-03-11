@@ -67,8 +67,8 @@ Page {
         currentWord = khangmanEngineHelper.currentWordLetters();
         countDownTimerValue = khangmanEngineHelper.resolveTime;
 
-        for (var i in alphabetLetterRepeater.children) {
-            alphabetLetterRepeater.children[i].enable = true;
+        for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
+            alphabetLetterRepeater.itemAt(i).enable = true;
         }
     }
 
