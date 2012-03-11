@@ -49,6 +49,7 @@ target_link_libraries(khangman-harmattan
     ${KDE4_KDECORE_LIBS}
     ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
     kdeclarative
+    ${KANAGRAM_ENGINE_LIBRARIES}
 )
 
 install(TARGETS khangman-harmattan
