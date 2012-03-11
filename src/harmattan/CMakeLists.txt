@@ -26,8 +26,6 @@ set(khangman-harmattan_SRCS
     khangmanenginehelper.cpp
 )
 
-kde4_add_kcfg_files(khangman-harmattan_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/prefs.kcfgc)
-
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
