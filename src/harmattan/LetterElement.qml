@@ -33,7 +33,7 @@ Rectangle {
     Text {
         id: letterId;
         text: letterText;
-        color: "white";
+        color: "black";
 
         font {
             pixelSize: letterPixelSize;
