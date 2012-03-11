@@ -1,7 +1,8 @@
 # Code generation options for kconfig_compiler
 File=khangman.kcfg
-IncludeFiles=kstandarddirs.h,qdir.h
+IncludeFiles=kstandarddirs.h,qdir.h,khangman_engine_export.h
 ClassName=Prefs
 Singleton=true
 Mutators=true
 Inherits=KCoreConfigSkeleton
+Visibility=KHANGMAN_ENGINE_EXPORT

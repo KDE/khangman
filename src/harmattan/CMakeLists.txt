@@ -23,7 +23,7 @@ target_link_libraries(khangman-harmattan
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTGUI_LIBRARY}
     ${QT_QTCORE_LIBRARY}
-    ${KANAGRAM_ENGINE_LIBRARIES}
+    ${KHANGMAN_ENGINE_LIBRARIES}
     ${KDE4_KDECORE_LIBS}
     kdeclarative
 )
