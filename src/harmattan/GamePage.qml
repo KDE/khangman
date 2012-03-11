@@ -66,6 +66,10 @@ Page {
         khangmanEngine.nextWord();
         currentWord = khangmanEngineHelper.currentWordLetters();
         countDownTimerValue = khangmanEngineHelper.resolveTime;
+
+        for (var i in alphabetLetterRepeater.children) {
+            alphabetLetterRepeater.children[i].enable = true;
+        }
     }
 
     // Create an info banner with icon
