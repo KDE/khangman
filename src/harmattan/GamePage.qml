@@ -292,7 +292,7 @@ Page {
                         if (khangmanEngine.isResolved()) {
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
-                            rightSoundEffect.play();
+                            ewDialogAppearSoundEffect.play();
                         } else if (khangmanEngine.containsChar(text)) {
                             khangmanEngine.replaceLetters(text);
                             currentWord = khangmanEngineHelper.currentWordLetters();
