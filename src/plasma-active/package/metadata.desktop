@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=KHangMan Active
+Name[es]=KHangMan Active
+Name[pt]=KHangMan Active
+Name[pt_BR]=KHangMan Active
+Name[sv]=Khangman Active
+Name[uk]=Портативний KHangMan
+Name[x-test]=xxKHangMan Activexx
 Comment=KHangMan Active for tablets
+Comment[es]=KHangMan Active para tabletas
+Comment[pt]=KHangMan Active para tabletes
+Comment[pt_BR]=KHangMan Active para tablets
+Comment[sv]=Khangman Active för läsplattor
+Comment[uk]=Портативна KHangMan для планшетів
+Comment[x-test]=xxKHangMan Active for tabletsxx
 Encoding=UTF-8
 Type=Service
 Icon=khangman-active
