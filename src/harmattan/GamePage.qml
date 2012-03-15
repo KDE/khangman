@@ -199,7 +199,7 @@ Page {
 
     Image {
         id: succeessImage;
-        source: "action-success.png".
+        source: "action-success.png";
         visible: false;
     }
 
