@@ -280,7 +280,7 @@ Page {
                 }
 
                 ListItem {
-                    iconSource: "preferences-desktop-locale.png";
+                    iconSource: "language-settings.png";
                     titleText: i18n("Language");
                     subtitleText: khangmanEngineHelper.selectedLanguage ? khangmanEngineHelper.selectedLanguage : "English";
                     iconId: "textinput-combobox-arrow";

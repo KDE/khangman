@@ -21,7 +21,7 @@
         <file alias="khangman-background-portrait.png">../../icons/common/khangman-background-portrait.png</file>
         <file alias="help-hint.png">../../icons/common/help-hint.png</file>
         <file alias="games-solve.png">../../icons/common/games-solve.png</file>
-        <file alias="preferences-desktop-locale.png">../../icons/common/preferences-desktop-locale.png</file>
+        <file alias="language-settings.png">../../icons/common/language-settings.png</file>
         <file alias="dialog-information.png">../../icons/common/dialog-information.png</file>
         <file alias="separator.png">../../icons/common/separator.png</file>
         <file alias="go-next.png">../../icons/common/go-next.png</file>
@@ -30,6 +30,8 @@
         <file alias="hi80-app-khangman-harmattan.png">../../icons/hi80-app-khangman-harmattan.png</file>
         <file alias="timer-pause.png">../../icons/common/timer-pause.png</file>
         <file alias="get-hot-new-stuff.png">../../icons/common/get-hot-new-stuff.png</file>
+        <file alias="action-fail.png">../../icons/common/action-fail.png</file>
+        <file alias="action-success.png">../../icons/common/action-success.png</file>
 
     </qresource>
 </RCC>
