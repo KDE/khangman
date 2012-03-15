@@ -198,15 +198,14 @@ Page {
     }
 
     Image {
-        id: succeessImage;
+        id: successImage;
         source: "action-success.png";
         visible: false;
     }
 
     Image {
         id: gallowsSeriesImage;
-        source: "gallows" + gallowsSeriesCounter + ".png";
-        visible: false;
+        source: gallowsSeriesCounter == 0 ? "" : "gallows" + gallowsSeriesCounter + ".png";
     }
 
     Row {
@@ -316,10 +315,6 @@ Page {
                             enabled = false;
                         } else {
                             enabled = false;
-
-                            if (gallowsSeriesCounter == 0) {
-                                gallowsSeriesImage.visible = true;
-                            }
 
                             ++gallowsSeriesCounter;
                             if (gallowsSeriesCounter == 10) {
