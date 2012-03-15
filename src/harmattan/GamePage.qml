@@ -29,6 +29,7 @@ Page {
     property variant alphabet: khangmanEngineHelper.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
+    property int gallowsSeriesCounter: 0;
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
@@ -70,6 +71,10 @@ Page {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             alphabetLetterRepeater.itemAt(i).enabled = true;
         }
+
+        gallowsSeriesCounter = 0;
+        gallowsSeriesImage.visible = false;
+        successImage.visible = false;
     }
 
     // Create an info banner with icon
@@ -185,12 +190,23 @@ Page {
         triggeredOnStart: false;
 
         onTriggered: {
-            originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
             nextWord();
 
             secondTimer.repeat = true;
             secondTimer.start();
         }
+    }
+
+    Image {
+        id: succeessImage;
+        source: "action-success.png".
+        visible: false;
+    }
+
+    Image {
+        id: gallowsSeriesImage;
+        source: "gallows" + gallowsSeriesCounter + ".png";
+        visible: false;
     }
 
     Row {
@@ -290,6 +306,7 @@ Page {
                         }
 
                         if (khangmanEngine.isResolved()) {
+                            gallowsSeriesImage.visible = false;
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
                             ewDialogAppearSoundEffect.play();
@@ -299,6 +316,16 @@ Page {
                             enabled = false;
                         } else {
                             enabled = false;
+
+                            if (gallowsSeriesCounter == 0) {
+                                gallowsSeriesImage.visible = true;
+                            } else {
+                                ++gallowsSeriesCounter;
+                            }
+
+                            if (gallowsSeriesCounter == 9) {
+                                khangmanResultTimer.start();
+                            }
                         }
                     }
                 }
