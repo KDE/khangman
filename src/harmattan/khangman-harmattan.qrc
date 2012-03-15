@@ -33,7 +33,6 @@
         <file alias="action-fail.png">../../icons/common/action-fail.png</file>
         <file alias="action-success.png">../../icons/common/action-success.png</file>
 
-        <file alias="gallows0.png">../../icons/common/gallows/gallows0.png</file>
         <file alias="gallows1.png">../../icons/common/gallows/gallows1.png</file>
         <file alias="gallows2.png">../../icons/common/gallows/gallows2.png</file>
         <file alias="gallows3.png">../../icons/common/gallows/gallows3.png</file>
@@ -43,6 +42,7 @@
         <file alias="gallows7.png">../../icons/common/gallows/gallows7.png</file>
         <file alias="gallows8.png">../../icons/common/gallows/gallows8.png</file>
         <file alias="gallows9.png">../../icons/common/gallows/gallows9.png</file>
+        <file alias="gallows10.png">../../icons/common/gallows/gallows10.png</file>
     </qresource>
 </RCC>
 

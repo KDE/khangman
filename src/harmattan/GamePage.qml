@@ -319,11 +319,10 @@ Page {
 
                             if (gallowsSeriesCounter == 0) {
                                 gallowsSeriesImage.visible = true;
-                            } else {
-                                ++gallowsSeriesCounter;
                             }
 
-                            if (gallowsSeriesCounter == 9) {
+                            ++gallowsSeriesCounter;
+                            if (gallowsSeriesCounter == 10) {
                                 khangmanResultTimer.start();
                             }
                         }
