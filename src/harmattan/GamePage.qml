@@ -151,6 +151,11 @@ Page {
         ToolIcon {
             iconSource: "go-next.png";
 
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+                horizontalCenterOffset: parent.width/4;
+            }
+
             onClicked: {
                 if (khangmanEngineHelper.sound) {
                     nextWordSoundEffect.play();
