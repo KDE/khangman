@@ -73,7 +73,6 @@ Page {
         }
 
         gallowsSeriesCounter = 0;
-        gallowsSeriesImage.visible = false;
         successImage.visible = false;
     }
 
@@ -206,6 +205,7 @@ Page {
     Image {
         id: gallowsSeriesImage;
         source: gallowsSeriesCounter == 0 ? "" : "gallows" + gallowsSeriesCounter + ".png";
+        visible: gallowsSeriesCounter == 0 ? false : true;
     }
 
     Row {
@@ -306,6 +306,7 @@ Page {
 
                         if (khangmanEngine.isResolved()) {
                             gallowsSeriesImage.visible = false;
+                            successImage.visible = false;
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
                             ewDialogAppearSoundEffect.play();
