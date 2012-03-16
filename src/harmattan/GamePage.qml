@@ -175,8 +175,9 @@ Page {
         onTriggered: {
              if (khangmanEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
                  stop();
+                 khangmanResultTimer.start();
                  if (khangmanEngineHelper.sound) {
-                    ewDialogAppearSoundEffect.play();
+                     wrongSoundEffect.play();
                  }
              }
         }
