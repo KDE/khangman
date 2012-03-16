@@ -332,6 +332,10 @@ Page {
                         }
 
                         if (gallowsSeriesCounter == 10) {
+                            if (khangmanEngineHelper.sound) {
+                                wrongSoundEffect.play();
+                            }
+
                             khangmanResultTimer.start();
                         }
                     }

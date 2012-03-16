@@ -11,6 +11,7 @@
         <file alias="splash.wav">../../sounds/splash.wav</file>
         <file alias="EW_Dialogue_Appear.wav">../../sounds/EW_Dialogue_Appear.wav</file>
         <file alias="khangman-alphabet-button-press.wav">../../sounds/khangman-alphabet-button-press.wav</file>
+        <file alias="wrong.wav">../../sounds/wrong.wav</file>
 
         <file>UIConstants.js</file>
         <file>CommonDialog.qml</file>

@@ -84,6 +84,11 @@ PageStackWindow {
     }
 
     SoundEffect {
+        id: wrongSoundEffect;
+        source: "wrong.wav";
+    }
+
+    SoundEffect {
         id: splashSoundEffect;
         source: "splash.wav";
     }
