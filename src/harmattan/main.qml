@@ -80,7 +80,7 @@ PageStackWindow {
 
     SoundEffect {
         id: nextWordSoundEffect;
-        source: "new_game.wav";
+        source: "chalk.wav";
     }
 
     SoundEffect {
