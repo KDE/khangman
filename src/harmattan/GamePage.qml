@@ -73,6 +73,7 @@ Page {
         }
 
         gallowsSeriesCounter = 0;
+        gallowsSeriesImage.visible = false;
         successImage.visible = false;
     }
 
@@ -211,7 +212,7 @@ Page {
     Image {
         id: gallowsSeriesImage;
         source: gallowsSeriesCounter == 0 ? "" : "gallows" + gallowsSeriesCounter + ".png";
-        visible: gallowsSeriesCounter == 0 ? false : true;
+        visible: false;
 
         anchors {
             horizontalCenter: parent.horizontalCenter;
@@ -326,7 +327,10 @@ Page {
                     } else {
                         enabled = false;
 
-                        ++gallowsSeriesCounter;
+                        if (gallowsSeriesCounter++ == 0) {
+                            gallowsSeriesImage.visible = true;
+                        }
+
                         if (gallowsSeriesCounter == 10) {
                             khangmanResultTimer.start();
                         }
