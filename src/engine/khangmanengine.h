@@ -73,6 +73,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** Get the current categories available */
         Q_INVOKABLE QStringList categoryList() const;
 
+        /** Get the index of the desired level in the list */
+        Q_INVOKABLE int currentLevel() const;
+
     public Q_SLOTS:
         /** Generate a new word */
         void nextWord();
@@ -82,6 +85,9 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
 
         /** Handle the guessed letter */
         void replaceLetters(const QString& charString);
+
+        /** Select the index of the desired level in the list as the current active one */
+        void selectCurrentLevel(int index);
 
         /** Select the desired level file in the list as the current active one */
         void selectLevelFile(int index);

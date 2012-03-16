@@ -88,7 +88,7 @@ Page {
     MySelectionDialog {
         id: categorySelectionDialog;
         titleText: "Choose the word category"
-        selectedIndex: 1;
+        selectedIndex: khangmanEngine.currentLevel();
 
         model: khangmanEngine.categoryList();
 
@@ -98,6 +98,7 @@ Page {
                 nextWordSoundEffect.play();
             }
 
+            khangmanEngine.setCurrentLevel(selectedIndex);
             khangmanEngine.selectLevelFile(selectedIndex);
             khangmanEngine.readFile();
             nextWord();

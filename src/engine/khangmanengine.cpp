@@ -197,6 +197,16 @@ void KHangManEngine::replaceLetters(const QString& charString)
     }
 }
 
+int KHangManEngine::currentLevel() const
+{
+    return Prefs::currentLevel();
+}
+
+void KHangManEngine::selectCurrentLevel(int index)
+{
+    Prefs::setCurrentLevel(index);
+}
+
 void KHangManEngine::selectLevelFile(int index)
 {
     Prefs::setLevelFile(m_titleLevels.values().at(index));
