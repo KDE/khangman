@@ -136,7 +136,10 @@ QString KHangManEngineHelper::selectedLanguage()
         QApplication::instance()->quit();
     }
 
-    QString selectedLanguage = Prefs::selectedLanguage();
+    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfigGroup group = entry.group(Prefs::selectedLanguage());
+    QString selectedLanguage = group.readEntry("Name");
+
     if (!languageNames.contains(selectedLanguage)) {
         selectedLanguage = "en";
     }
