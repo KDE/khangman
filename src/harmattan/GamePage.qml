@@ -98,8 +98,10 @@ Page {
                 nextWordSoundEffect.play();
             }
 
-            khangmanEngine.setCurrentLevel(selectedIndex);
+            khangmanEngine.selectCurrentLevel(selectedIndex);
             khangmanEngine.selectLevelFile(selectedIndex);
+            khangmanEngineHelper.saveSettings();
+
             khangmanEngine.readFile();
             nextWord();
         }
@@ -138,6 +140,11 @@ Page {
         ToolIcon {
             iconSource: "timer-pause.png";
 
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+                horizontalCenterOffset: parent.width/4;
+            }
+
             onClicked: {
                 khangmanHintInfoBanner.hide();
 
@@ -151,11 +158,6 @@ Page {
 
         ToolIcon {
             iconSource: "go-next.png";
-
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-                horizontalCenterOffset: parent.width/4;
-            }
 
             onClicked: {
                 if (khangmanEngineHelper.sound) {
