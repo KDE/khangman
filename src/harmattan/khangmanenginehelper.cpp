@@ -141,7 +141,7 @@ QString KHangManEngineHelper::selectedLanguage()
     QString selectedLanguage = group.readEntry("Name");
 
     if (!languageNames.contains(selectedLanguage)) {
-        selectedLanguage = "en";
+        selectedLanguage = "English";
     }
 
     return selectedLanguage;
