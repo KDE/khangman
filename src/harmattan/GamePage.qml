@@ -216,7 +216,6 @@ Page {
         anchors {
             horizontalCenter: parent.horizontalCenter;
             top: parent.top;
-            topMargin: 5;
         }
     }
 
@@ -256,89 +255,79 @@ Page {
         }
     }
 
-    Column {
+    Grid {
+        id: currentWordGrid;
+        anchors {
+            centerIn: parent;
+        }
+
+        spacing: 8;
+        Repeater {
+            id: currentWordLetterRepeater;
+            model: currentWord;
+            LetterElement {
+                id: currentWordLetterId;
+                letterText: modelData;
+            }
+        }
+    }
+
+    Grid {
+        id: alphabetGrid;
         anchors {
             horizontalCenter: parent.horizontalCenter;
             bottom: parent.bottom;
             bottomMargin: 10;
         }
 
-        spacing: 20;
+        spacing: 10;
+        Repeater {
+            id: alphabetLetterRepeater;
+            model: alphabet;
+            Button {
+                id: alphabetLetterId;
+                text: modelData;
 
-        Grid {
-            id: currentWordGrid;
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            spacing: 8;
-            Repeater {
-                id: currentWordLetterRepeater;
-                model: currentWord;
-                LetterElement {
-                    id: currentWordLetterId;
-                    letterText: modelData;
+                platformStyle: ButtonStyle {
+                    background: "image://theme/meegotouch-button-inverted-background";
+                    fontFamily: "Arial";
+                    fontPixelSize: 40;
+                    fontCapitalization: Font.AllUppercase;
+                    fontWeight: Font.Bold;
+                    horizontalAlignment: Text.AlignHCenter;
+                    textColor: "white";
+                    pressedTextColor: "pink";
+                    disabledTextColor: "gray";
+                    checkedTextColor: "blue";
+                    buttonWidth: 45;
+                    buttonHeight: 60;
                 }
-            }
-        }
 
-        Grid {
-            id: alphabetGrid;
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            spacing: 10;
-            Repeater {
-                id: alphabetLetterRepeater;
-                model: alphabet;
-                Button {
-                    id: alphabetLetterId;
-                    text: modelData;
-
-                    platformStyle: ButtonStyle {
-                        background: "image://theme/meegotouch-button-inverted-background";
-                        fontFamily: "Arial";
-                        fontPixelSize: 40;
-                        fontCapitalization: Font.AllUppercase;
-                        fontWeight: Font.Bold;
-                        horizontalAlignment: Text.AlignHCenter;
-                        textColor: "white";
-                        pressedTextColor: "pink";
-                        disabledTextColor: "gray";
-                        checkedTextColor: "blue";
-                        buttonWidth: 45;
-                        buttonHeight: 60;
+                onClicked: {
+                    if (khangmanEngineHelper.sound) {
+                        khangmanAlphabetButtonPressSoundEffect.play();
                     }
 
-                    onClicked: {
-                        if (khangmanEngineHelper.sound) {
-                            khangmanAlphabetButtonPressSoundEffect.play();
-                        }
+                    if (khangmanEngine.isResolved()) {
+                        gallowsSeriesImage.visible = false;
+                        successImage.visible = false;
+                        khangmanResultTimer.start();
+                        khangmanHintInfoBanner.hide();
+                        ewDialogAppearSoundEffect.play();
+                    } else if (khangmanEngine.containsChar(text)) {
+                        khangmanEngine.replaceLetters(text);
+                        currentWord = khangmanEngineHelper.currentWordLetters();
+                        enabled = false;
+                    } else {
+                        enabled = false;
 
-                        if (khangmanEngine.isResolved()) {
-                            gallowsSeriesImage.visible = false;
-                            successImage.visible = false;
+                        ++gallowsSeriesCounter;
+                        if (gallowsSeriesCounter == 10) {
                             khangmanResultTimer.start();
-                            khangmanHintInfoBanner.hide();
-                            ewDialogAppearSoundEffect.play();
-                        } else if (khangmanEngine.containsChar(text)) {
-                            khangmanEngine.replaceLetters(text);
-                            currentWord = khangmanEngineHelper.currentWordLetters();
-                            enabled = false;
-                        } else {
-                            enabled = false;
-
-                            ++gallowsSeriesCounter;
-                            if (gallowsSeriesCounter == 10) {
-                                khangmanResultTimer.start();
-                            }
                         }
                     }
                 }
             }
         }
-
-
     }
 }
