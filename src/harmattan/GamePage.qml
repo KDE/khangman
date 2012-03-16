@@ -308,16 +308,18 @@ Page {
                         khangmanAlphabetButtonPressSoundEffect.play();
                     }
 
-                    if (khangmanEngine.isResolved()) {
-                        gallowsSeriesImage.visible = false;
-                        successImage.visible = false;
-                        khangmanResultTimer.start();
-                        khangmanHintInfoBanner.hide();
-                        ewDialogAppearSoundEffect.play();
-                    } else if (khangmanEngine.containsChar(text)) {
+                    if (khangmanEngine.containsChar(text)) {
                         khangmanEngine.replaceLetters(text);
                         currentWord = khangmanEngineHelper.currentWordLetters();
                         enabled = false;
+
+                        if (khangmanEngine.isResolved()) {
+                            gallowsSeriesImage.visible = false;
+                            successImage.visible = false;
+                            khangmanResultTimer.start();
+                            khangmanHintInfoBanner.hide();
+                            ewDialogAppearSoundEffect.play();
+                        }
                     } else {
                         enabled = false;
 
