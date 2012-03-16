@@ -318,7 +318,10 @@ Page {
                             successImage.visible = false;
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
-                            ewDialogAppearSoundEffect.play();
+
+                            if (khangmanEngineHelper.sound) {
+                                ewDialogAppearSoundEffect.play();
+                            }
                         }
                     } else {
                         enabled = false;
