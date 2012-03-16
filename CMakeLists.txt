@@ -17,7 +17,10 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_subdirectory( doc )
 add_subdirectory( src )
 
-add_subdirectory( themes )
+if(BUILD_KHANGMAN_DESKTOP)
+    add_subdirectory( themes )
+endif()
+
 add_subdirectory( sounds )
 add_subdirectory( icons )
 add_subdirectory( fonts )
