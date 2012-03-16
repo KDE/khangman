@@ -200,12 +200,24 @@ Page {
         id: successImage;
         source: "action-success.png";
         visible: false;
+
+        anchors {
+            horizontalCenter: parent.horizontalCenter;
+            top: parent.top;
+            topMargin: 5;
+        }
     }
 
     Image {
         id: gallowsSeriesImage;
         source: gallowsSeriesCounter == 0 ? "" : "gallows" + gallowsSeriesCounter + ".png";
         visible: gallowsSeriesCounter == 0 ? false : true;
+
+        anchors {
+            horizontalCenter: parent.horizontalCenter;
+            top: parent.top;
+            topMargin: 5;
+        }
     }
 
     Row {
