@@ -79,7 +79,7 @@ PageStackWindow {
     }
 
     SoundEffect {
-        id: newWordSoundEffect;
+        id: nextWordSoundEffect;
         source: "new_game.wav";
     }
 
