@@ -45,12 +45,16 @@ Page {
             name: "landscape"
             PropertyChanges { target: alphabetGrid; columns: 13; rows: 2 }
             PropertyChanges { target: currentWordGrid; columns: 13; }
+            PropertyChanges { target: gallowsSeriesImage; anchors.topMargin: 0; }
+            PropertyChanges { target: successSeriesImage; anchors.topMargin: 60; }
         },
 
         State {
             name: "portrait"
-            PropertyChanges { target: alphabetGrid; columns: 10; rows: 3 }
-            PropertyChanges { target: currentWordGrid; columns: 10; }
+            PropertyChanges { target: alphabetGrid; columns: 9; rows: 3 }
+            PropertyChanges { target: currentWordGrid; columns: 9; }
+            PropertyChanges { target: gallowsSeriesImage; anchors.topMargin: 50; }
+            PropertyChanges { target: successImage; anchors.topMargin: 120; }
         }
     ]
 
@@ -205,7 +209,6 @@ Page {
         anchors {
             horizontalCenter: parent.horizontalCenter;
             top: parent.top;
-            topMargin: 5;
         }
     }
 
