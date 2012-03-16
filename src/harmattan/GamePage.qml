@@ -315,7 +315,7 @@ Page {
 
                         if (khangmanEngine.isResolved()) {
                             gallowsSeriesImage.visible = false;
-                            successImage.visible = false;
+                            successImage.visible = true;
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
 
