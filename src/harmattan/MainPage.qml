@@ -26,8 +26,8 @@ Page {
     QueryDialog {
         id: aboutDialog;
         icon: "hi80-app-khangman-harmattan.png";
-        message: "KHangMan (Version 0.1.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
-        acceptButtonText: "OK";
+        message: i18n("KHangMan (Version 0.1.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org");
+        acceptButtonText: i18n("OK");
     }
 
     Column {

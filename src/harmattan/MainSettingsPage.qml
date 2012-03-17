@@ -45,7 +45,7 @@ Page {
         if (component.status == Component.Ready)
             pageStack.push(component);
         else
-            console.log("Error loading component:", component.errorString());
+            console.log(i18n("Error loading component:", component.errorString()));
     }
 
     MySelectionDialog {

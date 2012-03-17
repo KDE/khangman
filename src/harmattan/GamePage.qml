@@ -64,7 +64,7 @@ Page {
         if (component.status == Component.Ready)
             pageStack.push(component);
         else
-            console.log("Error loading component:", component.errorString());
+            console.log(i18n("Error loading component:", component.errorString()));
     }
 
     function nextWord() {
@@ -94,7 +94,7 @@ Page {
     // Create a selection dialog with the vocabulary titles to choose from.
     MySelectionDialog {
         id: categorySelectionDialog;
-        titleText: "Choose the word category"
+        titleText: i18n("Choose the word category");
 
         model: khangmanEngine.categoryList();
 
