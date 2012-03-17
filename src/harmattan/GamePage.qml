@@ -56,7 +56,7 @@ Page {
     ]
 
     Component.onCompleted: {
-        initialized = true;
+        categorySelectionDialog.selectedIndex: khangmanEngine.currentLevel();
     }
 
     function pushPage(file) {
@@ -95,14 +95,13 @@ Page {
     MySelectionDialog {
         id: categorySelectionDialog;
         titleText: "Choose the word category"
-        selectedIndex: khangmanEngine.currentLevel();
 
         model: khangmanEngine.categoryList();
 
         onSelectedIndexChanged: {
 
-            if (khangmanEngineHelper.sound && initialized == true) {
-                nextWordSoundEffect.play();
+            if (khangmanEngineHelper.sound) {
+                initialized == true ? nextWordSoundEffect.play() : initialized = true;
             }
 
             khangmanEngine.selectCurrentLevel(selectedIndex);
