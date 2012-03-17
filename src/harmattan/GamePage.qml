@@ -56,7 +56,7 @@ Page {
     ]
 
     Component.onCompleted: {
-        categorySelectionDialog.selectedIndex: khangmanEngine.currentLevel();
+        categorySelectionDialog.selectedIndex = khangmanEngine.currentLevel();
     }
 
     function pushPage(file) {
