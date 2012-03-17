@@ -19,8 +19,8 @@ add_subdirectory( src )
 
 if(BUILD_KHANGMAN_DESKTOP)
     add_subdirectory( themes )
+    add_subdirectory( fonts )
 endif()
 
 add_subdirectory( sounds )
 add_subdirectory( icons )
-add_subdirectory( fonts )

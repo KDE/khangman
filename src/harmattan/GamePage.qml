@@ -30,6 +30,7 @@ Page {
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangmanEngineHelper.resolveTime;
     property int gallowsSeriesCounter: 0;
+    property bool initialized: false;
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
@@ -53,6 +54,10 @@ Page {
             PropertyChanges { target: currentWordGrid; columns: 9; }
         }
     ]
+
+    Component.onCompleted: {
+        initialized = true;
+    }
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -82,6 +87,8 @@ Page {
         id: khangmanHintInfoBanner;
         text: i18n("This is an info banner with icon for the hints");
         iconSource: "dialog-information.png";
+
+        topMargin: 5;
     }
 
     // Create a selection dialog with the vocabulary titles to choose from.
@@ -94,7 +101,7 @@ Page {
 
         onSelectedIndexChanged: {
 
-            if (khangmanEngineHelper.sound) {
+            if (khangmanEngineHelper.sound && initialized == true) {
                 nextWordSoundEffect.play();
             }
 
