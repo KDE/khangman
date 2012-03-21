@@ -39,6 +39,22 @@ Page {
         }
     }
 
+    Connections {
+        target: platformWindow;
+
+        onActiveChanged: {
+            if (platformWindow.active && status == PageStatus.Active) {
+                secondTimer.repeat = true;
+                secondTimer.restart();
+            } else {
+                khangmanHintInfoBanner.hide();
+
+                secondTimer.repeat = false;
+                secondTimer.stop();
+            }
+        }
+    }
+
     state: (screen.currentOrientation == Screen.Portrait || screen.currentOrientation == Screen.PortraitInverted) ? "portrait" : "landscape"
 
     states: [
