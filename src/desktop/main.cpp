@@ -67,8 +67,8 @@ int main(int argc, char **argv)
                         ki18n("Dutch data files"), "rinse@kde.nl");
     aboutData.addCredit(ki18n("Lukáš Tinkl"),
                         ki18n("Czech data files"), "lukas@kde.org");
-    aboutData.addCredit(ki18n("Tamas Szanto"),
-                        ki18n("Hungarian data files"), "tszanto@mol.hu");
+    aboutData.addCredit(ki18n("Kristóf Kiszel"),
+                        ki18n("Hungarian data files"), "ulysses@kubuntu.org");
     aboutData.addCredit(ki18n("Torger Åge Sinnes"),
                         ki18n("Norwegian (Bokmål) data files"), "org-a-s@online.no");
     aboutData.addCredit(ki18n("Roger Kovacs"),
