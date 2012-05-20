@@ -117,9 +117,6 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         /** The hidden word that is filled in during the game. */
         QString m_currentWord;
 
-        /** The list of vocabulary files */
-        QStringList m_fileList;
-
         /** The list of words that have been answered */
         QStringList m_answeredWords;
 
