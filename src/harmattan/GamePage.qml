@@ -101,7 +101,7 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: khangmanHintInfoBanner;
-        text: i18n("This is an info banner with icon for the hints");
+        text: i18n("There is no hint available for this word");
         iconSource: "dialog-information.png";
 
         topMargin: 5;
