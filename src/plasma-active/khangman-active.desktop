@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KHangMan Active
+Name[ca]=KHangMan
 Name[cs]=KHangMan Active
 Name[da]=KHangMan Active
 Name[de]=KHangMan Active
@@ -21,6 +22,7 @@ Name[uk]=Портативний KHangMan
 Name[x-test]=xxKHangMan Activexx
 Name[zh_TW]=KHangMan Active
 GenericName=KHangMan Active
+GenericName[ca]=KHangMan
 GenericName[cs]=KHangMan Active
 GenericName[da]=KHangMan Active
 GenericName[de]=KHangMan Active
@@ -42,6 +44,7 @@ GenericName[uk]=Портативний KHangMan
 GenericName[x-test]=xxKHangMan Activexx
 GenericName[zh_TW]=KHangMan Active
 Comment=KHangMan Active for tablets
+Comment[ca]=KHangMan
 Comment[cs]=KHangMan Active pro tablety
 Comment[da]=KHangMan Active til tablet-pc'er
 Comment[de]=KHangMan Active für Tablets
