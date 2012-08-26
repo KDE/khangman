@@ -22,10 +22,10 @@
 
 #include "prefs.h"
 
-#include <libkdeedu/keduvoclesson.h>
-#include <libkdeedu/keduvocexpression.h>
-#include <libkdeedu/keduvocdocument.h>
-#include <libkdeedu/sharedkvtmlfiles.h>
+#include <keduvoclesson.h>
+#include <keduvocexpression.h>
+#include <keduvocdocument.h>
+#include <sharedkvtmlfiles.h>
 
 #include <KDE/KLocale>
 
