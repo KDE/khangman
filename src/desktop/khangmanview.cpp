@@ -290,8 +290,7 @@ void KHangManView::paintWord(QPainter &p, const QRect& rect)
 
     QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
 
-    // FIXME: This has to be scaled depending of the dpi
-    tFont.setPixelSize( 28 );
+    tFont.setPointSize( height()/20 );
 
     p.setFont(tFont);
     // Set first letter as upper case for German
@@ -307,7 +306,7 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
 
     // Draw the missed letters
     QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
-    tFont.setPixelSize( 28 );
+    tFont.setPointSize( height()/18 );
     p.setPen( letterColor );
     p.setFont(tFont);
 
@@ -320,7 +319,7 @@ void KHangManView::paintMisses(QPainter &p, const QRect& )
     // Draw the "Misses" word
     QString  misses = i18n("Misses");
     QFont  mFont = QFont("Domestic Manners");
-    mFont.setPointSize(30);
+    mFont.setPointSize( height()/18 );
     p.setFont(mFont);
 
     QFontMetrics    fm2(mFont);
@@ -338,7 +337,7 @@ void KHangManView::paintHint(QPainter &p, const QRect &rect)
     if(!Prefs::hint()) {
         return;
     }
-    
+
     QRect myRect = m_theme->hintRect(size());
     if(!myRect.intersects(rect)) {
         return;
@@ -351,12 +350,12 @@ void KHangManView::paintHint(QPainter &p, const QRect &rect)
 
     QString hint=i18n("Hint");
     QFont hFont = QFont("Domestic Manners");
-    hFont.setPointSize(14);
+    hFont.setPointSize( height()/32 );
     QFontMetrics fm1(hFont);
     QRect fm1Rect(fm1.boundingRect(hint));
-    
+
     QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
-    tFont.setPixelSize(14);
+    tFont.setPointSize( height()/32 );
     QFontMetrics fm2(tFont);
     QRect fm2Rect(fm2.boundingRect(m_hint));
 
@@ -377,7 +376,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     if (!Prefs::enableAnimations()) {
         m_bgfill=100;
     }
-    
+
     QString title=m_loser?i18n("You lost. The word was \"%1\".", m_word):i18n("Congratulations! You won!");
     p.fillRect(QRect(rect.x(), rect.y(), rect.width(), (int)(rect.height()/100.0*m_bgfill)), QBrush(QColor(0,0,0,70)));
     p.setRenderHint(QPainter::Antialiasing, true);
@@ -388,7 +387,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
     QRect rectangle=QRect(width()/10, height()*2/10, width()-width()*2/10, height()-height()*4/10);
     p.drawRoundRect(rectangle);
     QFont tFont("Domestic Manners");
-    tFont.setPixelSize( (int)   ((width()*42)    /   (26*title.length()))   );
+    tFont.setPointSize( (int)   ((width()*32)    /   (28*title.length()))   );
     p.setPen(Qt::black);
     p.setFont(tFont);
     p.drawText(rectangle, Qt::AlignCenter, title);
@@ -398,7 +397,7 @@ void KHangManView::paintGameOver(QPainter &p, const QRect &rect)
         QTimer::singleShot(10, this, SLOT(update()));
 	return;
     }
-    
+
     m_playAgainButton->setFocus();
     m_playAgainButton->setDefault(true);
     m_playAgainButton->move(width()/2 - m_playAgainButton->width()/2 , height()/2 + m_playAgainButton->height()+20);
