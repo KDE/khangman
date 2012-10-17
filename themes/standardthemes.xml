@@ -12,8 +12,24 @@
     <coords>
       <goodWordPos wratio="0.3571" hratio="0.5327" />
       <wordRect xratio="0" yratio="0.85" wratio="0.5957" hratio="0.15" />
-      <hintRect xratio="0" yratio="0.7" wratio="0.5857" hratio="0.1857" />
+      <hintRect xratio="0" yratio="0.72" wratio="0.5857" hratio="0.1857" />
       <kRect xratio="0" yratio="0" wratio="0.9" hratio="0.5327" />
+    </coords>
+    </theme>
+
+    <theme name="winter" author="Andreas Kainz" uiname="Winter Theme" svgfilename="khangman_winter.svg">
+    <colors>
+      <letterColor r="0" g="0" b="0" />
+      <guessButtonColor r="0" g="0" b="0" />
+      <guessButtonTextColor r="255" g="255" b="0" />
+      <guessButtonHoverColor r="99" g="105" b="112" />
+      <letterInputTextColor r="255" g="0" b="0" />
+    </colors>
+    <coords>
+      <goodWordPos wratio="0.3571" hratio="0.5327" />
+      <wordRect xratio="0" yratio="0.83" wratio="0.6497" hratio="0.15" />
+      <hintRect xratio="0" yratio="0.74" wratio="0.6497" hratio="0.1857" />
+      <kRect xratio="0.20" yratio="0.15" wratio="0.33" hratio="0.62" />
     </coords>
     </theme>
 
@@ -26,9 +42,9 @@
       <letterInputTextColor r="148" g="156" b="167" />
     </colors>
     <coords>
-      <goodWordPos wratio="0.3571" hratio="0.5327" />
-      <wordRect xratio="0" yratio="0.85" wratio="0.70" hratio="0.15" />
-      <hintRect xratio="0" yratio="0.7" wratio="0.70" hratio="0.1857" />
+      <goodWordPos wratio="0.3695" hratio="0.5327" />
+      <wordRect xratio="0" yratio="0.85" wratio="0.75" hratio="0.15" />
+      <hintRect xratio="0" yratio="0.67" wratio="0.75" hratio="0.1857" />
       <kRect xratio="0" yratio="0" wratio="0.9" hratio="0.5327" />
     </coords>
     </theme>
