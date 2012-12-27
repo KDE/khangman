@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KHangMan Active
+Name[ast]=KHangMan Activu
 Name[bs]=KHangMan aktivan
 Name[ca]=KHangMan
 Name[cs]=KHangMan Active
@@ -30,6 +31,7 @@ Name[uk]=Портативний KHangMan
 Name[x-test]=xxKHangMan Activexx
 Name[zh_TW]=KHangMan Active
 Comment=KHangMan Active for tablets
+Comment[ast]=KHangMan Activu pa tablets
 Comment[bs]=KHangMan aktivan za tablete
 Comment[ca]=KHangMan
 Comment[cs]=KHangMan Active pro tablety
