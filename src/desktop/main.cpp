@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     aboutData.addCredit(ki18n("Lubos Lunàk"),
                         ki18n("Coding help"), "l.lunak@kde.org");
     aboutData.addCredit(ki18n("Albert Astals Cid"),
-                        ki18n("Coding help, fixed a lot of things"), "tsdgeos@terra.es");
+                        ki18n("Coding help, fixed a lot of things"), "aacid@kde.org");
     aboutData.addCredit(ki18n("Peter Hedlund"),
                         ki18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
     aboutData.addCredit(ki18n("Inge Wallin"),
