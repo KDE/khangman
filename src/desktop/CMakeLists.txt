@@ -18,7 +18,7 @@ kde4_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
 #kde4_add_app_icon(khangman_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/khangman.png")
 #kde4_add_app_icon(khangman_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/ox*-apps-khangman.png")
-kde4_add_app_icon(khangman_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app-khangman.png")
+kde4_add_app_icon(khangman_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../../icons/hi*-app-khangman.png")
 
 kde4_add_executable(khangman ${khangman_SRCS})
 add_dependencies(khangman kvtml_data)
