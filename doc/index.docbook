@@ -32,8 +32,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2012-10-18</date>
-<releaseinfo>2.5 (&kde; 4.10)</releaseinfo>
+<date>2013-05-31</date>
+<releaseinfo>2.5 (&kde; 4.11)</releaseinfo>
 
 <abstract>
 <para>
@@ -131,7 +131,7 @@ The program converts all input into lowercase (except for German words beginning
 with an uppercase letter). The program does that automatically. </para>
 
 <para> 
-The current category and current language are displayed in the statusbar.
+The current category, wins and losses are displayed in the statusbar.
 </para>
 
 <para>
@@ -543,7 +543,7 @@ set the display for a longer duration.
 <title>Menus and Shortcut Keys</title>
 
 <sect2>
-<title>The <guimenu>Game</guimenu> Menu</title>
+<title>The Game Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -596,7 +596,7 @@ languages. </para></listitem>
 </sect2>
 
 <sect2>
-<title>The <guimenu>Category</guimenu> Menu</title>
+<title>The Category Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -638,7 +638,7 @@ guess</para></listitem>
 </sect2>
 
 <sect2>
-<title>The <guimenu>Language</guimenu> Menu</title>
+<title>The Language Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -656,7 +656,7 @@ well.</para></listitem>
 </sect2>
 
 <sect2>
-<title>The <guimenu>Look</guimenu> Menu</title>
+<title>The Look Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -693,80 +693,15 @@ associated font colors</para></listitem>
 </varlistentry>
 </variablelist>
 
-</sect2>
-
-<sect2>
-<title>The <guimenu>Settings</guimenu> Menu</title>
-
-<variablelist>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Toolbars</guisubmenu>
-</menuchoice></term>
-<listitem><para><action>Toggle</action> the <guimenuitem>Main</guimenuitem>,
-<guimenuitem>Special Characters</guimenuitem>,
-<guimenuitem>Look</guimenuitem> and <guimenuitem>Language</guimenuitem>
-toolbars.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
-</shortcut>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Hint</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Toggle</action> the display of hints.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Toggle</action> the statusbar.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> standard &kde; setting dialog that allows
-you to
-choose different shortcut keys for different actions.
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Configure</action> the items you want to put in the
-toolbar.
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure &khangman;...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Display</action> the &khangman; settings dialog.
-</para></listitem>
-</varlistentry>
-
-</variablelist>
+<para>
+Additionally &khangman; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
 
 </sect2>
 
-<sect2>
-<title>The <guimenu>Help</guimenu> Menu</title>
-&help.menu.documentation;
-</sect2>
 </sect1>
 </chapter>
 
