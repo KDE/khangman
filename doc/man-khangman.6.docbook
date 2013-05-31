@@ -6,7 +6,8 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title>KDE User's Manual</title>
-<author><personname><firstname>Ben</firstname><surname>Burton</surname></personname> <email>bab@debian.org</email></author>
+<author><firstname>Ben</firstname><surname>Burton</surname> <contrib>&khangman; man page.</contrib> 
+<email>bab@debian.org</email></author>
 <date>2010-10-06</date>
 <productname>K Desktop Environment</productname>
 </refentryinfo>
