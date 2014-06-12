@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<component type="desktop">
+  <id>khangman.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>KHangMan</name>
+  <summary>Hangman Game</summary>
+  <description>
+    <p>KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
+  </description>
+  <url type="homepage">http://edu.kde.org/khangman/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khangman</url>
+  <url type="help">http://docs.kde.org/stable/en/kdeedu/khangman/index.html</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/khangman.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>khangman</binary>
+  </provides>
+</component>

@@ -24,3 +24,5 @@ endif()
 
 add_subdirectory( sounds )
 add_subdirectory( icons )
+
+install(FILES khangman.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
