@@ -4,18 +4,22 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KHangMan</name>
+  <name xml:lang="hu">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
   <name xml:lang="pl">KHangMan</name>
   <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
+  <name xml:lang="sk">KHangMan</name>
   <name xml:lang="sv">Hänga gubben</name>
   <name xml:lang="uk">KHangMan</name>
   <name xml:lang="x-test">xxKHangManxx</name>
   <summary>Hangman Game</summary>
+  <summary xml:lang="hu">Akasztófajáték</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
   <summary xml:lang="pl">Gra Hangman</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
+  <summary xml:lang="sk">Hra Hangman</summary>
   <summary xml:lang="sv">Hänga gubben-spel</summary>
   <summary xml:lang="uk">Гра Hangman</summary>
   <summary xml:lang="x-test">xxHangman Gamexx</summary>
