@@ -5,6 +5,8 @@
   <project_license>GPL-2.0+</project_license>
   <name>KHangMan</name>
   <name xml:lang="cs">KHangMan</name>
+  <name xml:lang="de">KHangMan</name>
+  <name xml:lang="en-GB">KHangMan</name>
   <name xml:lang="es">KHangMan</name>
   <name xml:lang="fi">KHangMan</name>
   <name xml:lang="hu">KHangMan</name>
@@ -20,6 +22,7 @@
   <name xml:lang="zh-TW">語言_KHangMan</name>
   <summary>Hangman Game</summary>
   <summary xml:lang="cs">Hra Hangman</summary>
+  <summary xml:lang="en-GB">Hangman Game</summary>
   <summary xml:lang="es">Juego del ahorcado</summary>
   <summary xml:lang="fi">Hirsipuupeli</summary>
   <summary xml:lang="hu">Akasztófajáték</summary>
@@ -35,6 +38,7 @@
   <summary xml:lang="zh-TW">劊子手（hangman）遊戲</summary>
   <description>
     <p>KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
+    <p xml:lang="en-GB">KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
     <p xml:lang="fi">KHangMan perustuu tunnettuun hirsipuupeliin ja on suunnattu kuusivuotiaille sekä sitä vanhemmille lapsille. Pelissä on useita pelattavia sanaryhmiä kuten esimerkiksi eläimet (eläinsanat) sekä kolme vaikeusryhmää: helppo, keskitaso and vaikea. Sana valitaan satunnaisesti, kirjaimet piilotetaan, ja pelaajan täytyy arvata sana yrittämällä yhtä kirjainta toisen jälkeen. Jokaisesta väärin arvatusta kirjaimesta piirretään seuraava osa hirsipuuhun. Sana täytyy arvata ennen kuin tulee hirtetyksi! Pelissä on 10 yritystä.</p>
     <p xml:lang="nds">KHangMan is en Speel, dat op dat begäng Speel „Galgenraden“ opbuut. Dat is för Kinners vun söss Johr af. Dat Speel hett en Reeg Woortkategorien, so as „Deerten“, un de dree Swoorheitstopen „Eenfach“, „Middel“ un „Swoor“. Dat Woort warrt tofällig utsöcht, de Bookstaven sünd toeerst versteken, un Du muttst de an na den annern raden. Raadst Du verkehrt, warrt en mehr Deel vun den Mann an'n Galgen maalt. Du muttst dat Woort raadt hebben, ehr he fardig is! Du hest 10 Versöök.</p>
     <p xml:lang="nl">KHangMan is een spel dat is gebaseerd op het welbekende galgje. Het richt zich op kinderen van zes jaar en ouder. Het spel kent verschillende categorieën te spelen woorden waaronder: Dieren (dierenwoorden) en drie moeilijkheidsgraden, Eenvoudig, Middel en Moeilijk. Woorden worden willekeurig gekozen en de letters ervan worden verborgen. U raadt het woord door een voor een letters op te geven. Telkens als u een verkeerde letter raadt wordt er een gedeelte van de galg-afbeelding getekend. U moet het woord raden voordat u wordt opgehangen! U hebt 10 pogingen.</p>
