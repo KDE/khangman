@@ -213,7 +213,7 @@ void KHangManView::setTheme(KHMTheme *theme)
     // we don't allow themes with no svg installed
 
     if (!QFile::exists(svgpath) || theme->svgFileName().isEmpty()) {
-        kDebug() << "SVG file doesn't exists";
+        qDebug() << "SVG file doesn't exists";
         return;
     }
 
@@ -441,7 +441,7 @@ void KHangManView::slotTry()
         m_letterInput->setFocus();
         return;
     }
-    kDebug() << "guess as entered: " << guess;
+    qDebug() << "guess as entered: " << guess;
 
     // Handle the guess.
     if (!m_guessedLetters.contains(guess)) {
@@ -616,8 +616,8 @@ void KHangManView::reset()
 
 void KHangManView::game()
 {
-    kDebug() << "language " << Prefs::selectedLanguage();
-    kDebug() << "level "    << Prefs::levelFile();
+    qDebug() << "language " << Prefs::selectedLanguage();
+    qDebug() << "level "    << Prefs::levelFile();
 
     m_word = m_randomList[m_randomInt%m_randomList.count()].first;
     m_word = m_word.toLower();
@@ -690,7 +690,7 @@ void KHangManView::game()
 
 void KHangManView::slotSetWordsSequence()
 {
-    kDebug() << "in read kvtml file ";
+    qDebug() << "in read kvtml file ";
 
     delete m_doc;
 

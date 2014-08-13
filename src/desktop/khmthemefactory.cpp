@@ -18,7 +18,7 @@
  ***************************************************************************/
 
 #include "khmthemefactory.h"
-#include <KDebug>
+#include <QDebug>
 
 KHMThemeFactory::KHMThemeFactory()
 {    
@@ -33,18 +33,18 @@ bool KHMThemeFactory::addTheme(QString themeFile)
     QDomElement themeElement;
     
     if (!file.exists()) { 
-        kDebug() << "Themes file doesn't exist"; 
+        qDebug() << "Themes file doesn't exist";
         return false; 
     }
     
     if (!file.open(QIODevice::ReadOnly)) {
-        kDebug()<<"Can't open themes file"; 
+        qDebug()<<"Can't open themes file";
         return false;
     }
     
     if (!tree.setContent(&file)) {
         file.close();
-        kDebug()<<"Can't set content for theme file";
+        qDebug()<<"Can't set content for theme file";
         return false;
     }
     
@@ -52,7 +52,7 @@ bool KHMThemeFactory::addTheme(QString themeFile)
     root=tree.documentElement();
     
     if (!checkTheme(root, "1")) {
-        kDebug()<<"Incompatible version of theme loaded"; 
+        qDebug()<<"Incompatible version of theme loaded";
         return false; 
     }
     

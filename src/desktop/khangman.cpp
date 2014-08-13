@@ -37,7 +37,7 @@
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <KDebug>
+#include <QDebug>
 #include <KFileDialog>
 #include <KLineEdit>
 #include <KLocale>
@@ -196,7 +196,7 @@ void KHangMan::slotChangeLevel(int index)
 void KHangMan::slotChangeLanguage(int index)
 {
     //good when no in English
-    kDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
+    qDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
     Prefs::self()->writeConfig();
     loadLevels();
@@ -225,7 +225,7 @@ void KHangMan::setLanguages()
 
     //the program scans in khangman/data/ to see what languages data is found
     m_languages = SharedKvtmlFiles::languages();
-    kDebug() << "Languages " << m_languages;
+    qDebug() << "Languages " << m_languages;
     if (m_languages.isEmpty()) {
         qApp->closeAllWindows();
     }
@@ -418,7 +418,7 @@ void KHangMan::loadLangToolBar()
         if (!langFile.exists()) {
             langFileName = QString("kvtml/%1/%1.txt").arg(lang);
             langFile.setFileName(KStandardDirs::locate("data", langFileName));
-            kDebug() << langFileName;
+            qDebug() << langFileName;
         }
 
         if (!langFile.exists()) {
@@ -515,7 +515,7 @@ QIcon KHangMan::charIcon(const QChar & c) const
 
 void KHangMan::setAccent()
 {
-    kDebug() << "in slot accent  ";
+    qDebug() << "in slot accent  ";
     m_view->setAccentedLetters(LangUtils::hasAccentedLetters(Prefs::selectedLanguage()));
 }
 
