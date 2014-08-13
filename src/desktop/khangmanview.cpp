@@ -20,7 +20,7 @@
 
 #include <KMessageBox>
 #include <KPassivePopup>
-#include <KPushButton>
+#include <QPushButton>
 #include <KToggleAction>
 #include <KVBox>
 
@@ -66,13 +66,13 @@ KHangManView::KHangManView(KHangMan*parent)
     m_letterInput->setAlignment( Qt::AlignHCenter  );
 
     // Press this button to enter a letter (or press enter)
-    m_guessButton = new KPushButton( this);
+    m_guessButton = new QPushButton( this);
     m_guessButton->setObjectName( "guessButton" );
     m_guessButton->setSizePolicy( policy );
     m_guessButton->setCursor(Qt::PointingHandCursor);
     m_guessButton->setText( i18n( "G&uess" ) );
 
-    m_playAgainButton = new KPushButton(this);
+    m_playAgainButton = new QPushButton(this);
     m_playAgainButton->setCursor(Qt::PointingHandCursor);
     m_playAgainButton->setText( i18n( "&Play again" ) );
     
