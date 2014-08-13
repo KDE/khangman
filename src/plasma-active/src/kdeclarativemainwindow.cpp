@@ -25,7 +25,7 @@
 #include <QApplication>
 #include <QDeclarativeContext>
 
-#include <KAction>
+#include <QAction>
 #include <KCmdLineArgs>
 #include <KStandardAction>
 

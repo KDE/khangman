@@ -92,11 +92,11 @@ KHangMan::~KHangMan()
 void KHangMan::setupActions()
 {
     // Game->New
-    KAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
+    QAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
                                        actionCollection());
     newAct->setToolTip(i18n( "Play with a new word" ));
 
-    KAction* fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
+    QAction * fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
     fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
     fileOpen->setToolTip(fileOpen->whatsThis());
 
@@ -109,7 +109,7 @@ void KHangMan::setupActions()
     hintAct->setEnabled( m_view->hintExists() );
     connect(hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
-    KAction *newStuffAct  = new KAction(i18n("&Get Words in New Language..."), this);
+    QAction *newStuffAct  = new QAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
     newStuffAct->setIcon(KIcon("get-hot-new-stuff"));
     newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
