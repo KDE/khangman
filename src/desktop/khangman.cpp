@@ -146,7 +146,7 @@ void KHangMan::setupActions()
 
     config = KGlobal::config();
     
-    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(KUrl)), this);
+    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
     m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
     actionCollection()->addAction(m_recent->objectName(), m_recent);
     m_recent->loadEntries(KConfigGroup(config, "KHangManRecent"));
@@ -531,7 +531,7 @@ void KHangMan::setMessages()
     }
 }
 
-void KHangMan::loadFile(const KUrl & url)
+void KHangMan::loadFile(const QUrl &url)
 {
     if ( url.isValid() )  {
         if(url.isLocalFile())
@@ -556,14 +556,14 @@ void KHangMan::slotNewGame()
     m_view->newGame();
 }
 
-void KHangMan::slotOpenRecent(const KUrl & url)
+void KHangMan::slotOpenRecent(const QUrl &url)
 {
     loadFile(url); 
 }
 
 void KHangMan::slotFileOpen()
 {
-    KUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
+    QUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
     loadFile(url);
 }
 

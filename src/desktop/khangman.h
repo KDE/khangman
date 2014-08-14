@@ -97,7 +97,7 @@ private slots:
     ///open a local KVTML file
     void slotFileOpen();
     ///open a user's recent file
-    void slotOpenRecent(const KUrl &);
+    void slotOpenRecent(const QUrl &);
     
     /**
     Update the text in the Statusbar
@@ -121,7 +121,7 @@ private:
     ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
     ///Loads a file in URL, or displays file open dialog if argument is empty
-    void loadFile(const KUrl &);
+    void loadFile(const QUrl &);
     // Populate the second toolbar with the correct buttons if the
     // current language has special characters.
     void loadLangToolBar();
