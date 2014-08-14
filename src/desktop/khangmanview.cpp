@@ -22,7 +22,6 @@
 #include <KPassivePopup>
 #include <QPushButton>
 #include <KToggleAction>
-#include <KVBox>
 
 #include <Phonon/MediaObject>
 
