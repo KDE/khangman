@@ -23,7 +23,7 @@
 
 #include "khangman_engine_export.h"
 
-#include <KDE/KRandomSequence>
+#include <KCoreAddons/KRandomSequence>
 
 #include <QtCore/QObject>
 #include <QtCore/QMap>
@@ -50,7 +50,7 @@ class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
         Q_INVOKABLE static bool hasAccentedLetters(const QString& languageCode);
 
         /** Return true if the word contains the char in the QString */
-        Q_INVOKABLE bool containsChar(const QString &original); 
+        Q_INVOKABLE bool containsChar(const QString &original);
 
         /** Return true if the answer and the current word match */
         Q_INVOKABLE bool isResolved() const;

@@ -1,10 +1,10 @@
 /*
  * Copyright 2001-2010 Anne-Marie Mahfouf <annma@kde.org>
 
-     This program is free software; you can redistribute it and/or modify  
-     it under the terms of the GNU General Public License as published by  
-     the Free Software Foundation; either version 2 of the License, or     
-     (at your option) any later version.                                   
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,6 +22,7 @@
 #include <KPassivePopup>
 #include <QPushButton>
 #include <KToggleAction>
+#include <KLocalizedString>
 
 #include <Phonon/MediaObject>
 
@@ -44,9 +45,9 @@
 #include "langutils.h"
 
 
-KHangManView::KHangManView(KHangMan*parent) 
-        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_winner(false), 
-	  m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1), 
+KHangManView::KHangManView(KHangMan*parent)
+        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_winner(false),
+	  m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1),
           m_randomInt(-1), m_hintExists(true), m_accentedLetters(true), m_doc(0), m_theme(0), m_player(0)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -74,7 +75,7 @@ KHangManView::KHangManView(KHangMan*parent)
     m_playAgainButton = new QPushButton(this);
     m_playAgainButton->setCursor(Qt::PointingHandCursor);
     m_playAgainButton->setText( i18n( "&Play again" ) );
-    
+
     m_playAgainButton->setStyleSheet( QString("QPushButton { border: 2px solid black; border-radius: 15px; background-color: #969696; padding: 6px; }  QPushButton:hover { background-color: #787878 } "));
 
     setMinimumSize( QSize( 660, 370 ) );
@@ -82,7 +83,8 @@ KHangManView::KHangManView(KHangMan*parent)
     connect( m_letterInput, SIGNAL(returnPressed()), this, SLOT(slotTry()) );
     connect( m_guessButton, SIGNAL(clicked()), this, SLOT(slotTry()));
     connect( m_playAgainButton, SIGNAL(clicked()), this, SLOT(newGame()));
-    connect( this, SIGNAL(signalChangeStatusbar(QString,int)), khangman, SLOT(changeStatusbar(QString,int)));
+    connect( this, SIGNAL(signalSetWins(int)), khangman, SLOT(slotSetWins(int)));
+    connect( this, SIGNAL(signalSetLosses(int)), khangman, SLOT(slotSetLosses(int)));
     m_renderer = new QSvgRenderer();
 
     // not the best thing to do, but at least avoid no theme set
@@ -424,7 +426,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
     m_playAgainButton->setFont(QFont("Dustismo Roman", height()/32));
 
 
-    m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 , 
+    m_playAgainButton->setGeometry( width()/2 - m_playAgainButton->width()/2 ,
                                     height()/2 + m_playAgainButton->height()/2,
 				    m_playAgainButton->sizeHint().width(), height()/9 );
 }
@@ -435,7 +437,7 @@ void KHangManView::resizeEvent(QResizeEvent *)
 void KHangManView::slotTry()
 {
     QString guess = m_letterInput->text().toLower();
-    
+
     if (guess.isEmpty()) {
         m_letterInput->setFocus();
         return;
@@ -500,7 +502,7 @@ void KHangManView::slotTry()
         // The letter is already guessed.
 
         // Show a popup that says as much.
-        QPoint point; 
+        QPoint point;
         KPassivePopup *popup = new KPassivePopup( this );
         popup->setPopupStyle( KPassivePopup::Balloon );
         popup->setAutoDelete( true );
@@ -528,7 +530,7 @@ void KHangManView::slotTry()
 
         if (goodWord.contains(guess) > 0) {
             point = m_theme->goodWordPos(size(), popup->pos());
-            
+
             QTimer::singleShot( Prefs::missedTimer() * 1000,
                                 this, SLOT(enableUserInput()) );
 
@@ -565,6 +567,8 @@ void KHangManView::newGame()
     //reset Hint action
     khangman->hintAct->setChecked(Prefs::hint());
     khangman->hintAct->setEnabled(m_hintExists);
+
+    readFile();
 
     setGameCount();
     if (Prefs::sound()) {
@@ -649,7 +653,7 @@ void KHangManView::game()
 
     // 1. Find dashes.
     int posOfFirstDash = m_word.indexOf( "-" );
-    
+
     if (posOfFirstDash>0) {
         goodWord.replace(2*posOfFirstDash, 1, "-");
         int posOfSecondDash = m_word.indexOf( "-", posOfFirstDash+1);
@@ -663,7 +667,7 @@ void KHangManView::game()
 
     // 2. Find white space.
     m_posFirstSpace = m_word.indexOf( " " );
-    
+
     if (m_posFirstSpace > 0) {
         goodWord.replace(2*m_posFirstSpace, 1, " ");
         m_posSecondSpace = m_word.indexOf( " ", m_posFirstSpace+1);
@@ -673,14 +677,14 @@ void KHangManView::game()
 
     // 3. Find ·
     int posOfDot = m_word.indexOf( QString::fromUtf8("·") );
-    
+
     if (posOfDot>0) {
         goodWord.replace(2*posOfDot, 1, QString::fromUtf8("·") );
     }
 
     // 4. Find '
     int posOfApos = m_word.indexOf( "'" );
-    
+
     if (posOfApos>0) {
         goodWord.replace(2*posOfApos, 1, "'");
     }
@@ -700,6 +704,8 @@ void KHangManView::slotSetWordsSequence()
     //how many words in the file
     int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
 
+    qDebug() << "slotSetWordsSequence called, wordCount is " << wordCount;
+
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
@@ -711,7 +717,7 @@ void KHangManView::slotSetWordsSequence()
             hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(1)->text();
         }
         if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text().isEmpty()) {
-            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text(), hint));  
+            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text(), hint));
         }
     }
     //shuffle the list
@@ -720,8 +726,8 @@ void KHangManView::slotSetWordsSequence()
 
 void KHangManView::setGameCount()
 {
-    emit signalChangeStatusbar(i18n("Wins: %1", winCount), IDS_WINS);
-    emit signalChangeStatusbar(i18n("Losses: %1", lossCount), IDS_LOSSES);
+    emit signalSetWins(winCount);
+    emit signalSetLosses(lossCount);
 }
 
 #include "khangmanview.moc"

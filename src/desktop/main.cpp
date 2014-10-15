@@ -1,10 +1,10 @@
 /*
  * Copyright (C) 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
-     This program is free software; you can redistribute it and/or modify  
-     it under the terms of the GNU General Public License as published by  
-     the Free Software Foundation; either version 2 of the License, or     
-     (at your option) any later version.                                   
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -21,7 +21,7 @@
 #include "version.h"
 
 #include <KProcess>
-#include <KAboutData>
+#include <K4AboutData>
 #include <KCmdLineArgs>
 #include <KApplication>
 #include <KStandardDirs>
@@ -35,8 +35,8 @@ static const char description[] =
 
 int main(int argc, char **argv)
 {
-    KAboutData aboutData( "khangman", 0, ki18n("KHangMan"),
-            KHM_VERSION, ki18n(description), KAboutData::License_GPL,
+    K4AboutData aboutData( "khangman", 0, ki18n("KHangMan"),
+            KHM_VERSION, ki18n(description), K4AboutData::License_GPL,
             ki18n("(c) 2001-2011, Anne-Marie Mahfouf"), KLocalizedString(),
             "http://edu.kde.org/khangman");
     aboutData.addAuthor(ki18n("Primoz Anzur"), ki18n("Previous maintainer"),
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 
     // Write the names with accents and all and this file save with
     // utf8 encoding.
-    aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"), 
+    aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"),
                         "annma@kde.org", "http://annma.blogspot.com", "annma");
     aboutData.addCredit(ki18n("Stefan Böhmann"),
                         ki18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");

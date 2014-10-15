@@ -29,7 +29,7 @@
 
 #include <KDE/KLocale>
 
-#include <QtGui/QApplication>
+#include <QApplication>
 
 KHangManEngine::KHangManEngine()
     : m_randomInt(0)
@@ -54,9 +54,9 @@ bool KHangManEngine::hasSpecialChars(const QString& languageCode)
             || languageCode == QLatin1String("uk")
             || languageCode == QLatin1String("el")
             || languageCode == QLatin1String("ro"))
-    {   
+    {
         return false;
-    }   
+    }
     return true;
 }
 
@@ -66,9 +66,9 @@ bool KHangManEngine::hasAccentedLetters(const QString& languageCode)
             || languageCode == QLatin1String("ca")
             || languageCode == QLatin1String("pt")
             || languageCode == QLatin1String("pt_BR"))
-    {   
+    {
         return true;
-    }   
+    }
     return false;
 }
 
@@ -129,8 +129,8 @@ void KHangManEngine::readFile()
         }
 
         if (!entry->translation(0)->text().isEmpty()) {
-            m_randomList.append(qMakePair(entry->translation(0)->text(), hint));  
-        }   
+            m_randomList.append(qMakePair(entry->translation(0)->text(), hint));
+        }
     }
 
     // Shuffle the list
@@ -144,9 +144,9 @@ QString KHangManEngine::stripAccents(const QString &original)
 
     QString decomposed = original.normalized(QString::NormalizationForm_D);
     foreach (const QChar &ch, decomposed) {
-        if ( ch.category() != QChar::Mark_NonSpacing ) { 
+        if ( ch.category() != QChar::Mark_NonSpacing ) {
             noAccents.append(ch);
-        }   
+        }
     }
 
     return noAccents;

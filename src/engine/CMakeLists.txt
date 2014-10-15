@@ -1,10 +1,6 @@
-cmake_minimum_required(VERSION 2.8)
-
 set(CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake
 )
-
-find_package(Qt4 4.7 REQUIRED)
 
 if ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
    set(_Init_LIB_SUFFIX 64)
@@ -51,38 +47,38 @@ set(KHangManEngine_SRCS
 
 set(KHangManEngine_HEADERS
     khangmanengine.h
-    khangman_engine_export.h
 )
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-
-    ${LIBKDEEDU_INCLUDE_DIR}
 )
 
-kde4_add_kcfg_files(KHangManEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/prefs.kcfgc)
+kconfig_add_kcfg_files(KHangManEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/prefs.kcfgc)
 
 if(APPLE)
-    kde4_add_library(khangmanengine SHARED ${KHangManEngine_SRCS} ${KHangManEngine_HEADERS})
+    add_library(khangmanengine SHARED ${KHangManEngine_SRCS} ${KHangManEngine_HEADERS})
 else()
-    kde4_add_library(khangmanengine SHARED ${KHangManEngine_SRCS})
+    add_library(khangmanengine SHARED ${KHangManEngine_SRCS})
 endif()
 
 target_link_libraries(
     khangmanengine
-    #${QT_QTXML_LIBRARY}
-    ${KDE4_KDECORE_LIBS}
-    ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
+    Qt5::Widgets
+    KF5::CoreAddons
+    KF5::KDE4Support
+    LibKEduVocDocumentImport__KEduVocDocument
 )
 
 set(KHANGMAN_ENGINE_LIBRARIES
     khangmanengine
-    ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
+    ${LIBKEDUVOCDOCUMENT_LIBRARIES}
     CACHE INTERNAL "Libraries required for KHangMan engine"
 )
 
 set_target_properties(khangmanengine PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} DEFINE_SYMBOL MAKE_KHANGMAN_ENGINE_LIB)
+
+generate_export_header(khangmanengine BASE_NAME KHANGMAN_ENGINE)
 
 if(APPLE)
     #hack for being able to set headers as public in a osx framework

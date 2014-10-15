@@ -21,6 +21,7 @@
 #ifndef _KHANGMAN_H_
 #define _KHANGMAN_H_
 
+#include <KSharedConfig>
 #include <KXmlGuiWindow>
 
 #include "khangmanview.h"
@@ -32,13 +33,7 @@ class KSelectAction;
 class KToggleAction;
 class KRecentFilesAction;
 
-
-// Id tags for the status bar.
-const int IDS_LEVEL    = 100;
-const int IDS_ACCENTS  = 101;
-const int IDS_WINS     = 103;
-const int IDS_LOSSES   = 104;
-
+class QLabel;
 
 /**
  * @short Application Main Window
@@ -75,6 +70,8 @@ public slots:
     void slotChangeLanguage(int);
     ///When the hint is set or unset
     void slotSetHint(bool);
+    void slotSetWins(int);
+    void slotSetLosses(int);
 
 private slots:
     // Slots for when the user changes level, setting, etc.
@@ -98,13 +95,6 @@ private slots:
     void slotFileOpen();
     ///open a user's recent file
     void slotOpenRecent(const QUrl &);
-    
-    /**
-    Update the text in the Statusbar
-    @param text the text that will be written in the statusbar
-    @param id the label in which the text will be written
-    */
-    void changeStatusbar(const QString& text, int id);
 
 private:
     ///Create the actions
@@ -160,14 +150,19 @@ private:
     // Settings.
     Ui::generalui ui_general;
     Ui::languageui ui_language;
-    
+
     //Theme manager
     KHMThemeFactory khm_factory;
-    
+
     //Config group
     KSharedConfig::Ptr config;
     //Recent files element
     KRecentFilesAction * m_recent;
+
+    QLabel *m_levelLabel;
+    QLabel *m_accentsLabel;
+    QLabel *m_winsLabel;
+    QLabel *m_lossesLabel;
 };
 
 #endif // _KHANGMAN_H_

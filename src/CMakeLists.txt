@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.8)
-
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
@@ -10,13 +8,7 @@ add_subdirectory(engine)
 
 ####### KHangMan Desktop ########
 if(BUILD_KHANGMAN_DESKTOP)
-    find_package(KDE4)
-    if(KDE4_FOUND)
-        include_directories(${KDE4_INCLUDES})
-        add_subdirectory(desktop)
-    else(KDE4_FOUND)
-        message(STATUS "KDE libraries are not found - not building the KDE Desktop frontend")
-    endif(KDE4_FOUND)
+    add_subdirectory(desktop)
 endif()
 
 ####### KHangMan Harmattan ########

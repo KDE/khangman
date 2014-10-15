@@ -1,10 +1,10 @@
 /*
  * Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
 
-     This program is free software; you can redistribute it and/or modify  
-     it under the terms of the GNU General Public License as published by  
-     the Free Software Foundation; either version 2 of the License, or     
-     (at your option) any later version.                                   
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -70,7 +70,7 @@ public:
 
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
-    
+
     int winCount;
     int lossCount;
 
@@ -83,9 +83,8 @@ public slots:
 
 signals:
 
-    /// Use this signal to change the content of the statusbar
-    void signalChangeStatusbar(const QString &message, int id);
-
+    void signalSetWins(int wins);
+    void signalSetLosses(int losses);
 
  protected:
 
@@ -130,7 +129,7 @@ private slots:
     void play(const QString& soundFile);
     ///Display the win/loss count in the statusbar
     void setGameCount();
-    
+
     /** Strip the accents off given string
      * @params original string to strip accents off of
      * @returns string without accents

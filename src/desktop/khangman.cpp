@@ -59,13 +59,13 @@ KHangMan::KHangMan()
           m_recent(0)
 {
     setObjectName(QLatin1String("KHangMan"));
-    
+
     setCentralWidget(m_view);
     setLanguages();
     setupStatusbar();
 
     //load the standard set of themes
-    khm_factory.addTheme(KStandardDirs::locate("data", "khangman/pics/standardthemes.xml"));   //TODO move it to better place    
+    khm_factory.addTheme(KStandardDirs::locate("data", "khangman/pics/standardthemes.xml"));   //TODO move it to better place
 
     setupActions();
 
@@ -79,7 +79,7 @@ KHangMan::KHangMan()
     loadLevels();
 
     // set the theme
-    slotChangeMode(Prefs::mode());   
+    slotChangeMode(Prefs::mode());
     show();
     // Start a new game.
     m_view->newGame();
@@ -145,7 +145,7 @@ void KHangMan::setupActions()
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
 
     config = KGlobal::config();
-    
+
     m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
     m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
     actionCollection()->addAction(m_recent->objectName(), m_recent);
@@ -157,16 +157,18 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
-    statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
-    statusBar()->insertItem("   ", IDS_WINS,    1);
-    statusBar()->insertItem("   ", IDS_LOSSES,  1);
-}
-
-
-void KHangMan::changeStatusbar(const QString& text, int id)
-{
-    statusBar()->changeItem(text, id);
+    m_levelLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(m_levelLabel);
+    m_accentsLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(m_accentsLabel);
+    m_winsLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(m_winsLabel);
+    m_lossesLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(m_lossesLabel);
+    //statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
+    //statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
+    //statusBar()->insertItem("   ", IDS_WINS,    1);
+    //statusBar()->insertItem("   ", IDS_LOSSES,  1);
 }
 
 
@@ -185,7 +187,7 @@ void KHangMan::slotQuit()   //TODO: Isn't called when "X" pressed, only when Fil
 void KHangMan::slotChangeLevel(int index)
 {
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
-    changeStatusbar(currentLevel.key(), IDS_LEVEL);
+    m_levelLabel->setText(currentLevel.key());
     Prefs::setCurrentLevel(index);
     Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->writeConfig();
@@ -240,7 +242,7 @@ void KHangMan::setLanguages()
         cg.writeEntry(m_languages[i], QDate::currentDate().toString(Qt::ISODate));
     }
     cg.config()->sync();
-    
+
     // We look in $KDEDIR/share/locale/all_languages from
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
@@ -292,7 +294,7 @@ void KHangMan::loadLevels()
     m_titleLevels.clear();
     QStringList levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
-    
+
     if (levelFilenames.size() == 0) {
         Prefs::setSelectedLanguage("en");
         Prefs::self()->writeConfig();
@@ -328,7 +330,7 @@ void KHangMan::loadLevels()
 
     setLevel();
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
-    changeStatusbar(currentLevel.key(), IDS_LEVEL);
+    m_levelLabel->setText(currentLevel.key());
 }
 
 
@@ -359,7 +361,7 @@ void KHangMan::optionsPreferences()
 
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(updateSettings()));
     dialog->setAttribute( Qt::WA_DeleteOnClose );
-    dialog->setHelp(QString(),"khangman");
+    //dialog->setHelp(QString(),"khangman");
     dialog->show();
 }
 
@@ -524,10 +526,10 @@ void KHangMan::setMessages()
 {
     // Tell the user about accented characters
     if (m_view->accentedLetters() && Prefs::accentedLetters()) {
-        changeStatusbar(i18n("Type accented letters"), IDS_ACCENTS);
+        m_accentsLabel->setText(i18n("Type accented letters"));
     }
     else {
-        changeStatusbar("", IDS_ACCENTS);
+        m_accentsLabel->setText("");
     }
 }
 
@@ -537,13 +539,13 @@ void KHangMan::loadFile(const QUrl &url)
         if(url.isLocalFile())
             Prefs::setLevelFile(url.toLocalFile());
         else Prefs::setLevelFile(url.path());
-        
-       changeStatusbar(url.path().section('/', -1), IDS_LEVEL);
-       
+
+        m_levelLabel->setText(url.path().section('/', -1));
+
         m_recent->addUrl(url);
         m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
         Prefs::self()->writeConfig();
-                
+
         m_view->readFile();
         m_view->newGame();
     }
@@ -552,19 +554,29 @@ void KHangMan::loadFile(const QUrl &url)
 void KHangMan::slotNewGame()
 {
     m_view->lossCount++;
-    statusBar()->changeItem(i18n("Losses: %1", m_view->lossCount), IDS_LOSSES);
+    m_lossesLabel->setText(i18n("Losses: %1", m_view->lossCount));
     m_view->newGame();
 }
 
 void KHangMan::slotOpenRecent(const QUrl &url)
 {
-    loadFile(url); 
+    loadFile(url);
 }
 
 void KHangMan::slotFileOpen()
 {
     QUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
     loadFile(url);
+}
+
+void KHangMan::slotSetWins(int wins)
+{
+    m_winsLabel->setText(i18n("Wins: %1", wins));
+}
+
+void KHangMan::slotSetLosses(int losses)
+{
+    m_lossesLabel->setText(i18n("Losses: %1", losses));
 }
 
 void KHangMan::slotSetHint(bool hint)
