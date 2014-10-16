@@ -553,9 +553,7 @@ void KHangMan::loadFile(const QUrl &url)
 
 void KHangMan::slotNewGame()
 {
-    m_view->lossCount++;
-    m_lossesLabel->setText(i18n("Losses: %1", m_view->lossCount));
-    m_view->newGame();
+    m_view->newGame(true);
 }
 
 void KHangMan::slotOpenRecent(const QUrl &url)

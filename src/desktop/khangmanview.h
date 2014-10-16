@@ -71,15 +71,13 @@ public:
     /// Enter a letter into the input widget.
     void  enterLetter(QString letter) { m_letterInput->setText(letter); }
 
-    int winCount;
-    int lossCount;
-
 public slots:
 
     ///Load kvtml file and get a word and its tip in random
     void readFile();
     ///if you want to play with a new word
-    void newGame();
+    // @param loss if the previous game should be counted as a loss
+    void newGame(bool loss = false);
 
 signals:
 
@@ -140,6 +138,10 @@ private slots:
     bool m_winner;
     bool m_loser;
     int m_bgfill;
+
+    int m_winCount;
+    int m_lossCount;
+
     // The basic data ----------------
 
     // FIXME: Rewrite the whole handling of this so that goodWord,
@@ -150,7 +152,7 @@ private slots:
     QString          m_word;
     /// goodWord is the hidden word that is filled in during the game.
     /// Initialized to "_ " * (number of letters in the word).
-    QString goodWord;
+    QString m_goodWord;
 
     /// Contains all letters already guessed.
     QStringList      m_guessedLetters;

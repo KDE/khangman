@@ -46,8 +46,8 @@
 
 
 KHangManView::KHangManView(KHangMan*parent)
-        : QWidget(parent), khangman(parent), winCount(0), lossCount(0), m_winner(false),
-	  m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1),
+        : QWidget(parent), khangman(parent), m_winCount(0), m_lossCount(0), m_winner(false),
+          m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1),
           m_randomInt(-1), m_hintExists(true), m_accentedLetters(true), m_doc(0), m_theme(0), m_player(0)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -111,8 +111,8 @@ void KHangManView::replaceLetters(const QString& sChar)
     // We just replace the next instance.
         for (int count=0; count < m_word.count(sChar); ++count) {
             index = m_word.indexOf(sChar, index);
-            if (goodWord.at(2*index)=='_') {
-                goodWord.replace((2*index), 1, sChar);
+            if (m_goodWord.at(2*index)=='_') {
+                m_goodWord.replace((2*index), 1, sChar);
 
                 if (count == m_word.count(sChar)-1)
                 b_end = true;
@@ -133,7 +133,7 @@ void KHangManView::replaceLetters(const QString& sChar)
             index = m_word.indexOf(sChar, index);
 
             //we replace it...
-            goodWord.replace((2*index), 1,sChar);
+            m_goodWord.replace((2*index), 1,sChar);
             ++index;
         }
     }
@@ -282,21 +282,23 @@ void KHangManView::paintHangman(QPainter &p, const QRect& rect)
 
 void KHangManView::paintWord(QPainter &p, const QRect& rect)
 {
-    QRect myRect = m_theme->wordRect(size());
-    if (!myRect.intersects(rect)) {
-        return;
+    if (m_goodWord.size() > 0) {
+        QRect myRect = m_theme->wordRect(size());
+        if (!myRect.intersects(rect)) {
+            return;
+        }
+
+        p.setPen(m_theme->letterColor());
+
+        QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
+
+        tFont.setPointSize( height()/20 );
+
+        p.setFont(tFont);
+        // Set first letter as upper case for German
+        m_goodWord.replace(0, 1, LangUtils::capitalize(m_goodWord.at(0), Prefs::selectedLanguage()));
+        p.drawText(myRect, Qt::AlignCenter|Qt::AlignCenter, m_goodWord);
     }
-
-    p.setPen(m_theme->letterColor());
-
-    QFont tFont = LangUtils::fontForLanguage(Prefs::selectedLanguage());
-
-    tFont.setPointSize( height()/20 );
-
-    p.setFont(tFont);
-    // Set first letter as upper case for German
-    goodWord.replace(0, 1, LangUtils::capitalize(goodWord.at(0), Prefs::selectedLanguage()));
-    p.drawText(myRect, Qt::AlignCenter|Qt::AlignCenter, goodWord);
 }
 
 
@@ -452,7 +454,7 @@ void KHangManView::slotTry()
             replaceLetters(guess);
 
             // This is needed because of the white spaces.
-            QString  stripWord = goodWord;
+            QString  stripWord = m_goodWord;
             QString  sword     = m_word;
             if (m_posSecondSpace > 0)  {
                 stripWord.replace(2*m_posFirstSpace,   1, "");
@@ -474,7 +476,7 @@ void KHangManView::slotTry()
                     play(soundFile);
                 }
                 m_winner=true;
-                ++winCount;
+                ++m_winCount;
                 setGameCount();
                 m_letterInput->setEnabled(false);
                 m_guessButton->setEnabled(false);
@@ -491,7 +493,7 @@ void KHangManView::slotTry()
             // Check if we have reached the limit of wrong guesses.
             if (m_numMissedLetters >= MAXWRONGGUESSES) {
                 m_loser=true;
-                ++lossCount;
+                ++m_lossCount;
                 setGameCount();
                 m_letterInput->setEnabled(false);
                 m_guessButton->setEnabled(false);
@@ -528,7 +530,7 @@ void KHangManView::slotTry()
             m_letterInput->setEnabled(false);
         }
 
-        if (goodWord.contains(guess) > 0) {
+        if (m_goodWord.contains(guess) > 0) {
             point = m_theme->goodWordPos(size(), popup->pos());
 
             QTimer::singleShot( Prefs::missedTimer() * 1000,
@@ -554,11 +556,14 @@ void KHangManView::enableUserInput()
 }
 
 
-void KHangManView::newGame()
+void KHangManView::newGame(bool loss)
 {
     m_loser=false;
     m_winner=false;
     m_bgfill=0;
+
+    if (loss)
+        m_lossCount++;
 
     m_letterInput->setEnabled(true);
     m_guessButton->setEnabled(true);
@@ -605,7 +610,7 @@ void KHangManView::readFile()
 
 void KHangManView::reset()
 {
-    goodWord = "";
+    m_goodWord = "";
     m_word   = "";
 
     m_guessedLetters.clear();
@@ -643,11 +648,11 @@ void KHangManView::game()
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++) {
-        goodWord.append("_ ");
+        m_goodWord.append("_ ");
     }
 
     // Remove the last trailing space.
-    goodWord.remove(goodWord.length()-1);
+    m_goodWord.remove(m_goodWord.length()-1);
 
     // If needed, display white space or - if in word or semi dot.
 
@@ -655,13 +660,13 @@ void KHangManView::game()
     int posOfFirstDash = m_word.indexOf( "-" );
 
     if (posOfFirstDash>0) {
-        goodWord.replace(2*posOfFirstDash, 1, "-");
+        m_goodWord.replace(2*posOfFirstDash, 1, "-");
         int posOfSecondDash = m_word.indexOf( "-", posOfFirstDash+1);
         if (posOfSecondDash>0) {
-            goodWord.replace(2*posOfSecondDash, 3, "-");
+            m_goodWord.replace(2*posOfSecondDash, 3, "-");
         }
         if (posOfSecondDash>1) {
-            goodWord.append("_");
+            m_goodWord.append("_");
         }
     }
 
@@ -669,24 +674,24 @@ void KHangManView::game()
     m_posFirstSpace = m_word.indexOf( " " );
 
     if (m_posFirstSpace > 0) {
-        goodWord.replace(2*m_posFirstSpace, 1, " ");
+        m_goodWord.replace(2*m_posFirstSpace, 1, " ");
         m_posSecondSpace = m_word.indexOf( " ", m_posFirstSpace+1);
         if (m_posSecondSpace > 0)
-            goodWord.replace(2*m_posSecondSpace, m_posFirstSpace+1, " ");
+            m_goodWord.replace(2*m_posSecondSpace, m_posFirstSpace+1, " ");
     }
 
     // 3. Find ·
     int posOfDot = m_word.indexOf( QString::fromUtf8("·") );
 
     if (posOfDot>0) {
-        goodWord.replace(2*posOfDot, 1, QString::fromUtf8("·") );
+        m_goodWord.replace(2*posOfDot, 1, QString::fromUtf8("·") );
     }
 
     // 4. Find '
     int posOfApos = m_word.indexOf( "'" );
 
     if (posOfApos>0) {
-        goodWord.replace(2*posOfApos, 1, "'");
+        m_goodWord.replace(2*posOfApos, 1, "'");
     }
 }
 
@@ -699,7 +704,7 @@ void KHangManView::slotSetWordsSequence()
 
     m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_doc->open(Prefs::levelFile());
+    m_doc->open(QUrl::fromLocalFile(Prefs::levelFile()), KEduVocDocument::FileIgnoreLock);
 
     //how many words in the file
     int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
@@ -726,8 +731,8 @@ void KHangManView::slotSetWordsSequence()
 
 void KHangManView::setGameCount()
 {
-    emit signalSetWins(winCount);
-    emit signalSetLosses(lossCount);
+    emit signalSetWins(m_winCount);
+    emit signalSetLosses(m_lossCount);
 }
 
 #include "khangmanview.moc"
