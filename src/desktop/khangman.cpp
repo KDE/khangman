@@ -68,8 +68,8 @@ KHangMan::KHangMan()
     setupActions();
 
     // Toolbar for special characters
-    specialCharToolbar = toolBar("specialCharToolBar");
-    addToolBar ( Qt::BottomToolBarArea, specialCharToolbar);
+    m_specialCharToolbar = toolBar("specialCharToolBar");
+    addToolBar ( Qt::BottomToolBarArea, m_specialCharToolbar);
 
     loadSettings();
     setAccent();
@@ -98,14 +98,14 @@ void KHangMan::setupActions()
     fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
     fileOpen->setToolTip(fileOpen->whatsThis());
 
-    hintAct = new KToggleAction(i18n("&Show Hint"), this);
-    hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
-    actionCollection()->addAction("show_hint", hintAct );
+    m_hintAct = new KToggleAction(i18n("&Show Hint"), this);
+    m_hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
+    actionCollection()->addAction("show_hint", m_hintAct );
     //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
-    hintAct->setIcon(QIcon::fromTheme("games-hint"));
-    hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
-    hintAct->setEnabled( m_view->hintExists() );
-    connect(hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
+    m_hintAct->setIcon(QIcon::fromTheme("games-hint"));
+    m_hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
+    m_hintAct->setEnabled( m_view->hintExists() );
+    connect(m_hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
     QAction *newStuffAct  = new QAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
@@ -142,12 +142,12 @@ void KHangMan::setupActions()
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
 
-    config = KSharedConfig::openConfig();
+    m_config = KSharedConfig::openConfig();
 
     m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
     m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
     actionCollection()->addAction(m_recent->objectName(), m_recent);
-    m_recent->loadEntries(KConfigGroup(config, "KHangManRecent"));
+    m_recent->loadEntries(KConfigGroup(m_config, "KHangManRecent"));
     setupGUI();
 }
 
@@ -176,8 +176,8 @@ void KHangMan::setupStatusbar()
 
 void KHangMan::slotQuit()   //TODO: Isn't called when "X" pressed, only when File->Quit
 {
-    Prefs::setShowCharToolbar( specialCharToolbar->isVisible() );
-    m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
+    Prefs::setShowCharToolbar( m_specialCharToolbar->isVisible() );
+    m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
     Prefs::self()->save();
     qApp->closeAllWindows();
 }
@@ -263,16 +263,12 @@ void KHangMan::loadSettings()
     if (m_languages.isEmpty()){
         qApp->closeAllWindows();
     }
-    selectedLanguage = Prefs::selectedLanguage();
-    if (!m_languages.contains(selectedLanguage)) {
-        selectedLanguage = "en";
-    }
     // Show/hide characters toolbar
     if (Prefs::showCharToolbar()) {
-        specialCharToolbar->show();
+        m_specialCharToolbar->show();
     }
     else {
-        specialCharToolbar->hide();
+        m_specialCharToolbar->hide();
     }
     setMessages();
 }
@@ -370,7 +366,7 @@ void KHangMan::updateSettings()
     if (Prefs::selectedLanguage() == "de") {
         loadLangToolBar();
     }
-    hintAct->setChecked(Prefs::hint());
+    m_hintAct->setChecked(Prefs::hint());
 
     setMessages();
     //m_view->newGame();
@@ -398,17 +394,18 @@ void KHangMan::loadLangToolBar()
     QString lang = Prefs::selectedLanguage();
     if (lang.isEmpty())
         return;
-    m_specialChars = LangUtils::hasSpecialChars(lang);
+    bool hasSpecialChars = LangUtils::hasSpecialChars(lang);
 
-    if (specialCharToolbar->isVisible() && m_specialChars) {
+    // If the setting changed, save showToolbar setting
+    if (m_specialCharToolbar->isVisible() && hasSpecialChars) {
         Prefs::setShowCharToolbar(true);
         Prefs::self()->save();
     }
 
-    specialCharToolbar->clear();
+    m_specialCharToolbar->clear();
 
     m_allData.clear();
-    if (m_specialChars) {
+    if (hasSpecialChars) {
         QString langFileName=QString("khangman/%1.txt").arg(lang);
         QFile langFile;
         langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
@@ -440,25 +437,16 @@ void KHangMan::loadLangToolBar()
 
         for (int i=0; i<m_allData.count(); ++i) {
             if (!m_allData.at(i).isEmpty()) {
-                QAction *act = specialCharToolbar->addAction(m_allData.at(i));
+                QAction *act = m_specialCharToolbar->addAction(m_allData.at(i));
                 act->setIcon(charIcon(m_allData.at(i).at(0)));
                 // used to carry the id
                 act->setData(i);
                 connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
             }
         }
-    }
-
-    if (Prefs::showCharToolbar()) {
-        specialCharToolbar->show();
-    }
-    else {
-        specialCharToolbar->hide();
-    }
-
-    // Hide toolbar for special characters if the language doesn't have them.
-    if (!m_specialChars) {
-        specialCharToolbar->hide();
+        m_specialCharToolbar->show();
+    } else {
+        m_specialCharToolbar->hide();
     }
 }
 
@@ -519,6 +507,10 @@ void KHangMan::setAccent()
     m_view->setAccentedLetters(LangUtils::hasAccentedLetters(Prefs::selectedLanguage()));
 }
 
+void KHangMan::setHintEnabled(bool enable)
+{
+    m_hintAct->setEnabled(enable);
+}
 
 void KHangMan::setMessages()
 {
@@ -541,7 +533,7 @@ void KHangMan::loadFile(const QUrl &url)
         m_levelLabel->setText(url.path().section('/', -1));
 
         m_recent->addUrl(url);
-        m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
+        m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
         Prefs::self()->save();
 
         m_view->readFile();
@@ -552,6 +544,7 @@ void KHangMan::loadFile(const QUrl &url)
 void KHangMan::slotNewGame()
 {
     m_view->newGame(true);
+    m_hintAct->setChecked(Prefs::hint());
 }
 
 void KHangMan::slotOpenRecent(const QUrl &url)

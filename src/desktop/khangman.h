@@ -55,15 +55,8 @@ public:
     */
     virtual ~KHangMan();
 
-    ///Action that sets up the Language menu
-    KSelectAction *m_languageAction;
-
-    KToggleAction *hintAct;
-    ///Method to set the current language into the Statusbar and to pass it to KHangManView
-    void setLanguages();
-
-    ///Display the correct messages in the statusbar
-    void setMessages();
+    /// Set whether the hint action is enabled or disabled
+    void setHintEnabled(bool enable);
 
 public slots:
     ///When the language is changed in the Language menu
@@ -116,11 +109,15 @@ private:
     // current language has special characters.
     void loadLangToolBar();
 
+    ///Method to set the current language into the Statusbar and to pass it to KHangManView
+    void setLanguages();
+
+    ///Display the correct messages in the statusbar
+    void setMessages();
+
     ///Create a pixmap with the argument (special character) and return the QIcon containing the pixmap
     QIcon charIcon(const QChar &) const;
 
-    ///Selected language
-    QString selectedLanguage;
     ///the different data titles and files in the current language dir
     QMap<QString, QString> m_titleLevels;
 
@@ -137,9 +134,12 @@ private:
     // Actions in the Game menu
     KSelectAction  *m_levelAction;
     KSelectAction  *m_modeAction;
+    ///Action that sets up the Language menu
+    KSelectAction *m_languageAction;
+    KToggleAction *m_hintAct;
 
     ///Create the Special Characters Toolbar
-    KToolBar *specialCharToolbar;
+    KToolBar *m_specialCharToolbar;
 
     // True if the language has no special chars, such as en, it and nl.
     bool            m_specialChars;
@@ -155,7 +155,7 @@ private:
     KHMThemeFactory khm_factory;
 
     //Config group
-    KSharedConfig::Ptr config;
+    KSharedConfig::Ptr m_config;
     //Recent files element
     KRecentFilesAction * m_recent;
 

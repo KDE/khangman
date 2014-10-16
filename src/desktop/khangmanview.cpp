@@ -584,8 +584,7 @@ void KHangManView::newGame(bool loss)
     m_playAgainButton->setVisible(false);
 
     //reset Hint action
-    khangman->hintAct->setChecked(Prefs::hint());
-    khangman->hintAct->setEnabled(m_hintExists);
+    khangman->setHintEnabled(m_hintExists);
 
     readFile();
 
@@ -658,7 +657,7 @@ void KHangManView::game()
         m_hintExists = true;
         //TODO refresh hint action
     }
-    khangman->hintAct->setEnabled(m_hintExists);
+    khangman->setHintEnabled(m_hintExists);
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++) {
