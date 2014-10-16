@@ -40,6 +40,9 @@ int main(int argc, char **argv)
     QApplication::setApplicationDisplayName(i18n("KHangMan"));
     QApplication::setWindowIcon(QIcon::fromTheme("khangman"));
 
+    QApplication app(argc, argv);
+    app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
+
     KAboutData aboutData(I18N_NOOP("khangman"),
                          i18n("KHangMan"),
                          I18N_NOOP(KHM_VERSION),
@@ -111,8 +114,7 @@ int main(int argc, char **argv)
     aboutData.addCredit(i18n("Inge Wallin"),
                         i18n("Code cleaning"), "inge@lysator.liu.se");
 
-    QApplication app(argc, argv);
-    app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
+    KAboutData::setApplicationData(aboutData);
 
     QFont f("Domestic Manners", 12, QFont::Normal, true);
     if (!QFontInfo(f).exactMatch())
