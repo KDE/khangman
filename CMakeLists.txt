@@ -31,7 +31,6 @@ find_package(KF5 REQUIRED COMPONENTS
     NewStuff
     Notifications
     XmlGui
-    KDE4Support
 )
 
 find_package(LibKEduVocDocument REQUIRED)

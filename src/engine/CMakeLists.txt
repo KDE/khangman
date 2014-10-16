@@ -66,7 +66,7 @@ target_link_libraries(
     khangmanengine
     Qt5::Widgets
     KF5::CoreAddons
-    KF5::KDE4Support
+    KF5::I18n
     LibKEduVocDocumentImport__KEduVocDocument
 )
 

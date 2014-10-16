@@ -21,7 +21,7 @@
 //project headers
 #include "khmtheme.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 KHMTheme::KHMTheme( QString name, QString uiName, QString svgFileName, QString author, QString themeVersion,
             QRect wordRect, QRect hintRect, QRect kRect,
@@ -51,12 +51,12 @@ QString KHMTheme::name()
 
 QString KHMTheme::uiName()
 {
-    return i18n(KHMuiName.toAscii());
+    return i18n(KHMuiName.toLatin1());
 }
 
 QString KHMTheme::svgFileName()
 {
-    return KHMsvgFileName;    
+    return KHMsvgFileName;
 }
 
 QColor KHMTheme::letterInputTextColor()
@@ -104,16 +104,16 @@ QColor KHMTheme::guessButtonTextColor()
 
 QColor KHMTheme::guessButtonColor()
 {
-    return KHMguessButtonColor;   
+    return KHMguessButtonColor;
 }
 
 QColor KHMTheme::guessButtonHoverColor()
 {
-    return KHMguessButtonHoverColor;  
+    return KHMguessButtonHoverColor;
 }
 
 QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos)   //works good
-{ 
+{
     return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
                     popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);
 }

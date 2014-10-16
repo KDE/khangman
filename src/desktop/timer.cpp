@@ -22,7 +22,7 @@
 
 #include "timer.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QLabel>
 #include <QSlider>

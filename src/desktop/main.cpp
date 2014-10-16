@@ -20,114 +20,117 @@
 #include "khangman.h"
 #include "version.h"
 
-#include <KProcess>
-#include <K4AboutData>
-#include <KCmdLineArgs>
-#include <KApplication>
-#include <KStandardDirs>
-#include <KLocale>
+#include <KAboutData>
 
+#include <KLocalizedString>
+
+#include <QApplication>
 #include <QFontDatabase>
 #include <QFontInfo>
+#include <QStandardPaths>
 
 static const char description[] =
         I18N_NOOP("Classical hangman game for KDE");
 
 int main(int argc, char **argv)
 {
-    K4AboutData aboutData( "khangman", 0, ki18n("KHangMan"),
-            KHM_VERSION, ki18n(description), K4AboutData::License_GPL,
-            ki18n("(c) 2001-2011, Anne-Marie Mahfouf"), KLocalizedString(),
-            "http://edu.kde.org/khangman");
-    aboutData.addAuthor(ki18n("Primoz Anzur"), ki18n("Previous maintainer"),
+    QApplication::setApplicationName("khangman");
+    QApplication::setApplicationVersion(KHM_VERSION);
+    QApplication::setOrganizationDomain("kde.org");
+    QApplication::setApplicationDisplayName(i18n("KHangMan"));
+    QApplication::setWindowIcon(QIcon::fromTheme("khangman"));
+
+    KAboutData aboutData(I18N_NOOP("khangman"),
+                         i18n("KHangMan"),
+                         I18N_NOOP(KHM_VERSION),
+                         i18n(description),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2001-2011, Anne-Marie Mahfouf"));
+    aboutData.addAuthor(i18n("Primoz Anzur"), i18n("Previous maintainer"),
             "zerokode@gmx.net");
 
     // Write the names with accents and all and this file save with
     // utf8 encoding.
-    aboutData.addAuthor(ki18n("Anne-Marie Mahfouf"), ki18n("Current maintainer, author"),
+    aboutData.addAuthor(i18n("Anne-Marie Mahfouf"), i18n("Current maintainer, author"),
                         "annma@kde.org", "http://annma.blogspot.com", "annma");
-    aboutData.addCredit(ki18n("Stefan Böhmann"),
-                        ki18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");
-    aboutData.addCredit(ki18n("Stefan Asserhäll"),
-                        ki18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
+    aboutData.addCredit(i18n("Stefan Böhmann"),
+                        i18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");
+    aboutData.addCredit(i18n("Stefan Asserhäll"),
+                        i18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
                                 "stefan.asserhall@telia.com");
-    aboutData.addCredit(ki18n("eXParTaKus"),
-                        ki18n("Spanish data files"), "expartakus@expartakus.com");
-    aboutData.addCredit(ki18n("Erik Kjær Pedersenn"),
-                        ki18n("Danish data files"), "erik@mpim-bonn.mpg.de" );
-    aboutData.addCredit(ki18n("Niko Lewman"),
-                        ki18n("Finnish data files"), "niko.lewman@edu.hel.fi" );
-    aboutData.addCredit(ki18n("João Sebastião de Oliveira Bueno"),
-                        ki18n("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
-    aboutData.addCredit(ki18n("Antoni Bella"),
-                        ki18n("Catalan data files"), "bella5@teleline.es");
-    aboutData.addCredit(ki18n("Giovanni Venturi"),
-                        ki18n("Italian data files"), "jumpyj@tiscali.it");
-    aboutData.addCredit(ki18n("Rinse"),
-                        ki18n("Dutch data files"), "rinse@kde.nl");
-    aboutData.addCredit(ki18n("Lukáš Tinkl"),
-                        ki18n("Czech data files"), "lukas@kde.org");
-    aboutData.addCredit(ki18n("Kristóf Kiszel"),
-                        ki18n("Hungarian data files"), "ulysses@kubuntu.org");
-    aboutData.addCredit(ki18n("Torger Åge Sinnes"),
-                        ki18n("Norwegian (Bokmål) data files"), "org-a-s@online.no");
-    aboutData.addCredit(ki18n("Roger Kovacs"),
-                        ki18n("Tajik data files"), "rkovacs@khujand.org");
-    aboutData.addCredit(ki18n("Chusslove Illich"),
-                        ki18n("Serbian (Cyrillic and Latin) data files"), "chaslav@sezampro.yu");
-    aboutData.addCredit(ki18n("Jure Repinc"),
-                        ki18n("Slovenian data files"), "jlp@holodeck1.com");
-    aboutData.addCredit(ki18n("Pedro Morais"),
-                        ki18n("Portuguese data files"), "Morais@kde.org");
-    aboutData.addCredit(ki18n("Gaute Hvoslef Kvalnes"),
-                        ki18n("Norwegian (Nynorsk) data files"), "gaute@verdsveven.com");
-    aboutData.addCredit(ki18n("Mehmet Özel"),
-                        ki18n("Turkish data files"), "mehmet_ozel2003@hotmail.com");
-    aboutData.addCredit(ki18n("Черепанов Андрей"),
-                        ki18n("Russian data files"), "sibskull@mail.ru");
-    aboutData.addCredit(ki18n("Radostin Radnev"),
-                        ki18n("Bulgarian data files"), "radnev@yahoo.com");
-    aboutData.addCredit(ki18n("Kevin Patrick Scannell"),
-                        ki18n("Irish (Gaelic) data files"), "scannell@slu.edu");
-    aboutData.addCredit(ki18n("Matt Howe"),
-                        ki18n("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
-    aboutData.addCredit(ki18n("Benjamin Meyer"),
-                        ki18n("Coding help"), "ben@meyerhome.net");
-    aboutData.addCredit(ki18n("Robert Gogolok"),
-                        ki18n("Coding help"), "robertgogolok@gmx.de");
-    aboutData.addCredit(ki18n("Lubos Lunàk"),
-                        ki18n("Coding help"), "l.lunak@kde.org");
-    aboutData.addCredit(ki18n("Albert Astals Cid"),
-                        ki18n("Coding help, fixed a lot of things"), "aacid@kde.org");
-    aboutData.addCredit(ki18n("Peter Hedlund"),
-                        ki18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
-    aboutData.addCredit(ki18n("Inge Wallin"),
-                        ki18n("Code cleaning"), "inge@lysator.liu.se");
+    aboutData.addCredit(i18n("eXParTaKus"),
+                        i18n("Spanish data files"), "expartakus@expartakus.com");
+    aboutData.addCredit(i18n("Erik Kjær Pedersenn"),
+                        i18n("Danish data files"), "erik@mpim-bonn.mpg.de" );
+    aboutData.addCredit(i18n("Niko Lewman"),
+                        i18n("Finnish data files"), "niko.lewman@edu.hel.fi" );
+    aboutData.addCredit(i18n("João Sebastião de Oliveira Bueno"),
+                        i18n("Brazilian Portuguese data files"), "gwidion@mpc.com.br" );
+    aboutData.addCredit(i18n("Antoni Bella"),
+                        i18n("Catalan data files"), "bella5@teleline.es");
+    aboutData.addCredit(i18n("Giovanni Venturi"),
+                        i18n("Italian data files"), "jumpyj@tiscali.it");
+    aboutData.addCredit(i18n("Rinse"),
+                        i18n("Dutch data files"), "rinse@kde.nl");
+    aboutData.addCredit(i18n("Lukáš Tinkl"),
+                        i18n("Czech data files"), "lukas@kde.org");
+    aboutData.addCredit(i18n("Kristóf Kiszel"),
+                        i18n("Hungarian data files"), "ulysses@kubuntu.org");
+    aboutData.addCredit(i18n("Torger Åge Sinnes"),
+                        i18n("Norwegian (Bokmål) data files"), "org-a-s@online.no");
+    aboutData.addCredit(i18n("Roger Kovacs"),
+                        i18n("Tajik data files"), "rkovacs@khujand.org");
+    aboutData.addCredit(i18n("Chusslove Illich"),
+                        i18n("Serbian (Cyrillic and Latin) data files"), "chaslav@sezampro.yu");
+    aboutData.addCredit(i18n("Jure Repinc"),
+                        i18n("Slovenian data files"), "jlp@holodeck1.com");
+    aboutData.addCredit(i18n("Pedro Morais"),
+                        i18n("Portuguese data files"), "Morais@kde.org");
+    aboutData.addCredit(i18n("Gaute Hvoslef Kvalnes"),
+                        i18n("Norwegian (Nynorsk) data files"), "gaute@verdsveven.com");
+    aboutData.addCredit(i18n("Mehmet Özel"),
+                        i18n("Turkish data files"), "mehmet_ozel2003@hotmail.com");
+    aboutData.addCredit(i18n("Черепанов Андрей"),
+                        i18n("Russian data files"), "sibskull@mail.ru");
+    aboutData.addCredit(i18n("Radostin Radnev"),
+                        i18n("Bulgarian data files"), "radnev@yahoo.com");
+    aboutData.addCredit(i18n("Kevin Patrick Scannell"),
+                        i18n("Irish (Gaelic) data files"), "scannell@slu.edu");
+    aboutData.addCredit(i18n("Matt Howe"),
+                        i18n("Softer Hangman Pictures"), "mdhowe@bigfoot.com");
+    aboutData.addCredit(i18n("Benjamin Meyer"),
+                        i18n("Coding help"), "ben@meyerhome.net");
+    aboutData.addCredit(i18n("Robert Gogolok"),
+                        i18n("Coding help"), "robertgogolok@gmx.de");
+    aboutData.addCredit(i18n("Lubos Lunàk"),
+                        i18n("Coding help"), "l.lunak@kde.org");
+    aboutData.addCredit(i18n("Albert Astals Cid"),
+                        i18n("Coding help, fixed a lot of things"), "aacid@kde.org");
+    aboutData.addCredit(i18n("Peter Hedlund"),
+                        i18n("Code for generating icons for the characters toolbar"), "peter.hedlund@kdemail.net");
+    aboutData.addCredit(i18n("Inge Wallin"),
+                        i18n("Code cleaning"), "inge@lysator.liu.se");
 
-    KCmdLineArgs::init( argc, argv, &aboutData );
-
-    KCmdLineOptions options;
-    KCmdLineArgs::addCmdLineOptions( options );
-    KApplication app;
+    QApplication app(argc, argv);
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
     QFont f("Domestic Manners", 12, QFont::Normal, true);
     if (!QFontInfo(f).exactMatch())
     {
-        QFontDatabase::addApplicationFont(KStandardDirs::locate("appdata", "fonts/Domestic_Manners.ttf"));
+        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::DataLocation, "fonts/Domestic_Manners.ttf"));
     }
 
     QFont fd("Dustismo Roman", 12, QFont::Normal, true);
     if (!QFontInfo(fd).exactMatch())
     {
-        QFontDatabase::addApplicationFont(KStandardDirs::locate("appdata", "fonts/Dustismo_Roman.ttf"));
+        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::DataLocation, "fonts/Dustismo_Roman.ttf"));
     }
 
     if (app.isSessionRestored()) {
         RESTORE(KHangMan);
     }
     else {
-        app.setTopWidget(new KHangMan());
+        KHangMan *hangman = new KHangMan();
         return app.exec();
     }
 }

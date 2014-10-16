@@ -25,33 +25,31 @@
 
 #include "langutils.h"
 #include "khangmanview.h"
-#include "sharedkvtmlfiles.h"
 
 #include <QApplication>
 #include <QBitmap>
 #include <QCheckBox>
+#include <QDebug>
+#include <QDir>
+#include <QFileDialog>
 #include <QIcon>
 #include <QPainter>
-#include <QDir>
+#include <QStandardPaths>
+#include <QStatusBar>
 
 #include <KSelectAction>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <QDebug>
-#include <KFileDialog>
-#include <KLineEdit>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardAction>
-#include <KStandardDirs>
-#include <KStatusBar>
 #include <KToolBar>
-#include <KGlobal>
 #include <KSharedConfig>
 #include <KRecentFilesAction>
 
 #include <KNS3/DownloadDialog>
+#include <sharedkvtmlfiles.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
@@ -65,7 +63,7 @@ KHangMan::KHangMan()
     setupStatusbar();
 
     //load the standard set of themes
-    khm_factory.addTheme(KStandardDirs::locate("data", "khangman/pics/standardthemes.xml"));   //TODO move it to better place
+    khm_factory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/pics/standardthemes.xml"));   //TODO move it to better place
 
     setupActions();
 
@@ -247,7 +245,7 @@ void KHangMan::setLanguages()
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
 
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     for (int i = 0; i < m_languages.size(); ++i) {
         KConfigGroup group = entry.group(m_languages[i]);
         QString languageName = group.readEntry("Name");
@@ -413,13 +411,13 @@ void KHangMan::loadLangToolBar()
     if (m_specialChars) {
         QString langFileName=QString("khangman/%1.txt").arg(lang);
         QFile langFile;
-        langFile.setFileName(KStandardDirs::locate("data", langFileName));
+        langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
 
         // Let's look in local KDEHOME dir then KNS installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
         if (!langFile.exists()) {
             langFileName = QString("kvtml/%1/%1.txt").arg(lang);
-            langFile.setFileName(KStandardDirs::locate("data", langFileName));
+            langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
             qDebug() << langFileName;
         }
 
@@ -563,7 +561,10 @@ void KHangMan::slotOpenRecent(const QUrl &url)
 
 void KHangMan::slotFileOpen()
 {
-    QUrl url = KFileDialog::getOpenUrl(QString(), KEduVocDocument::pattern(KEduVocDocument::Reading), this, i18n("Open Vocabulary Document"));
+    QUrl url = QFileDialog::getOpenFileUrl(this,
+                                           i18n("Open Vocabulary Document"),
+                                           QString(),
+                                           KEduVocDocument::pattern(KEduVocDocument::Reading));
     loadFile(url);
 }
 

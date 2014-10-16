@@ -27,6 +27,7 @@
 #include <KDE/KLocale>
 
 #include <QtGui/QApplication>
+#include <QStandardPaths>
 
 KHangManEngineHelper::KHangManEngineHelper(KHangManEngine* khangmanEngine, QObject* parent)
     : QObject(parent)
@@ -67,7 +68,7 @@ QStringList KHangManEngineHelper::languageNames() const
     // kdelibs/kdecore/all_languages to find the name of the country
     // corresponding to the code and the language the user set.
 
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
 
     foreach (const QString& languageCode, languageCodes)
     {
@@ -136,7 +137,7 @@ QString KHangManEngineHelper::selectedLanguage()
         QApplication::instance()->quit();
     }
 
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     KConfigGroup group = entry.group(Prefs::selectedLanguage());
     QString selectedLanguage = group.readEntry("Name");
 
@@ -170,7 +171,7 @@ QStringList KHangManEngineHelper::alphabet() const
 
 void KHangManEngineHelper::saveSettings()
 {
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 }
 
 #include "khangmanenginehelper.moc"

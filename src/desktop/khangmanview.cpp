@@ -38,6 +38,7 @@
 #include <QMouseEvent>
 #include <QSvgRenderer>
 #include <QRegExpValidator>
+#include <QStandardPaths>
 //project headers
 #include "prefs.h"
 #include "khangman.h"
@@ -223,7 +224,7 @@ void KHangManView::setTheme(KHMTheme *theme)
         return;
     }
 
-    QString svgpath = KStandardDirs::locate("data", QString("khangman/pics/%1/%2").arg(theme->name(), theme->svgFileName()));
+    QString svgpath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("khangman/pics/%1/%2").arg(theme->name(), theme->svgFileName()));
     // we don't allow themes with no svg installed
 
     if (!QFile::exists(svgpath) || theme->svgFileName().isEmpty()) {
@@ -485,7 +486,7 @@ void KHangManView::slotTry()
             // If the user made it...
             if (rightWord.trimmed().toLower() == sword.trimmed().toLower()) {
                 if (Prefs::sound()) {
-                    QString soundFile = KStandardDirs::locate("data", "khangman/sounds/EW_Dialogue_Appear.ogg");
+                    QString soundFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/sounds/EW_Dialogue_Appear.ogg");
                     play(soundFile);
                 }
                 m_winner=true;
@@ -590,7 +591,7 @@ void KHangManView::newGame(bool loss)
 
     setGameCount();
     if (Prefs::sound()) {
-        QString soundFile = KStandardDirs::locate("data", "khangman/sounds/new_game.ogg");
+        QString soundFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/sounds/new_game.ogg");
         play(soundFile);
     }
 
