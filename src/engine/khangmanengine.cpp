@@ -80,7 +80,7 @@ void KHangManEngine::loadVocabularies()
 
     if (levelFilenames.size() == 0) {
         Prefs::setSelectedLanguage("en");
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
@@ -97,7 +97,7 @@ void KHangManEngine::loadVocabularies()
     if (!levelFilenames.contains(Prefs::levelFile())) {
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
     }
 
     readFile();

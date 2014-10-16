@@ -30,6 +30,7 @@
 #include <QApplication>
 #include <QBitmap>
 #include <QCheckBox>
+#include <QIcon>
 #include <QPainter>
 #include <QDir>
 
@@ -46,7 +47,6 @@
 #include <KStandardDirs>
 #include <KStatusBar>
 #include <KToolBar>
-#include <KIcon>
 #include <KGlobal>
 #include <KSharedConfig>
 #include <KRecentFilesAction>
@@ -104,14 +104,14 @@ void KHangMan::setupActions()
     hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
     actionCollection()->addAction("show_hint", hintAct );
     //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
-    hintAct->setIcon(KIcon("games-hint"));
+    hintAct->setIcon(QIcon::fromTheme("games-hint"));
     hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
     hintAct->setEnabled( m_view->hintExists() );
     connect(hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
     QAction *newStuffAct  = new QAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
-    newStuffAct->setIcon(KIcon("get-hot-new-stuff"));
+    newStuffAct->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
     newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
@@ -144,7 +144,7 @@ void KHangMan::setupActions()
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
 
-    config = KGlobal::config();
+    config = KSharedConfig::openConfig();
 
     m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
     m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
@@ -180,7 +180,7 @@ void KHangMan::slotQuit()   //TODO: Isn't called when "X" pressed, only when Fil
 {
     Prefs::setShowCharToolbar( specialCharToolbar->isVisible() );
     m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     qApp->closeAllWindows();
 }
 
@@ -190,7 +190,7 @@ void KHangMan::slotChangeLevel(int index)
     m_levelLabel->setText(currentLevel.key());
     Prefs::setCurrentLevel(index);
     Prefs::setLevelFile(currentLevel.value());
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     m_view->readFile();
     m_view->newGame();
 }
@@ -200,7 +200,7 @@ void KHangMan::slotChangeLanguage(int index)
     //good when no in English
     qDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     loadLevels();
     loadLangToolBar();
     setAccent();
@@ -211,7 +211,7 @@ void KHangMan::slotChangeLanguage(int index)
 void KHangMan::slotChangeMode(int index)
 {
     Prefs::setMode(index);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     //m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
     m_view->setTheme(khm_factory.buildTheme(index));
 }
@@ -235,7 +235,7 @@ void KHangMan::setLanguages()
 
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
-    KConfigGroup cg( KGlobal::config() ,"KNewStuff2");
+    KConfigGroup cg( KSharedConfig::openConfig() ,"KNewStuff2");
     for (int i=0;  i<m_languages.count(); ++i) {
         //QString tmp = cg.readEntry(m_languages[i]);
        // if (!tmp)
@@ -297,7 +297,7 @@ void KHangMan::loadLevels()
 
     if (levelFilenames.size() == 0) {
         Prefs::setSelectedLanguage("en");
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     }
@@ -316,7 +316,7 @@ void KHangMan::loadLevels()
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
         m_currentLevel = 0;
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
     }
 
     // don't run off the end of the list
@@ -404,7 +404,7 @@ void KHangMan::loadLangToolBar()
 
     if (specialCharToolbar->isVisible() && m_specialChars) {
         Prefs::setShowCharToolbar(true);
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
     }
 
     specialCharToolbar->clear();
@@ -544,7 +544,7 @@ void KHangMan::loadFile(const QUrl &url)
 
         m_recent->addUrl(url);
         m_recent->saveEntries(KConfigGroup(config, "KHangManRecent"));
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
 
         m_view->readFile();
         m_view->newGame();
@@ -580,7 +580,7 @@ void KHangMan::slotSetLosses(int losses)
 void KHangMan::slotSetHint(bool hint)
 {
     Prefs::setHint(hint);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     m_view->update();
 }
 

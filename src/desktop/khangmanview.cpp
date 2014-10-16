@@ -46,9 +46,22 @@
 
 
 KHangManView::KHangManView(KHangMan*parent)
-        : QWidget(parent), khangman(parent), m_winCount(0), m_lossCount(0), m_winner(false),
-          m_loser(false), m_bgfill(0), m_numMissedLetters(0), m_posFirstSpace(-1), m_posSecondSpace(-1),
-          m_randomInt(-1), m_hintExists(true), m_accentedLetters(true), m_doc(0), m_theme(0), m_player(0)
+        : QWidget(parent),
+          khangman(parent),
+          m_winner(false),
+          m_loser(false),
+          m_bgfill(0),
+          m_winCount(0),
+          m_lossCount(0),
+          m_numMissedLetters(0),
+          m_posFirstSpace(-1),
+          m_posSecondSpace(-1),
+          m_randomInt(-1),
+          m_hintExists(true),
+          m_accentedLetters(true),
+          m_doc(0),
+          m_theme(0),
+          m_player(0)
 {
     setAttribute(Qt::WA_StaticContents);
 
