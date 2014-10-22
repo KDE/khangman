@@ -96,14 +96,16 @@ void KHangMan::setupActions()
     actionCollection()->addAction("show_hint", m_hintAct );
     //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
     m_hintAct->setIcon(QIcon::fromTheme("games-hint"));
-    m_hintAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_H));
+    //set default shortcut key combination for displaying hints
+    actionCollection()->setDefaultShortcut(m_hintAct, QKeySequence(Qt::CTRL+Qt::Key_H));
     m_hintAct->setEnabled( m_view->hintExists() );
     connect(m_hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
     // Game->Get Words in New Language
     QAction *newStuffAct  = new QAction(i18n("&Get Words in New Language..."), this);
     actionCollection()->addAction("downloadnewstuff", newStuffAct );
     newStuffAct->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
-    newStuffAct->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_G));
+    //set default shortcut key combination for GetHotNewStuff
+    actionCollection()->setDefaultShortcut(newStuffAct, QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
     KStandardAction::quit(this, SLOT(slotQuit()), actionCollection());
