@@ -27,7 +27,7 @@
 #include <keduvocdocument.h>
 #include <sharedkvtmlfiles.h>
 
-#include <KDE/KLocale>
+#include <KLocalizedString>
 
 #include <QApplication>
 

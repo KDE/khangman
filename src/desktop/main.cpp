@@ -133,6 +133,7 @@ int main(int argc, char **argv)
     }
     else {
         KHangMan *hangman = new KHangMan();
+        hangman->show();
         return app.exec();
     }
 }

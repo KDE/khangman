@@ -74,13 +74,6 @@ KHangMan::KHangMan()
     loadSettings();
     setAccent();
     loadLangToolBar();
-    loadLevels();
-
-    // set the theme
-    slotChangeMode(Prefs::mode());
-    show();
-    // Start a new game.
-    m_view->newGame();
 }
 
 KHangMan::~KHangMan()
@@ -282,7 +275,27 @@ void KHangMan::setLevel()
     m_view->readFile();
 }
 
-void KHangMan::loadLevels()
+void KHangMan::show()
+{
+    if (loadLevels()) { // kvtml files have been found
+        // set the theme
+        slotChangeMode(Prefs::mode());
+        //call show() of base class KXmlGuiWindow
+        KXmlGuiWindow::show();
+        m_view->newGame();
+    }
+    
+    else { // no kvtml files present
+        QMessageBox *fileNotFound = new QMessageBox(this);
+        fileNotFound->setText("No kvtml files found.");
+        fileNotFound->exec();
+        close();
+    }
+}
+
+
+
+bool KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
     m_titleLevels.clear();
@@ -297,7 +310,9 @@ void KHangMan::loadLevels()
     }
 
     if (levelFilenames.isEmpty()){
-        QApplication::instance()->quit();
+        // no kvtml files found
+        qDebug() << "levelFilenames.isEmpty() true";
+        return false;
     }
     m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
@@ -325,6 +340,8 @@ void KHangMan::loadLevels()
     setLevel();
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
     m_levelLabel->setText(currentLevel.key());
+    
+    return true;
 }
 
 

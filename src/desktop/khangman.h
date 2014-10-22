@@ -57,6 +57,9 @@ public:
 
     /// Set whether the hint action is enabled or disabled
     void setHintEnabled(bool enable);
+    
+    //Display the mainwindow only when kvtml files are present, else show an error message and quit.
+    void show();
 
 public slots:
     ///When the language is changed in the Language menu
@@ -99,8 +102,8 @@ private:
     void loadSettings();
     ///Set the level and make sure it exists
     void setLevel();
-    ///Scan the files in the selected language dir to set the levels
-    void loadLevels();
+    ///Scan the files in the selected language dir to set the levels, returns true if succeeds
+    bool loadLevels();
     ///Set a bool variable to true if the language allowa accented letters to be displayed with corresponding letter
     void setAccent();
     ///Loads a file in URL, or displays file open dialog if argument is empty
