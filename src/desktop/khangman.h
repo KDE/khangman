@@ -84,7 +84,7 @@ private slots:
     void slotPasteChar();
 
     ///Quit the application and save special toolbar settings
-    void slotQuit();
+    bool queryClose();
     ///if you want to play with a new word
     void slotNewGame();
     ///open a local KVTML file

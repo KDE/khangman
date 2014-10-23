@@ -108,7 +108,8 @@ void KHangMan::setupActions()
     actionCollection()->setDefaultShortcut(newStuffAct, QKeySequence(Qt::CTRL+Qt::Key_G));
     connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
 
-    KStandardAction::quit(this, SLOT(slotQuit()), actionCollection());
+    //connect the quit action with close()
+    KStandardAction::quit(this, SLOT(close()), actionCollection());
 
     m_levelAction  = new KSelectAction(i18n("&Category"), this);
     actionCollection()->addAction("combo_level", m_levelAction );
@@ -169,12 +170,12 @@ void KHangMan::setupStatusbar()
 //                               Slots
 
 
-void KHangMan::slotQuit()   //TODO: Isn't called when "X" pressed, only when File->Quit
+bool KHangMan::queryClose()
 {
     Prefs::setShowCharToolbar( m_specialCharToolbar->isVisible() );
     m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
     Prefs::self()->save();
-    qApp->closeAllWindows();
+    return KMainWindow::queryClose();
 }
 
 void KHangMan::slotChangeLevel(int index)

@@ -725,7 +725,7 @@ void KHangManView::slotSetWordsSequence()
     //get the words+hints
     KRandomSequence randomSequence;
     m_randomList.clear();
-    for (int j = 0; j < wordCount; ++j) {+
+    for (int j = 0; j < wordCount; ++j) {
         QString hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->comment();
         if (hint.isEmpty() && m_doc->identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if
