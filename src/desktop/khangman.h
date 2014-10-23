@@ -72,7 +72,7 @@ public slots:
 private slots:
     // Slots for when the user changes level, setting, etc.
     void  slotChangeLevel(int);
-    void  slotChangeMode(int);
+    void  slotChangeTheme(int);
 
     ///In Settings menu, Configure KHangMan... menu item
     void optionsPreferences();
@@ -155,7 +155,7 @@ private:
     Ui::languageui ui_language;
 
     //Theme manager
-    KHMThemeFactory khm_factory;
+    KHMThemeFactory m_khmfactory;
 
     //Config group
     KSharedConfig::Ptr m_config;

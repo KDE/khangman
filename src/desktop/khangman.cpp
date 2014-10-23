@@ -63,7 +63,7 @@ KHangMan::KHangMan()
     setupStatusbar();
 
     //load the standard set of themes
-    khm_factory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/pics/standardthemes.xml"));   //TODO move it to better place
+    m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/pics/standardthemes.xml"));   //TODO move it to better place
 
     setupActions();
 
@@ -132,7 +132,7 @@ void KHangMan::setupActions()
     actionCollection()->addAction("combo_mode", m_modeAction );
     connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
     //m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
-    m_modeAction->setItems(khm_factory.themeList());
+    m_modeAction->setItems(m_khmfactory.themeList());
     m_modeAction->setCurrentItem(Prefs::mode());
     m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
     m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
@@ -201,12 +201,12 @@ void KHangMan::slotChangeLanguage(int index)
     m_view->newGame();
 }
 
-void KHangMan::slotChangeMode(int index)
+void KHangMan::slotChangeTheme(int index)
 {
     Prefs::setMode(index);
     Prefs::self()->save();
     //m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
-    m_view->setTheme(khm_factory.buildTheme(index));
+    m_view->setTheme(m_khmfactory.buildTheme(index));
 }
 
 
@@ -280,17 +280,18 @@ void KHangMan::setLevel()
 void KHangMan::show()
 {
     if (loadLevels()) { // kvtml files have been found
-        // set the theme
-        slotChangeMode(Prefs::mode());
+        if (m_khmfactory.getQty() > 0) {  // themes present
+            slotChangeTheme(Prefs::mode());
+        } else { // themes not present
+            QMessageBox::information(this, i18n("Error"), i18n("No theme files found."));
+            close();
+            return;
+        }
         //call show() of base class KXmlGuiWindow
         KXmlGuiWindow::show();
         m_view->newGame();
-    }
-    
-    else { // no kvtml files present
-        QMessageBox *fileNotFound = new QMessageBox(this);
-        fileNotFound->setText("No kvtml files found.");
-        fileNotFound->exec();
+    } else { // no kvtml files present
+        QMessageBox::information(this, i18n("Error"), i18n("No kvtml files found."));
         close();
     }
 }
