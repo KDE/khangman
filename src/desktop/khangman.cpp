@@ -141,7 +141,7 @@ void KHangMan::setupActions()
     m_config = KSharedConfig::openConfig();
 
     m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
-    m_recent->setWhatsThis(i18n("You can open last opened files")); //TODO: Check the description
+    m_recent->setWhatsThis(i18n("Quick access to some of the files that you have recently opened."));
     actionCollection()->addAction(m_recent->objectName(), m_recent);
     m_recent->loadEntries(KConfigGroup(m_config, "KHangManRecent"));
     setupGUI();
