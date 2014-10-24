@@ -63,7 +63,7 @@ KHangMan::KHangMan()
     setupStatusbar();
 
     //load the standard set of themes
-    m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/pics/standardthemes.xml"));   //TODO move it to better place
+    m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
     setupActions();
 
@@ -131,7 +131,7 @@ void KHangMan::setupActions()
     // Mode.
     m_modeAction  = new KSelectAction(i18n("L&ook"), this);
     actionCollection()->addAction("combo_mode", m_modeAction );
-    connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeMode(int)));
+    connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeTheme(int)));
     //m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
     m_modeAction->setItems(m_khmfactory.themeList());
     m_modeAction->setCurrentItem(Prefs::mode());
