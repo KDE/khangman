@@ -86,9 +86,9 @@ if(APPLE)
         ${KHangManEngine_HEADERS}
     )
 
-    set_target_properties(KHangManEngine PROPERTIES FRAMEWORK TRUE)
-    set_target_properties(KHangManEngine PROPERTIES BUILD_WITH_INSTALL_RPATH 1 INSTALL_NAME_DIR "@executable_path/../Frameworks")
-    set_target_properties(KHangManEngine PROPERTIES PUBLIC_HEADER "${KHangManEngine_HEADERS}")
+    set_target_properties(khangmanengine PROPERTIES FRAMEWORK TRUE)
+    set_target_properties(khangmanengine PROPERTIES BUILD_WITH_INSTALL_RPATH 1 INSTALL_NAME_DIR "@executable_path/../Frameworks")
+    set_target_properties(khangmanengine PROPERTIES PUBLIC_HEADER "${KHangManEngine_HEADERS}")
 
     set(MACOSX_FRAMEWORK_IDENTIFIER engine)
     set(MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${GENERIC_LIB_SOVERSION})
