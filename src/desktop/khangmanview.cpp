@@ -214,8 +214,6 @@ bool KHangManView::containsChar(const QString &sChar)
 
 // ----------------------------------------------------------------
 
-// FIXME: Move this function somewhere logical
-
 
 void KHangManView::setTheme(KHMTheme *theme)
 {
@@ -228,7 +226,7 @@ void KHangManView::setTheme(KHMTheme *theme)
     // we don't allow themes with no svg installed
 
     if (!QFile::exists(svgpath) || theme->svgFileName().isEmpty()) {
-        qDebug() << "SVG file doesn't exists";
+        qDebug() << "SVG file doesn't exist";
         return;
     }
 
