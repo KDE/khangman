@@ -2,32 +2,13 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake
 )
 
-if ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
-   set(_Init_LIB_SUFFIX 64)
-elseif ("${QT_QTCORE_LIBRARY}" MATCHES lib32)
-   set(_Init_LIB_SUFFIX 32)
-endif ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
-
-set(LIB_SUFFIX
-    ${_Init_LIB_SUFFIX}
-    CACHE INTERNAL
-    "The suffix of the system-wide library path"
-)
-
-set(BIN_INSTALL_DIR
-    bin
-    CACHE INTERNAL "The subdirectory relative to the install prefix where binary files will be installed."
-    )
+set(KHANGMANENGINE_LIB_VERSION 5.0.0)
+set(KHANGMANENGINE_LIB_SOVERSION 5)
 
 set(INCLUDE_INSTALL_DIR
     include
     CACHE INTERNAL "The subdirectory relative to the install prefix where header files will be installed."
     )
-
-set(LIB_INSTALL_DIR
-    lib${LIB_SUFFIX}
-    CACHE INTERNAL "The subdirectory relative to the install prefix where libraries will be installed."
-)
 
 set(SHARE_INSTALL_DIR
     share
@@ -76,7 +57,7 @@ set(KHANGMAN_ENGINE_LIBRARIES
     CACHE INTERNAL "Libraries required for KHangMan engine"
 )
 
-set_target_properties(khangmanengine PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} DEFINE_SYMBOL MAKE_KHANGMAN_ENGINE_LIB)
+set_target_properties(khangmanengine PROPERTIES VERSION ${KHANGMANENGINE_LIB_VERSION} SOVERSION ${KHANGMANENGINE_LIB_SOVERSION} DEFINE_SYMBOL MAKE_KHANGMAN_ENGINE_LIB)
 
 generate_export_header(khangmanengine BASE_NAME KHANGMAN_ENGINE)
 
@@ -91,16 +72,16 @@ if(APPLE)
     set_target_properties(khangmanengine PROPERTIES PUBLIC_HEADER "${KHangManEngine_HEADERS}")
 
     set(MACOSX_FRAMEWORK_IDENTIFIER engine)
-    set(MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${GENERIC_LIB_SOVERSION})
-    set(MACOSX_FRAMEWORK_BUNDLE_VERSION ${GENERIC_LIB_VERSION})
+    set(MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${KHANGMANENGINE_LIB_SOVERSION})
+    set(MACOSX_FRAMEWORK_BUNDLE_VERSION ${KHANGMANENGINE_LIB_VERSION})
 endif()
 
 install(
     TARGETS     khangmanengine
-    RUNTIME     DESTINATION ${BIN_INSTALL_DIR} COMPONENT khangmanengine
-    LIBRARY     DESTINATION ${LIB_INSTALL_DIR} COMPONENT khangmanengine
-    ARCHIVE     DESTINATION ${LIB_INSTALL_DIR} COMPONENT khangmanengine
-    FRAMEWORK   DESTINATION ${LIB_INSTALL_DIR} COMPONENT khangmanengine
+    RUNTIME     DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT khangmanengine
+    LIBRARY     DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT khangmanengine
+    ARCHIVE     DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT khangmanengine
+    FRAMEWORK   DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT khangmanengine
 )
 
 install(
