@@ -237,14 +237,9 @@ void KHangMan::setLanguages()
     }
     cg.config()->sync();
 
-    // We look in $KDEDIR/share/locale/all_languages from
-    // kdelibs/kdecore/all_languages to find the name of the country
-    // corresponding to the code and the language the user set.
-
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     for (int i = 0; i < m_languages.size(); ++i) {
-        KConfigGroup group = entry.group(m_languages[i]);
-        QString languageName = group.readEntry("Name");
+        QLocale locale(m_languages[i]);
+        QString languageName = locale.nativeLanguageName();
         if (languageName.isEmpty()) {
             languageName = i18nc("@item:inlistbox no language for that locale","None");
         }
@@ -344,7 +339,7 @@ bool KHangMan::loadLevels()
     setLevel();
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
     m_levelLabel->setText(currentLevel.key());
-    
+
     return true;
 }
 
