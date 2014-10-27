@@ -191,7 +191,7 @@ void KHangManView::play(const QString& soundFile)
         m_player->stop();
     }
 
-    m_player->setCurrentSource(soundFile);
+    m_player->setCurrentSource(QUrl::fromLocalFile(soundFile));
     m_player->play();
 }
 
