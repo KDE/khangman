@@ -23,6 +23,7 @@
 #include <KAboutData>
 
 #include <KLocalizedString>
+#include <Kdelibs4ConfigMigrator>
 
 #include <QApplication>
 #include <QFontDatabase>
@@ -41,6 +42,13 @@ int main(int argc, char **argv)
     QApplication::setWindowIcon(QIcon::fromTheme("khangman"));
 
     KLocalizedString::setApplicationDomain("khangman");
+
+    Kdelibs4ConfigMigrator migrate(QLatin1String("khangman"));
+    migrate.setConfigFiles(QStringList() << QLatin1String("khangmanrc"));
+    migrate.setUiFiles(QStringList() << QLatin1String("khangmanui.rc"));
+    migrate.migrate();
+
+
     QApplication app(argc, argv);
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
