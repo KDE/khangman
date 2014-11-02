@@ -204,3 +204,4 @@ Name[x-test]=xxKHangManxx
 Name[zh_CN]=KHangMan
 Name[zh_TW]=語言_KHangMan
 Categories=Qt;KDE;Education;Languages;Game;KidsGame;
+X-DBUS-ServiceName=org.kde.khangman
