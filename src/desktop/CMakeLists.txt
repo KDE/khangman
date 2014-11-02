@@ -8,7 +8,7 @@ set(khangman_SRCS
    timer.cpp)
 
 
-qt5_wrap_ui(khangman_SRCS generalui.ui languageui.ui timerui.ui )
+ki18n_wrap_ui(khangman_SRCS generalui.ui languageui.ui timerui.ui )
 
 kconfig_add_kcfg_files(khangman_SRCS prefs.kcfgc )
 
