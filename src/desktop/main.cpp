@@ -40,6 +40,7 @@ int main(int argc, char **argv)
     QApplication::setApplicationDisplayName(i18n("KHangMan"));
     QApplication::setWindowIcon(QIcon::fromTheme("khangman"));
 
+    KLocalizedString::setApplicationDomain("khangman");
     QApplication app(argc, argv);
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
