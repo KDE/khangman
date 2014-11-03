@@ -1,0 +1,50 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="khangman" version="3">
+
+<MenuBar>
+    <Menu name="file" noMerge="1"><text>&amp;Game</text>
+        <Action name="file_new"/>
+        <Action name="file_open"/>
+        <Action name="file_open_recent" />
+        <Action name="downloadnewstuff"/>
+        <Separator/>
+        <Action name="file_quit"/>
+    </Menu>
+    <Action name="combo_level"/>
+
+    <Action name="languages"/>
+
+    <Action name="combo_mode"/>
+
+    <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
+        <Merge name="StandardToolBarMenuHandler"/>
+        <Merge name="second_act"/>
+        <Action name="show_hint"/>
+        <Action name="options_show_statusbar"/>
+        <Action name="options_configure_keybinding"/>
+        <Action name="options_configure_toolbars"/>
+        <Action name="options_configure"/>
+    </Menu>
+</MenuBar>
+
+<ToolBar name="mainToolBar" noMerge="1"><text>Main</text>
+    <Action name="fullscreen"/>
+    <Separator/>
+    <Action name="file_new"/>
+    <Action name="show_hint"/>
+    <Action name="file_quit"/>
+</ToolBar>
+
+<ToolBar name="specialCharToolBar" noMerge="1" iconText="icononly"><text>Special Characters</text>
+</ToolBar>
+
+<ToolBar name="themeToolBar" noMerge="1"><text>Look</text>
+    <Action name="combo_mode"/>
+</ToolBar>
+
+<ToolBar name="languageToolBar" noMerge="1"><text>Language</text>
+    <Action name="languages"/>
+</ToolBar>
+
+</kpartgui>
+

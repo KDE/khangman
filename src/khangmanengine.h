@@ -21,7 +21,7 @@
 #ifndef KHANGMANGAME_H
 #define KHANGMANGAME_H
 
-#include "khangman_engine_export.h"
+//#include "khangman_engine_export.h"
 
 #include <KCoreAddons/KRandomSequence>
 
@@ -36,7 +36,7 @@ class KEduVocDocument;
  * @author Anne-Marie Mahfouf <annma@kde.org>
  * @author Laszlo Papp <lpapp@kde.org>
  */
-class KHANGMAN_ENGINE_EXPORT KHangManEngine : public QObject
+class KHangManEngine : public QObject
 {
     Q_OBJECT
     public:

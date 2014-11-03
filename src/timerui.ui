@@ -1,0 +1,98 @@
+<ui version="4.0" >
+ <class>timerui</class>
+ <widget class="QWidget" name="timerui" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>390</width>
+    <height>163</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" >
+   <item row="0" column="0" >
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="toolTip" >
+      <string>Here you can set the display times for hints and the "Already Guessed" tooltip.</string>
+     </property>
+     <property name="title" >
+      <string>Timers</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <layout class="QGridLayout" >
+        <item row="2" column="1" >
+         <widget class="QLabel" name="timeMissedLabel" >
+          <property name="text" >
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2" >
+         <widget class="QLabel" name="label_2" >
+          <property name="text" >
+           <string>Time for displaying the &lt;b>Already Guessed Letter&lt;/b> tooltip:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2" >
+         <widget class="QSlider" name="kcfg_MissedTimer" >
+          <property name="toolTip" >
+           <string>Time during which the "Already Guessed" tooltip is displayed.</string>
+          </property>
+          <property name="whatsThis" >
+           <string>You can set the time for displaying the "Already Guessed" tooltip after you tried a letter that was already guessed. Default is 1 second but younger children might need longer time to be able to understand they are trying a letter that was already guessed.</string>
+          </property>
+          <property name="maximum" >
+           <number>10</number>
+          </property>
+          <property name="pageStep" >
+           <number>1</number>
+          </property>
+          <property name="value" >
+           <number>1</number>
+          </property>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition" >
+           <enum>QSlider::TicksBelow</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" >
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

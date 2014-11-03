@@ -105,6 +105,7 @@ void KHangManEngine::loadVocabularies()
 
 void KHangManEngine::readFile()
 {
+    qDebug() << "Entered readFile";
     if (!QFileInfo(Prefs::levelFile()).exists()) {
         qDebug() << i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found. Please check your installation.", Prefs::selectedLanguage(), Prefs::levelFile());
         QApplication::instance()->quit();
@@ -130,6 +131,7 @@ void KHangManEngine::readFile()
 
         if (!entry->translation(0)->text().isEmpty()) {
             m_randomList.append(qMakePair(entry->translation(0)->text(), hint));
+            qDebug() << "Appended to randomList: " << entry->translation(0)->text() << hint;
         }
     }
 
@@ -214,9 +216,16 @@ void KHangManEngine::selectLevelFile(int index)
 
 void KHangManEngine::nextWord()
 {
-    m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
-    m_originalWord = m_originalWord.toUpper();
-    m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
+    if (m_randomList.count() == 0) {
+        qDebug() << " m_randomList.count() = 0";
+        //m_originalWord = m_randomList[0].first;
+        //m_hint = m_randomList[0].second;
+        return;
+    } else {
+        m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
+        m_originalWord = m_originalWord.toUpper();
+        m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
+    }
 
     if (m_originalWord.isEmpty()) {
         ++m_randomInt;
