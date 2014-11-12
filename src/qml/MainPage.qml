@@ -28,8 +28,10 @@ Item {
 
     Dialog {
         id: aboutDialog;
+        title: i18n("About KHangMan")
         //icon: "hi80-app-khangman-harmattan.png";
         contentItem: Label {
+            id: aboutDialogLabel
             text: i18n("KHangMan (Version 0.1.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org")
         }
         standardButtons: StandardButton.Ok
@@ -54,34 +56,31 @@ Item {
 
             //font.pixelSize: 48;
 
-            width: parent.width;
+            width: parent.width
 
-            iconSource: "play.png"
+            style: ButtonStyle {
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                }
+                label: Text {
+                        anchors.centerIn: parent
+                        horizontalAlignment: Text.AlignHCenter
+                        text: playResumeGameButton.playResumeGameButtonLabel
+                        color: "lightsteelblue"
+                }
+            }
+
+            //iconSource: "play.png"
 
             onClicked: {
                 rootWindow.push(gamePage);
                 playResumeGameButtonLabel = i18n("Resume Game");
             }
 
-            text: playResumeGameButtonLabel
-
-            //TODO give the button a black background and make the button-label white
-
-            /*style: ButtonStyle {
-                background: Rectangle {
-                    //anchors.fill: playResumeGameButton
-                    color: "black"
-                }
-                label: Text {
-                    anchors.centerIn: playResumeGameButton
-                    text: playResumeGameButton.playResumeGameButtonLabel
-                    color: "white"
-                }
-            }*/
-
             action: Action {
                 id: playResumeGameButtonAction
-                tooltip: playResumeGameButton.text == i18n("Play Game") ? i18n("Start a new game.") : i18n("Resume your game.")
+                tooltip: playResumeGameButton.playResumeGameButtonLabel == i18n("Play Game") ? i18n("Start a new game.") : i18n("Resume your game.")
             }
 
             isDefault: true // selected by default, press Enter to trigger
@@ -91,7 +90,6 @@ Item {
         Button {
             id: settingsButton;
 
-            text: i18n("Settings");
             //font.pixelSize: 48;
 
             width: parent.width;
@@ -100,7 +98,20 @@ Item {
                 rootWindow.push(mainSettingsPage);
             }
 
-            iconSource: "settings.png"
+            //iconSource: "settings.png"
+
+            style: ButtonStyle {
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                }
+                label: Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors.centerIn: parent
+                    text: i18n("Settings");
+                    color: "lightsteelblue"
+                }
+            }
 
             action: Action {
                 id: settingsButtonAction
@@ -124,7 +135,19 @@ Item {
                 aboutDialog.open();
             }
 
-            iconSource: "dialog-information.png"
+            style: ButtonStyle {
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                }
+                label: Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors.centerIn: parent
+                    text: i18n("About");
+                    color: "lightsteelblue"
+                }
+            }
+            //iconSource: "dialog-information.png"
 
             action: Action {
                 id: aboutButtonAction
