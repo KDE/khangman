@@ -7,8 +7,7 @@ option(BUILD_KHANGMAN_HARMATTAN     "Build KHangMan for Harmattan"          OFF)
 option(BUILD_KHANGMAN_PLASMA_ACTIVE "Build KHangMan for Plasma Active"      OFF)
 
 include(FeatureSummary)
-find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL Svg WebKit)
-find_package(Qt5 OPTIONAL_COMPONENTS PrintSupport)
+find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL Svg)
 
 find_package(ECM 0.0.9 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -27,7 +26,6 @@ find_package(KF5 REQUIRED COMPONENTS
     CoreAddons
     ConfigWidgets
     DocTools
-    KIO
     NewStuff
     Notifications
     XmlGui

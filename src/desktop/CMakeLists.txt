@@ -27,6 +27,7 @@ target_link_libraries(khangman
     KF5::XmlGui
     KF5::I18n
     KF5::Completion
+    KF5::Crash
     KF5::Notifications
     Qt5::Gui
     Qt5::Svg
