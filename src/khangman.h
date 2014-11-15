@@ -116,6 +116,12 @@ public:
 
     Q_INVOKABLE QStringList languageNames() const;
 
+    /** Return true if the word contains the char in the QString */
+    Q_INVOKABLE bool containsChar(const QString &original);
+
+    /** Return true if the answer and the current word match */
+    Q_INVOKABLE bool isResolved() const;
+
 public slots:
     ///When the language is changed in the Language menu
     void slotChangeLanguage(int);
@@ -141,6 +147,9 @@ public Q_SLOTS:
 
     /** Generate a new word */
     void nextWord();
+
+    /** Handle the guessed letter */
+    void replaceLetters(const QString& charString);
 
 signals:
 
@@ -309,9 +318,6 @@ private:
     // How many times you missed.
     // When this reaches MAXWRONGGUESSES, you are hanged.
     int m_numMissedLetters;
-
-    // Return true if the word contains the char in the QString.
-    bool  containsChar(const QString &);
 
     /** Strip the accents off given string
      * @params original string to strip accents off of

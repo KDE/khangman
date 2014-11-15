@@ -22,6 +22,7 @@ import QtQuick 2.3
 //import QtMultimediaKit 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import QtMultimedia 5.0
 
 StackView {
     id: rootWindow;
@@ -78,7 +79,7 @@ StackView {
         //theme.inverted = true;
     }
 
-    /*SoundEffect {
+    SoundEffect {
         id: ewDialogAppearSoundEffect;
         source: "EW_Dialogue_Appear.wav";
     }
@@ -101,5 +102,5 @@ StackView {
     SoundEffect {
         id: khangmanAlphabetButtonPressSoundEffect;
         source: "khangman-alphabet-button-press.wav";
-    }*/
+    }
 }

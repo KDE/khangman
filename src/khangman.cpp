@@ -443,9 +443,29 @@ QString KHangMan::stripAccents(const QString & original)
     return noAccents;
 }
 
+void KHangMan::replaceLetters(const QString& charString)
+{
+    QChar ch = charString.at(0);
+    bool oneLetter = Prefs::oneLetter();
+
+    for (int i = 0; i < m_originalWord.size(); ++i) {
+        if (m_originalWord.at(i) == ch) {
+            m_currentWord[i] = ch;
+
+            if (oneLetter)
+                break;
+        }
+    }
+}
+
+bool KHangMan::isResolved() const
+{
+    return m_currentWord == m_originalWord;
+}
+
 bool KHangMan::containsChar(const QString &sChar)
 {
-    return m_word.contains(sChar) || stripAccents(m_word).contains(sChar);
+    return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
 
 void KHangMan::setGameCount()

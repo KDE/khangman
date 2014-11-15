@@ -208,7 +208,7 @@ Item {
         triggeredOnStart: false;
 
         onTriggered: {
-             if (khangmanr.resolveTime != 0 && --countDownTimerValue == 0) {
+             if (khangman.resolveTime != 0 && --countDownTimerValue == 0) {
                  stop();
                  khangmanResultTimer.start();
                  if (khangman.sound) {
@@ -247,7 +247,7 @@ Item {
 
     Image {
         id: gallowsSeriesImage;
-        source: gallowsSeriesCounter == 0 ? "" : "gallows" + gallowsSeriesCounter + ".png";
+        source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png";
         visible: false;
 
         anchors {
