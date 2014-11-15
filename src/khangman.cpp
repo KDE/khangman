@@ -24,8 +24,8 @@
 #include "timer.h"
 
 #include "langutils.h"
-#include "khangmanengine.h"
-#include "khangmanenginehelper.h"
+//#include "khangmanengine.h"
+//#include "khangmanenginehelper.h"
 
 #include <QApplication>
 #include <QBitmap>
@@ -40,6 +40,8 @@
 #include <QQuickWidget>
 #include <QQmlContext>
 
+#include <Phonon/MediaObject>
+
 #include <KSelectAction>
 #include <KToggleAction>
 #include <KActionCollection>
@@ -53,22 +55,21 @@
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
 #include <KDeclarative/KDeclarative>
+#include <KRandomSequence>
 
 #include <KNS3/DownloadDialog>
 #include <sharedkvtmlfiles.h>
 
 KHangMan::KHangMan()
         : KXmlGuiWindow(), m_currentLevel(-1),
-          m_recent(0)
+          m_recent(0),
+          m_player(0),
+          m_doc(0)
 {
     setObjectName(QLatin1String("KHangMan"));
 
     m_view = new QQuickWidget(this);
-    KHangManEngine *engine = new KHangManEngine();
-    qDebug() << "khangmanengine object created at " << engine;
-    m_view->rootContext()->setContextProperty("khangmanEngine", engine);
-    KHangManEngineHelper *engineHelper = new KHangManEngineHelper(engine);
-    m_view->rootContext()->setContextProperty("khangmanEngineHelper", engineHelper);
+    m_view->rootContext()->setContextProperty("khangman", this);
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(m_view->engine());
@@ -226,6 +227,391 @@ void KHangMan::slotChangeTheme(int index)
     //m_view->setTheme(m_khmfactory.buildTheme(index));
 }
 
+void KHangMan::newGame (bool loss)
+{
+    m_loser=false;
+    m_winner=false;
+    m_bgfill=0;
+
+    if (loss)
+        m_lossCount++;
+
+    //reset Hint action
+    setHintEnabled (m_hintExists);
+
+    readFile();
+
+    setGameCount();
+    if (Prefs::sound()) {
+        QString soundFile = QStandardPaths::locate (QStandardPaths::GenericDataLocation, "khangman/sounds/new_game.ogg");
+        qDebug () << "soundFile: " << soundFile;
+        //play (soundFile);
+    }
+
+    reset();
+    ++m_randomInt;
+    game();
+}
+
+void KHangMan::play (const QString& soundFile)
+{
+    if (soundFile.isEmpty()) {
+        return;
+    }
+
+    if (!m_player) {
+        m_player = Phonon::createPlayer(Phonon::GameCategory);
+        qDebug() << "creating new m_player object " << m_player;
+    } else {
+        qDebug() << "stopping existing m_player";
+        m_player->stop();
+    }
+
+    m_player->setCurrentSource (QUrl::fromLocalFile(soundFile));
+    m_player->play();
+}
+
+void KHangMan::game()
+{
+    qDebug() << "language " << Prefs::selectedLanguage();
+    qDebug() << "level "    << Prefs::levelFile();
+
+    m_word = m_randomList[m_randomInt % m_randomList.count()].first;
+    m_word = m_word.toLower();
+    m_hint = m_randomList[m_randomInt % m_randomList.count()].second;
+
+    if (m_word.isEmpty()) {
+        ++m_randomInt;
+        game();
+    }
+
+    if (m_hint.isEmpty()) {
+        m_hintExists = false;   // Hint does not exist.
+    }
+    else {
+        m_hintExists = true;
+    }
+    setHintEnabled (m_hintExists);
+
+    // Display the number of letters to guess with _
+    for (int i = 0; i < m_word.length(); i++) {
+        m_goodWord.append ("_ ");
+    }
+
+    // Remove the last trailing space.
+    m_goodWord.remove (m_goodWord.length() - 1);
+
+    // If needed, display white space or - if in word or semi dot.
+
+    // 1. Find dashes.
+    int posOfFirstDash = m_word.indexOf ( "-" );
+
+    if (posOfFirstDash > 0) {
+        m_goodWord.replace (2 * posOfFirstDash, 1, "-");
+        int posOfSecondDash = m_word.indexOf ( "-", posOfFirstDash + 1);
+        if (posOfSecondDash > 0) {
+            m_goodWord.replace (2 * posOfSecondDash, 3, "-");
+        }
+        if (posOfSecondDash > 1) {
+            m_goodWord.append("_");
+        }
+    }
+
+    // 2. Find white space.
+    m_posFirstSpace = m_word.indexOf( " " );
+
+    if (m_posFirstSpace > 0) {
+        m_goodWord.replace (2 * m_posFirstSpace, 1, " ");
+        m_posSecondSpace = m_word.indexOf ( " ", m_posFirstSpace + 1);
+        if (m_posSecondSpace > 0)
+            m_goodWord.replace (2 * m_posSecondSpace, m_posFirstSpace + 1, " ");
+    }
+
+    // 3. Find ·
+    int posOfDot = m_word.indexOf (QString::fromUtf8("·"));
+
+    if (posOfDot > 0) {
+        m_goodWord.replace (2 * posOfDot, 1, QString::fromUtf8("·"));
+    }
+
+    // 4. Find '
+    int posOfApos = m_word.indexOf ("'");
+
+    if (posOfApos > 0) {
+        m_goodWord.replace (2 * posOfApos, 1, "'");
+    }
+}
+
+void KHangMan::nextWord()
+{
+    if (m_randomList.count() == 0) {
+        qDebug() << " m_randomList.count() = 0";
+        //m_originalWord = m_randomList[0].first;
+        //m_hint = m_randomList[0].second;
+        return;
+    } else {
+        m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
+        m_originalWord = m_originalWord.toUpper();
+        m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
+    }
+    
+    if (m_originalWord.isEmpty()) {
+        ++m_randomInt;
+        nextWord();
+    }
+    
+    m_currentWord.clear();
+    
+    int originalWordSize = m_originalWord.size();
+    
+    while (m_currentWord.size() < originalWordSize)
+        m_currentWord.append("_");
+    
+    ++m_randomInt;
+}
+
+void KHangMan::reset()
+{
+    m_goodWord = "";
+    m_word   = "";
+
+    m_guessedLetters.clear();
+    m_numMissedLetters = 0;
+    m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
+}
+
+void KHangMan::readFile()
+{
+    // Check if the data files are installed in the correct dir.
+    QFile myFile;
+    myFile.setFileName(Prefs::levelFile());
+
+    if (!myFile.exists()) {
+        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+        "Please check your installation.",
+        Prefs::selectedLanguage(),
+                                Prefs::levelFile());
+        KMessageBox::sorry (this, mString, i18n("Error"));
+        //qApp->quit();
+    }
+
+    // Detects if file is a kvtml file so that it's a hint enable file
+    slotSetWordsSequence();
+}
+
+void KHangMan::slotSetWordsSequence()
+{
+    qDebug() << "in read kvtml file ";
+
+    delete m_doc;
+
+    m_doc = new KEduVocDocument(this);
+    ///@todo open returns KEduVocDocument::ErrorCode
+    m_doc->open (QUrl::fromLocalFile (Prefs::levelFile()), KEduVocDocument::FileIgnoreLock);
+
+    //how many words in the file
+    int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
+
+    qDebug() << "slotSetWordsSequence called, wordCount is " << wordCount;
+
+    //get the words+hints
+    KRandomSequence randomSequence;
+    m_randomList.clear();
+    for (int j = 0; j < wordCount; ++j) {
+        QString hint = m_doc->lesson()->entries (KEduVocLesson::Recursive).at(j)->translation(0)->comment();
+        if (hint.isEmpty() && m_doc->identifierCount() > 0) {
+            // if there is no comment or it's empty, use the first translation if there is one
+            hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(1)->text();
+        }
+        if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text().isEmpty()) {
+            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text(), hint));
+        }
+    }
+    //shuffle the list
+    randomSequence.randomize(m_randomList);
+}
+
+QString KHangMan::stripAccents(const QString & original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
+}
+
+bool KHangMan::containsChar(const QString &sChar)
+{
+    return m_word.contains(sChar) || stripAccents(m_word).contains(sChar);
+}
+
+void KHangMan::setGameCount()
+{
+    emit signalSetWins(m_winCount);
+    emit signalSetLosses(m_lossCount);
+}
+
+int KHangMan::hintHideTime()
+{
+    return Prefs::hintHideTime();
+}
+
+void KHangMan::setHintHideTime(int hintHideTime)
+{
+    Prefs::setHintHideTime(hintHideTime);
+    emit hintHideTimeChanged();
+}
+
+int KHangMan::resolveTime()
+{
+    return Prefs::resolveTime();
+}
+
+void KHangMan::setResolveTime(int resolveTime)
+{
+    Prefs::setResolveTime(resolveTime);
+    emit resolveTimeChanged();
+}
+
+bool KHangMan::isSound()
+{
+    return Prefs::sound();
+}
+
+void KHangMan::setSound(bool sound)
+{
+    Prefs::setSound(sound);
+    emit soundToggled();
+}
+
+QString KHangMan::levelFile()
+{
+    return Prefs::levelFile();
+}
+
+void KHangMan::setLevelFile(const QString& levelFile)
+{
+    Prefs::setLevelFile(levelFile);
+    emit levelFileChanged();
+}
+
+QString KHangMan::selectedLanguage()
+{
+    QStringList languageNames = SharedKvtmlFiles::languages();
+    if (languageNames.isEmpty()) {
+        QApplication::instance()->quit();
+    }
+
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
+    KConfigGroup group = entry.group(Prefs::selectedLanguage());
+    QString selectedLanguage = group.readEntry("Name");
+
+    if (!languageNames.contains(selectedLanguage)) {
+        selectedLanguage = "English";
+    }
+
+    return selectedLanguage;
+}
+
+void KHangMan::setSelectedLanguage(const QString& selectedLanguage)
+{
+    Prefs::setSelectedLanguage(selectedLanguage);
+    emit selectedLanguageChanged();
+}
+
+int KHangMan::currentLevel() const
+{
+    return Prefs::currentLevel();
+}
+
+QStringList KHangMan::categoryList() const
+{
+    return m_titleLevels.keys();
+}
+
+QString KHangMan::currentWord() const
+{
+    return m_currentWord;
+}
+
+void KHangMan::selectCurrentLevel(int index)
+{
+    Prefs::setCurrentLevel(index);
+}
+
+void KHangMan::selectLevelFile(int index)
+{
+    Prefs::setLevelFile(m_titleLevels.values().at(index));
+}
+
+void KHangMan::saveSettings()
+{
+    Prefs::self()->save();
+}
+
+QStringList KHangMan::currentWordLetters() const
+{
+    QStringList currentWordLetters;
+
+    QString currentWord = this->currentWord();
+
+    foreach (const QChar& currentWordLetter, currentWord)
+    {
+        currentWordLetters.append(currentWordLetter);
+    }
+
+    return currentWordLetters;
+}
+
+QStringList KHangMan::alphabet() const
+{
+    QStringList letterList;
+    char c = 'A';
+
+    while( c != 'Z') {
+        letterList.append(QChar(c));
+        ++c;
+    }
+
+    letterList.append(QChar(c));
+
+    return letterList;
+}
+
+QStringList KHangMan::languageNames() const
+{
+    QStringList languageCodes = SharedKvtmlFiles::languages();
+    if (languageCodes.isEmpty()) {
+        QApplication::instance()->quit();
+    }
+
+    QStringList languageNames;
+
+    // Get the language names from the language codes
+    // Look in $KDEDIR/share/locale/all_languages from
+    // kdelibs/kdecore/all_languages to find the name of the country
+    // corresponding to the code and the language the user set.
+
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
+
+    foreach (const QString& languageCode, languageCodes)
+    {
+        KConfigGroup group = entry.group(languageCode);
+
+        QString languageName = group.readEntry("Name");
+        if (languageName.isEmpty())
+        {
+            languageName = i18nc("@item:inlistbox no language for that locale", "None");
+        }
+
+        languageNames.append(languageName);
+    }
+
+    return languageNames;
+}
 
 // ----------------------------------------------------------------
 
@@ -301,7 +687,7 @@ void KHangMan::show()
         }
         //call show() of base class KXmlGuiWindow
         KXmlGuiWindow::show();
-        //m_view->newGame();
+        newGame();
     } else { // no kvtml files present
         QMessageBox::information(this, i18n("Error"), i18n("No kvtml files found."));
         close();

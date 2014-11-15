@@ -54,33 +54,33 @@ Item {
         title: i18n("Select a language");
         selectedIndex: 0;
 
-        model: khangmanEngineHelper.languageNames();
+        model: khangman.languageNames();
 
         onSelectedIndexChanged: {
-            khangmanEngineHelper.selectedLanguage = model[selectedIndex];
+            khangman.selectedLanguage = model[selectedIndex];
         }
     }
 
     Connections {
-        target: khangmanEngineHelper;
+        target: khangman;
 
         onHintHideTimeChanged: {
-            hintAppearanceSlider.value = khangmanEngineHelper.hintHideTime;
+            hintAppearanceSlider.value = khangman.hintHideTime;
         }
 
         onResolveTimeChanged: {
-            resolveTimeSlider.value = khangmanEngineHelper.resolveTime;
+            resolveTimeSlider.value = khangman.resolveTime;
         }
 
         onSoundChanged: {
-            soundsSwitch.checked = khangmanEngineHelper.sound;
+            soundsSwitch.checked = khangman.sound;
         }
     }
 
     Component.onCompleted: {
-        hintAppearanceSlider.value = khangmanEngineHelper.hintHideTime;
-        resolveTimeSlider.value = khangmanEngineHelper.resolveTime;
-        soundsSwitch.checked = khangmanEngineHelper.sound;
+        hintAppearanceSlider.value = khangman.hintHideTime;
+        resolveTimeSlider.value = khangman.resolveTime;
+        soundsSwitch.checked = khangman.sound;
     }
 
 
@@ -165,7 +165,7 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter;
 
                         onValueChanged: {
-                            khangmanEngineHelper.hintHideTime = value;
+                            khangman.hintHideTime = value;
                         }
                     }
                 }
@@ -226,7 +226,7 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter;
 
                         onValueChanged: {
-                            khangmanEngineHelper.resolveTime = value;
+                            khangman.resolveTime = value;
                         }
                     }
                 }
@@ -274,7 +274,7 @@ Item {
                         }
 
                         onCheckedChanged: {
-                            khangmanEngineHelper.sound = checked;
+                            khangman.sound = checked;
                         }
                     }
                 }
@@ -290,7 +290,7 @@ Item {
                 ListItem {
                     iconSource: "language-settings.png";
                     titleText: i18n("Language");
-                    subtitleText: khangmanEngineHelper.selectedLanguage ? khangmanEngineHelper.selectedLanguage : "English";
+                    subtitleText: khangman.selectedLanguage ? khangman.selectedLanguage : "English";
                     iconId: "textinput-combobox-arrow";
                     iconVisible: true;
                     mousePressed: languageSelectionMouseArea.pressed;

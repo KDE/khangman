@@ -6,7 +6,7 @@ include_directories(
     ${PHONON_INCLUDES}
 )
 
-set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp timer.cpp khangmanengine.cpp khangmanenginehelper.cpp)
+set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp timer.cpp)
 qt5_wrap_ui(khangman_SRCS generalui.ui languageui.ui timerui.ui)
 kconfig_add_kcfg_files(khangman_SRCS prefs.kcfgc)
 add_executable(khangman ${khangman_SRCS})

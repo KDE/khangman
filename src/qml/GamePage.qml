@@ -28,10 +28,10 @@ import QtQuick.Controls.Styles 1.2
 
 Item {
 
-    property variant currentWord: khangmanEngineHelper.currentWordLetters();
-    property variant alphabet: khangmanEngineHelper.alphabet();
+    property variant currentWord: khangman.currentWordLetters();
+    property variant alphabet: khangman.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
-    property int countDownTimerValue: khangmanEngineHelper.resolveTime;
+    property int countDownTimerValue: khangman.resolveTime;
     property int gallowsSeriesCounter: 0;
     property bool initialized: false;
 
@@ -75,7 +75,7 @@ Item {
     ]
 
     Component.onCompleted: {
-        categorySelectionDialog.selectedIndex = khangmanEngine.currentLevel();
+        categorySelectionDialog.selectedIndex = khangman.currentLevel();
     }
 
     function pushPage(file) {
@@ -88,9 +88,9 @@ Item {
 
     function nextWord() {
         //khangmanHintInfoBanner.hide();
-        khangmanEngine.nextWord();
-        currentWord = khangmanEngineHelper.currentWordLetters();
-        countDownTimerValue = khangmanEngineHelper.resolveTime;
+        khangman.nextWord();
+        currentWord = khangman.currentWordLetters();
+        countDownTimerValue = khangman.resolveTime;
 
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             alphabetLetterRepeater.itemAt(i).enabled = true;
@@ -114,19 +114,19 @@ Item {
     MySelectionDialog {
         id: categorySelectionDialog;
         title: i18n("Choose the word category");
-        model: khangmanEngine.categoryList();
+        model: khangman.categoryList();
 
         onSelectedIndexChanged: {
 
-            if (khangmanEngineHelper.sound) {
+            if (khangman.sound) {
                 initialized == true ? nextWordSoundEffect.play() : initialized = true;
             }
 
-            khangmanEngine.selectCurrentLevel(selectedIndex);
-            khangmanEngine.selectLevelFile(selectedIndex);
-            khangmanEngineHelper.saveSettings();
+            khangman.selectCurrentLevel(selectedIndex);
+            khangman.selectLevelFile(selectedIndex);
+            khangman.saveSettings();
 
-            khangmanEngine.readFile();
+            khangman.readFile();
             nextWord();
         }
     }
@@ -143,8 +143,8 @@ Item {
                 iconSource: "help-hint.png";
 
                 onClicked: {
-                    khangmanHintInfoBanner.text = khangmanEngine.hint();
-                    khangmanHintInfoBanner.timerShowTime = khangmanEngineHelper.hintHideTime * 1000;
+                    khangmanHintInfoBanner.text = khangman.hint();
+                    khangmanHintInfoBanner.timerShowTime = khangman.hintHideTime * 1000;
 
                     // Display the info banner
                     khangmanHintInfoBanner.show();
@@ -186,7 +186,7 @@ Item {
                 iconSource: "go-next.png";
 
                 onClicked: {
-                    if (khangmanEngineHelper.sound) {
+                    if (khangman.sound) {
                         nextWordSoundEffect.play();
                     }
 
@@ -208,10 +208,10 @@ Item {
         triggeredOnStart: false;
 
         onTriggered: {
-             if (khangmanEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
+             if (khangmanr.resolveTime != 0 && --countDownTimerValue == 0) {
                  stop();
                  khangmanResultTimer.start();
-                 if (khangmanEngineHelper.sound) {
+                 if (khangman.sound) {
                      wrongSoundEffect.play();
                  }
              }
@@ -269,27 +269,27 @@ Item {
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue / 60 / 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
+            visible: khangman.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue / 60 % 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
+            visible: khangman.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: ":";
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
+            visible: khangman.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue % 60 / 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
+            visible: khangman.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue % 60 % 10);
-            visible: khangmanEngineHelper.resolveTime == 0 ? false : true;
+            visible: khangman.resolveTime == 0 ? false : true;
         }
     }
 
@@ -342,22 +342,22 @@ Item {
                 }*/
 
                 onClicked: {
-                    if (khangmanEngineHelper.sound) {
+                    if (khangman.sound) {
                         khangmanAlphabetButtonPressSoundEffect.play();
                     }
 
-                    if (khangmanEngine.containsChar(text)) {
-                        khangmanEngine.replaceLetters(text);
-                        currentWord = khangmanEngineHelper.currentWordLetters();
+                    if (khangman.containsChar(text)) {
+                        khangman.replaceLetters(text);
+                        currentWord = khangman.currentWordLetters();
                         enabled = false;
 
-                        if (khangmanEngine.isResolved()) {
+                        if (khangman.isResolved()) {
                             gallowsSeriesImage.visible = false;
                             successImage.visible = true;
                             khangmanResultTimer.start();
                             khangmanHintInfoBanner.hide();
 
-                            if (khangmanEngineHelper.sound) {
+                            if (khangman.sound) {
                                 ewDialogAppearSoundEffect.play();
                             }
                         }
@@ -369,7 +369,7 @@ Item {
                         }
 
                         if (gallowsSeriesCounter == 10) {
-                            if (khangmanEngineHelper.sound) {
+                            if (khangman.sound) {
                                 wrongSoundEffect.play();
                             }
 
