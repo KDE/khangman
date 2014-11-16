@@ -280,8 +280,6 @@ private:
     //Play a game: look for a word to be guessed and load its tip
     void game();
 
-    void play(const QString& soundFile);
-
     Phonon::MediaObject *m_player;
 
     // The word to be guessed.

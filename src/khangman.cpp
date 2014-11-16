@@ -243,33 +243,15 @@ void KHangMan::newGame (bool loss)
     readFile();
 
     setGameCount();
-    if (Prefs::sound()) {
+    /*if (Prefs::sound()) {
         QString soundFile = QStandardPaths::locate (QStandardPaths::GenericDataLocation, "khangman/sounds/new_game.ogg");
         qDebug () << "soundFile: " << soundFile;
         //play (soundFile);
-    }
+    }*/
 
     reset();
     ++m_randomInt;
     game();
-}
-
-void KHangMan::play (const QString& soundFile)
-{
-    if (soundFile.isEmpty()) {
-        return;
-    }
-
-    if (!m_player) {
-        m_player = Phonon::createPlayer(Phonon::GameCategory);
-        qDebug() << "creating new m_player object " << m_player;
-    } else {
-        qDebug() << "stopping existing m_player";
-        m_player->stop();
-    }
-
-    m_player->setCurrentSource (QUrl::fromLocalFile(soundFile));
-    m_player->play();
 }
 
 void KHangMan::game()

@@ -23,6 +23,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.2
+import QtMultimedia 5.0
 
 //import com.nokia.meego 1.0
 //import com.nokia.extras 1.0
@@ -100,6 +101,11 @@ Item {
         gallowsSeriesCounter = 0;
         gallowsSeriesImage.visible = false;
         successImage.visible = false;
+        if (rootWindow.currentItem == gamePage) {
+            console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
+            //console.log("checking sound effect loaded " + nextWordSoundEffect.isLoaded());
+            nextWordSoundEffect.play()
+        }
     }
 
     // Create an info banner with icon
@@ -120,7 +126,10 @@ Item {
         onSelectedIndexChanged: {
 
             if (khangman.sound) {
+                console.log("khangman.sound = " + khangman.sound)
                 initialized == true ? nextWordSoundEffect.play() : initialized = true;
+            } else {
+                console.log("khangman.sound = false")
             }
 
             khangman.selectCurrentLevel(selectedIndex);
@@ -128,7 +137,7 @@ Item {
             khangman.saveSettings();
 
             khangman.readFile();
-            nextWord();
+            nextWord()
         }
     }
 
@@ -188,7 +197,11 @@ Item {
 
                 onClicked: {
                     if (khangman.sound) {
+                        console.log("kahngman.sound = true")
+                        console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
                         nextWordSoundEffect.play();
+                    } else {
+                        console.log("khangman.sound = false")
                     }
 
                     nextWord();
@@ -356,7 +369,7 @@ Item {
                             gallowsSeriesImage.visible = false;
                             successImage.visible = true;
                             khangmanResultTimer.start();
-                            khangmanHintInfoBanner.hide();
+                            //khangmanHintInfoBanner.hide();
 
                             if (khangman.sound) {
                                 ewDialogAppearSoundEffect.play();

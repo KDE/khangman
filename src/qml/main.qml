@@ -45,12 +45,12 @@ StackView {
     }
 
     GamePage {
-        id: gamePage;
+        id: gamePage
         visible: false
     }
 
     MainSettingsPage {
-        id: mainSettingsPage;
+        id: mainSettingsPage
         visible: false
     }
 
@@ -82,26 +82,26 @@ StackView {
 
     SoundEffect {
         id: ewDialogAppearSoundEffect;
-        source: "EW_Dialogue_Appear.wav";
+        source: "sounds/EW_Dialogue_Appear.wav";
     }
 
     SoundEffect {
         id: nextWordSoundEffect;
-        source: "chalk.wav";
+        source: "sounds/chalk.wav";
     }
 
     SoundEffect {
         id: wrongSoundEffect;
-        source: "wrong.wav";
+        source: "sounds/wrong.wav";
     }
 
     SoundEffect {
         id: splashSoundEffect;
-        source: "splash.wav";
+        source: "sounds/splash.wav";
     }
 
     SoundEffect {
         id: khangmanAlphabetButtonPressSoundEffect;
-        source: "khangman-alphabet-button-press.wav";
+        source: "sounds/khangman-alphabet-button-press.wav";
     }
 }
