@@ -1,20 +1,21 @@
-/*
- * Copyright (C) 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
-
-     This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+/*************************************************************************************
+ * Copyright (C) 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                        *
+ * Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>                  *
+ *                                                                                   *
+ * This program is free software; you can redistribute it and/or modify              *
+ * it under the terms of the GNU General Public License as published by              *
+ * the Free Software Foundation; either version 2 of the License, or                 *
+ * (at your option) any later version.                                               *
+ *                                                                                   *
+ * This program is distributed in the hope that it will be useful,                   *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of                    *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                     *
+ * GNU General Public License for more details.                                      *
+ *                                                                                   *
+ * You should have received a copy of the GNU General Public License                 *
+ * along with this program; if not, write to the Free Software                       *
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.   *
+ *************************************************************************************/
 
 
 #include "khangman.h"
@@ -54,8 +55,10 @@ int main(int argc, char **argv)
 
     // Write the names with accents and all and this file save with
     // utf8 encoding.
-    aboutData.addAuthor(i18n("Anne-Marie Mahfouf"), i18n("Current maintainer, author"),
+    aboutData.addAuthor(i18n("Anne-Marie Mahfouf"), i18n("Original Author"),
                         "annma@kde.org", "http://annma.blogspot.com", "annma");
+    aboutData.addAuthor(i18n("Rahul Chowdhury"), i18n("Developer"),
+                        "rahul.chowdhury@kdemail.net", "http://rahulc93.wordpress.com/", "rahulch");
     aboutData.addCredit(i18n("Stefan Böhmann"),
                         i18n("Coding help"), "kde@hilefoks.org", "http://www.hilefoks.org", "hilefoks");
     aboutData.addCredit(i18n("Stefan Asserhäll"),

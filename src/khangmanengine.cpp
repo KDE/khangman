@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
+ *   Copyright 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net           *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
