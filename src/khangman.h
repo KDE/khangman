@@ -257,10 +257,10 @@ private:
     //Recent files element
     KRecentFilesAction * m_recent;
 
-    QLabel *m_levelLabel;
-    QLabel *m_accentsLabel;
-    QLabel *m_winsLabel;
-    QLabel *m_lossesLabel;
+    //QLabel *m_levelLabel;
+    //QLabel *m_accentsLabel;
+    //QLabel *m_winsLabel;
+    //QLabel *m_lossesLabel;
 
     bool m_winner;
     bool m_loser;

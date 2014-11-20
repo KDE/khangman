@@ -76,9 +76,11 @@ KHangMan::KHangMan()
     kdeclarative.setDeclarativeEngine(m_view->engine());
     kdeclarative.setupBindings();
 
+    m_view->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
     setCentralWidget(m_view);
     setLanguages();
-    setupStatusbar();
+    //setupStatusbar();
 
     //load the standard set of themes
     m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
@@ -86,8 +88,8 @@ KHangMan::KHangMan()
     setupActions();
 
     // Toolbar for special characters
-    m_specialCharToolbar = toolBar("specialCharToolBar");
-    addToolBar ( Qt::BottomToolBarArea, m_specialCharToolbar);
+    //m_specialCharToolbar = toolBar("specialCharToolBar");
+    //addToolBar ( Qt::BottomToolBarArea, m_specialCharToolbar);
 
     loadSettings();
     setAccent();
@@ -169,14 +171,14 @@ void KHangMan::setupActions()
 void KHangMan::setupStatusbar()
 {
     // set up the status bar
-    m_levelLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(m_levelLabel);
-    m_accentsLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(m_accentsLabel);
-    m_winsLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(m_winsLabel);
-    m_lossesLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(m_lossesLabel);
+    //m_levelLabel = new QLabel(this);
+    //statusBar()->addPermanentWidget(m_levelLabel);
+    //m_accentsLabel = new QLabel(this);
+    //statusBar()->addPermanentWidget(m_accentsLabel);
+    //m_winsLabel = new QLabel(this);
+    //statusBar()->addPermanentWidget(m_winsLabel);
+    //m_lossesLabel = new QLabel(this);
+    //statusBar()->addPermanentWidget(m_lossesLabel);
     //statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
     //statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
     //statusBar()->insertItem("   ", IDS_WINS,    1);
@@ -199,7 +201,7 @@ bool KHangMan::queryClose()
 void KHangMan::slotChangeLevel(int index)
 {
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
-    m_levelLabel->setText(currentLevel.key());
+    //m_levelLabel->setText(currentLevel.key());
     Prefs::setCurrentLevel(index);
     Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->save();
@@ -660,12 +662,12 @@ void KHangMan::loadSettings()
         qApp->closeAllWindows();
     }
     // Show/hide characters toolbar
-    if (Prefs::showCharToolbar()) {
+    /*if (Prefs::showCharToolbar()) {
         m_specialCharToolbar->show();
     }
     else {
         m_specialCharToolbar->hide();
-    }
+    }*/
     setMessages();
 }
 
@@ -750,7 +752,7 @@ bool KHangMan::loadLevels()
 
     setLevel();
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
-    m_levelLabel->setText(currentLevel.key());
+    //m_levelLabel->setText(currentLevel.key());
 
     return true;
 }
@@ -825,12 +827,12 @@ void KHangMan::loadLangToolBar()
     bool hasSpecialChars = LangUtils::hasSpecialChars(lang);
 
     // If the setting changed, save showToolbar setting
-    if (m_specialCharToolbar->isVisible() && hasSpecialChars) {
+    /*if (m_specialCharToolbar->isVisible() && hasSpecialChars) {
         Prefs::setShowCharToolbar(true);
         Prefs::self()->save();
-    }
+    }*/
 
-    m_specialCharToolbar->clear();
+    //m_specialCharToolbar->clear();
 
     m_allData.clear();
     if (hasSpecialChars) {
@@ -863,7 +865,7 @@ void KHangMan::loadLangToolBar()
         m_allData = readFileStr.readAll().split('\n');
         openFileStream.close();
 
-        for (int i=0; i<m_allData.count(); ++i) {
+        /*for (int i=0; i<m_allData.count(); ++i) {
             if (!m_allData.at(i).isEmpty()) {
                 QAction *act = m_specialCharToolbar->addAction(m_allData.at(i));
                 act->setIcon(charIcon(m_allData.at(i).at(0)));
@@ -871,10 +873,10 @@ void KHangMan::loadLangToolBar()
                 act->setData(i);
                 connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
             }
-        }
-        m_specialCharToolbar->show();
+        }*/
+        //m_specialCharToolbar->show();
     } else {
-        m_specialCharToolbar->hide();
+        //m_specialCharToolbar->hide();
     }
 }
 
@@ -944,10 +946,10 @@ void KHangMan::setMessages()
 {
     // Tell the user about accented characters
     /*if (m_view->accentedLetters() && Prefs::accentedLetters()) {
-        m_accentsLabel->setText(i18n("Type accented letters"));
+        //m_accentsLabel->setText(i18n("Type accented letters"));
     }
     else {
-        m_accentsLabel->setText("");
+        //m_accentsLabel->setText("");
     }*/
 }
 
@@ -958,7 +960,7 @@ void KHangMan::loadFile(const QUrl &url)
             Prefs::setLevelFile(url.toLocalFile());
         else Prefs::setLevelFile(url.path());
 
-        m_levelLabel->setText(url.path().section('/', -1));
+        //m_levelLabel->setText(url.path().section('/', -1));
 
         m_recent->addUrl(url);
         m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
@@ -991,12 +993,12 @@ void KHangMan::slotFileOpen()
 
 void KHangMan::slotSetWins(int wins)
 {
-    m_winsLabel->setText(i18n("Wins: %1", wins));
+    //m_winsLabel->setText(i18n("Wins: %1", wins));
 }
 
 void KHangMan::slotSetLosses(int losses)
 {
-    m_lossesLabel->setText(i18n("Losses: %1", losses));
+    //m_lossesLabel->setText(i18n("Losses: %1", losses));
 }
 
 void KHangMan::slotSetHint(bool hint)

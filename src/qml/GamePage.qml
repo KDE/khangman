@@ -83,7 +83,7 @@ Item {
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
-            pageStack.push(component);
+            rootWindow.push(component);
         else
             console.log(i18n("Error loading component:", component.errorString()));
     }
@@ -91,6 +91,7 @@ Item {
     function nextWord() {
         //khangmanHintInfoBanner.hide();
         khangman.nextWord();
+
         currentWord = khangman.currentWordLetters();
         countDownTimerValue = khangman.resolveTime;
 
@@ -143,74 +144,6 @@ Item {
 
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
-    ToolBar {
-        id: mainPageTools;
-        visible: false;
-
-        RowLayout {
-
-            ToolButton {
-                iconSource: "help-hint.png";
-
-                onClicked: {
-                    khangmanHintInfoBanner.text = khangman.hint();
-                    khangmanHintInfoBanner.timerShowTime = khangman.hintHideTime * 1000;
-
-                    // Display the info banner
-                    khangmanHintInfoBanner.show();
-                }
-            }
-
-            ToolButton {
-                text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
-
-                anchors {
-                    centerIn: parent;
-                }
-
-                onClicked: {
-                    categorySelectionDialog.open();
-                }
-            }
-
-            ToolButton {
-                iconSource: "timer-pause.png";
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                    horizontalCenterOffset: parent.width/4;
-                }
-
-                onClicked: {
-                    khangmanHintInfoBanner.hide();
-
-                    pageStack.pop();
-
-                    secondTimer.repeat = false;
-                    secondTimer.stop();
-
-                }
-            }
-
-            ToolButton {
-                iconSource: "go-next.png";
-
-                onClicked: {
-                    if (khangman.sound) {
-                        console.log("kahngman.sound = true")
-                        console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
-                        nextWordSoundEffect.play();
-                    } else {
-                        console.log("khangman.sound = false")
-                    }
-
-                    nextWord();
-                    secondTimer.repeat = true;
-                    secondTimer.restart();
-                }
-            }
-        }
-    }
 
     //tools: mainPageTools;
 
@@ -328,7 +261,8 @@ Item {
         id: alphabetGrid;
         anchors {
             horizontalCenter: parent.horizontalCenter;
-            bottom: parent.bottom;
+            //top: currentWordGrid.bottom
+            bottom: mainPageTools.top;
             bottomMargin: 10;
         }
 
@@ -390,6 +324,80 @@ Item {
                             khangmanResultTimer.start();
                         }
                     }
+                }
+            }
+        }
+    }
+
+    ToolBar {
+        id: mainPageTools;
+        //anchors.top: alphabetGrid.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        //visible: (rootWindow.currentItem == gamePage);
+
+        RowLayout {
+            anchors.fill: parent
+
+            ToolButton {
+                iconSource: "help-hint.png";
+
+                onClicked: {
+                    //khangmanHintInfoBanner.text = khangman.hint();
+                    //khangmanHintInfoBanner.timerShowTime = khangman.hintHideTime * 1000;
+
+                    // Display the info banner
+                    //khangmanHintInfoBanner.show();
+                }
+            }
+
+            ToolButton {
+                text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+
+                anchors {
+                    centerIn: parent;
+                }
+
+                onClicked: {
+                    categorySelectionDialog.open();
+                }
+            }
+
+            ToolButton {
+                iconSource: "timer-pause.png";
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
+                    horizontalCenterOffset: parent.width/4;
+                }
+
+                onClicked: {
+                    //khangmanHintInfoBanner.hide();
+
+                    rootWindow.pop();
+
+                    secondTimer.repeat = false;
+                    secondTimer.stop();
+
+                }
+            }
+
+            ToolButton {
+                iconSource: "go-next.png";
+
+                onClicked: {
+                    if (khangman.sound) {
+                        console.log("kahngman.sound = true")
+                        //console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
+                        nextWordSoundEffect.play();
+                    } else {
+                        console.log("khangman.sound = false")
+                    }
+
+                    nextWord();
+                    secondTimer.repeat = true;
+                    secondTimer.restart();
                 }
             }
         }
