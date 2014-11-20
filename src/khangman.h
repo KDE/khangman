@@ -62,6 +62,7 @@ class KHangMan : public KXmlGuiWindow
     Q_PROPERTY( bool sound READ isSound WRITE setSound NOTIFY soundToggled )
     Q_PROPERTY( QString levelFile READ levelFile WRITE setLevelFile NOTIFY levelFileChanged )
     Q_PROPERTY( QString selectedLanguage READ selectedLanguage WRITE setSelectedLanguage NOTIFY selectedLanguageChanged )
+    Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
 
 public:
     /**
@@ -99,19 +100,16 @@ public:
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
 
-    /** The hidden word that is filled in during the game. */
-    QString m_currentWord;
-
     /** Get the index of the desired level in the list */
     Q_INVOKABLE int currentLevel() const;
 
     /** Get the current categories available */
     Q_INVOKABLE QStringList categoryList() const;
 
-    Q_INVOKABLE QStringList currentWordLetters() const;
+    Q_INVOKABLE QStringList currentWord() const;
 
     /** Get the current word */
-    Q_INVOKABLE QString currentWord() const;
+    //Q_INVOKABLE QString currentWord() const;
 
     Q_INVOKABLE QStringList alphabet() const;
 
@@ -156,13 +154,12 @@ signals:
 
     void signalSetWins(int wins);
     void signalSetLosses(int losses);
-
-Q_SIGNALS:
     void hintHideTimeChanged();
     void resolveTimeChanged();
     void soundToggled();
     void levelFileChanged();
     void selectedLanguageChanged();
+    void currentWordChanged();
 
 private slots:
     // Slots for when the user changes level, setting, etc.
@@ -326,6 +323,9 @@ private:
 
     /** The word to be guessed */
     QString m_originalWord;
+
+    /** The hidden word that is filled in during the game. */
+    QString m_currentWord;
 };
 
 #endif // _KHANGMAN_H_

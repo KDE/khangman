@@ -30,7 +30,7 @@ import QtMultimedia 5.0
 
 Item {
 
-    property variant currentWord: khangman.currentWordLetters();
+    //property variant currentWord: khangman.currentWordLetters();
     property variant alphabet: khangman.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangman.resolveTime;
@@ -92,7 +92,7 @@ Item {
         //khangmanHintInfoBanner.hide();
         khangman.nextWord();
 
-        currentWord = khangman.currentWordLetters();
+        //currentWord = khangman.currentWordLetters();
         countDownTimerValue = khangman.resolveTime;
 
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
@@ -249,7 +249,7 @@ Item {
         spacing: 5;
         Repeater {
             id: currentWordLetterRepeater;
-            model: currentWord;
+            model: khangman.currentWord;
             LetterElement {
                 id: currentWordLetterId;
                 letterText: modelData;
@@ -296,7 +296,7 @@ Item {
 
                     if (khangman.containsChar(text)) {
                         khangman.replaceLetters(text);
-                        currentWord = khangman.currentWordLetters();
+                        //currentWord = khangman.currentWordLetters();
                         enabled = false;
 
                         if (khangman.isResolved()) {

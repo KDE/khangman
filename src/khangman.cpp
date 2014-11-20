@@ -339,30 +339,32 @@ void KHangMan::nextWord()
         m_originalWord = m_originalWord.toUpper();
         m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
     }
-    
+
     if (m_originalWord.isEmpty()) {
         ++m_randomInt;
         nextWord();
     }
-    
+
     m_currentWord.clear();
-    
+
     int originalWordSize = m_originalWord.size();
-    
+
     while (m_currentWord.size() < originalWordSize)
         m_currentWord.append("_");
-    
+
+    emit currentWordChanged();
+
     ++m_randomInt;
 }
 
 void KHangMan::reset()
 {
     m_goodWord = "";
-    m_word   = "";
+    m_word = "";
 
     m_guessedLetters.clear();
     m_numMissedLetters = 0;
-    m_missedLetters    = "_ _ _ _ _ _ _ _ _ _  ";
+    m_missedLetters = "_ _ _ _ _ _ _ _ _ _  ";
 }
 
 void KHangMan::readFile()
@@ -441,6 +443,7 @@ void KHangMan::replaceLetters(const QString& charString)
                 break;
         }
     }
+    emit currentWordChanged();
 }
 
 bool KHangMan::isResolved() const
@@ -537,11 +540,6 @@ QStringList KHangMan::categoryList() const
     return m_titleLevels.keys();
 }
 
-QString KHangMan::currentWord() const
-{
-    return m_currentWord;
-}
-
 void KHangMan::selectCurrentLevel(int index)
 {
     Prefs::setCurrentLevel(index);
@@ -557,13 +555,11 @@ void KHangMan::saveSettings()
     Prefs::self()->save();
 }
 
-QStringList KHangMan::currentWordLetters() const
+QStringList KHangMan::currentWord() const
 {
     QStringList currentWordLetters;
 
-    QString currentWord = this->currentWord();
-
-    foreach (const QChar& currentWordLetter, currentWord)
+    foreach (const QChar& currentWordLetter, m_currentWord)
     {
         currentWordLetters.append(currentWordLetter);
     }
