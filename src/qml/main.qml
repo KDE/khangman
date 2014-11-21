@@ -76,6 +76,7 @@ StackView {
     }
 
     Component.onCompleted: {
+        splashSoundEffect.play()
         // Use the dark theme.
         //theme.inverted = true;
     }

@@ -217,9 +217,7 @@ Item {
 
         anchors {
             right: parent.right;
-            //top: parent.top;
-            top: gallowsSeriesImage.top
-            //top: rootWindow.commonTools.bottom
+            top: currentWordGrid.top
             topMargin: 5;
             rightMargin: 5;
         }
