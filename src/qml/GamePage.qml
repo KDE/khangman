@@ -255,6 +255,7 @@ Item {
         }
 
         spacing: 5;
+        columns: 13;
         Repeater {
             id: currentWordLetterRepeater;
             model: khangman.currentWord;
@@ -274,36 +275,58 @@ Item {
             bottomMargin: 10;
         }
 
-        spacing: 5;
+        spacing: gamePage.width/35;
+        columns: 13;
         Repeater {
             id: alphabetLetterRepeater;
             model: alphabet;
             Button {
                 id: alphabetLetterId;
-                text: modelData;
+                //text: modelData;
 
-                /*platformStyle: ButtonStyle {
-                    background: "image://theme/meegotouch-button-inverted-background";
-                    fontFamily: "Arial";
-                    fontPixelSize: 40;
-                    fontCapitalization: Font.AllUppercase;
-                    fontWeight: Font.Bold;
-                    horizontalAlignment: Text.AlignHCenter;
-                    textColor: "white";
-                    pressedTextColor: "pink";
-                    disabledTextColor: "gray";
-                    checkedTextColor: "blue";
-                    buttonWidth: 45;
-                    buttonHeight: 60;
-                }*/
+                property string alphabetLetterIdLabel: modelData
+
+                style: ButtonStyle {
+                    background: Rectangle {
+                        id: alphabetLetterIdStyleRectangle
+                        /*background: "image://theme/meegotouch-button-inverted-background";
+                        fontFamily: "Arial";
+                        fontPixelSize: 40;
+                        fontCapitalization: Font.AllUppercase;
+                        fontWeight: Font.Bold;
+                        horizontalAlignment: Text.AlignHCenter;
+                        textColor: "white";
+                        pressedTextColor: "pink";
+                        disabledTextColor: "gray";
+                        checkedTextColor: "blue";
+                        buttonWidth: 45;
+                        buttonHeight: 60;*/
+                        implicitWidth: gamePage.width / 22
+                        implicitHeight: gamePage.width / 22
+                        color: alphabetLetterId.enabled ? "black" : "grey"
+                        radius: 8
+                    }
+                    label: Text {
+                        id: buttonLabel
+                        anchors.centerIn: parent
+                        text: alphabetLetterId.alphabetLetterIdLabel
+                        font.family : "Arial"
+                        font.pixelSize: gamePage.width / 40
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "white"
+                    }
+                }
 
                 onClicked: {
                     if (khangman.sound) {
                         khangmanAlphabetButtonPressSoundEffect.play();
                     }
 
-                    if (khangman.containsChar(text)) {
-                        khangman.replaceLetters(text);
+                    if (khangman.containsChar(alphabetLetterId.alphabetLetterIdLabel)) {
+                        khangman.replaceLetters(alphabetLetterId.alphabetLetterIdLabel);
                         //currentWord = khangman.currentWordLetters();
                         enabled = false;
 

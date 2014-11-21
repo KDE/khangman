@@ -63,12 +63,17 @@ Item {
                 background: Rectangle {
                     anchors.fill: parent
                     color: "black"
+                    radius: 8
                 }
                 label: Text {
                         anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
                         text: playResumeGameButton.playResumeGameButtonLabel
-                        color: "lightsteelblue"
+                        font.family : "Arial"
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "white"
                 }
             }
 
@@ -109,12 +114,17 @@ Item {
                 background: Rectangle {
                     anchors.fill: parent
                     color: "black"
+                    radius: 8
                 }
                 label: Text {
-                    horizontalAlignment: Text.AlignHCenter
                     anchors.centerIn: parent
                     text: i18n("Settings");
-                    color: "lightsteelblue"
+                    font.family : "Arial"
+                    font.capitalization : Font.AllUppercase
+                    font.weight : Font.Bold
+                    horizontalAlignment : Text.AlignHCenter
+                    verticalAlignment : Text.AlignVCenter
+                    color: "white"
                 }
             }
 
@@ -144,12 +154,17 @@ Item {
                 background: Rectangle {
                     anchors.fill: parent
                     color: "black"
+                    radius: 8
                 }
                 label: Text {
-                    horizontalAlignment: Text.AlignHCenter
                     anchors.centerIn: parent
                     text: i18n("About");
-                    color: "lightsteelblue"
+                    font.family : "Arial"
+                    font.capitalization : Font.AllUppercase
+                    font.weight : Font.Bold
+                    horizontalAlignment : Text.AlignHCenter
+                    verticalAlignment : Text.AlignVCenter
+                    color: "white"
                 }
             }
             //iconSource: "dialog-information.png"
