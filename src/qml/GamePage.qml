@@ -24,6 +24,7 @@ import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.2
 import QtMultimedia 5.0
+import QtQml 2.2
 
 //import com.nokia.meego 1.0
 //import com.nokia.extras 1.0
@@ -109,6 +110,11 @@ Item {
         }
     }
 
+    function startTimer() {
+        secondTimer.repeat = true;
+        secondTimer.restart();
+    }
+
     // Create an info banner with icon
     /*InfoBanner {
         id: khangmanHintInfoBanner;
@@ -138,7 +144,7 @@ Item {
             khangman.saveSettings();
 
             khangman.readFile();
-            nextWord()
+            nextWord();
         }
     }
 
@@ -155,13 +161,13 @@ Item {
         triggeredOnStart: false;
 
         onTriggered: {
-             if (khangman.resolveTime != 0 && --countDownTimerValue == 0) {
-                 stop();
-                 khangmanResultTimer.start();
-                 if (khangman.sound) {
-                     wrongSoundEffect.play();
-                 }
-             }
+            if (khangman.resolveTime != 0 && --countDownTimerValue == 0) {
+                stop();
+                khangmanResultTimer.start();
+                if (khangman.sound) {
+                    wrongSoundEffect.play();
+                }
+            }
         }
     }
 
@@ -175,8 +181,10 @@ Item {
         onTriggered: {
             nextWord();
 
-            secondTimer.repeat = true;
-            secondTimer.start();
+            /*secondTimer.repeat = true;
+            secondTimer.start();*/
+
+            startTimer();
         }
     }
 
@@ -209,7 +217,9 @@ Item {
 
         anchors {
             right: parent.right;
-            top: parent.top;
+            //top: parent.top;
+            top: gallowsSeriesImage.top
+            //top: rootWindow.commonTools.bottom
             topMargin: 5;
             rightMargin: 5;
         }
@@ -379,7 +389,6 @@ Item {
 
                     secondTimer.repeat = false;
                     secondTimer.stop();
-
                 }
             }
 
@@ -396,6 +405,9 @@ Item {
                     }
 
                     nextWord();
+                    /*secondTimer.repeat = true;
+                    secondTimer.restart();*/
+
                     secondTimer.repeat = true;
                     secondTimer.restart();
                 }

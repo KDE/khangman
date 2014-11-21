@@ -75,8 +75,12 @@ Item {
             //iconSource: "play.png"
 
             onClicked: {
-                rootWindow.push(gamePage);
-                playResumeGameButtonLabel = i18n("Resume Game");
+                rootWindow.push(gamePage)
+                if( playResumeGameButton.playResumeGameButtonLabel == i18n("Play Game") ) {
+                    gamePage.nextWord()
+                    playResumeGameButton.playResumeGameButtonLabel = i18n("Resume Game")
+                }
+                gamePage.startTimer()
             }
 
             action: Action {
