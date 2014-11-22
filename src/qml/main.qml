@@ -76,7 +76,8 @@ StackView {
     }
 
     Component.onCompleted: {
-        splashSoundEffect.play()
+        // play this audio file during startup
+        new_gameSoundEffect.play()
         // Use the dark theme.
         //theme.inverted = true;
     }
@@ -97,8 +98,8 @@ StackView {
     }
 
     SoundEffect {
-        id: splashSoundEffect;
-        source: "sounds/splash.wav";
+        id: new_gameSoundEffect;
+        source: "sounds/new_game.wav";
     }
 
     SoundEffect {
