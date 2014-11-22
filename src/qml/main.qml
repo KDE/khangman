@@ -28,9 +28,9 @@ import QtMultimedia 5.0
 StackView {
     id: rootWindow;
 
-    // MainPage is what we see when the app starts, it shows up
+    // GamePage is what we see when the app starts, it shows up
     // the available games on the mobile handset
-    initialItem: mainPage;
+    initialItem: gamePage;
 
     Image {
         id: backgroundImage
@@ -40,13 +40,14 @@ StackView {
         source: "khangman-background-landscape.png"
     }
 
-    MainPage {
+    /*MainPage {
         id: mainPage
-    }
+        visible: false
+    }*/
 
     GamePage {
         id: gamePage
-        visible: false
+        //visible: false
     }
 
     MainSettingsPage {
@@ -57,7 +58,7 @@ StackView {
     // These tools are shared by most sub-pages by assigning the
     // id to a page's tools property
 
-    ToolBar {
+    /*ToolBar {
         id: commonTools;
         visible: (rootWindow.currentItem != mainPage)
         RowLayout {
@@ -73,7 +74,7 @@ StackView {
                 tooltip: i18n("Go back to Main Page.")
             }
         }
-    }
+    }*/
 
     Component.onCompleted: {
         // play this audio file during startup

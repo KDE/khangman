@@ -23,6 +23,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.2
+import QtQuick.Window 2.2
 import QtMultimedia 5.0
 import QtQml 2.2
 
@@ -31,12 +32,15 @@ import QtQml 2.2
 
 Item {
 
+    id: gamePage
+
     //property variant currentWord: khangman.currentWordLetters();
     property variant alphabet: khangman.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangman.resolveTime;
     property int gallowsSeriesCounter: 0;
     property bool initialized: false;
+    property alias isPlaying: secondTimer.running
 
     /*onStatusChanged: {
         if (status == PageStatus.Active) {
@@ -117,7 +121,8 @@ Item {
 
     function startTimer() {
         secondTimer.repeat = true;
-        secondTimer.restart();
+        secondTimer.running = true;
+        secondTimer.start();
     }
 
     // Create an info banner with icon
@@ -205,6 +210,39 @@ Item {
         }
     }
 
+    // play/pause icon
+    Image {
+        id: playPauseButton
+        source: gamePage.isPlaying ? "pause.png" : "play.png"
+        visible: true
+
+        anchors {
+            right: parent.right;
+            bottom: timerDisplay.top
+        }
+
+        MouseArea {
+            anchors.fill: playPauseButton
+            onClicked: {
+                //rootWindow.push(gamePage)
+                if( gamePage.isPlaying ) { // game is currently going on, so pause it
+                    //playPauseButton.source = "play.png"
+                    console.log("isPlaying = " + gamePage.isPlaying)
+                    secondTimer.repeat = false;
+                    secondTimer.running = false;
+                    secondTimer.stop();
+                    //gamePage.isPlaying = secondTimer.running
+                } else {  // the game is paused or not yet started, so resume or start it 
+                    console.log("isPlaying = " + gamePage.isPlaying)
+                    //playPauseButton.source = "pause.png"
+                    //nextWord()
+                    startTimer()
+                    //gamePage.isPlaying = secondTimer.running
+                }
+            }
+        }
+    }
+
     Image {
         id: gallowsSeriesImage;
         source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png";
@@ -218,6 +256,7 @@ Item {
     }
 
     Row {
+        id: timerDisplay
         spacing: 5;
 
         anchors {
@@ -255,6 +294,7 @@ Item {
 
     Grid {
         id: currentWordGrid;
+        visible: gamePage.isPlaying
         anchors {
             centerIn: parent;
         }
@@ -273,6 +313,7 @@ Item {
 
     Grid {
         id: alphabetGrid;
+        visible: gamePage.isPlaying
         anchors {
             horizontalCenter: parent.horizontalCenter;
             //top: currentWordGrid.bottom
@@ -400,7 +441,7 @@ Item {
                 }
             }
 
-            ToolButton {
+            /*ToolButton {
                 iconSource: "timer-pause.png";
 
                 anchors {
@@ -416,7 +457,7 @@ Item {
                     secondTimer.repeat = false;
                     secondTimer.stop();
                 }
-            }
+            }*/
 
             ToolButton {
                 iconSource: "go-next.png";
