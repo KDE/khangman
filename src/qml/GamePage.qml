@@ -106,7 +106,12 @@ Item {
         if (rootWindow.currentItem == gamePage) {
             console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
             //console.log("checking sound effect loaded " + nextWordSoundEffect.isLoaded());
-            nextWordSoundEffect.play()
+            if (khangman.sound) {
+                nextWordSoundEffect.play()
+            }
+            else {
+                console.log("khangman.sound = false in nextWord()")
+            }
         }
     }
 

@@ -40,6 +40,8 @@
 
 import QtQuick 2.3
 import QtQuick.Dialogs 1.2
+import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
 //import com.nokia.meego 1.0
 import "UIConstants.js" as UI
 
@@ -59,44 +61,42 @@ Dialog {
                 id: delegateItem
                 property bool selected: index == selectedIndex;
 
-                //height: root.platformStyle.itemHeight
+                height: categoryButton.height * 1.2
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.leftMargin: categoryButton.height * 1.2
 
-                MouseArea {
-                    id: delegateMouseArea
-                    anchors.fill: parent;
-                    onPressed: selectedIndex = index;
-                    onClicked:  accept();
-                }
+                Button {
+                    id: categoryButton
 
+                    style: ButtonStyle {
+                        id: categoryButtonStyle
+                        background: Rectangle {
+                            id: backgroundRect
+                            anchors.fill: parent
+                            color: "black"
+                            radius: 8
+                        }
+                        label: Text {
+                            id: itemText
+                            elide: Text.ElideRight
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.fill: parent
+                            font.family : "Arial"
+                            font.weight : Font.Bold
+                            horizontalAlignment : Text.AlignHCenter
+                            verticalAlignment : Text.AlignVCenter
+                            text: modelData
+                            color: "white"
+                        }
+                    }
 
-                Rectangle {
-                    id: backgroundRect
-                    anchors.fill: parent
-                    //color: delegateItem.selected ? root.platformStyle.itemSelectedBackgroundColor : //root.platformStyle.itemBackgroundColor
-                }
-
-                BorderImage {
-                    id: background
-                    anchors.fill: parent
-                    border { left: UI.CORNER_MARGINS; top: UI.CORNER_MARGINS; right: UI.CORNER_MARGINS; bottom: UI.CORNER_MARGINS }
-                    //source: delegateMouseArea.pressed ? root.platformStyle.itemPressedBackground :
-                            //delegateItem.selected ? root.platformStyle.itemSelectedBackground :
-                            //root.platformStyle.itemBackground
-                }
-
-                Text {
-                    id: itemText
-                    elide: Text.ElideRight
-                    //color: delegateItem.selected ? root.platformStyle.itemSelectedTextColor : //root.platformStyle.itemTextColor
-                    anchors.verticalCenter: delegateItem.verticalCenter
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    //anchors.leftMargin: root.platformStyle.itemLeftMargin
-                    //anchors.rightMargin: root.platformStyle.itemRightMargin
-                    text: modelData
-                    //font: root.platformStyle.itemFont
+                    onClicked: {
+                        selectedIndex = index;
+                        accept();
+                    }
                 }
                 Component.onCompleted: {
                     try {

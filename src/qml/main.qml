@@ -77,7 +77,9 @@ StackView {
 
     Component.onCompleted: {
         // play this audio file during startup
-        new_gameSoundEffect.play()
+        if (khangman.sound) {
+            new_gameSoundEffect.play()
+        }
         // Use the dark theme.
         //theme.inverted = true;
     }
