@@ -258,6 +258,25 @@ Item {
     }
 
     Image {
+        id: quitButton
+        source: "quit.png"
+        visible: true
+
+        anchors {
+            right: parent.right;
+            //bottom: playPauseButton.top
+            top: parent.top
+        }
+
+        MouseArea {
+            anchors.fill: quitButton
+            onClicked: {
+                Qt.quit()
+            }
+        }
+    }
+
+    Image {
         id: gallowsSeriesImage;
         source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png";
         visible: false;

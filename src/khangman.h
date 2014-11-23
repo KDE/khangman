@@ -30,6 +30,7 @@
 
 #include <QQuickWidget>
 #include <QPushButton>
+#include <QQmlEngine>
 
 #include "ui_generalui.h"
 #include "ui_languageui.h"
@@ -100,6 +101,9 @@ public:
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
+    
+    // get m_view->engine()
+    QQmlEngine* getEngine();
 
     /** Get the index of the desired level in the list */
     Q_INVOKABLE int currentLevel() const;

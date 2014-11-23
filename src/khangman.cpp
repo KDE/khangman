@@ -576,6 +576,12 @@ QString KHangMan::getCurrentHint() const
     return m_hint;
 }
 
+QQmlEngine* KHangMan::getEngine()
+{
+    return m_view->engine();
+}
+
+
 QStringList KHangMan::alphabet() const
 {
     QStringList letterList;

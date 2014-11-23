@@ -136,6 +136,7 @@ int main(int argc, char **argv)
     }
     else {
         KHangMan *hangman = new KHangMan();
+        QObject::connect(hangman->getEngine(), SIGNAL(quit()), &app, SLOT(quit()));
         hangman->show();
         return app.exec();
     }
