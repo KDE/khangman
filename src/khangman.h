@@ -63,6 +63,7 @@ class KHangMan : public KXmlGuiWindow
     Q_PROPERTY( QString levelFile READ levelFile WRITE setLevelFile NOTIFY levelFileChanged )
     Q_PROPERTY( QString selectedLanguage READ selectedLanguage WRITE setSelectedLanguage NOTIFY selectedLanguageChanged )
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
+    Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
 
 public:
     /**
@@ -107,6 +108,9 @@ public:
     Q_INVOKABLE QStringList categoryList() const;
 
     Q_INVOKABLE QStringList currentWord() const;
+
+    /** Get the current hint */
+    Q_INVOKABLE QString getCurrentHint() const;
 
     /** Get the current word */
     //Q_INVOKABLE QString currentWord() const;
@@ -160,6 +164,7 @@ signals:
     void levelFileChanged();
     void selectedLanguageChanged();
     void currentWordChanged();
+    void currentHintChanged();
 
 private slots:
     // Slots for when the user changes level, setting, etc.
@@ -267,7 +272,7 @@ private:
     int m_lossCount;
 
     // true if a hint exists
-    bool m_hintExists;
+    //bool m_hintExists;
 
     //The index to the random sequence
     int m_randomInt;

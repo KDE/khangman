@@ -240,7 +240,7 @@ void KHangMan::newGame (bool loss)
         m_lossCount++;
 
     //reset Hint action
-    setHintEnabled (m_hintExists);
+    //setHintEnabled (m_hintExists);
 
     readFile();
 
@@ -265,18 +265,20 @@ void KHangMan::game()
     m_word = m_word.toLower();
     m_hint = m_randomList[m_randomInt % m_randomList.count()].second;
 
+    emit currentHintChanged();
+
     if (m_word.isEmpty()) {
         ++m_randomInt;
         game();
     }
 
-    if (m_hint.isEmpty()) {
+    /*if (m_hint.isEmpty()) {
         m_hintExists = false;   // Hint does not exist.
     }
     else {
         m_hintExists = true;
     }
-    setHintEnabled (m_hintExists);
+    setHintEnabled (m_hintExists);*/
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++) {
@@ -338,6 +340,8 @@ void KHangMan::nextWord()
         m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
         m_originalWord = m_originalWord.toUpper();
         m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
+
+        emit currentHintChanged();
     }
 
     if (m_originalWord.isEmpty()) {
@@ -565,6 +569,11 @@ QStringList KHangMan::currentWord() const
     }
 
     return currentWordLetters;
+}
+
+QString KHangMan::getCurrentHint() const
+{
+    return m_hint;
 }
 
 QStringList KHangMan::alphabet() const

@@ -80,6 +80,7 @@ StackView {
         // play this audio file during startup
         if (khangman.sound) {
             new_gameSoundEffect.play()
+            //console.log("new_gameSoundEffect.play()")
         }
         // Use the dark theme.
         //theme.inverted = true;

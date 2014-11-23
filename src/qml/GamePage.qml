@@ -107,14 +107,18 @@ Item {
         gallowsSeriesCounter = 0;
         gallowsSeriesImage.visible = false;
         successImage.visible = false;
+
+        hintLabel.visible = false
+
         if (rootWindow.currentItem == gamePage) {
-            console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
+            //console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
             //console.log("checking sound effect loaded " + nextWordSoundEffect.isLoaded());
             if (khangman.sound) {
                 nextWordSoundEffect.play()
+                //console.log("nextWordSoundEffect.play()")
             }
             else {
-                console.log("khangman.sound = false in nextWord()")
+                //console.log("khangman.sound = false in nextWord()")
             }
         }
     }
@@ -143,10 +147,10 @@ Item {
         onSelectedIndexChanged: {
 
             if (khangman.sound) {
-                console.log("khangman.sound = " + khangman.sound)
+                //console.log("khangman.sound = " + khangman.sound)
                 initialized == true ? nextWordSoundEffect.play() : initialized = true;
             } else {
-                console.log("khangman.sound = false")
+                //console.log("khangman.sound = false")
             }
 
             khangman.selectCurrentLevel(selectedIndex);
@@ -226,16 +230,26 @@ Item {
             onClicked: {
                 //rootWindow.push(gamePage)
                 if( gamePage.isPlaying ) { // game is currently going on, so pause it
-                    //playPauseButton.source = "play.png"
-                    console.log("isPlaying = " + gamePage.isPlaying)
-                    secondTimer.repeat = false;
-                    secondTimer.running = false;
+                    //console.log("isPlaying = " + gamePage.isPlaying)
+                    secondTimer.repeat = false
+                    secondTimer.running = false
+                    mainPageTools.visible = false
+                    hintLabel.visible = false
                     secondTimer.stop();
-                    //gamePage.isPlaying = secondTimer.running
                 } else {  // the game is paused or not yet started, so resume or start it 
-                    console.log("isPlaying = " + gamePage.isPlaying)
-                    //playPauseButton.source = "pause.png"
-                    //nextWord()
+                    //console.log("isPlaying = " + gamePage.isPlaying)
+
+                    // if the game is not yet started, play nextWordSoundeffect
+                    if (timerDisplay.visible == false) {
+                        // denotes the game is not yet started, should return false if game is paused instead
+                        if (khangman.sound) {
+                            nextWordSoundEffect.play()
+                            //console.log("nextWordSoundEffect.play()")
+                        }
+                    }
+
+                    timerDisplay.visible = true
+                    mainPageTools.visible = true
                     startTimer()
                     //gamePage.isPlaying = secondTimer.running
                 }
@@ -258,6 +272,7 @@ Item {
     Row {
         id: timerDisplay
         spacing: 5;
+        visible: false
 
         anchors {
             right: parent.right;
@@ -406,26 +421,37 @@ Item {
         }
     }
 
+    Label {
+        id: hintLabel
+        text: khangman.currentHint
+        font.family: "serif-sans"
+        color: "green"
+        //font.italic: true
+        anchors.top: currentWordGrid.bottom
+        anchors.bottom: alphabetGrid.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        visible: false
+    }
+
     ToolBar {
         id: mainPageTools;
         //anchors.top: alphabetGrid.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        //visible: (rootWindow.currentItem == gamePage);
+        visible: false
 
         RowLayout {
             anchors.fill: parent
 
             ToolButton {
                 iconSource: "help-hint.png";
+                enabled: hintLabel.text != ""
 
                 onClicked: {
-                    //khangmanHintInfoBanner.text = khangman.hint();
-                    //khangmanHintInfoBanner.timerShowTime = khangman.hintHideTime * 1000;
-
-                    // Display the info banner
-                    //khangmanHintInfoBanner.show();
+                    // make the button toggle between display and hide the hint
+                    hintLabel.visible = hintLabel.visible ? false : true
+                    //console.log("hintLabel.font.family = " + hintLabel.font.family)
                 }
             }
 
@@ -464,11 +490,11 @@ Item {
 
                 onClicked: {
                     if (khangman.sound) {
-                        console.log("kahngman.sound = true")
+                        //console.log("kahngman.sound = true")
                         //console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
                         nextWordSoundEffect.play();
                     } else {
-                        console.log("khangman.sound = false")
+                        //console.log("khangman.sound = false")
                     }
 
                     nextWord();
