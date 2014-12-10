@@ -49,6 +49,10 @@ Item {
         }
     }*/
 
+    MainSettingsDialog {
+        id: mainSettingsDialog
+    }
+
     Connections {
         //target: platformWindow;
 
@@ -261,6 +265,7 @@ Item {
         id: quitButton
         source: "quit.png"
         visible: true
+        //hoverEnabled: true
 
         anchors {
             right: parent.right;
@@ -273,7 +278,45 @@ Item {
             onClicked: {
                 Qt.quit()
             }
+            /*onEntered: {
+                Label {
+                    id: quitButtonToolTip
+                    text: "Click here to quit"
+                    anchors.fill: parent
+                }
+            }*/
         }
+    }
+
+    Image {
+        id: settingsButton
+
+        source: "settings_icon.png"
+        //tooltip: i18n("Click here to change the Settings of the game")
+
+        anchors {
+            left: parent.left
+            top: quitButton.top
+        }
+
+        /*style: ButtonStyle {
+            background: Rectangle {
+                Image {
+                    source: "settings_icon.png"
+                    anchors.fill: parent
+                }
+                radius: 8
+            }
+        }*/
+
+        MouseArea {
+            anchors.fill: settingsButton
+            onClicked: {
+                mainSettingsDialog.open()
+            }
+        }
+
+        visible: true
     }
 
     Image {
@@ -445,7 +488,9 @@ Item {
         text: khangman.currentHint
         font.family: "serif-sans"
         color: "green"
-        //font.italic: true
+        font.italic: true
+        font.pixelSize: gamePage.width / 60
+        //font.weight : Font.Bold
         anchors.top: currentWordGrid.bottom
         anchors.bottom: alphabetGrid.top
         anchors.horizontalCenter: parent.horizontalCenter
@@ -524,6 +569,20 @@ Item {
                     secondTimer.restart();
                 }
             }
+
+            /*ToolButton {
+                id: settingsButton;
+
+                iconSource: "settings.png"
+
+                //font.pixelSize: 48;
+
+                width: parent.width;
+
+                onClicked: {
+                    mainSettingsDialog.open()
+                }
+            }*/
         }
     }
 }
