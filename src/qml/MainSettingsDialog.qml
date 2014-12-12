@@ -20,6 +20,7 @@
 
 import QtQuick 2.3
 import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.2
@@ -29,13 +30,16 @@ import QtQuick.Window 2.2
 Dialog {
     id: mainSettingsDialog
 
+    signal okClicked()
+    signal cancelClicked()
+
     title: i18n("KHangMan Settings")
 
     contentItem: Rectangle {
         id: mainSettingsRectangle
         color: "black"
         implicitWidth: 600
-        implicitHeight: 200
+        implicitHeight: 210
 
         property int settingsPageMargins: 15;
 
@@ -63,12 +67,16 @@ Dialog {
             standardButtons: StandardButton.Ok
         }
 
-        function pushPage(file) {
-            var component = Qt.createComponent(file)
-            if (component.status == Component.Ready)
-                pageStack.push(component);
-            else
-                console.log(i18n("Error loading component:", component.errorString()));
+        function saveSettings() {
+            khangman.resolveTime = resolveTimeSlider.value
+            khangman.selectedLanguage = languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
+            khangman.sound = soundsSwitch.checked
+        }
+
+        function resetSettings () {
+            resolveTimeSlider.value = khangman.resolveTime
+            languageSelectionDialog.model[languageSelectionDialog.selectedIndex] = khangman.selectedLanguage
+            soundsSwitch.checked = khangman.sound
         }
 
         MySelectionDialog {
@@ -77,30 +85,9 @@ Dialog {
             selectedIndex: 0;
 
             model: khangman.languageNames();
-
-            onSelectedIndexChanged: {
-                khangman.selectedLanguage = model[selectedIndex];
-            }
-        }
-
-        Connections {
-            target: khangman;
-
-            onHintHideTimeChanged: {
-                hintAppearanceSlider.value = khangman.hintHideTime;
-            }
-
-            onResolveTimeChanged: {
-                resolveTimeSlider.value = khangman.resolveTime;
-            }
-
-            onSoundChanged: {
-                soundsSwitch.checked = khangman.sound;
-            }
         }
 
         Component.onCompleted: {
-            hintAppearanceSlider.value = khangman.hintHideTime;
             resolveTimeSlider.value = khangman.resolveTime;
             soundsSwitch.checked = khangman.sound;
         }
@@ -114,98 +101,16 @@ Dialog {
 
             Label {
                 id: settingsPageHeadingLabel
-                // width: parent.width;
                 text: i18n("KHangMan Settings");
                 font.pixelSize: 32;
                 font.bold: true
                 color: "white"
             }
 
-            /*Image {
-                id: separator1;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }*/
-
             RowLayout {
-                id: hintAppearanceRowLayout
-                height: 50
-                Layout.fillWidth: true
-                //width: parent.width;
-                spacing: 10
-
-                Label {
-                    id: hintAppearanceLabel;
-
-                    /*anchors {
-                        left: parent.left;
-                        verticalCenter: parent.verticalCenter;
-                    }*/
-
-                    text: i18n("Hint show duration in seconds");
-                    font.bold: true
-                    color: "white"
-                    Layout.alignment: Qt.AlignLeft
-                }
-
-                Slider {
-                    id: hintAppearanceSlider;
-                    width: parent.width - 10;
-                    stepSize: 1;
-                    tickmarksEnabled : true
-                    updateValueWhileDragging : true
-                    //valueIndicatorVisible: true;
-                    minimumValue: 0;
-                    maximumValue: 10;
-                    //anchors.verticalCenter: parent.verticalCenter
-                    Layout.alignment: Qt.AlignHCenter
-
-                    onValueChanged: {
-                        khangman.hintHideTime = value;
-                    }
-                }
-
-                Label {
-                    id: hintAppearanceSliderCurrentValue
-                    text: i18n(hintAppearanceSlider.value + (hintAppearanceSlider.value == 1 ? " second" : " seconds"))
-                    color: "white"
-                    font.bold: true
-                }
-
-                ToolButton {
-                    //iconSource: "image://theme/icon-l-user-guide-main-view"
-                    id: hintAppearanceToolButton
-                    iconSource: "dialog-information.png"
-
-                    /*anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter;
-                    }*/
-                    Layout.alignment: Qt.AlignRight
-
-                    onClicked: {
-                        hintShowDurationUserGuideDialog.open();
-                    }
-                }
-            }
-
-            /*Image {
-                id: separator2;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }*/
-
-            RowLayout {
-                //height: childrenRect.height;
-                // height: 100
                 width: parent.width;
                 spacing: 10
                 id: resolveTimeRowLayout
-                anchors.top: hintAppearanceRowLayout.bottom
 
                 Label {
                     id: resolveTimeLabel;
@@ -226,14 +131,10 @@ Dialog {
                     stepSize: 15;
                     tickmarksEnabled : true
                     updateValueWhileDragging : true
-                    //valueIndicatorVisible: true;
                     minimumValue: 0;
                     maximumValue: 300;
-                    //anchors.left: resolveTimeLabel.right
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    onValueChanged: {
-                        khangman.resolveTime = value;
+                    anchors {
+                        verticalCenter: parent.verticalCenter
                     }
                 }
 
@@ -245,12 +146,9 @@ Dialog {
                 }
 
                 ToolButton {
-                    //iconSource: "image://theme/icon-l-user-guide-main-view"
                     iconSource: "dialog-information.png"
 
                     anchors {
-                        //left: resolveTimeSlider.right;
-                        //verticalCenter: parent.verticalCenter;
                         right: parent.right
                         verticalCenter: parent.verticalCenter
                     }
@@ -261,17 +159,7 @@ Dialog {
                 }
             }
 
-            /*Image {
-                id: separator3;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }*/
-
             RowLayout {
-                //height: childrenRect.height;
-                // height: 150
                 width: parent.width;
                 id: soundRowLayout
 
@@ -292,15 +180,9 @@ Dialog {
                     anchors {
                         verticalCenter: parent.verticalCenter;
                     }
-                    checked: khangman.sound
-
-                    onClicked: {
-                        khangman.sound = checked
-                    }
                 }
 
                 ToolButton {
-                    //iconSource: "image://theme/icon-l-user-guide-main-view"
                     iconSource: "dialog-information.png"
 
                     anchors {
@@ -313,14 +195,6 @@ Dialog {
                     }
                 }
             }
-
-            /*Image {
-                id: separator4;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }*/
 
             RowLayout {
                 id: languageRowLayout
@@ -353,7 +227,81 @@ Dialog {
                         languageSelectionDialog.open()
                     }
                 }
+            }
 
+            Button {
+                id: cancelButton
+
+                anchors {
+                    right: parent.right
+                    rightMargin: 5
+                }
+
+                style: ButtonStyle {
+                    background: Rectangle {
+                        id: cancelButtonStyleRectangle
+                        height: 10
+                        width: 50
+                        color: cancelButton.pressed ? "grey" : "white"
+                        radius: 8
+                    }
+
+                    label: Text {
+                        id: cancelButtonLabel
+                        anchors.centerIn: parent
+                        text: "Cancel"
+                        font.family : "Arial"
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "black"
+                    }
+                }
+
+                onClicked: {
+                    // ignore the changes made to the settings
+                    mainSettingsRectangle.resetSettings()
+                    mainSettingsDialog.cancelClicked()
+                }
+            }
+
+            Button {
+                id: okButton
+
+                anchors {
+                    right: cancelButton.left
+                    verticalCenter: cancelButton.verticalCenter
+                    rightMargin: 10
+                }
+
+                style: ButtonStyle {
+                    background: Rectangle {
+                        id: okButtonStyleRectangle
+                        height: 10
+                        width: 50
+                        color: okButton.pressed ? "grey" : "white"
+                        radius: 8
+                    }
+
+                    label: Text {
+                        id: okButtonLabel
+                        anchors.centerIn: parent
+                        text: "OK"
+                        font.family : "Arial"
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "black"
+                    }
+                }
+
+                onClicked: {
+                    // save the current settings
+                    mainSettingsRectangle.saveSettings()
+                    mainSettingsDialog.okClicked()
+                }
             }
         }
     }

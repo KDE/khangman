@@ -51,6 +51,26 @@ Item {
 
     MainSettingsDialog {
         id: mainSettingsDialog
+        onOkClicked: {
+            console.log("okCLicked() signal received")
+            // close the settings dialog
+            mainSettingsDialog.close()
+            if (timerDisplay.visible) {
+                // game is going on, so load a new word and start with the saved settings
+                nextWord()
+                startTimer()
+            }
+        }
+        onCancelClicked: {
+            console.log("cancelCLicked() signal received")
+            // close the settings dialog
+            mainSettingsDialog.close()
+            if (timerDisplay.visible) {
+                // game was in progress, so resume the timer countdown
+                mainPageTools.visible = true
+                startTimer()
+            }
+        }
     }
 
     Connections {
@@ -299,19 +319,17 @@ Item {
             top: quitButton.top
         }
 
-        /*style: ButtonStyle {
-            background: Rectangle {
-                Image {
-                    source: "settings_icon.png"
-                    anchors.fill: parent
-                }
-                radius: 8
-            }
-        }*/
-
         MouseArea {
             anchors.fill: settingsButton
             onClicked: {
+                // if game is currently going on then pause it
+                if( gamePage.isPlaying ) {
+                    secondTimer.repeat = false
+                    secondTimer.running = false
+                    mainPageTools.visible = false
+                    hintLabel.visible = false
+                    secondTimer.stop();
+                }
                 mainSettingsDialog.open()
             }
         }
