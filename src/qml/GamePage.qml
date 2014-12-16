@@ -41,6 +41,7 @@ Item {
     property int gallowsSeriesCounter: 0;
     property bool initialized: false;
     property alias isPlaying: secondTimer.running
+    property string missedLetters: ""
 
     /*onStatusChanged: {
         if (status == PageStatus.Active) {
@@ -145,6 +146,8 @@ Item {
                 //console.log("khangman.sound = false in nextWord()")
             }
         }
+
+        missedLetters = ""
     }
 
     function startTimer() {
@@ -226,6 +229,46 @@ Item {
         }
     }
 
+    // display the wrong guessed alphabets in a row
+    Row {
+        id: misses
+        spacing: 5
+        visible: false
+
+        anchors {
+            top: parent.top
+            horizontalCenter: parent.horizontalCenter
+            topMargin: 5
+        }
+
+        Label {
+            id: missesLabel
+            text: "Misses- "
+            font.pixelSize: 40
+            font.bold: true
+        }
+
+        // display the missed alphabets stored in missedLetters variable
+        Label {
+            id: missedLetterText
+            text: missedLetters
+            font.pixelSize: 40
+            font.bold: true
+        }
+
+        // display the remaining blanks
+        Repeater {
+            id: blank
+            model: 10 - missedLetters.length
+            Label {
+                id: blankRepeater
+                text: "_"
+                font.pixelSize: 40
+                font.bold: true
+            }
+        }
+    }
+
     Image {
         id: successImage;
         source: "action-success.png";
@@ -259,6 +302,8 @@ Item {
                     secondTimer.running = false
                     mainPageTools.visible = false
                     hintLabel.visible = false
+                    misses.visible = false
+                    gallowsSeriesImage.visible = false
                     secondTimer.stop();
                 } else {  // the game is paused or not yet started, so resume or start it 
                     //console.log("isPlaying = " + gamePage.isPlaying)
@@ -274,6 +319,8 @@ Item {
 
                     timerDisplay.visible = true
                     mainPageTools.visible = true
+                    misses.visible = true
+                    gallowsSeriesImage.visible = true
                     startTimer()
                     //gamePage.isPlaying = secondTimer.running
                 }
@@ -495,6 +542,8 @@ Item {
 
                             khangmanResultTimer.start();
                         }
+
+                        missedLetters += alphabetLetterId.alphabetLetterIdLabel
                     }
                 }
             }
