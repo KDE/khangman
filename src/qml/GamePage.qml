@@ -189,6 +189,17 @@ Item {
         }
     }
 
+    MySelectionDialog {
+        id: languageSelectionDialog;
+        title: i18n("Select a language");
+        selectedIndex: 0;
+        model: khangman.languageNames();
+        onSelectedIndexChanged: {
+            khangman.slotChangeLanguage(selectedIndex)
+            nextWord()
+        }
+    }
+
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
 
@@ -475,6 +486,7 @@ Item {
                 property string alphabetLetterIdLabel: modelData
 
                 style: ButtonStyle {
+                    id: alphabetLetterIdStyle
                     background: Rectangle {
                         id: alphabetLetterIdStyleRectangle
                         /*background: "image://theme/meegotouch-button-inverted-background";
@@ -515,14 +527,12 @@ Item {
 
                     if (khangman.containsChar(alphabetLetterId.alphabetLetterIdLabel)) {
                         khangman.replaceLetters(alphabetLetterId.alphabetLetterIdLabel);
-                        //currentWord = khangman.currentWordLetters();
                         enabled = false;
 
                         if (khangman.isResolved()) {
                             gallowsSeriesImage.visible = false;
                             successImage.visible = true;
                             khangmanResultTimer.start();
-                            //khangmanHintInfoBanner.hide();
 
                             if (khangman.sound) {
                                 ewDialogAppearSoundEffect.play();
@@ -566,7 +576,6 @@ Item {
 
     ToolBar {
         id: mainPageTools;
-        //anchors.top: alphabetGrid.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -589,32 +598,20 @@ Item {
             ToolButton {
                 text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
 
-                anchors {
-                    centerIn: parent;
-                }
-
                 onClicked: {
                     categorySelectionDialog.open();
                 }
             }
 
-            /*ToolButton {
-                iconSource: "timer-pause.png";
+            ToolButton {
+                id: languageButton;
 
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                    horizontalCenterOffset: parent.width/4;
-                }
+                text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
 
                 onClicked: {
-                    //khangmanHintInfoBanner.hide();
-
-                    rootWindow.pop();
-
-                    secondTimer.repeat = false;
-                    secondTimer.stop();
+                    languageSelectionDialog.open()
                 }
-            }*/
+            }
 
             ToolButton {
                 iconSource: "go-next.png";
@@ -629,27 +626,11 @@ Item {
                     }
 
                     nextWord();
-                    /*secondTimer.repeat = true;
-                    secondTimer.restart();*/
 
                     secondTimer.repeat = true;
                     secondTimer.restart();
                 }
             }
-
-            /*ToolButton {
-                id: settingsButton;
-
-                iconSource: "settings.png"
-
-                //font.pixelSize: 48;
-
-                width: parent.width;
-
-                onClicked: {
-                    mainSettingsDialog.open()
-                }
-            }*/
         }
     }
 }

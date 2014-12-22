@@ -459,6 +459,8 @@ QString KHangMan::selectedLanguage()
 void KHangMan::setSelectedLanguage(const QString& selectedLanguage)
 {
     Prefs::setSelectedLanguage(selectedLanguage);
+    loadLevels();
+    setAccent();
     emit selectedLanguageChanged();
 }
 
@@ -534,22 +536,10 @@ QStringList KHangMan::languageNames() const
 
     QStringList languageNames;
 
-    // Get the language names from the language codes
-    // Look in $KDEDIR/share/locale/all_languages from
-    // kdelibs/kdecore/all_languages to find the name of the country
-    // corresponding to the code and the language the user set.
-
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
-
     foreach (const QString& languageCode, languageCodes)
     {
-        KConfigGroup group = entry.group(languageCode);
-
-        QString languageName = group.readEntry("Name");
-        if (languageName.isEmpty())
-        {
-            languageName = i18nc("@item:inlistbox no language for that locale", "None");
-        }
+        QLocale locale(languageCode);
+        QString languageName = locale.nativeLanguageName();
 
         languageNames.append(languageName);
     }

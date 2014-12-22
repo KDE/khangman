@@ -69,22 +69,12 @@ Dialog {
 
         function saveSettings() {
             khangman.resolveTime = resolveTimeSlider.value
-            khangman.selectedLanguage = languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
             khangman.sound = soundsSwitch.checked
         }
 
         function resetSettings () {
             resolveTimeSlider.value = khangman.resolveTime
-            languageSelectionDialog.model[languageSelectionDialog.selectedIndex] = khangman.selectedLanguage
             soundsSwitch.checked = khangman.sound
-        }
-
-        MySelectionDialog {
-            id: languageSelectionDialog;
-            title: i18n("Select a language");
-            selectedIndex: 0;
-
-            model: khangman.languageNames();
         }
 
         Component.onCompleted: {
@@ -192,39 +182,6 @@ Dialog {
 
                     onClicked: {
                         soundsUserGuideDialog.open();
-                    }
-                }
-            }
-
-            RowLayout {
-                id: languageRowLayout
-                width: parent.width
-                anchors.top: soundRowLayout.bottom
-
-                Label {
-                    id: languageSelectionLabel
-                    anchors {
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                    }
-                    text: i18n("Language")
-                    font.bold: true
-                    color: "white"
-                }
-
-                ToolButton {
-                    id: languageSelectionToolButton
-                    iconSource: "language-settings.png"
-
-                    anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
-
-                    tooltip: i18n("Click here to select your preferred language")
-
-                    onClicked: {
-                        languageSelectionDialog.open()
                     }
                 }
             }
