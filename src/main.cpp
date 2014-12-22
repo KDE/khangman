@@ -131,15 +131,10 @@ int main(int argc, char **argv)
         QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::DataLocation, "fonts/Dustismo_Roman.ttf"));
     }
 
-    if (app.isSessionRestored()) {
-        RESTORE(KHangMan);
-    }
-    else {
-        KHangMan *hangman = new KHangMan();
-        QObject::connect(hangman->getEngine(), SIGNAL(quit()), &app, SLOT(quit()));
-        hangman->show();
-        return app.exec();
-    }
+    KHangMan hangman;
+    QObject::connect(hangman.getEngine(), SIGNAL(quit()), &app, SLOT(quit()));
+    hangman.show();
+    return app.exec();
 }
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;

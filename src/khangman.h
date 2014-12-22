@@ -23,7 +23,7 @@
 #define _KHANGMAN_H_
 
 #include <KSharedConfig>
-#include <KXmlGuiWindow>
+#include <QMainWindow>
 #include <QLineEdit>
 
 #include <keduvocdocument.h>
@@ -54,7 +54,7 @@ class QLabel;
  * @version 0.1
  */
 
-class KHangMan : public KXmlGuiWindow
+class KHangMan : public QMainWindow
 {
     Q_OBJECT
 
@@ -101,7 +101,7 @@ public:
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
-    
+
     // get m_view->engine()
     QQmlEngine* getEngine();
 
@@ -185,7 +185,7 @@ private slots:
     void slotPasteChar();
 
     ///Quit the application and save special toolbar settings
-    bool queryClose();
+    //bool queryClose();
     ///if you want to play with a new word
     void slotNewGame();
     ///open a local KVTML file
@@ -194,10 +194,7 @@ private slots:
     void slotOpenRecent(const QUrl &);
 
 private:
-    ///Create the actions
-    void setupActions();
-    ///Create the Statusbar
-    void setupStatusbar();
+    KConfigGroup config(const QString &group);
 
     ///At start, restore settings from config file and apply them
     void loadSettings();
@@ -234,16 +231,6 @@ private:
 
     // Some important members: the view and newStuff.
     QQuickWidget   *m_view;
-
-    // Actions in the Game menu
-    KSelectAction  *m_levelAction;
-    KSelectAction  *m_modeAction;
-    //Action that sets up the Language menu
-    KSelectAction *m_languageAction;
-    KToggleAction *m_hintAct;
-
-    ///Create the Special Characters Toolbar
-    KToolBar *m_specialCharToolbar;
 
     // True if the language has no special chars, such as en, it and nl.
     bool m_specialChars;
@@ -286,7 +273,7 @@ private:
     //Play a game: look for a word to be guessed and load its tip
     void game();
 
-    Phonon::MediaObject *m_player;
+    //Phonon::MediaObject *m_player;
 
     // The word to be guessed.
     QString m_word;

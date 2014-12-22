@@ -50,8 +50,8 @@ StackView {
         //visible: false
     }
 
-    MainSettingsPage {
-        id: mainSettingsPage
+    MainSettingsDialog {
+        id: mainSettingsDialog
         visible: false
     }
 

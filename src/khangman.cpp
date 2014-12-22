@@ -50,7 +50,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardAction>
-#include <KToolBar>
 #include <KSharedConfig>
 #include <KRecentFilesAction>
 #include <keduvocdocument.h>
@@ -62,9 +61,10 @@
 #include <sharedkvtmlfiles.h>
 
 KHangMan::KHangMan()
-        : KXmlGuiWindow(), m_currentLevel(-1),
+        : QMainWindow(), m_currentLevel(-1),
+          m_randomInt(0),
           m_recent(0),
-          m_player(0),
+          //m_player(0),
           m_doc(0)
 {
     setObjectName(QLatin1String("KHangMan"));
@@ -76,6 +76,14 @@ KHangMan::KHangMan()
     kdeclarative.setDeclarativeEngine(m_view->engine());
     kdeclarative.setupBindings();
 
+    KConfigGroup windowConfig = config("Window");
+    if (windowConfig.hasKey("geometry")) {
+        setGeometry(windowConfig.readEntry<QRect>("geometry", QRect()));
+        setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
+    }
+
+    setMinimumSize(800, 600);
+
     m_view->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
     setCentralWidget(m_view);
@@ -85,12 +93,6 @@ KHangMan::KHangMan()
     //load the standard set of themes
     m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
-    setupActions();
-
-    // Toolbar for special characters
-    //m_specialCharToolbar = toolBar("specialCharToolBar");
-    //addToolBar ( Qt::BottomToolBarArea, m_specialCharToolbar);
-
     loadSettings();
     setAccent();
     loadLangToolBar();
@@ -98,105 +100,31 @@ KHangMan::KHangMan()
 
 KHangMan::~KHangMan()
 {
+    KConfigGroup windowConfig = config("Window");
+    windowConfig.writeEntry("geometry", geometry());
+    windowConfig.writeEntry("windowState", int(windowState()));
+    delete m_view;
+    m_view = NULL;
+    qDebug() << "KHangMan::~KHangMan() called";
 }
 
-void KHangMan::setupActions()
+KConfigGroup KHangMan::config(const QString &group)
 {
-    // Game->New
-    QAction *newAct = KStandardAction::openNew(this, SLOT(slotNewGame()),
-                                       actionCollection());
-    newAct->setToolTip(i18n( "Play with a new word" ));
-
-    QAction * fileOpen = KStandardAction::open(this, SLOT(slotFileOpen()), actionCollection());
-    fileOpen->setWhatsThis(i18n("Opens an existing vocabulary document"));
-    fileOpen->setToolTip(fileOpen->whatsThis());
-
-    m_hintAct = new KToggleAction(i18n("&Show Hint"), this);
-    m_hintAct->setToolTip(i18n( "Show/Hide the hint to help guessing the word" ));
-    actionCollection()->addAction("show_hint", m_hintAct );
-    //hintAct->setCheckedState(KGuiItem(i18n("&Hide Hint")));
-    m_hintAct->setIcon(QIcon::fromTheme("games-hint"));
-    //set default shortcut key combination for displaying hints
-    actionCollection()->setDefaultShortcut(m_hintAct, QKeySequence(Qt::CTRL+Qt::Key_H));
-    //m_hintAct->setEnabled( m_view->hintExists() );
-    connect(m_hintAct, SIGNAL(triggered(bool)), this, SLOT(slotSetHint(bool)));
-    // Game->Get Words in New Language
-    QAction *newStuffAct  = new QAction(i18n("&Get Words in New Language..."), this);
-    actionCollection()->addAction("downloadnewstuff", newStuffAct );
-    newStuffAct->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
-    //set default shortcut key combination for GetHotNewStuff
-    actionCollection()->setDefaultShortcut(newStuffAct, QKeySequence(Qt::CTRL+Qt::Key_G));
-    connect(newStuffAct, SIGNAL(triggered(bool)), this, SLOT(slotDownloadNewStuff()));
-
-    //connect the quit action with close()
-    KStandardAction::quit(this, SLOT(close()), actionCollection());
-
-    m_levelAction  = new KSelectAction(i18n("&Category"), this);
-    actionCollection()->addAction("combo_level", m_levelAction );
-    connect(m_levelAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLevel(int)));
-    m_levelAction->setToolTip(i18n( "Choose the category" ));
-    m_levelAction->setWhatsThis(i18n( "Choose the category of words" ));
-
-    // Action for selecting language.
-    m_languageAction  = new KSelectAction(i18n("&Language"), this);
-    actionCollection()->addAction("languages", m_languageAction );
-    m_languageAction->setItems(m_languageNames);
-    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
-    connect(m_languageAction, SIGNAL(triggered(int)), this, SLOT(slotChangeLanguage(int)));
-    m_languageAction->setToolTip(i18n( "Choose the language" ));
-    m_languageAction->setWhatsThis(i18n( "Choose the language" ));
-
-    KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-
-    // Mode.
-    m_modeAction  = new KSelectAction(i18n("L&ook"), this);
-    actionCollection()->addAction("combo_mode", m_modeAction );
-    connect(m_modeAction, SIGNAL(triggered(int)), this, SLOT(slotChangeTheme(int)));
-    //m_modeAction->setItems(KHMThemeFactory::instance()->themeList());
-    m_modeAction->setItems(m_khmfactory.themeList());
-    m_modeAction->setCurrentItem(Prefs::mode());
-    m_modeAction->setToolTip(i18n( "Choose the look and feel" ));
-    m_modeAction->setWhatsThis(i18n( "Choose the look and feel" ));
-
-    m_config = KSharedConfig::openConfig();
-
-    m_recent=KStandardAction::openRecent(this, SLOT(slotOpenRecent(QUrl)), this);
-    m_recent->setWhatsThis(i18n("Quick access to some of the files that you have recently opened."));
-    actionCollection()->addAction(m_recent->objectName(), m_recent);
-    m_recent->loadEntries(KConfigGroup(m_config, "KHangManRecent"));
-    setupGUI();
+    qDebug() << qApp->applicationName() + "rc";
+    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
 }
-
-// Set up the status bar with 4 different fields.
-void KHangMan::setupStatusbar()
-{
-    // set up the status bar
-    //m_levelLabel = new QLabel(this);
-    //statusBar()->addPermanentWidget(m_levelLabel);
-    //m_accentsLabel = new QLabel(this);
-    //statusBar()->addPermanentWidget(m_accentsLabel);
-    //m_winsLabel = new QLabel(this);
-    //statusBar()->addPermanentWidget(m_winsLabel);
-    //m_lossesLabel = new QLabel(this);
-    //statusBar()->addPermanentWidget(m_lossesLabel);
-    //statusBar()->insertPermanentItem("   ", IDS_LEVEL,   0);
-    //statusBar()->insertPermanentItem("   ", IDS_ACCENTS, 0);
-    //statusBar()->insertItem("   ", IDS_WINS,    1);
-    //statusBar()->insertItem("   ", IDS_LOSSES,  1);
-}
-
 
 // ----------------------------------------------------------------
 //                               Slots
 
 
-bool KHangMan::queryClose()
+/*bool KHangMan::queryClose()
 {
     Prefs::setShowCharToolbar( m_specialCharToolbar->isVisible() );
     m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
     Prefs::self()->save();
     return KMainWindow::queryClose();
-}
+}*/
 
 void KHangMan::slotChangeLevel(int index)
 {
@@ -334,7 +262,7 @@ void KHangMan::nextWord()
     if (m_randomList.count() == 0) {
         qDebug() << " m_randomList.count() = 0";
         //m_originalWord = m_randomList[0].first;
-        //m_hint = m_randomList[0].second;
+        m_hint = m_randomList[0].second;
         return;
     } else {
         m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
@@ -696,25 +624,24 @@ void KHangMan::show()
     if (loadLevels()) { // kvtml files have been found
         if (m_khmfactory.getQty() > 0) {  // themes present
             slotChangeTheme(Prefs::mode());
+            //call show() of base class QMainWindow
+            QMainWindow::show();
+            newGame();
+            // add the qml view as the main widget
+            QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
+            QUrl url = QUrl::fromLocalFile(location);
+            qDebug() << "URL passed to setSource: " << url.toString();
+            m_view->setSource(url);
+            //m_view->show();
+            qDebug() << "added main.qml as widget";
         } else { // themes not present
             QMessageBox::information(this, i18n("Error"), i18n("No theme files found."));
-            close();
-            return;
+            exit(EXIT_FAILURE);
         }
-        //call show() of base class KXmlGuiWindow
-        KXmlGuiWindow::show();
-        newGame();
     } else { // no kvtml files present
         QMessageBox::information(this, i18n("Error"), i18n("No kvtml files found."));
-        close();
+        exit(EXIT_FAILURE);
     }
-    // add the qml view as the main widget
-    QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
-    QUrl url = QUrl::fromLocalFile(location);
-    qDebug() << "URL passed to setSource: " << url.toString();
-    m_view->setSource(url);
-    //m_view->show();
-    qDebug() << "added main.qml as widget";
 }
 
 
@@ -738,7 +665,7 @@ bool KHangMan::loadLevels()
         qDebug() << "levelFilenames.isEmpty() true";
         return false;
     }
-    m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+    //m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
     Q_ASSERT(levelFilenames.count() == titles.count());
     for(int i = 0; i < levelFilenames.count(); ++i) {
@@ -758,8 +685,8 @@ bool KHangMan::loadLevels()
     }
 
     // titles should be translated in the data files themselves
-    m_levelAction->setItems(m_titleLevels.keys());
-    m_levelAction->setCurrentItem(Prefs::currentLevel());
+    //m_levelAction->setItems(m_titleLevels.keys());
+    //m_levelAction->setCurrentItem(Prefs::currentLevel());
 
     setLevel();
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
@@ -807,7 +734,7 @@ void KHangMan::updateSettings()
     if (Prefs::selectedLanguage() == "de") {
         loadLangToolBar();
     }
-    m_hintAct->setChecked(Prefs::hint());
+    //m_hintAct->setChecked(Prefs::hint());
 
     setMessages();
     //m_view->newGame();
@@ -822,9 +749,9 @@ void KHangMan::slotDownloadNewStuff()
         //look for languages dirs installed
         setLanguages();
         //refresh Languages menu
-        m_languageAction->setItems(m_languageNames);
+        //m_languageAction->setItems(m_languageNames);
         slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-        m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+        //m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
     }
 
     delete dialog;*/
@@ -950,7 +877,7 @@ void KHangMan::setAccent()
 
 void KHangMan::setHintEnabled(bool enable)
 {
-    m_hintAct->setEnabled(enable);
+    //m_hintAct->setEnabled(enable);
 }
 
 void KHangMan::setMessages()
@@ -985,7 +912,7 @@ void KHangMan::loadFile(const QUrl &url)
 void KHangMan::slotNewGame()
 {
     //m_view->newGame(true);
-    m_hintAct->setChecked(Prefs::hint());
+    //m_hintAct->setChecked(Prefs::hint());
 }
 
 void KHangMan::slotOpenRecent(const QUrl &url)
