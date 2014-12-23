@@ -6,8 +6,8 @@ include_directories(
     ${PHONON_INCLUDES}
 )
 
-set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp timer.cpp)
-qt5_wrap_ui(khangman_SRCS generalui.ui languageui.ui timerui.ui)
+set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp)
+qt5_wrap_ui(khangman_SRCS)
 kconfig_add_kcfg_files(khangman_SRCS prefs.kcfgc)
 add_executable(khangman ${khangman_SRCS})
 # generate_export_header(khangman BASE_NAME KHANGMAN)
@@ -50,23 +50,3 @@ install(
 install(
     TARGETS khangman  ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
-
-####### KHangMan Harmattan ########
-if(BUILD_KHANGMAN_HARMATTAN)
-    if(QT_QTDECLARATIVE_FOUND)
-        add_subdirectory(harmattan)
-    else(QT_QTDECLARATIVE_FOUND)
-        message(WARNING "Qt installation lacks Qt Declarative - disabling harmattan based frontend")
-    endif(QT_QTDECLARATIVE_FOUND)
-endif()
-
-####### KHangMan Plasma Active ########
-if(BUILD_KHANGMAN_PLASMA_ACTIVE)
-    find_package(KDE4)
-    if(KDE4_FOUND)
-        include_directories(${KDE4_INCLUDES})
-        add_subdirectory(plasma-active)
-    else(KDE4_FOUND)
-        message(STATUS "KDE libraries are not found - disable the Plasma Active frontend")
-    endif(KDE4_FOUND)
-endif()

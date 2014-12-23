@@ -19,18 +19,15 @@
  ***********************************************************************************/
 
 import QtQuick 2.3
-//import com.nokia.meego 1.0
-//import QtMultimediaKit 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtMultimedia 5.0
 
-StackView {
+Rectangle {
     id: rootWindow;
 
     // GamePage is what we see when the app starts, it shows up
     // the available games on the mobile handset
-    initialItem: gamePage;
 
     Image {
         id: backgroundImage
@@ -39,11 +36,6 @@ StackView {
         anchors.fill: parent
         source: "khangman-background-landscape.png"
     }
-
-    /*MainPage {
-        id: mainPage
-        visible: false
-    }*/
 
     GamePage {
         id: gamePage
@@ -58,32 +50,12 @@ StackView {
     // These tools are shared by most sub-pages by assigning the
     // id to a page's tools property
 
-    /*ToolBar {
-        id: commonTools;
-        visible: (rootWindow.currentItem != mainPage)
-        RowLayout {
-            ToolButton {
-                iconSource: "go-back.png";
-                onClicked: {
-                    if (rootWindow.currentPage == mainSettingsPage) {
-                        khangmanEngineHelper.saveSettings();
-                    }
-
-                    rootWindow.pop();
-                }
-                tooltip: i18n("Go back to Main Page.")
-            }
-        }
-    }*/
-
     Component.onCompleted: {
         // play this audio file during startup
         if (khangman.sound) {
             new_gameSoundEffect.play()
             //console.log("new_gameSoundEffect.play()")
         }
-        // Use the dark theme.
-        //theme.inverted = true;
     }
 
     SoundEffect {

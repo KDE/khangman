@@ -42,7 +42,6 @@ import QtQuick 2.3
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
-//import com.nokia.meego 1.0
 import "UIConstants.js" as UI
 
 Dialog {
@@ -51,7 +50,6 @@ Dialog {
     // Common API
     property alias model: selectionListView.model
     property int selectedIndex: -1   // read & write
-    //property string titleText: "Selection Dialog"
 
     property Component delegate:          // Note that this is the default delegate for the list
         Component {
@@ -111,6 +109,7 @@ Dialog {
                                  // C++ models have "display" role available always
                                 itemText.text = display
                             } catch(err) {
+
                             }
                         }
                     }
@@ -118,41 +117,14 @@ Dialog {
             }
         }
 
-    /*onStatusChanged: {
-      if (status == DialogStatus.Opening && selectedIndex >= 0) {
-          selectionListView.positionViewAtIndex(selectedIndex, ListView.Center)
-      }
-    }*/
+        title: "Selection Dialog"
 
-    // Style API
-    //property Style platformStyle: SelectionDialogStyle {}
-
-    //Deprecated, TODO Remove this on w13
-    //property alias style: root.platformStyle
-
-    // private api
-    //property int __pressDelay: platformStyle.pressDelay
-
-    // the title field consists of the following parts: title string and
-    // a close button (which is in fact an image)
-    // it can additionally have an icon
-    title: "Selection Dialog"
-
-    // the content field which contains the selection content
-    contentItem: Item {
+        // the content field which contains the selection content
+        contentItem: Item {
 
         id: selectionContent
         property int listViewHeight
-        /*property int maxListViewHeight : visualParent
-        ? visualParent.height * 0.87
-                - root.platformStyle.titleBarHeight - root.platformStyle.contentSpacing - 50
-        : root.parent
-                ? root.parent.height * 0.87
-                        - root.platformStyle.titleBarHeight - root.platformStyle.contentSpacing - 50
-                : 350*/
-        //height: listViewHeight > maxListViewHeight ? maxListViewHeight : listViewHeight
         width: root.width
-        //y : root.platformStyle.contentSpacing
 
         ListView {
             id: selectionListView
@@ -163,15 +135,6 @@ Dialog {
             delegate: root.delegate
             focus: true
             clip: true
-            //pressDelay: __pressDelay
-
-            /*ScrollDecorator {
-                id: scrollDecorator
-                flickableItem: selectionListView
-                //platformStyle.inverted: true
-            }*/
-            /*onCountChanged: selectionContent.listViewHeight = (typeof model.count === 'undefined' ? model.length : model.count) * platformStyle.itemHeight
-            onModelChanged: selectionContent.listViewHeight = (typeof model.count === 'undefined' ? model.length : model.count) * platformStyle.itemHeight*/
         }
     }
 }

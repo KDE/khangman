@@ -19,7 +19,6 @@
  ***********************************************************************************/
 
 import QtQuick 2.3
-//import QtMultimediaKit 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.2
@@ -27,14 +26,10 @@ import QtQuick.Window 2.2
 import QtMultimedia 5.0
 import QtQml 2.2
 
-//import com.nokia.meego 1.0
-//import com.nokia.extras 1.0
-
 Item {
 
     id: gamePage
 
-    //property variant currentWord: khangman.currentWordLetters();
     property variant alphabet: khangman.alphabet();
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: khangman.resolveTime;
@@ -43,12 +38,7 @@ Item {
     property alias isPlaying: secondTimer.running
     property string missedLetters: ""
 
-    /*onStatusChanged: {
-        if (status == PageStatus.Active) {
-            secondTimer.repeat = true;
-            secondTimer.restart();
-        }
-    }*/
+    anchors.fill: parent
 
     MainSettingsDialog {
         id: mainSettingsDialog
@@ -61,6 +51,7 @@ Item {
                 nextWord()
                 startTimer()
             }
+            mainPageTools.visible = true
         }
         onCancelClicked: {
             console.log("cancelCLicked() signal received")
@@ -71,58 +62,17 @@ Item {
                 mainPageTools.visible = true
                 startTimer()
             }
+            mainPageTools.visible = true
         }
     }
-
-    Connections {
-        //target: platformWindow;
-
-        /*onActiveChanged: {
-            if (platformWindow.active && status == PageStatus.Active) {
-                secondTimer.repeat = true;
-                secondTimer.restart();
-            } else {
-                khangmanHintInfoBanner.hide();
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }*/
-    }
-
-    //state: (screen.currentOrientation == Screen.Portrait || screen.currentOrientation == Screen.PortraitInverted) ? "portrait" : "landscape"
-
-    states: [
-        State {
-            name: "landscape"
-            PropertyChanges { target: alphabetGrid; columns: 13; rows: 2 }
-            PropertyChanges { target: currentWordGrid; columns: 13; }
-        },
-
-        State {
-            name: "portrait"
-            PropertyChanges { target: alphabetGrid; columns: 9; rows: 3 }
-            PropertyChanges { target: currentWordGrid; columns: 9; }
-        }
-    ]
 
     Component.onCompleted: {
         categorySelectionDialog.selectedIndex = khangman.currentLevel();
     }
 
-    function pushPage(file) {
-        var component = Qt.createComponent(file)
-        if (component.status == Component.Ready)
-            rootWindow.push(component);
-        else
-            console.log(i18n("Error loading component:", component.errorString()));
-    }
-
     function nextWord() {
-        //khangmanHintInfoBanner.hide();
         khangman.nextWord();
 
-        //currentWord = khangman.currentWordLetters();
         countDownTimerValue = khangman.resolveTime;
 
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
@@ -156,15 +106,6 @@ Item {
         secondTimer.start();
     }
 
-    // Create an info banner with icon
-    /*InfoBanner {
-        id: khangmanHintInfoBanner;
-        text: i18n("No hint available");
-        iconSource: "dialog-information.png";
-
-        topMargin: 5;
-    }*/
-
     // Create a selection dialog with the vocabulary titles to choose from.
     MySelectionDialog {
         id: categorySelectionDialog;
@@ -182,7 +123,6 @@ Item {
 
             khangman.selectCurrentLevel(selectedIndex);
             khangman.selectLevelFile(selectedIndex);
-            khangman.saveSettings();
 
             khangman.readFile();
             nextWord();
@@ -232,10 +172,6 @@ Item {
 
         onTriggered: {
             nextWord();
-
-            /*secondTimer.repeat = true;
-            secondTimer.start();*/
-
             startTimer();
         }
     }
@@ -306,7 +242,6 @@ Item {
         MouseArea {
             anchors.fill: playPauseButton
             onClicked: {
-                //rootWindow.push(gamePage)
                 if( gamePage.isPlaying ) { // game is currently going on, so pause it
                     //console.log("isPlaying = " + gamePage.isPlaying)
                     secondTimer.repeat = false
@@ -333,7 +268,6 @@ Item {
                     misses.visible = true
                     gallowsSeriesImage.visible = true
                     startTimer()
-                    //gamePage.isPlaying = secondTimer.running
                 }
             }
         }
@@ -343,11 +277,9 @@ Item {
         id: quitButton
         source: "quit.png"
         visible: true
-        //hoverEnabled: true
 
         anchors {
             right: parent.right;
-            //bottom: playPauseButton.top
             top: parent.top
         }
 
@@ -356,13 +288,6 @@ Item {
             onClicked: {
                 Qt.quit()
             }
-            /*onEntered: {
-                Label {
-                    id: quitButtonToolTip
-                    text: "Click here to quit"
-                    anchors.fill: parent
-                }
-            }*/
         }
     }
 
@@ -370,7 +295,6 @@ Item {
         id: settingsButton
 
         source: "settings_icon.png"
-        //tooltip: i18n("Click here to change the Settings of the game")
 
         anchors {
             left: parent.left
@@ -469,7 +393,6 @@ Item {
         visible: gamePage.isPlaying
         anchors {
             horizontalCenter: parent.horizontalCenter;
-            //top: currentWordGrid.bottom
             bottom: mainPageTools.top;
             bottomMargin: 10;
         }
@@ -481,7 +404,6 @@ Item {
             model: alphabet;
             Button {
                 id: alphabetLetterId;
-                //text: modelData;
 
                 property string alphabetLetterIdLabel: modelData
 
@@ -567,7 +489,6 @@ Item {
         color: "green"
         font.italic: true
         font.pixelSize: gamePage.width / 60
-        //font.weight : Font.Bold
         anchors.top: currentWordGrid.bottom
         anchors.bottom: alphabetGrid.top
         anchors.horizontalCenter: parent.horizontalCenter

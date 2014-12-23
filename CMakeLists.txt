@@ -45,7 +45,6 @@ if(BUILD_KHANGMAN_DESKTOP)
     add_subdirectory( fonts )
 endif()
 
-add_subdirectory( sounds )
 add_subdirectory( icons )
 
 install(FILES khangman.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)

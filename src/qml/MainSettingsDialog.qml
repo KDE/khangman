@@ -24,8 +24,6 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.2
-//import com.nokia.meego 1.0
-//import com.nokia.extras 1.0
 
 Dialog {
     id: mainSettingsDialog

@@ -22,11 +22,8 @@
 
 #include "khangman.h"
 #include "prefs.h"
-#include "timer.h"
 
 #include "langutils.h"
-//#include "khangmanengine.h"
-//#include "khangmanenginehelper.h"
 
 #include <QApplication>
 #include <QBitmap>
@@ -63,7 +60,6 @@
 KHangMan::KHangMan()
         : QMainWindow(), m_currentLevel(-1),
           m_randomInt(0),
-          m_recent(0),
           //m_player(0),
           m_doc(0)
 {
@@ -88,13 +84,10 @@ KHangMan::KHangMan()
 
     setCentralWidget(m_view);
     setLanguages();
-    //setupStatusbar();
 
     //load the standard set of themes
     m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
-    loadSettings();
-    setAccent();
     loadLangToolBar();
 }
 
@@ -121,7 +114,6 @@ KConfigGroup KHangMan::config(const QString &group)
 /*bool KHangMan::queryClose()
 {
     Prefs::setShowCharToolbar( m_specialCharToolbar->isVisible() );
-    m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
     Prefs::self()->save();
     return KMainWindow::queryClose();
 }*/
@@ -145,9 +137,6 @@ void KHangMan::slotChangeLanguage(int index)
     Prefs::self()->save();
     loadLevels();
     loadLangToolBar();
-    setAccent();
-    setMessages();
-    //m_view->newGame();
 }
 
 void KHangMan::slotChangeTheme(int index)
@@ -167,17 +156,7 @@ void KHangMan::newGame (bool loss)
     if (loss)
         m_lossCount++;
 
-    //reset Hint action
-    //setHintEnabled (m_hintExists);
-
     readFile();
-
-    setGameCount();
-    /*if (Prefs::sound()) {
-        QString soundFile = QStandardPaths::locate (QStandardPaths::GenericDataLocation, "khangman/sounds/new_game.ogg");
-        qDebug () << "soundFile: " << soundFile;
-        //play (soundFile);
-    }*/
 
     reset();
     ++m_randomInt;
@@ -199,14 +178,6 @@ void KHangMan::game()
         ++m_randomInt;
         game();
     }
-
-    /*if (m_hint.isEmpty()) {
-        m_hintExists = false;   // Hint does not exist.
-    }
-    else {
-        m_hintExists = true;
-    }
-    setHintEnabled (m_hintExists);*/
 
     // Display the number of letters to guess with _
     for (int i = 0; i < m_word.length(); i++) {
@@ -257,6 +228,35 @@ void KHangMan::game()
     }
 }
 
+void KHangMan::reset()
+{
+    m_goodWord = "";
+    m_word = "";
+
+    m_guessedLetters.clear();
+    m_numMissedLetters = 0;
+    m_missedLetters = "_ _ _ _ _ _ _ _ _ _  ";
+}
+
+void KHangMan::readFile()
+{
+    // Check if the data files are installed in the correct dir.
+    QFile myFile;
+    myFile.setFileName(Prefs::levelFile());
+
+    if (!myFile.exists()) {
+        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+        "Please check your installation.",
+        Prefs::selectedLanguage(),
+                                Prefs::levelFile());
+        KMessageBox::sorry (this, mString, i18n("Error"));
+        //qApp->quit();
+    }
+
+    // Detects if file is a kvtml file so that it's a hint enable file
+    slotSetWordsSequence();
+}
+
 void KHangMan::nextWord()
 {
     if (m_randomList.count() == 0) {
@@ -287,35 +287,6 @@ void KHangMan::nextWord()
     emit currentWordChanged();
 
     ++m_randomInt;
-}
-
-void KHangMan::reset()
-{
-    m_goodWord = "";
-    m_word = "";
-
-    m_guessedLetters.clear();
-    m_numMissedLetters = 0;
-    m_missedLetters = "_ _ _ _ _ _ _ _ _ _  ";
-}
-
-void KHangMan::readFile()
-{
-    // Check if the data files are installed in the correct dir.
-    QFile myFile;
-    myFile.setFileName(Prefs::levelFile());
-
-    if (!myFile.exists()) {
-        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
-        "Please check your installation.",
-        Prefs::selectedLanguage(),
-                                Prefs::levelFile());
-        KMessageBox::sorry (this, mString, i18n("Error"));
-        //qApp->quit();
-    }
-
-    // Detects if file is a kvtml file so that it's a hint enable file
-    slotSetWordsSequence();
 }
 
 void KHangMan::slotSetWordsSequence()
@@ -388,23 +359,6 @@ bool KHangMan::containsChar(const QString &sChar)
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
 
-void KHangMan::setGameCount()
-{
-    emit signalSetWins(m_winCount);
-    emit signalSetLosses(m_lossCount);
-}
-
-int KHangMan::hintHideTime()
-{
-    return Prefs::hintHideTime();
-}
-
-void KHangMan::setHintHideTime(int hintHideTime)
-{
-    Prefs::setHintHideTime(hintHideTime);
-    emit hintHideTimeChanged();
-}
-
 int KHangMan::resolveTime()
 {
     return Prefs::resolveTime();
@@ -460,7 +414,6 @@ void KHangMan::setSelectedLanguage(const QString& selectedLanguage)
 {
     Prefs::setSelectedLanguage(selectedLanguage);
     loadLevels();
-    setAccent();
     emit selectedLanguageChanged();
 }
 
@@ -482,11 +435,6 @@ void KHangMan::selectCurrentLevel(int index)
 void KHangMan::selectLevelFile(int index)
 {
     Prefs::setLevelFile(m_titleLevels.values().at(index));
-}
-
-void KHangMan::saveSettings()
-{
-    Prefs::self()->save();
 }
 
 QStringList KHangMan::currentWord() const
@@ -583,23 +531,6 @@ void KHangMan::setLanguages()
     }
 }
 
-
-void KHangMan::loadSettings()
-{
-    // Language //TODO is selectedLanguage necessary??? only used here
-    if (m_languages.isEmpty()){
-        qApp->closeAllWindows();
-    }
-    // Show/hide characters toolbar
-    /*if (Prefs::showCharToolbar()) {
-        m_specialCharToolbar->show();
-    }
-    else {
-        m_specialCharToolbar->hide();
-    }*/
-    setMessages();
-}
-
 void KHangMan::setLevel()
 {
     m_currentLevel = Prefs::currentLevel();
@@ -655,7 +586,6 @@ bool KHangMan::loadLevels()
         qDebug() << "levelFilenames.isEmpty() true";
         return false;
     }
-    //m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
 
     Q_ASSERT(levelFilenames.count() == titles.count());
     for(int i = 0; i < levelFilenames.count(); ++i) {
@@ -674,60 +604,9 @@ bool KHangMan::loadLevels()
         m_currentLevel = m_titleLevels.count();
     }
 
-    // titles should be translated in the data files themselves
-    //m_levelAction->setItems(m_titleLevels.keys());
-    //m_levelAction->setCurrentItem(Prefs::currentLevel());
-
     setLevel();
-    QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + m_currentLevel;
-    //m_levelLabel->setText(currentLevel.key());
 
     return true;
-}
-
-
-void KHangMan::optionsPreferences()
-{
-    if ( KConfigDialog::showDialog( "settings" ) )  {
-        //ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-        return;
-    }
-
-    //KConfigDialog didn't find an instance of this dialog, so lets create it :
-    KConfigDialog* dialog = new KConfigDialog( this, "settings",  Prefs::self() );
-    // Add the General Settings page
-    QWidget *generalSettingsDlg = new QWidget;
-    ui_general.setupUi(generalSettingsDlg);
-
-    dialog->addPage(generalSettingsDlg, i18n("General"), "khangman");
-
-    // Add the Language Settings page
-    QWidget *languageSettingsDlg = new QWidget;
-    ui_language.setupUi(languageSettingsDlg);
-    dialog->addPage(languageSettingsDlg, i18n("Languages"), "preferences-desktop-locale");
-
-    //ui_language.kcfg_AccentedLetters->setEnabled(m_view->accentedLetters());
-
-    Timer *m_timer = new Timer();
-    dialog->addPage(m_timer, i18n("Timers"), "chronometer");
-
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(updateSettings()));
-    dialog->setAttribute( Qt::WA_DeleteOnClose );
-    //dialog->setHelp(QString(),"khangman");
-    dialog->show();
-}
-
-void KHangMan::updateSettings()
-{
-    //after upperCase() changed, reload new game
-    setAccent();
-    if (Prefs::selectedLanguage() == "de") {
-        loadLangToolBar();
-    }
-    //m_hintAct->setChecked(Prefs::hint());
-
-    setMessages();
-    //m_view->newGame();
 }
 
 void KHangMan::slotDownloadNewStuff()
@@ -753,14 +632,6 @@ void KHangMan::loadLangToolBar()
     if (lang.isEmpty())
         return;
     bool hasSpecialChars = LangUtils::hasSpecialChars(lang);
-
-    // If the setting changed, save showToolbar setting
-    /*if (m_specialCharToolbar->isVisible() && hasSpecialChars) {
-        Prefs::setShowCharToolbar(true);
-        Prefs::self()->save();
-    }*/
-
-    //m_specialCharToolbar->clear();
 
     m_allData.clear();
     if (hasSpecialChars) {
@@ -792,37 +663,7 @@ void KHangMan::loadLangToolBar()
         // FIXME: Better name
         m_allData = readFileStr.readAll().split('\n');
         openFileStream.close();
-
-        /*for (int i=0; i<m_allData.count(); ++i) {
-            if (!m_allData.at(i).isEmpty()) {
-                QAction *act = m_specialCharToolbar->addAction(m_allData.at(i));
-                act->setIcon(charIcon(m_allData.at(i).at(0)));
-                // used to carry the id
-                act->setData(i);
-                connect(act, SIGNAL(triggered(bool)), this, SLOT(slotPasteChar()));
-            }
-        }*/
-        //m_specialCharToolbar->show();
-    } else {
-        //m_specialCharToolbar->hide();
     }
-}
-
-
-void KHangMan::slotPasteChar()
-{
-    QAction *act = qobject_cast<QAction*>(sender());
-    if (!act) {
-        return;
-    }
-
-    bool ok = true;
-    int id = act->data().toInt(&ok);
-    if (!ok || id < 0 || id >= m_allData.count()) {
-        return;
-    }
-
-    //m_view->enterLetter(m_allData.at(id));
 }
 
 QIcon KHangMan::charIcon(const QChar & c) const
@@ -857,83 +698,6 @@ QIcon KHangMan::charIcon(const QChar & c) const
     pm.setMask(bm);
 
     return QIcon(pm);
-}
-
-void KHangMan::setAccent()
-{
-    qDebug() << "in slot accent  ";
-    //m_view->setAccentedLetters(LangUtils::hasAccentedLetters(Prefs::selectedLanguage()));
-}
-
-void KHangMan::setHintEnabled(bool enable)
-{
-    //m_hintAct->setEnabled(enable);
-}
-
-void KHangMan::setMessages()
-{
-    // Tell the user about accented characters
-    /*if (m_view->accentedLetters() && Prefs::accentedLetters()) {
-        //m_accentsLabel->setText(i18n("Type accented letters"));
-    }
-    else {
-        //m_accentsLabel->setText("");
-    }*/
-}
-
-void KHangMan::loadFile(const QUrl &url)
-{
-    if ( url.isValid() )  {
-        if(url.isLocalFile())
-            Prefs::setLevelFile(url.toLocalFile());
-        else Prefs::setLevelFile(url.path());
-
-        //m_levelLabel->setText(url.path().section('/', -1));
-
-        m_recent->addUrl(url);
-        m_recent->saveEntries(KConfigGroup(m_config, "KHangManRecent"));
-        Prefs::self()->save();
-
-        //m_view->readFile();
-        //m_view->newGame();
-    }
-}
-
-void KHangMan::slotNewGame()
-{
-    //m_view->newGame(true);
-    //m_hintAct->setChecked(Prefs::hint());
-}
-
-void KHangMan::slotOpenRecent(const QUrl &url)
-{
-    loadFile(url);
-}
-
-void KHangMan::slotFileOpen()
-{
-    QUrl url = QFileDialog::getOpenFileUrl(this,
-                                           i18n("Open Vocabulary Document"),
-                                           QString(),
-                                           KEduVocDocument::pattern(KEduVocDocument::Reading));
-    loadFile(url);
-}
-
-void KHangMan::slotSetWins(int wins)
-{
-    //m_winsLabel->setText(i18n("Wins: %1", wins));
-}
-
-void KHangMan::slotSetLosses(int losses)
-{
-    //m_lossesLabel->setText(i18n("Losses: %1", losses));
-}
-
-void KHangMan::slotSetHint(bool hint)
-{
-    Prefs::setHint(hint);
-    Prefs::self()->save();
-    m_view->update();
 }
 
 #include "khangman.moc"
