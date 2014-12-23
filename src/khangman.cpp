@@ -88,7 +88,8 @@ KHangMan::KHangMan()
     //load the standard set of themes
     m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
-    loadLangToolBar();
+    loadLanguageSpecialCharacters(
+    );
 }
 
 KHangMan::~KHangMan()
@@ -136,7 +137,7 @@ void KHangMan::slotChangeLanguage(int index)
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
     Prefs::self()->save();
     loadLevels();
-    loadLangToolBar();
+    loadLanguageSpecialCharacters();
 }
 
 void KHangMan::slotChangeTheme(int index)
@@ -471,6 +472,7 @@ QStringList KHangMan::alphabet() const
     }
 
     letterList.append(QChar(c));
+    letterList.append(m_specialCharacters);
 
     return letterList;
 }
@@ -626,14 +628,14 @@ void KHangMan::slotDownloadNewStuff()
     delete dialog;*/
 }
 
-void KHangMan::loadLangToolBar()
+void KHangMan::loadLanguageSpecialCharacters()
 {
     QString lang = Prefs::selectedLanguage();
     if (lang.isEmpty())
         return;
     bool hasSpecialChars = LangUtils::hasSpecialChars(lang);
 
-    m_allData.clear();
+    m_specialCharacters.clear();
     if (hasSpecialChars) {
         QString langFileName=QString("khangman/%1.txt").arg(lang);
         QFile langFile;
@@ -642,7 +644,7 @@ void KHangMan::loadLangToolBar()
         // Let's look in local KDEHOME dir then KNS installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
         if (!langFile.exists()) {
-            langFileName = QString("kvtml/%1/%1.txt").arg(lang);
+            langFileName = QString("apps/kvtml/%1/%1.txt").arg(lang);
             langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
             qDebug() << langFileName;
         }
@@ -659,9 +661,9 @@ void KHangMan::loadLangToolBar()
         QTextStream readFileStr(&openFileStream);
         readFileStr.setCodec("UTF-8");
 
-        // m_allData contains all the words from the file
+        // m_specialCharacters contains all the words from the file
         // FIXME: Better name
-        m_allData = readFileStr.readAll().split('\n');
+        m_specialCharacters = readFileStr.readAll().split('\n');
         openFileStream.close();
     }
 }

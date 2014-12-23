@@ -173,7 +173,7 @@ private:
     bool loadLevels();
     // Populate the second toolbar with the correct buttons if the
     // current language has special characters.
-    void loadLangToolBar();
+    void loadLanguageSpecialCharacters();
 
     ///Method to set the current language into the Statusbar and to pass it to KHangManView
     void setLanguages();
@@ -198,7 +198,7 @@ private:
     bool m_specialChars;
 
     // Contains all the words that are read from the data file.
-    QStringList m_allData;
+    QStringList m_specialCharacters;
 
     //Theme manager
     KHMThemeFactory m_khmfactory;
