@@ -58,10 +58,13 @@ class KHangMan : public QMainWindow
 
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
     Q_PROPERTY( bool sound READ isSound WRITE setSound NOTIFY soundToggled )
-    Q_PROPERTY( QString levelFile READ levelFile WRITE setLevelFile NOTIFY levelFileChanged )
-    Q_PROPERTY( QString selectedLanguage READ selectedLanguage WRITE setSelectedLanguage NOTIFY selectedLanguageChanged )
+    Q_PROPERTY( int currentCategory READ currentCategory WRITE setCurrentCategory NOTIFY currentCategoryChanged )
+    Q_PROPERTY( int currentLanguage READ currentLanguage WRITE setCurrentLanguage NOTIFY currentLanguageChanged )
+    Q_PROPERTY( QStringList languages READ languages NOTIFY languagesChanged)
+    Q_PROPERTY( QStringList categories READ categories NOTIFY categoriesChanged)
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
     Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
+    Q_PROPERTY(QStringList alphabet READ alphabet NOTIFY currentLanguageChanged)
 
 public:
     /**
@@ -87,8 +90,13 @@ public:
     QString levelFile();
     void setLevelFile(const QString& levelFile);
 
-    QString selectedLanguage();
-    void setSelectedLanguage(const QString& selectedLanguage);
+    int currentCategory();
+
+    int currentLanguage();
+
+    QStringList languages();
+
+    QStringList categories();
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
@@ -122,8 +130,9 @@ public:
 
 public slots:
     ///When the language is changed in the Language menu
-    void slotChangeLanguage(int);
-    ///When the hint is set or unset
+    void setCurrentLanguage(int index);
+    ///When the category is changed in the Category menu
+    void  setCurrentCategory(int index);
 
     ///Load kvtml file and get a word and its tip in random
     void readFile();
@@ -131,13 +140,8 @@ public slots:
     // @param loss if the previous game should be counted as a loss
     void newGame(bool loss = false);
 
-public Q_SLOTS:
-
     /** Select the index of the desired level in the list as the current active one */
     void selectCurrentLevel (int index);
-
-    /** Select the desired level file in the list as the current active one */
-    void selectLevelFile(int index);
 
     /** Generate a new word */
     void nextWord();
@@ -153,13 +157,15 @@ signals:
     void resolveTimeChanged();
     void soundToggled();
     void levelFileChanged();
-    void selectedLanguageChanged();
+    void currentLanguageChanged();
     void currentWordChanged();
     void currentHintChanged();
+    void languagesChanged();
+    void categoriesChanged();
+    void currentCategoryChanged();
 
 private slots:
     // Slots for when the user changes level, setting, etc.
-    void  slotChangeLevel(int);
     void  slotChangeTheme(int);
     ///access the KNewStuff class to install new data
     void slotDownloadNewStuff();
@@ -183,9 +189,11 @@ private:
 
     ///the different data titles and files in the current language dir
     QMap<QString, QString> m_titleLevels;
-
     ///Current level ID
-    int m_currentLevel;
+
+    int m_currentCategory;
+
+    int m_currentLanguage;
 
     // language information
     QStringList m_languages;
@@ -282,4 +290,3 @@ private:
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
 // vim: set et sw=4 ts=4 cino=l1,cs,U1:
-

@@ -30,11 +30,11 @@ Item {
 
     id: gamePage
 
-    property variant alphabet: khangman.alphabet();
-    property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
-    property int countDownTimerValue: khangman.resolveTime;
-    property int gallowsSeriesCounter: 0;
-    property bool initialized: false;
+    property variant alphabet: khangman.alphabet
+    property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0)
+    property int countDownTimerValue: khangman.resolveTime
+    property int gallowsSeriesCounter: 0
+    property bool initialized: false
     property alias isPlaying: secondTimer.running
     property string missedLetters: ""
 
@@ -64,10 +64,6 @@ Item {
             }
             mainPageTools.visible = true
         }
-    }
-
-    Component.onCompleted: {
-        categorySelectionDialog.selectedIndex = khangman.currentLevel();
     }
 
     function nextWord() {
@@ -110,7 +106,8 @@ Item {
     MySelectionDialog {
         id: categorySelectionDialog;
         title: i18n("Choose the word category");
-        model: khangman.categoryList();
+        model: khangman.categories
+        selectedIndex: khangman.currentCategory
 
         onSelectedIndexChanged: {
 
@@ -121,9 +118,7 @@ Item {
                 //console.log("khangman.sound = false")
             }
 
-            khangman.selectCurrentLevel(selectedIndex);
-            khangman.selectLevelFile(selectedIndex);
-
+            khangman.setCurrentCategory(selectedIndex);
             khangman.readFile();
             nextWord();
         }
@@ -132,11 +127,12 @@ Item {
     MySelectionDialog {
         id: languageSelectionDialog;
         title: i18n("Select a language");
-        selectedIndex: 0;
-        model: khangman.languageNames();
+        model: khangman.languages
+        selectedIndex: khangman.currentLanguage
         onSelectedIndexChanged: {
-            khangman.slotChangeLanguage(selectedIndex)
-            nextWord()
+            khangman.setCurrentLanguage(selectedIndex);
+            khangman.readFile();
+            nextWord();
         }
     }
 

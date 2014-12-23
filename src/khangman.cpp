@@ -58,7 +58,7 @@
 #include <sharedkvtmlfiles.h>
 
 KHangMan::KHangMan()
-        : QMainWindow(), m_currentLevel(-1),
+        : QMainWindow(), m_currentCategory(-1),
           m_randomInt(0),
           //m_player(0),
           m_doc(0)
@@ -119,25 +119,30 @@ KConfigGroup KHangMan::config(const QString &group)
     return KMainWindow::queryClose();
 }*/
 
-void KHangMan::slotChangeLevel(int index)
+void KHangMan::setCurrentCategory(int index)
 {
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
     //m_levelLabel->setText(currentLevel.key());
     Prefs::setCurrentLevel(index);
     Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->save();
+    m_currentCategory = index;
+    emit currentCategoryChanged();
     //m_view->readFile();
     //m_view->newGame();
 }
 
-void KHangMan::slotChangeLanguage(int index)
+void KHangMan::setCurrentLanguage(int index)
 {
     //good when no in English
     qDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
     Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
+    m_currentLanguage = index;
     Prefs::self()->save();
     loadLevels();
     loadLanguageSpecialCharacters();
+    setLevel();
+    emit currentLanguageChanged();
 }
 
 void KHangMan::slotChangeTheme(int index)
@@ -393,29 +398,24 @@ void KHangMan::setLevelFile(const QString& levelFile)
     emit levelFileChanged();
 }
 
-QString KHangMan::selectedLanguage()
+QStringList KHangMan::languages()
 {
-    QStringList languageNames = SharedKvtmlFiles::languages();
-    if (languageNames.isEmpty()) {
-        QApplication::instance()->quit();
-    }
-
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
-    KConfigGroup group = entry.group(Prefs::selectedLanguage());
-    QString selectedLanguage = group.readEntry("Name");
-
-    if (!languageNames.contains(selectedLanguage)) {
-        selectedLanguage = "English";
-    }
-
-    return selectedLanguage;
+    return m_languageNames;
 }
 
-void KHangMan::setSelectedLanguage(const QString& selectedLanguage)
+int KHangMan::currentLanguage()
 {
-    Prefs::setSelectedLanguage(selectedLanguage);
-    loadLevels();
-    emit selectedLanguageChanged();
+    return m_currentLanguage;
+}
+
+QStringList KHangMan::categories()
+{
+    return m_titleLevels.keys();
+}
+
+int KHangMan::currentCategory()
+{
+    return m_currentCategory;
 }
 
 int KHangMan::currentLevel() const
@@ -431,11 +431,6 @@ QStringList KHangMan::categoryList() const
 void KHangMan::selectCurrentLevel(int index)
 {
     Prefs::setCurrentLevel(index);
-}
-
-void KHangMan::selectLevelFile(int index)
-{
-    Prefs::setLevelFile(m_titleLevels.values().at(index));
 }
 
 QStringList KHangMan::currentWord() const
@@ -530,15 +525,21 @@ void KHangMan::setLanguages()
             languageName = i18nc("@item:inlistbox no language for that locale","None");
         }
         m_languageNames.append(languageName);
+
+        if (m_languages[i] == Prefs::selectedLanguage())
+            m_currentLanguage = i;
     }
+
+    emit languagesChanged();
 }
 
 void KHangMan::setLevel()
 {
-    m_currentLevel = Prefs::currentLevel();
-    if (m_currentLevel > m_titleLevels.count()) {
-        m_currentLevel = 0;
+    m_currentCategory = Prefs::currentLevel();
+    if (m_currentCategory > m_titleLevels.count()) {
+        m_currentCategory = 0;
     }
+    emit currentCategoryChanged();
     //m_view->readFile();
 }
 
@@ -593,17 +594,20 @@ bool KHangMan::loadLevels()
     for(int i = 0; i < levelFilenames.count(); ++i) {
         m_titleLevels.insert(titles.at(i), levelFilenames.at(i));
     }
+    emit categoriesChanged();
 
     if (!levelFilenames.contains(Prefs::levelFile())) {
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
-        m_currentLevel = 0;
+        m_currentCategory = 0;
+        emit currentCategoryChanged();
         Prefs::self()->save();
     }
 
     // don't run off the end of the list
-    if (m_currentLevel!=-1 && m_currentLevel > m_titleLevels.count()) {
-        m_currentLevel = m_titleLevels.count();
+    if (m_currentCategory!=-1 && m_currentCategory > m_titleLevels.count()) {
+        m_currentCategory = m_titleLevels.count();
+        emit currentCategoryChanged();
     }
 
     setLevel();
