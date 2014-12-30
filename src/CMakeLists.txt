@@ -15,7 +15,6 @@ add_executable(khangman ${khangman_SRCS})
 target_link_libraries(khangman
     Qt5::QuickWidgets
     Qt5::Core
-    Qt5::WebKit
     KF5::I18n
     KF5::NewStuff
     KF5::SonnetCore
