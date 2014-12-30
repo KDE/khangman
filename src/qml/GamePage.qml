@@ -84,12 +84,12 @@ Item {
         if (rootWindow.currentItem == gamePage) {
             //console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
             //console.log("checking sound effect loaded " + nextWordSoundEffect.isLoaded());
-            if (khangman.sound) {
+            if (khangman.soundEnabled) {
                 nextWordSoundEffect.play()
                 //console.log("nextWordSoundEffect.play()")
             }
             else {
-                //console.log("khangman.sound = false in nextWord()")
+                //console.log("khangman.soundEnabled = false in nextWord()")
             }
         }
 
@@ -111,11 +111,11 @@ Item {
 
         onSelectedIndexChanged: {
 
-            if (khangman.sound) {
-                //console.log("khangman.sound = " + khangman.sound)
+            if (khangman.soundEnabled) {
+                //console.log("khangman.soundEnabled = " + khangman.soundEnabled)
                 initialized == true ? nextWordSoundEffect.play() : initialized = true;
             } else {
-                //console.log("khangman.sound = false")
+                //console.log("khangman.soundEnabled = false")
             }
 
             khangman.setCurrentCategory(selectedIndex);
@@ -152,7 +152,7 @@ Item {
             if (khangman.resolveTime != 0 && --countDownTimerValue == 0) {
                 stop();
                 khangmanResultTimer.start();
-                if (khangman.sound) {
+                if (khangman.soundEnabled) {
                     wrongSoundEffect.play();
                 }
             }
@@ -247,13 +247,13 @@ Item {
                     misses.visible = false
                     gallowsSeriesImage.visible = false
                     secondTimer.stop();
-                } else {  // the game is paused or not yet started, so resume or start it 
+                } else {  // the game is paused or not yet started, so resume or start it
                     //console.log("isPlaying = " + gamePage.isPlaying)
 
                     // if the game is not yet started, play nextWordSoundeffect
                     if (timerDisplay.visible == false) {
                         // denotes the game is not yet started, should return false if game is paused instead
-                        if (khangman.sound) {
+                        if (khangman.soundEnabled) {
                             nextWordSoundEffect.play()
                             //console.log("nextWordSoundEffect.play()")
                         }
@@ -439,7 +439,7 @@ Item {
                 }
 
                 onClicked: {
-                    if (khangman.sound) {
+                    if (khangman.soundEnabled) {
                         khangmanAlphabetButtonPressSoundEffect.play();
                     }
 
@@ -452,7 +452,7 @@ Item {
                             successImage.visible = true;
                             khangmanResultTimer.start();
 
-                            if (khangman.sound) {
+                            if (khangman.soundEnabled) {
                                 ewDialogAppearSoundEffect.play();
                             }
                         }
@@ -464,7 +464,7 @@ Item {
                         }
 
                         if (gallowsSeriesCounter == 10) {
-                            if (khangman.sound) {
+                            if (khangman.soundEnabled) {
                                 wrongSoundEffect.play();
                             }
 
@@ -534,12 +534,12 @@ Item {
                 iconSource: "go-next.png";
 
                 onClicked: {
-                    if (khangman.sound) {
+                    if (khangman.soundEnabled) {
                         //console.log("kahngman.sound = true")
                         //console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
                         nextWordSoundEffect.play();
                     } else {
-                        //console.log("khangman.sound = false")
+                        //console.log("khangman.soundEnabled = false")
                     }
 
                     nextWord();

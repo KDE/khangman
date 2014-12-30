@@ -29,6 +29,7 @@
 #include <QFontDatabase>
 #include <QFontInfo>
 #include <QStandardPaths>
+#include <QQmlEngine>
 
 static const char description[] =
         I18N_NOOP("Classical hangman game for KDE");

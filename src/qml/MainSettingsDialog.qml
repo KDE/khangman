@@ -67,17 +67,17 @@ Dialog {
 
         function saveSettings() {
             khangman.resolveTime = resolveTimeSlider.value
-            khangman.sound = soundsSwitch.checked
+            khangman.soundEnabled = soundsSwitch.checked
         }
 
         function resetSettings () {
             resolveTimeSlider.value = khangman.resolveTime
-            soundsSwitch.checked = khangman.sound
+            soundsSwitch.checked = khangman.soundEnabled
         }
 
         Component.onCompleted: {
             resolveTimeSlider.value = khangman.resolveTime;
-            soundsSwitch.checked = khangman.sound;
+            soundsSwitch.checked = khangman.soundEnabled;
         }
 
 

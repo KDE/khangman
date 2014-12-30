@@ -26,9 +26,6 @@ import QtMultimedia 5.0
 Rectangle {
     id: rootWindow;
 
-    // GamePage is what we see when the app starts, it shows up
-    // the available games on the mobile handset
-
     Image {
         id: backgroundImage
         smooth: true
@@ -39,7 +36,6 @@ Rectangle {
 
     GamePage {
         id: gamePage
-        //visible: false
     }
 
     MainSettingsDialog {
@@ -47,14 +43,10 @@ Rectangle {
         visible: false
     }
 
-    // These tools are shared by most sub-pages by assigning the
-    // id to a page's tools property
-
     Component.onCompleted: {
         // play this audio file during startup
-        if (khangman.sound) {
+        if (khangman.soundEnabled) {
             new_gameSoundEffect.play()
-            //console.log("new_gameSoundEffect.play()")
         }
     }
 

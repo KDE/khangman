@@ -23,41 +23,26 @@
 #define _KHANGMAN_H_
 
 #include <KSharedConfig>
+
 #include <QMainWindow>
-#include <QLineEdit>
-
-#include <keduvocdocument.h>
-
-#include <QQuickWidget>
-#include <QPushButton>
-#include <QQmlEngine>
 
 #include "khmthemefactory.h"
-//#include "khangmanengine.h"
-//#include "khangmanenginehelper.h"
 
-class KSelectAction;
-class KToggleAction;
-class KRecentFilesAction;
-
-namespace Phonon {
-    class MediaObject;
-}
-
-class QLabel;
+class KEduVocDocument;
+class QQmlEngine;
+class QQuickWidget;
 
 /**
- * @short Application Main Window
+ * @short KHangMan Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
- * @version 0.1
+ * @version 3.0
  */
-
 class KHangMan : public QMainWindow
 {
     Q_OBJECT
 
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
-    Q_PROPERTY( bool sound READ isSound WRITE setSound NOTIFY soundToggled )
+    Q_PROPERTY( bool soundEnabled READ soundEnabled WRITE setSoundEnabled NOTIFY soundEnabledChanged )
     Q_PROPERTY( int currentCategory READ currentCategory WRITE setCurrentCategory NOTIFY currentCategoryChanged )
     Q_PROPERTY( int currentLanguage READ currentLanguage WRITE setCurrentLanguage NOTIFY currentLanguageChanged )
     Q_PROPERTY( QStringList languages READ languages NOTIFY languagesChanged)
@@ -80,12 +65,12 @@ public:
     // These accessor and mutator methods are not needed once the
     // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
     // properties
-
     int resolveTime();
     void setResolveTime(int resolveTime);
 
-    bool isSound();
-    void setSound(bool sound);
+    /** Getter and Setter for soundEnabled property */
+    bool soundEnabled();
+    void setSoundEnabled(bool sound);
 
     QString levelFile();
     void setLevelFile(const QString& levelFile);
@@ -155,7 +140,7 @@ signals:
     void signalSetLosses(int losses);
     void hintHideTimeChanged();
     void resolveTimeChanged();
-    void soundToggled();
+    void soundEnabledChanged();
     void levelFileChanged();
     void currentLanguageChanged();
     void currentWordChanged();
@@ -214,28 +199,17 @@ private:
     //Config group
     KSharedConfig::Ptr m_config;
 
-    //QLabel *m_levelLabel;
-    //QLabel *m_accentsLabel;
-    //QLabel *m_winsLabel;
-    //QLabel *m_lossesLabel;
-
     bool m_winner;
     bool m_loser;
-    int m_bgfill;
 
     int m_winCount;
     int m_lossCount;
-
-    // true if a hint exists
-    //bool m_hintExists;
 
     //The index to the random sequence
     int m_randomInt;
 
     //Play a game: look for a word to be guessed and load its tip
     void game();
-
-    //Phonon::MediaObject *m_player;
 
     // The word to be guessed.
     QString m_word;

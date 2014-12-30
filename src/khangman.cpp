@@ -157,7 +157,6 @@ void KHangMan::newGame (bool loss)
 {
     m_loser=false;
     m_winner=false;
-    m_bgfill=0;
 
     if (loss)
         m_lossCount++;
@@ -376,15 +375,15 @@ void KHangMan::setResolveTime(int resolveTime)
     emit resolveTimeChanged();
 }
 
-bool KHangMan::isSound()
+bool KHangMan::soundEnabled()
 {
     return Prefs::sound();
 }
 
-void KHangMan::setSound(bool sound)
+void KHangMan::setSoundEnabled(bool sound)
 {
     Prefs::setSound(sound);
-    emit soundToggled();
+    emit soundEnabledChanged();
 }
 
 QString KHangMan::levelFile()
