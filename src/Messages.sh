@@ -1,5 +1,5 @@
 #! /bin/sh
-$EXTRACTATTR --attr=theme,uiname ../../themes/standardthemes.xml >> rc.cpp
+$EXTRACTATTR --attr=theme,uiname ../themes/standardthemes.xml >> rc.cpp
 $EXTRACTRC *.rc *.ui *.kcfg >> rc.cpp
 LIST=`find . -name \*.h -o -name \*.cpp -o -name \*.qml`
 if test -n "$LIST"; then
