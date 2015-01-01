@@ -42,7 +42,6 @@ import QtQuick 2.3
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
-import "UIConstants.js" as UI
 
 Dialog {
     id: root
@@ -79,8 +78,6 @@ Dialog {
                             id: itemText
                             elide: Text.ElideRight
                             anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: parent.left
-                            anchors.right: parent.right
                             anchors.fill: parent
                             font.family : "Arial"
                             font.weight : Font.Bold

@@ -40,6 +40,34 @@ Item {
 
     anchors.fill: parent
 
+    function nextWord() {
+        khangman.nextWord();
+
+        countDownTimerValue = khangman.resolveTime;
+
+        // Re enable all alphabet buttons
+        for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
+            alphabetLetterRepeater.itemAt(i).enabled = true;
+        }
+
+        // Reset variables for the new word.
+        gallowsSeriesCounter = 0;
+        successImage.visible = false;
+        missedLetters = ""
+
+        hintLabel.visible = false
+
+        if (khangman.soundEnabled) {
+            nextWordSoundEffect.play()
+        }
+    }
+
+    function startTimer() {
+        secondTimer.repeat = true;
+        secondTimer.running = true;
+        secondTimer.start();
+    }
+
     MainSettingsDialog {
         id: mainSettingsDialog
         onOkClicked: {
@@ -51,7 +79,6 @@ Item {
                 nextWord()
                 startTimer()
             }
-            mainPageTools.visible = true
         }
         onCancelClicked: {
             console.log("cancelCLicked() signal received")
@@ -59,47 +86,9 @@ Item {
             mainSettingsDialog.close()
             if (timerDisplay.visible) {
                 // game was in progress, so resume the timer countdown
-                mainPageTools.visible = true
                 startTimer()
             }
-            mainPageTools.visible = true
         }
-    }
-
-    function nextWord() {
-        khangman.nextWord();
-
-        countDownTimerValue = khangman.resolveTime;
-
-        for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            alphabetLetterRepeater.itemAt(i).enabled = true;
-        }
-
-        gallowsSeriesCounter = 0;
-        gallowsSeriesImage.visible = false;
-        successImage.visible = false;
-
-        hintLabel.visible = false
-
-        if (rootWindow.currentItem == gamePage) {
-            //console.log("nextWordSoundEffect.status = " + nextWordSoundEffect.status)
-            //console.log("checking sound effect loaded " + nextWordSoundEffect.isLoaded());
-            if (khangman.soundEnabled) {
-                nextWordSoundEffect.play()
-                //console.log("nextWordSoundEffect.play()")
-            }
-            else {
-                //console.log("khangman.soundEnabled = false in nextWord()")
-            }
-        }
-
-        missedLetters = ""
-    }
-
-    function startTimer() {
-        secondTimer.repeat = true;
-        secondTimer.running = true;
-        secondTimer.start();
     }
 
     // Create a selection dialog with the vocabulary titles to choose from.
@@ -112,10 +101,10 @@ Item {
         onSelectedIndexChanged: {
 
             if (khangman.soundEnabled) {
-                //console.log("khangman.soundEnabled = " + khangman.soundEnabled)
-                initialized == true ? nextWordSoundEffect.play() : initialized = true;
-            } else {
-                //console.log("khangman.soundEnabled = false")
+                if (!initialized)
+                    initialized = true;
+                else
+                    nextWordSoundEffect.play();
             }
 
             khangman.setCurrentCategory(selectedIndex);
@@ -124,6 +113,7 @@ Item {
         }
     }
 
+    // And another selection dialog with the languages to choose from.
     MySelectionDialog {
         id: languageSelectionDialog;
         title: i18n("Select a language");
@@ -135,11 +125,6 @@ Item {
             nextWord();
         }
     }
-
-    // These tools are available for the main page by assigning the
-    // id to the main page's tools property
-
-    //tools: mainPageTools;
 
     Timer {
         id: secondTimer;
@@ -172,11 +157,11 @@ Item {
         }
     }
 
-    // display the wrong guessed alphabets in a row
+    // display the wrong guesses in a row
     Row {
         id: misses
         spacing: 5
-        visible: false
+        visible: isPlaying
 
         anchors {
             top: parent.top
@@ -239,30 +224,20 @@ Item {
             anchors.fill: playPauseButton
             onClicked: {
                 if( gamePage.isPlaying ) { // game is currently going on, so pause it
-                    //console.log("isPlaying = " + gamePage.isPlaying)
                     secondTimer.repeat = false
                     secondTimer.running = false
-                    mainPageTools.visible = false
                     hintLabel.visible = false
-                    misses.visible = false
-                    gallowsSeriesImage.visible = false
                     secondTimer.stop();
                 } else {  // the game is paused or not yet started, so resume or start it
-                    //console.log("isPlaying = " + gamePage.isPlaying)
-
                     // if the game is not yet started, play nextWordSoundeffect
                     if (timerDisplay.visible == false) {
                         // denotes the game is not yet started, should return false if game is paused instead
                         if (khangman.soundEnabled) {
                             nextWordSoundEffect.play()
-                            //console.log("nextWordSoundEffect.play()")
                         }
                     }
 
                     timerDisplay.visible = true
-                    mainPageTools.visible = true
-                    misses.visible = true
-                    gallowsSeriesImage.visible = true
                     startTimer()
                 }
             }
@@ -304,7 +279,6 @@ Item {
                 if( gamePage.isPlaying ) {
                     secondTimer.repeat = false
                     secondTimer.running = false
-                    mainPageTools.visible = false
                     hintLabel.visible = false
                     secondTimer.stop();
                 }
@@ -317,8 +291,8 @@ Item {
 
     Image {
         id: gallowsSeriesImage;
-        source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png";
-        visible: false;
+        source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png"
+        visible: (isPlaying && gallowsSeriesCounter > 0)
 
         anchors {
             horizontalCenter: parent.horizontalCenter;
@@ -330,7 +304,7 @@ Item {
     Row {
         id: timerDisplay
         spacing: 5;
-        visible: false
+        visible: isPlaying
 
         anchors {
             right: parent.right;
@@ -448,7 +422,6 @@ Item {
                         enabled = false;
 
                         if (khangman.isResolved()) {
-                            gallowsSeriesImage.visible = false;
                             successImage.visible = true;
                             khangmanResultTimer.start();
 
@@ -458,12 +431,7 @@ Item {
                         }
                     } else {
                         enabled = false;
-
-                        if (gallowsSeriesCounter++ == 0) {
-                            gallowsSeriesImage.visible = true;
-                        }
-
-                        if (gallowsSeriesCounter == 10) {
+                        if (gallowsSeriesCounter++ == 9) {
                             if (khangman.soundEnabled) {
                                 wrongSoundEffect.play();
                             }
@@ -496,7 +464,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        visible: false
+        visible: isPlaying
 
         RowLayout {
             anchors.fill: parent
