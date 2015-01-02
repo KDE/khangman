@@ -49,7 +49,7 @@ class KHangMan : public QMainWindow
     Q_PROPERTY( QStringList categories READ categories NOTIFY categoriesChanged)
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
     Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
-    Q_PROPERTY(QStringList alphabet READ alphabet NOTIFY currentLanguageChanged)
+    Q_PROPERTY( QStringList alphabet READ alphabet NOTIFY currentLanguageChanged)
 
 public:
     /**
@@ -72,9 +72,6 @@ public:
     bool soundEnabled();
     void setSoundEnabled(bool sound);
 
-    QString levelFile();
-    void setLevelFile(const QString& levelFile);
-
     int currentCategory();
 
     int currentLanguage();
@@ -89,9 +86,6 @@ public:
     // get m_view->engine()
     QQmlEngine* getEngine();
 
-    /** Get the index of the desired level in the list */
-    Q_INVOKABLE int currentLevel() const;
-
     /** Get the current categories available */
     Q_INVOKABLE QStringList categoryList() const;
 
@@ -99,9 +93,6 @@ public:
 
     /** Get the current hint */
     Q_INVOKABLE QString getCurrentHint() const;
-
-    /** Get the current word */
-    //Q_INVOKABLE QString currentWord() const;
 
     Q_INVOKABLE QStringList alphabet() const;
 
@@ -121,12 +112,6 @@ public slots:
 
     ///Load kvtml file and get a word and its tip in random
     void readFile();
-    ///if you want to play with a new word
-    // @param loss if the previous game should be counted as a loss
-    void newGame(bool loss = false);
-
-    /** Select the index of the desired level in the list as the current active one */
-    void selectCurrentLevel (int index);
 
     /** Generate a new word */
     void nextWord();
@@ -138,16 +123,14 @@ signals:
 
     void signalSetWins(int wins);
     void signalSetLosses(int losses);
-    void hintHideTimeChanged();
     void resolveTimeChanged();
     void soundEnabledChanged();
-    void levelFileChanged();
     void currentLanguageChanged();
+    void currentCategoryChanged();
     void currentWordChanged();
     void currentHintChanged();
     void languagesChanged();
     void categoriesChanged();
-    void currentCategoryChanged();
 
 private slots:
     // Slots for when the user changes level, setting, etc.
@@ -158,26 +141,32 @@ private slots:
 private:
     KConfigGroup config(const QString &group);
 
+    /** Strip the accents off given string
+     * @params original string to strip accents off of
+     * @returns string without accents
+     */
+    QString stripAccents(const QString & original);
+
     ///Set the level and make sure it exists
     void setLevel();
     ///Scan the files in the selected language dir to set the levels, returns true if succeeds
     bool loadLevels();
-    // Populate the second toolbar with the correct buttons if the
+    // Populate m_specialCharacters if the
     // current language has special characters.
     void loadLanguageSpecialCharacters();
 
-    ///Method to set the current language into the Statusbar and to pass it to KHangManView
-    void setLanguages();
+    /** Scan the languages found on disk and load the current
+     * language from settings with en as default.
+     */
+    void scanLanguages();
 
-    ///Create a pixmap with the argument (special character) and return the QIcon containing the pixmap
-    QIcon charIcon(const QChar &) const;
+    //shuffle words+hints
+    void slotSetWordsSequence();
 
     ///the different data titles and files in the current language dir
     QMap<QString, QString> m_titleLevels;
-    ///Current level ID
 
     int m_currentCategory;
-
     int m_currentLanguage;
 
     // language information
@@ -186,9 +175,6 @@ private:
 
     // Some important members: the view and newStuff.
     QQuickWidget   *m_view;
-
-    // True if the language has no special chars, such as en, it and nl.
-    bool m_specialChars;
 
     // Contains all the words that are read from the data file.
     QStringList m_specialCharacters;
@@ -199,65 +185,26 @@ private:
     //Config group
     KSharedConfig::Ptr m_config;
 
-    bool m_winner;
-    bool m_loser;
-
     int m_winCount;
     int m_lossCount;
 
     //The index to the random sequence
     int m_randomInt;
 
-    //Play a game: look for a word to be guessed and load its tip
-    void game();
-
-    // The word to be guessed.
-    QString m_word;
-    // goodWord is the hidden word that is filled in during the game.
-    // Initialized to "_ " * (number of letters in the word).
-    QString m_goodWord;
-
-    //Current hint
-    QString m_hint;
-
-    // These two are the positions of the first and second spaces in the word.
-    int m_posFirstSpace;
-    int m_posSecondSpace;
-
     //The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
 
-    //shuffle words+hints
-    void slotSetWordsSequence();
-
     //Current level file
     KEduVocDocument *m_doc;
-
-    //Reset everything to start a new game, missed letters is empty
-    void reset();
-
-    // Contains all letters already guessed.
-    QStringList m_guessedLetters;
-
-    // Stores the missed letters that are shown on the screen.
-    // Initialiazed to "_ " * MAXWRONGGUESSES.
-    QString m_missedLetters;
-
-    // How many times you missed.
-    // When this reaches MAXWRONGGUESSES, you are hanged.
-    int m_numMissedLetters;
-
-    /** Strip the accents off given string
-     * @params original string to strip accents off of
-     * @returns string without accents
-     */
-    QString stripAccents(const QString & original);
 
     /** The word to be guessed */
     QString m_originalWord;
 
     /** The hidden word that is filled in during the game. */
     QString m_currentWord;
+
+    //Current hint
+    QString m_hint;
 };
 
 #endif // _KHANGMAN_H_

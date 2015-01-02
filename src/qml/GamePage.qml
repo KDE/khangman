@@ -99,7 +99,6 @@ Item {
         selectedIndex: khangman.currentCategory
 
         onSelectedIndexChanged: {
-
             if (khangman.soundEnabled) {
                 if (!initialized)
                     initialized = true;

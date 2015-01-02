@@ -21,46 +21,33 @@
 
 
 #include "khangman.h"
-#include "prefs.h"
 
-#include "langutils.h"
 
 #include <QApplication>
-#include <QBitmap>
-#include <QCheckBox>
-#include <QDebug>
 #include <QDir>
-#include <QFileDialog>
-#include <QIcon>
-#include <QPainter>
 #include <QStandardPaths>
-#include <QStatusBar>
 #include <QQuickWidget>
 #include <QQmlContext>
 
-#include <Phonon/MediaObject>
-
-#include <KSelectAction>
-#include <KToggleAction>
-#include <KActionCollection>
-#include <KConfigDialog>
+#include <KDeclarative/KDeclarative>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardAction>
+#include <KRandomSequence>
 #include <KSharedConfig>
-#include <KRecentFilesAction>
+#include <KNS3/DownloadDialog>
+
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
-#include <KDeclarative/KDeclarative>
-#include <KRandomSequence>
-
-#include <KNS3/DownloadDialog>
 #include <sharedkvtmlfiles.h>
 
+#include "langutils.h"
+#include "prefs.h"
+
 KHangMan::KHangMan()
-        : QMainWindow(), m_currentCategory(-1),
+        : QMainWindow(),
+          m_currentCategory(0),
+          m_currentLanguage(0),
           m_randomInt(0),
-          //m_player(0),
           m_doc(0)
 {
     setObjectName(QLatin1String("KHangMan"));
@@ -83,13 +70,13 @@ KHangMan::KHangMan()
     m_view->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
     setCentralWidget(m_view);
-    setLanguages();
+    scanLanguages();
+    setLevel();
 
     //load the standard set of themes
     m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
-    loadLanguageSpecialCharacters(
-    );
+    loadLanguageSpecialCharacters();
 }
 
 KHangMan::~KHangMan()
@@ -97,52 +84,39 @@ KHangMan::~KHangMan()
     KConfigGroup windowConfig = config("Window");
     windowConfig.writeEntry("geometry", geometry());
     windowConfig.writeEntry("windowState", int(windowState()));
+
     delete m_view;
     m_view = NULL;
-    qDebug() << "KHangMan::~KHangMan() called";
 }
 
 KConfigGroup KHangMan::config(const QString &group)
 {
-    qDebug() << qApp->applicationName() + "rc";
     return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
 }
 
 // ----------------------------------------------------------------
 //                               Slots
-
-
-/*bool KHangMan::queryClose()
-{
-    Prefs::setShowCharToolbar( m_specialCharToolbar->isVisible() );
-    Prefs::self()->save();
-    return KMainWindow::queryClose();
-}*/
-
 void KHangMan::setCurrentCategory(int index)
 {
     QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
-    //m_levelLabel->setText(currentLevel.key());
     Prefs::setCurrentLevel(index);
     Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->save();
     m_currentCategory = index;
     emit currentCategoryChanged();
-    //m_view->readFile();
-    //m_view->newGame();
 }
 
 void KHangMan::setCurrentLanguage(int index)
 {
-    //good when no in English
-    qDebug() << "Change to " << m_languages[m_languageNames.indexOf(m_languageNames[index])];
-    Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
-    m_currentLanguage = index;
-    Prefs::self()->save();
-    loadLevels();
-    loadLanguageSpecialCharacters();
-    setLevel();
-    emit currentLanguageChanged();
+    if (index >= 0 && index < m_languages.size()) {
+        Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
+        m_currentLanguage = index;
+        Prefs::self()->save();
+        loadLevels();
+        loadLanguageSpecialCharacters();
+        setLevel();
+        emit currentLanguageChanged();
+    }
 }
 
 void KHangMan::slotChangeTheme(int index)
@@ -153,96 +127,6 @@ void KHangMan::slotChangeTheme(int index)
     //m_view->setTheme(m_khmfactory.buildTheme(index));
 }
 
-void KHangMan::newGame (bool loss)
-{
-    m_loser=false;
-    m_winner=false;
-
-    if (loss)
-        m_lossCount++;
-
-    readFile();
-
-    reset();
-    ++m_randomInt;
-    game();
-}
-
-void KHangMan::game()
-{
-    qDebug() << "language " << Prefs::selectedLanguage();
-    qDebug() << "level "    << Prefs::levelFile();
-
-    m_word = m_randomList[m_randomInt % m_randomList.count()].first;
-    m_word = m_word.toLower();
-    m_hint = m_randomList[m_randomInt % m_randomList.count()].second;
-
-    emit currentHintChanged();
-
-    if (m_word.isEmpty()) {
-        ++m_randomInt;
-        game();
-    }
-
-    // Display the number of letters to guess with _
-    for (int i = 0; i < m_word.length(); i++) {
-        m_goodWord.append ("_ ");
-    }
-
-    // Remove the last trailing space.
-    m_goodWord.remove (m_goodWord.length() - 1);
-
-    // If needed, display white space or - if in word or semi dot.
-
-    // 1. Find dashes.
-    int posOfFirstDash = m_word.indexOf ( "-" );
-
-    if (posOfFirstDash > 0) {
-        m_goodWord.replace (2 * posOfFirstDash, 1, "-");
-        int posOfSecondDash = m_word.indexOf ( "-", posOfFirstDash + 1);
-        if (posOfSecondDash > 0) {
-            m_goodWord.replace (2 * posOfSecondDash, 3, "-");
-        }
-        if (posOfSecondDash > 1) {
-            m_goodWord.append("_");
-        }
-    }
-
-    // 2. Find white space.
-    m_posFirstSpace = m_word.indexOf( " " );
-
-    if (m_posFirstSpace > 0) {
-        m_goodWord.replace (2 * m_posFirstSpace, 1, " ");
-        m_posSecondSpace = m_word.indexOf ( " ", m_posFirstSpace + 1);
-        if (m_posSecondSpace > 0)
-            m_goodWord.replace (2 * m_posSecondSpace, m_posFirstSpace + 1, " ");
-    }
-
-    // 3. Find ·
-    int posOfDot = m_word.indexOf (QString::fromUtf8("·"));
-
-    if (posOfDot > 0) {
-        m_goodWord.replace (2 * posOfDot, 1, QString::fromUtf8("·"));
-    }
-
-    // 4. Find '
-    int posOfApos = m_word.indexOf ("'");
-
-    if (posOfApos > 0) {
-        m_goodWord.replace (2 * posOfApos, 1, "'");
-    }
-}
-
-void KHangMan::reset()
-{
-    m_goodWord = "";
-    m_word = "";
-
-    m_guessedLetters.clear();
-    m_numMissedLetters = 0;
-    m_missedLetters = "_ _ _ _ _ _ _ _ _ _  ";
-}
-
 void KHangMan::readFile()
 {
     // Check if the data files are installed in the correct dir.
@@ -251,11 +135,10 @@ void KHangMan::readFile()
 
     if (!myFile.exists()) {
         QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
-        "Please check your installation.",
-        Prefs::selectedLanguage(),
-                                Prefs::levelFile());
+            "Please check your installation.",
+            Prefs::selectedLanguage(),
+            Prefs::levelFile());
         KMessageBox::sorry (this, mString, i18n("Error"));
-        //qApp->quit();
     }
 
     // Detects if file is a kvtml file so that it's a hint enable file
@@ -265,8 +148,7 @@ void KHangMan::readFile()
 void KHangMan::nextWord()
 {
     if (m_randomList.count() == 0) {
-        qDebug() << " m_randomList.count() = 0";
-        //m_originalWord = m_randomList[0].first;
+        m_originalWord = m_randomList[0].first;
         m_hint = m_randomList[0].second;
         return;
     } else {
@@ -289,6 +171,16 @@ void KHangMan::nextWord()
     while (m_currentWord.size() < originalWordSize)
         m_currentWord.append("_");
 
+    // Find dashes, spaces, middot and apostrophe
+    QString search = "- ·'";
+    Q_FOREACH(const QChar &key, search) {
+        int pos = m_originalWord.indexOf( key );
+        while (pos > 0) {
+            m_currentWord.replace(pos, 1, key);
+            pos = m_originalWord.indexOf( key );
+        }
+    }
+
     emit currentWordChanged();
 
     ++m_randomInt;
@@ -296,8 +188,6 @@ void KHangMan::nextWord()
 
 void KHangMan::slotSetWordsSequence()
 {
-    qDebug() << "in read kvtml file ";
-
     delete m_doc;
 
     m_doc = new KEduVocDocument(this);
@@ -306,8 +196,6 @@ void KHangMan::slotSetWordsSequence()
 
     //how many words in the file
     int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
-
-    qDebug() << "slotSetWordsSequence called, wordCount is " << wordCount;
 
     //get the words+hints
     KRandomSequence randomSequence;
@@ -386,17 +274,6 @@ void KHangMan::setSoundEnabled(bool sound)
     emit soundEnabledChanged();
 }
 
-QString KHangMan::levelFile()
-{
-    return Prefs::levelFile();
-}
-
-void KHangMan::setLevelFile(const QString& levelFile)
-{
-    Prefs::setLevelFile(levelFile);
-    emit levelFileChanged();
-}
-
 QStringList KHangMan::languages()
 {
     return m_languageNames;
@@ -417,19 +294,9 @@ int KHangMan::currentCategory()
     return m_currentCategory;
 }
 
-int KHangMan::currentLevel() const
-{
-    return Prefs::currentLevel();
-}
-
 QStringList KHangMan::categoryList() const
 {
     return m_titleLevels.keys();
-}
-
-void KHangMan::selectCurrentLevel(int index)
-{
-    Prefs::setCurrentLevel(index);
 }
 
 QStringList KHangMan::currentWord() const
@@ -494,14 +361,12 @@ QStringList KHangMan::languageNames() const
 // ----------------------------------------------------------------
 
 
-void KHangMan::setLanguages()
+void KHangMan::scanLanguages()
 {
-    m_languages.clear();
     m_languageNames.clear();
 
     //the program scans in khangman/data/ to see what languages data is found
     m_languages = SharedKvtmlFiles::languages();
-    qDebug() << "Languages " << m_languages;
     if (m_languages.isEmpty()) {
         qApp->closeAllWindows();
     }
@@ -539,7 +404,6 @@ void KHangMan::setLevel()
         m_currentCategory = 0;
     }
     emit currentCategoryChanged();
-    //m_view->readFile();
 }
 
 void KHangMan::show()
@@ -547,16 +411,11 @@ void KHangMan::show()
     if (loadLevels()) { // kvtml files have been found
         if (m_khmfactory.getQty() > 0) {  // themes present
             slotChangeTheme(Prefs::mode());
-            //call show() of base class QMainWindow
             QMainWindow::show();
-            newGame();
             // add the qml view as the main widget
             QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
             QUrl url = QUrl::fromLocalFile(location);
-            qDebug() << "URL passed to setSource: " << url.toString();
             m_view->setSource(url);
-            //m_view->show();
-            qDebug() << "added main.qml as widget";
         } else { // themes not present
             QMessageBox::information(this, i18n("Error"), i18n("No theme files found."));
             exit(EXIT_FAILURE);
@@ -566,8 +425,6 @@ void KHangMan::show()
         exit(EXIT_FAILURE);
     }
 }
-
-
 
 bool KHangMan::loadLevels()
 {
@@ -585,7 +442,6 @@ bool KHangMan::loadLevels()
 
     if (levelFilenames.isEmpty()){
         // no kvtml files found
-        qDebug() << "levelFilenames.isEmpty() true";
         return false;
     }
 
@@ -621,7 +477,7 @@ void KHangMan::slotDownloadNewStuff()
     if (!dialog->changedEntries().isEmpty()) {
         SharedKvtmlFiles::sortDownloadedFiles();
         //look for languages dirs installed
-        setLanguages();
+        scanLanguages();
         //refresh Languages menu
         //m_languageAction->setItems(m_languageNames);
         slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
@@ -649,7 +505,6 @@ void KHangMan::loadLanguageSpecialCharacters()
         if (!langFile.exists()) {
             langFileName = QString("apps/kvtml/%1/%1.txt").arg(lang);
             langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
-            qDebug() << langFileName;
         }
 
         if (!langFile.exists()) {
@@ -669,40 +524,6 @@ void KHangMan::loadLanguageSpecialCharacters()
         m_specialCharacters = readFileStr.readAll().split('\n');
         openFileStream.close();
     }
-}
-
-QIcon KHangMan::charIcon(const QChar & c) const
-{
-    QRect r(4, 4, 120, 120);
-
-    //A font to draw the character with
-    QFont font;
-    font.setFamily( "Sans Serif" );
-    font.setPointSize(96);
-    font.setWeight(QFont::Normal);
-
-    //Create the pixmap
-    QPixmap pm(128, 128);
-    pm.fill(Qt::white);
-    QPainter p(&pm);
-    p.setFont(font);
-    p.setPen(Qt::black);
-    p.drawText(r, Qt::AlignCenter, (QString) c);
-    p.end();
-
-    //Create transparency mask
-    QBitmap bm(128, 128);
-    bm.fill(Qt::color0);
-    QPainter b(&bm);
-    b.setFont(font);
-    b.setPen(Qt::color1);
-    b.drawText(r, Qt::AlignCenter, (QString) c);
-    b.end();
-
-    //Mask the pixmap
-    pm.setMask(bm);
-
-    return QIcon(pm);
 }
 
 #include "khangman.moc"
