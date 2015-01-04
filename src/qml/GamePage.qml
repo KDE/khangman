@@ -480,6 +480,7 @@ Item {
             }
 
             ToolButton {
+                Layout.fillWidth: true
                 text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
 
                 onClicked: {
@@ -488,8 +489,7 @@ Item {
             }
 
             ToolButton {
-                id: languageButton;
-
+                Layout.fillWidth: true
                 text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
 
                 onClicked: {
