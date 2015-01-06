@@ -498,6 +498,16 @@ Item {
             }
 
             ToolButton {
+                Layout.fillWidth: true
+                iconSource: "dialog-information.png";
+
+                onClicked: {
+                    khangman.showAboutKHangMan()
+                }
+            }
+
+            ToolButton {
+                Layout.fillWidth: true
                 iconSource: "go-next.png";
 
                 onClicked: {

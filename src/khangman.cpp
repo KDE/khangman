@@ -35,6 +35,7 @@
 #include <KRandomSequence>
 #include <KSharedConfig>
 #include <KNS3/DownloadDialog>
+#include <KHelpMenu>
 
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
@@ -48,7 +49,8 @@ KHangMan::KHangMan()
           m_currentCategory(0),
           m_currentLanguage(0),
           m_randomInt(0),
-          m_doc(0)
+          m_doc(0),
+          m_helpMenu(new KHelpMenu(NULL))
 {
     setObjectName(QLatin1String("KHangMan"));
 
@@ -87,6 +89,21 @@ KHangMan::~KHangMan()
 
     delete m_view;
     m_view = NULL;
+}
+
+void KHangMan::showAboutKHangMan()
+{
+    m_helpMenu->aboutApplication();
+}
+
+void KHangMan::showAboutKDE()
+{
+    m_helpMenu->aboutKDE();
+}
+
+void KHangMan::showHandbook()
+{
+    m_helpMenu->appHelpActivated();
 }
 
 KConfigGroup KHangMan::config(const QString &group)

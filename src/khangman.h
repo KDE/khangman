@@ -31,6 +31,7 @@
 class KEduVocDocument;
 class QQmlEngine;
 class QQuickWidget;
+class KHelpMenu;
 
 /**
  * @short KHangMan Main Window
@@ -119,6 +120,10 @@ public slots:
     /** Handle the guessed letter */
     void replaceLetters(const QString& charString);
 
+    void showAboutKHangMan();
+    void showAboutKDE();
+    void showHandbook();
+
 signals:
 
     void signalSetWins(int wins);
@@ -205,6 +210,9 @@ private:
 
     //Current hint
     QString m_hint;
+
+    /** help menu for displaying about box */
+    KHelpMenu *m_helpMenu;
 };
 
 #endif // _KHANGMAN_H_
