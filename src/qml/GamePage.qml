@@ -156,6 +156,76 @@ Item {
         }
     }
 
+    ToolBar {
+        id: homePageTools
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+        }
+
+        RowLayout {
+            anchors.fill: parent
+
+            ToolButton {
+                id: settingsButton
+                Layout.fillWidth: true
+                iconSource: "settings_icon.png";
+
+                onClicked: {
+                    // if game is currently going on then pause it
+                    if( gamePage.isPlaying ) {
+                        secondTimer.repeat = false
+                        secondTimer.running = false
+                        hintLabel.visible = false
+                        secondTimer.stop();
+                    }
+                    mainSettingsDialog.open()
+                }
+            }
+
+            ToolButton {
+                id: aboutKhangmanButton
+                Layout.fillWidth: true
+                iconSource: "dialog-information.png"
+
+                onClicked: {
+                    khangman.showAboutKHangMan()
+                }
+            }
+
+            ToolButton {
+                id: aboutKDEButton
+                Layout.fillWidth: true
+                iconSource: "about-kde.png"
+
+                onClicked: {
+                    khangman.showAboutKDE()
+                }
+            }
+
+            ToolButton {
+                id: showHandbookButton
+                Layout.fillWidth: true
+                iconSource: "handbook.png"
+
+                onClicked: {
+                    khangman.showHandbook()
+                }
+            }
+
+            ToolButton {
+                id: ghnsButton
+                Layout.fillWidth: true
+                iconSource: "get-hot-new-stuff.png"
+
+                onClicked: {
+                    khangman.slotDownloadNewStuff()
+                }
+            }
+        }
+    }
+
     // display the wrong guesses in a row
     Row {
         id: misses
@@ -163,7 +233,7 @@ Item {
         visible: isPlaying
 
         anchors {
-            top: parent.top
+            top: homePageTools.bottom
             horizontalCenter: parent.horizontalCenter
             topMargin: 5
         }
@@ -250,7 +320,7 @@ Item {
 
         anchors {
             right: parent.right;
-            top: parent.top
+            top: homePageTools.bottom
         }
 
         MouseArea {
@@ -259,33 +329,6 @@ Item {
                 Qt.quit()
             }
         }
-    }
-
-    Image {
-        id: settingsButton
-
-        source: "settings_icon.png"
-
-        anchors {
-            left: parent.left
-            top: quitButton.top
-        }
-
-        MouseArea {
-            anchors.fill: settingsButton
-            onClicked: {
-                // if game is currently going on then pause it
-                if( gamePage.isPlaying ) {
-                    secondTimer.repeat = false
-                    secondTimer.running = false
-                    hintLabel.visible = false
-                    secondTimer.stop();
-                }
-                mainSettingsDialog.open()
-            }
-        }
-
-        visible: true
     }
 
     Image {
@@ -494,15 +537,6 @@ Item {
 
                 onClicked: {
                     languageSelectionDialog.open()
-                }
-            }
-
-            ToolButton {
-                Layout.fillWidth: true
-                iconSource: "dialog-information.png";
-
-                onClicked: {
-                    khangman.showAboutKHangMan()
                 }
             }
 
