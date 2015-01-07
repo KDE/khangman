@@ -110,6 +110,8 @@ public slots:
     void setCurrentLanguage(int index);
     ///When the category is changed in the Category menu
     void  setCurrentCategory(int index);
+    ///access the KNewStuff class to install new data
+    void slotDownloadNewStuff();
 
     ///Load kvtml file and get a word and its tip in random
     void readFile();
@@ -140,8 +142,6 @@ signals:
 private slots:
     // Slots for when the user changes level, setting, etc.
     void  slotChangeTheme(int);
-    ///access the KNewStuff class to install new data
-    void slotDownloadNewStuff();
 
 private:
     KConfigGroup config(const QString &group);

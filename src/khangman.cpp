@@ -28,6 +28,7 @@
 #include <QStandardPaths>
 #include <QQuickWidget>
 #include <QQmlContext>
+#include <QPointer>
 
 #include <KDeclarative/KDeclarative>
 #include <KLocalizedString>
@@ -126,7 +127,7 @@ void KHangMan::setCurrentCategory(int index)
 void KHangMan::setCurrentLanguage(int index)
 {
     if (index >= 0 && index < m_languages.size()) {
-        Prefs::setSelectedLanguage(m_languages[m_languageNames.indexOf(m_languageNames[index])]);
+        Prefs::setSelectedLanguage(m_languages[index]);
         m_currentLanguage = index;
         Prefs::self()->save();
         loadLevels();
@@ -489,19 +490,17 @@ bool KHangMan::loadLevels()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    /*QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog("khangman.knsrc", this);
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog("khangman.knsrc", this);
     dialog->exec();
     if (!dialog->changedEntries().isEmpty()) {
         SharedKvtmlFiles::sortDownloadedFiles();
         //look for languages dirs installed
         scanLanguages();
         //refresh Languages menu
-        //m_languageAction->setItems(m_languageNames);
-        slotChangeLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-        //m_languageAction->setCurrentItem(m_languages.indexOf(Prefs::selectedLanguage()));
+        setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
     }
 
-    delete dialog;*/
+    delete dialog;
 }
 
 void KHangMan::loadLanguageSpecialCharacters()
