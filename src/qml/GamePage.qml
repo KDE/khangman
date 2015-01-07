@@ -53,12 +53,12 @@ Item {
         // Reset variables for the new word.
         gallowsSeriesCounter = 0;
         successImage.visible = false;
-        missedLetters = ""
+        missedLetters = "";
 
-        hintLabel.visible = false
+        hintLabel.visible = false;
 
         if (khangman.soundEnabled) {
-            nextWordSoundEffect.play()
+            nextWordSoundEffect.play();
         }
     }
 
@@ -171,6 +171,7 @@ Item {
                 id: settingsButton
                 Layout.fillWidth: true
                 iconSource: "settings_icon.png";
+                tooltip: i18n("Settings.")
 
                 onClicked: {
                     // if game is currently going on then pause it
@@ -188,6 +189,7 @@ Item {
                 id: aboutKhangmanButton
                 Layout.fillWidth: true
                 iconSource: "dialog-information.png"
+                tooltip: i18n("About KHangMan.")
 
                 onClicked: {
                     khangman.showAboutKHangMan()
@@ -198,6 +200,7 @@ Item {
                 id: aboutKDEButton
                 Layout.fillWidth: true
                 iconSource: "about-kde.png"
+                tooltip: i18n("About KDE.")
 
                 onClicked: {
                     khangman.showAboutKDE()
@@ -208,6 +211,7 @@ Item {
                 id: showHandbookButton
                 Layout.fillWidth: true
                 iconSource: "handbook.png"
+                tooltip: i18n("View the KHangMan Handbook.")
 
                 onClicked: {
                     khangman.showHandbook()
@@ -218,6 +222,7 @@ Item {
                 id: ghnsButton
                 Layout.fillWidth: true
                 iconSource: "get-hot-new-stuff.png"
+                tooltip: i18n("Download new language files.")
 
                 onClicked: {
                     khangman.slotDownloadNewStuff()
@@ -281,11 +286,11 @@ Item {
     // play/pause icon
     Image {
         id: playPauseButton
-        source: gamePage.isPlaying ? "pause.png" : "play.png"
+        source: gamePage.isPlaying ? "pause.png" : "play.png";
         visible: true
 
         anchors {
-            right: parent.right;
+            right: parent.right
             bottom: timerDisplay.top
         }
 
@@ -502,7 +507,7 @@ Item {
     }
 
     ToolBar {
-        id: mainPageTools;
+        id: mainPageTools
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -512,7 +517,9 @@ Item {
             anchors.fill: parent
 
             ToolButton {
-                iconSource: "help-hint.png";
+                id: helpHintButton
+                iconSource: "help-hint.png"
+                tooltip: i18n("Display the hint.")
                 enabled: hintLabel.text != ""
 
                 onClicked: {
@@ -523,8 +530,10 @@ Item {
             }
 
             ToolButton {
+                id: categorySelectionButton
                 Layout.fillWidth: true
                 text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+                tooltip: i18n("Change the category.")
 
                 onClicked: {
                     categorySelectionDialog.open();
@@ -532,8 +541,10 @@ Item {
             }
 
             ToolButton {
+                id: languageSelectionButton
                 Layout.fillWidth: true
                 text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
+                tooltip: i18n("Change the language.")
 
                 onClicked: {
                     languageSelectionDialog.open()
@@ -541,8 +552,10 @@ Item {
             }
 
             ToolButton {
+                id: nextWordButton
                 Layout.fillWidth: true
                 iconSource: "go-next.png";
+                tooltip: i18n("Load the next word and start a new game.")
 
                 onClicked: {
                     if (khangman.soundEnabled) {
