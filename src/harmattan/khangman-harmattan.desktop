@@ -105,6 +105,7 @@ GenericName[sv]=Hänga gubben startprogram
 GenericName[tr]=KHangMan Çalıştırıcı
 GenericName[uk]=Засіб запуску KHangMan
 GenericName[x-test]=xxKHangMan Launcherxx
+GenericName[zh_CN]=KHangMan 启动器
 GenericName[zh_TW]=KHangMan 啟動器
 Exec=/opt/khangman/bin/khangman.sh
 Icon=/usr/share/icons/hicolor/80x80/apps/khangman-harmattan.png
