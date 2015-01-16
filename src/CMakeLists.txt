@@ -7,7 +7,6 @@ include_directories(
 )
 
 set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp)
-qt5_wrap_ui(khangman_SRCS)
 kconfig_add_kcfg_files(khangman_SRCS prefs.kcfgc)
 add_executable(khangman ${khangman_SRCS})
 # generate_export_header(khangman BASE_NAME KHANGMAN)
