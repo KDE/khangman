@@ -29,6 +29,7 @@ import QtQml 2.2
 Item {
 
     id: gamePage
+    focus: true
 
     property variant alphabet: khangman.alphabet
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0)
@@ -66,6 +67,49 @@ Item {
         secondTimer.repeat = true;
         secondTimer.running = true;
         secondTimer.start();
+    }
+
+    function disableLetterButton(letter) {
+        for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
+            if (alphabetLetterRepeater.itemAt(i).letter == letter) {
+                alphabetLetterRepeater.itemAt(i).enabled = false;
+                break;
+            }
+        }
+    }
+
+    function guessLetter(letter) {
+        letter = letter.toUpperCase()
+        if (khangman.soundEnabled) {
+            khangmanAlphabetButtonPressSoundEffect.play();
+        }
+
+        disableLetterButton(letter);
+        if (khangman.containsChar(letter)) {
+            khangman.replaceLetters(letter);
+
+            if (khangman.isResolved()) {
+                successImage.visible = true;
+                khangmanResultTimer.start();
+
+                if (khangman.soundEnabled) {
+                    ewDialogAppearSoundEffect.play();
+                }
+            }
+        } else {
+            // Only add to missedLetters if it's not already there
+            if (missedLetters.indexOf(letter) == -1) {
+                if (gallowsSeriesCounter++ == 9) {
+                    if (khangman.soundEnabled) {
+                        wrongSoundEffect.play();
+                    }
+
+                    khangmanResultTimer.start();
+                }
+
+                missedLetters += letter
+            }
+        }
     }
 
     MainSettingsDialog {
@@ -394,9 +438,9 @@ Item {
             id: alphabetLetterRepeater;
             model: alphabet;
             Button {
-                id: alphabetLetterId;
+                id: alphabetButton;
 
-                property string alphabetLetterIdLabel: modelData
+                property string letter: modelData
 
                 style: ButtonStyle {
                     id: alphabetLetterIdStyle
@@ -416,13 +460,13 @@ Item {
                         buttonHeight: 60;*/
                         implicitWidth: gamePage.width / 22
                         implicitHeight: gamePage.width / 22
-                        color: alphabetLetterId.enabled ? "black" : "grey"
+                        color: alphabetButton.enabled ? "black" : "grey"
                         radius: 8
                     }
                     label: Text {
                         id: buttonLabel
                         anchors.centerIn: parent
-                        text: alphabetLetterId.alphabetLetterIdLabel
+                        text: letter
                         font.family : "Arial"
                         font.pixelSize: gamePage.width / 40
                         font.capitalization : Font.AllUppercase
@@ -434,34 +478,7 @@ Item {
                 }
 
                 onClicked: {
-                    if (khangman.soundEnabled) {
-                        khangmanAlphabetButtonPressSoundEffect.play();
-                    }
-
-                    if (khangman.containsChar(alphabetLetterId.alphabetLetterIdLabel)) {
-                        khangman.replaceLetters(alphabetLetterId.alphabetLetterIdLabel);
-                        enabled = false;
-
-                        if (khangman.isResolved()) {
-                            successImage.visible = true;
-                            khangmanResultTimer.start();
-
-                            if (khangman.soundEnabled) {
-                                ewDialogAppearSoundEffect.play();
-                            }
-                        }
-                    } else {
-                        enabled = false;
-                        if (gallowsSeriesCounter++ == 9) {
-                            if (khangman.soundEnabled) {
-                                wrongSoundEffect.play();
-                            }
-
-                            khangmanResultTimer.start();
-                        }
-
-                        missedLetters += alphabetLetterId.alphabetLetterIdLabel
-                    }
+                    guessLetter(modelData);
                 }
             }
         }
@@ -564,6 +581,12 @@ Item {
                     secondTimer.restart();
                 }
             }
+        }
+    }
+
+    Keys.onPressed: {
+        if (event.text.length > 0) {
+            guessLetter(event.text);
         }
     }
 }
