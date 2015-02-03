@@ -76,8 +76,8 @@ KHangMan::KHangMan()
     scanLanguages();
     setLevel();
 
-    //load the standard set of themes
-    m_khmfactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
+    //find the themes
+    m_themeFactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
 
     loadLanguageSpecialCharacters();
 }
@@ -137,12 +137,12 @@ void KHangMan::setCurrentLanguage(int index)
     }
 }
 
-void KHangMan::slotChangeTheme(int index)
+void KHangMan::setCurrentTheme(int index)
 {
-    Prefs::setMode(index);
+    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    Prefs::setTheme(theme->name());
     Prefs::self()->save();
-    //m_view->setTheme(KHMThemeFactory::instance()->buildTheme(index));
-    //m_view->setTheme(m_khmfactory.buildTheme(index));
+    emit currentThemeChanged();
 }
 
 void KHangMan::readFile()
@@ -302,6 +302,29 @@ int KHangMan::currentLanguage()
     return m_currentLanguage;
 }
 
+QStringList KHangMan::themes()
+{
+    return m_themeFactory.themeList();
+}
+
+int KHangMan::currentTheme()
+{
+    QStringList themes = m_themeFactory.getNames();
+    return themes.indexOf(Prefs::theme());
+}
+
+QString KHangMan::backgroundUrl()
+{
+    QStringList themes = m_themeFactory.getNames();
+    int index = themes.indexOf(Prefs::theme());
+    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    if (theme) {
+        QString filename = QStandardPaths::locate(QStandardPaths::AppDataLocation, "themes/" + theme->svgFileName());
+        return filename;
+    }
+    return QString();
+}
+
 QStringList KHangMan::categories()
 {
     return m_titleLevels.keys();
@@ -310,11 +333,6 @@ QStringList KHangMan::categories()
 int KHangMan::currentCategory()
 {
     return m_currentCategory;
-}
-
-QStringList KHangMan::categoryList() const
-{
-    return m_titleLevels.keys();
 }
 
 QStringList KHangMan::currentWord() const
@@ -427,8 +445,7 @@ void KHangMan::setLevel()
 void KHangMan::show()
 {
     if (loadLevels()) { // kvtml files have been found
-        if (m_khmfactory.getQty() > 0) {  // themes present
-            slotChangeTheme(Prefs::mode());
+        if (m_themeFactory.getQty() > 0) {  // themes present
             QMainWindow::show();
             // add the qml view as the main widget
             QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");

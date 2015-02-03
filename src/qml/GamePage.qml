@@ -125,6 +125,17 @@ Item {
         }
     }
 
+    // And another selection dialog for choosing the theme.
+    MySelectionDialog {
+        id: themeSelectionDialog;
+        title: i18n("Select a theme");
+        model: khangman.themes
+        selectedIndex: khangman.currentTheme
+        onSelectedIndexChanged: {
+            khangman.setCurrentTheme(selectedIndex);
+        }
+    }
+
     Timer {
         id: secondTimer;
         interval: 1000;
@@ -548,6 +559,17 @@ Item {
 
                 onClicked: {
                     languageSelectionDialog.open()
+                }
+            }
+
+            ToolButton {
+                id: themeSelectionButton
+                Layout.fillWidth: true
+                text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
+                tooltip: i18n("Change the theme.")
+
+                onClicked: {
+                    themeSelectionDialog.open()
                 }
             }
 

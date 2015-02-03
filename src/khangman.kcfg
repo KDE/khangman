@@ -25,16 +25,16 @@
                 userLanguage = userLanguage.left(2);
             </code>
             <default>userLanguage</default>
-        </entry> 
+        </entry>
     </group>
 
     <group name="Look">
-        <entry name="Mode" type="Int">
-            <label>Background theme</label>
-            <default>0</default>
+        <entry name="Theme" type="String">
+            <label>Background theme name</label>
+            <default>notes</default>
         </entry>
     </group>
-          
+
     <group name="General">
         <entry name="OneLetter" type="Bool">
             <label>Check this if you do not want to discover each instance of the same letter.</label>
@@ -43,13 +43,13 @@
         <entry name="EnableAnimations" type="Bool">
             <label>Enable Animations</label>
             <default>false</default>
-        </entry> 
+        </entry>
         <entry name="Sound" type="Bool">
             <label>If checked, sounds will be played for New Game and Win Game</label>
             <default>false</default>
         </entry>
         <entry name="Hint" type="Bool">
-            <label>If checked, hints will always been displayed. If this is not checked (default) 
+            <label>If checked, hints will always been displayed. If this is not checked (default)
             hints will be displayed only per word when the user chooses to show the hint.</label>
             <default>false</default>
         </entry>
@@ -70,6 +70,6 @@
         <entry name="ProvidersUrl" type="Path">
             <label>The Providers path for KHangMan</label>
             <default>"http://edu.kde.org/khangman/downloads/providers.xml"</default>
-        </entry> 
+        </entry>
     </group>
 </kcfg>

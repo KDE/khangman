@@ -44,10 +44,17 @@ class KHangMan : public QMainWindow
 
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
     Q_PROPERTY( bool soundEnabled READ soundEnabled WRITE setSoundEnabled NOTIFY soundEnabledChanged )
-    Q_PROPERTY( int currentCategory READ currentCategory WRITE setCurrentCategory NOTIFY currentCategoryChanged )
+
     Q_PROPERTY( int currentLanguage READ currentLanguage WRITE setCurrentLanguage NOTIFY currentLanguageChanged )
     Q_PROPERTY( QStringList languages READ languages NOTIFY languagesChanged)
+
+    Q_PROPERTY( int currentCategory READ currentCategory WRITE setCurrentCategory NOTIFY currentCategoryChanged )
     Q_PROPERTY( QStringList categories READ categories NOTIFY categoriesChanged)
+
+    Q_PROPERTY( int currentTheme READ currentTheme WRITE setCurrentTheme NOTIFY currentThemeChanged )
+    Q_PROPERTY( QStringList themes READ themes NOTIFY themesChanged)
+    Q_PROPERTY( QString backgroundUrl READ backgroundUrl NOTIFY currentThemeChanged)
+
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
     Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
     Q_PROPERTY( QStringList alphabet READ alphabet NOTIFY currentLanguageChanged)
@@ -74,21 +81,20 @@ public:
     void setSoundEnabled(bool sound);
 
     int currentCategory();
+    QStringList categories();
 
     int currentLanguage();
-
     QStringList languages();
 
-    QStringList categories();
+    int currentTheme();
+    QStringList themes();
+    QString backgroundUrl();
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
 
     // get m_view->engine()
     QQmlEngine* getEngine();
-
-    /** Get the current categories available */
-    Q_INVOKABLE QStringList categoryList() const;
 
     Q_INVOKABLE QStringList currentWord() const;
 
@@ -108,8 +114,13 @@ public:
 public slots:
     ///When the language is changed in the Language menu
     void setCurrentLanguage(int index);
+
     ///When the category is changed in the Category menu
     void  setCurrentCategory(int index);
+
+    /** Set the current theme */
+    void setCurrentTheme(int index);
+
     ///access the KNewStuff class to install new data
     void slotDownloadNewStuff();
 
@@ -138,10 +149,8 @@ signals:
     void currentHintChanged();
     void languagesChanged();
     void categoriesChanged();
-
-private slots:
-    // Slots for when the user changes level, setting, etc.
-    void  slotChangeTheme(int);
+    void themesChanged();
+    void currentThemeChanged();
 
 private:
     KConfigGroup config(const QString &group);
@@ -185,7 +194,7 @@ private:
     QStringList m_specialCharacters;
 
     //Theme manager
-    KHMThemeFactory m_khmfactory;
+    KHMThemeFactory m_themeFactory;
 
     //Config group
     KSharedConfig::Ptr m_config;

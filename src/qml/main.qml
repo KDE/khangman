@@ -29,9 +29,8 @@ Rectangle {
     Image {
         id: backgroundImage
         smooth: true
-        fillMode: Image.TileVertically
         anchors.fill: parent
-        source: "khangman-background-landscape.png"
+        source: khangman.backgroundUrl
     }
 
     GamePage {

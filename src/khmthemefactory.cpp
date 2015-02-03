@@ -32,9 +32,9 @@ bool KHMThemeFactory::addTheme(QString themeFile)
     QDomNode themeNode;
     QDomElement themeElement;
 
-    if (!file.exists()) { 
+    if (!file.exists()) {
         qDebug() << "Themes file doesn't exist";
-        return false; 
+        return false;
     }
 
     if (!file.open(QIODevice::ReadOnly)) {
@@ -53,7 +53,7 @@ bool KHMThemeFactory::addTheme(QString themeFile)
 
     if (!checkTheme(root, "1")) {
         qDebug()<<"Incompatible version of theme loaded";
-        return false; 
+        return false;
     }
 
     QString themeVersion=root.attribute("version");
@@ -107,7 +107,10 @@ QStringList KHMThemeFactory::themeList()
 
 KHMTheme * KHMThemeFactory::buildTheme (int id)
 {
-    return new KHMTheme(themesList[id]);
+    if (id >= 0 && id < themesList.size())
+        return new KHMTheme(themesList[id]);
+    else
+        return 0;
 }
 
 QRect KHMThemeFactory::makeRect(QDomElement element, QString propertyName)
