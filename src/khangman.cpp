@@ -319,7 +319,7 @@ QString KHangMan::backgroundUrl()
     int index = themes.indexOf(Prefs::theme());
     KHMTheme *theme = m_themeFactory.buildTheme(index);
     if (theme) {
-        QString filename = QStandardPaths::locate(QStandardPaths::AppDataLocation, "themes/" + theme->svgFileName());
+        QString filename = QStandardPaths::locate(QStandardPaths::DataLocation, "themes/" + theme->svgFileName());
         return filename;
     }
     return QString();
