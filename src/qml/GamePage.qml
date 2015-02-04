@@ -224,6 +224,28 @@ Item {
             anchors.fill: parent
 
             ToolButton {
+                id: playPauseButton
+                iconSource: gamePage.isPlaying ? "pause.png" : "play.png"
+                tooltip: gamePage.isPlaying ? i18n("Pause") : i18n("Pause")
+
+                onClicked: {
+                    if( gamePage.isPlaying ) { // game is currently going on, so pause it
+                        secondTimer.repeat = false
+                        secondTimer.running = false
+                        hintLabel.visible = false
+                        secondTimer.stop();
+                    } else {  // the game is paused or not yet started, so resume or start it
+                        // if the game is not yet started, play nextWordSoundeffect
+                        // denotes the game is not yet started, should return false if game is paused instead
+                        if (khangman.soundEnabled) {
+                            nextWordSoundEffect.play()
+                        }
+                        startTimer()
+                    }
+                }
+            }
+
+            ToolButton {
                 id: settingsButton
                 Layout.fillWidth: true
                 iconSource: "settings_icon.png";
@@ -285,6 +307,13 @@ Item {
                     khangman.slotDownloadNewStuff()
                 }
             }
+
+            ToolButton {
+                id: quitButton
+                iconSource: "quit.png"
+                tooltip: i18n("Quit")
+                onClicked: Qt.quit()
+            }
         }
     }
 
@@ -337,58 +366,6 @@ Item {
             horizontalCenter: parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
             verticalCenterOffset: -parent.height/4;
-        }
-    }
-
-    // play/pause icon
-    Image {
-        id: playPauseButton
-        source: gamePage.isPlaying ? "pause.png" : "play.png";
-        visible: true
-
-        anchors {
-            left: parent.left
-            top: homePageTools.bottom
-        }
-
-        MouseArea {
-            anchors.fill: playPauseButton
-            onClicked: {
-                if( gamePage.isPlaying ) { // game is currently going on, so pause it
-                    secondTimer.repeat = false
-                    secondTimer.running = false
-                    hintLabel.visible = false
-                    secondTimer.stop();
-                } else {  // the game is paused or not yet started, so resume or start it
-                    // if the game is not yet started, play nextWordSoundeffect
-                    if (isPlaying == false) {
-                        // denotes the game is not yet started, should return false if game is paused instead
-                        if (khangman.soundEnabled) {
-                            nextWordSoundEffect.play()
-                        }
-                    }
-
-                    startTimer()
-                }
-            }
-        }
-    }
-
-    Image {
-        id: quitButton
-        source: "quit.png"
-        visible: true
-
-        anchors {
-            right: parent.right;
-            top: homePageTools.bottom
-        }
-
-        MouseArea {
-            anchors.fill: quitButton
-            onClicked: {
-                Qt.quit()
-            }
         }
     }
 
