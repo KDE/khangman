@@ -347,8 +347,8 @@ Item {
         visible: true
 
         anchors {
-            right: parent.right
-            top: quitButton.bottom
+            left: parent.left
+            top: homePageTools.bottom
         }
 
         MouseArea {
