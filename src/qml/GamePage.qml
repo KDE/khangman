@@ -70,11 +70,12 @@ Item {
 
     MainSettingsDialog {
         id: mainSettingsDialog
+        property bool wasPlaying: false
         onOkClicked: {
             console.log("okCLicked() signal received")
             // close the settings dialog
             mainSettingsDialog.close()
-            if (timerDisplay.visible) {
+            if (wasPlaying) {
                 // game is going on, so load a new word and start with the saved settings
                 nextWord()
                 startTimer()
@@ -84,7 +85,7 @@ Item {
             console.log("cancelCLicked() signal received")
             // close the settings dialog
             mainSettingsDialog.close()
-            if (timerDisplay.visible) {
+            if (wasPlaying) {
                 // game was in progress, so resume the timer countdown
                 startTimer()
             }
@@ -186,6 +187,7 @@ Item {
 
                 onClicked: {
                     // if game is currently going on then pause it
+                    mainSettingsDialog.wasPlaying = isPlaying
                     if( gamePage.isPlaying ) {
                         secondTimer.repeat = false
                         secondTimer.running = false
@@ -302,7 +304,7 @@ Item {
 
         anchors {
             right: parent.right
-            bottom: timerDisplay.top
+            top: quitButton.bottom
         }
 
         MouseArea {
@@ -315,14 +317,13 @@ Item {
                     secondTimer.stop();
                 } else {  // the game is paused or not yet started, so resume or start it
                     // if the game is not yet started, play nextWordSoundeffect
-                    if (timerDisplay.visible == false) {
+                    if (isPlaying == false) {
                         // denotes the game is not yet started, should return false if game is paused instead
                         if (khangman.soundEnabled) {
                             nextWordSoundEffect.play()
                         }
                     }
 
-                    timerDisplay.visible = true
                     startTimer()
                 }
             }
@@ -356,44 +357,6 @@ Item {
             horizontalCenter: parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
             verticalCenterOffset: -parent.height/4;
-        }
-    }
-
-    Row {
-        id: timerDisplay
-        spacing: 5;
-        visible: isPlaying
-
-        anchors {
-            right: parent.right;
-            top: currentWordGrid.top
-            topMargin: 5;
-            rightMargin: 5;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 / 10);
-            visible: khangman.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 % 10);
-            visible: khangman.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: ":";
-            visible: khangman.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 / 10);
-            visible: khangman.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 % 10);
-            visible: khangman.resolveTime == 0 ? false : true;
         }
     }
 
@@ -571,6 +534,13 @@ Item {
                 onClicked: {
                     themeSelectionDialog.open()
                 }
+            }
+
+            Text {
+                id: timerText
+                visible: khangman.resolveTime == 0 ? false : true
+                text: Math.floor(countDownTimerValue / 60) + ":" + Math.floor(countDownTimerValue % 60 / 10)
+                      + Math.floor(countDownTimerValue % 60 % 10)
             }
 
             ToolButton {
