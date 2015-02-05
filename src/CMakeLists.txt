@@ -41,7 +41,7 @@ install(
     DESTINATION ${DATA_INSTALL_DIR}/khangman/qml)
 
 install(
-    FILES khangman.desktop
+    FILES org.kde.khangman.desktop
     DESTINATION ${XDG_APPS_INSTALL_DIR}
 )
 
