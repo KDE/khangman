@@ -35,6 +35,12 @@ static const char description[] =
 
 int main(int argc, char **argv)
 {
+    QStringList configFiles;
+    configFiles << QLatin1String("khangmanrc");
+    Kdelibs4ConfigMigrator migrator(QLatin1String("khangman"));
+    migrator.setConfigFiles(configFiles);
+    migrator.migrate();
+
     QApplication::setApplicationName("khangman");
     QApplication::setApplicationVersion(KHM_VERSION);
     QApplication::setOrganizationDomain("kde.org");
