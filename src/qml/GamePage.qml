@@ -226,7 +226,7 @@ Item {
             ToolButton {
                 id: playPauseButton
                 iconSource: gamePage.isPlaying ? "pause.png" : "play.png"
-                tooltip: gamePage.isPlaying ? i18n("Pause") : i18n("Pause")
+                tooltip: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
                 onClicked: {
                     if( gamePage.isPlaying ) { // game is currently going on, so pause it
@@ -249,7 +249,7 @@ Item {
                 id: settingsButton
                 Layout.fillWidth: true
                 iconSource: "settings_icon.png";
-                tooltip: i18n("Settings.")
+                tooltip: i18n("Settings")
 
                 onClicked: {
                     // if game is currently going on then pause it
@@ -268,7 +268,7 @@ Item {
                 id: aboutKhangmanButton
                 Layout.fillWidth: true
                 iconSource: "dialog-information.png"
-                tooltip: i18n("About KHangMan.")
+                tooltip: i18n("About KHangMan")
 
                 onClicked: {
                     khangman.showAboutKHangMan()
@@ -279,7 +279,7 @@ Item {
                 id: aboutKDEButton
                 Layout.fillWidth: true
                 iconSource: "about-kde.png"
-                tooltip: i18n("About KDE.")
+                tooltip: i18n("About KDE")
 
                 onClicked: {
                     khangman.showAboutKDE()
@@ -290,7 +290,7 @@ Item {
                 id: showHandbookButton
                 Layout.fillWidth: true
                 iconSource: "handbook.png"
-                tooltip: i18n("View the KHangMan Handbook.")
+                tooltip: i18n("View the KHangMan Handbook")
 
                 onClicked: {
                     khangman.showHandbook()
@@ -301,7 +301,7 @@ Item {
                 id: ghnsButton
                 Layout.fillWidth: true
                 iconSource: "get-hot-new-stuff.png"
-                tooltip: i18n("Download new language files.")
+                tooltip: i18n("Download new language files")
 
                 onClicked: {
                     khangman.slotDownloadNewStuff()
