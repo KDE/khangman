@@ -1,4 +1,4 @@
 
-install( FILES khangman_notes.png DESTINATION  ${DATA_INSTALL_DIR}/khangman/themes )
+install( FILES khangman_notes.png DESTINATION  ${KDE_INSTALL_DATADIR}/khangman/themes )
 
 

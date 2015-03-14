@@ -1,4 +1,4 @@
 
-install( FILES khangman_bees.svg   DESTINATION  ${DATA_INSTALL_DIR}/khangman/themes )
+install( FILES khangman_bees.svg   DESTINATION  ${KDE_INSTALL_DATADIR}/khangman/themes )
 
 

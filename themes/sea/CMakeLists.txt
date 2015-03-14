@@ -1,3 +1,3 @@
 
-install( FILES khangman_sea.svg   DESTINATION  ${DATA_INSTALL_DIR}/khangman/themes )
+install( FILES khangman_sea.svg   DESTINATION  ${KDE_INSTALL_DATADIR}/khangman/themes )
 

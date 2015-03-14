@@ -4,5 +4,5 @@ add_subdirectory(bees)
 add_subdirectory(winter)
 add_subdirectory(notes)
 
-install( FILES standardthemes.xml  DESTINATION  ${DATA_INSTALL_DIR}/khangman/themes)
+install( FILES standardthemes.xml  DESTINATION  ${KDE_INSTALL_DATADIR}/khangman/themes)
 

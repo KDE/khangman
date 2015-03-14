@@ -7,6 +7,6 @@ ecm_install_icons(ICONS
     80-apps-khangman-harmattan.png
     sc-apps-khangman-harmattan.svgz
     sc-apps-khangman.svgz
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )

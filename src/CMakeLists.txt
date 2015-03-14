@@ -26,25 +26,25 @@ install(
     FILES
     khangman.kcfg
     DESTINATION
-    ${KCFG_INSTALL_DIR}
+    ${KDE_INSTALL_KCFGDIR}
 )
 
 install(
     FILES
     khangman.knsrc
     DESTINATION
-    ${CONFIG_INSTALL_DIR}
+    ${KDE_INSTALL_CONFDIR}
 )
 
 install(
     DIRECTORY qml/
-    DESTINATION ${DATA_INSTALL_DIR}/khangman/qml)
+    DESTINATION ${KDE_INSTALL_DATADIR}/khangman/qml)
 
 install(
     FILES org.kde.khangman.desktop
-    DESTINATION ${XDG_APPS_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_APPDIR}
 )
 
 install(
-    TARGETS khangman  ${INSTALL_TARGETS_DEFAULT_ARGS}
+    TARGETS khangman  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
