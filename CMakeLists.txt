@@ -35,8 +35,6 @@ find_package(KF5 REQUIRED COMPONENTS
 find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
-find_package(Phonon4Qt5 4.6.60)
-
 add_subdirectory( doc )
 add_subdirectory( src )
 
