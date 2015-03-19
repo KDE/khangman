@@ -16,7 +16,6 @@ target_link_libraries(khangman
     Qt5::Core
     KF5::I18n
     KF5::NewStuff
-    KF5::SonnetCore
     KF5::Declarative
     LibKEduVocDocumentImport__KEduVocDocument
     Phonon::phonon4qt5
