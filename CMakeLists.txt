@@ -30,6 +30,7 @@ find_package(KF5 REQUIRED COMPONENTS
     NewStuff
     Notifications
     XmlGui
+    KIO
 )
 
 find_package(LibKEduVocDocument REQUIRED)
