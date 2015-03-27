@@ -43,6 +43,7 @@ int main(int argc, char **argv)
     migrator.setConfigFiles(configFiles);
     migrator.migrate();
 
+    KLocalizedString::setApplicationDomain("khangman");
     QApplication::setApplicationName("khangman");
     QApplication::setApplicationVersion(KHM_VERSION);
     QApplication::setOrganizationDomain("kde.org");
