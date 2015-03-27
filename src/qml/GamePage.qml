@@ -331,7 +331,7 @@ Item {
 
         Label {
             id: missesLabel
-            text: "Misses- "
+            text: i18n("Misses- ")
             font.pixelSize: 40
             font.bold: true
         }
