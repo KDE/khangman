@@ -59,6 +59,9 @@ class KHangMan : public QMainWindow
     Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
     Q_PROPERTY( QStringList alphabet READ alphabet NOTIFY currentLanguageChanged)
 
+    Q_PROPERTY( int winCount READ winCount WRITE setWinCount NOTIFY winCountChanged )
+    Q_PROPERTY( int lossCount READ lossCount WRITE setLossCount NOTIFY lossCountChanged )
+
 public:
     /**
     * Default Constructor
@@ -85,6 +88,9 @@ public:
 
     int currentLanguage();
     QStringList languages();
+
+    int winCount() const;
+    int lossCount() const;
 
     int currentTheme();
     QStringList themes();
@@ -130,6 +136,12 @@ public slots:
     /** Generate a new word */
     void nextWord();
 
+    /** Sets the count for number of words correctly guessed */
+    void setWinCount(int count);
+
+    /** Sets the count for number of words wrongly guessed */
+    void setLossCount(int count);
+
     /** Handle the guessed letter */
     void replaceLetters(const QString& charString);
 
@@ -151,6 +163,8 @@ signals:
     void categoriesChanged();
     void themesChanged();
     void currentThemeChanged();
+    void winCountChanged();
+    void lossCountChanged();
 
 private:
     KConfigGroup config(const QString &group);

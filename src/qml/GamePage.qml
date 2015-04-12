@@ -89,6 +89,8 @@ Item {
             khangman.replaceLetters(letter);
 
             if (khangman.isResolved()) {
+                // the current puzzle is solved
+                khangman.winCount++;
                 successImage.visible = true;
                 khangmanResultTimer.start();
 
@@ -100,6 +102,8 @@ Item {
             // Only add to missedLetters if it's not already there
             if (missedLetters.indexOf(letter) == -1) {
                 if (gallowsSeriesCounter++ == 9) {
+                    // wrong solution given for current puzzle
+                    khangman.lossCount++;
                     if (khangman.soundEnabled) {
                         wrongSoundEffect.play();
                     }
@@ -354,6 +358,73 @@ Item {
                 font.pixelSize: 40
                 font.bold: true
             }
+        }
+    }
+
+    Label {
+        id: scoreLabel
+        visible: isPlaying
+
+        anchors {
+            top: misses.top
+            left: parent.left
+            leftMargin: 5
+        }
+
+        text: i18n("Score:")
+        font.pixelSize: 40
+        font.bold: true
+    }
+
+    Row {
+        id: winCountRow
+        spacing: 15
+        visible: isPlaying
+
+        anchors {
+            top: scoreLabel.bottom
+            left: parent.left
+            leftMargin: 5
+        }
+
+        Label {
+            id: winLabel
+            text: i18n("Wins: ")
+            font.pixelSize: 40
+            font.bold: true
+        }
+
+        Label {
+            id: winCountLabel
+            text: khangman.winCount
+            font.pixelSize: 40
+            font.bold: true
+        }
+    }
+
+    Row {
+        id: lossCountRow
+        spacing: 15
+        visible: isPlaying
+
+        anchors {
+            top: winCountRow.bottom
+            left: parent.left
+            leftMargin: 5
+        }
+
+        Label {
+            id: lossLabel
+            text: i18n("Losses: ")
+            font.pixelSize: 40
+            font.bold: true
+        }
+
+        Label {
+            id: lossCountLabel
+            text: khangman.lossCount
+            font.pixelSize: 40
+            font.bold: true
         }
     }
 

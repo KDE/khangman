@@ -49,6 +49,8 @@ KHangMan::KHangMan()
         : QMainWindow(),
           m_currentCategory(0),
           m_currentLanguage(0),
+          m_winCount(0),
+          m_lossCount(0),
           m_randomInt(0),
           m_doc(0),
           m_helpMenu(new KHelpMenu(NULL))
@@ -295,6 +297,28 @@ void KHangMan::setSoundEnabled(bool sound)
 QStringList KHangMan::languages()
 {
     return m_languageNames;
+}
+
+int KHangMan::winCount() const
+{
+    return m_winCount;
+}
+
+void KHangMan::setWinCount(int count)
+{
+    m_winCount = count;
+    emit winCountChanged();
+}
+
+int KHangMan::lossCount() const
+{
+    return m_lossCount;
+}
+
+void KHangMan::setLossCount(int count)
+{
+    m_lossCount = count;
+    emit lossCountChanged();
 }
 
 int KHangMan::currentLanguage()
