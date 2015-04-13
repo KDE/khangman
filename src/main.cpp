@@ -37,6 +37,8 @@ static const char description[] =
 
 int main(int argc, char **argv)
 {
+    QApplication app(argc, argv);
+
     QStringList configFiles;
     configFiles << QLatin1String("khangmanrc");
     Kdelibs4ConfigMigrator migrator(QLatin1String("khangman"));
@@ -50,7 +52,6 @@ int main(int argc, char **argv)
     QApplication::setApplicationDisplayName(i18n("KHangMan"));
     QApplication::setWindowIcon(QIcon::fromTheme("khangman"));
 
-    QApplication app(argc, argv);
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 
     KAboutData aboutData(I18N_NOOP("khangman"),
