@@ -117,6 +117,9 @@ public:
     /** Return true if the answer and the current word match */
     Q_INVOKABLE bool isResolved() const;
 
+    /** Reveals the solution to the current puzzle */
+    Q_INVOKABLE void revealCurrentWord();
+
 public slots:
     ///When the language is changed in the Language menu
     void setCurrentLanguage(int index);

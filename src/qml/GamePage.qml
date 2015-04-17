@@ -601,6 +601,23 @@ Item {
                 }
             }
 
+            ToolButton {
+                id: revealWordButton
+                Layout.fillWidth: true
+                text: i18n("Reveal Word")
+                tooltip: i18n("Reveal the current word.")
+
+                onClicked: {
+                    khangman.revealCurrentWord();
+                    khangman.lossCount++;
+                    if (khangman.soundEnabled) {
+                        wrongSoundEffect.play();
+                    }
+
+                    khangmanResultTimer.start();
+                }
+            }
+
             Text {
                 id: timerText
                 visible: khangman.resolveTime == 0 ? false : true

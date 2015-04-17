@@ -267,6 +267,12 @@ bool KHangMan::isResolved() const
     return m_currentWord == m_originalWord;
 }
 
+void KHangMan::revealCurrentWord()
+{
+    m_currentWord = m_originalWord;
+    emit currentWordChanged();
+}
+
 bool KHangMan::containsChar(const QString &sChar)
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
