@@ -49,6 +49,7 @@ Item {
         // Re enable all alphabet buttons
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             alphabetLetterRepeater.itemAt(i).enabled = true;
+            alphabetLetterRepeater.itemAt(i).buttonColor = "black";
         }
 
         // Reset variables for the new word.
@@ -85,6 +86,7 @@ Item {
         }
 
         disableLetterButton(letter);
+        changeButtonColor(letter);
         if (khangman.containsChar(letter)) {
             khangman.replaceLetters(letter);
 
@@ -112,6 +114,14 @@ Item {
                 }
 
                 missedLetters += letter
+            }
+        }
+    }
+
+    function changeButtonColor(letter) {
+        for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
+            if (alphabetLetterRepeater.itemAt(i).letter == letter) {
+                alphabetLetterRepeater.itemAt(i).buttonColor = khangman.containsChar(letter) ? "green" : "red";
             }
         }
     }
@@ -321,7 +331,7 @@ Item {
         }
     }
 
-    // display the wrong guesses in a row
+    // display the remaining number of wrong guesses
     Row {
         id: misses
         spacing: 5
@@ -329,35 +339,24 @@ Item {
 
         anchors {
             top: homePageTools.bottom
-            horizontalCenter: parent.horizontalCenter
             topMargin: 5
+            right: parent.right
+            rightMargin: 5
         }
 
         Label {
             id: missesLabel
-            text: i18n("Misses- ")
+            text: i18n("Remaining guesses: ")
             font.pixelSize: 40
             font.bold: true
         }
 
-        // display the missed alphabets stored in missedLetters variable
-        Label {
-            id: missedLetterText
-            text: missedLetters
+        Text {
+            id: remainingGuessesCount
+            text: i18n(10 - gallowsSeriesCounter)
+            color: gallowsSeriesCounter >= 7 ? "red" : "black"
             font.pixelSize: 40
             font.bold: true
-        }
-
-        // display the remaining blanks
-        Repeater {
-            id: blank
-            model: 10 - missedLetters.length
-            Label {
-                id: blankRepeater
-                text: "_"
-                font.pixelSize: 40
-                font.bold: true
-            }
         }
     }
 
@@ -489,26 +488,15 @@ Item {
                 id: alphabetButton;
 
                 property string letter: modelData
+                property string buttonColor: "black"
 
                 style: ButtonStyle {
                     id: alphabetLetterIdStyle
                     background: Rectangle {
                         id: alphabetLetterIdStyleRectangle
-                        /*background: "image://theme/meegotouch-button-inverted-background";
-                        fontFamily: "Arial";
-                        fontPixelSize: 40;
-                        fontCapitalization: Font.AllUppercase;
-                        fontWeight: Font.Bold;
-                        horizontalAlignment: Text.AlignHCenter;
-                        textColor: "white";
-                        pressedTextColor: "pink";
-                        disabledTextColor: "gray";
-                        checkedTextColor: "blue";
-                        buttonWidth: 45;
-                        buttonHeight: 60;*/
                         implicitWidth: gamePage.width / 22
                         implicitHeight: gamePage.width / 22
-                        color: alphabetButton.enabled ? "black" : "grey"
+                        color: buttonColor
                         radius: 8
                     }
                     label: Text {
