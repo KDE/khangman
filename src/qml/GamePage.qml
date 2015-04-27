@@ -509,7 +509,7 @@ Item {
                         font.weight : Font.Bold
                         horizontalAlignment : Text.AlignHCenter
                         verticalAlignment : Text.AlignVCenter
-                        color: "white"
+                        color: parent.enabled ? "white" : "grey"
                     }
                 }
 
