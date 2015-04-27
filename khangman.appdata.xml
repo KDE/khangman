@@ -16,6 +16,7 @@
   <name xml:lang="fr">KHangMan</name>
   <name xml:lang="hu">KHangMan</name>
   <name xml:lang="it">KHangMan</name>
+  <name xml:lang="ko">KHangMan</name>
   <name xml:lang="lt">KHangMan</name>
   <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="fr">Jeu de pendu</summary>
   <summary xml:lang="hu">Akasztófajáték</summary>
   <summary xml:lang="it">Gioco dell'impiccato</summary>
+  <summary xml:lang="ko">행맨 게임</summary>
   <summary xml:lang="lt">Budelio žaidimas</summary>
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
