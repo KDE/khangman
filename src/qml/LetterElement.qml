@@ -32,7 +32,6 @@ Rectangle {
         id: letterId;
         text: letterText;
         color: "black";
-
         font {
             pixelSize: letterPixelSize;
             bold: true;

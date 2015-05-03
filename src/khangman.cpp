@@ -52,6 +52,8 @@ KHangMan::KHangMan()
           m_winCount(0),
           m_lossCount(0),
           m_randomInt(0),
+          m_scoreMultiplyingFactor(1),
+          m_netScore(0),
           m_doc(0),
           m_helpMenu(new KHelpMenu(NULL))
 {
@@ -273,6 +275,13 @@ void KHangMan::revealCurrentWord()
     emit currentWordChanged();
 }
 
+void KHangMan::calculateNetScore()
+{
+    m_netScore = ( m_winCount - m_lossCount ) * m_scoreMultiplyingFactor;
+    qDebug() << "Net Score = " << m_netScore;
+    emit netScoreChanged();
+}
+
 bool KHangMan::containsChar(const QString &sChar)
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
@@ -313,6 +322,7 @@ int KHangMan::winCount() const
 void KHangMan::setWinCount(int count)
 {
     m_winCount = count;
+    calculateNetScore();
     emit winCountChanged();
 }
 
@@ -324,7 +334,25 @@ int KHangMan::lossCount() const
 void KHangMan::setLossCount(int count)
 {
     m_lossCount = count;
+    calculateNetScore();
     emit lossCountChanged();
+}
+
+int KHangMan::scoreMultiplyingFactor() const
+{
+    return m_scoreMultiplyingFactor;
+}
+
+void KHangMan::setScoreMultiplyingFactor( int factor )
+{
+    m_scoreMultiplyingFactor = factor;
+    calculateNetScore();
+    emit scoreMultiplyingFactorChanged();
+}
+
+int KHangMan::netScore() const
+{
+    return m_netScore;
 }
 
 int KHangMan::currentLanguage()

@@ -370,7 +370,22 @@ Item {
             leftMargin: 5
         }
 
-        text: i18n("Score:")
+        text: i18n("Score: ")
+        font.pixelSize: 40
+        font.bold: true
+    }
+
+    Label {
+        id: netScoreLabel
+        visible: isPlaying
+
+        anchors {
+            left: scoreLabel.right
+            top: scoreLabel.top
+        }
+
+        text: khangman.netScore
+        color: khangman.netScore < 0 ? "red" : "black"
         font.pixelSize: 40
         font.bold: true
     }

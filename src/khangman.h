@@ -62,6 +62,10 @@ class KHangMan : public QMainWindow
     Q_PROPERTY( int winCount READ winCount WRITE setWinCount NOTIFY winCountChanged )
     Q_PROPERTY( int lossCount READ lossCount WRITE setLossCount NOTIFY lossCountChanged )
 
+    Q_PROPERTY( int scoreMultiplyingFactor READ scoreMultiplyingFactor WRITE setScoreMultiplyingFactor NOTIFY scoreMultiplyingFactorChanged )
+
+    Q_PROPERTY( int netScore READ netScore NOTIFY netScoreChanged )
+
 public:
     /**
     * Default Constructor
@@ -92,6 +96,9 @@ public:
     int winCount() const;
     int lossCount() const;
 
+    int scoreMultiplyingFactor() const;
+    int netScore() const;
+
     int currentTheme();
     QStringList themes();
     QString backgroundUrl();
@@ -101,6 +108,9 @@ public:
 
     // get m_view->engine()
     QQmlEngine* getEngine();
+
+    /** Calculate the net score */
+    void calculateNetScore();
 
     Q_INVOKABLE QStringList currentWord() const;
 
@@ -145,6 +155,9 @@ public slots:
     /** Sets the count for number of words wrongly guessed */
     void setLossCount(int count);
 
+    /** Sets the score multiplying factor */
+    void setScoreMultiplyingFactor( int factor );
+
     /** Handle the guessed letter */
     void replaceLetters(const QString& charString);
 
@@ -168,6 +181,8 @@ signals:
     void currentThemeChanged();
     void winCountChanged();
     void lossCountChanged();
+    void scoreMultiplyingFactorChanged();
+    void netScoreChanged();
 
 private:
     KConfigGroup config(const QString &group);
@@ -218,6 +233,11 @@ private:
 
     int m_winCount;
     int m_lossCount;
+
+    int m_netScore;
+
+    // Multiplying factor for scores
+    int m_scoreMultiplyingFactor;
 
     //The index to the random sequence
     int m_randomInt;

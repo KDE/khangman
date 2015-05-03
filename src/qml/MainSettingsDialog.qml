@@ -68,11 +68,13 @@ Dialog {
         function saveSettings() {
             khangman.resolveTime = resolveTimeSlider.value
             khangman.soundEnabled = soundsSwitch.checked
+            khangman.scoreMultiplyingFactor = parseInt(scoreMultiplyingFactorTextEdit.text)
         }
 
         function resetSettings () {
             resolveTimeSlider.value = khangman.resolveTime
             soundsSwitch.checked = khangman.soundEnabled
+            scoreMultiplyingFactorTextEdit.text = khangman.scoreMultiplyingFactor
         }
 
         Component.onCompleted: {
@@ -143,6 +145,41 @@ Dialog {
 
                     onClicked: {
                         khangmanWordResolveTimeUserGuideDialog.open();
+                    }
+                }
+            }
+
+            RowLayout {
+                id: scoreMultiplyingFactorLayout
+                width: parent.width
+
+                Label {
+                    id: scoreMultiplyingFactorLabel
+                    anchors {
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
+                    }
+
+                    text: i18n("Score Multiplying Factor")
+                    font.bold: true
+                    color: "white"
+                }
+
+                Rectangle {
+                    id: scoreMultiplyingFactorInputBox
+                    color: "black"
+                    border.color: "white"
+                    height: scoreMultiplyingFactorLabel.height
+                    width: height * 5
+
+                    TextEdit {
+                        id: scoreMultiplyingFactorTextEdit
+                        horizontalAlignment: TextEdit.AlignJustify
+                        wrapMode: TextEdit.Wrap
+                        text: khangman.scoreMultiplyingFactor.toString()
+                        font.bold: true
+                        color: "white"
+                        focus: true
                     }
                 }
             }
