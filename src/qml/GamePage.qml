@@ -25,6 +25,7 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 import QtQml 2.2
+import QtGraphicalEffects 1.0
 
 Item {
 
@@ -501,7 +502,6 @@ Item {
             model: alphabet;
             Button {
                 id: alphabetButton;
-
                 property string letter: modelData
                 property string buttonColor: "black"
 
@@ -513,6 +513,17 @@ Item {
                         implicitHeight: gamePage.width / 22
                         color: buttonColor
                         radius: 8
+                        layer.enabled: true
+                        layer.effect: DropShadow {
+                            radius: 4
+                            horizontalOffset: 3
+                            verticalOffset: 3
+                            spread: 0
+                            samples: radius * 2
+                            source: alphabetLetterIdStyleRectangle
+                            color: Qt.rgba(0, 0, 0, 0.5)
+                            transparentBorder: true
+                        }
                     }
                     label: Text {
                         id: buttonLabel
@@ -527,7 +538,7 @@ Item {
                         color: parent.enabled ? "white" : "grey"
                     }
                 }
-
+                
                 onClicked: {
                     guessLetter(modelData);
                 }
