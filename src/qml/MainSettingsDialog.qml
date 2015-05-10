@@ -56,6 +56,13 @@ Dialog {
             icon: StandardIcon.Information
             standardButtons: StandardButton.Ok
         }
+        MessageDialog {
+            id: scoreMultiplyingFactorUserGuideDialog;
+            title: i18n("KHangMan Score Multiplying Factor")
+            text: i18n("Determine the factor by which the scores will be multiplied.");
+            icon: StandardIcon.Information
+            standardButtons: StandardButton.Ok
+                    }
 
         MessageDialog {
             id: soundsUserGuideDialog;
@@ -180,6 +187,18 @@ Dialog {
                         font.bold: true
                         color: "white"
                         focus: true
+                    }
+                }
+                    ToolButton {
+                        iconSource: "dialog-information.png"
+
+                        anchors {
+                            right: parent.right;
+                            verticalCenter: parent.verticalCenter;
+                        }
+
+                        onClicked: {
+                            scoreMultiplyingFactorUserGuideDialog.open();
                     }
                 }
             }
