@@ -43,10 +43,10 @@ QFont LangUtils::fontForLanguage(const QString& lang)
 {
     QFont f;
     if (lang == QLatin1String("tg")) {
-        f.setFamily( "URW Bookman" );
+        f.setFamily( QStringLiteral("URW Bookman") );
     }
     else {
-        f.setFamily( "Sans Serif" );
+        f.setFamily( QStringLiteral("Sans Serif") );
     }
     return f;
 }

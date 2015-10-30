@@ -57,16 +57,16 @@ KHangMan::KHangMan()
           m_doc(0),
           m_helpMenu(new KHelpMenu(NULL))
 {
-    setObjectName(QLatin1String("KHangMan"));
+    setObjectName(QStringLiteral("KHangMan"));
 
     m_view = new QQuickWidget(this);
-    m_view->rootContext()->setContextProperty("khangman", this);
+    m_view->rootContext()->setContextProperty(QStringLiteral("khangman"), this);
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(m_view->engine());
     kdeclarative.setupBindings();
 
-    KConfigGroup windowConfig = config("Window");
+    KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
         setGeometry(windowConfig.readEntry<QRect>("geometry", QRect()));
         setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
@@ -81,14 +81,14 @@ KHangMan::KHangMan()
     setLevel();
 
     //find the themes
-    m_themeFactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khangman/themes/standardthemes.xml"));
+    m_themeFactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khangman/themes/standardthemes.xml")));
 
     loadLanguageSpecialCharacters();
 }
 
 KHangMan::~KHangMan()
 {
-    KConfigGroup windowConfig = config("Window");
+    KConfigGroup windowConfig = config(QStringLiteral("Window"));
     windowConfig.writeEntry("geometry", geometry());
     windowConfig.writeEntry("windowState", int(windowState()));
 
@@ -194,7 +194,7 @@ void KHangMan::nextWord()
         m_currentWord.append("_");
 
     // Find dashes, spaces, middot and apostrophe
-    QString search = "- ·'";
+    QString search = QStringLiteral("- ·'");
     Q_FOREACH(const QChar &key, search) {
         int pos = m_originalWord.indexOf( key );
         while (pos > 0) {
@@ -506,7 +506,7 @@ void KHangMan::show()
         if (m_themeFactory.getQty() > 0) {  // themes present
             QMainWindow::show();
             // add the qml view as the main widget
-            QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
+            QString location = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("qml/main.qml"));
             QUrl url = QUrl::fromLocalFile(location);
             m_view->setSource(url);
         } else { // themes not present
@@ -527,7 +527,7 @@ bool KHangMan::loadLevels()
     QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
 
     if (levelFilenames.size() == 0) {
-        Prefs::setSelectedLanguage("en");
+        Prefs::setSelectedLanguage(QStringLiteral("en"));
         Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
@@ -565,7 +565,7 @@ bool KHangMan::loadLevels()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog("khangman.knsrc", this);
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(QStringLiteral("khangman.knsrc"), this);
     dialog->exec();
     if (!dialog->changedEntries().isEmpty()) {
         SharedKvtmlFiles::sortDownloadedFiles();
@@ -587,14 +587,14 @@ void KHangMan::loadLanguageSpecialCharacters()
 
     m_specialCharacters.clear();
     if (hasSpecialChars) {
-        QString langFileName=QString("khangman/%1.txt").arg(lang);
+        QString langFileName=QStringLiteral("khangman/%1.txt").arg(lang);
         QFile langFile;
         langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
 
         // Let's look in local KDEHOME dir then KNS installs each .txt
         // in kvtml/<lang> as it installs everything at the same place
         if (!langFile.exists()) {
-            langFileName = QString("apps/kvtml/%1/%1.txt").arg(lang);
+            langFileName = QStringLiteral("apps/kvtml/%1/%1.txt").arg(lang);
             langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
         }
 

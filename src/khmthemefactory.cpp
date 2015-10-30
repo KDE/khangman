@@ -27,7 +27,7 @@ KHMThemeFactory::KHMThemeFactory()
 bool KHMThemeFactory::addTheme(QString themeFile)
 {
     QFile file (themeFile);
-    QDomDocument tree("KHangManTheme"); //do we need it?
+    QDomDocument tree(QStringLiteral("KHangManTheme")); //do we need it?
     QDomElement root;
     QDomNode themeNode;
     QDomElement themeElement;
@@ -51,12 +51,12 @@ bool KHMThemeFactory::addTheme(QString themeFile)
     file.close();
     root=tree.documentElement();
 
-    if (!checkTheme(root, "1")) {
+    if (!checkTheme(root, QStringLiteral("1"))) {
         qDebug()<<"Incompatible version of theme loaded";
         return false;
     }
 
-    QString themeVersion=root.attribute("version");
+    QString themeVersion=root.attribute(QStringLiteral("version"));
     themeNode=root.firstChild();
 
     do {
@@ -69,7 +69,7 @@ bool KHMThemeFactory::addTheme(QString themeFile)
 void KHMThemeFactory::walkDirectory(QDir dir)       //unused! (but works)
 {
     QFileInfoList xmlFilesList;
-    QStringList allowedExtenstion("*.xml");
+    QStringList allowedExtenstion(QStringLiteral("*.xml"));
 
     if (dir.exists()) {
         xmlFilesList=dir.entryInfoList(allowedExtenstion, QDir::Files);
@@ -118,10 +118,10 @@ QRect KHMThemeFactory::makeRect(QDomElement element, QString propertyName)
     QDomElement rect=element.firstChildElement(propertyName);
 
     return QRect(
-        (int)(rect.attribute("xratio").toDouble()*10000),
-        (int)(rect.attribute("yratio").toDouble()*10000),  //*10000 cause ratios are float
-        (int)(rect.attribute("wratio").toDouble()*10000),
-        (int)(rect.attribute("hratio").toDouble()*10000)  //QPoint,QRect constructors expect ints
+        (int)(rect.attribute(QStringLiteral("xratio")).toDouble()*10000),
+        (int)(rect.attribute(QStringLiteral("yratio")).toDouble()*10000),  //*10000 cause ratios are float
+        (int)(rect.attribute(QStringLiteral("wratio")).toDouble()*10000),
+        (int)(rect.attribute(QStringLiteral("hratio")).toDouble()*10000)  //QPoint,QRect constructors expect ints
     );
 }
 
@@ -129,42 +129,42 @@ QColor KHMThemeFactory::getColor(QDomElement element, QString propertyName)
 {
     QDomElement color=element.firstChildElement(propertyName);
 
-    return QColor ( color.attribute("r").toInt(), color.attribute("g").toInt(), color.attribute("b").toInt());
+    return QColor ( color.attribute(QStringLiteral("r")).toInt(), color.attribute(QStringLiteral("g")).toInt(), color.attribute(QStringLiteral("b")).toInt());
 }
 
 bool KHMThemeFactory::checkTheme(QDomElement root, QString themeVersion)
 {
     QString rootName=root.tagName();
 
-    return (rootName.compare("KHangManThemes")==0)	&&	(themeVersion.compare(root.attribute("version"))==0);
+    return (rootName.compare(QLatin1String("KHangManThemes"))==0)	&&	(themeVersion.compare(root.attribute(QStringLiteral("version")))==0);
 }
 
 void KHMThemeFactory::doTheme(QDomElement theme, QString version)   //fetch all the properties from .xml and stick it together
 //"theme" means <theme></theme> section
 {
-    QDomElement coords=theme.firstChildElement("coords");
+    QDomElement coords=theme.firstChildElement(QStringLiteral("coords"));
 
     //Names of elements are camelCase, but
     //attributes are always lowercase
 
-    QString name=theme.attribute("name");
-    QString uiName=theme.attribute("uiname");
-    QString svgFileName=theme.attribute("svgfilename");
-    QString author=theme.attribute("author");
+    QString name=theme.attribute(QStringLiteral("name"));
+    QString uiName=theme.attribute(QStringLiteral("uiname"));
+    QString svgFileName=theme.attribute(QStringLiteral("svgfilename"));
+    QString author=theme.attribute(QStringLiteral("author"));
     QString themeVersion=version;
 
-    QColor letterColor=getColor(theme.firstChildElement("colors"), "letterColor");
-    QColor guessButtonTextColor=getColor(theme.firstChildElement("colors"), "guessButtonTextColor");
-    QColor guessButtonColor=getColor(theme.firstChildElement("colors"), "guessButtonColor");
-    QColor guessButtonHoverColor=getColor(theme.firstChildElement("colors"), "guessButtonHoverColor");
-    QColor letterInputTextColor=getColor(theme.firstChildElement("colors"), "letterInputTextColor");
+    QColor letterColor=getColor(theme.firstChildElement(QStringLiteral("colors")), QStringLiteral("letterColor"));
+    QColor guessButtonTextColor=getColor(theme.firstChildElement(QStringLiteral("colors")), QStringLiteral("guessButtonTextColor"));
+    QColor guessButtonColor=getColor(theme.firstChildElement(QStringLiteral("colors")), QStringLiteral("guessButtonColor"));
+    QColor guessButtonHoverColor=getColor(theme.firstChildElement(QStringLiteral("colors")), QStringLiteral("guessButtonHoverColor"));
+    QColor letterInputTextColor=getColor(theme.firstChildElement(QStringLiteral("colors")), QStringLiteral("letterInputTextColor"));
 
-    QRect wordRect=makeRect(theme.firstChildElement("coords"), "wordRect");
-    QRect hintRect=makeRect(theme.firstChildElement("coords"), "hintRect");
-    QRect kRect=makeRect(theme.firstChildElement("coords"), "kRect");
+    QRect wordRect=makeRect(theme.firstChildElement(QStringLiteral("coords")), QStringLiteral("wordRect"));
+    QRect hintRect=makeRect(theme.firstChildElement(QStringLiteral("coords")), QStringLiteral("hintRect"));
+    QRect kRect=makeRect(theme.firstChildElement(QStringLiteral("coords")), QStringLiteral("kRect"));
 
-    QDomElement wordPos = theme.firstChildElement("coords").firstChildElement("goodWordPos");
-    QPoint goodWordPos = QPoint(	wordPos.attribute("wratio").toDouble()*10000, wordPos.attribute("hratio").toDouble()*10000	);
+    QDomElement wordPos = theme.firstChildElement(QStringLiteral("coords")).firstChildElement(QStringLiteral("goodWordPos"));
+    QPoint goodWordPos = QPoint(	wordPos.attribute(QStringLiteral("wratio")).toDouble()*10000, wordPos.attribute(QStringLiteral("hratio")).toDouble()*10000	);
 
     KHMTheme * newTheme = new KHMTheme (name, uiName, svgFileName, author, themeVersion, wordRect, hintRect, kRect, letterColor, guessButtonTextColor, guessButtonColor, guessButtonHoverColor, letterInputTextColor, goodWordPos);
     themesList.append(*newTheme);
