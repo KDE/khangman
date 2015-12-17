@@ -240,7 +240,7 @@ Item {
 
             ToolButton {
                 id: playPauseButton
-                iconSource: gamePage.isPlaying ? "pause.png" : "play.png"
+                iconSource: gamePage.isPlaying ? "Images/pause.png" : "Images/play.png"
                 tooltip: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
                 onClicked: {
@@ -263,7 +263,7 @@ Item {
             ToolButton {
                 id: settingsButton
                 Layout.fillWidth: true
-                iconSource: "settings_icon.png";
+                iconSource: "Images/settings_icon.png";
                 tooltip: i18n("Settings")
 
                 onClicked: {
@@ -282,7 +282,7 @@ Item {
             ToolButton {
                 id: aboutKhangmanButton
                 Layout.fillWidth: true
-                iconSource: "dialog-information.png"
+                iconSource: "Images/dialog-information.png"
                 tooltip: i18n("About KHangMan")
 
                 onClicked: {
@@ -293,7 +293,7 @@ Item {
             ToolButton {
                 id: aboutKDEButton
                 Layout.fillWidth: true
-                iconSource: "about-kde.png"
+                iconSource: "Images/about-kde.png"
                 tooltip: i18n("About KDE")
 
                 onClicked: {
@@ -304,7 +304,7 @@ Item {
             ToolButton {
                 id: showHandbookButton
                 Layout.fillWidth: true
-                iconSource: "handbook.png"
+                iconSource: "Images/handbook.png"
                 tooltip: i18n("View the KHangMan Handbook")
 
                 onClicked: {
@@ -315,7 +315,7 @@ Item {
             ToolButton {
                 id: ghnsButton
                 Layout.fillWidth: true
-                iconSource: "get-hot-new-stuff.png"
+                iconSource: "Images/get-hot-new-stuff.png"
                 tooltip: i18n("Download new language files")
 
                 onClicked: {
@@ -325,7 +325,7 @@ Item {
 
             ToolButton {
                 id: quitButton
-                iconSource: "quit.png"
+                iconSource: "Images/quit.png"
                 tooltip: i18n("Quit")
                 onClicked: Qt.quit()
             }
@@ -445,7 +445,7 @@ Item {
 
     Image {
         id: successImage;
-        source: "action-success.png";
+        source: "Images/action-success.png";
         visible: false;
 
         anchors {
@@ -571,7 +571,7 @@ Item {
 
             ToolButton {
                 id: helpHintButton
-                iconSource: "help-hint.png"
+                iconSource: "Images/help-hint.png"
                 tooltip: i18n("Display the hint.")
                 enabled: hintLabel.text != ""
 
@@ -642,7 +642,7 @@ Item {
             ToolButton {
                 id: nextWordButton
                 Layout.fillWidth: true
-                iconSource: "go-next.png";
+                iconSource: "Images/go-next.png";
                 tooltip: i18n("Load the next word and start a new game.")
 
                 onClicked: {

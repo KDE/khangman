@@ -143,7 +143,7 @@ Dialog {
                 }
 
                 ToolButton {
-                    iconSource: "dialog-information.png"
+                    iconSource: "Images/dialog-information.png"
 
                     anchors {
                         right: parent.right
@@ -190,7 +190,7 @@ Dialog {
                     }
                 }
                     ToolButton {
-                        iconSource: "dialog-information.png"
+                        iconSource: "Images/dialog-information.png"
 
                         anchors {
                             right: parent.right;
@@ -227,7 +227,7 @@ Dialog {
                 }
 
                 ToolButton {
-                    iconSource: "dialog-information.png"
+                    iconSource: "Images/dialog-information.png"
 
                     anchors {
                         right: parent.right;
