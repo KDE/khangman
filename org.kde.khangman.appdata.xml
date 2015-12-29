@@ -4,30 +4,92 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KHangMan</name>
+  <name xml:lang="ast">KHangMan</name>
+  <name xml:lang="bs">KHangMan</name>
   <name xml:lang="ca">KHangMan</name>
   <name xml:lang="ca-valencia">KHangMan</name>
+  <name xml:lang="cs">KHangMan</name>
+  <name xml:lang="da">KHangMan</name>
+  <name xml:lang="de">KHangMan</name>
+  <name xml:lang="en-GB">KHangMan</name>
+  <name xml:lang="es">KHangMan</name>
+  <name xml:lang="et">KHangMan</name>
   <name xml:lang="fi">KHangMan</name>
   <name xml:lang="fr">KHangMan</name>
+  <name xml:lang="gl">KHangMan</name>
+  <name xml:lang="hu">KHangMan</name>
+  <name xml:lang="it">KHangMan</name>
+  <name xml:lang="ko">KHangMan</name>
+  <name xml:lang="lt">KHangMan</name>
+  <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
+  <name xml:lang="pl">KWisielec</name>
+  <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
+  <name xml:lang="sk">KHangMan</name>
+  <name xml:lang="sl">KHangMan</name>
+  <name xml:lang="sv">Hänga gubben</name>
+  <name xml:lang="tr">KHangMan</name>
+  <name xml:lang="uk">KHangMan</name>
   <name xml:lang="x-test">xxKHangManxx</name>
+  <name xml:lang="zh-CN">KHangMan</name>
+  <name xml:lang="zh-TW">語言_KHangMan</name>
   <summary>Hangman Game</summary>
+  <summary xml:lang="ast">El xuegu del aforcáu</summary>
+  <summary xml:lang="bs">Igra vješala</summary>
   <summary xml:lang="ca">Joc del penjat</summary>
   <summary xml:lang="ca-valencia">Joc del penjat</summary>
+  <summary xml:lang="cs">Hra Hangman</summary>
+  <summary xml:lang="de">Buchstabierspiel</summary>
+  <summary xml:lang="en-GB">Hangman Game</summary>
+  <summary xml:lang="es">Juego del ahorcado</summary>
+  <summary xml:lang="et">Poomismäng</summary>
   <summary xml:lang="fi">Hirsipuupeli</summary>
   <summary xml:lang="fr">Jeu de pendu</summary>
+  <summary xml:lang="gl">O xogo do aforcado.</summary>
+  <summary xml:lang="hu">Akasztófajáték</summary>
+  <summary xml:lang="it">Gioco dell'impiccato</summary>
+  <summary xml:lang="ko">행맨 게임</summary>
+  <summary xml:lang="lt">Budelio žaidimas</summary>
+  <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
+  <summary xml:lang="pl">Gra w Wisielca</summary>
+  <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
+  <summary xml:lang="sk">Hra Hangman</summary>
+  <summary xml:lang="sl">Igra vislic</summary>
+  <summary xml:lang="sv">Hänga gubben-spel</summary>
+  <summary xml:lang="tr">Adam Asmaca Oyunu</summary>
+  <summary xml:lang="uk">Гра Hangman</summary>
   <summary xml:lang="x-test">xxHangman Gamexx</summary>
+  <summary xml:lang="zh-CN">吊颈人游戏</summary>
+  <summary xml:lang="zh-TW">劊子手（hangman）遊戲</summary>
   <description>
     <p>KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
+    <p xml:lang="ast">KHangMan ye un xuegu basáu nel bien conocíu aforcáu. Tien como oxetivu a guaḥes mayores de 6 años. El xuegu tien delles estayes de pallabres coles que xugase, por exemplu: Animales (pallabres d'animales) y 3 estayes de dificultá; fácil, media y difícil. Les pallabres cuéyense al debalu, anúbrense les lletres, y tienes d'aldovinar la pallabra escribiendo una lletra dempués d'otra. Cada vez que suxeras una lletra incorreuta, dibuxaráse una parte de la semeya del home aforcáu. ¡Tienes d'aldovinar la pallabra enantes d'aforcate! Tienes 10 intentos.</p>
+    <p xml:lang="bs">KHangMan je igra bazirana na poznatoj igri vješala. Namijenjena je djeci uzrasta od šest i više godina. Igra ima nekoliko kategorija riječi da se igraju, na primjer: Životinje (riječi životinje ) i tri težine kategorije: lakii, srednje i teško. Riječ je izabrananasumice, slova su skrivenae, i morate pogodite reč pokušavajući jedno slovoo za drugom. Svaki put kada probate pogrešno slovo,nacrta se dio obješenog.. Morate pogoditi riječ pre nego što je obješen! Imate 10 pokušaja.</p>
     <p xml:lang="ca">El KHangMan és un joc basat en el conegut joc del penjat. Està dirigit a nens de 6 anys o més. El joc disposa de diverses categories de paraules amb les quals jugar, per exemple: Animals (noms d'animals) i tres nivells de dificultat: fàcil, mitjà i difícil. Es tria una paraula aleatòriament, les lletres resten ocultes i s'ha d'endevinar la paraula provant una lletra rere l'altra. Cada vegada que s'escriu una lletra errònia es va dibuixant la imatge del penjat. Haureu d'endevinar-la abans de quedar penjat! Disposareu de 10 intents.</p>
     <p xml:lang="ca-valencia">El KHangMan és un joc basat en el conegut joc del penjat. Està dirigit a nens de 6 anys o més. El joc disposa de diverses categories de paraules amb les quals jugar, per exemple: Animals (noms d'animals) i tres nivells de dificultat: fàcil, mitjà i difícil. Es tria una paraula aleatòriament, les lletres resten ocultes i s'ha d'endevinar la paraula provant una lletra rere l'altra. Cada vegada que s'escriu una lletra errònia es va dibuixant la imatge del penjat. Haureu d'endevinar-la abans de quedar penjat! Disposareu de 10 intents.</p>
+    <p xml:lang="de">KHangMan ist ein Spiel, das auf dem wohlbekannten Galgenmännchen basiert. Es ist ein Spiel für Kinder ab 6 Jahren mit verschiedenen Wort-Kategorien, zum Beispiel Tiere (Tiernamen) und weitere drei Kategorien mit unterschiedlichen Schwierigkeitsstufen: Leicht, Mittel und Schwer. Ein Wort wird zufällig ausgewählt, die Buchstaben verdeckt und Sie müssen das Wort raten, indem Sie einen Buchstaben nach dem anderen eingeben. Jedesmal, wenn Sie einen falschen Buchstaben eingeben, wird ein weiterer Teil des Galgenmännchens gezeichnet. Sie müssen das gesuchte Wort erraten, ehe das Galgenmännchen fertig gezeichnet ist! Dafür haben Sie 10 Versuche.</p>
+    <p xml:lang="en-GB">KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
+    <p xml:lang="es">KHangMan es un juego basado en el conocido pasatiempo del ahorcado. Está dirigido a niños de seis años o más. El juego tiene varias categorías de palabras con las que jugar, por ejemplo: Animales (palabras relacionadas con animales) y tres categorías de distinta dificultad: fácil, media y difícil. Se selecciona una palabra de forma aleatoria, las letras se ocultan y se debe adivinar la palabra una letra tras otra. Cada vez que se falla en una letra, se dibuja una parte de la imagen del ahorcado. ¡Tiene que adivinar la palabra antes de que le cuelguen! Para ello tiene 10 intentos.</p>
+    <p xml:lang="et">KHangMan tugineb tuntud poomismängule. See on mõeldud enam kui kuueaastastele lastele. Mängul on neli raskusastet (loomad ehk loomanimed, lihtne, keskmine ja raske). Sõna valitakse juhuslikult, tähed on peidetud ning sul tuleb sõna tähti ükshaaval pakkudes ära arvata. Iga kord, kui pakud vale tähe, joonistatakse poomispildile kriipsuke juurde. Nii et parem arva sõna ära, enne kui pooja oma tegevusega lõpule jõuab! Pakkuda saab 10 korda.</p>
     <p xml:lang="fi">KHangMan perustuu tunnettuun hirsipuupeliin ja on suunnattu kuusivuotiaille sekä sitä vanhemmille lapsille. Pelissä on useita pelattavia sanaryhmiä kuten esimerkiksi eläimet (eläinsanat) sekä kolme vaikeusryhmää: helppo, keskitaso and vaikea. Sana valitaan satunnaisesti, kirjaimet piilotetaan, ja pelaajan täytyy arvata sana yrittämällä yhtä kirjainta toisen jälkeen. Jokaisesta väärin arvatusta kirjaimesta piirretään seuraava osa hirsipuuhun. Sana täytyy arvata ennen kuin tulee hirtetyksi! Pelissä on 10 yritystä.</p>
     <p xml:lang="fr">KHangMan est un jeu de pendu. Il est conçu pour les enfants de six ans et plus. Le jeu offre plusieurs catégories de mots, par exemple les animaux, et trois niveaux de difficulté : facile, moyen et difficile. Un mot est choisi au hasard, les lettres sont cachées et vous devez deviner le mot en proposant une lettre après l'autre. À chaque fois que vous proposez une mauvaise lettre, une partie du dessin du pendu est affichée. Vous devez deviner le mot avant d'être pendu ! Vous avez 10 essais.</p>
+    <p xml:lang="gl">KHangMan é un xogo baseado no coñecido xogo do enforcado. Está dirixido a rapaces de seis anos para riba. O xogo ten varias categorías de palabras coas que xogar (por exemplo «Animais», palabras relacionadas con animais) e tres categorías de dificultade: doado, medio e difícil.Escóllese unha palabra ao chou, acóchanse as letras e hai que adiviñar a palabra tentando letra a letra. Cada vez que se propón unha letra errada, debúxase unha parte dunha imaxe dun enforcado. Hai que adiviñar a palabra antes de que che colguen! Tes dez intentos.</p>
+    <p xml:lang="it">KHangMan è basato sul ben noto gioco dell'impiccato. È pensato per i bambini da sei anni in su. Il gioco ha diverse categorie di parole con cui giocare tra cui Animali (parole di animali) e tre livelli di difficoltà: facile, medio e difficile. Una parola è scelta a caso, le lettere sono nascoste, e bisogna indovinare la parola provando una lettera alla volta. Ogni volta che provi una lettera sbagliata, compare parte dell'immagine di un impiccato. Devi indovinare la parola prima di farti impiccare! Hai a disposizione dieci tentativi.</p>
+    <p xml:lang="nds">KHangMan is en Speel, dat op dat begäng Speel „Galgenraden“ opbuut. Dat is för Kinners vun söss Johr af. Dat Speel hett en Reeg Woortkategorien, so as „Deerten“, un de dree Swoorheitstopen „Eenfach“, „Middel“ un „Swoor“. Dat Woort warrt tofällig utsöcht, de Bookstaven sünd toeerst versteken, un Du muttst de an na den annern raden. Raadst Du verkehrt, warrt en mehr Deel vun den Mann an'n Galgen maalt. Du muttst dat Woort raadt hebben, ehr he fardig is! Du hest 10 Versöök.</p>
     <p xml:lang="nl">KHangMan is een spel dat is gebaseerd op het welbekende galgje. Het richt zich op kinderen van zes jaar en ouder. Het spel kent verschillende categorieën te spelen woorden waaronder: Dieren (dierenwoorden) en drie moeilijkheidsgraden, Eenvoudig, Middel en Moeilijk. Woorden worden willekeurig gekozen en de letters ervan worden verborgen. U raadt het woord door een voor een letters op te geven. Telkens als u een verkeerde letter raadt wordt er een gedeelte van de galg-afbeelding getekend. U moet het woord raden voordat u wordt opgehangen! U hebt 10 pogingen.</p>
+    <p xml:lang="pl">KWisielec jest grą opartą na dobrze znanej grze w wisielca. Skierowana jest do dzieci w wieku powyżej sześciu lat. Gra ma kilka kategorii słów, którymi można zagrać, na przykład: Zwierzęta (słowa zwierzęce) i trzy kategorie trudności: Łatwa, Średnia i Trudna. Słowo jest wybierane losowo, litery są schowane, a ty musisz odgadnąć słowo próbując literkę po literce. Za każdym razem, gdy źle odgadniesz literkę, rysowana jest część wisielca. Musisz odgadnąć słowo przed powieszeniem! Masz 10 podejść.</p>
+    <p xml:lang="pt">O KHangMan é um jogo baseado no conhecido jogo da forca. Destina-se a crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. É escolhida uma palavra de forma aleatória, as letras são escondidas e deverá adivinhar a palavra, escrevendo para tal uma letra após outra. De cada vez que errar uma letra, é desenhada parte da figura de um enforcado. Deverá desenhar a palavra antes que o enforcado fique completo! Tem 10 tentativas.</p>
     <p xml:lang="pt-BR">KHangMan é um jogo baseado no conhecido jogo da forca. É destinado às crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. Uma palavra é escolhida aleatoriamente, sendo ocultas as suas letras, para que você possa adivinhar a palavra, digitando uma letra após a outra. Cada vez que escolher uma letra errada, é desenhada uma parte de um enforcado. Você deverá adivinhar a palavra antes de ficar enforcado! Você tem 10 tentativas.</p>
+    <p xml:lang="sk">KHangMan je hra založená na známej hre Kat. Je určená pre deti od 6 rokov. Hra má niekoľko kategórií slov na hranie, napríklad zvieratá a tri stupne obtiažnosti: ľahká, stredná a ťažká. Slová sa vyberajú náhodne, písmená sa skryjú a musíte uhádnuť slovo skúšaním jedného písmena za druhým. Vždy keď neuhádnete písmeno, nakreslí sa časť obrázku kata. Musíte uhádnuť slovo skôr, ako vás kat popraví! Máte 10 pokusov.</p>
+    <p xml:lang="sl">KHangMan je igra, ki temelji na dobro poznani igri vislic. Ciljna starostna skupina so otroci starejši od pet let. Igra ima številne kategorije besed (npr. Živali) in tri težavnostne stopnje: Lahko, Srednje in Težko. Beseda je naključno izbrana, črke so skrite, igralec pa mora besedo uganiti tako da posamično ugiba črke. Vsakič, ko je izbrana črka napačna, je izrisan del vislic. Besedo morate rešiti preden vas obesijo, pri tem pa vam je na voljo 10 poskusov.</p>
+    <p xml:lang="sv">Hänga gubben är ett spel baserat på det välkända Hänga gubben spelet. Det är avsett för barn i åldrarna sex och uppåt. Spelet har flera ordkategorier att spela med, däribland Djur (djurord), och tre svårighetsnivåer: Lätt, Normal och Svår. Ett ord väljes slumpmässigt, bokstäverna är dolda och du måste gissa ordet genom att försöka med en bokstav i taget. Varje gång du gissar fel bokstav, ritas en del av bilden av en hängd gubbe. Du måste gissa ordet innan du blir hängd! Du har tio försök.</p>
+    <p xml:lang="tr">KHangMan, iyi bilinen adam asmaca oyununa dayanır. Altı yaş ve üzeri çocuklara yöneliktir. Oyunun Hayvanlar (hayvan kelimeleri) gibi çeşitli kelime kategorileri ve Kolay, Orta ve Zor olmak üzere üç zorluk seviyesi vardır. Bir kelime harfleri gizli bir şekilde rasgele seçilir ve harf harf kelimeyi tahmin etmeniz gerekir. Her hatalı harf tahmininizde asılan adamın bir parçası çizilir. Tamamen asılmadan kelimeyi tahmin etmeniz gerekir. 10 deneme hakkınız vardır.</p>
+    <p xml:lang="uk">KHangMan — це гра, заснована на відомій грі у ката. Її призначено для дітей віком від шести років. У грі є декілька категорій слів, зокрема Тварини (назви тварин), і три категорії складності: Проста, Середня і Складна. Слово вибирається випадковим чином, і всі його літери на початку сховані від вас. Ви повинні вгадати слово, послідовно намагаючись вгадати його літери. Кожного разу, коли ви називатимете літеру, якої у слові немає, домальовуватиметься частина зображення людини на шибениці. Ви повинні вгадати слово, перш ніж вас повісять! У вас десять спроб.</p>
     <p xml:lang="x-test">xxKHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.xx</p>
+    <p xml:lang="zh-TW">KHangMan 是一套基於廣為人知的劊子手遊戲 hangman 的遊戲。目標是讓六歲以上的孩子們學習單字。這個遊戲有一些不同類別的單字，例如動物（跟動物相關的單字），有三種不同困難等級。隨機選取單字，但將字母隱藏，您必須一個個猜測字母。每次猜錯，就會劃出一部份被吊住的人，必須在人被吊死之前猜對！您會有十次機會。</p>
   </description>
   <url type="homepage">http://edu.kde.org/khangman/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khangman</url>
