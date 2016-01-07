@@ -126,6 +126,7 @@ int main(int argc, char **argv)
                         i18n("Code for generating icons for the characters toolbar"), QStringLiteral("peter.hedlund@kdemail.net"));
     aboutData.addCredit(i18n("Inge Wallin"),
                         i18n("Code cleaning"), QStringLiteral("inge@lysator.liu.se"));
+    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
 
