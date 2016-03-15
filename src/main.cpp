@@ -25,6 +25,7 @@
 
 #include <KLocalizedString>
 #include <Kdelibs4ConfigMigrator>
+#include <KCrash>
 
 #include <QApplication>
 #include <QFontDatabase>
@@ -129,6 +130,8 @@ int main(int argc, char **argv)
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
+
+    KCrash::initialize();
 
     QFont f(QStringLiteral("Domestic Manners"), 12, QFont::Normal, true);
     if (!QFontInfo(f).exactMatch())
