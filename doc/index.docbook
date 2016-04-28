@@ -172,7 +172,7 @@ tries and after that you lose and the correct word is displayed.
 
 <para>During the game, you can choose to start a new game by clicking on the 
 <inlinemediaobject><imageobject><imagedata fileref="go-next.png" format="PNG"/></imageobject></inlinemediaobject>
-on the bottom toolbar. You can also change the category of words clicking the current category .</para>
+on the bottom toolbar. You can also change the category of words clicking the current category.</para>
 
 <para>The look can easily be changed with theme button on the bottom toolbar.</para>
 
@@ -233,7 +233,7 @@ You can then easily change the language by clicking the language button
 and choose the new language. </para>
 
 <para>
-Please note that you the special characters in a language are displayed on the keyboard.
+Please note that the special characters in a language are displayed on the keyboard.
 Here you see buttons with an icon of each special character per language like &eacute;
 in French for example. Clicking on such a button will select the corresponding
 letter. You can of course also use the keyboard layout corresponding to the language.
@@ -259,7 +259,7 @@ l, t, r, n, s.
 <para>When you see <quote>io</quote>, try n after that, in French and English.
 </para>
 
-<para>You have to either type the accented letters yourself or click on them.. When you type <quote>a</quote>, only
+<para>You have to either type the accented letters yourself or click on them. When you type <quote>a</quote>, only
 <quote>a</quote> is displayed and you have to type for example
 &atilde; for this letter to be displayed.
 </para>
@@ -288,7 +288,7 @@ by t (9.1%) then a (8.2%), i (7.0%) and n (6.7%). </para>
 </screenshot>
 
 <para> Here you have &khangman; with the Desert theme, French language and
-category <quote>Animaux</quote>. The special characters for french are shown here.</para>
+category <quote>Animaux</quote>. The special characters for French are shown here.</para>
 
 <para>The game has the main toolbar at the top of the window:</para>
 
@@ -502,7 +502,7 @@ some if you want.</para>
 
 <step>
 <para>You can then commit your files in 
-<emphasis>l10n-kde4/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis>. Do not
+<emphasis>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis>. Do not
 forget to update the CMakeLists.txt file as well. Please contact the 
 <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu">kde-edu mailinglist</ulink> if you need further
 information. When you send the files, please do not forget to mention any
