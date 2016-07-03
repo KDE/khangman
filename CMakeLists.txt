@@ -19,7 +19,7 @@ include(ECMInstallIcons)
 include(GenerateExportHeader)
 include(ECMAddAppIcon)
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 5.15.0 REQUIRED COMPONENTS
     I18n
     Crash
     Completion
