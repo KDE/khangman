@@ -47,6 +47,6 @@ endif()
 
 add_subdirectory( icons )
 
-install(FILES org.kde.khangman.appdata.xml DESTINATION ${KDE_INSTALL_DATAROOTDIR}/appdata/)
+install(FILES org.kde.khangman.appdata.xml DESTINATION ${KDE_INSTALL_METAINFO})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
