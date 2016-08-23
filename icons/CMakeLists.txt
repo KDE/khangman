@@ -4,8 +4,6 @@ ecm_install_icons(ICONS
     32-apps-khangman.png
     48-apps-khangman.png
     64-apps-khangman.png
-    80-apps-khangman-harmattan.png
-    sc-apps-khangman-harmattan.svgz
     sc-apps-khangman.svgz
     128-apps-khangman.png
     DESTINATION ${KDE_INSTALL_ICONDIR}

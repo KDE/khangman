@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 2.8.12)
 project(khangman)
 
 option(BUILD_KHANGMAN_DESKTOP       "Build KHangMan for KDE Desktop"        ON)
-option(BUILD_KHANGMAN_HARMATTAN     "Build KHangMan for Harmattan"          OFF)
 option(BUILD_KHANGMAN_PLASMA_ACTIVE "Build KHangMan for Plasma Active"      OFF)
 
 include(FeatureSummary)
