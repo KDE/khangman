@@ -23,6 +23,7 @@
   <name xml:lang="lt">KHangMan</name>
   <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
+  <name xml:lang="nn">KHengtmann</name>
   <name xml:lang="pl">KWisielec</name>
   <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
@@ -53,6 +54,7 @@
   <summary xml:lang="lt">Budelio žaidimas</summary>
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
+  <summary xml:lang="nn">Hengtmann-spel</summary>
   <summary xml:lang="pl">Gra w Wisielca</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
