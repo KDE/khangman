@@ -34,7 +34,7 @@
 #include <QQmlEngine>
 
 static const char description[] =
-        I18N_NOOP("Classical hangman game for KDE");
+        I18N_NOOP("Classical hangman game by KDE");
 
 int main(int argc, char **argv)
 {
