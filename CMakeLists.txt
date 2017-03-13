@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(khangman)
 
-option(BUILD_KHANGMAN_DESKTOP       "Build KHangMan for KDE Desktop"        ON)
-option(BUILD_KHANGMAN_PLASMA_ACTIVE "Build KHangMan for Plasma Active"      OFF)
-
 include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
 
@@ -39,10 +36,8 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_subdirectory( doc )
 add_subdirectory( src )
 
-if(BUILD_KHANGMAN_DESKTOP)
-    add_subdirectory( themes )
-    add_subdirectory( fonts )
-endif()
+add_subdirectory( themes )
+add_subdirectory( fonts )
 
 add_subdirectory( icons )
 
