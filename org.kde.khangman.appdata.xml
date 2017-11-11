@@ -27,6 +27,7 @@
   <name xml:lang="pl">KWisielec</name>
   <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
+  <name xml:lang="ru">KHangMan</name>
   <name xml:lang="sk">KHangMan</name>
   <name xml:lang="sl">KHangMan</name>
   <name xml:lang="sv">Hänga gubben</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="pl">Gra w Wisielca</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
+  <summary xml:lang="ru">Игра «Виселица»</summary>
   <summary xml:lang="sk">Hra Hangman</summary>
   <summary xml:lang="sl">Igra vislic</summary>
   <summary xml:lang="sv">Hänga gubben-spel</summary>
