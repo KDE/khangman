@@ -37,7 +37,7 @@ public:
     KHMThemeFactory();
     ~KHMThemeFactory();
 
-    bool addTheme(QString filePath);    //returns "true" if theme has been added successfuly, "false" otherwise
+    bool addTheme(QString filePath);    //returns "true" if theme has been added successfully, "false" otherwise
     void walkDirectory(QDir dir);   //walks the directory loads valid themes files. No recursion
 
     int getQty() const; //returns quantity of list
