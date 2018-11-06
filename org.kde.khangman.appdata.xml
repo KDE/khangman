@@ -98,6 +98,7 @@
   <url type="help">http://docs.kde.org/stable/en/kdeedu/khangman/index.html</url>
   <screenshots>
     <screenshot type="default">
+      <caption>Playing KHangMan</caption>
       <image>http://kde.org/images/screenshots/khangman.png</image>
     </screenshot>
   </screenshots>
