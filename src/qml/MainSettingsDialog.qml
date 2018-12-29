@@ -260,7 +260,7 @@ Dialog {
                     label: Text {
                         id: cancelButtonLabel
                         anchors.centerIn: parent
-                        text: "Cancel"
+                        text: i18n("Cancel")
                         font.family : "Arial"
                         font.capitalization : Font.AllUppercase
                         font.weight : Font.Bold
@@ -298,7 +298,7 @@ Dialog {
                     label: Text {
                         id: okButtonLabel
                         anchors.centerIn: parent
-                        text: "OK"
+                        text: i18n("OK")
                         font.family : "Arial"
                         font.capitalization : Font.AllUppercase
                         font.weight : Font.Bold
