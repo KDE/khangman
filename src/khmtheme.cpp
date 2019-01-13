@@ -23,7 +23,7 @@
 
 #include <KLocalizedString>
 
-KHMTheme::KHMTheme( QString name, QString uiName, QString svgFileName, QString author, QString themeVersion,
+KHMTheme::KHMTheme( const QString &name, const QString &uiName, const QString &svgFileName, const QString &author, const QString &themeVersion,
             QRect wordRect, QRect hintRect, QRect kRect,
             QColor letterColor, QColor guessButtonTextColor, QColor guessButtonColor, QColor guessButtonHoverColor, QColor letterInputTextColor,
             QPoint goodWordPos)

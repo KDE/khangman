@@ -37,8 +37,8 @@ public:
     KHMThemeFactory();
     ~KHMThemeFactory();
 
-    bool addTheme(QString filePath);    //returns "true" if theme has been added successfully, "false" otherwise
-    void walkDirectory(QDir dir);   //walks the directory loads valid themes files. No recursion
+    bool addTheme(const QString &filePath);    //returns "true" if theme has been added successfully, "false" otherwise
+    void walkDirectory(const QDir &dir);   //walks the directory loads valid themes files. No recursion
 
     int getQty() const; //returns quantity of list
     QStringList getNames(); //returns short names(worknames) of all the themes
@@ -48,10 +48,10 @@ public:
 private:
     QList<KHMTheme> themesList;
 
-    QRect makeRect(QDomElement element, QString propertyName);
-    QColor getColor(QDomElement element, QString propertyName);
-    bool checkTheme(QDomElement root, QString themeVersion);
-    void doTheme(QDomElement theme, QString version);
+    QRect makeRect(const QDomElement &element, const QString &propertyName);
+    QColor getColor(const QDomElement &element, const QString &propertyName);
+    bool checkTheme(const QDomElement &root, const QString &themeVersion);
+    void doTheme(const QDomElement &theme, const QString &version);
 };
 
 #endif // KHMTHEMEFACTORY_H

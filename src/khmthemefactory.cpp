@@ -24,7 +24,7 @@ KHMThemeFactory::KHMThemeFactory()
 {
 }
 
-bool KHMThemeFactory::addTheme(QString themeFile)
+bool KHMThemeFactory::addTheme(const QString &themeFile)
 {
     QFile file (themeFile);
     QDomDocument tree(QStringLiteral("KHangManTheme")); //do we need it?
@@ -66,7 +66,7 @@ bool KHMThemeFactory::addTheme(QString themeFile)
     return true;
 }
 
-void KHMThemeFactory::walkDirectory(QDir dir)       //unused! (but works)
+void KHMThemeFactory::walkDirectory(const QDir &dir)       //unused! (but works)
 {
     QFileInfoList xmlFilesList;
     QStringList allowedExtenstion(QStringLiteral("*.xml"));
@@ -113,7 +113,7 @@ KHMTheme * KHMThemeFactory::buildTheme (int id)
         return 0;
 }
 
-QRect KHMThemeFactory::makeRect(QDomElement element, QString propertyName)
+QRect KHMThemeFactory::makeRect(const QDomElement &element, const QString &propertyName)
 {
     QDomElement rect=element.firstChildElement(propertyName);
 
@@ -125,21 +125,21 @@ QRect KHMThemeFactory::makeRect(QDomElement element, QString propertyName)
     );
 }
 
-QColor KHMThemeFactory::getColor(QDomElement element, QString propertyName)
+QColor KHMThemeFactory::getColor(const QDomElement &element, const QString &propertyName)
 {
     QDomElement color=element.firstChildElement(propertyName);
 
     return QColor ( color.attribute(QStringLiteral("r")).toInt(), color.attribute(QStringLiteral("g")).toInt(), color.attribute(QStringLiteral("b")).toInt());
 }
 
-bool KHMThemeFactory::checkTheme(QDomElement root, QString themeVersion)
+bool KHMThemeFactory::checkTheme(const QDomElement &root, const QString &themeVersion)
 {
     QString rootName=root.tagName();
 
     return (rootName.compare(QLatin1String("KHangManThemes"))==0)	&&	(themeVersion.compare(root.attribute(QStringLiteral("version")))==0);
 }
 
-void KHMThemeFactory::doTheme(QDomElement theme, QString version)   //fetch all the properties from .xml and stick it together
+void KHMThemeFactory::doTheme(const QDomElement &theme, const QString &version)   //fetch all the properties from .xml and stick it together
 //"theme" means <theme></theme> section
 {
     QDomElement coords=theme.firstChildElement(QStringLiteral("coords"));
