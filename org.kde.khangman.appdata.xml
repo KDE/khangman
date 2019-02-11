@@ -24,6 +24,7 @@
   <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
   <name xml:lang="nn">KHengtmann</name>
+  <name xml:lang="pa">ਕੇਹੈਂਗਮੈਨ</name>
   <name xml:lang="pl">KWisielec</name>
   <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
   <summary xml:lang="nn">Hengtmann-spel</summary>
+  <summary xml:lang="pa">ਕੇਹੈਂਗਮੈਨ ਖੇਡ</summary>
   <summary xml:lang="pl">Gra w Wisielca</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
@@ -113,6 +115,7 @@
       <caption xml:lang="id">Memainkan KHangMan</caption>
       <caption xml:lang="it">Giocare con KHangMan</caption>
       <caption xml:lang="nl">KHangMan spelen</caption>
+      <caption xml:lang="pa">ਕੇਹੈਂਗਮੈਨ ਖੇਡਣਾ</caption>
       <caption xml:lang="pl">Granie w KWisielec</caption>
       <caption xml:lang="pt">A jogar ao KHangMan</caption>
       <caption xml:lang="pt-BR">Jogando o KHangMan</caption>
