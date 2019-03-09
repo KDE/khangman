@@ -73,7 +73,7 @@ Item {
 
     function disableLetterButton(letter) {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            if (alphabetLetterRepeater.itemAt(i).letter == letter) {
+            if (alphabetLetterRepeater.itemAt(i).letter === letter) {
                 alphabetLetterRepeater.itemAt(i).enabled = false;
                 break;
             }
