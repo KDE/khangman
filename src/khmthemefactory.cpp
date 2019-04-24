@@ -110,7 +110,7 @@ KHMTheme * KHMThemeFactory::buildTheme (int id)
     if (id >= 0 && id < themesList.size())
         return new KHMTheme(themesList[id]);
     else
-        return 0;
+        return nullptr;
 }
 
 QRect KHMThemeFactory::makeRect(const QDomElement &element, const QString &propertyName)
