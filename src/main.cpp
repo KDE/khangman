@@ -19,7 +19,7 @@
 
 
 #include "khangman.h"
-#include "version.h"
+#include "khangman_version.h"
 
 #include <KAboutData>
 
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
     KLocalizedString::setApplicationDomain("khangman");
     QApplication::setApplicationName(QStringLiteral("khangman"));
-    QApplication::setApplicationVersion(KHM_VERSION);
+    QApplication::setApplicationVersion(QStringLiteral(KHANGMAN_VERSION_STRING));
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication::setApplicationDisplayName(i18n("KHangMan"));
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("khangman")));
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 
     KAboutData aboutData(I18N_NOOP("khangman"),
                          i18n("KHangMan"),
-                         I18N_NOOP(KHM_VERSION),
+                         QStringLiteral(KHANGMAN_VERSION_STRING),
                          i18n(description),
                          KAboutLicense::GPL,
                          i18n("(c) 2001-2011, Anne-Marie Mahfouf"));

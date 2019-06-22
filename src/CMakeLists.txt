@@ -1,3 +1,5 @@
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KHANGMAN VERSION_HEADER khangman_version.h)
+
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
