@@ -234,13 +234,13 @@ private:
     int m_winCount;
     int m_lossCount;
 
-    int m_netScore;
+    //The index to the random sequence
+    int m_randomInt;
 
     // Multiplying factor for scores
     int m_scoreMultiplyingFactor;
 
-    //The index to the random sequence
-    int m_randomInt;
+    int m_netScore;
 
     //The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
