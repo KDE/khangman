@@ -39,6 +39,9 @@ find_package(KF5 5.15.0 REQUIRED COMPONENTS
 
 find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
 
 add_subdirectory( doc )
 add_subdirectory( src )
