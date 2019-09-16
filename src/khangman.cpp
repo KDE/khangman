@@ -54,7 +54,7 @@ KHangMan::KHangMan()
           m_randomInt(0),
           m_scoreMultiplyingFactor(1),
           m_netScore(0),
-          m_doc(0),
+          m_doc(nullptr),
           m_helpMenu(new KHelpMenu(NULL))
 {
     setObjectName(QStringLiteral("KHangMan"));
