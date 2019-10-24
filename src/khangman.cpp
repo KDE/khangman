@@ -64,7 +64,7 @@ KHangMan::KHangMan()
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(m_view->engine());
-    kdeclarative.setupBindings();
+    kdeclarative.setupContext();
 
     KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
