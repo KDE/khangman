@@ -67,11 +67,11 @@ int main(int argc, char **argv)
     // Write the names with accents and all and this file save with
     // utf8 encoding.
     aboutData.addAuthor(i18n("Anne-Marie Mahfouf"), i18n("Original Author"),
-                        QStringLiteral("annma@kde.org"), QStringLiteral("http://annma.blogspot.com"), QStringLiteral("annma"));
+                        QStringLiteral("annma@kde.org"), QStringLiteral("https://annma.blogspot.com"), QStringLiteral("annma"));
     aboutData.addAuthor(i18n("Rahul Chowdhury"), i18n("Developer"),
-                        QStringLiteral("rahul.chowdhury@kdemail.net"), QStringLiteral("http://rahulc93.wordpress.com/"), QStringLiteral("rahulch"));
+                        QStringLiteral("rahul.chowdhury@kdemail.net"), QStringLiteral("https://rahulc93.wordpress.com/"), QStringLiteral("rahulch"));
     aboutData.addCredit(i18n("Stefan Böhmann"),
-                        i18n("Coding help"), QStringLiteral("kde@hilefoks.org"), QStringLiteral("http://www.hilefoks.org"), QStringLiteral("hilefoks"));
+                        i18n("Coding help"), QStringLiteral("kde@hilefoks.org"));
     aboutData.addCredit(i18n("Stefan Asserhäll"),
                         i18n("Swedish data files, coding help, transparent pictures and i18n fixes"),
                                 QStringLiteral("stefan.asserhall@telia.com"));

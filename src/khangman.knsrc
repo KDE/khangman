@@ -1,10 +1,10 @@
 [KNewStuff2]
-ProvidersUrl=http://edu.kde.org/khangman/downloads/providers.xml
+ProvidersUrl=https://edu.kde.org/khangman/downloads/providers.xml
 TargetDir=apps/kvtml/
 Uncompress=true
 
 [KNewStuff3]
-ProvidersUrl=http://download.kde.org/ocs/providers.xml
+ProvidersUrl=https://download.kde.org/ocs/providers.xml
 Categories=KHangMan
 UploadCategories=KHangMan
 TargetDir=apps/kvtml

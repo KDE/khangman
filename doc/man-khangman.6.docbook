@@ -42,7 +42,7 @@ url="help:/khangman">help:/khangman</ulink>
 <userinput><command>khelpcenter</command>
 <parameter>help:/khangman</parameter></userinput>).</para>
 
-<para>There is also further information available at the <ulink url="http://edu.kde.org/khangman/">&kde; Edutainment web site</ulink>.</para>
+<para>There is also further information available at the <ulink url="https://edu.kde.org/khangman/">&kde; Edutainment web site</ulink>.</para>
 </refsect1>
 
 <refsect1>

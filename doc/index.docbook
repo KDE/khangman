@@ -424,7 +424,7 @@ with the combo box at the top of the file open dialog.</para>
 <programlisting><markup>
 &lt;?xml version="1.0"?&gt; 
 &lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
-"http://edu.kde.org/kanagram/kvtml2.dtd"&gt; 
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
 &lt;kvtml version="2.0"&gt; 
 &lt;information&gt;
     &lt;generator&gt;converter&lt;/generator&gt;

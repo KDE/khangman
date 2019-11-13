@@ -45,5 +45,5 @@ echo "Please edit the following files and translate the english words and englis
 ls $lang/*.txt
 echo ""
 echo "The files now use the kvtml format."
-echo "See http://edu.kde.org/khangman/add_language.php for more information."
+echo "See https://edu.kde.org/khangman/add_language.php for more information."
 echo "Thanks a lot for your contribution!"
