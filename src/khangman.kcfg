@@ -69,7 +69,7 @@
     <group name="KNewStuff">
         <entry name="ProvidersUrl" type="Path">
             <label>The Providers path for KHangMan</label>
-            <default>"http://edu.kde.org/khangman/downloads/providers.xml"</default>
+            <default>"https://edu.kde.org/khangman/downloads/providers.xml"</default>
         </entry>
     </group>
 </kcfg>
