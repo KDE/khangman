@@ -32,6 +32,7 @@
 #include <QFontInfo>
 #include <QStandardPaths>
 #include <QQmlEngine>
+#include <QCommandLineParser>
 
 static const char description[] =
         I18N_NOOP("Classical hangman game by KDE");
@@ -130,6 +131,11 @@ int main(int argc, char **argv)
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
+
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     KCrash::initialize();
 
