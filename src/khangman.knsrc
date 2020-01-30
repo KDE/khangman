@@ -4,7 +4,6 @@ TargetDir=apps/kvtml/
 Uncompress=true
 
 [KNewStuff3]
-ProvidersUrl=https://download.kde.org/ocs/providers.xml
 Categories=KHangMan
 UploadCategories=KHangMan
 TargetDir=apps/kvtml
