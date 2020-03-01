@@ -100,7 +100,7 @@
   </description>
   <url type="homepage">https://edu.kde.org/khangman/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khangman</url>
-  <url type="help">https://docs.kde.org/stable/en/kdeedu/khangman/index.html</url>
+  <url type="help">https://docs.kde.org/?application=khangman</url>
   <url type="donation">https://www.kde.org/community/donations/?app=khangman&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
@@ -126,7 +126,7 @@
       <caption xml:lang="x-test">xxPlaying KHangManxx</caption>
       <caption xml:lang="zh-CN">正在玩 KHangMan</caption>
       <caption xml:lang="zh-TW">KHangMan 遊玩畫面</caption>
-      <image>https://kde.org/images/screenshots/khangman.png</image>
+      <image>https://cdn.kde.org/screenshots/khangman/khangman.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
