@@ -156,7 +156,7 @@ Item {
         id: categorySelectionDialog;
         title: i18n("Choose the word category");
         model: khangman.categories
-        selectedIndex: khangman.currentCategory
+        Component.onCompleted: selectedIndex = khangman.currentCategory
 
         onSelectedIndexChanged: {
             if (khangman.soundEnabled) {
@@ -177,7 +177,7 @@ Item {
         id: languageSelectionDialog;
         title: i18n("Select a language");
         model: khangman.languages
-        selectedIndex: khangman.currentLanguage
+        Component.onCompleted: selectedIndex = khangman.currentLanguage
         onSelectedIndexChanged: {
             khangman.setCurrentLanguage(selectedIndex);
             khangman.readFile();
@@ -190,7 +190,7 @@ Item {
         id: themeSelectionDialog;
         title: i18n("Select a theme");
         model: khangman.themes
-        selectedIndex: khangman.currentTheme
+        Component.onCompleted: selectedIndex = khangman.currentTheme
         onSelectedIndexChanged: {
             khangman.setCurrentTheme(selectedIndex);
         }
