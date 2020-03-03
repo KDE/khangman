@@ -350,6 +350,7 @@ Item {
             text: i18n("Remaining guesses: ")
             font.pixelSize: 40
             font.bold: true
+            color: khangman.letterColor
         }
 
         Text {
@@ -374,6 +375,7 @@ Item {
         text: i18n("Score: ")
         font.pixelSize: 40
         font.bold: true
+        color: khangman.letterColor
     }
 
     Label {
@@ -407,6 +409,7 @@ Item {
             text: i18n("Wins: ")
             font.pixelSize: 40
             font.bold: true
+            color: khangman.letterColor
         }
 
         Label {
@@ -414,6 +417,7 @@ Item {
             text: khangman.winCount
             font.pixelSize: 40
             font.bold: true
+            color: khangman.letterColor
         }
     }
 
@@ -433,6 +437,7 @@ Item {
             text: i18n("Losses: ")
             font.pixelSize: 40
             font.bold: true
+            color: khangman.letterColor
         }
 
         Label {
@@ -440,6 +445,7 @@ Item {
             text: khangman.lossCount
             font.pixelSize: 40
             font.bold: true
+            color: khangman.letterColor
         }
     }
 
@@ -538,7 +544,7 @@ Item {
                         color: parent.enabled ? "white" : "grey"
                     }
                 }
-                
+
                 onClicked: {
                     guessLetter(modelData);
                 }

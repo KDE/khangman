@@ -31,7 +31,7 @@ Rectangle {
     Text {
         id: letterId;
         text: letterText;
-        color: "black";
+        color: khangman.letterColor;
         font {
             pixelSize: letterPixelSize;
             bold: true;

@@ -383,6 +383,20 @@ QString KHangMan::backgroundUrl()
     return QString();
 }
 
+QColor KHangMan::currentThemeLetterColor()
+{
+    // Default to white letters
+    QColor color = "white";
+    QStringList themes = m_themeFactory.getNames();
+    int index = themes.indexOf(Prefs::theme());
+    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    if (theme) {
+        color = theme->letterColor();
+    }
+
+    return color;
+}
+
 QStringList KHangMan::categories()
 {
     return m_titleLevels.keys();

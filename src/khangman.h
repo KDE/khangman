@@ -54,6 +54,7 @@ class KHangMan : public QMainWindow
     Q_PROPERTY( int currentTheme READ currentTheme WRITE setCurrentTheme NOTIFY currentThemeChanged )
     Q_PROPERTY( QStringList themes READ themes NOTIFY themesChanged)
     Q_PROPERTY( QString backgroundUrl READ backgroundUrl NOTIFY currentThemeChanged)
+    Q_PROPERTY( QColor letterColor READ currentThemeLetterColor NOTIFY currentThemeChanged)
 
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
     Q_PROPERTY( QString currentHint READ getCurrentHint NOTIFY currentHintChanged)
@@ -102,6 +103,7 @@ public:
     int currentTheme();
     QStringList themes();
     QString backgroundUrl();
+    QColor currentThemeLetterColor();
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
