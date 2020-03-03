@@ -19,12 +19,12 @@
                 KSharedConfigPtr globalConf = KSharedConfig::openConfig();
                 QString userLanguage=globalConf->group("Locale").readEntry("Language", "en");
                 if (userLanguage.isEmpty())
-                userLanguage = "en";
+                    userLanguage = "en";
                 else
-                //keep only the first 2 characters
-                userLanguage = userLanguage.left(2);
+                    //keep only the first 2 characters
+                    userLanguage = userLanguage.left(2);
             </code>
-            <default>userLanguage</default>
+            <default>en</default>
         </entry>
     </group>
 
