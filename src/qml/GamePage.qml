@@ -261,6 +261,17 @@ Item {
             }
 
             ToolButton {
+                id: themeSelectionButton
+                Layout.fillWidth: false
+                text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
+                tooltip: i18n("Change the theme.")
+
+                onClicked: {
+                    themeSelectionDialog.open()
+                }
+            }
+
+            ToolButton {
                 id: settingsButton
                 Layout.fillWidth: true
                 iconSource: "Images/settings_icon.png";
@@ -607,17 +618,6 @@ Item {
 
                 onClicked: {
                     languageSelectionDialog.open()
-                }
-            }
-
-            ToolButton {
-                id: themeSelectionButton
-                Layout.fillWidth: true
-                text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
-                tooltip: i18n("Change the theme.")
-
-                onClicked: {
-                    themeSelectionDialog.open()
                 }
             }
 
