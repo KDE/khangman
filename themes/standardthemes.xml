@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'utf-8'?>
 
 <KHangManThemes version="1">
-    <theme name="notes" author="Eugene Trounev" uiname="Notes" svgfilename="khangman_notes.png">
+    <theme name="notes" author="Eugene Trounev" uiname="Notes Theme" svgfilename="khangman_notes.png">
     <colors>
       <letterColor r="148" g="156" b="167" />
       <guessButtonColor r="115" g="64" b="49" />
