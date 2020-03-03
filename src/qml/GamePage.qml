@@ -73,7 +73,7 @@ Item {
 
     function disableLetterButton(letter) {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            if (alphabetLetterRepeater.itemAt(i).letter === letter) {
+            if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).enabled = false;
                 break;
             }
@@ -121,7 +121,7 @@ Item {
 
     function changeButtonColor(letter) {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            if (alphabetLetterRepeater.itemAt(i).letter == letter) {
+            if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).buttonColor = khangman.containsChar(letter) ? "green" : "red";
             }
         }
@@ -520,6 +520,7 @@ Item {
             Button {
                 id: alphabetButton;
                 property string letter: modelData
+                property string upperCase: modelData.toUpperCase()
                 property string buttonColor: "black"
 
                 style: ButtonStyle {
