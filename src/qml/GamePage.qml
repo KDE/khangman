@@ -131,7 +131,6 @@ Item {
         id: mainSettingsDialog
         property bool wasPlaying: false
         onOkClicked: {
-            console.log("okCLicked() signal received")
             // close the settings dialog
             mainSettingsDialog.close()
             if (wasPlaying) {
@@ -141,7 +140,6 @@ Item {
             }
         }
         onCancelClicked: {
-            console.log("cancelCLicked() signal received")
             // close the settings dialog
             mainSettingsDialog.close()
             if (wasPlaying) {
@@ -596,7 +594,6 @@ Item {
                 onClicked: {
                     // make the button toggle between display and hide the hint
                     hintLabel.visible = hintLabel.visible ? false : true
-                    //console.log("hintLabel.font.family = " + hintLabel.font.family)
                 }
             }
 
@@ -654,11 +651,7 @@ Item {
 
                 onClicked: {
                     if (khangman.soundEnabled) {
-                        //console.log("kahngman.sound = true")
-                        //console.log("checking sound effect loaded" + nextWordSoundeffect.isLoaded());
                         nextWordSoundEffect.play();
-                    } else {
-                        //console.log("khangman.soundEnabled = false")
                     }
 
                     nextWord();

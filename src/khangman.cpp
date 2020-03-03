@@ -278,7 +278,6 @@ void KHangMan::revealCurrentWord()
 void KHangMan::calculateNetScore()
 {
     m_netScore = ( m_winCount - m_lossCount ) * m_scoreMultiplyingFactor;
-    qDebug() << "Net Score = " << m_netScore;
     emit netScoreChanged();
 }
 
