@@ -45,6 +45,8 @@ import QtQuick.Controls.Styles 1.2
 
 Dialog {
     id: root
+    width: 400 // Set a width and height so title bar title will show up properly
+    height: 160
 
     // Common API
     property alias model: selectionListView.model
