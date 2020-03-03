@@ -61,8 +61,8 @@ Dialog {
                 property bool selected: index == selectedIndex;
 
                 height: categoryButton.height * 1.2
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors.left: root.left
+                anchors.right: root.right
                 anchors.leftMargin: categoryButton.height * 1.2
 
                 Button {

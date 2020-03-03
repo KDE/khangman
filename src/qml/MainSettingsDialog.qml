@@ -112,10 +112,7 @@ Dialog {
                 Label {
                     id: resolveTimeLabel;
 
-                    anchors {
-                        left: parent.left;
-                        verticalCenter: parent.verticalCenter;
-                    }
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
 
                     text: i18n("Word resolve time in seconds");
                     font.bold: true
@@ -130,9 +127,7 @@ Dialog {
                     updateValueWhileDragging : true
                     minimumValue: 0;
                     maximumValue: 300;
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                    }
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
                 Label {
@@ -145,10 +140,7 @@ Dialog {
                 ToolButton {
                     iconSource: "Images/dialog-information.png"
 
-                    anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
                     onClicked: {
                         khangmanWordResolveTimeUserGuideDialog.open();
@@ -162,10 +154,7 @@ Dialog {
 
                 Label {
                     id: scoreMultiplyingFactorLabel
-                    anchors {
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                    }
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
 
                     text: i18n("Score Multiplying Factor")
                     font.bold: true
@@ -192,10 +181,7 @@ Dialog {
                     ToolButton {
                         iconSource: "Images/dialog-information.png"
 
-                        anchors {
-                            right: parent.right;
-                            verticalCenter: parent.verticalCenter;
-                        }
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
                         onClicked: {
                             scoreMultiplyingFactorUserGuideDialog.open();
@@ -209,10 +195,7 @@ Dialog {
 
                 Label {
                     id: soundLabel
-                    anchors {
-                        left: parent.left;
-                        verticalCenter: parent.verticalCenter;
-                    }
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
 
                     text: i18n("Sounds");
                     font.bold: true
@@ -221,18 +204,13 @@ Dialog {
 
                 CheckBox {
                     id: soundsSwitch;
-                    anchors {
-                        verticalCenter: parent.verticalCenter;
-                    }
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
                 ToolButton {
                     iconSource: "Images/dialog-information.png"
 
-                    anchors {
-                        right: parent.right;
-                        verticalCenter: parent.verticalCenter;
-                    }
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
                     onClicked: {
                         soundsUserGuideDialog.open();
@@ -243,8 +221,8 @@ Dialog {
             Button {
                 id: cancelButton
 
+                Layout.alignment: Qt.AlignRight
                 anchors {
-                    right: parent.right
                     rightMargin: 5
                 }
 
@@ -259,7 +237,7 @@ Dialog {
 
                     label: Text {
                         id: cancelButtonLabel
-                        anchors.centerIn: parent
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
                         text: i18n("Cancel")
                         font.family : "Arial"
                         font.capitalization : Font.AllUppercase
@@ -280,9 +258,8 @@ Dialog {
             Button {
                 id: okButton
 
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                 anchors {
-                    right: cancelButton.left
-                    verticalCenter: cancelButton.verticalCenter
                     rightMargin: 10
                 }
 
@@ -297,7 +274,7 @@ Dialog {
 
                     label: Text {
                         id: okButtonLabel
-                        anchors.centerIn: parent
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
                         text: i18n("OK")
                         font.family : "Arial"
                         font.capitalization : Font.AllUppercase
