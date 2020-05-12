@@ -10,6 +10,7 @@
   <name xml:lang="cs">KHangMan</name>
   <name xml:lang="da">KHangMan</name>
   <name xml:lang="de">KHangMan</name>
+  <name xml:lang="el">KHangMan</name>
   <name xml:lang="en-GB">KHangMan</name>
   <name xml:lang="es">KHangMan</name>
   <name xml:lang="et">KHangMan</name>
@@ -43,6 +44,7 @@
   <summary xml:lang="ca-valencia">Joc del penjat</summary>
   <summary xml:lang="cs">Hra Hangman</summary>
   <summary xml:lang="de">Buchstabierspiel</summary>
+  <summary xml:lang="el">Κρεμάλα</summary>
   <summary xml:lang="en-GB">Hangman Game</summary>
   <summary xml:lang="es">Juego del ahorcado</summary>
   <summary xml:lang="et">Poomismäng</summary>
@@ -76,6 +78,7 @@
     <p xml:lang="ca">El KHangMan és un joc basat en el conegut joc del penjat. Està dirigit a infants de 6 anys o més. El joc disposa de diverses categories de paraules amb les quals jugar, per exemple: Animals (noms d'animals) i tres nivells de dificultat: fàcil, mitjà i difícil. Es tria una paraula aleatòriament, les lletres resten ocultes i s'ha d'endevinar la paraula provant una lletra rere l'altra. Cada vegada que s'escriu una lletra errònia es va dibuixant la imatge del penjat. Haureu d'endevinar-la abans de quedar penjat! Disposareu de 10 intents.</p>
     <p xml:lang="ca-valencia">El KHangMan és un joc basat en el conegut joc del penjat. Està dirigit a infants de 6 anys o més. El joc disposa de diverses categories de paraules amb les quals jugar, per exemple: Animals (noms d'animals) i tres nivells de dificultat: fàcil, mitjà i difícil. Es tria una paraula aleatòriament, les lletres resten ocultes i s'ha d'endevinar la paraula provant una lletra rere l'altra. Cada vegada que s'escriu una lletra errònia es va dibuixant la imatge del penjat. Haureu d'endevinar-la abans de quedar penjat! Disposareu de 10 intents.</p>
     <p xml:lang="de">KHangMan ist ein Spiel, das auf dem wohlbekannten Galgenmännchen basiert. Es ist ein Spiel für Kinder ab 6 Jahren mit verschiedenen Wort-Kategorien, zum Beispiel Tiere (Tiernamen) und weitere drei Kategorien mit unterschiedlichen Schwierigkeitsstufen: Leicht, Mittel und Schwer. Ein Wort wird zufällig ausgewählt, die Buchstaben verdeckt und Sie müssen das Wort raten, indem Sie einen Buchstaben nach dem anderen eingeben. Jedesmal, wenn Sie einen falschen Buchstaben eingeben, wird ein weiterer Teil des Galgenmännchens gezeichnet. Sie müssen das gesuchte Wort erraten, ehe das Galgenmännchen fertig gezeichnet ist! Dafür haben Sie 10 Versuche.</p>
+    <p xml:lang="el">Το KHangMan είναι ένα παιχνίδι που βασίζεται στην πολύ γνωστή Κρεμάλα. Απευθύνεται σε παιδιά ηλικίας από έξι ετών και άνω. Το παιχνίδι περιλαμβάνει πολλές κατηγορίες λέξεων, για παράδειγμα: Ζώα (λέξεις με ζώα) και τρία επίπεδα δυσκολίας: εύκολο, μέσο και δύσκολο. Μια λέξη επιλέγεται τυχαία, τα γράμματα είναι κρυμμένα και εσείς πρέπει να μαντέψετε τη λέξη δοκιμάζοντας το ένα γράμμα μετά το άλλο. Κάθε φορά που μαντεύετε λάθος, σχεδιάζεται ένα τμήμα της εικόνας της κρεμάλας. Πρέπει να μαντέψετε τη λέξη πριν κρεμαστείτε! Έχετε 10 προσπάθειες.</p>
     <p xml:lang="en-GB">KHangMan is a game based on the well-known hangman game. It is aimed at children aged six and over. The game has several categories of words to play with, for example: Animals (animals words) and three difficulty categories: Easy, Medium and Hard. A word is picked at random, the letters are hidden, and you must guess the word by trying one letter after another. Each time you guess a wrong letter, part of a picture of a hangman is drawn. You must guess the word before being hanged! You have 10 tries.</p>
     <p xml:lang="es">KHangMan es un juego basado en el conocido pasatiempo del ahorcado. Está dirigido a niños de seis años o más. El juego tiene varias categorías de palabras con las que jugar, por ejemplo: Animales (palabras relacionadas con animales) y tres categorías de distinta dificultad: fácil, media y difícil. Se selecciona una palabra de forma aleatoria, las letras se ocultan y se debe adivinar la palabra una letra tras otra. Cada vez que se falla en una letra, se dibuja una parte de la imagen del ahorcado. ¡Tiene que adivinar la palabra antes de que le cuelguen! Para ello tiene 10 intentos.</p>
     <p xml:lang="et">KHangMan tugineb tuntud poomismängule. See on mõeldud enam kui kuueaastastele lastele. Mängul on neli raskusastet (loomad ehk loomanimed, lihtne, keskmine ja raske). Sõna valitakse juhuslikult, tähed on peidetud ning sul tuleb sõna tähti ükshaaval pakkudes ära arvata. Iga kord, kui pakud vale tähe, joonistatakse poomispildile kriipsuke juurde. Nii et parem arva sõna ära, enne kui pooja oma tegevusega lõpule jõuab! Pakkuda saab 10 korda.</p>
@@ -109,6 +112,7 @@
       <caption xml:lang="ca-valencia">Jugant al KHangMan</caption>
       <caption xml:lang="cs">Hraní KHangMan</caption>
       <caption xml:lang="de">KHangMan spielen</caption>
+      <caption xml:lang="el">Παίζω Κρεμάλα</caption>
       <caption xml:lang="en-GB">Playing KHangMan</caption>
       <caption xml:lang="es">Jugando a KHangMan</caption>
       <caption xml:lang="et">KHangManis mängimine</caption>
