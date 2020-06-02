@@ -24,7 +24,7 @@
   <name xml:lang="lt">KHangMan</name>
   <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
-  <name xml:lang="nn">KHengtmann</name>
+  <name xml:lang="nn">KHangMan</name>
   <name xml:lang="pa">ਕੇਹੈਂਗਮੈਨ</name>
   <name xml:lang="pl">KWisielec</name>
   <name xml:lang="pt">KHangMan</name>
@@ -58,7 +58,7 @@
   <summary xml:lang="lt">Budelio žaidimas</summary>
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
-  <summary xml:lang="nn">Hengtmann-spel</summary>
+  <summary xml:lang="nn">Hengdmann-spel</summary>
   <summary xml:lang="pa">ਕੇਹੈਂਗਮੈਨ ਖੇਡ</summary>
   <summary xml:lang="pl">Gra w Wisielca</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
@@ -89,6 +89,7 @@
     <p xml:lang="it">KHangMan è basato sul ben noto gioco dell'impiccato. È pensato per i bambini da sei anni in su. Il gioco ha diverse categorie di parole con cui giocare tra cui Animali (parole di animali) e tre livelli di difficoltà: facile, medio e difficile. Una parola è scelta a caso, le lettere sono nascoste, e bisogna indovinare la parola provando una lettera alla volta. Ogni volta che provi una lettera sbagliata, compare parte dell'immagine di un impiccato. Devi indovinare la parola prima di farti impiccare! Hai a disposizione dieci tentativi.</p>
     <p xml:lang="nds">KHangMan is en Speel, dat op dat begäng Speel „Galgenraden“ opbuut. Dat is för Kinners vun söss Johr af. Dat Speel hett en Reeg Woortkategorien, so as „Deerten“, un de dree Swoorheitstopen „Eenfach“, „Middel“ un „Swoor“. Dat Woort warrt tofällig utsöcht, de Bookstaven sünd toeerst versteken, un Du muttst de an na den annern raden. Raadst Du verkehrt, warrt en mehr Deel vun den Mann an'n Galgen maalt. Du muttst dat Woort raadt hebben, ehr he fardig is! Du hest 10 Versöök.</p>
     <p xml:lang="nl">KHangMan is een spel dat is gebaseerd op het welbekende galgje. Het richt zich op kinderen van zes jaar en ouder. Het spel kent verschillende categorieën te spelen woorden waaronder: Dieren (dierenwoorden) en drie moeilijkheidsgraden, Eenvoudig, Middel en Moeilijk. Woorden worden willekeurig gekozen en de letters ervan worden verborgen. U raadt het woord door een voor een letters op te geven. Telkens als u een verkeerde letter raadt wordt er een gedeelte van de galg-afbeelding getekend. U moet het woord raden voordat u wordt opgehangen! U hebt 10 pogingen.</p>
+    <p xml:lang="nn">KHangMan er eit spel basert på det klassiske hengdmann-spelet. Målgruppa er ungar frå seks år og oppover. Spelet har fleire ordkategoriar du kan velja mellom, for eksempel dyrenamn, og tre vanskegradar – lett, middels og vanskeleg. Datamaskina vel eit tilfeldig ord, og du må gjetta alle bokstavane i ordet. Kvar gong du gjettar ein bokstav som ikkje finst i ordet, vert delar av ein hengdmann teikna opp. Du må gjetta heile ordet før mannen vert hengd! Du har 10 forsøk.</p>
     <p xml:lang="pl">KWisielec jest grą opartą na dobrze znanej grze w wisielca. Skierowana jest do dzieci w wieku powyżej sześciu lat. Gra ma kilka kategorii słów, którymi można zagrać, na przykład: Zwierzęta (słowa zwierzęce) i trzy kategorie trudności: Łatwa, Średnia i Trudna. Słowo jest wybierane losowo, litery są schowane, a ty musisz odgadnąć słowo próbując literkę po literce. Za każdym razem, gdy źle odgadniesz literkę, rysowana jest część wisielca. Musisz odgadnąć słowo przed powieszeniem! Masz 10 podejść.</p>
     <p xml:lang="pt">O KHangMan é um jogo baseado no conhecido jogo da forca. Destina-se a crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. É escolhida uma palavra de forma aleatória, as letras são escondidas e deverá adivinhar a palavra, escrevendo para tal uma letra após outra. De cada vez que errar uma letra, é desenhada parte da figura de um enforcado. Deverá desenhar a palavra antes que o enforcado fique completo! Tem 10 tentativas.</p>
     <p xml:lang="pt-BR">KHangMan é um jogo baseado no conhecido jogo da forca. É destinado às crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. Uma palavra é escolhida aleatoriamente, sendo ocultas as suas letras, para que você possa adivinhar a palavra, digitando uma letra após a outra. Cada vez que escolher uma letra errada, é desenhada uma parte de um enforcado. Você deverá adivinhar a palavra antes de ficar enforcado! Você tem 10 tentativas.</p>
