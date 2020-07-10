@@ -38,7 +38,7 @@
 #include <KNS3/DownloadDialog>
 #include <KHelpMenu>
 
-#include <keduvocdocument.h>
+#include <KEduVocDocument>
 #include <keduvocexpression.h>
 #include <sharedkvtmlfiles.h>
 
