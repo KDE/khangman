@@ -18,7 +18,6 @@ target_link_libraries(khangman
     KF5::Crash
     KF5::I18n
     KF5::NewStuff
-    KF5::Declarative
     LibKEduVocDocumentImport__KEduVocDocument
 )
 

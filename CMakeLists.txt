@@ -11,7 +11,7 @@ project(khangman VERSION ${RELEASE_SERVICE_VERSION})
 include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
 
-find_package(ECM 1.7.0 NO_MODULE REQUIRED)
+find_package(ECM 5.15.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDEInstallDirs)
@@ -22,14 +22,13 @@ include(GenerateExportHeader)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
-find_package(KF5 5.15.0 REQUIRED COMPONENTS
+find_package(KF5 5.17.0 REQUIRED COMPONENTS
     I18n
     Crash
     Completion
     Config
     CoreAddons
     ConfigWidgets
-    Declarative
     DocTools
     NewStuff
     Notifications

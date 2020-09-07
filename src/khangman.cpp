@@ -22,15 +22,15 @@
 
 #include "khangman.h"
 
-
 #include <QApplication>
 #include <QDir>
 #include <QStandardPaths>
 #include <QQuickWidget>
 #include <QQmlContext>
+#include <QQmlEngine>
 #include <QPointer>
 
-#include <KDeclarative/KDeclarative>
+#include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandomSequence>
@@ -62,9 +62,9 @@ KHangMan::KHangMan()
     m_view = new QQuickWidget(this);
     m_view->rootContext()->setContextProperty(QStringLiteral("khangman"), this);
 
-    KDeclarative::KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(m_view->engine());
-    kdeclarative.setupContext();
+    // prepare i18n
+    auto context = new KLocalizedContext(this);
+    m_view->engine()->rootContext()->setContextObject(context);
 
     KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
