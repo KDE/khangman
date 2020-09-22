@@ -12,7 +12,7 @@ include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
 
 find_package(ECM 5.15.0 NO_MODULE REQUIRED)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
