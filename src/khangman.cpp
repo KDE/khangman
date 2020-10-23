@@ -34,7 +34,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandomSequence>
-#include <KSharedConfig>
 #include <KNS3/DownloadDialog>
 #include <KHelpMenu>
 
