@@ -5,11 +5,11 @@
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>KHangman User's Manual</title>
+<title>&khangman; User's Manual</title>
 <author><firstname>Ben</firstname><surname>Burton</surname> <contrib>&khangman; man page.</contrib> 
 <email>bab@debian.org</email></author>
-<date>2016-04-25</date>
-<productname>KDE Applications</productname>
+<date>2020-12-22</date>
+<productname>Applications 20.12</productname>
 </refentryinfo>
 
 <refmeta>
@@ -24,12 +24,12 @@
 
 <refsect1>
 <title>Description</title>
-<para>&khangman; is a game based on the well known hangman game.  It is
-aimed for children 6 and above.  It has several word categories like Animals, 
+<para>&khangman; is a game based on the well known hangman game. It is
+aimed for children 6 and above. It has several word categories like Animals,
 Clothing, Computers, Currencies and more.</para><para>A word is picked at
 random and the letters are hidden. You must guess the word by trying one
-letter after another.  Each time you guess a wrong letter, part of a picture
-of a hangman is drawn.  You must guess the word before getting hanged!  You
+letter after another. Each time you guess a wrong letter, part of a picture
+of a hangman is drawn. You must guess the word before getting hanged! You
 have 10 tries.</para><para>This application is part of the &kde; Edutainment
 module.</para>
 </refsect1>
@@ -37,9 +37,8 @@ module.</para>
 <refsect1>
 <title>See Also</title>
 <para>More detailed user documentation is available from <ulink
-url="help:/khangman">help:/khangman</ulink>
-(either enter this <acronym>URL</acronym> into &konqueror;, or run
-<userinput><command>khelpcenter</command>
+url="help:/khangman">help:/khangman</ulink> (either enter this &URL; into
+&konqueror;, or run <userinput><command>khelpcenter</command>
 <parameter>help:/khangman</parameter></userinput>).</para>
 
 <para>There is also further information available at the <ulink url="https://edu.kde.org/khangman/">&kde; Edutainment web site</ulink>.</para>
@@ -48,7 +47,7 @@ url="help:/khangman">help:/khangman</ulink>
 <refsect1>
 <title>Authors</title>
 <para>&khangman; was written by <personname><firstname>Primoz</firstname><surname>Anzur</surname></personname> and &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
-<para>This manual page based on the one prepared by <personname><firstname>Ben</firstname><surname>Burton</surname></personname> for the Debian project.</para>
+<para>This manual page based on the one prepared by <personname><firstname>Ben</firstname><surname>Burton</surname></personname> for the &Debian; project.</para>
 
 
 </refsect1>
