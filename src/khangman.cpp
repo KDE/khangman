@@ -620,7 +620,9 @@ void KHangMan::loadLanguageSpecialCharacters()
         QFile openFileStream(langFile.fileName());
         openFileStream.open(QIODevice::ReadOnly);
         QTextStream readFileStr(&openFileStream);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         readFileStr.setCodec("UTF-8");
+#endif
 
         // m_specialCharacters contains all the words from the file
         // FIXME: Better name
