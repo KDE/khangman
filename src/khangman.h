@@ -169,8 +169,6 @@ public slots:
 
 signals:
 
-    void signalSetWins(int wins);
-    void signalSetLosses(int losses);
     void resolveTimeChanged();
     void soundEnabledChanged();
     void currentLanguageChanged();
