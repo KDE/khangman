@@ -9,4 +9,3 @@ Categories=KHangMan
 UploadCategories=KHangMan
 TargetDir=apps/kvtml
 Uncompress=never
-AcceptHtmlDownloads=true
