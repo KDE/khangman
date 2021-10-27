@@ -76,7 +76,7 @@ public:
     /**
     * Default Destructor
     */
-    virtual ~KHangMan();
+    ~KHangMan() override;
 
     // These accessor and mutator methods are not needed once the
     // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
