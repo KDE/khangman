@@ -27,6 +27,8 @@ import QtMultimedia 5.0
 import QtQml 2.2
 import QtGraphicalEffects 1.0
 
+import org.kde.newstuff 1.81 as NewStuff
+
 Item {
 
     id: gamePage
@@ -326,6 +328,7 @@ Item {
                 Layout.fillWidth: true
                 iconSource: "Images/get-hot-new-stuff.png"
                 tooltip: i18n("Download new language files")
+                visible: NewStuff.Settings.allowedByKiosk
 
                 onClicked: {
                     khangman.slotDownloadNewStuff()

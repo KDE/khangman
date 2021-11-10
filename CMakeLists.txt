@@ -25,7 +25,7 @@ include(GenerateExportHeader)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
-find_package(KF5 5.17.0 REQUIRED COMPONENTS
+find_package(KF5 5.81.0 REQUIRED COMPONENTS
     I18n
     Crash
     Completion
