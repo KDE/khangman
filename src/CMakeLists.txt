@@ -7,7 +7,16 @@ include_directories(
     ${PHONON_INCLUDES}
 )
 
-set(khangman_SRCS main.cpp khangman.cpp khmtheme.cpp khmthemefactory.cpp langutils.cpp)
+set(khangman_SRCS khangman.cpp
+    khangman.h
+    khmtheme.cpp
+    khmthemefactory.cpp
+    khmthemefactory.h
+    khmtheme.h
+    langutils.cpp
+    langutils.h
+    main.cpp
+)
 kconfig_add_kcfg_files(khangman_SRCS prefs.kcfgc)
 add_executable(khangman ${khangman_SRCS})
 # generate_export_header(khangman BASE_NAME KHANGMAN)
