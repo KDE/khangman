@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "22")
@@ -6,12 +6,15 @@ set(RELEASE_SERVICE_VERSION_MINOR "03")
 set(RELEASE_SERVICE_VERSION_MICRO "70")
 set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
+set(QT_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.82.0")
+
 project(khangman VERSION ${RELEASE_SERVICE_VERSION})
 
 include(FeatureSummary)
-find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
 
-find_package(ECM 5.15.0 NO_MODULE REQUIRED)
+find_package(ECM ${KF5_MIN_VERSION} NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 
 include(KDEInstallDirs)
