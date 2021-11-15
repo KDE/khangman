@@ -34,9 +34,6 @@
 #include <QQmlEngine>
 #include <QCommandLineParser>
 
-static const char description[] =
-        I18N_NOOP("Classical hangman game by KDE");
-
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
@@ -56,10 +53,10 @@ int main(int argc, char **argv)
 
     app.connect(&app, &QGuiApplication::lastWindowClosed, &app, &QCoreApplication::quit);
 
-    KAboutData aboutData(I18N_NOOP("khangman"),
+    KAboutData aboutData(QStringLiteral("khangman"),
                          i18n("KHangMan"),
                          QStringLiteral(KHANGMAN_VERSION_STRING),
-                         i18n(description),
+                         i18n("Classical hangman game by KDE"),
                          KAboutLicense::GPL,
                          i18n("(c) 2001-2011, Anne-Marie Mahfouf"));
     aboutData.addAuthor(i18n("Primoz Anzur"), i18n("Previous maintainer"),
