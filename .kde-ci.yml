@@ -16,4 +16,4 @@ Dependencies:
     'frameworks/knotifications': '@stable'
     'frameworks/kxmlgui': '@stable'
     'frameworks/kio': '@stable'
-    'kdeedu/libkeduvocdocument': '@same'
+    'education/libkeduvocdocument': '@same'
