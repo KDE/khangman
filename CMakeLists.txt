@@ -32,13 +32,16 @@ find_package(KF5 5.81.0 REQUIRED COMPONENTS
     Config
     CoreAddons
     ConfigWidgets
-    DocTools
     NewStuff
     Notifications
     XmlGui
     KIO
 )
-
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
@@ -54,7 +57,9 @@ add_subdirectory( icons )
 ki18n_install(po)
 if (KF5DocTools_FOUND)
     kdoctools_install(po)
+    add_subdirectory(doc)
 endif()
+
 install(FILES org.kde.khangman.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
