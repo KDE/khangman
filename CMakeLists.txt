@@ -11,9 +11,6 @@ set(KF5_MIN_VERSION "5.82.0")
 
 project(khangman VERSION ${RELEASE_SERVICE_VERSION})
 
-include(FeatureSummary)
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
-
 find_package(ECM ${KF5_MIN_VERSION} NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 
@@ -25,7 +22,11 @@ include(GenerateExportHeader)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
-find_package(KF5 5.81.0 REQUIRED COMPONENTS
+include(FeatureSummary)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
+
+
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     I18n
     Crash
     Completion

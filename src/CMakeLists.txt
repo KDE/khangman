@@ -22,8 +22,8 @@ kconfig_add_kcfg_files(khangman prefs.kcfgc)
 # generate_export_header(khangman BASE_NAME KHANGMAN)
 
 target_link_libraries(khangman
-    Qt5::QuickWidgets
-    Qt5::Core
+    Qt${QT_MAJOR_VERSION}::QuickWidgets
+    Qt${QT_MAJOR_VERSION}::Core
     KF5::Crash
     KF5::I18n
     KF5::NewStuff
