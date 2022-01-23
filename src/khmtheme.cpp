@@ -51,7 +51,7 @@ QString KHMTheme::name()
 
 QString KHMTheme::uiName()
 {
-    return i18n(KHMuiName.toLatin1());
+    return i18n(KHMuiName.toLatin1().constData());
 }
 
 QString KHMTheme::svgFileName()

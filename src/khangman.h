@@ -132,7 +132,7 @@ public:
     /** Reveals the solution to the current puzzle */
     Q_INVOKABLE void revealCurrentWord();
 
-public slots:
+public Q_SLOTS:
     ///When the language is changed in the Language menu
     void setCurrentLanguage(int index);
 
@@ -167,7 +167,7 @@ public slots:
     void showAboutKDE();
     void showHandbook();
 
-signals:
+Q_SIGNALS:
 
     void resolveTimeChanged();
     void soundEnabledChanged();

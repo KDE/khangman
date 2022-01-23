@@ -139,13 +139,13 @@ int main(int argc, char **argv)
     QFont f(QStringLiteral("Domestic Manners"), 12, QFont::Normal, true);
     if (!QFontInfo(f).exactMatch())
     {
-        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("fonts/Domestic_Manners.ttf")));
+        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("fonts/Domestic_Manners.ttf")));
     }
 
     QFont fd(QStringLiteral("Dustismo Roman"), 12, QFont::Normal, true);
     if (!QFontInfo(fd).exactMatch())
     {
-        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("fonts/Dustismo_Roman.ttf")));
+        QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("fonts/Dustismo_Roman.ttf")));
     }
 
     KHangMan hangman;

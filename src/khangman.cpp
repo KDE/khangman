@@ -33,8 +33,8 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KRandomSequence>
-#include <KNS3/DownloadDialog>
+#include <KRandom>
+#include <KNS3/QtQuickDialogWrapper>
 #include <KHelpMenu>
 
 #include <KEduVocDocument>
@@ -112,7 +112,7 @@ void KHangMan::showHandbook()
 
 KConfigGroup KHangMan::config(const QString &group)
 {
-    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
+    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + QStringLiteral("rc")), group);
 }
 
 // ----------------------------------------------------------------
@@ -124,7 +124,7 @@ void KHangMan::setCurrentCategory(int index)
     Prefs::setLevelFile(currentLevel.value());
     Prefs::self()->save();
     m_currentCategory = index;
-    emit currentCategoryChanged();
+    Q_EMIT currentCategoryChanged();
 }
 
 void KHangMan::setCurrentLanguage(int index)
@@ -136,7 +136,7 @@ void KHangMan::setCurrentLanguage(int index)
         loadLevels();
         loadLanguageSpecialCharacters();
         setLevel();
-        emit currentLanguageChanged();
+        Q_EMIT currentLanguageChanged();
     }
 }
 
@@ -145,7 +145,7 @@ void KHangMan::setCurrentTheme(int index)
     KHMTheme *theme = m_themeFactory.buildTheme(index);
     Prefs::setTheme(theme->name());
     Prefs::self()->save();
-    emit currentThemeChanged();
+    Q_EMIT currentThemeChanged();
 }
 
 void KHangMan::readFile()
@@ -177,7 +177,7 @@ void KHangMan::nextWord()
         m_originalWord = m_originalWord.toUpper();
         m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
 
-        emit currentHintChanged();
+        Q_EMIT currentHintChanged();
     }
 
     if (m_originalWord.isEmpty()) {
@@ -190,11 +190,11 @@ void KHangMan::nextWord()
     int originalWordSize = m_originalWord.size();
 
     while (m_currentWord.size() < originalWordSize)
-        m_currentWord.append("_");
+        m_currentWord.append(QLatin1Char('_'));
 
     // Find dashes, spaces, middot and apostrophe
-    QString search = QStringLiteral("- ·'");
-    Q_FOREACH(const QChar &key, search) {
+    const QString search = QStringLiteral("- ·'");
+    for (const QChar &key : search) {
         int pos = m_originalWord.indexOf( key );
         while (pos > 0) {
             m_currentWord.replace(pos, 1, key);
@@ -202,7 +202,7 @@ void KHangMan::nextWord()
         }
     }
 
-    emit currentWordChanged();
+    Q_EMIT currentWordChanged();
 
     ++m_randomInt;
 }
@@ -219,7 +219,6 @@ void KHangMan::slotSetWordsSequence()
     int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
 
     //get the words+hints
-    KRandomSequence randomSequence;
     m_randomList.clear();
     for (int j = 0; j < wordCount; ++j) {
         QString hint = m_doc->lesson()->entries (KEduVocLesson::Recursive).at(j)->translation(0)->comment();
@@ -232,7 +231,7 @@ void KHangMan::slotSetWordsSequence()
         }
     }
     //shuffle the list
-    randomSequence.randomize(m_randomList);
+    KRandom::shuffle(m_randomList);
 }
 
 QString KHangMan::stripAccents(const QString & original)
@@ -260,7 +259,7 @@ void KHangMan::replaceLetters(const QString& charString)
                 break;
         }
     }
-    emit currentWordChanged();
+    Q_EMIT currentWordChanged();
 }
 
 bool KHangMan::isResolved() const
@@ -271,13 +270,13 @@ bool KHangMan::isResolved() const
 void KHangMan::revealCurrentWord()
 {
     m_currentWord = m_originalWord;
-    emit currentWordChanged();
+    Q_EMIT currentWordChanged();
 }
 
 void KHangMan::calculateNetScore()
 {
     m_netScore = ( m_winCount - m_lossCount ) * m_scoreMultiplyingFactor;
-    emit netScoreChanged();
+    Q_EMIT netScoreChanged();
 }
 
 bool KHangMan::containsChar(const QString &sChar)
@@ -293,7 +292,7 @@ int KHangMan::resolveTime()
 void KHangMan::setResolveTime(int resolveTime)
 {
     Prefs::setResolveTime(resolveTime);
-    emit resolveTimeChanged();
+    Q_EMIT resolveTimeChanged();
 }
 
 bool KHangMan::soundEnabled()
@@ -304,7 +303,7 @@ bool KHangMan::soundEnabled()
 void KHangMan::setSoundEnabled(bool sound)
 {
     Prefs::setSound(sound);
-    emit soundEnabledChanged();
+    Q_EMIT soundEnabledChanged();
 }
 
 QStringList KHangMan::languages()
@@ -321,7 +320,7 @@ void KHangMan::setWinCount(int count)
 {
     m_winCount = count;
     calculateNetScore();
-    emit winCountChanged();
+    Q_EMIT winCountChanged();
 }
 
 int KHangMan::lossCount() const
@@ -333,7 +332,7 @@ void KHangMan::setLossCount(int count)
 {
     m_lossCount = count;
     calculateNetScore();
-    emit lossCountChanged();
+    Q_EMIT lossCountChanged();
 }
 
 int KHangMan::scoreMultiplyingFactor() const
@@ -345,7 +344,7 @@ void KHangMan::setScoreMultiplyingFactor( int factor )
 {
     m_scoreMultiplyingFactor = factor;
     calculateNetScore();
-    emit scoreMultiplyingFactorChanged();
+    Q_EMIT scoreMultiplyingFactorChanged();
 }
 
 int KHangMan::netScore() const
@@ -375,7 +374,7 @@ QString KHangMan::backgroundUrl()
     int index = themes.indexOf(Prefs::theme());
     KHMTheme *theme = m_themeFactory.buildTheme(index);
     if (theme) {
-        QString filename = QStandardPaths::locate(QStandardPaths::DataLocation, "themes/" + theme->svgFileName());
+        QString filename = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName());
         return filename;
     }
     return QString();
@@ -409,7 +408,7 @@ QStringList KHangMan::currentWord() const
 {
     QStringList currentWordLetters;
 
-    foreach (const QChar& currentWordLetter, m_currentWord)
+    for (const QChar& currentWordLetter : std::as_const(m_currentWord))
     {
         currentWordLetters.append(currentWordLetter);
     }
@@ -453,7 +452,7 @@ QStringList KHangMan::languageNames() const
 
     QStringList languageNames;
 
-    foreach (const QString& languageCode, languageCodes)
+    for (const QString& languageCode : std::as_const(languageCodes))
     {
         QLocale locale(languageCode);
         QString languageName = locale.nativeLanguageName();
@@ -500,7 +499,7 @@ void KHangMan::scanLanguages()
             m_currentLanguage = i;
     }
 
-    emit languagesChanged();
+    Q_EMIT languagesChanged();
 }
 
 void KHangMan::setLevel()
@@ -509,7 +508,7 @@ void KHangMan::setLevel()
     if (m_currentCategory > m_titleLevels.count()) {
         m_currentCategory = 0;
     }
-    emit currentCategoryChanged();
+    Q_EMIT currentCategoryChanged();
 }
 
 void KHangMan::show()
@@ -518,7 +517,7 @@ void KHangMan::show()
         if (m_themeFactory.getQty() > 0) {  // themes present
             QMainWindow::show();
             // add the qml view as the main widget
-            QString location = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("qml/main.qml"));
+            QString location = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("qml/main.qml"));
             QUrl url = QUrl::fromLocalFile(location);
             m_view->setSource(url);
         } else { // themes not present
@@ -554,20 +553,20 @@ bool KHangMan::loadLevels()
     for(int i = 0; i < levelFilenames.count(); ++i) {
         m_titleLevels.insert(titles.at(i), levelFilenames.at(i));
     }
-    emit categoriesChanged();
+    Q_EMIT categoriesChanged();
 
     if (!levelFilenames.contains(Prefs::levelFile())) {
         Prefs::setLevelFile(m_titleLevels.constBegin().value());
         Prefs::setCurrentLevel(0);
         m_currentCategory = 0;
-        emit currentCategoryChanged();
+        Q_EMIT currentCategoryChanged();
         Prefs::self()->save();
     }
 
     // don't run off the end of the list
     if (m_currentCategory!=-1 && m_currentCategory > m_titleLevels.count()) {
         m_currentCategory = m_titleLevels.count();
-        emit currentCategoryChanged();
+        Q_EMIT currentCategoryChanged();
     }
 
     setLevel();
@@ -577,17 +576,15 @@ bool KHangMan::loadLevels()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog(QStringLiteral("khangman.knsrc"), this);
-    dialog->exec();
-    if (!dialog->changedEntries().isEmpty()) {
+    KNS3::QtQuickDialogWrapper dialog(QStringLiteral("khangman.knsrc"), this);
+    const QList<KNSCore::EntryInternal> entries = dialog.exec();
+    if ( entries.size() > 0 ){
         SharedKvtmlFiles::sortDownloadedFiles();
         //look for languages dirs installed
         scanLanguages();
         //refresh Languages menu
         setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
     }
-
-    delete dialog;
 }
 
 void KHangMan::loadLanguageSpecialCharacters()
@@ -626,7 +623,7 @@ void KHangMan::loadLanguageSpecialCharacters()
 
         // m_specialCharacters contains all the words from the file
         // FIXME: Better name
-        m_specialCharacters = readFileStr.readAll().split('\n');
+        m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'));
         openFileStream.close();
     }
 }
