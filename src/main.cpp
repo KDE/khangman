@@ -24,7 +24,9 @@
 #include <KAboutData>
 
 #include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <Kdelibs4ConfigMigrator>
+#endif
 #include <KCrash>
 
 #include <QApplication>
@@ -37,12 +39,13 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QStringList configFiles;
     configFiles << QStringLiteral("khangmanrc");
     Kdelibs4ConfigMigrator migrator(QStringLiteral("khangman"));
     migrator.setConfigFiles(configFiles);
     migrator.migrate();
+#endif
 
     KLocalizedString::setApplicationDomain("khangman");
     QApplication::setApplicationName(QStringLiteral("khangman"));
