@@ -168,22 +168,25 @@ void KHangMan::readFile()
 
 void KHangMan::nextWord()
 {
+    // If there are no words, there's nothing we can do, trying will crash
     if (m_randomList.count() == 0) {
-        m_originalWord = m_randomList[0].first;
-        m_hint = m_randomList[0].second;
         return;
-    } else {
-        m_originalWord = m_randomList[m_randomInt%m_randomList.count()].first;
-        m_originalWord = m_originalWord.toUpper();
-        m_hint = m_randomList[m_randomInt%m_randomList.count()].second;
-
-        Q_EMIT currentHintChanged();
     }
+
+    // Not sure why we are doing mod count here, may simplify later to just use m_randomInt
+    // since the list is already shuffled.
+    int whichWord = m_randomInt % m_randomList.count();
+
+    m_originalWord = m_randomList[whichWord].first;
+    m_originalWord = m_originalWord.toUpper();
+    m_hint = m_randomList[whichWord].second;
 
     if (m_originalWord.isEmpty()) {
         ++m_randomInt;
         nextWord();
     }
+
+    Q_EMIT currentHintChanged();
 
     m_currentWord.clear();
 

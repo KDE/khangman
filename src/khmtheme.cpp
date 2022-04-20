@@ -27,21 +27,21 @@ KHMTheme::KHMTheme( const QString &name, const QString &uiName, const QString &s
             QRect wordRect, QRect hintRect, QRect kRect,
             QColor letterColor, QColor guessButtonTextColor, QColor guessButtonColor, QColor guessButtonHoverColor, QColor letterInputTextColor,
             QPoint goodWordPos)
+    :KHMname(name),
+      KHMuiName(uiName),
+      KHMsvgFileName(svgFileName),
+      KHMauthor(author),
+      KHMthemeVersion(themeVersion),
+      KHMwordRect(wordRect),
+      KHMhintRect(hintRect),
+      KHMkRect(kRect),
+      KHMletterColor(letterColor),
+      KHMguessButtonTextColor(guessButtonTextColor),
+      KHMguessButtonColor(guessButtonColor),
+      KHMguessButtonHoverColor(guessButtonHoverColor),
+      KHMletterInputTextColor(letterInputTextColor),
+      KHMgoodWordPos(goodWordPos)
 {
-    KHMname=name;
-    KHMuiName=uiName;
-    KHMsvgFileName=svgFileName;
-    KHMauthor=author;
-    KHMthemeVersion=themeVersion;
-    KHMwordRect=wordRect;
-    KHMhintRect=hintRect;
-    KHMkRect=kRect;
-    KHMletterColor=letterColor;
-    KHMguessButtonTextColor=guessButtonTextColor;
-    KHMguessButtonColor=guessButtonColor;
-    KHMguessButtonHoverColor=guessButtonHoverColor;
-    KHMletterInputTextColor=letterInputTextColor;
-    KHMgoodWordPos=goodWordPos;
 }
 
 QString KHMTheme::name()
