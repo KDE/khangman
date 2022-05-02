@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=khangman -qwindowtitle "%c" %i
+Exec=khangman -qwindowtitle "%c"
 Icon=khangman
 X-DocPath=khangman/index.html
 Comment=KDE Hangman Game
