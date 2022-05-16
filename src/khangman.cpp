@@ -142,7 +142,7 @@ void KHangMan::setCurrentLanguage(int index)
 
 void KHangMan::setCurrentTheme(int index)
 {
-    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    const KHMTheme *theme = m_themeFactory.getTheme(index);
     Prefs::setTheme(theme->name());
     Prefs::self()->save();
     Q_EMIT currentThemeChanged();
@@ -373,9 +373,7 @@ int KHangMan::currentTheme()
 
 QString KHangMan::backgroundUrl()
 {
-    QStringList themes = m_themeFactory.getNames();
-    int index = themes.indexOf(Prefs::theme());
-    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
         QString filename = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName());
         return filename;
@@ -387,9 +385,7 @@ QColor KHangMan::currentThemeLetterColor()
 {
     // Default to white letters
     QColor color = "white";
-    QStringList themes = m_themeFactory.getNames();
-    int index = themes.indexOf(Prefs::theme());
-    KHMTheme *theme = m_themeFactory.buildTheme(index);
+    const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
         color = theme->letterColor();
     }

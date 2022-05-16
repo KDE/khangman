@@ -44,75 +44,30 @@ KHMTheme::KHMTheme( const QString &name, const QString &uiName, const QString &s
 {
 }
 
-QString KHMTheme::name()
-{
-    return KHMname;
-}
-
-QString KHMTheme::uiName()
+QString KHMTheme::uiName() const
 {
     return i18n(KHMuiName.toLatin1().constData());
 }
 
-QString KHMTheme::svgFileName()
-{
-    return KHMsvgFileName;
-}
-
-QColor KHMTheme::letterInputTextColor()
-{
-    return KHMletterInputTextColor;
-}
-
-QString KHMTheme::getAuthor()
-{
-    return KHMauthor;
-}
-
-QString KHMTheme::getThemeVersion()
-{
-    return KHMthemeVersion;
-}
-
-QRect KHMTheme::wordRect(const QSize& windowsize)
+QRect KHMTheme::wordRect(const QSize& windowsize) const
 {
     return QRect(windowsize.width()*KHMwordRect.x()/10000,    windowsize.height()*KHMwordRect.y()/10000,
            windowsize.width()*KHMwordRect.width()/10000,    windowsize.height()*KHMwordRect.height()/10000);
 }
 
-QRect KHMTheme::hintRect(const QSize& windowsize)
+QRect KHMTheme::hintRect(const QSize& windowsize) const
 {
     return QRect(windowsize.width()*KHMhintRect.x()/10000,    windowsize.height()*KHMhintRect.y()/10000,
            windowsize.width()*KHMhintRect.width()/10000,    windowsize.height()*KHMhintRect.height()/10000);
 }
 
-QRect KHMTheme::kRect(const QSize& windowsize)
+QRect KHMTheme::kRect(const QSize& windowsize) const
 {
     return QRect(windowsize.width()*KHMkRect.x()/10000,       windowsize.height()*KHMkRect.y()/10000,
             windowsize.width()*KHMkRect.width()/10000,       windowsize.height()*KHMkRect.height()/10000);
 }
 
-QColor KHMTheme::letterColor()
-{
-    return KHMletterColor;
-}
-
-QColor KHMTheme::guessButtonTextColor()
-{
-    return KHMguessButtonTextColor;
-}
-
-QColor KHMTheme::guessButtonColor()
-{
-    return KHMguessButtonColor;
-}
-
-QColor KHMTheme::guessButtonHoverColor()
-{
-    return KHMguessButtonHoverColor;
-}
-
-QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos)   //works good
+QPoint KHMTheme::goodWordPos(const QSize& windowsize, const QPoint& popupPos) const  //works good
 {
     return QPoint(popupPos.x() + windowsize.width()*KHMgoodWordPos.x()/10000,
                     popupPos.y() + windowsize.height()*KHMgoodWordPos.y()/10000);

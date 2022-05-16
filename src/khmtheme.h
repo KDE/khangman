@@ -30,7 +30,7 @@ class KHMTheme
     QRect KHMwordRect, KHMhintRect, KHMkRect;
     QColor KHMletterColor, KHMguessButtonTextColor, KHMguessButtonColor, KHMguessButtonHoverColor, KHMletterInputTextColor;
     QPoint KHMgoodWordPos;
-    
+
   public:
     KHMTheme(   const QString &name, const QString &uiName, const QString &svgFileName, const QString &author, const QString &themeVersion,
                 QRect wordRect, QRect hintRect, QRect kRect,
@@ -38,35 +38,34 @@ class KHMTheme
                 QPoint goodWordPos);
 
     ///The name of theme as in the folder
-    QString name();
+    QString name() const { return KHMname; }
     ///The name of the theme in the menu
-    QString uiName();
+    QString uiName() const;
     ///Get the svg n22 the theme
-    QString svgFileName();
+    QString svgFileName() const { return KHMsvgFileName; }
     ///Set the position and size for drawing the word to guess
-    QRect wordRect(const QSize& windowsize);
+    QRect wordRect(const QSize& windowsize) const;
 
-    QRect hintRect(const QSize& windowsize);
+    QRect hintRect(const QSize& windowsize) const;
 
     ///Set the position and size for drawing the hanged K
-    QRect kRect(const QSize& windowsize);
+    QRect kRect(const QSize& windowsize) const;
     ///Set the color for the word and the missed letters
-    QColor letterColor();
+    QColor letterColor() const { return KHMletterColor; }
     ///Set the color of the Guess word
-    QColor guessButtonTextColor();
+    QColor guessButtonTextColor() const { return KHMguessButtonTextColor; }
     ///Set the color of the Guess button background
-    QColor guessButtonColor();
+    QColor guessButtonColor() const { return KHMguessButtonColor; }
     ///Set the color of the Guess button background when the mouse is over it
-    QColor guessButtonHoverColor();
+    QColor guessButtonHoverColor() const { return KHMguessButtonHoverColor; }
     ///Set the color of the input text in the input widget
-    QColor letterInputTextColor();
+    QColor letterInputTextColor() const { return KHMletterInputTextColor; }
     ///Set the already guessed popup position
-    QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos);
+    QPoint goodWordPos(const QSize& windowsize, const QPoint& popupPos) const;
     //Find out who's the author
-    QString getAuthor();
+    QString getAuthor() const { return KHMauthor; }
     //Version is equal to a KHMTheme format version declared in XML file
-    QString getThemeVersion();
-    
+    QString getThemeVersion() const { return KHMthemeVersion; }
 };
 
 #endif

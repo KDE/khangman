@@ -34,23 +34,20 @@ class KHMTheme;
 class KHMThemeFactory
 {
 public:
-    KHMThemeFactory();
-    ~KHMThemeFactory();
-
     bool addTheme(const QString &filePath);    //returns "true" if theme has been added successfully, "false" otherwise
     void walkDirectory(const QDir &dir);   //walks the directory loads valid themes files. No recursion
 
     int getQty() const; //returns quantity of list
-    QStringList getNames(); //returns short names(worknames) of all the themes
-    QStringList themeList();    //returns user interface names of all the themes
-    KHMTheme * buildTheme(int id);  //Returns theme at "index". An "index" must exists
+    QStringList getNames() const; //returns short names(worknames) of all the themes
+    QStringList themeList() const;    //returns user interface names of all the themes
+    const KHMTheme * getTheme(int id) const;  //Returns theme at "index". An "index" must exists
 
 private:
     QList<KHMTheme> themesList;
 
-    QRect makeRect(const QDomElement &element, const QString &propertyName);
-    QColor getColor(const QDomElement &element, const QString &propertyName);
-    bool checkTheme(const QDomElement &root, const QString &themeVersion);
+    static QRect makeRect(const QDomElement &element, const QString &propertyName);
+    static QColor getColor(const QDomElement &element, const QString &propertyName);
+    static bool checkTheme(const QDomElement &root, const QString &themeVersion);
     void doTheme(const QDomElement &theme, const QString &version);
 };
 
