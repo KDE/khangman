@@ -57,6 +57,8 @@ add_subdirectory( fonts )
 
 add_subdirectory( icons )
 
+add_subdirectory( languages )
+
 ki18n_install(po)
 if (KF5DocTools_FOUND)
     kdoctools_install(po)
