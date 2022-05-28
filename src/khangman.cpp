@@ -423,28 +423,7 @@ QStringList KHangMan::alphabet() const
     return letterList;
 }
 
-QStringList KHangMan::languageNames() const
-{
-    QStringList languageCodes = SharedKvtmlFiles::languages();
-    if (languageCodes.isEmpty()) {
-        QApplication::instance()->quit();
-    }
-
-    QStringList languageNames;
-
-    for (const QString& languageCode : std::as_const(languageCodes))
-    {
-        QLocale locale(languageCode);
-        QString languageName = locale.nativeLanguageName();
-
-        languageNames.append(languageName);
-    }
-
-    return languageNames;
-}
-
 // ----------------------------------------------------------------
-
 
 void KHangMan::scanLanguages()
 {

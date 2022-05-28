@@ -120,8 +120,6 @@ public:
 
     Q_INVOKABLE QStringList alphabet() const;
 
-    Q_INVOKABLE QStringList languageNames() const;
-
     /** Return true if the word contains the char in the QString */
     Q_INVOKABLE bool containsChar(const QString &original);
 
