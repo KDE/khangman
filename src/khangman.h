@@ -192,8 +192,8 @@ private:
      */
     QString stripAccents(const QString & original);
 
-    ///Scan the files in the selected language dir to set the levels, returns true if succeeds
-    bool loadLevels();
+    ///Scan the files in the selected language dir to set the levels
+    void loadLevels();
     // Populate m_specialCharacters if the
     // current language has special characters.
     void loadLanguageSpecialCharacters();

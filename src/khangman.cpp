@@ -484,24 +484,22 @@ void KHangMan::scanLanguages()
 
 void KHangMan::show()
 {
-    if (loadLevels()) { // kvtml files have been found
-        if (m_themeFactory.getQty() > 0) {  // themes present
-            QMainWindow::show();
-            // add the qml view as the main widget
-            QString location = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("qml/main.qml"));
-            QUrl url = QUrl::fromLocalFile(location);
-            m_view->setSource(url);
-        } else { // themes not present
-            QMessageBox::information(this, i18n("Error"), i18n("No theme files found."));
-            exit(EXIT_FAILURE);
-        }
-    } else { // no kvtml files present
-        QMessageBox::information(this, i18n("Error"), i18n("No kvtml files found."));
+    loadLevels();
+    // kvtml files have been found
+
+    if (m_themeFactory.getQty() == 0) { // themes not present
+        KMessageBox::sorry(this, i18n("No theme files found."), i18n("Error"));
         exit(EXIT_FAILURE);
     }
+
+    QMainWindow::show();
+    // add the qml view as the main widget
+    QString location = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("qml/main.qml"));
+    QUrl url = QUrl::fromLocalFile(location);
+    m_view->setSource(url);
 }
 
-bool KHangMan::loadLevels()
+void KHangMan::loadLevels()
 {
     //build the Level combobox menu dynamically depending of the data for each language
     m_titleLevels.clear();
@@ -512,8 +510,8 @@ bool KHangMan::loadLevels()
         Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         if (levelFilenames.isEmpty()) {
-            // no kvtml files found
-            return false;
+            KMessageBox::sorry(this, i18n("No kvtml files found."), i18n("Error"));
+            exit(EXIT_FAILURE);
         }
     }
 
@@ -531,8 +529,6 @@ bool KHangMan::loadLevels()
     setCurrentCategory(level);
 
     loadLanguageSpecialCharacters();
-
-    return true;
 }
 
 void KHangMan::slotDownloadNewStuff()
