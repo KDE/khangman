@@ -164,45 +164,31 @@ void KHangMan::readFile()
 void KHangMan::nextWord()
 {
     // If there are no words, there's nothing we can do, trying will crash
-    if (m_randomList.count() == 0) {
+    if (m_randomList.isEmpty()) {
         return;
     }
 
-    // Not sure why we are doing mod count here, may simplify later to just use m_randomInt
-    // since the list is already shuffled.
-    int whichWord = m_randomInt % m_randomList.count();
-
+    // Pick words from m_randomList sequentially since it is already shuffled.
+    int whichWord = m_randomInt++ % m_randomList.count();
     m_originalWord = m_randomList[whichWord].first;
     m_originalWord = m_originalWord.toUpper();
     m_hint = m_randomList[whichWord].second;
-
-    if (m_originalWord.isEmpty()) {
-        ++m_randomInt;
-        nextWord();
-    }
 
     Q_EMIT currentHintChanged();
 
     m_currentWord.clear();
 
-    int originalWordSize = m_originalWord.size();
-
-    while (m_currentWord.size() < originalWordSize)
-        m_currentWord.append(QLatin1Char('_'));
-
     // Find dashes, spaces, middot and apostrophe
     const QString search = QStringLiteral("- ·'");
-    for (const QChar &key : search) {
-        int pos = m_originalWord.indexOf( key );
-        while (pos > 0) {
-            m_currentWord.replace(pos, 1, key);
-            pos = m_originalWord.indexOf( key );
+    for (const QChar &c : m_originalWord) {
+        if (search.contains(c)) {
+            m_currentWord.append(c);
+        } else {
+            m_currentWord.append(QLatin1Char('_'));
         }
     }
 
     Q_EMIT currentWordChanged();
-
-    ++m_randomInt;
 }
 
 void KHangMan::slotSetWordsSequence()
