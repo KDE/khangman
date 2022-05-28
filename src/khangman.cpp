@@ -53,7 +53,6 @@ KHangMan::KHangMan()
           m_randomInt(0),
           m_scoreMultiplyingFactor(1),
           m_netScore(0),
-          m_doc(nullptr),
           m_helpMenu(new KHelpMenu(NULL))
 {
     setObjectName(QStringLiteral("KHangMan"));
@@ -193,25 +192,26 @@ void KHangMan::nextWord()
 
 void KHangMan::slotSetWordsSequence()
 {
-    delete m_doc;
+    //Current level file
+    KEduVocDocument doc(this);
 
-    m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_doc->open (QUrl::fromLocalFile (Prefs::levelFile()), KEduVocDocument::FileIgnoreLock);
+    doc.open(QUrl::fromLocalFile(Prefs::levelFile()), KEduVocDocument::FileIgnoreLock);
 
     //how many words in the file
-    int wordCount = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
+    QList<KEduVocExpression *> words = doc.lesson()->entries(KEduVocLesson::Recursive);
 
     //get the words+hints
     m_randomList.clear();
-    for (int j = 0; j < wordCount; ++j) {
-        QString hint = m_doc->lesson()->entries (KEduVocLesson::Recursive).at(j)->translation(0)->comment();
-        if (hint.isEmpty() && m_doc->identifierCount() > 0) {
+    for (KEduVocExpression* entry : words) {
+        QString hint = entry->translation(0)->comment();
+        if (hint.isEmpty() && doc.identifierCount() > 0) {
             // if there is no comment or it's empty, use the first translation if there is one
-            hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(1)->text();
+            hint = entry->translation(1)->text();
         }
-        if (!m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text().isEmpty()) {
-            m_randomList.append(qMakePair(m_doc->lesson()->entries(KEduVocLesson::Recursive).at(j)->translation(0)->text(), hint));
+        QString text = entry->translation(0)->text();
+        if (!text.isEmpty()) {
+            m_randomList.append(qMakePair(text, hint));
         }
     }
     //shuffle the list

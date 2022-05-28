@@ -28,7 +28,6 @@
 
 #include "khmthemefactory.h"
 
-class KEduVocDocument;
 class QQmlEngine;
 class QQuickWidget;
 class KHelpMenu;
@@ -242,9 +241,6 @@ private:
 
     //The random sequence of words of the current level file
     QList<QPair<QString, QString> > m_randomList;
-
-    //Current level file
-    KEduVocDocument *m_doc;
 
     /** The word to be guessed */
     QString m_originalWord;
