@@ -77,12 +77,9 @@ KHangMan::KHangMan()
 
     setCentralWidget(m_view);
     scanLanguages();
-    setLevel();
 
     //find the themes
     m_themeFactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khangman/themes/standardthemes.xml")));
-
-    loadLanguageSpecialCharacters();
 }
 
 KHangMan::~KHangMan()
@@ -134,8 +131,6 @@ void KHangMan::setCurrentLanguage(int index)
         m_currentLanguage = index;
         Prefs::self()->save();
         loadLevels();
-        loadLanguageSpecialCharacters();
-        setLevel();
         Q_EMIT currentLanguageChanged();
     }
 }
@@ -501,15 +496,6 @@ void KHangMan::scanLanguages()
     Q_EMIT languagesChanged();
 }
 
-void KHangMan::setLevel()
-{
-    m_currentCategory = Prefs::currentLevel();
-    if (m_currentCategory > m_titleLevels.count()) {
-        m_currentCategory = 0;
-    }
-    Q_EMIT currentCategoryChanged();
-}
-
 void KHangMan::show()
 {
     if (loadLevels()) { // kvtml files have been found
@@ -534,41 +520,31 @@ bool KHangMan::loadLevels()
     //build the Level combobox menu dynamically depending of the data for each language
     m_titleLevels.clear();
     QStringList levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
-    QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
 
-    if (levelFilenames.size() == 0) {
+    if (levelFilenames.isEmpty()) {
         Prefs::setSelectedLanguage(QStringLiteral("en"));
         Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
-        titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
+        if (levelFilenames.isEmpty()) {
+            // no kvtml files found
+            return false;
+        }
     }
 
-    if (levelFilenames.isEmpty()){
-        // no kvtml files found
-        return false;
-    }
-
+    const QStringList titles = SharedKvtmlFiles::titles(Prefs::selectedLanguage());
     Q_ASSERT(levelFilenames.count() == titles.count());
     for(int i = 0; i < levelFilenames.count(); ++i) {
         m_titleLevels.insert(titles.at(i), levelFilenames.at(i));
     }
     Q_EMIT categoriesChanged();
 
-    if (!levelFilenames.contains(Prefs::levelFile())) {
-        Prefs::setLevelFile(m_titleLevels.constBegin().value());
-        Prefs::setCurrentLevel(0);
-        m_currentCategory = 0;
-        Q_EMIT currentCategoryChanged();
-        Prefs::self()->save();
+    int level = Prefs::currentLevel();
+    if (level >= m_titleLevels.count() || !levelFilenames.contains(Prefs::levelFile())) {
+        level = 0;
     }
+    setCurrentCategory(level);
 
-    // don't run off the end of the list
-    if (m_currentCategory!=-1 && m_currentCategory > m_titleLevels.count()) {
-        m_currentCategory = m_titleLevels.count();
-        Q_EMIT currentCategoryChanged();
-    }
-
-    setLevel();
+    loadLanguageSpecialCharacters();
 
     return true;
 }
