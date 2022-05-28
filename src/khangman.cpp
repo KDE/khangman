@@ -356,22 +356,20 @@ QString KHangMan::backgroundUrl()
 {
     const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
-        QString filename = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName());
-        return filename;
+        return QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName());
     }
     return QString();
 }
 
 QColor KHangMan::currentThemeLetterColor()
 {
-    // Default to white letters
-    QColor color = "white";
     const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
-        color = theme->letterColor();
+        return theme->letterColor();
     }
 
-    return color;
+    // Default to white letters
+    return QColor("white");
 }
 
 QStringList KHangMan::categories()
@@ -406,18 +404,13 @@ QQmlEngine* KHangMan::getEngine()
     return m_view->engine();
 }
 
-
 QStringList KHangMan::alphabet() const
 {
     QStringList letterList;
-    char c = 'A';
-
-    while( c != 'Z') {
+    for (char c = 'A'; c <= 'Z'; ++c) {
         letterList.append(QChar(c));
-        ++c;
     }
 
-    letterList.append(QChar(c));
     letterList.append(m_specialCharacters);
 
     return letterList;
@@ -528,40 +521,40 @@ void KHangMan::loadLanguageSpecialCharacters()
     QString lang = Prefs::selectedLanguage();
     if (lang.isEmpty())
         return;
-    bool hasSpecialChars = LangUtils::hasSpecialChars(lang);
 
     m_specialCharacters.clear();
-    if (hasSpecialChars) {
-        QString langFileName=QStringLiteral("khangman/%1.txt").arg(lang);
-        QFile langFile;
+    if (!LangUtils::hasSpecialChars(lang)) {
+        return;
+    }
+
+    QString langFileName=QStringLiteral("khangman/%1.txt").arg(lang);
+    QFile langFile;
+    langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
+
+    // Let's look in local KDEHOME dir then KNS installs each .txt
+    // in kvtml/<lang> as it installs everything at the same place
+    if (!langFile.exists()) {
+        langFileName = QStringLiteral("apps/kvtml/%1/%1.txt").arg(lang);
         langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
-
-        // Let's look in local KDEHOME dir then KNS installs each .txt
-        // in kvtml/<lang> as it installs everything at the same place
-        if (!langFile.exists()) {
-            langFileName = QStringLiteral("apps/kvtml/%1/%1.txt").arg(lang);
-            langFile.setFileName(QStandardPaths::locate(QStandardPaths::GenericDataLocation, langFileName));
-        }
-
         if (!langFile.exists()) {
             return;
         }
+    }
 
-        update();
+    update();
 
-        // We open the file and store info into the stream...
-        QFile openFileStream(langFile.fileName());
-        openFileStream.open(QIODevice::ReadOnly);
-        QTextStream readFileStr(&openFileStream);
+    // We open the file and store info into the stream...
+    QFile openFileStream(langFile.fileName());
+    openFileStream.open(QIODevice::ReadOnly);
+    QTextStream readFileStr(&openFileStream);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        readFileStr.setCodec("UTF-8");
+    readFileStr.setCodec("UTF-8");
 #endif
 
-        // m_specialCharacters contains all the words from the file
-        // FIXME: Better name
-        m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'));
-        openFileStream.close();
-    }
+    // m_specialCharacters contains all the words from the file
+    // FIXME: Better name
+    m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'));
+    openFileStream.close();
 }
 
 
