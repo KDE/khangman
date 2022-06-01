@@ -505,15 +505,21 @@ void KHangMan::loadLevels()
 
 void KHangMan::slotDownloadNewStuff()
 {
-    KNS3::QtQuickDialogWrapper dialog(QStringLiteral("khangman.knsrc"), this);
-    const QList<KNSCore::EntryInternal> entries = dialog.exec();
-    if ( entries.size() > 0 ){
-        SharedKvtmlFiles::sortDownloadedFiles();
-        //look for languages dirs installed
-        scanLanguages();
-        //refresh Languages menu
-        setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-    }
+    KNS3::QtQuickDialogWrapper *dialog = new KNS3::QtQuickDialogWrapper(QStringLiteral("khangman.knsrc"), this);
+    dialog->open();
+
+    connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+        const QList<KNSCore::EntryInternal> entries = dialog->changedEntries();
+        if ( !entries.isEmpty() ){
+            SharedKvtmlFiles::sortDownloadedFiles();
+            //look for languages dirs installed
+            scanLanguages();
+            //refresh Languages menu
+            setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
+        }
+
+        dialog->deleteLater();
+    });
 }
 
 void KHangMan::loadLanguageSpecialCharacters()
