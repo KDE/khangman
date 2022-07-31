@@ -153,7 +153,7 @@ void KHangMan::readFile()
             "Please check your installation.",
             Prefs::selectedLanguage(),
             Prefs::levelFile());
-        KMessageBox::sorry (this, mString, i18n("Error"));
+        KMessageBox::error (this, mString, i18n("Error"));
     }
 
     // Detects if file is a kvtml file so that it's a hint enable file
@@ -460,7 +460,7 @@ void KHangMan::show()
     // kvtml files have been found
 
     if (m_themeFactory.getQty() == 0) { // themes not present
-        KMessageBox::sorry(this, i18n("No theme files found."), i18n("Error"));
+        KMessageBox::error(this, i18n("No theme files found."), i18n("Error"));
         exit(EXIT_FAILURE);
     }
 
@@ -482,7 +482,7 @@ void KHangMan::loadLevels()
         Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         if (levelFilenames.isEmpty()) {
-            KMessageBox::sorry(this, i18n("No kvtml files found."), i18n("Error"));
+            KMessageBox::error(this, i18n("No kvtml files found."), i18n("Error"));
             exit(EXIT_FAILURE);
         }
     }
