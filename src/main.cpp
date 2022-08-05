@@ -51,7 +51,6 @@ int main(int argc, char **argv)
     QApplication::setApplicationName(QStringLiteral("khangman"));
     QApplication::setApplicationVersion(QStringLiteral(KHANGMAN_VERSION_STRING));
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QApplication::setApplicationDisplayName(i18n("KHangMan"));
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("khangman")));
 
     app.connect(&app, &QGuiApplication::lastWindowClosed, &app, &QCoreApplication::quit);
