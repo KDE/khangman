@@ -133,7 +133,6 @@ GenericName[xh]=Umdlalo Wendoda ejingayo
 GenericName[x-test]=xxHangman Gamexx
 GenericName[zh_CN]=吊颈人游戏
 GenericName[zh_TW]=劊子手（hangman）遊戲
-Terminal=false
 Name=KHangMan
 Name[af]=K-hangman
 Name[ar]=الشنق
