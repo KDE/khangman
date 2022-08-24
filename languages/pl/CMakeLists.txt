@@ -1,1 +1,1 @@
-install(FILES pl.txt DESTINATION ${DATA_INSTALL_DIR}/khangman)
+install(FILES pl.txt DESTINATION ${KDE_INSTALL_DATADIR}/khangman)

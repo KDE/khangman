@@ -1,1 +1,1 @@
-install(FILES sr@ijekavianlatin.txt DESTINATION ${DATA_INSTALL_DIR}/khangman)
+install(FILES sr@ijekavianlatin.txt DESTINATION ${KDE_INSTALL_DATADIR}/khangman)
