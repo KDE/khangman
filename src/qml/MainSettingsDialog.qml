@@ -37,7 +37,7 @@ Dialog {
         id: mainSettingsRectangle
         color: "black"
         implicitWidth: 600
-        implicitHeight: 210
+        implicitHeight: 230
 
         property int settingsPageMargins: 15;
 
@@ -99,6 +99,7 @@ Dialog {
             Label {
                 id: settingsPageHeadingLabel
                 text: i18n("KHangMan Settings");
+                Layout.margins: 5
                 font.pixelSize: 32;
                 font.bold: true
                 color: "white"
@@ -113,6 +114,7 @@ Dialog {
                     id: resolveTimeLabel;
 
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    Layout.margins: 5
 
                     text: i18n("Word resolve time in seconds");
                     font.bold: true
@@ -155,6 +157,7 @@ Dialog {
                 Label {
                     id: scoreMultiplyingFactorLabel
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    Layout.margins: 5
 
                     text: i18n("Score Multiplying Factor")
                     font.bold: true
@@ -196,6 +199,7 @@ Dialog {
                 Label {
                     id: soundLabel
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    Layout.margins: 5
 
                     text: i18n("Sounds");
                     font.bold: true
@@ -218,78 +222,78 @@ Dialog {
                 }
             }
 
-            Button {
-                id: cancelButton
-
+            RowLayout {
+                width: parent.width;
+                id: buttonLayout
+                spacing: 0
                 Layout.alignment: Qt.AlignRight
-                anchors {
-                    rightMargin: 5
-                }
 
-                style: ButtonStyle {
-                    background: Rectangle {
-                        id: cancelButtonStyleRectangle
-                        height: 10
-                        width: 50
-                        color: cancelButton.pressed ? "grey" : "white"
-                        radius: 8
+                Button {
+                    id: okButton
+
+                    style: ButtonStyle {
+                        background: Rectangle {
+                            id: okButtonStyleRectangle
+                            height: 10
+                            width: 50
+                            color: okButton.pressed ? "grey" : "white"
+                            radius: 8
+                        }
+
+                        label: Text {
+                            id: okButtonLabel
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                            text: i18n("OK")
+                            font.family : "Arial"
+                            font.capitalization : Font.AllUppercase
+                            font.weight : Font.Bold
+                            horizontalAlignment : Text.AlignHCenter
+                            verticalAlignment : Text.AlignVCenter
+                            color: "black"
+                        }
                     }
 
-                    label: Text {
-                        id: cancelButtonLabel
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                        text: i18n("Cancel")
-                        font.family : "Arial"
-                        font.capitalization : Font.AllUppercase
-                        font.weight : Font.Bold
-                        horizontalAlignment : Text.AlignHCenter
-                        verticalAlignment : Text.AlignVCenter
-                        color: "black"
-                    }
-                }
-
-                onClicked: {
-                    // ignore the changes made to the settings
-                    mainSettingsRectangle.resetSettings()
-                    mainSettingsDialog.cancelClicked()
-                }
-            }
-
-            Button {
-                id: okButton
-
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                anchors {
-                    rightMargin: 10
-                }
-
-                style: ButtonStyle {
-                    background: Rectangle {
-                        id: okButtonStyleRectangle
-                        height: 10
-                        width: 50
-                        color: okButton.pressed ? "grey" : "white"
-                        radius: 8
-                    }
-
-                    label: Text {
-                        id: okButtonLabel
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                        text: i18n("OK")
-                        font.family : "Arial"
-                        font.capitalization : Font.AllUppercase
-                        font.weight : Font.Bold
-                        horizontalAlignment : Text.AlignHCenter
-                        verticalAlignment : Text.AlignVCenter
-                        color: "black"
+                    onClicked: {
+                        // save the current settings
+                        mainSettingsRectangle.saveSettings()
+                        mainSettingsDialog.okClicked()
                     }
                 }
 
-                onClicked: {
-                    // save the current settings
-                    mainSettingsRectangle.saveSettings()
-                    mainSettingsDialog.okClicked()
+                Button {
+                    id: cancelButton
+
+                    Layout.margins: 5
+
+                    style: ButtonStyle {
+                        background: Rectangle {
+                            id: cancelButtonStyleRectangle
+                            height: 10
+                            width: 50
+                            color: cancelButton.pressed ? "grey" : "white"
+                            radius: 8
+                        }
+
+                        label: Text {
+                            id: cancelButtonLabel
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                            text: i18n("Cancel")
+                            font.family : "Arial"
+                            font.capitalization : Font.AllUppercase
+                            font.weight : Font.Bold
+                            horizontalAlignment : Text.AlignHCenter
+                            verticalAlignment : Text.AlignVCenter
+                            color: "black"
+                        }
+                    }
+
+                    onClicked: {
+                        // ignore the changes made to the settings
+                        mainSettingsRectangle.resetSettings()
+                        mainSettingsDialog.cancelClicked()
+                    }
                 }
+
             }
         }
     }
