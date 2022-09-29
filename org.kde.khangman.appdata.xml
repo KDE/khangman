@@ -21,6 +21,7 @@
   <name xml:lang="hu">KHangMan</name>
   <name xml:lang="id">KHangMan</name>
   <name xml:lang="it">KHangMan</name>
+  <name xml:lang="ka">KHangMan</name>
   <name xml:lang="ko">KHangMan</name>
   <name xml:lang="lt">KHangMan</name>
   <name xml:lang="nds">KHangMan</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="hu">Akasztófajáték</summary>
   <summary xml:lang="id">Permainan Hangman (Algojo)</summary>
   <summary xml:lang="it">Gioco dell'impiccato</summary>
+  <summary xml:lang="ka">თამაში Hangman</summary>
   <summary xml:lang="ko">행맨 게임</summary>
   <summary xml:lang="lt">Budelio žaidimas</summary>
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
@@ -131,6 +133,7 @@
       <caption xml:lang="gl">Xogando a KHangMan</caption>
       <caption xml:lang="id">Memainkan KHangMan</caption>
       <caption xml:lang="it">Giocare con KHangMan</caption>
+      <caption xml:lang="ka">KHangMan-ის თამაში</caption>
       <caption xml:lang="ko">KHangMan 플레이</caption>
       <caption xml:lang="nl">KHangMan spelen</caption>
       <caption xml:lang="nn">Spelar KHangMan</caption>
