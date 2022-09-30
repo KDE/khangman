@@ -24,7 +24,6 @@
 #include <QColor>
 #include <QList>
 #include <QDir>
-#include <QDomDocument>
 #include <QDomElement>
 
 #include "khmtheme.h"

@@ -23,12 +23,10 @@
 #include "khangman.h"
 
 #include <QApplication>
-#include <QDir>
 #include <QStandardPaths>
 #include <QQuickWidget>
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QPointer>
 
 #include <KLocalizedContext>
 #include <KLocalizedString>
