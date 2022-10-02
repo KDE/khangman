@@ -1,0 +1,715 @@
+# translation of khangman.po to Belarusian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2007-05-29 12:30+0300\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr ""
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Памылка"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr ""
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Узровень"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr ""
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr ""
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr ""
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr ""
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr ""
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr ""
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr ""
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr ""
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr ""
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr ""
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr ""
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr ""
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr ""
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr ""
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr ""
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr ""
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr ""
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr ""
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr ""
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr ""
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr ""
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr ""
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr ""
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr ""
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr ""
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr ""
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr ""
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr ""
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr ""
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr ""
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr ""
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr ""
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr ""
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr ""
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr ""
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr ""
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr ""
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr ""
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr ""
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr ""
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr ""
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr ""
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr ""
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr ""
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr ""
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr ""
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr ""
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr ""
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr ""
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "&Настаўленні"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr ""
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr ""
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr ""
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr ""
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "KHangMan Settings"
+msgstr "&Настаўленні"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "&Настаўленні"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Гукі"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#~ msgid "German"
+#~ msgstr "Нямецкая"
+
+#~ msgid "&Language"
+#~ msgstr "&Мова"
+
+#~ msgid "General"
+#~ msgstr "Агульныя"
+
+#~ msgid "Languages"
+#~ msgstr "Мовы"
+
+#~ msgid "&Game"
+#~ msgstr "&Гульня"
+
+#~ msgid "Main"
+#~ msgstr "Галоўная"
+
+#, fuzzy
+#~| msgid "&Language"
+#~ msgid "Language"
+#~ msgstr "&Мова"
+
+#, fuzzy
+#~| msgid "Play Again"
+#~ msgid "&Play again"
+#~ msgstr "Граць зноў"
+
+#, fuzzy
+#~| msgid "seconds"
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "сек."
+#~ msgstr[1] "сек."
+#~ msgstr[2] "сек."
+
+#~ msgid "Graphics"
+#~ msgstr "Графіка"
+
+#~ msgid "SVG icon"
+#~ msgstr "Значка SVG"
+
+#~ msgid "Do Not Play"
+#~ msgstr "Не іграць"
+
+#~ msgid "Alt+L"
+#~ msgstr "Alt+L"
+
+#~ msgid "Form"
+#~ msgstr "Форма"
+
+#~ msgid "Cyrillic"
+#~ msgstr "Кірыліца"
+
+#~ msgid "Latin"
+#~ msgstr "Лацінка"

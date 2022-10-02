@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Portuguese "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual do Utilizador do KHangman</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>&khangman; man page.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2016-04-25</date>
+<productname
+>Aplicações do KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>O jogo clássico da Forca do KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Descrição</title>
+<para
+>O &khangman; é um jogo baseado no jogo bastante popular que é a Forca. Está destinado para crianças com 6 anos ou mais. Tem diversas categorias de palavras: Animais, Roupa, Computadores, Moedas, entre outros.</para
+><para
+>É escolhida uma palavra ao acaso e as letras são posteriormente escondidas. Terá de adivinhar você mesmo a palavra, escrevendo uma letra a seguir à outra. Cada vez que escolher uma letra errada, é desenhada parte da imagem de um enforcado. Terá de adivinhar a palavra completa antes de ficar completamente enforcado! Tem 10 tentativas.</para
+><para
+>Esta aplicação faz parte do módulo de Educação e Entretenimento do &kde;.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Veja Também</title>
+<para
+>Está disponível alguma documentação mais detalhada em <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (tanto poderá indicar este <acronym
+>URL</acronym
+> no &konqueror;, como executar o <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Existe também mais alguma informação disponível na <ulink url="http://edu.kde.org/khangman/"
+>página Web de Educação e Entretenimento do &kde;</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autores</title>
+<para
+>O &khangman; foi criado por <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> e &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Esta página manual é baseada na que foi preparada por <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> para o projecto da Debian.</para>
+
+
+</refsect1>
+
+</refentry>

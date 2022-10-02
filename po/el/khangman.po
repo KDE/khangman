@@ -1,0 +1,950 @@
+# translation of khangman.po to greek
+# translation of khangman.po to
+# Copyright (C) 2002, 2003, 2005, 2006, 2007 Free Software Foundation, Inc.
+#
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2002-2003.
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2006, 2007, 2008, 2009.
+# Yannis Kaskamanidis <ttnfy17@yahoo.gr>, 2007.
+# Petros <pvidalis@gmail.com>, 2010.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2011, 2012.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2012.
+# Stelios <sstavra@gmail.com>, 2017, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2020-05-08 10:33+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 18.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "Θέμα σημειώσεων"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Θέμα θάλασσας"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Θέμα χειμώνα"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Θέμα μέλισσας"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Θέμα ερήμου"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr "DONE"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Το αρχείο $KDEDIR/share/apps/kvtml/data/%1/%2 δε βρέθηκε!\n"
+"Παρακαλώ ελέγξτε την εγκατάστασή σας."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Κανένα"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "Δε βεθηκαν αρχεία θεμάτων."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "Δε βεθηκαν kvtml αρχεία."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Επίπεδο"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "Η γλώσσα που επιλέχθηκε από το χρήστη"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Όνομα θέματος φόντου"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Ενεργοποιήστε το, αν επιθυμείτε να μην μαντεύετε κάθε παρουσία του ίδιου "
+"γράμματος."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Ενεργοποίηση κινούμενων εικόνων"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Αν ενεργοποιηθεί, θα γίνεται αναπαραγωγή ήχων σε νέο παιχνίδι και στην νίκη "
+"του παιχνιδιού"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Εάν επιλεγεί, οι υποδείξεις θα εμφανίζονται πάντα. Εάν δεν επιλεγεί "
+"(προκαθορισμένο)\n"
+"            οι υποδείξεις θα εμφανίζονται μόνο ανά λέξη όταν ο χρήστης "
+"επιλέγει την εμφάνισή τους."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Η συγκεκριμένη ρύθμιση σας επιτρέπει να ορίσετε τον χρόνο που θα είναι "
+"διαθέσιμος για την εύρεση της λέξης (σε δευτερόλεπτα)."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Πληκτρολόγηση τονισμένων γραμμάτων χωριστά από τα κανονικά γράμματα"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "Η διαδρομή προμηθευτών για το KHangMan"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "Το κλασικό παιχνίδι κρεμάλας από το KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Προηγούμενος συντηρητής"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Αρχικός συγγραφέας"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Προγραμματιστής"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Βοήθεια στον προγραμματισμό"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Σουηδικά αρχεία δεδομένων, βοήθεια στον προγραμματισμό, διαφανείς εικόνες "
+"και διορθώσεις i18n"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Ισπανικά αρχεία δεδομένων"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Δανέζικα αρχεία δεδομένων"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Φινλανδικά αρχεία δεδομένων"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Βραζιλιάνικα πορτογαλικά αρχεία δεδομένων"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Καταλανικά αρχεία δεδομένων"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Ιταλικά αρχεία δεδομένων"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Ολλανδικά αρχεία δεδομένων"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Τσέχικα αρχεία δεδομένων"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Ουγκρικά αρχεία δεδομένων"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Νορβηγικά (Bokmål) αρχεία δεδομένων"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Τατζικικά αρχεία δεδομένων"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Σερβικά (Κυριλλικά και Λατινικά) αρχεία δεδομένων"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Σλοβένικα αρχεία δεδομένων"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Πορτογαλικά πορτογαλικά αρχεία δεδομένων"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Νορβηγικά αρχεία δεδομένων"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Τουρκικά αρχεία δεδομένων"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Ρωσικά αρχεία δεδομένων"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Βουλγαρικά αρχεία δεδομένων"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Ιρλανδικά αρχεία δεδομένων"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Ομαλότερες εικόνες κρεμάλας"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Βοήθεια στον προγραμματισμό, διόρθωση πολλών πραγμάτων"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr ""
+"Κώδικας για τη δημιουργία των εικονιδίων της γραμμής εργαλείων χαρακτήρων"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Καθαρισμός κώδικα"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Τούσης Μανώλης, Σπύρος Γεωργαράς"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "manolis@koppermind.homelinux.org,sng@hellug.gr"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Επιλέξτε την κατηγορία της λέξης"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Επιλέξτε γλώσσα"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "ΕΠιλέξτε θέμα"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Παύση"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Παίξε"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Αλλαγή του θέματος"
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "Σχετικά με το KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "Σχετικά με το KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Προβολή του εγχειριδίου του KHangMan"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Λήψη νέων γλωσσικών αρχείων"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Υπόλοιπες εκτιμήσεις: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Σκορ: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Νίκες: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Ήττες: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Εμφάνιση υπόδειξης."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Αλλαγή της κατηγορίας."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Αλλαγή της γλώσσας."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Αποκάλυψη λέξης"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Αποκάλυψη της τρέχουσας λέξης."
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "Φόρτωση της επόμενης λέξης και αρχή νέου παιχνιδιού."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Ρυθμίσεις KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "KHangMan χρόνος επίλυσης λέξης"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr "Μέγιστος επιτρεπόμενος χρόνος για επίλυση λέξης στο KHangMan"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "Διάρκεια εμφάνισης υπόδειξης"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "Η διάρκεια εμφάνισης της υπόδειξης για τη λέξη"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "KHangMan πολλαπλασιαστικός παράγοντας του σκορ"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Καθόρισε τον πολλαπλασιαστικό παράγοντα για τα σκορ."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Ήχοι"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "Άνοιξε ή κλείσε όλους του ήχους μέσα στο παιχνίδι"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "Χρόνος επίλυσης λέξης σε δευτερόλεπτα"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Πολλαπλασιαστικός παράγοντας σκορ"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "Εντάξει"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#~ msgid "khangman"
+#~ msgstr "khangman"
+
+#~ msgid "Notes"
+#~ msgstr "Σημειώσεις"
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "Λάθη"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Εμφάνιση της γραμμής εργαλείων χαρακτήρων"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Η συγκεκριμένη ρύθμιση σας επιτρέπει να ορίσετε τη χρονική διάρκεια "
+#~ "εμφάνισης της φυσαλίδας με τις υποδείξεις του KHangMan (σε δευτερόλεπτα)."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Χρόνος εμφάνισης της υπόδειξης βοήθειας \"ήδη βρέθηκε\"."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Ισπανικά, Πορτογαλικά, Καταλανικά"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Π&ληκτρολόγηση τονισμένων γραμμάτων"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Αν αυτό είναι ενεργοποιημένο, θα πρέπει να πληκτρολογείτε μόνοι σας τα "
+#~ "τονισμένα γράμματα. (Δηλ. είναι διαφορετικά από τα αντίστοιχα μη "
+#~ "τονισμένα γράμματα)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Αν αυτό είναι <b>απενεργοποιημένο</b>, τότε η επιλεγμένη γλώσσα δεν το "
+#~ "υποστηρίζει. Αν είναι <b>ενεργοποιημένο</b> και το έχετε επιλέξει, τότε "
+#~ "θα πρέπει να γράφετε τα τονισμένα γράμματα ξεχωριστά. Αν δεν είναι "
+#~ "επιλεγμένο, τα τονισμένα γράμματα θα εμφανίζονται με την εισαγωγή των "
+#~ "κανονικών γραμμάτων (προκαθορισμένο).<br>\n"
+#~ "Για παράδειγμα, αν είναι απενεργοποιημένο και πληκτρολογήσετε \"ο\", θα "
+#~ "εμφανιστούν τα ο και ό στη λέξη <b>όνομα</b>. Στην αντίθετη περίπτωση, "
+#~ "όταν πληκτρολογήσετε \"ο\", θα εμφανιστεί μόνο το \"ο\" και θα πρέπει να "
+#~ "πληκτρολογήσετε και το \"ό\" για να εμφανιστεί και αυτό."
+
+#~ msgid "German"
+#~ msgstr "Γερμανικά"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Παιχνίδι με κεφαλαία γράμματα"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "Αν ενεργοποιήσετε αυτήν την επιλογή, η λέξη θα εμφανίζεται με κεφαλαία "
+#~ "γράμματα"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Αν ενεργοποιήσετε αυτήν την επιλογή, η λέξη θα εμφανίζεται με κεφαλαία "
+#~ "γράμματα, ακόμη και αν πληκτρολογείτε πεζά. Στην περίπτωση που είναι "
+#~ "απενεργοποιημένη, η λέξη θα εμφανίζεται με πεζά γράμματα.<br>\n"
+#~ "Αυτή η ρύθμιση για την ώρα είναι διαθέσιμη μόνο για τη Γερμανική γλώσσα."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Εδώ μπορείτε να επιλέξετε τις ρυθμίσεις για όλες τις γλώσσες."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Αν ενεργοποιήσετε αυτό το πεδίο, θα γράφεται μόνο το πρώτο γράμμα, αν "
+#~ "αυτό εμφανίζεται σε περισσότερες θέσεις μέσα στη λέξη. Έτσι όταν "
+#~ "ξαναγράψετε το ίδιο γράμμα, θα εμφανιστεί η δεύτερη παρουσία του στη λέξη "
+#~ "και αυτό θα πρέπει να επαναληφθεί μέχρι να εξαντληθούν όλες οι παρουσίες "
+#~ "του γράμματος.\n"
+#~ "\n"
+#~ "Για παράδειγμα, έστω ότι η λέξη είναι το \"πορτοκάλι\". Αν αυτό είναι "
+#~ "απενεργοποιημένο και πληκτρολογήσετε \"ο\", θα εμφανιστούν και τα δύο \"ο"
+#~ "\" που υπάρχουν στη λέξη. Αν είναι ενεργοποιημένο, θα πρέπει να το "
+#~ "πληκτρολογήσετε και δεύτερη φορά.\n"
+#~ "Προκαθορισμένη συμπεριφορά είναι για κάθε γράμμα που γράφετε, να "
+#~ "εμφανίζονται όλες οι παρουσίες του στη λέξη."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Να απαιτούνται περισσότερες προσπάθειες για διπλά γράμματα"
+
+#~ msgid "Enable animations"
+#~ msgstr "Ενεργοποίηση κινούμενων εικόνων"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Καθολική ενεργοποίηση υποδείξεων"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Αν ενεργοποιηθεί αυτό το πλαίσιο, θα γίνεται αναπαραγωγή ήχων σε νέο "
+#~ "παιχνίδι και στην νίκη του παιχνιδιού. Αν δεν είναι ενεργό, δε θα "
+#~ "υπάρχουν ήχοι στο KHangMan.\n"
+#~ "Προκαθορισμένο είναι χωρίς ήχο."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Ενεργοποίηση ήχων"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Παίξτε με μια νέα λέξη"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Άνοιγμα ενός υπάρχοντος εγγράφου λεξιλογίου"
+
+#~ msgid "&Show Hint"
+#~ msgstr "Εμ&φάνιση υποδείξεων"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Εμφάνιση/απόκρυψη υποδείξεων που θα σας βοηθήσουν να βρείτε τη λέξη"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Λήψη λέξεων σε Νέα γλώσσα..."
+
+#~ msgid "&Category"
+#~ msgstr "&Κατηγορία"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Επιλέξτε την κατηγορία των λέξεων"
+
+#~ msgid "&Language"
+#~ msgstr "&Γλώσσα"
+
+#~ msgid "L&ook"
+#~ msgstr "&Εμφάνιση"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Επιλέξτε την εμφάνιση και την αίσθηση"
+
+#~ msgid "General"
+#~ msgstr "Γενικά"
+
+#~ msgid "Languages"
+#~ msgstr "Γλώσσες"
+
+#~ msgid "Timers"
+#~ msgstr "Χρονόμετρα"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Γράψιμο τονισμένων γραμμάτων"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Άνοιγμα εγγράφου λεξιλογίου"
+
+#~ msgid "&Game"
+#~ msgstr "Παιχ&νίδι"
+
+#~ msgid "Main"
+#~ msgstr "Κύρια"
+
+#~ msgid "Special Characters"
+#~ msgstr "Ειδικοί χαρακτήρες"
+
+#~ msgid "Look"
+#~ msgstr "Εμφάνιση"
+
+#~ msgid "Language"
+#~ msgstr "Γλώσσα"
+
+#~ msgid "G&uess"
+#~ msgstr "Έλεγ&χος"
+
+#~ msgid "&Play again"
+#~ msgstr "&Αναπαραγωγή ξανά"
+
+#~ msgid "Hint"
+#~ msgstr "Υπόδειξη"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Χάσατε. Η λέξη ήταν \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Συγχαρητήρια! Κερδίσατε!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Το γράμμα έχει ήδη βρεθεί."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Εδώ μπορείτε να επιλέξετε ειδικές ρυθμίσεις για κάποιες γλώσσες."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Τρέχων συντηρητής, συγγραφέας"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 δευτερόλεπτο"
+#~ msgstr[1] "%1 δευτερόλεπτα"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Εδώ μπορείτε να ορίσετε το χρόνο εμφάνισης υποδείξεων βοήθειας και "
+#~ "γράμματος που έχει \"ήδη βρεθεί\"."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr ""
+#~ "Χρόνος εμφάνισης της υπόδειξης βοήθειας <b>ήδη βρέθηκε το γράμμα</b>:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Μπορείτε να ορίσετε το χρόνο εμφάνισης της υπόδειξης γραμμάτων που \"ήδη "
+#~ "έχουν βρεθεί\" μόλις δοκιμάσατε κάποιο γράμμα που έχει ήδη βρεθεί. Η "
+#~ "προκαθορισμένη τιμή είναι 1 δευτερόλεπτο, αλλά τα μικρότερα παιδιά ίσως "
+#~ "χρειάζονται περισσότερο χρόνο για να καταλάβουν ότι δοκιμάζουν κάποιο "
+#~ "γράμμα που ήδη έχουν βρει."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Μπορείτε να ανοίξετε τα πρόσφατα ανοιγμένα αρχεία"
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Το αρχείο '%1' δεν βρέθηκε.\n"
+#~ "Παρακαλώ εγκαταστήστε ξανά το '%2'. Αλλαγή σε Αγγλικά."
+
+#~ msgid "Local file"
+#~ msgstr "Τοπικό αρχείο"
+
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Χρόνος εμφάνισης <span style=\" font-"
+#~ "weight:600;\">των γραμμάτων που έχουν ήδη βρεθεί</span>:</p></body></html>"

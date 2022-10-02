@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Italian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuale utente di &khangman;</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>Pagina di man di &khangman;</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>22/12/2020</date>
+<productname
+>Applications 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Il classico gioco dell'impiccato della comunità KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Descrizione</title>
+<para
+>&khangman; è basato sul ben noto gioco dell'impiccato. È pensato per bambini dai sei anni in sui, e dispone di diverse categorie di parole, come animali, vestiti, computer, valute e altro.</para
+><para
+>Una parola è scelta a caso, le lettere sono nascoste, e devi indovinare la parola provando una lettera dopo l'altra. Ogni volta che la lettera è sbagliata viene disegnata una parte dell'immagine di un impiccato. Devi indovinare la parola prima di farti impiccare! Hai a disposizione dieci tentativi.</para
+><para
+>Questa applicazione fa parte del modulo &kde; Edu.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vedi anche</title>
+<para
+>È possibile ottenere una documentazione più dettagliata con <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (puoi inserire questo &URL; in &konqueror;, oppure eseguire <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Maggiori informazioni sono disponibili anche presso il <ulink url="https://edu.kde.org/khangman/"
+>sito web di &kde; Edu</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autori</title>
+<para
+>&khangman; è stato scritto da <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> e da &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Questa pagina di manuale è basata su quella scritta da <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> per il progetto &Debian;.</para>
+
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,1049 @@
+# translation of khangman.po to
+# Copyright (C) 2002,2003, 2007 Free Software Foundation, Inc.
+# Nuriddin Aminagha <nuriddin@haydarlinux.org>, 2002.
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
+# Nuriddin S. Aminagha <nuriddin@haydarlinux.org>, 2003.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# Tariq AlWarhi <tariq.alwarhi@gmail.com>, 2010.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2022-01-29 17:26+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+"X-POOTLE-MTIME: 1381754006.0\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "سمة الملاحظات"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "سمة البحر"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "سمة الشّتاء"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "سمة النّحل"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "سمة الصّحراء"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"لم يُعثر على الملفّ ‎$KDEDIR/share/apps/kvtml/%1/%2.\n"
+"فضلًا تحقّق من تثبيتك."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "خطأ"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "بلا"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "لم يُعثر على ملفّات سمات."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "لم يُعثر على ملفّات kvtml."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "المستوى"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "اللغة الّتي حدّدها المستخدم"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "اسم سمة الخلفيّة"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "أشّر على هذا إن لم ترد اكتشاف كلّ سيرورة من نفس الحرف."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "فعّل التحريكات"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "إن أُشِّر، ستُشغَّل الأصوات للعبة الجديدة وللعبة الفائزة"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"إن أُشِّر، ستظهر التلميحات دائمًا. إن لم تؤشّره (الافتراضيّ)\n"
+"ستظهر التلميحات فقط لكلّ كلمة يختار المستخدم إظهار تلميح لها."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr "يسمح لك هذا الإعداد بتعيين عدد الثّواني المتوفّرة لحلّ الكلمة."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "اكتب الحروف المُشددة منفصلاً من الحروف العادية"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "مسار موفّري رجلك المشنوق"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "الشنق"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "لعبة الرّجل المشنوق التّقليديّة بواسطة كدي"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "المصين السّابق"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "المؤلّف الأصليّ"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "مطوّر"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "مساعدة الشِّفرة"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"ملفّات البيانات السّويديّة، ومساعدة الشِّفرة، والصّور الشّفّافة وإصلاحات توطين."
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "ملفّات البيانات الإسبانيّة"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "ملفّات البيانات الدنماركيّة"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "ملفّات البيانات الفنلنديّة"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "ملفّات البيانات البرازيليّة البرتغاليّة"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "ملفّات البيانات الكاتالانيّة"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "ملفّات البيانات الإيطاليّة"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "ملفّات البيانات الهولنديّة"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "ملفّات البيانات التشيكيّة"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "ملفّات البيانات الهنغاريّة"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "ملفّات البيانات النرويجيّة (البوكمول)"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "ملفّات البيانات الطّاجيكيّة"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "ملفّات البيانات الصّربيّة (السيريليّة واللاتينيّة)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "ملفّات البيانات السولفينيّة"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "ملفّات البيانات البرتغاليّة"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "ملفّات البيانات النرويجيّة"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "ملفّات البيانات التّركيّة"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "ملفّات البيانات الرّوسيّة"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "ملفّات البيانات البلغاريّة"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "ملفّات البيانات الآيرلنديّة"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "صور أنعم للرّجل المشنوق"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "مساعدة الشِّفرة، أصلح العديد من الأمور"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "شِفرة توليد أيقونات شريط أدوات المحارف"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "تنظيف الشِّفرة"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "طارق الورهي,صفا الفليج"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tariq.alwarhi@gmail.com,safa1996alfulaij@gmail.com"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "اختر فئة الكلمات"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "حدّد لغة"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "اختر سمة"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "ألبث"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "شغّل"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "غيّر السمة."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "إعدادات."
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "حول رجل المشنوق ك."
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "حول كدي."
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "اعرض كتيّب رجل المشنوق ك."
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "نزّل ملفّات لغات جديدة"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "أنهِ"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "التخمينات المتبقية: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "النتيجة: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "الفوز:"
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "الإخفاق:"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "اعرض التّلميحة."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "غيّر الفئة."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "غيّر اللغة."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "اكشف الكلمة"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "اكشف الكلمة الحالية"
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "حمّل الكلمة التّالية وابدأ لعبة جديدة."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "إعدادات رجلك المشنوق"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "وقت حلّ كلمة رجلك المشنوق"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr "الوقت المسموح الأقصى لحلّ الكلمة في رجلك المشنوق"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "مدّة عرض التّلميحة"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "مدّة عرض تلميحة الكلمة"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "عامل مضاعف النقاط للرجل المشنوق ك"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "حدد العامل الذي سيتم ضرب الدرجات به."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "الأصوات"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "شغّل/أطفئ كلّ الأصوات داخل اللعبة"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "وقت حلّ الكلمة بالثّواني"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "عامل مضاعف النقاط"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "حسنًا"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "ألغِ"
+
+#~ msgid "khangman"
+#~ msgstr "رجلك المشنوق"
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "الأخطاء"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "اعرض شريط أدوات الحروف"
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "الوقت خلال عرض أداة النصيحة \"خمنت سابقاً\" "
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "أسباني، برتغالي ، كاتلوني"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "كتابة الحروف المُشددة"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "إذا عَلمت على هذا الخيار فيجب عليك كتابة الحرف المُشدد بنفسك (بمعنى أخر "
+#~ "هناك فرق بين الحروف المتشابهة غير المُشددة)"
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "إذا كان هذا <b>معطل</b>, فإن اللغة المختارة لا تدعمه، إما إذا كان "
+#~ "<b>مفعل</b> وبإمكانك اختياره فإن الحروف المُشددة يجب عليك كتابتها، إما إذا "
+#~ "كان غير مُؤشر عليه فإن الحروف المُشددة ستعرض مع الحروف العادية (بشكل "
+#~ "افتراضي).<br>\n"
+#~ " على سبيل المثال في اللغة الكتالونية إذا كان هذا غير مُؤشر عليه فعند كتابة "
+#~ "\"o\" فإن o و  ò سيعرضان في الكلمة  <b>xenofòbia</b>. إما إذا كان هذا "
+#~ "الخيار مُؤشر عليه فعند كتابة حرف \"o\" فقط، فسيتم عرضه كما هو، ويجب عليك "
+#~ "كتابة الحرف بهذا الشكل \"ò\" ليتم عرضه."
+
+#~ msgid "German"
+#~ msgstr "ألماني"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "ألعب في وضع الأحرف العالية"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "في حال الاختيار سيتم عرض الكلمة في وضع الحروف العالية"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "إذا تم اختياره سيتم عرض الكلمة في وضع الحروف العالية حتى لو تم كتابتها في "
+#~ "الوضع السفلي، إذا لم يتم اختياره (كما هو افتراضياَ) فإن الكلمة ستظل في "
+#~ "الوضع العادي (السفلي)<br>\n"
+#~ "هذا الخيار يعمل فقط مع اللغة الألمانية."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "من هنا تستطيع ضبط الإعدادات لجميع اللغات"
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "إذا اخترت التأشير على هذا الصندوق فإنه سيكتب الحرف الأول فقط من المفردة "
+#~ "وإذا وجد الحرف في خانات أخرى من المفردة فلن يتم كتابته وعليك حينها إعادة "
+#~ "تخمين الحرف من جديد حتى تملأ الفراغات المخصصة لهذا الحرف في الكلمة.\n"
+#~ "على سبيل المثال عند تخمين كلمة \"potato\" وكان هذا الخيار معطل (لم يتم "
+#~ "التأشير عليه)وحاولت كتابة حرف \"o\" فسيتم اكتشاف حرفان من \"o\" في الكلمة "
+#~ "في الوقت ذاته، أما إذا كان هذا الخيار مؤشر عليه فإنك ستحتاج إلى محاولة "
+#~ "تخمين الحرف \"o\" مرتان.\n"
+#~ "\n"
+#~ "الوضع الافتراضي هو اكتشاف الحروف المكررة في الكلمة عند كتابة الحرف مرة "
+#~ "واحدة."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "تحتاج إلى الكثير من التخمين للحروف المكررة"
+
+#~ msgid "Enable animations"
+#~ msgstr "فعل الرسوم المتحركة"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "فعّل التلميحات بشكل عام"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "إذا علمت على هذا الصندوق فإنك ستسمع بعض الأصوات مع كل لعبة جديدة وعند "
+#~ "فوزك بلعبة، إما إذا لم تُعلم عليه فلن يكون هناك أي صوت في لعبة شانق ك.\n"
+#~ "الوضع الافتراضي بدون صوت."
+
+#~ msgid "Enable sounds"
+#~ msgstr "فعل الأصوات"
+
+#~ msgid "Play with a new word"
+#~ msgstr "ألعب باستخدام كلمة جديدة"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "افتح ملف المفردات الموجد"
+
+#~ msgid "&Show Hint"
+#~ msgstr "اظهر التلميح"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "اعرض/اخفِ تلميح المساعدة في إيجاد الكلمة"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "احص&ل على الكلمات للغة الجديدة ..."
+
+#~ msgid "&Category"
+#~ msgstr "الفئة"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "اختر فئة الكلمات"
+
+#~ msgid "&Language"
+#~ msgstr "الل&غة"
+
+#~ msgid "L&ook"
+#~ msgstr "المظهر"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "اختر المظر والشعور"
+
+#~ msgid "General"
+#~ msgstr "عام"
+
+#~ msgid "Languages"
+#~ msgstr "اللغات"
+
+#~ msgid "Timers"
+#~ msgstr "المؤقتات"
+
+#~ msgid "Type accented letters"
+#~ msgstr "كتابة الحروف المُشددة"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "افتح ملف المفردات"
+
+#~ msgid "&Game"
+#~ msgstr "&لعبة"
+
+#~ msgid "Main"
+#~ msgstr "الرئيس"
+
+#~ msgid "Special Characters"
+#~ msgstr "الحروف الخاصة"
+
+#~ msgid "Look"
+#~ msgstr "المظهر"
+
+#~ msgid "Language"
+#~ msgstr "اللغة"
+
+#~ msgid "G&uess"
+#~ msgstr "الت&خمينات"
+
+#~ msgid "&Play again"
+#~ msgstr "ألعب مرة أخرى"
+
+#~ msgid "Hint"
+#~ msgstr "التلميح"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "خسرت! الكملة كانت \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "مبروك!، لقد فزتَ"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "سبق لك تخمين هذا الحرف."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "تستطيع من هنا ضبط الإعدادات الخاصة لبعض اللغات."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "المشرف الحالي، المؤلف"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "لا ثواني"
+#~ msgstr[1] "ثانية واحدة"
+#~ msgstr[2] "ثانيتان"
+#~ msgstr[3] "%1 ثواني"
+#~ msgstr[4] "%1 ثانية"
+#~ msgstr[5] "%1 ثانية"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr "هنا يمكنك عرض الأوقات للتلميحات و لأداة النصيحة للحروف المخمنة."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "وقت عرض  أداة النصيحة للـ<b>حروف المُخمنة</b> :"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "يمكنك ضبط الوقت لعرض أداة النصيحة \"خمنت سابقاً\" بعد محاولة كتابة الحرف "
+#~ "الذي تم تخمينه من قبل، افتراضياً سيكون الوقت ثانية واحدة أما بالنسبة "
+#~ "للأطفال الأصغر سناً ربما سيكون من المفيد لهم تمديد الوقت أطول من ذلك حتى "
+#~ "يدركو انهم يحاولون كتابة حرف تم تخمينه سابقاً."
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "الملف '%1' غير موجود.\n"
+#~ "لو سمحت أعد تثبيت '%2'. العودة إلى اللغة الانجليزية."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\"> الوقت لـ<span style=\" font-weight:600;\"> "
+#~ "بالفعل محزور خطاب</span> التلميحات</p></body></html>"
+
+#, fuzzy
+#~ msgid "Theme"
+#~ msgstr "سمة"
+
+#, fuzzy
+#~ msgid "Allow Only One Instance of Each Letter to be replaced in the word"
+#~ msgstr "اسمح فقط واحد مرة من كل خطاب إلى بوصة كلمة"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr "مكّن أصوات يعمل جديد لعبة و فوز لعبة"
+
+#, fuzzy
+#~ msgid "the time to display the Missed KPassivePopup, in seconds"
+#~ msgstr "وقت إلى عرض مفتقد بوصة ثوان"
+
+#, fuzzy
+#~ msgid "Renaud Blanchard"
+#~ msgstr "بلانتْشارد"
+
+#~ msgid "Graphics"
+#~ msgstr "رسوميات"
+
+#, fuzzy
+#~ msgid "Joe Bolin"
+#~ msgstr "Joe"
+
+#~ msgid "Nature theme background"
+#~ msgstr "سمة الطبيعة للخلفية"
+
+#, fuzzy
+#~ msgid "Blue theme background, icons"
+#~ msgstr "أزرق تيمة الخلفية أيقونات"
+
+#, fuzzy
+#~ msgid "Danny Allen"
+#~ msgstr "داني آلن (Danny Allen)"
+
+#, fuzzy
+#~ msgid "SVG icon"
+#~ msgstr "سليكونأيقونة"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">If checked, sounds will be played for New "
+#~ "Game and Win Game</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\"> إذا مؤكّد لـ جديد لعبة و فوز لعبة</p></"
+#~ "body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">If this box is checked, you will have some "
+#~ "sounds played for each new game and when you win a game. If this is not "
+#~ "checked, there will be no sound in KHangMan.</p><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Default is no sound.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\"> إذا مربّع هو مؤكّد بعض لـ جديد لعبة و a لعبة "
+#~ "إذا هو ليس مؤكّد لا صوت بوصة الشنق ك</p><p style=\" margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px;\"> افتراضي هو لا صوت</p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the \"Already Guessed\" "
+#~ "tooltip is displayed.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\"> الوقت بالفعل محزور التلميحات هو</p></body></"
+#~ "html>"
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "تهانينا! لقد فزت! هل ترغب في اللعب مجددًا؟"
+
+#, fuzzy
+#~ msgid "Do Not Play"
+#~ msgstr "تنفيذ لا تشغيل"
+
+#, fuzzy
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "أنت تنفيذ إلى تشغيل?"
+
+#, fuzzy
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr "إذا مؤكّد حوار هو ليس بعد أربعة ثوان a جديد لعبة تشغيل."
+
+#, fuzzy
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "إذا خيار هو ليس مؤكّد a حوار ظهور a لعبة هو itإيطالياهو IF إلى تشغيل هو "
+#~ "افتراضي حالة n خيار هو مؤكّد حوار ليس ظهور و a جديد لعبة بعد أربعة ثوان A "
+#~ "نافذة منبثقة لعبة أنت ليس حوار كل وقت a لعبة."
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "تنفيذ ليس عرض حوار"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "تنفيذ ليس عرض تهانينا أنت حوار"

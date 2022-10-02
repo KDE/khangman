@@ -1,0 +1,1340 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY package "kdeedu">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>&khangman;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@starman.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2013-05-31</date>
+<releaseinfo
+>2.5 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>&khangman; on klassikaline laste poomismäng, mis on kohandatud &kde; jaoks. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>poomismäng</keyword>
+<keyword
+>mäng</keyword>
+<keyword
+>lapsed</keyword>
+<keyword
+>sõnad</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+
+<para
+>&khangman; tugineb tuntud poomismängule. See on mõeldud enam kui kuueaastastele lastele. Mängul on neli raskusastet (<guimenuitem
+>loomad</guimenuitem
+> ehk loomanimed, <guimenuitem
+>lihtne</guimenuitem
+>, <guimenuitem
+>keskmine</guimenuitem
+> ja <guimenuitem
+>raske</guimenuitem
+>). Sõna valitakse juhuslikult, tähed on peidetud ning sul tuleb sõna tähti ükshaaval pakkudes ära arvata. Iga kord, kui pakud vale tähe, joonistatakse poomispildile kriipsuke juurde. Nii et parem arva sõna ära, enne kui pooja oma tegevusega lõpule jõuab! Pakkuda saab 10 korda. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>&khangman;i kasutamine</title>
+
+<screenshot>
+<screeninfo
+>&khangman; esmakordsel käivitamisel</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="khangman-main.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i pilt</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Selline näeb &khangman; välja esimesel käivitamisel. Kageooria on "loomad", keel vaikekeel (antud juhul inglise keel, muidu sinu vaikimisi &kde; keel, kui antud keele andmefailid on ikka olemas) ja teema "meri". Kõik kategooria, keele või teema (tausta) esitamisse tehtud muudatused salvestatakse konfiguratsioonifaili ja taastatakse mängu järgmisel käivitamisel. </para>
+
+<para
+>Taseme muutmine on imelihtne: selleks tuleb vaid kasutada tööriistaribal asuvat liitkasti. Ka uue sõna võtmine ja mängust väljumine on hõlpus - sedagi saab teha vastavate nuppudega tööriistaribal. </para>
+
+<sect1 id="general-usage">
+<title
+>Üldised kasutamisjuhised</title>
+
+<para
+>Sõna näidatakse peidetult, saad teada ainult seda, mitu tähte selles on: iga tähte näidatakse alakriipsuna (_). Tähti tuleb pakkuda ükshaaval. Täht tuleb kirjutada tekstikasti ning siis vajutada klahvi &Enter; või klõpsata nupule <guibutton
+>Paku</guibutton
+>, et kontrollida, kas see täht ikka sõnas esineb. </para>
+
+<para
+>Sõna valitakse juhuslikult, aga kindlasti ei tule üks sõna kaks korda järjest. </para>
+
+<important
+><para
+>Kõik sõnad on nimisõnad (mitte tegusõnad, omadussõnad &etc;).</para
+></important>
+
+<para
+>Kui vajad sõna äraarvamise ajal abi, klõpsa tööriistaribal ikoonile <guiicon
+>Näita vihjet</guiicon
+> <inlinemediaobject
+><imageobject
+> <imagedata fileref="games-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> ning näidataksegi vihjet, mis annab veidi aimu sõna kohta. Uus klõps ikoonile <guiicon
+>Näita vihjet</guiicon
+> peidab vihje. </para>
+
+<para
+>Vaikimisi käivitamisrežiimis vihjeid ei näidata. </para>
+
+<para
+>Pole tähtis, kas pakud tähe väikese või suurena, sest rakendus peab kõiki tähti väiketähtedeks, välja arvatud saksakeelsete sõnade puhul, mis algavad suure tähega. Ka seda teeb rakendus automaatselt. </para>
+
+<para
+>Parajasti mängitav kategooria, võidu ja kaotused on näha olekuribal. </para>
+
+<para
+>Iga kord, kui pakud tähe, mida sõnas ei esine, tõmbab pooja pildile kriipsukese juurde. Sõna äraarvamiseks saab pakkuda 10 korda. Pärast seda näidatakse õiget sõna. </para>
+
+<para
+>Kategooriaid on neli: lihtne, keskmine, raske, loomad ning lisaks veel mõne keele puhul muud temaatilised tasemed. Rakendus jälgib kõigis keeltes kõiki andmefaile ning võib kasutada ka &kanagram;i sõnafaile. </para>
+ 
+<para
+>Lihtsa kategooria puhul on ka sõnad lihtsad, seotud igapäevaeluga. See sobib lastele vanuses kuus kuni üheksa aastat. Loomade kategooria kasutab ainult loomanimesid, nii et seegi on suhteliselt lihtne, kuigi siin esineb ka üpris haruldasi loomi. Keskmise kategooria puhul on sõnad pikemad ja raskemad. See sobib lastele vanuses üle üheksa aasta. Raske kategooria on... nojah, raske, &ie; sõnad on keerulisemad ega pruugi olla sugugi tavalised. See kategooria esitab tõelise väljakutse isegi täiskasvanutele. </para>
+
+<para
+>Kui sõna on ära arvatud (või pooja oma tegevuse lõpetanud), õnnitletakse sind ja küsitakse, kas soovid uut sõna ära arvata. Kui klõpsad <guilabel
+>Mängi uuesti</guilabel
+>, saadki asuda uut sõna ära arvama, kuigi võid ka valida uue <guimenu
+>kategooria</guimenu
+>. Mängust väljumiseks vali aga <menuchoice
+><guimenu
+>Mäng</guimenu
+><guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+> või klõpsa tööriistaribal ikoonile <guiicon
+>Välju</guiicon
+>. </para>
+
+<para
+>Pakutav täht tuleb kirjutada vastavale väljale (hiirekursor juba asub seal) ning vajutada klahvi &Enter; või klõpsata nupule <guibutton
+>Paku</guibutton
+>. Kui täht sõnas esineb, asetatakse see õigele kohale (kui seda esineb mitmel korral, siis kõigisse sobivatesse kohtadesse). Kui tähte sõnas ei esine, läheb see <guilabel
+>eksimuste</guilabel
+> väljale ning akna paremas osas asub tegutsema pooja, kes tõmbab joonisele juurde ühe kriipsu. Kui sa ei ole sõna kümne pakkumisega ära arvanud, oled kaotanud ning saad lisaks poomisele näha ka õiget sõna. </para>
+
+<para
+>Mängu ajal võid alati valida ka uue äraarvamise, kasutades selleks menüüs <guimenu
+>Mäng</guimenu
+> olevat käsku <guimenuitem
+>Uus</guimenuitem
+> või klõpsates tööriistariba ikoonile <guiicon
+>Uus</guiicon
+> <inlinemediaobject
+><imageobject
+> <imagedata fileref="document-new.png" format="PNG"/></imageobject
+></inlinemediaobject
+>. Menüü <guimenu
+>Kategooria</guimenu
+> abil saab muuta sõnade kategooriat (sel juhul pakutakse ühtlasi äraarvamiseks uus sõna).</para>
+
+<para
+>Välimust saab hõlpsasti muuta <guimenuitem
+>välimus</guimenuitem
+>riba abil, klõpsates vastavale rippmenüüle.</para>
+
+<para
+>Mängust väljuda saab klõpsuga tööriistariba ikoonile <guiicon
+>Välju</guiicon
+> <inlinemediaobject
+><imageobject
+> <imagedata fileref="application-exit.png" format="PNG"/></imageobject
+></inlinemediaobject
+>.</para>
+
+<para
+>Samuti võib mängida masinasse paigaldatud kohaliku failiga, mille avamiseks tuleb valida menüüst <guimenu
+>Mäng</guimenu
+> käsk <guimenuitem
+>Ava</guimenuitem
+>.</para>
+
+</sect1>
+
+<sect1 id="languages">
+<title
+>Mängimine erinevates keeltes</title>
+<para
+>&khangman;i saab mängida paljudes keeltes, sealhulgas: Brasiilia portugali, bulgaaria, hispaania, hollandi, iiri (gaeli), inglise (USA ja Briti), itaalia, katalaani, norra (Bokm&#229;l ja Nynorsk), poola, portugali, prantsuse, rootsi, rumeenia, saksa, serbia (ladina ja kirillitsa), sloveeni, soome, taani, tadžiki, tšehhi, türgi, ungari ja vene. Mängida saab isegi hiina keeles, kui kasutada &kanagram;i faile! </para>
+
+<para
+>Vaikimisi paigaldatakse &khangman; ainult inglise ja sinu &kde; keeles, kui see on mõni eelmainitutest ja kui sa oled paigaldanud vastava kde-i18n paketi. Kui oled näiteks taanlane ja kasutad &kde;d taani keeles, näeb menüüs <guimenu
+>Keel</guimenu
+> kaht kirjet: inglise ja taani, kusjuures taani keel on vaikekeel. </para>
+
+<para
+>Mõistagi saab &khangman;i sellele vaatamata muudes keeltes mängida, sest uute andmete lisamine &khangman;ile on väga lihtne - selleks läheb vaja ainult internetiühendust. Klõpsa menüüs <guimenu
+>Mäng</guimenu
+> käsule <guimenuitem
+>Hangi uue keele sõnad...</guimenuitem
+> Ilmub umbes selline dialoog: </para>
+
+<screenshot>
+<screeninfo
+>&khangman;i uute sõnade hankimise dialoog</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="getnewstuff.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i uute sõnade hankimise dialoog</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Klõpsa selle keele nimel, mida soovid paigaldada, ja seejärel nupul <guibutton
+>Paigalda</guibutton
+>. Eduka paigalduse korral näeb keele nimetuse ees rohelist linnukest ning kiri nupul <guibutton
+>Paigalda</guibutton
+> asendub kirjaga <guibutton
+>Eemalda</guibutton
+>. Andmed paigaldatakse otsekohe ning neid saab ka otsekohe &khangman;is kasutada. Klõpsa nupule <guibutton
+>Sulge</guibutton
+> uute sõnade hankimise dialoogi sulgemiseks (kui sa muidugi ei soovi kohe veel mõnda keelt paigaldada). </para>
+
+<para
+>Keelt saab hõlpsasti muuta, kui valida menüüst <guimenu
+>Keel</guimenu
+> uus keel. </para>
+
+<para
+>Pane tähele, et nüüd on võimalik kirjutada ka keelele omaseid eritähti, kasutades selleks <interface
+>eritähtede tööriistariba</interface
+>. Sellel on nupud kõigi vastava keele eritähtedega, näiteks &eacute; prantsuse keele puhul. Sellisel nupul klõpsamine sisestab vastava tähe sisendväljale, mille järel tuleb vajutada klahvile &Enter;. Mõistagi võib eritähtede sisestamiseks kasutada ka klaviatuuri, kui sellel on vastavad tähed. Tööriistariba saab oma soovi kohaselt peita. See, kas riba on peidetud või mitte, jäetakse meelde, ning &khangman;i järgmisel korral käivitamisel on see samuti vastavalt peidetud või nähtaval. </para>
+
+<important
+><para
+>Palun arvesta, et mõne keele erisümbolite korrektseks esitamiseks on vajalikud fondid Arial ja URW Bookman. Eeldusel, et need on paigaldatud, kasutab &khangman; neid automaatselt. Kui näed tähtede asemel aga väikseid ristkülikuid, on sul vähemalt üks neist puudu. Kontrollimaks, millised fondid on paigaldatud, kirjuta &konqueror;i aadressiribale <command
+>fonts:/</command
+>. </para
+></important>
+
+</sect1>
+<sect1 id="few-tips">
+<title
+>Natuke abi</title>
+<para
+>Esmalt on mõtet pakkuda täishäälikuid, seejärel levinumaid kaashäälikuid: k, t, s, m, v </para>
+<para
+>Kui näed prantsuse või inglise keele korral täheühendit <quote
+>io</quote
+>, tasub pakkuda n. </para>
+<para
+>Brasiilia portugali, hispaania, katalaani ja portugali keele puhul näidatakse ka rõhumärkidega täishäälikuid, kui pakkuda vastav rõhumärgita vokaal. Nii näidatakse näiteks <quote
+>a</quote
+> pakkumisel ka kõiki diakriitiliste märkidega <quote
+>a</quote
+>-sid. Seda muidugi juhul, kui &khangman;i seadistustedialoogi kaardil <guilabel
+>Keeled</guilabel
+> pole sisse lülitatud valik <guilabel
+>Rõhumärkidega tähtede kirjutamine</guilabel
+>. Kui <guimenuitem
+>Rõhumärkidega tähtede kirjutamine</guimenuitem
+> on sisse lülitatud, tuleb rõhumärkidega tähed sul ise sisestada. Kui kirjutad sellisel juhul <quote
+>a</quote
+>, siis ongi see <quote
+>a</quote
+> ja kui soovid, et selle asemel sisestataks näiteks &atilde;, tuleb sul just see ka sisestada. </para>
+<para
+>Kas tead, et inglise keeles on kõige levinum täht 'e' (12,7%), millele järgnevad 't' (9,1%), 'a' (8,2%), 'i' (7,0%) ja 'n' (6,7%). </para>
+</sect1>
+
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menüüriba ja tööriistaribad</title>
+
+<sect1 id="mainwindow">
+<title
+>&khangman;i peaaken</title>
+
+<para
+>Menüüs <guimenu
+>Mäng</guimenu
+> on kolm kirjet: <guimenuitem
+>Uus</guimenuitem
+>, <guimenuitem
+>Hangi uue keele sõnad...</guimenuitem
+> ja <guimenuitem
+>Välju</guimenuitem
+>.</para>
+
+<para
+><guimenuitem
+>Uus</guimenuitem
+> avab uue mängu, &ie; uue sõna äraarvamiseks käesolevas kategoorias. <guimenuitem
+>Hangi uue keele sõnad...</guimenuitem
+> avab dialoogi, mis võimaldab alla laadida muude saadaolevate keelte andmefaile. <guimenuitem
+>Välju</guimenuitem
+> lõpetab mängu, sulgedes peaakna ja kirjutades parajasti kehtivad seadistused seadistustefaili.</para>
+
+<para
+>Menüüs <guimenu
+>Kategooria</guimenu
+> saab valida kategooria, &ie; äraarvamiseks pakutavate sõnade kategooria ning ka nende raskusastme. </para>
+
+<para
+>Menüüs <guimenu
+>Keel</guimenu
+> saab muuta keelt, mille sõnu äraarvamiseks pakutakse. </para>
+
+<para
+>Menüüs <guimenu
+>Välimus</guimenu
+> saab valida nelja teema vahel: <guimenuitem
+>mereteema</guimenuitem
+>, <guimenuitem
+>talveteema</guimenuitem
+>, <guimenuitem
+>mesilaseteema</guimenuitem
+> ja <guimenuitem
+>kõrbeteema</guimenuitem
+>. Kõik kasutavad oma tausta- ja fondivärve. </para>
+
+<para
+>Menüü <guimenuitem
+>Seadistused</guimenuitem
+> lubab hõlpsasti seadistada &khangman;i. Kõigepealt annavad käsud <guimenuitem
+>Tööriistaribad</guimenuitem
+>, <guimenuitem
+>Vihje näitamine</guimenuitem
+> ja <guimenuitem
+>Olekuriba näitamine</guimenuitem
+> võimaluse näidata või peita tööriistaribasid, vihjeid ja olekuriba. </para>
+
+<para
+>Tööriistaribasid on neli: <guimenuitem
+>peamine</guimenuitem
+>, <guimenuitem
+>välimuse</guimenuitem
+> ja <guimenuitem
+>keele</guimenuitem
+> tööriistariba ülal, kus on nupud ja liitkastid, ning <guilabel
+>erimärkide</guilabel
+> tööriistariba, mis juhul, kui seda näidatakse, asub all. Viimasel asuvad iga keele eritähed: rõhumärkidega tähed ja muud erilised tähestiku elemendid. See võimaldab mängu hõlpsasti kasutada ilma klaviatuuri seadistustega vaeva nägemata: klõpsa vajalikule eritähele ja see ilmubki nähtavale. Klahvile &Enter; vajutades selgub, kas täht esineb äraarvatavas sõnas või mitte. Soovi korral saab selle tööriistariba ka peita. See salvestatakse ka seadistustefaili, nii et kui peidad tööriistariba, ei ole seda näha ka &khangman;i järgmisel käivitamisel. </para>
+
+<tip>
+<para
+>Mõistagi on võimalik tööriistaribasid liigutada just sinna, kuhu süda soovib. Aseta selleks hiirekursor tööriistariba vasakus servas paiknevale väiksele sangale, vajuta &HVN; alla ja lohista tööriistariba ekraanil sinna, kus soovid seda näha. Kui klõpsad mõnel tööriistaribal hiire parema nupuga, ilmub hüpikmenüü, mis võimaldab tööriistaribaga teatud toiminguid ette võtta. </para>
+</tip>
+
+<para
+><guimenuitem
+>Kiirklahvide seadistamine...</guimenuitem
+> avab &kde; tavapärase kiirklahvide dialoogi, kus saab klahve või klahvikombinatsioone seostada teatud toimingutega. Näiteks <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> on tavaline käsklus rakenduse töö lõpetamisele (menüükäsk <guimenuitem
+>Välju</guimenuitem
+>).</para>
+<para
+><guimenuitem
+>Tööriistaribade seadistamine...</guimenuitem
+> avab samuti &kde; tavapärase dialoogi, kus saab tööriistaribadel leiduvaid elemente lisada või eemaldada. </para>
+
+<screenshot>
+<screeninfo
+>&khangman;i kõrbetaust</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="khangman-desert.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i kõrbetaust</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Siin on näha &khangman; kõrbetaustaga, prantsuse keeles ja kerge kategooriaga. Näha on ka <interface
+>tähtede</interface
+> tööriistariba.</para>
+
+<para
+>Kategooria saab valida liitkastist tööriistaribal või menüüst <guimenu
+>Kategooria</guimenu
+> menüüribal. Valida on <guimenuitem
+>lihtne</guimenuitem
+>, <guimenuitem
+>keskmine</guimenuitem
+>, <guimenuitem
+>raske</guimenuitem
+> ja <guimenuitem
+>loomad</guimenuitem
+>e ja veel mõned kategooriad. <guimenuitem
+>Lihtsa</guimenuitem
+> kategooria korral käivad sõnad elementaarsete asjade kohta, mida võiks teada kuue-seitsmeaastane laps. <guimenuitem
+>Keskmine</guimenuitem
+> tase on veidi keerulisem, <guimenuitem
+>raske</guimenuitem
+> päris raske ja <guimenuitem
+>loomade</guimenuitem
+> taseme korral tuleb ära arvata ainult loomanimesid. Sõltuvalt keelest võib kategooriaid olla teisigi. </para>
+
+<para
+>Kõik sõnad on nimisõnad, ühtegi verbi ega omadussõna ei kasutata. Valitud kategooria on näha olekuribal.</para>
+<para
+>Tekstikasti on lubatud kirjutada ainult tähti, mitte aga numbreid või muid märke.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Saadaolevad seadistused</title>
+<para
+>Tööriistaribalt pääseb kiiresti ligi mõningatele sagedamini kasutatavatele võimalustele. Nupule klõpsates võib alustada uut mängu (s.t. valida uue sõna äraarvamise), näha vihjet või mängust väljuda. Samuti saab tööriistaribal oleva liitkastiga hõlpsasti muuta teemat. </para>
+<para
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+> <guimenuitem
+>&khangman;i seadistamine...</guimenuitem
+> </menuchoice
+> pakub kolme kaardiga dialoogi. Esimene neist puudutab <guilabel
+>üldisi</guilabel
+> seadistusi. </para>
+
+<sect2 id="general-settings">
+<title
+>Üldised seadistused</title>
+
+<screenshot>
+<screeninfo
+>&khangman;i üldised seadistused</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="settings-general.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i üldised seadistused</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Kui märkida ära <guilabel
+>Korduvate tähtede eraldi äraarvamine</guilabel
+>, näidatakse ka juhul, kui sinu pakutud tähte esineb sõnas mitu korda, ainult selle esimest esinemiskorda. Kui näiteks sõna on "banaan" ja sa pakud "a", avatakse ainult esimene "a". Teise ja kolmanda "a" avamiseks tuleb uuesti "a" pakkuda. See muudab mängu tublisti keerulisemaks. Vaikimisi ei ole see sisse lülitatud. </para>
+
+<para
+><guimenu
+>Animatsioonide lubamine</guimenu
+> on vaikimisi sisse lülitatud, mis tähendab, et mängu näidatakse teadet, et oled võitnud, ja päritakse, kas soovid veel mängida. Kui eemaldada kastist märge, dialoogi enam ei näidata, vaid kolme sekundi pärast käivitatakse automaatselt uus mäng. </para>
+
+<para
+><guilabel
+>Vihjete globaalne lubamine</guilabel
+>: vaikimisi on märkimata ja vihjeid ei näidata. Kui see märkida (või kasutada ikooni <guilabel
+>Näita vihjeid</guilabel
+> või valida menüükäsk <menuchoice
+><guimenu
+>Seadistused</guimenu
+><guimenuitem
+>Vihjete näitamine</guimenuitem
+></menuchoice
+> või kiirklahv <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>), näidatakse sõna kohal vihjet, mis aitab sõna hõlpsamini ära arvata. </para>
+
+<para
+>SEktsioonis <guilabel
+>Heli</guilabel
+> võib ära märkida kasti <guimenu
+>Helide lubamine</guimenu
+>, millisel juhul mängitakse heli nii uue mängu alustamisel kui ka mängu võitmisel. </para>
+
+</sect2>
+<sect2 id="languages-settings">
+<title
+>Keeleseadistused</title>
+<para
+><guilabel
+>Keel</guilabel
+>eseadistuste kaardil saab määrata teatud keeltele spetsiifilisi asju. Kui sinu keel selliste keelte hulka ei kuulu, on need valikud hallid ja neid ei saa kasutada. </para>
+
+<screenshot>
+<screeninfo
+>&khangman;i keeleseadistused</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="settings-languages.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i keeleseadistused</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Valik <guimenu
+>Rõhumärkidega tähtede kirjutamine</guimenu
+> on mõeldud hispaania, katalaani ja portugali keelele. Kui <guimenu
+>Rõhumärkidega tähtede kirjutamine</guimenu
+> sisse lülitada, tuleb kõik vastavad eritähed sõnades eraldi pakkuda (näiteks &atilde;). Kui see ei ole sisse lülitatud, paljastab ilma rõhumärgita tähe pakkumine ka kõik sarnased rõhumärkidega tähed. </para>
+
+</sect2>
+
+<sect2 id="timers-settings">
+<title
+>Taimeri seadistused</title>
+<para
+><guilabel
+>Taimeri</guilabel
+> seadistuste kaardil saab määrata <guilabel
+>aja, mille jooksul näidatakse juba äraarvatud tähe kohtspikrit</guilabel
+>. </para>
+
+<screenshot>
+<screeninfo
+>&khangman;i taimeri seadistused</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="settings-timers.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase
+>&khangman;i taimeri seadistused</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Juba pakutud tähe kohtspikri näitamise aja määramine</guilabel
+> võimaldab pikendada või lühendada aega, mille jooksul näidatakse juba äraarvatud tähe kohtspikrit. See annab teada, kui proovid sisestada tähte, mida oled juba pakkunud. Mõnele inimesele ei pruugi selle näitamine üldse meeldida, samas lapsed võivad tahta sõnumit uurida ning nende puhul võiks näitamise aega pikendada. </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Käskude seletused</title>
+
+<sect1 id="khangman-mainwindow">
+<title
+>Menüüd ja kiirklahvid</title>
+
+<sect2>
+<title
+>Menüü Mäng</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Uus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Uus</action
+> mäng, &ie; uus sõna</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Ava</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avab</action
+> kohaliku sõnafaili</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Hangi uue keele sõnad...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avab</action
+> <guilabel
+>uue kraami hankimise</guilabel
+> dialoogi, kus näeb kõiki keeli, mille andmeid on võimalik võrgust endale laadida. </para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Lõpetab</action
+> &khangman;i töö</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Menüü Kategooria</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Kategooria</guimenu
+> <guimenuitem
+>Loomad</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> äraarvamiseks loomade nimed</para>
+<para
+>Samas menüüs näidatakse ka kõiki teisi paigaldatud kategooriaid.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Kategooria</guimenu
+> <guimenuitem
+>Kerge</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> äraarvamiseks lihtsate sõnade nimekiri</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Kategooria</guimenu
+> <guimenuitem
+>Keskmine</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> äraarvamiseks keskmise raskusastmega sõnade nimekiri</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Kategooria</guimenu
+> <guimenuitem
+>Raske</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> äraarvamiseks raskete sõnade nimekiri</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Menüü Keel</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Keel</guimenu
+> <guimenuitem
+>Inglise</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> äraarvamiseks ingliskeelsed sõnad.</para>
+<para
+>Samas menüüs näidatakse ka kõiki teisi paigaldatud keeli.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Menüü Välimus</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Välimus</guimenu
+> <guimenuitem
+>Meretaust</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> meretaust ja vastavad fondivärvid</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Välimus</guimenu
+> <guimenuitem
+>Talveteema</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> talvine taustapilt ja vastavad fondivärvid</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Välimus</guimenu
+> <guimenuitem
+>Mesilaseteema</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> mesilastega taustapildi ja vastavad fondivärvid</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Välimus</guimenu
+> <guimenuitem
+>Kõrbetaust</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Võimalus valida</action
+> kõrbetaust ja vastavad fondivärvid</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Lisaks on &khangman;il tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="developers">
+<title
+>&khangman;i sõnum arendajatele</title>
+
+<sect1 id="changing-words">
+<title
+>Kuidas tõlkida sõnu mängu uuele keelele</title>
+
+<para
+>Palun järgi alltoodud juhiseid ja saada seejärel failid tar.gz-tihenduses aadressile &Anne-Marie.Mahfouf.mail;. </para>
+<para
+>Kõigepealt kontrolli, kas &khangman;o menüü <guimenu
+>Mäng</guimenu
+> käsk <guimenuitem
+>Hangi uue keele sõnad...</guimenuitem
+> ei paku juba sinu keele sõnu. Kui pakub, siis võid kontrollida, kas olemas on ka <emphasis
+>vihjed</emphasis
+>. </para>
+<para
+>Sõnad paiknevad neljas eraldi failis, üks fail iga kategooria kohta. Failid asuvad kataloogis <filename class="directory"
+>/khangman/data/</filename
+>. Fail <filename
+>easy.txt</filename
+> on lihtsa, <filename
+>medium.txt</filename
+> keskmise, <filename
+>anmals.txt</filename
+> loomade ja <filename
+>hard.txt</filename
+> raske kategooria jaoks.</para>
+<para
+>Inglise keel on vaikekeel ning seepärast ka ainuke, mis on alati &khangman;iga kaasas. Kõik muud keeled on lisatud vastavatesse kde-l10n moodulitesse. </para>
+<procedure>
+<step>
+<para
+>Kasutada tuleb kvtml-vormingut ning kõige parem oleks eeskujuks vaadata, mida on tehtud prantsuse ja itaalia keele puhul. Silt <sgmltag class="starttag"
+>text</sgmltag
+> käib sõna, silt <sgmltag class="starttag"
+>t</sgmltag
+> vihje kohta, mõlemad asuvad sildi <sgmltag class="starttag"
+>entry</sgmltag
+> sees. Püüa hoida vihjed vastavuses taseme raskusastmega. <guimenuitem
+>Lihtsal</guimenuitem
+> tasemel võiks ka vihje olla üsna lihtne, kuid <guimenuitem
+>raskel</guimenuitem
+> tasemel võib vaja minna juba näiteks sõnaraamatu seletust. Püüa mitte kasutada vihjes äraarvatava sõnaga sarnaseid sõnu, mis annaks vahest liiga palju ette!</para>
+
+<para
+>Arvesta, et faile redigeerides tuleb kasutada <emphasis role="bold"
+>UTF-8 kodeeringut</emphasis
+>. Kui sinu lemmikredaktor seda ei suuda, püüa kasutada &kwrite;'i või &kate;t. Faili &kwrite;'is või &kate;s avades saab utf8 kodeeringu valida ülal paremal asuvast liitkastist.</para>
+
+<para
+>Näide kvtml-faili kohta:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"http://edu.kde.org/kanagram/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Tõlgi sildi sisu--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Tõlgi sildi sisu--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Tõlgi kõik text-sildite
+sisu--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Tõlgi kõigi comment-siltide sisu--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>Faili alguses tuleks tõlkida siltide <sgmltag class="starttag"
+>title</sgmltag
+> ja <sgmltag class="starttag"
+>comment</sgmltag
+> sisu, mis asuvad sildi <sgmltag class="starttag"
+>information</sgmltag
+> sees. Pealkiri (title) on see, mis ilmub hiljem mängu menüüsse Kategooria, kust siis mängijad saavad selle valida. </para>
+</step>
+<step>
+<para
+>Seejärel aseta sildi <sgmltag class="starttag"
+>identifier</sgmltag
+> alamsilti <sgmltag class="starttag"
+>locale</sgmltag
+> en asemele oma keele kood.</para>
+
+<para
+>Palun ära tõlgi failinime, sest need ei tohiks mingil juhul sisaldada ühtegi eritähte. Niisiis salvesta fail palun ingliskeelse nimega.</para>
+</step>
+<step>
+<para
+>Muuda kvtml-faile tekstiredaktoriga (asi on palju lihtsam, kui redaktor võimaldab &XML;i süntaksi esiletõstmist), asendades kõik sõnad sildi <sgmltag class="starttag"
+>text</sgmltag
+> sees ja kõik vihjed sildi <sgmltag class="starttag"
+>t</sgmltag
+> sees tõlgetega. Õigupoolest pole oluline säilitada tähendust, kuid üldiselt tasuks siiski silmas pidada pikkust ja raskusastet. </para
+> 
+
+<para
+>Sõnades võib esineda ka tühik või -, sellisel juhul näidataksegi tühikut või märki '-', mitte aga '_'. Kui sinu keelel on mingeid eriomaseid probleeme, võta minuga ühendust, et ma võiks kaasa aidata koodi vajalikule kohandamisele (eriti näiteks eritähtede ja diakriitilisi märke kasutavate tähtede korral). </para>
+</step
+>	
+
+<step>
+<para
+>Sõnu võib muidugi ka otse tõlkida, aga mõttekas on kasutada oma keele arusaama sõnade raskusastmest ja ka uusi sõnu lisada. Näiteks <quote
+>table</quote
+> ehk <quote
+>laud</quote
+> on inglise keeles lihtsa taseme sõna, aga mõnes muus keeles võib see kuuluda ka näiteks keskmisele tasemele. Nii et kasuta sõnade muutmisel oma paremat äranägemist ja seesmist tunnetust. Sõnade arv failis ei ole oluline, neid võib täiesti vabalt ka rohkem olla.</para>
+
+<para
+>Arvesta, et kõik sõnad peavad olema nimisõnad.</para>
+
+</step>
+
+<step>
+<para
+>Seejärel võib failid sisse kanda moodulisse <emphasis
+>l10n-kde4/&lt;keelekood&gt;/data/kdeedu/khangman</emphasis
+>. Ära unusta uuendamast ka faili CMakeLists.txt. Kui vajad lisateavet, võta minuga e-postitsi ühendust. Kui saadad mulle failid, ära unusta kindlasti mainimast mis tahes <emphasis role="bold"
+>erimärke</emphasis
+>, mida sinu keeles tarvitatakse (pane need omaette tekstifaili, üks märk igale reale ja lisa see fail pakitud komplekti), ja mis tahes muid iseärasusi.</para>
+<para
+><emphasis
+>Palun ära kanna faile kunagi sisse stabiilsesse harusse (BRANCH), sest see võib muuta mängu kasutamise lihtsalt võimatuks.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Suured tänud kaasaaitamise eest!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Mida ja kuhu &khangman; salvestab</title>
+<para
+>Kui hangid uue keele menüükäsuga <menuchoice
+><guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Hangi uue keele sõnad ...</guimenuitem
+></menuchoice
+>, salvestatakse uue keele andmed vastava keele kataloogi <filename class="directory"
+>$KDEHOME/share/apps/khangman/data</filename
+>. Saadaolevate keelekataloogide nimed salvestatakse ka &khangman;i konfiguratsioonifailis <filename
+>$KDEHOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Pakkuja nimi (s.t. veebilehekülje aadress, kust uusi keeli alla laadida), on salvestatud failis <filename
+>$KDEDIR/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Inglise keel (vaikimisi) ja kasutaja keel vastavast i18n paketist (kui see on olemas) salvestatakse kataloogi <filename class="directory"
+>$KDEDIR/share/apps/kvtml</filename
+>. </para>
+<para
+>Konfiguratsioonifailis, mis on iga kasutaja kohta eraldi salvestatud failis <filename
+>$KDEHOME/share/config/khangmanrc</filename
+>, salvestatakse kõik mänguga seotud seadistused, näiteks taust, viimati mängitud tase, samuti failid, mis on alla laetud <guilabel
+>uue kraami hankimise</guilabel
+> dialoogi abil. </para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Küsimused ja vastused</title>
+&reporting.bugs; &updating.documentation; <qandaset id="faqlist">
+<qandaentry>
+<question>
+<para
+>Ma saan veateate, mis ütleb, et pilte ei leita.</para>
+</question>
+<answer>
+<para
+>Vaikimisi on mäng paigaldatud kataloogi <filename class="directory"
+>/usr/local/kde</filename
+>, nii et lisa enne mängu käivitamist oma otsinguteele <filename class="directory"
+>/usr/local/kde/bin</filename
+> ja määra muutuja <envar
+>KDEDIR</envar
+> väärtuseks <filename class="directory"
+>/usr/local/kde</filename
+>. Väga lihtne on &khangman;i seadistada võtmega <option
+>--prefix</option
+>=$<envar
+>KDEDIR</envar
+>, kus $<envar
+>KDEDIR</envar
+> on koht, kuhu &kde; on paigaldatud. See võib vastavalt distributsioonile ja operatsioonisüsteemile tublisti erineda, mistõttu on kõige mõttekam paigaldada &khangman; oma distributsiooni tarkvarapaketist.</para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para
+>&khangman; ei käivitu korrektselt pärast seda, kui uuendasin versiooni &kde; 4 peale</para>
+</question>
+<answer>
+<para
+>Selle põhjuseks võib olla seadistustefaili muutumine. Palun eemalda kataloogist <filename class="directory"
+>$KDEHOME/share/config</filename
+> fail <filename
+>khangmanrc</filename
+>. </para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Autorid ja litsents</title>
+
+<para
+>&khangman; </para>
+<para
+>Rakenduse autoriõigus 2001-2007: &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;.mail; </para>
+<para
+>Kaasaaitajad: <itemizedlist>
+<listitem
+><para
+>Hangmani graafika: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Helid: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Endine hooldaja: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Rootsi keele andmefailid, abi koodi kirjutamisel, läbipaistvad pildid ja i18n parandused: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Hispaania keele andmefailid: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Hispaania keele vihjed: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Taani keele andmefailid: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Soome keele andmefailid: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Brasiilia portugali keele andmefailid: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Katalaani keele andmefailid: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Itaalia keele andmefailid: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Hollandi keele andmefailid: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Portugali keele andmefailid: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Serbia keele (kirillitsa ja ladina) andmefailid: Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Sloveeni keele andmefailid: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Tšehhi keele andmefailid: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Tadžiki keele andmefailid: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Norra keele (Bokm&#229;l) andmefailid: Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Ungari keele andmefailid: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Norra keele (Nynorsk) andmefailid: Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Türgi keele andmefailid: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Bulgaaria keele andmefailid: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Iiri keele andmefailid: Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Abi koodi kirjutamisel: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Abi koodi kirjutamisel: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Koodiparandused: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Koodiparandused: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Kasutamisuuring: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Dokumentatsiooni autoriõigus 2001-2007: &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@starman.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Paigaldamine</title>
+
+<sect1 id="getting-khangman">
+<title
+>Kuidas hankida &khangman;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompileerimine ja paigaldus</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % French "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuel de l'utilisateur de KHangman</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+><contrib
+>Page de manuel pour &khangman;.</contrib
+><email
+>bab@debian.org</email
+></author>
+<date
+>25-04-2016</date>
+<productname
+>Les applications de KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Le jeu classique du pendu pour KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Description</title>
+<para
+>&khangman; est un jeu développé à partir du jeu bien connu du pendu. Il est destiné aux enfants de 6 ans et plus. Il possède plusieurs catégories de mots comme Animaux, Vêtements, Ordinateurs, Monnaies et bien plus.</para
+><para
+>Un mot dont les lettres sont cachées est sélectionné de façon aléatoire. Vous devez deviner le mot en essayant une lettre après l'autre. Chaque fois que vous devinez une lettre fausse, l'image d'un pendu est progressivement dessinée. Vous devez deviner le mot avant d'être pendu ! Vous avez 10 essais.</para
+><para
+>Cette application fait partie du module &kde; éducation.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Voir aussi</title>
+<para
+>Une documentation utilisateur détaillée est disponible à partir de <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (vous pouvez soit saisir cette <acronym
+>URL</acronym
+> dans &konqueror; soit lancer <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Veuillez consulter la page du <ulink url="http://edu.kde.org/khangman/"
+>site Internet du projet &kde; pour l'éducation</ulink
+> pour plus d'informations.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Auteurs</title>
+<para
+>&khangman; a été écrit par <personname
+><firstname
+>Primoz</firstname
+> <surname
+>Anzur</surname
+></personname
+> et &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Cette page de manuel est rédigée à partir de celle préparée par <personname
+><firstname
+>Ben</firstname
+> <surname
+>Burton</surname
+></personname
+> pour le projet Debian.</para>
+
+
+</refsect1>
+
+</refentry>

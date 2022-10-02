@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Swedish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Användarhandbok för Hänga gubben</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>Hänga gubbens manualsida.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2020-12-22</date>
+<productname
+>Program 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Det klassiska hänga gubben spelet av KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Beskrivning</title>
+<para
+>&khangman; är ett spel baserat på det välkända Hänga gubben spelet. Det är avsett för barn i åldrarna sex och uppåt. Spelet har ett antal ordkategorier såsom djur, kläder, datorer, valutor med flera.</para
+><para
+>Ett ord väljs slumpmässigt, bokstäverna är dolda och du måste gissa ordet genom att försöka med en bokstav i taget. Varje gång du gissar fel bokstav, ritas en del av bilden av en hängd gubbe. Du måste gissa ordet innan du blir hängd! Du har tio försök.</para
+><para
+>Programmet är en del av &kde;:s utbildningsmodul.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Se också</title>
+<para
+>Mer detaljerad användardokumentation är tillgänglig med <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (skriv antingen in webbadressen i &konqueror;, eller kör <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Det finns också ytterligare information tillgänglig på <ulink url="https://edu.kde.org/khangman/"
+>webbsidan för KDE:s utbildningsprojekt</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Upphovsmän</title>
+<para
+>&khangman; är skrivet av <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> och &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Den här manualsidan är baserad på den som tagits fram av <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> <email
+>bab@debian.org</email
+> för &Debian;-projektet.</para>
+
+
+</refsect1>
+
+</refentry>

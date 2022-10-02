@@ -1,0 +1,918 @@
+# translation of khangman.po to ro.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Claudiu Costin <claudiuc@kde.org>, 2003, 2010.
+# Militaru Cristian <cristipiticul@yahoo.com>, 2010.
+# Victor Cărbune <victor.carbune@kdemail.net>, 2010.
+# Sergiu Bivol <sergiu@cip.md>, 2012, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2020-09-08 22:55+0100\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr ""
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr ""
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Fișierul $KDEDIR/share/apps/kvtml/%1/%2 nu a fost găsit.\n"
+"Vă rugăm să verificați instalarea."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Eroare"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Niciuna"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Nivel"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "Limba aleasă de utilizator"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Denumirea tematicii de fundal"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Bifați aici dacă nu doriți să fie înlocuite toate aparițiile ale aceleiași "
+"litere la introducerea acesteia, ci să apară pe rând."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Activează animații"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Dacă bifați, când câștigați și când începeți un joc nou vor fi cântate sunete"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, fuzzy, kde-format
+#| msgid ""
+#| "If checked, hints will always been displayed. If this is not checked "
+#| "(default) \n"
+#| "            hints will be displayed only per word when the user chooses "
+#| "to show the hint."
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Dacă este bifată, indiciile vor apărea întotdeauna. Dacă nu este bifată, "
+"indiciile vor apărea doar la cuvintele pe care le alege utilizatorul. "
+"Inițial căsuța nu este bifată."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Scrie literele cu diacritice separat de cele normale"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "Informații despre furnizorii jocului KHangMan"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "Jocul clasic de spânzurătoare pentru KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Responsabilul anterior"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Autor original"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Dezvoltator"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Ajutor în programare"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Date în limba suedeză, ajutor în programare, picturi transparente și "
+"remediiale i18n"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Date în limba spaniolă"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Date în limba daneză"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Date în limba finlandeză"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Date în limba portugheză"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Date în limba catalană"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Date în limba italiană"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Date în limba olandeză"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Date în limba cehă"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Date în limba maghiară"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Date în limba norvegiană (Bokmål)"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Date în limba tajik"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Date în limba sârbă (cirilice și latine)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Date în limba sloveniană"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Date în limba portugheză"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Date în limba norvegiană"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Date în limba turcă"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Date în limba rusă"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Date în limba bulgară"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Date în limba irlandeză"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Softer Hangman Pictures"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Ajutor în programare, remediul a numeroase lucruri"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr ""
+"Programul de generare a icoanelor pentru bara de instrumente a caracterelor"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Optimizarea programului"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Militaru Cristian"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "cristipiticul@yahoo.com"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Alegeți categoria de cuvinte"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Alegeți limba"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "Alegeți tematica"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Întrerupe"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Joacă"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Schimbă tematica."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Configurări"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "Despre KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "Despre KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Vezi ghidul KHangMan"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Descarcă fișiere noi de limbă"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Termină"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Tentative rămase:"
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Scor: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Victorii: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Înfrângeri: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Afișează indiciul."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Schimbă categoria."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Schimbă limba."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Dezvăluie cuvântul"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Dezvăluie cuvântul actual."
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Configurări KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Sunete"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Factor de multiplicare a scorului"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "Bine"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Renunță"
+
+#~ msgid "khangman"
+#~ msgstr "khangman"
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "Greșeli"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Arată caracterele barei de unelte."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr ""
+#~ "Timpul după care va dispărea mesajul <b>Literă deja încercată</b> după "
+#~ "apariția acestuia."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Spaniolă, Portugheză, Catalană"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Scrieți &literele cu diacritice"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Dacă această căsuță este bifată, va trebui să scrieți dumneavoastră "
+#~ "literele cu diacritice (acestea vor fi diferențiate de literele "
+#~ "corespunzătoare fără diacritice)"
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Dacă aceasta este <b>oprită</b>, limba selectată nu o suportă. Dacă "
+#~ "aceasta este <b>pornită</b> și dacă o bifați, atunci veți fi nevoit să "
+#~ "scrieți literele cu diacritice. Dacă nu este bifată, literele cu "
+#~ "diacritice vor apărea ca litere normale.<br>\n"
+#~ "De exemplu, în limba română, dacă nu este bifată și scrieți \"t\", și \"t"
+#~ "\"-urile și \"ț\"-urile vor apărea în cuvânt: <b>țintă</b>. Dacă este "
+#~ "bifată, cânt veți scrie \"t\", doar literele \"t\" vor apărea în text, pe "
+#~ "când \"ț\"-urile nu."
+
+#~ msgid "German"
+#~ msgstr "Germană"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Jucați cu majuscule"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "Dacă este bifată, cuvântul va apărea doar în majuscule"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Dacă această căsuță este bifată, cuvântul va apărea în majuscule, chiar "
+#~ "dacă le introduceți în litere mici. Dacă nu este bifată, cuvântul va fi "
+#~ "în litere mici.<br>\n"
+#~ "Această opțiune este disponibilă doar în limba germană."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Aici puteți alege opțiunile pentru orice limbă."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Dacă bifați această casuță, doar prima literă va fi scrisă dacă litara "
+#~ "apre in mai multe locuri în cuvânt. Apoi va trebui să alegeți din nou "
+#~ "aceeași literă, pentru a înlocui al doilea spațiu din cuvânt unde ar "
+#~ "trebui să fie acea literă, până când litera nu mai apare în cuvânt. De "
+#~ "exemplu, cuvântul care trebuie ghicit este \"corect\". Dacă această "
+#~ "opțiune nu este bifată, când introduceți \"c\" în cuvânt vor apărea și "
+#~ "primul și penultimul \"c\". Dacă este bifată, va trebui să scrieți \"o\" "
+#~ "de două ori.\n"
+#~ "\n"
+#~ "Inițial dacă este introdusă o literă, se vor descoperi toate aparițiile "
+#~ "ei în cuvânt."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr ""
+#~ "Necesită mai multe încercări pentru literele care apar de mai mutle ori "
+#~ "în text"
+
+#~ msgid "Enable animations"
+#~ msgstr "Porniți animațiile"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Porniți indiciile la toate cuvintele"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Dacă această căsuță este bifată, se vor cânta niște sunete la fiecare joc "
+#~ "nou și la fiecare joc câștigat. Dacă nu este bifată, nu va fi niciun "
+#~ "sunet în KHangMan. Inițial sunetele sunt orpite."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Porniți sunetele"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Jucați cu alt cuvânt"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Deschide un document de tip vocabular existent"
+
+#~ msgid "&Show Hint"
+#~ msgstr "&Arată indiciul"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Arată/Ascunde indiciul care ajută la găsirea cuvântului"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "Importați cuvinte &din altă limbă..."
+
+#~ msgid "&Category"
+#~ msgstr "&Categorie"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Alegeți categoria din care să facă parte cuvintele"
+
+#~ msgid "&Language"
+#~ msgstr "&Limba"
+
+#~ msgid "L&ook"
+#~ msgstr "As&pect"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Alegeți aspectul și animațiile"
+
+#~ msgid "General"
+#~ msgstr "Generale"
+
+#~ msgid "Languages"
+#~ msgstr "Limbi"
+
+#~ msgid "Timers"
+#~ msgstr "Cronometre"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Scrieți literele cu diacritice"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Deschideți un document de  tip vocabular"
+
+#~ msgid "&Game"
+#~ msgstr "Joc (&g) "
+
+#~ msgid "Main"
+#~ msgstr "Principal"
+
+#~ msgid "Special Characters"
+#~ msgstr "Caractere speciale"
+
+#~ msgid "Look"
+#~ msgstr "Aspect"
+
+#~ msgid "Language"
+#~ msgstr "Limbă"
+
+#~ msgid "G&uess"
+#~ msgstr "&Ghiciți"
+
+#~ msgid "&Play again"
+#~ msgstr "&Jucați din nou"
+
+#~ msgid "Hint"
+#~ msgstr "Indiciu"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Ați pierdut. Cuvântul era \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Felicitări! Ați câștigat!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Această literă a fost deja încercată."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Aici puteți alege setări speciale pentru unele limbi."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Responsabilul curent, autorul"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "O secundă"
+#~ msgstr[1] "%1 secunde"
+#~ msgstr[2] "%1 secunde"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Aici puteți seta timpul dupa care vor apărea indiciile și mesajul apărut "
+#~ "când litera a fost deja încercată"
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "Timpul în care va apărea mesajul <b>Literă deja încercată</b>: "
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Puteți seta cât timp rămâne mesajul \"Deja Ghicit\" după ce încercați o "
+#~ "literă care a fost deja încercată. Inițial acest timp este de o secundă, "
+#~ "dar copiii tineri pot avea nevoie de un timp mai lung pentru a înțelege "
+#~ "că introduc o literă care a fost deja încercată."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Puteți deschide fișiere deschise recent"
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Fișierul '%1' nu a fost găsit.\n"
+#~ "Vă rugăm să reinstalați '%2'.Se trece înapoi la limba Engleză."

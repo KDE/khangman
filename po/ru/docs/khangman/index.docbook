@@ -1,0 +1,851 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &khangman;</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>gammaray@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>22 декабря 2020 г.</date>
+<releaseinfo
+>Приложения KDE 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; &mdash; классическая игра по угадыванию слов для детей. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>виселица</keyword>
+<keyword
+>игра</keyword>
+<keyword
+>детская</keyword>
+<keyword
+>слова</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>&khangman; &mdash; игра, основанная на известной игре «Виселица». Она рассчитана на детей в возрасте 6 лет и старше. В игру входит несколько наборов слов, среди них: «Животные», «Одежда», «Компьютеры», «Деньги», «Фрукты» (тематические наборы слов), «Лёгкий» (набор слов по уровню сложности). Слова выбираются случайным образом, буквы закрыты: необходимо угадать слово, проверяя букву за буквой. Если буквы нет в слове, дорисовывается часть изображения виселицы. Слово нужно угадать до того, как виселица будет нарисована целиком! На угадывание слова даётся 10 попыток. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Использование &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Так выглядит окно программы &khangman; при первом запуске </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Снимок экрана &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Здесь показана игра при первом запуске. Выбрана категория «Животные» и фоновое изображение <quote
+>Заметки</quote
+>, язык установлен по умолчанию (языком по умолчанию является текущий язык среды &kde; конкретного пользователя, если в игре имеются соответствующие данные), на данном снимке экрана — английский. Изменения категории слов, языка или фона сохраняются в файле конфигурации и восстанавливаются в следующей игре. </para>
+
+<para
+>Категорию слов и фоновое изображение легко изменить: просто выберите их в списках на панели инструментов, расположенной в нижней части окна программы. Запрос нового слова или выход из игры также легко осуществляются нажатием соответствующих кнопок на панелях инструментов. </para>
+
+<sect1 id="general-usage">
+<title
+>Общее использование</title>
+
+<para
+>Слово для угадывания закрыто, буквы в нём обозначены символом подчёркивания «_». Известно только количество букв в слове. Нужно угадать слово, проверяя букву за буквой. Буквы возможно вводить с клавиатуры или выбирать с помощью левой кнопки мыши. Если выбранная буква есть в слове, она будет обозначена зелёным фоновым цветом, если нет — красным.</para>
+
+<para
+>Кнопки букв в окне программы позволяют играть в &khangman; на иностранных языках, не меняя раскладку клавиатуры.</para>
+
+<para
+>Слово для угадывания выбирается случайным образом и не совпадает с предыдущим. </para>
+
+<important
+><para
+>Все слова &mdash; существительные (глаголы, прилагательные и другие части речи не используются).</para
+></important>
+
+<para
+>Если слово не удаётся угадать, нажмите на значок <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Показать подсказку</guiicon
+> на панели инструментов: появится подсказка. Повторное нажатие на щелчок скроет её. </para>
+
+<para
+>По умолчанию подсказки не показываются. </para>
+
+<para
+>Вводить буквы возможно как в верхнем, так и в нижнем регистре. Программа автоматически преобразует буквы в верхний регистр.</para>
+
+<para
+>В окне программы показывается текущая категория слов и количество выигрышей и проигрышей. </para>
+
+<para
+>Если выбрана буква, которой нет в слове, дорисовывается часть изображения виселицы. На угадывание слова даётся 10 попыток. После этого показывается правильный ответ. </para>
+
+<para
+>В игре доступны несколько категорий слов (в зависимости от выбранного языка). Программа показывает словари на всех доступных языках, а также использует файлы слов &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Если слово угадано (или дорисовано изображение виселицы), программа сообщает об этом и выводит следующее слово. Чтобы выйти из программы, нажмите на значок <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Выход</guiicon
+> на панели инструментов в верхней части окна. </para>
+
+<para
+>Буквы возможно вводить с клавиатуры или выбирать в окне программы левой кнопкой мыши. Если выбранная буква есть в слове, кнопка с её изображением будет обозначена зелёным фоновым цветом, а сама буква появится в загаданном слове (несколько раз, если она повторяется). Если выбранной буквы нет в слове, кнопка с её изображением будет обозначена красным фоновом цветом. На угадывание слова даётся 10 попыток. Когда все попытки исчерпаны, засчитывается проигрыш и показывается правильный ответ. </para>
+
+<para
+>Во время игры возможно начать новую игру нажатием кнопки <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> на панели инструментов в нижней части окна. Также возможно сменить категорию слов: нажмите на кнопку текущей категории и выберите в раскрывающемся списке любую другую.</para>
+
+<para
+>Чтобы изменить внешний вид программы, воспользуйтесь кнопкой выбора фона, расположенной в верхней части окна.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Игра на разных языках</title>
+<para
+>Программа &khangman; позволяет играть на разных языках, включая бразильский португальский, болгарский, каталонский, чешский, датский, голландский, английский (британский и американский), финский, французский, немецкий, венгерский, ирландский (гэльский), итальянский, норвежский (букмол), норвежский (нюнорск), польский, португальский, румынский, испанский, сербский (латиница и кириллица), словенский, таджикский, шведский, русский и турецкий. Возможно даже попробовать играть на китайском языке, если установить файлы из программы &kanagram;. </para>
+
+<para
+>По умолчанию после установки &khangman; будут доступны только английский язык и язык текущей среды &kde;, если он входит в число перечисленных ранее и в системе установлен соответствующий языковой пакет. Например, если у пользователя из Дании установлена среда &kde; на датском языке, он увидит в списке два варианта: английский и датский (по умолчанию будет выбран датский).</para>
+
+<para
+>Но в &khangman; возможно будет играть и на других языках. Новые словари легко добавить путём загрузки из Интернета. При нажатии кнопки <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> появится примерно такое диалоговое окно: </para>
+
+<screenshot>
+<screeninfo
+>Диалоговое окно загрузки материалов из Интернета для &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Диалоговое окно загрузки материалов из Интернета для &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Выберите дополнение на необходимом языке и нажмите кнопку <guibutton
+>Установить</guibutton
+>. При успешной установке дополнения кнопка <guibutton
+>Установить</guibutton
+> превращается в кнопку <guibutton
+>Удалить</guibutton
+>. Если требуется установить другие дополнения, повторите эти действия. Дополнение сразу после загрузки становится доступно для использования в &khangman;. Нажмите кнопку <guibutton
+>Закрыть</guibutton
+>, чтобы закрыть диалоговое окно загрузки материалов из Интернета.</para>
+
+<para
+>Язык возможно сменить при помощи соответствующей кнопки.</para>
+
+<para
+>Специальные символы, имеющиеся в языке, показаны на экранной клавиатуре. Она содержит кнопки со специальными буквами, например &eacute; для французского языка. Нажмите на такую кнопку, чтобы выбрать соответствующую букву. Конечно, также возможно использовать соответствующую языку раскладку клавиатуры. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Несколько советов</title>
+<para
+>При игре на английском языке попробуйте сначала угадать гласные. Потом попробуйте наиболее распространённые согласные: l, t, r, n, s. </para>
+<para
+>Если в слове на английском или французском языке есть сочетание <quote
+>io</quote
+>, попробуйте букву <quote
+>n</quote
+>. </para>
+
+<para
+>Буквы с диакритическими знаками возможно либо ввести с клавиатуры, либо выбрать на экранной клавиатуре в окне игры. Когда пользователь вводит или выбирает <quote
+>a</quote
+>, показывается только <quote
+>a</quote
+>. Необходимо ввести или выбрать &atilde;, чтобы была показана именно эта буква. </para>
+<para
+>Интересный факт: в английском языке наиболее распространёнными буквами являются «e» (12,7%), затем «t» (9,1%) , «a» (8,2%), «i» (7,0%) и «n» (6,7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Панель меню и панели инструментов</title>
+
+<sect1 id="mainwindow">
+<title
+>Главное окно &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Фон «Пустыня» в &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Фон «Пустыня» в &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Здесь показана игра на французском языке, в которой выбраны фон «Пустыня» и набор слов <quote
+>Животные</quote
+> («Animaux»). Экранная клавиатура в окне игры содержит специальные символы для французского языка.</para>
+
+<para
+>Главная панель инструментов игры расположена в верхней части окна:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> или <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Начать или приостановить игру </member>
+<member
+>Кнопка смены темы слов </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Открыть диалоговое окно настройки </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> О программе &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> О &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Открыть руководство пользователя &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Загрузить новые словари из Интернета </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Выйти из &khangman; </member>
+</simplelist>
+
+<para
+>Расположенная в нижней части окна панель инструментов показывается только во время игры. Если приостановить игру, эта панель инструментов будет скрыта:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Показать подсказку </member>
+<member
+>Кнопка смены категории слов</member>
+<member
+>Выбор языка</member>
+<member
+>Кнопка <guibutton
+>Сдаться</guibutton
+> для отображения правильного ответа</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Показать следующее загаданное слово (начать новую игру) </member>
+</simplelist>
+
+<para
+>Все загадываемые слова являются существительными. Никаких глаголов или прилагательных. Выбранная категория показывается на панели инструментов в нижней части окна.</para>
+<para
+>В поле для ввода текста возможно вводить только буквы.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Настройка</title>
+
+<screenshot>
+<screeninfo
+>Настройка &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Настройка &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+>Параметр <guilabel
+>Время на угадывание слова (в секундах)</guilabel
+> устанавливает максимально допустимое время, которое отводится на угадывание слова в &khangman;. По умолчанию установлено значение 120 секунд. Маленьким детям может понадобиться больше времени на то, чтобы разобраться в игре. Взрослым, напротив, интереснее играть при более жёстком ограничении времени на поиск ответа. </para>
+
+<para
+><guilabel
+>Множитель очков</guilabel
+> задаёт число, на которое будет умножен счёт в игре. </para>
+
+<para
+>Если флажок <guilabel
+>Звуки</guilabel
+> установлен, при начале новой игры и при выигрыше будут воспроизводиться соответствующие звуковые сигналы. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Руководство разработчика &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Как перевести слова для игры на новый язык</title>
+
+<para
+>Следуйте инструкции и затем отправьте файлы, упакованные в архив TAR (сжатый gzip), в <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>список рассылки kde-edu</ulink
+>. </para>
+<para
+>Нажмите кнопку <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> на панели инструментов в верхней части окна &khangman;, чтобы проверить, доступны ли дополнения на нужном языке. Если они доступны, проверьте, содержат ли они <emphasis
+>подсказки</emphasis
+>. </para>
+<para
+>Слова из стандартных списков сохранены в 4 отдельных файлах, по одному для каждой категории. Файлы расположены в папке <filename class="directory"
+>/khangman/data/</filename
+>. Файл <filename
+>easy.kvtml</filename
+> предназначен для набора лёгких слов, файл <filename
+>medium.kvtml</filename
+> — для набора слов среднего уровня сложности, файл <filename
+>hard.kvtml</filename
+> — для набора сложных слов, а файл <filename
+>animals.kvtml</filename
+> — для тематического набора слов «Животные».</para>
+<para
+>По умолчанию программа &khangman; поставляется только на английским языке. Данные всех остальных языков находятся в соответствующем модуле kde-l10n. </para>
+<procedure>
+<step>
+<para
+>Формат файлов — kvtml. Тег <sgmltag class="starttag"
+>text</sgmltag
+> используется для слова, а тег <sgmltag class="starttag"
+>comment</sgmltag
+> — для подсказки, эти теги находятся внутри тега <sgmltag class="starttag"
+>entry</sgmltag
+>. Постарайтесь добиться того, чтобы подсказка соответствовала уровню сложности слова. Для слов из набора <guimenuitem
+>Лёгкий</guimenuitem
+> будут нужны простые подсказки, а для слов из набора <guimenuitem
+>Сложный</guimenuitem
+> уже потребуется использовать определения из словаря. Не используйте однокоренные слова в подсказке, это может слишком сильно упростить процесс отгадывания!</para>
+
+<para
+>При внесении изменений в файлы необходимо использовать кодировку UTF-8. Если текущий текстовый редактор не предоставляет такую возможность, попробуйте работать в программе &kwrite; или &kate;. При открытии файла в одном из этих текстовых редакторов выберите кодировку utf8 из раскрывающегося списка в диалоговом окне открытия файла.</para>
+
+<para
+>Пример файла kvtml:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Переведите содержимое тега--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Переведите содержимое тега--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Переведите содержимое всех
+тегов text--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Переведите содержимое всех тегов comment--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>В начале файла следует перевести содержимое тегов <sgmltag class="starttag"
+>title</sgmltag
+> и <sgmltag class="starttag"
+>comment</sgmltag
+>, находящихся внутри тега <sgmltag class="starttag"
+>information</sgmltag
+>. Содержимое тега «title» (название набора слов) появится в меню выбора словаря для игры. </para>
+</step>
+<step>
+<para
+>Внутри тега <sgmltag class="starttag"
+>identifier</sgmltag
+> находится тег <sgmltag class="starttag"
+>locale</sgmltag
+>: замените «en» в этом теге на код необходимого языка.</para>
+
+<para
+>Не переводите само имя файла (имена файлов не должны содержать специальных символов): просто сохраните файл с тем же самым именем на английском языке.</para>
+</step>
+<step>
+<para
+>Для работы с файлами kvtml рекомендуется использовать текстовый редактор (подсветка синтаксиса &XML; упрощает работу). Замените каждое слово внутри тега <sgmltag class="starttag"
+>text</sgmltag
+> на его перевод, аналогичным образом добавьте переводы подсказок внутри тега <sgmltag class="starttag"
+>comment</sgmltag
+>. При переводе важно не столько стремиться передать точный смысл, сколько сохранить примерно ту же длину и уровень сложности слов. </para
+> 
+
+<para
+>Возможно включать слова с пробелами или знаками дефиса «-» (в этом случае вместо нижнего подчёркивания «_» в программе будут показываться пробел или знак дефиса «-»). Пожалуйста, напишите в <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>список рассылки kde-edu</ulink
+>, если у языка, на который выполняется перевод, имеются какие-либо особенности, чтобы авторы адаптировали к ним код (в частности, это касается специальных символов и символов с диакритическими знаками). </para>
+</step
+>	
+
+<step>
+<para
+>Возможно просто перевести слова, но лучше адаптировать их, сохраняя категорию, а также (при желании) добавить новые слова. Например, слово <quote
+>table</quote
+> (стол) в английском языке считается лёгким для отгадывания, однако в других языках оно может относиться к категории слов среднего уровня сложности. Изменяйте файлы в соответствии с требованиями вашего языка. Количество слов в файле не важно, при желании возможно добавить несколько новых.</para>
+
+<para
+>Все слова должны быть существительными.</para>
+
+</step>
+
+<step>
+<para
+>Затем файлы возможно добавить в репозиторий в <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. CMakeLists.txt также необходимо обновить. Напишите в <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>список рассылки kde-edu</ulink
+>, если необходимо получить дополнительные сведения. При отправке файлов обязательно укажите, используются ли в словарях <emphasis role="bold"
+>специальные символы</emphasis
+> (сохраните их в текстовом файле, по одному в строке, и добавьте этот файл в архив) и имеются ли другие особенности.</para>
+<para
+><emphasis
+>Не отправляйте файлы в ветки репозитория, это может сделать игру неработоспособной.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Спасибо за участие!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Что и где сохраняет программа &khangman;</title>
+<para
+>При получении нового словаря через значок <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Загрузить новые словари</guiicon
+> новые данные сохраняются в папке с соответствующим кодом языка в <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+>. Имена каталогов доступных словарей также сохраняются в файле конфигурации &khangman; в <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Имя поставщика (то есть адрес веб-сайта, на котором возможно загрузить новые словари) сохраняется в файле <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Английский язык (по умолчанию) и язык пользователя из соответствующего языкового пакета или пакетов (если доступно) хранятся в папке <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>В индивидуальном для пользователя файле конфигурации <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+> хранятся все установленные параметры игры (например, фоновое изображение, последний выбранный словарь, а также файлы, которые были загружены при помощи диалогового окна <guilabel
+>Загрузка материалов из Интернета</guilabel
+>). </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&khangman; </para>
+<para
+>Авторские права на программу: 2001-2007, &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>Участники: <itemizedlist>
+<listitem
+><para
+>Изображения виселицы: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Звуки: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Прежний сопровождающий: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Словари на шведском языке, помощь в программировании, картинки с прозрачностью и исправления локализации: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на испанском языке: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Подсказки на испанском языке: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на датском языке: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на финском языке: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на бразильском португальском языке: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на каталонском языке: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на итальянском языке: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на голландском языке: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на португальском языке: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на сербском языке (кириллица и латиница): Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на словенском языке: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на чешском языке: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на таджикском языке: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на норвежском языке (букмол): Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на венгерском языке: Tamas Szanto <email
+>tszanto@mol.hu</email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на норвежском языке (нюнорск): Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на турецком языке: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на болгарском языке: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Словари на ирландском языке (гэльский): Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Помощь в программировании: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Помощь в программировании: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Правка кода: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Правка кода: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Оценка удобства использования: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Авторские права на документацию: 2001-2007, &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Перевод на русский язык: Олеся Герасименко<email
+>gammaray@basealt.ru</email
+></para
+><para
+>Перевод на русский язык: Мария Шикунова<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

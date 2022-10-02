@@ -1,0 +1,923 @@
+# translation of khangman.po to es
+# Copyright (C) 2002,2003, 2004, 2006, 2008 Free Software Foundation, Inc.
+#
+# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2002,2003.
+# Rafael Beccar <rafael.beccar@kdemail.net>, 2004.
+# santi <santi@kde-es.org>, 2006.
+# Mauricio Jose Adonis Carrasco <mike.alfa.2007@gmail.com>, 2008.
+# Leticia Martin <leticia.martin@gmail.com>, 2009.
+# Leticia Martin Hernandez <leticia.martin@gmail.com>, 2009.
+# Administrator, 2010.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2010, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2020, 2021.
+# Sofía Priego <spriego@darksylvania.net>, %Y.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2021-10-19 02:13+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.08.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "Tema de notas"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Tema marino"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Tema de invierno"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Tema de abejas"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Tema desértico"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr "DONE"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"No se ha encontrado el archivo $KDEDIR/share/apps/kvtml/%1/%2.\n"
+"Compruebe su instalación."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Error"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Ninguno"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "No se han encontrado archivos de tema."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "No se han encontrado archivos kvtml."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Nivel"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "El idioma seleccionado por el usuario"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Nombre del tema de fondo"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Marca esta opción si no deseas que se muestren simultáneamente todas las "
+"apariciones de una misma letra."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Habilitar las animaciones"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Si está marcado, se reproducirán sonidos con las nuevas partidas y las "
+"partidas ganadas."
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Si está marcado, siempre se mostrarán pistas. Si no está marcado (por "
+"omisión)\n"
+"            las pistas se mostrarán solo por palabra cuando el usuario elija "
+"mostrar la pista."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Esta preferencia le permite establecer el tiempo en segundos del que "
+"dispondrá para resolver la palabra."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Teclear las letras con tilde de forma separada de las letras normales"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "La ruta de los proveedores para KHangMan"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "El juego clásico del ahorcado creado por KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "© 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Encargado anterior."
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Autora original."
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Desarrollador."
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Ayudas de programación."
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Archivos de datos en sueco, ayuda con la programación, imágenes "
+"transparentes y correcciones en la i18n."
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Archivos de datos en español."
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Archivos de datos en danés."
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Archivos de datos en finlandés."
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Archivos de datos en portugués brasileño."
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Archivos de datos en catalán."
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Archivos de datos en italiano."
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Archivos de datos en holandés."
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Archivos de datos en checo."
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Archivos de datos en húngaro."
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Archivos de datos en noruego (Bokmål)."
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Archivos de datos en tayiko."
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Archivos de datos en serbio (cirílico y latino)."
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Archivos de datos en esloveno."
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Archivos de datos en portugués."
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Archivos de datos en noruego (Nynorsk)."
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Archivos de datos en turco."
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Archivos de datos en ruso."
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Archivos de datos en búlgaro."
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Archivos de datos en irlandés (gaélico)."
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Imágenes del ahorcado más suaves."
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Ayudas de programación, resolvió un montón de cosas."
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr ""
+"Código para generar iconos para la barra de herramientas de caracteres."
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Limpieza del código."
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sofía Priego,Miguel Revilla Rodríguez,Rafael Beccar"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"spriego@darksylvania.net,yo@miguelrevilla.com,kdemail@rafabeccar.com.ar"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Elije la categoría de las palabras"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Elije un idioma"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "Selecciona un tema"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Pausa"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Jugar"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Cambiar el tema."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Preferencias"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "Acerca de KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "Acerca de KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Ver el manual de KHangMan"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Descargar nuevos archivos de idiomas"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Salir"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Suposiciones restantes: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Puntuación: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Victorias: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Derrotas: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Mostrar la pista."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Cambiar la categoría."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Cambiar el idioma."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Revelar la palabra"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Revelar la palabra actual."
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "Cargar la siguiente palabra y empezar un nuevo juego."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Preferencias de KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "Tiempo para resolver la palabra de KHangMan"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr "Tiempo máximo permitido para resolver la palabra de KHangMan"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "Duración de las pistas"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "El tiempo que se muestra la pista para la palabra actual"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "Factor de multiplicación de puntuaciones de KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Determinar el factor por el que se multiplicarán las puntuaciones."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Sonidos"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "Activar o desactivar los sonidos durante el juego"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "Tiempo para resolver la palabra en segundos"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Factor de multiplicación de puntuaciones"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "Aceptar"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#~ msgid "khangman"
+#~ msgstr "khangman"
+
+#~ msgid "Notes"
+#~ msgstr "Notas"
+
+#~ msgid "Misses- "
+#~ msgstr "Errores- "
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Mostrar la barra de caracteres"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Esta preferencia le permite establecer el tiempo en segundos que se "
+#~ "muestra la pista emergente de KHangMan."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Tiempo que se muestra el aviso «Ya probada»."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Catalán, Español, Portugués"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Distinguir &letras con tilde"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Si se marca esta casilla, tendrás que escribir las letras con tilde tú "
+#~ "mismo (es decir, se diferencian de las letras sin tilde)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Si está <b>inhabilitada</b>, el idioma seleccionado no los admite. Si "
+#~ "está <b>habilitada</b> y la marca, deberá escribir las letras acentuadas. "
+#~ "Si no está marcada, las letras acentuadas se mostrarán con las letras "
+#~ "normales (predeterminado).<br>\n"
+#~ "Por ejemplo, en catalán, si no está marcada y escribes «o», se mostrarán "
+#~ "la «o» y la «ò» en la palabra <b>xenofòbia</b>. Si esta opción está "
+#~ "marcada, cuando teclees «o», solo se mostrará la «o» y deberás escribir "
+#~ "«ò» para que se muestre esta letra."
+
+#~ msgid "German"
+#~ msgstr "Alemán"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Jugar con letras mayúsculas"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "Si está marcado, la palabra se mostrará con todas las letras en mayúsculas"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Si está marcado, la palabra se mostrará en letras mayúsculas, aunque "
+#~ "introduzca minúsculas. Si no está marcado (predeterminado), la palabra "
+#~ "aparecerá en minúsculas.<br>\n"
+#~ "Esta opción solo está disponible de momento para el idioma alemán."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Aquí puedes elegir las preferencias para todos los idiomas."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Si marcas esta casilla, únicamente se mostrará la primera aparición de "
+#~ "una letra, aunque haya varias en la palabra. Si, posteriormente, vuelves "
+#~ "a seleccionar esta letra, se sustituirá la segunda aparición, y así "
+#~ "sucesivamente hasta completarlas todas.\n"
+#~ "Por ejemplo, supongamos que la palabra a adivinar es «manzana». Si esta "
+#~ "casilla no está activa, al probar con la letra «a», las tres «a» que "
+#~ "pertenecen a la palabra se mostrarán al mismo tiempo. Sin embargo, si se "
+#~ "encuentra activa, será necesario probar tres veces con la letra «a» para "
+#~ "que se muestren las tres ocurrencias.\n"
+#~ "\n"
+#~ "El comportamiento normal es el de mostrar conjuntamente todas las "
+#~ "apariciones de una misma letra."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Requerir varios intentos para las letras repetidas"
+
+#~ msgid "Enable animations"
+#~ msgstr "Habilitar las animaciones"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Habilitar pistas globalmente"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Si esta casilla está marcada, se reproducirán algunos sonidos con cada "
+#~ "nueva partida y cuando ganes una partida. Si no está marcada, no habrá "
+#~ "sonidos en KHangMan.\n"
+#~ "Por omisión, no hay sonido."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Habilitar los sonidos"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Jugar con una nueva palabra"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Abre un documento de vocabulario existente"
+
+#~ msgid "&Show Hint"
+#~ msgstr "Mo&strar una pista"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Mostrar/ocultar la pista de ayuda para adivinar la palabra"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "O&btener palabras en un nuevo idioma..."
+
+#~ msgid "&Category"
+#~ msgstr "&Categoría"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Elije la categoría de palabras"
+
+#~ msgid "&Language"
+#~ msgstr "&Idioma"
+
+#~ msgid "L&ook"
+#~ msgstr "Aspect&o"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Elegir el aspecto y comportamiento"
+
+#~ msgid "Quick access to some of the files that you have recently opened."
+#~ msgstr ""
+#~ "Acceso rápido a algunos de los archivos que ha abierto recientemente."
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid "Languages"
+#~ msgstr "Idiomas"
+
+#~ msgid "Timers"
+#~ msgstr "Temporizadores"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Teclear las letras con tilde"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Abrir el documento de vocabulario"
+
+#~ msgid "&Game"
+#~ msgstr "Jue&go"
+
+#~ msgid "Main"
+#~ msgstr "Principal"
+
+#~ msgid "Special Characters"
+#~ msgstr "Caracteres especiales"
+
+#~ msgid "Look"
+#~ msgstr "Aspecto"
+
+#~ msgid "Language"
+#~ msgstr "Idioma"
+
+#~ msgid "G&uess"
+#~ msgstr "&Probar esta letra"
+
+#~ msgid "&Play again"
+#~ msgstr "&Jugar otra vez"
+
+#~ msgid "Hint"
+#~ msgstr "Pista"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Has perdido. La palabra era «%1»."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "¡Enhorabuena! ¡Has ganado!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Esta letra ya ha sido probada."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr ""
+#~ "Aquí puedes elegir las preferencias especiales para algunos idiomas."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Encargado actual, autor"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 segundo"
+#~ msgstr[1] "%1 segundos"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Puedes establecer el tiempo para mostrar la pista y el aviso de «Ya "
+#~ "probada»."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr ""
+#~ "Tiempo durante el que se muestra el aviso de <b>Letra ya probada</b>:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Puedes configurar el tiempo durante el que se muestra el aviso de «Letra "
+#~ "ya probada» tras intentar una letra que ya se había usado. El valor "
+#~ "predeterminado es de 1 segundo, pero los niños pequeños pueden necesitar "
+#~ "más tiempo para entender que estaban probado una letra que ya habían "
+#~ "usado."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Puede abrir los últimos archivos abiertos"

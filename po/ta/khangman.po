@@ -1,0 +1,958 @@
+# translation of khangman.po to 
+# translation of khangman.po to
+# translation of khangman.po to
+# translation of khangman.po to
+# translation of khangman.po to Tamil
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# , 2004.
+# Ambalam <tamilpc@ambalam.com>, 2004.
+# root <root@localhost.localdomain>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2005-03-28 02:48-0800\n"
+"Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
+"Language-Team:  <ta@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+msgid "Notes Theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, fuzzy, kde-format
+msgid "Sea Theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, fuzzy, kde-format
+msgid "Winter Theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, fuzzy, kde-format
+msgid "Bee Theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, fuzzy, kde-format
+msgid "Desert Theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+"மொழிமாற்றுபவர்க்கு விளையாட்டை மொழிபெயர்க்க ஒரு வாய்ப்பு\n"
+"கோப்பு README.languages khangman உடைய மூல அடைவில்\n"
+"அது எப்படி பணிபுரிகிறது என்று தெரிய பார்க்கவும்.\n"
+"(நீங்கள் வார்ந்தையை மொழி மாற்றி முடிந்த உடன் மொழிமாற்றம் \"முடிந்தது\" \n"
+"; இல்லையென்றால் இதை மொழி பெயர்க்காமல் விட்டுவிடவும்)"
+
+#: khangman.cpp:150
+#, fuzzy, kde-format
+#| msgid ""
+#| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+#| "Check your installation, please!"
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"File $KDEDIR/share/apps/khangman/data/%1/%2 காணவில்லை!\n"
+"நிறுவுவலை பரிசோதி!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr ""
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr ""
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, fuzzy, kde-format
+msgid "Level"
+msgstr "வரம்பு"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr ""
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr ""
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, fuzzy, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "நீங்கள் ஒரே எழுத்தின் செயல்பாட்டை வெளிகாட்ட வேண்டாமென்றால் இதை சரிபார்க்கவும்"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, fuzzy, kde-format
+msgid "Enable Animations"
+msgstr "ஒலிகளை &செயலாக்கு"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, fuzzy, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "தேர்ந்தெடுக்கப்பட்டால், புது விளையாட்டு மற்றும் வின் விளையாட்டுக்கான ஒலிகள் கேட்கும்"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "கேஹாங்மேன்"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+#| msgid "Classical hangman game for KDE"
+msgid "Classical hangman game by KDE"
+msgstr "KDE-Eduக்கான சிறப்பான ஹாங்மேன் விளையாட்டு"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "முன்பிருந்த காப்பாளர்"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr ""
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "குறியீடு உதவி"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr "சுவிடிஷ் தகவல் கோப்புகள்,  குறியீடு உதவி,  ஊடு தெரியும் படம் ஐ18ன் பொருத்தல்"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "ஸ்பானிஷ் தகவல் கோப்புகள்"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr ""
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "டானிஷ் தகவல் கோப்புகள்"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "பினிஷ் தகவல் கோப்புகள்"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr ""
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "பிரிசேலியன் போர்சுகீஸ் தகவல் கோப்புகள்"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr ""
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "செட்டலான் தகவல் கோப்புகள்"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr ""
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "இத்தாலியன் தகவல் கோப்புகள்"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr ""
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "டச்சு தகவல் கோப்புகள்"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr ""
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "செக் தரவு கோப்புகள்"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "ஹங்கேரியன் தரவு கோப்புகள்"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr ""
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "நார்விஜியன் (Bokmål)  தரவு கோப்புகள்"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr ""
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "டாஜிக் தரவு கோப்புகள்"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "செர்பியன் (சிரிலிக் மற்றும் லத்தின்) தரவு கோப்புகள்"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr ""
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "ஸ்லோவியன் தரவு கோப்புகள்"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr ""
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "போர்சுகீஸ் தரவு கோப்புகள்"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr ""
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "நார்விஜியன் (Nynorsk)  தரவு கோப்புகள்"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr ""
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "துருக்கி தரவு கோப்புகள்"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr ""
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "ருஷியன் தரவு கோப்புகள்"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "பல்கேரியன் தரவு கோப்புகள்"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr ""
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "ஐரிஷ் (காலிக்) தகவல் கோப்புகள்"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr ""
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "ஹாங்மேன் மென்படங்கள்"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr ""
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr ""
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr ""
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr ""
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "எழுத்து கருவி பட்டிக்கான சின்னத்தை உருவாக்க குறிமுறை"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr ""
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "சிவகுமார் சண்முகசுந்தரம், கோமதி சிவகுமார்,துரையப்பா வசீகரன்"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sshanmu@yahoo.com,gomathiss@hotmail.com,t_vasee@yahoo.com"
+
+#: qml/GamePage.qml:157
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Choose the word category"
+msgstr "நிலைகளை தேர்ந்தெடுக்கவும்"
+
+#: qml/GamePage.qml:178
+#, fuzzy, kde-format
+#| msgid "Choose the look and feel"
+msgid "Select a language"
+msgstr "பார்த்து உணர்ந்ததை தேர்ந்தெடு"
+
+#: qml/GamePage.qml:191
+#, fuzzy, kde-format
+msgid "Select a theme"
+msgstr "&நீலநிற தலைப்பு"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Change the theme."
+msgstr "நிலைகளை தேர்ந்தெடுக்கவும்"
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "Settings"
+msgstr "கேஹாங்மேன்"
+
+#: qml/GamePage.qml:297
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "About KHangMan"
+msgstr "கேஹாங்மேன்"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr ""
+
+#: qml/GamePage.qml:449
+#, fuzzy, kde-format
+msgid "Losses: "
+msgstr "தவறிய:"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Change the category."
+msgstr "நிலைகளை தேர்ந்தெடுக்கவும்"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Settings"
+msgstr "கேஹாங்மேன்"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "கேஹாங்மேன்"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "ஒலிகள் "
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Misses- "
+#~ msgstr "தவறிய:"
+
+#, fuzzy
+#~ msgid "Show the characters toolbar"
+#~ msgstr "எழுத்து கருவி பட்டிக்கான சின்னத்தை உருவாக்க குறிமுறை"
+
+#, fuzzy
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "போர்சுகீஸ் தரவு கோப்புகள்"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "நடைப்படுத்தப்பட்ட எழுத்துகளை உள்ளிடு"
+
+#, fuzzy
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "சில மொழிகளில், இது சரிபார்க்கப்பட்டால், நீங்களாகவே accented எழுத்துக்களை தட்டச்சிட "
+#~ "வேண்டும்.சரிபார்க்கப்பட்டால் இது பொதுவான எழுத்துக்களினும் வேறுபட்டது."
+
+#, fuzzy
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "இது<b>நீக்கப்பட்டால்</b>, அதனால் தேர்வு செய்த மொழி ஆதரிக்கப்படாது. இது <b>தேர்வு "
+#~ "செய்தால்</b> மற்றும் அதை குறியிட்டால், அதன் பின் நீங்கள் ஏற்று எழுத்துகளை அடிக்க "
+#~ "வேண்டும். தேர்வு செய்யாவிடில்,ஏற்று எழுத்துகளை சாதாரண எழுத்துகளாக தோன்றும்.\n"
+#~ "முன்னிருப்பாக ஏற்று எழுத்துகள் அதன் தொடர்புடைய எழுத்துகளாக தோன்றும்."
+
+#, fuzzy
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "தேர்ந்தெடுக்கப்பட்டால், புது விளையாட்டு மற்றும் வின் விளையாட்டுக்கான ஒலிகள் கேட்கும்"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "நீங்கள் இந்த பெட்டியை சரிபார்த்தால்,வார்த்தை எழுத்தின் சில இடங்களில் காணப்பட்டால் முதல் "
+#~ "எழுத்து மட்டும்தான் எழுதப்படும்.நீங்கள் இந்த எழுத்தை மறுதேர்வு செய்தால்,எழுத்தின் வேறு "
+#~ "செயல்பாடு இல்லாதவரை எழுத்தின் இரண்டாம் செயல்பாட்டை மாற்றிடும்.\n"
+#~ "\n"
+#~ "ஒரு எழுத்தை அச்சிட்டால் அனைத்து ஒரே மாதிரியான எழுத்துக்களை வெளிக்காட்டுவது "
+#~ "முன்னிருப்பாக அமைந்துள்ளது."
+
+#, fuzzy
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "நகல் எழுத்துகளுக்கு அதிக கணிப்புகள் தேவை"
+
+#, fuzzy
+#~ msgid "Enable animations"
+#~ msgstr "ஒலிகளை &செயலாக்கு"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "பெட்டி சரிபார்க்கப்பட்டால்,உங்களுக்கு ஒவ்வொரு புது விளையாட்டிற்கும் வெற்றி பெரும் போதும் "
+#~ "ஒலி கேட்கும். இது சரிபார்க்கப்படாவிட்டால், கேஹாங்மென்ல் ஒலி இருக்காது. முன்னிருப்பில் "
+#~ "ஒலி இருக்காது."
+
+#, fuzzy
+#~ msgid "Enable sounds"
+#~ msgstr "ஒலிகளை &செயலாக்கு"
+
+#~ msgid "Play with a new word"
+#~ msgstr "ஒரு புதிய வார்த்தையுடன் விளையாடு"
+
+#, fuzzy
+#~ msgid "&Show Hint"
+#~ msgstr "&குறிப்புகளைக் காட்டு"
+
+#, fuzzy
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&புது மொழியில் தரவுகளை கொண்டு வா..."
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "பார்த்து உணர்ந்ததை தேர்ந்தெடு"
+
+#~ msgid "Type accented letters"
+#~ msgstr "ஒலி அழுத்த வகை "
+
+#~ msgid "Main"
+#~ msgstr "முக்கிய "
+
+#~ msgid "G&uess"
+#~ msgstr "கணிப்பு"
+
+#~ msgid "Hint"
+#~ msgstr "குறிப்பு"
+
+#, fuzzy
+#~| msgid "Congratulations! You won! Do you want to play again?"
+#~ msgid "Congratulations! You won!"
+#~ msgstr "வாழ்த்துக்கள்! ஜெயித்து விட்டீர்கள்! மீண்டும் விளையாட விருப்பமா?"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "இந்த எழுத்து ஏற்கனவே யூகிக்கப்பட்டது."
+
+#, fuzzy
+#~ msgid "Current maintainer, author"
+#~ msgstr "காப்பாளர், ஆசிரியர் "
+
+#, fuzzy
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "ஒலிகள் "
+#~ msgstr[1] "ஒலிகள் "
+
+#, fuzzy
+#~| msgid ""
+#~| "File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+#~| "check your installation."
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "File $KDEDIR/share/apps/khangman/%1.txt கண்டுபிடிக்கப்படவில்லை;\n"
+#~ "உங்கள் நிறுவுகையை தயவுசெய்து சரிபார்க்கவும்."
+
+#, fuzzy
+#~ msgid "Theme"
+#~ msgstr "&நீலநிற தலைப்பு"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr ""
+#~ "தேர்ந்தெடுக்கப்பட்டால், புது விளையாட்டு மற்றும் வின் விளையாட்டுக்கான ஒலிகள் கேட்கும்"
+
+#~ msgid "Graphics"
+#~ msgstr "வரைகலைகள்"
+
+#~ msgid "Nature theme background"
+#~ msgstr "இயற்கைப் பொருள் பின்னணி"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "நீல நிற தலைப்பு பின்னணி, சின்னங்கள்"
+
+#~ msgid "SVG icon"
+#~ msgstr "SVG குறும்படம்"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "நீங்கள் இழந்து விட்டீர்கள்,  மறுபடியும் விளையாட விருப்பமா?"
+
+#, fuzzy
+#~| msgid ""
+#~| "If checked, the dialog 'Congratulations! You won!' is not displayed. "
+#~| "After 3 seconds, a new game will start automatically."
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr ""
+#~ "தேர்ந்தெடுக்கப்பட்டால், உரையாடலில் 'நீங்கள் வென்றீர்' காண்பிக்கப்படவில்லை. 3  "
+#~ "வினாடிகளுக்குப் பிறகு, ஒரு புதிய விளையாட்டு தானாகவே துவங்கும்."
+
+#, fuzzy
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "விளையாட்டில் வெற்றி பெற்றால்,'வாழ்த்துக்கள்! நீங்கள் ஜெயித்துவிட்டீர்கள்'என்ற உரையாடல் பெட்டி "
+#~ "தோன்றும்.\n"
+#~ "இந்த நிலை சரிபார்க்கப்படவில்லை.\n"
+#~ "\n"
+#~ "இந்த நிலை சரிபார்க்கப்பட்டால், இந்த உரையாடல் பெட்டி தோன்றாது மற்றும் புதிய விளையாட்டு "
+#~ "தானகவே மூன்று வினாடிக்குப்பின் துவங்கும்."
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "'வாழ்த்துக்கள்! நீங்கள் ஜெயித்துவிட்டீர்கள்! 'உரையாடல் பெட்டியைக் காண்பிக்காதே"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "'வாழ்த்துக்கள்! நீங்கள் ஜெயித்துவிட்டீர்கள்! 'உரையாடல் பெட்டியைக் காண்பிக்காதே"
+
+#, fuzzy
+#~ msgid "&Hide Hint"
+#~ msgstr "&குறிப்புகளைக் காட்டு"
+
+#, fuzzy
+#~ msgid "When available"
+#~ msgstr "குறிப்புகள் சாத்தியம்"
+
+#~ msgid ""
+#~ "If you check it, a hint will be displayed by right-clicking on the game "
+#~ "window."
+#~ msgstr ""
+#~ "நீங்கள் இதை தேர்ந்தெடுத்தால், விளையாட்டு சாளரத்தின் மீது வலதுபுற க்ளிக் செய்தால் ஒரு "
+#~ "குறிப்பு தெரியும்."
+
+#, fuzzy
+#~ msgid ""
+#~ "Some languages have hints to help you guess the word more easily. If this "
+#~ "is <b>disabled</b>, there is no such option for your current language "
+#~ "data file.\n"
+#~ "If this is <b>enabled</b>, then hints are available and you can get them "
+#~ "by checking this box. You will see the hint for the word you are trying "
+#~ "to guess by right-clicking somewhere on the KHangMan window. The hint "
+#~ "will be displayed for four seconds in a tooltip."
+#~ msgstr ""
+#~ "சில மொழிகள் வார்த்தை அறிய குறிப்புகள் தரும். இது <b>நீக்கப்பட்டால்</b>, உங்கள் தற்போதைய "
+#~ "மொழிக்கு எந்த ஒரு தேர்வும் இருக்காது.\n"
+#~ "இது<b>தேர்வு செய்தால்</b>இருந்தால் குறிப்புகள் இருக்கும் அதனைப் பெட்டியை குறிக்கும் "
+#~ "மூலம் பெறலாம். ஹாங்மேன் சாளரத்தில் எங்காவது வலது-சொடுக்க்குவது மூலம் வார்த்தைக்கான "
+#~ "குறிப்பை பெறலாம்."
+
+#, fuzzy
+#~ msgid "Show hints"
+#~ msgstr "&குறிப்புகளைக் காட்டு"
+
+#~ msgid "Hint on right-click"
+#~ msgstr "வலது விசையை அழுத்தும்போது குறிப்பு"
+
+#, fuzzy
+#~ msgid "Hint available"
+#~ msgstr "குறிப்புகள் சாத்தியம்"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations! You won!' dialog"
+#~ msgstr "'வாழ்த்துக்கள்! நீங்கள் ஜெயித்துவிட்டீர்கள்! 'உரையாடல் பெட்டியைக் காண்பிக்காதே"
+
+#~ msgid "Le&vel"
+#~ msgstr "வரம்பு"
+
+#~ msgid "Choose the level of difficulty"
+#~ msgstr "கடினத்தின் மட்டத்தை தேர்வு செய்"
+
+#~ msgid "Cyrillic"
+#~ msgstr "சிரிலிக்"
+
+#~ msgid "Latin"
+#~ msgstr "லத்தின்"
+
+#~ msgid "Animals"
+#~ msgstr "விலங்குகள்"
+
+#~ msgid "Easy"
+#~ msgstr "எளிதான"
+
+#~ msgid "Medium"
+#~ msgstr "நடுத்தரம்"
+
+#~ msgid "Hard"
+#~ msgstr "கடினமான"
+
+#~ msgid "First letter upper case"
+#~ msgstr "முதல் எழுத்து பெரிய எழுத்து"
+
+#~ msgid "&New"
+#~ msgstr "&புதிய"
+
+#~ msgid "Inserts the character %1"
+#~ msgstr "%1 எழுத்தை சொருகுகிறது"

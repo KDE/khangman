@@ -1,0 +1,828 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з &khangman;</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>22 грудня 2020 року</date>
+<releaseinfo
+>Програми 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; — це класична гра у ката для дітей. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>кат</keyword>
+<keyword
+>гра</keyword>
+<keyword
+>дитина</keyword>
+<keyword
+>слова</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>&khangman; — це гра, заснована на відомій грі у ката. Її призначено для дітей віком від шести років. У грі є декілька категорій слів, зокрема Тварини, Одяг, Комп’ютери, Валюти, Проста та Фрукти. Слово вибирається випадковим чином, і всі його літери на початку сховані від вас. Ви повинні вгадати слово, послідовно намагаючись вгадати його літери. Кожного разу, коли ви називатимете літеру, якої у слові немає, домальовуватиметься частина зображення людини на шибениці. Ви повинні вгадати слово перш ніж вас повісять! У вас десять спроб. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Користування &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Ось знімок вікна &khangman; після його першого запуску </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Знімок вікна &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Ось яким ви побачите &khangman; після його першого запуску. Категорією буде «Валюти», мовою — типова (тут українська, типовою буде поточна мова &kde;, якщо існують відповідні дані), темою — «Нотатки». Будь-які зміни у категорії, мові або темі (тлі) буде записано до файла налаштувань і відновлено під час наступної гри. </para>
+
+<para
+>Будь ласка, зауважте, що тему змінити дуже просто: натисніть кнопку на нижній панелі інструментів. Перехід до наступного слова і вихід з гри також просто здійснити за допомогою відповідних кнопок на панелях інструментів. </para>
+
+<sect1 id="general-usage">
+<title
+>Звичайне використання</title>
+
+<para
+>Вибирається слово і всі його літери показуються у вигляді символів підкреслювання (_). Отже, вам стає відомою кількість літер у слові. Вам слід буде вгадати слово, послідовно вгадуючи його літери. Вам слід ввести літеру за допомогою клавіатури або натиснути кнопку відповідної літери за допомогою клацання лівою кнопкою миші. Якщо літера є у слові, колір тла літери стане зеленим, якщо ж літери немає, колір тла стане червоним.</para>
+
+<para
+>За допомогою кнопок із клавішами у вікні гри ви зможете грати у &khangman; іноземними мовами без зміни розкладки клавіатури.</para>
+
+<para
+>Слово вибирається зі списку випадковим чином так, щоб воно відрізнялося від попередніх. </para>
+
+<important
+><para
+>Всі слова — іменники (там немає дієслів, прикметників тощо).</para
+></important>
+
+<para
+>Якщо для вгадування слова вам потрібна допомога, ви можете навести вказівник миші на піктограму <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Показати підказку</guiicon
+> на нижній панелі інструментів і клацнути лівою кнопкою миші. У результаті буде показано підказку, яка натякне вам на якусь із властивостей об’єкта, який позначає слово. Якщо знову натиснути піктограму, підказку буде сховано. </para>
+
+<para
+>Типово, програма не показує підказок. </para>
+
+<para
+>Зазвичай, немає значення у якому регістрі (великими чи малими) ви набираєте літери. Програма автоматично перетворює всі введені літери на літери нижнього регістра (малі).</para>
+
+<para
+>Поточну категорію, кількість виграшів і програшів буде показано у вікні програми. </para>
+
+<para
+>Кожного разу, коли ви називаєте літеру, якої немає у слові, буде намальовано наступну частину шибениці. У вас є десять спроб для вгадування слова. Після використання всіх спроб буде показано правильну відповідь. </para>
+
+<para
+>Існує декілька категорій, конкретний перелік залежить від вибраної мови. Програма перевіряє всі файли даних всіма мовами, а також використовує файли слів &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Після відгадування слова (або заповнення малюнка із шибеницею) програма подякує вам і перейде до наступного слова. Щоб завершити гру, натисніть кнопку із піктограмою <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Вийти</guiicon
+> на верхній панелі інструментів. </para>
+
+<para
+>Ви набираєте літеру, яка, як ви вважаєте, повинна міститися у слові, за допомогою клавіатури або вибираєте її клацанням на відповідній кнопці лівою кнопкою миші. Якщо вказана літера є у слові, її кнопку буде підсвічено зеленим кольором, а у слові її буде відкрито у всіх позиціях, на яких вона стоїть. Якщо літери у слові немає, її кнопку буде підсвічено червоним кольором. У гравця є десять спроб, після яких, якщо слово не буде вгадано, гру буде програно, а загадане слово повністю відкрито. </para>
+
+<para
+>Під час гри ви можете припинити поточну і розпочати нову гру натисканням кнопки <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> на нижній панелі інструментів. Ви також можете змінити категорію слів клацанням на кнопці із назвою поточної категорії.</para>
+
+<para
+>Вигляд вікна гри можна легко змінити за допомогою кнопки тем на верхній панелі інструментів.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Гра з іншими мовами</title>
+<para
+>У &khangman; можна грати багатьма мовами, які включено до комплекту гри: бразильською португальською, болгарською, каталанською, чеською, данською, голландською, англійською (американською і британською), фінською, французькою, німецькою, угорською, ірландською (гельською), італійською, норвезькою (букмол), норвезькою (нюнорск), польською, португальською, румунською, іспанською, сербською (латиниця і кирилиця), словенською, таджицькою, шведською, російською, українською та турецькою. Ви навіть можете спробувати пограти китайською, якщо ви встановили файли з &kanagram;. </para>
+
+<para
+>Типово, після першого встановлення &khangman; доступними будуть лише англійська мова і мова, визначена вами для &kde;, якщо вона присутня серед перелічених вище і ви встановили відповідний пакунок kde-i18n. Наприклад, якщо ви користувач, що віддає перевагу українській мові і якщо ви вказали, що мовою &kde; має бути українська, у меню <guimenu
+>Мова</guimenu
+> ви побачите два пункти: Англійська і Українська, остання буде типовою.</para>
+
+<para
+>Крім того, ви не втрачаєте можливості грати у &khangman; іншими мовами. У &khangman; дуже просто додавати нові дані. Все, що вам для цього потрібне — це працездатне з’єднання з мережею. Ви маєте натиснути кнопку <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+>. З’явиться діалогове вікно, подібне до цього: </para>
+
+<screenshot>
+<screeninfo
+>Діалогове вікно отримання нових списків слів для &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Діалогове вікно отримання нових списків слів для &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Наведіть вказівник на назву мови, яку ви бажаєте встановити, клацніть лівою кнопкою миші, а потім натисніть кнопку <guibutton
+>Встановити</guibutton
+>. Якщо мову буде успішно встановлено, перед назвою мови з’явиться зелена позначка, а кнопка <guibutton
+>Встановити</guibutton
+> перетвориться на кнопку <guibutton
+>Вилучити</guibutton
+>. Встановлені дані одразу ж стануть доступними для використання у &khangman;. Тепер можна натиснути на кнопку <guibutton
+>Закрити</guibutton
+>, щоб закрити діалогове вікно «Отримати слова новою мовою» (якщо вам потрібні ще якісь мови, ви можете повторити наведені вище кроки).</para>
+
+<para
+>Потім ви просто можете змінити мову, якщо натиснете кнопку мови і виберете нову мову.</para>
+
+<para
+>Будь ласка, зауважте, що тепер ви маєте змогу набирати спеціальні символи для запису мови за допомогою панелі клавіатури. На цій панелі містяться кнопки з піктограмами для кожного зі спеціальних символів у запису мови, наприклад &eacute; для французької. Натискання відповідної кнопки рівнозначне введенню літери з клавіатури. Звичайно ж, ви можете скористатися для введення і розкладкою клавіатури, що відповідає вашій мові. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Деякі підказки</title>
+<para
+>В українській мові спробуйте спочатку вгадати голосні. Потім спробуйте найпоширеніші приголосні: н, р, в, т, с. </para>
+<para
+>Якщо ви побачите сполучення <quote
+>io</quote
+>, у слові французькою або англійською, спробуйте вгадати після них літеру «n». </para>
+
+<para
+>Вам слід або ввести літери з акцентом власноруч, або натиснути відповідну кнопку. Якщо ви натиснете просто «a», буде показано лише «a». Вам слід ввести, наприклад, &atilde;, щоб було показано відповідну літеру. </para>
+<para
+>Чи відомо вам, що в текстах українською найчастіше зустрічається літера «о» (9,3%), за нею йде літера «а» (8,1%), потім «н» (7,3%), «и» (6,3%) та «і» (5.9%)?</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Панель меню і панелі інструментів</title>
+
+<sect1 id="mainwindow">
+<title
+>Головне вікно &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Пустельна тема &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Пустельна тема &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>На цьому знімку ви бачите &khangman; з пустельною темою, французькою мовою у категорії «Animaux». На знімку показано панель спеціальних символів для французької.</para>
+
+<para
+>У верхній частині вікна програми розташовано панель інструментів:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> або <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> розпочинає або зупиняє гру </member>
+<member
+>Кнопка для зміни теми </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Відкрити діалогове вікно параметрів </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Про &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Про &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Переглянути підручник з &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Отримати нові мовні файли з інтернету </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Вийти з &khangman; </member>
+</simplelist>
+
+<para
+>Нижню панель інструментів буде показано лише під час гри. Якщо ви призупините гру, цю панель буде приховано:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Показати підказку щодо слова, яке відгадують </member>
+<member
+>Кнопка для зміни категорії</member>
+<member
+>Засіб вибору мови</member>
+<member
+>Кнопка <guibutton
+>Відкрити слово</guibutton
+>, яку призначено для відкриття слова, яке відгадують</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Завантажити наступне слово і розпочати нову гру </member>
+</simplelist>
+
+<para
+>Всі слова є іменниками. Там немає дієслів або прикметників. Після вибору назва категорії відображається на нижній панелі інструментів.</para>
+<para
+>У вікні літер можна набирати лише літери.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Параметри</title>
+
+<screenshot>
+<screeninfo
+>Параметри роботи &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Параметри роботи &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+>Параметр <guilabel
+>Час відгадування слова у секундах</guilabel
+> визначає максимальний дозволений час на відгадування одного слова у &khangman;. Типовим є значення у 120 секунд. Малим дітям слід надати більше часу, щоб зрозуміти гру, старшим же слід зменшити час, щоб зробити гру складнішою і захопливішою. </para>
+
+<para
+>Параметр <guilabel
+>Множник рахунку</guilabel
+> визначає коефіцієнт, на який буде помножено кількість отриманих очок. </para>
+
+<para
+>Якщо <guilabel
+>Звуки</guilabel
+>, початок нової гри і виграш у грі супроводжуватимуться звуковими сигналами. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Довідник розробника для &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Як перекладати слова для гри новою мовою</title>
+
+<para
+>Будь ласка, виконайте послідовно описані процедури і надішліть файли, стиснуті у архів tar.gz, на адресу <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>списку листування kde-edu</ulink
+>. </para>
+<para
+>Будь ласка, натисніть кнопку зазирніть до пункту <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> на верхній панелі інструментів, щоб визначити чи вже доступні словники програми вашою мовою. Якщо такі словники доступні, вам слід перевірити, чи містяться у них <emphasis
+>підказки</emphasis
+>. </para>
+<para
+>Стандартні списки слів зберігаються у 4 окремих файлах, відповідно до кожної зі стандартних категорій. Ці файли знаходяться у теці <filename class="directory"
+>/khangman/data/</filename
+>. Файл <filename
+>easy.kvtml</filename
+> відповідає за просту категорію, файл <filename
+>medium.kvtml</filename
+> — за середню, файл <filename
+>animals.kvtml</filename
+> — за категорію тварин, а файл <filename
+>hard.kvtml</filename
+> — за складну категорію.</para>
+<para
+>Англійська є типовою мовою і тому єдиною мовою, файли якої входять до пакунка &khangman;. Дані для всіх інших мов включено до відповідного модуля kde-l10n. </para>
+<procedure>
+<step>
+<para
+>Файли записуються у форматі kvtml. Тег <sgmltag class="starttag"
+>text</sgmltag
+> відповідає за слово, а теґ <sgmltag class="starttag"
+>comment</sgmltag
+> за підказку, обидва ці теґи розташовано всередині теґу <sgmltag class="starttag"
+>entry</sgmltag
+>. Будь ласка, намагайтеся зробити так, щоб підказка відповідала категорії складності. У категорії <guimenuitem
+>Проста</guimenuitem
+> потрібні підказки, за якими легко здогадатися, тоді як у категорії <guimenuitem
+>Складна</guimenuitem
+> слід скористатися визначеннями зі словника. Намагайтеся не використовувати спільнокореневі зі словом, що загадано, інакше слово буде вгадати занадто легко!</para>
+
+<para
+>Зауважте, що для кодування файлів слід використовувати <emphasis role="bold"
+>UTF-8</emphasis
+>. Якщо ваш редактор не може зберігати файли у цьому кодуванні, спробуйте скористатися &kwrite; або &kate;. Якщо ви відкриваєте файл у &kwrite; або &kate;, ви можете вибрати кодування utf8 за допомогою комбінованого списку, який розміщено вгорі діалогового вікна відкриття файлів.</para>
+
+<para
+>Ось приклад файла kvtml:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Тварини&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Тварини з різних областей
+планети&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;uk&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;ведмідь&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Великий важкий звір з довгим
+хутром&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>На початку файла, вам слід перекласти вміст теґів <sgmltag class="starttag"
+>title</sgmltag
+> і <sgmltag class="starttag"
+>comment</sgmltag
+>, які знаходяться всередині теґу <sgmltag class="starttag"
+>information</sgmltag
+>. Заголовок (title) визначатиме пункт меню, який з’явиться у меню категорій гри (це там, де користувач обирає файл, з якого буде взято слова). </para>
+</step>
+<step>
+<para
+>Потім між теґами <sgmltag class="starttag"
+>identifier</sgmltag
+> вкажіть, будь ласка, код вашої мови замість en у тезі <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>Будь ласка, не перекладайте саму назву файла, оскільки назва файла не повинна містити спеціальних символів. Тому, будь ласка, збережіть ваш файл з тією самою назвою англійською.</para>
+</step>
+<step>
+<para
+>Відредагуйте файли kvtml за допомогою текстового редактора (ваша робота полегшиться, якщо ви використовуватимете підсвічування синтаксису &XML;), замінивши всі слова всередині теґу <sgmltag class="starttag"
+>text</sgmltag
+> на перекладені слова, всі підказки всередині теґу <sgmltag class="starttag"
+>comment</sgmltag
+> на перекладені підказки. Необов’язково зберігати точне значення, але намагайтеся зберігати довжину і категорію складності. </para
+> 
+
+<para
+>Ви можете додавати слова з пробілом або дефісом, у цьому випадку у загаданому слові на відповідних місцях стоятимуть пробіл або дефіс замість символу _. Будь ласка, зв’яжіться із дописувачами <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>списку листування kde-edu</ulink
+>, якщо існують ще якісь особливості, пов’язані з вашою мовою, щоб вона змогла пристосувати код програми до особливостей мови (особливо використання спеціальних або акцентованих символів). </para>
+</step
+>	
+
+<step>
+<para
+>Ви можете просто перекласти, а можете підлаштувати слова під категорію або додати нові слова. Наприклад, слово <quote
+>table</quote
+> знаходиться у простій категорії англійською, але вашою мовою воно може знаходитися у середній категорії. Не вагайтеся і підлаштовуйте файли під потреби вашої мови. Кількість слів у файлі не є важливою, ви можете додавати стільки слів, скільки забажаєте.</para>
+
+<para
+>Пам’ятайте, що всі слова мають бути іменниками.</para>
+
+</step>
+
+<step>
+<para
+>Потім ви можете додати ваші файли до теки <emphasis
+>l10n-kf5/&lt;код_мови&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. Не забудьте також оновити відповідним чином файл CMakeLists.txt. Будь ласка, зв’яжіться із дописувачами <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>списку листування kde-edu</ulink
+>, якщо вам потрібна додаткова інформація. Якщо ви надсилаєте ці файли, будь ласка, не забудьте згадати про всі <emphasis role="bold"
+>спеціальні символи</emphasis
+>, що використовуються у вашій мові (запишіть їх до текстового файла, по одному на рядок і додайте цей файл до архіву), а також про будь-які інші особливості.</para>
+<para
+><emphasis
+>Будь ласка, ніколи не додавайте файли напряму до BRANCH, оскільки це може зробити гру непридатною до використання.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Дуже дякуємо за вашу участь у розробці!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Які дані і у якому місці зберігає &khangman;</title>
+<para
+>Файли новою мовою можна отримати за допомогою піктограми <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Отримати нові мовні файли</guiicon
+>. Дані нової мови зберігаються у підтеці теки <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+>, назва якої відповідає коду мови. Назви тек доступних мов зберігаються у файлі налаштувань &khangman;, який знаходиться за адресою <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Адреса вебсайта, де ви можете отримати файли для нових мов зберігається у файлі <filename
+>$XDG_DATA_HOME/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Файли англійської (типової) мови і файли мови користувача з його пакунків i18n (якщо такі файли є) зберігаються у <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml</filename
+>. </para>
+<para
+>У файлі налаштувань, що зберігається для кожного з користувачів за адресою <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>, записано всі параметри гри, такі як тема тла, остання категорія гри тощо і файли, які було отримано за допомогою пункту <guilabel
+>Отримати файли новою мовою</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&khangman; </para>
+<para
+>Авторські права на програму належать &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;, ©2001-2007 </para>
+<para
+>Учасники розробки: <itemizedlist>
+<listitem
+><para
+>Малюнки шибениці: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Звуки: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Колишній супровідник: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Файли даних шведською, допомога у програмуванні, прозорі картинки і виправлення у i18n: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних іспанською: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Підказки у файлах іспанською: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних данською: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних фінською: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних бразильською португальською: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних каталанською: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних італійською: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних голландською: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних португальською: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних сербською (кирилиця і латиниця): Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних словенською: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних чеською: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних таджицькою: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних норвезькою (букмол): Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних угорською: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних норвезькою (нюнорск): Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних турецькою: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних болгарською: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Файли даних ірландською (гельською): Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Допомога у програмуванні: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Допомога у програмуванні: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Виправлення коду: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Виправлення коду: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Вивчення зручності у використанні: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Авторські права на документацію 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,915 @@
+# translation of khangman.po to Slovak
+# Stanislav Visnovský <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <stano@ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@kde.org>, 2004.
+# Jozef Říha <jose1711@gmail.com>, 2006.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2015, 2017, 2022.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2022-04-09 19:25+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "Téma poznámok"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Morská téma"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Zimný motív"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Včelia téma"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Púštna téma"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Súbor $KDEDIR/share/apps/kvtml/%1/%2 sa nenašiel.\n"
+"Skontrolujte svoju inštaláciu!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Chyba"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Žiadne"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "Nenašli sa žiadne súbory témy."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "Nenašli sa žiadne súbory kvtml."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Úroveň"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "Jazyk zvolený užívateľom"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Názov motívu na pozadí"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Túto voľbu zaškrtnite, ak si neprajete naraz odhaľovať všetky rovnaké "
+"písmená."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Povoliť animácie"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "Ak je aktivované, pri novej a vyhranej hre budú prehrávané zvuky"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Ak je toto zaškrtnuté, budú sa tipy zobrazovať vždy. Ak nie je "
+"(predvolené) \n"
+"            tipy sa zobrazia iba na požiadanie užívateľa."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Toto nastavenie umožňuje nastaviť, koľko sekúnd je dostupných na vyriešenie "
+"slova."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Píšte písmená bez diakritiky oddelene od písmen s diakritikou"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "Cesta k poskytovateľovi pre program KHangMan"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "Klasická hra hangman pre KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Predchádzajúci správca"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Pôvodný autor"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Vývojár"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Pomoc s programovaním"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Dátové súbory pre švédštinu, pomoc s programovaním, priesvitné obrázky a "
+"opravy lokalizácie"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Dátové súbory pre španielštinu"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Dátové súbory pre dánštinu"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Dátové súbory pre fínštinu"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Dátové súbory pre brazílsku portugalštinu"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Dátové súbory pre katalánštinu"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Dátové súbory pre talianštinu"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Dátové súbory pre holandštinu"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Dátové súbory pre češtinu"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Dátové súbory pre maďarčinu"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Dátové súbory pre nórštinu (Bokmål)"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Dátové súbory pre tadžikštinu"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Dátové súbory pre srbštinu (latinka a azbuka)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Dátové súbory pre slovinštinu"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Dátové súbory pre portugalštinu"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Dátové súbory pre nórštinu (Nynorsk)"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Dátové súbory pre turečtinu"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Dátové súbory pre ruštinu"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Dátové súbory pre bulharčinu"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Dátové súbory pre írštinu (gaelskú)"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Jemnejšie obrázky pre Hangman"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Pomoc s programovaním, oprava veľkého počtu vecí"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "Kód pre generovanie ikon pre panel nástrojov pre znaky"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Čistenie kódu"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stanislav Višňovský"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "visnovsky@kde.org"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Zvoľte skupinu slov"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Zvoľte jazyk"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "Vybrať tému"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Pozastaviť"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Hrať"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Zmeniť tému."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "O KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "Informácie o KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Zobraziť príručku KHangMan"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Stiahnuť nové súbory jazyka"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Ostávajúce odhady: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Skóre:"
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Výhry: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Prehry: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Zobraziť pomôcku."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Zmeniť kategóriu."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Zmeniť jazyk."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Odhaliť slovo"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Odhaliť aktuálne slovo."
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "Načítať ďalšie slovo a spustiť novú hru."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Nastavenia KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "Čas vyriešenia slova v KHangMan"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr "Maximálny povolený čas pre vyriešenie slova v KHangMan"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "Trvanie zobrazenia pomoci"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "Trvanie zobrazenia pomoci pre aktuálne slovo"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "Činiteľ násobku skóre KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Určiť činiteľa, ktorým sa vynásobí skóre."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Zvuky"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "Zapnúť alebo vypnúť všetky zvuky v hre"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "Čas vyriešenia slova v sekundách"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Činiteľ násobku skóre"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "OK"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#~ msgid "khangman"
+#~ msgstr "khangman"
+
+#~ msgid "Notes"
+#~ msgstr "Poznámky"
+
+#~ msgid "Misses- "
+#~ msgstr "Minutia-"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Zobraziť lištu so znakmi"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Toto nastavenie vám umožní nastaviť, koľko sekúnd sa bude zobrazovať "
+#~ "bublinová pomoc pre KHangMan."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Čas, po ktorý sa zobrazuje tip s \"už hádaným písmenom\"."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Španielsky, portugalsky, katalánsky"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "&Zadávať písmená s mäkčeňmi a dĺžňami"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Ak je táto voľba zaškrtnutá, musíte písať písmená s diakritikou sami (t."
+#~ "j. rozlišuje sa medzi písmenami s diakritikou a bez)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Ak je táto voľba <b>zakázaná</b> znamená to, že ju vybraný jazyk "
+#~ "nepodporuje. Ak je <b>povolená</b> a vy ju zaškrtnete, musíte znaky s "
+#~ "diakritickými znamienkami písať ako zvláštne písmená. Ak ju nezaškrtnete, "
+#~ "budú znaky s diakritickými znamienkami zobrazované vedľa zodpovedajúcich "
+#~ "znakov bez diakritických znamienok (predvolené nastavenie).\n"
+#~ "<br>Napríklad v slovenčine, ak hádate slovo \"sušienka\" a táto voľba nie "
+#~ "je zaškrtnutá, sú pri hádaní písmena \"s\" odhalené dve písmená: \"s\" a "
+#~ "\"š\". Ak je táto voľba zaškrtnutá, musíte obe písmená uhádnuť zvlášť."
+
+#~ msgid "German"
+#~ msgstr "Nemčina"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Hrať s veľkými písmenami"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "Ak je zaškrtnuté, budú sa všetky písmená slova zobrazovať ako veľké"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Ak je táto voľba zaškrtnutá, budú sa všetky písmená slova zobrazovať ako "
+#~ "veľké, aj keď ich zadáte ako malé. Ak tato voľba nie je zaškrtnutá "
+#~ "(predvolené nastavenie), budú sa všetky písmená slova zobrazovať ako malé."
+#~ "<br>\n"
+#~ "Toto nastavenie je v súčasnosti dostupné iba pre nemčinu."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Tu môžete nastaviť všetky jazyky."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Ak túto voľbu zaškrtnete a v slove sa vyskytuje niekoľko rovnakých "
+#~ "písmen, odhalia sa pri uhádnutí prvé výskyty písmena v slove. Pri ďalšom  "
+#~ "hádaní rovnakého písmena sa odhalí jeho druhý výskyt atď., kým nie sú "
+#~ "odhalené všetky jeho výskyty.\n"
+#~ "Napríklad ak je hádaným slovom \"kukurica\" a táto voľba nie je "
+#~ "zaškrtnutá, odhalia sa pri hádaní písmena \"k\" obe \"k\" naraz. Ak je "
+#~ "naopak táto voľba aktívna, musíte \"k\" uhádnuť dvakrát.\n"
+#~ "\n"
+#~ "V predvolenom nastavení sa pri uhádnutí písmena odhalia všetky jeho "
+#~ "výskyty v slove."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Vyžadovať viacnásobné hádanie opakujúcich sa písmen"
+
+#~ msgid "Enable animations"
+#~ msgstr "Povoliť animácie"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Globálne povoliť tipy"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Ak je táto voľba aktivovaná, vždy pri začatí novej hry alebo po uhádnutí "
+#~ "slova bude prehraný zvuk. Ak je voľba deaktivovaná, KHangMan nebude "
+#~ "prehrávať žiadne zvuky.\n"
+#~ "Východzím stavom je bez zvuku."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Povoliť zvuky"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Hrať s novým slovom"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Otvorí existujúci dokument slovníka"
+
+#~ msgid "&Show Hint"
+#~ msgstr "Ukázať radu"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Ukázať/Skryť radu ako pomoc s hádaním slova"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Získať slová pre nový jazyk..."
+
+#~ msgid "&Category"
+#~ msgstr "Kategória"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Zvoľte skupinu slov"
+
+#~ msgid "&Language"
+#~ msgstr "&Jazyk"
+
+#~ msgid "L&ook"
+#~ msgstr "Vzhľ&ad"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Zvoľte si vzhľad"
+
+#~ msgid "Quick access to some of the files that you have recently opened."
+#~ msgstr "Rýchly prístup k niektorým súborom, ktoré boli nedávno otvorené."
+
+#~ msgid "General"
+#~ msgstr "Všeobecné"
+
+#~ msgid "Languages"
+#~ msgstr "Jazyky"
+
+#~ msgid "Timers"
+#~ msgstr "Časovače"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Zadávať písmená s mäkčeňmi a dĺžňami"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Otvoriť dokument slovníka"
+
+#~ msgid "&Game"
+#~ msgstr "&Hra"
+
+#~ msgid "Main"
+#~ msgstr "Hlavný"
+
+#~ msgid "Special Characters"
+#~ msgstr "Národné znaky"
+
+#~ msgid "Look"
+#~ msgstr "Vzhľad"
+
+#~ msgid "Language"
+#~ msgstr "Jazyk"
+
+#~ msgid "G&uess"
+#~ msgstr "&Pokus"
+
+#~ msgid "&Play again"
+#~ msgstr "&Hrať znova"
+
+#~ msgid "Hint"
+#~ msgstr "Rada"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Prehrali ste. Slovo bolo \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Blahoželám! Vyhrali ste!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Toto písmeno ste už skúšali."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Tu môžete voliť zvláštne nastavenie pre niektoré jazyky."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Pôvodný autor a aktuálny správca"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 sekunda"
+#~ msgstr[1] "%1 sekundy"
+#~ msgstr[2] "%1 sekúnd"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Tu môžete nastaviť čas, po ktorý sa bude zobrazovať tip s \"už hádaným "
+#~ "písmenom\"."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "Čas, po ktorý sa bude zobrazovať tip s <b>už hádaným písmenom</b>:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Môžete nastaviť dobu, po ktorú sa má zobrazovať tip \"Už hádané písmeno"
+#~ "\", potom čo ste skúsili písmeno, ktoré už bolo hádané. Predvolená "
+#~ "hodnota je 1 sekunda, ale malé deti môžu potrebovať na pochopenie, že "
+#~ "skúšajú už hádané písmeno, dlhší čas."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Môžete otvoriť posledne otvorené súbory"

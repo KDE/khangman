@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Gebruikershandleiding van &khangman;</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>&khangman; man-pagina.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2020-12-22</date>
+<productname
+>Applications 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Het klassieke spel galgje door KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Beschrijving</title>
+<para
+>&khangman; is een spel gebaseerd op het welbekende spel galgje. Het is gericht op kinderen van 6 jaar en erboven. Het heeft verschillende woordcategorieën zoals dieren dieren, kleding, computers, geldsoorten en meer.</para
+><para
+>Een woord wordt willekeurig gekozen en de letters verborgen. Je moet het woord raden door letter voor letter te proberen. Elke keer als je een verkeerde letter probeert wordt een deel van de galg getekend. Je moet het woord raden voordat je wordt opgehangen! Je krijgt 10 pogingen.</para
+><para
+>Deze applicatie is onderdeel van de &kde; Edutainment module.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Zie ook</title>
+<para
+>Meer gedetailleerde gebruikersdocumentatie is beschikbaar via <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (ofwel voer deze &URL; in in &konqueror; of draai <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Er is ook verdere informatie beschikbaar via de <ulink url="https://edu.kde.org/khangman/"
+>&kde; Edutainment website</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Auteurs</title>
+<para
+>&khangman; is geschreven door <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> en &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Deze manpagina is gebaseerd op die gemaakt door <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> voor het project &Debian;.</para>
+
+
+</refsect1>
+
+</refentry>

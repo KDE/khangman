@@ -1,0 +1,1161 @@
+# KDE3 - kdeedu/khangman.po Russian translation.
+# Copyright (C) 2005, KDE Russian translation team.
+#
+# Andrey Cherepanov <sibskull@mail.ru>, 2003-2005.
+# Nick Shaforostoff <shafff@ukr.net>, 2004-2005, 2006.
+# Nick Shaforostoff <shaforostoff@kde.ru>, 2007.
+# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2017, 2018.
+# Yury G. Kudryashov <urkud.urkud@gmail.com>, 2011, 2012.
+# Alexander Lakhin <exclusion@gmail.com>, 2013.
+# Мария Шикунова <translation-team@basealt.ru>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2022-07-14 16:12+0300\n"
+"Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.04.2\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "Примечания"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Море"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Зима"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Пчёлки"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Пустыня"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr "DONE"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Файл $KDEDIR/share/apps/kvtml/%1/%2 не найден.\n"
+"Проверьте установку программы."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Ошибка"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Не определён"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "Файлы фона не найдены."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "Файлы kvtml не найдены."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Уровень"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "Выбранный язык"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Название фонового изображения"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "Показывать только по одному вхождению буквы, а не все сразу"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Включить анимацию"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "Включает звуковое сопровождение для начала игры и выигрыша в игре"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Если флажок установлен, подсказки будут показываться всегда. Если снят (по "
+"умолчанию),\n"
+"            подсказка показывается для очередного слова, только когда "
+"пользователь вызывает её."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Этот параметр определяет, сколько времени отводится на разгадывание слова (в "
+"секундах)."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Вводить буквы с диакритическими знаками отдельно от обычных букв"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "Адрес файла поставщиков материалов для KHangMan"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "Классическая игра «Виселица» от KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "© Anne-Marie Mahfouf, 2001-2011"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Прежний сопровождающий"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Автор первоначальной версии"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Разработчик"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Помощь в программировании"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Словари на шведском языке, помощь в программировании, картинки с "
+"прозрачностью и исправления локализации"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Словари на испанском языке"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Словари на датском языке"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Словари на финском языке"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Словари на бразильском португальском языке"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Словари на каталонском языке"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Словари на итальянском языке"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Словари на голландском языке"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Словари на чешском языке"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Словари на венгерском языке"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Словари на норвежском языке"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Словари на таджикском языке"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Словари на сербском языке (кириллица и латиница)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Словари на словенском языке"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Словари на португальском языке"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Словари на норвежском языке (нюнорск)"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Словари на турецком языке"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Словари на русском языке"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Словари на болгарском языке"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Словари на ирландском языке"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Изображения виселицы"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Помощь в программировании, исправление ошибок"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "Генерация специальных символов на панели инструментов"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Подчистка кода"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Андрей Дорошенко,Андрей Черепанов"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "adorosh@chat.ru,sibskull@mail.ru"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Выбрать набор слов"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Выбрать язык"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "Выбрать фон"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Приостановить игру"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Начать или продолжить игру"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Сменить фоновое изображение."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Настроить KHangMan"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "О программе KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "О KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Открыть руководство пользователя KHangMan"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Загрузить новые словари"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Выход"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Осталось попыток: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Счёт: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Выигрышей: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Проигрышей: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Показать подсказку."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Сменить набор слов."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Сменить язык."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Сдаться"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Сдаться и посмотреть неотгаданное слово."
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "Показать следующее загаданное слово (начать новую игру)."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Настройка KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "Время на угадывание слова в KHangMan"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+"Максимально допустимое время, которое отводится на угадывание слова в "
+"KHangMan"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "Длительность показа подсказки"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "Длительность показа подсказки к загаданному слову"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "Множитель очков KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Задаёт число, на которое будет умножен счёт в игре."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Звуки"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "Включить или отключить все звуки в игре"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "Время на угадывание слова (в секундах)"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Множитель очков"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "Ок"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Отмена"
+
+#~ msgid "khangman"
+#~ msgstr "khangman"
+
+#~ msgid "Notes"
+#~ msgstr "Заметки"
+
+#, fuzzy
+#~ msgid "Misses- "
+#~ msgstr "Промахи"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Показать панель специальных символов"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Этот параметр определяет, как долго будет показываться подсказка (в сек.)."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Длительность отображения уведомления о повторяемой букве."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Испанские, португальские, каталонские слова"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Различать буквы с &диакритиками"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "С этим параметром для некоторых языков вам необходимо вводить буквы с "
+#~ "диакритиками (они будут отличаться от соответствующих букв без диакритик)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Если этот параметр <b>недоступен</b>, выбранный язык не поддерживает букв "
+#~ "с диакритическими знаками. Если параметр <b>активен</b> и включён, будут "
+#~ "использоваться буквы с диакритиками. Если параметр выключен, буквы с "
+#~ "диакритическими знаками представляются обычными буквами (по умолчанию).\n"
+#~ "<br>\n"
+#~ "Например, для каталонского языка, если параметр выключен и вы ввели букву "
+#~ "«o», в слове <b>xenofòbia</b> будут открыты буквы «o» и «ò». Если "
+#~ "параметр включён, то будет открыта только буква «o». Чтобы открылась "
+#~ "буква «ò», нужно вводить эту букву с диакритиком."
+
+#~ msgid "German"
+#~ msgstr "Немецкие слова"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Показывать все буквы заглавными"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "Показывать всё слово заглавными буквами"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Если этот параметр включён, слово будет записываться заглавными буквами, "
+#~ "даже если вы вводите строчные буквы. Если параметр выключен, слово будет "
+#~ "написано строчными буквами.<br>\n"
+#~ "На данный момент данный параметр доступен только для немецкого языка."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Эти настройки действуют для всех языков."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Если включить этот параметр, будет показано только первое вхождение буквы "
+#~ "(если она найдена и повторяется несколько раз в слове). Если вы снова "
+#~ "укажете эту букву, будет показано второе вхождение, и это будет длится до "
+#~ "тех пор, пока в слове остаются не открытыми вхождения буквы.\n"
+#~ "Например, загадано слово «potato». Если параметр включён, для открытия "
+#~ "всех букв «o» в слове придётся нажимать эту букву два раза.\n"
+#~ "По умолчанию, при указании буквы будут сразу показаны все её вхождения в "
+#~ "слове."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Открывать повторяющиеся буквы поочерёдно"
+
+#~ msgid "Enable animations"
+#~ msgstr "Включить анимацию"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Показывать подсказку"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "При включении этого параметра в начале игры и при выигрыше вы услышите "
+#~ "соответствующие звуки. Если он выключен, звуки проигрываться не будут.\n"
+#~ "По умолчанию звуков нет."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Включить звуки"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Другое слово"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Открытие существующего словаря"
+
+#~ msgid "&Show Hint"
+#~ msgstr "&Показывать подсказку"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Показать/спрятать подсказку, помогающую угадать слово"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Новый язык..."
+
+#~ msgid "&Category"
+#~ msgstr "Н&абор слов"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Выбрать набор слов"
+
+#~ msgid "&Language"
+#~ msgstr "&Язык"
+
+#~ msgid "L&ook"
+#~ msgstr "&Оформление"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Настройка оформления"
+
+#~ msgid "General"
+#~ msgstr "Общие"
+
+#~ msgid "Languages"
+#~ msgstr "Языки"
+
+#~ msgid "Timers"
+#~ msgstr "Задержка"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Различать буквы с диакритиками"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Открытие словаря"
+
+#~ msgid "&Game"
+#~ msgstr "&Игра"
+
+#~ msgid "Main"
+#~ msgstr "Главная панель инструментов"
+
+#~ msgid "Special Characters"
+#~ msgstr "Специальные символы"
+
+#~ msgid "Look"
+#~ msgstr "Оформление"
+
+#~ msgid "Language"
+#~ msgstr "Язык"
+
+#~ msgid "G&uess"
+#~ msgstr "&Ввод"
+
+#~ msgid "&Play again"
+#~ msgstr "&Ещё раз"
+
+#~ msgid "Hint"
+#~ msgstr "Подсказка"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr ""
+#~ "Вы проиграли.\n"
+#~ "Было загадано слово «%1»."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr ""
+#~ "Поздравляем!\n"
+#~ "Вы выиграли!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Эта буква уже была."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Эти настройки действуют для некоторых языков."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Сопровождающий, автор"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "%1 секунда"
+#~ msgstr[1] "%1 секунды"
+#~ msgstr[2] "%1 секунд"
+#~ msgstr[3] "%1 секунда"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Здесь можно указать время показа подсказок и уведомлений о повторяемой "
+#~ "букве."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "Время показа уведомления «Эта буква уже была»:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Вы можете указать длительность показа уведомления «Эта буква уже была», "
+#~ "сообщающего о повторной попытке угадать какую-либо букву. По умолчанию "
+#~ "подсказка показывается 1 секунду, но маленьким детям может потребоваться "
+#~ "больший интервал, чтобы воспринять это сообщение."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Можно открыть один из последних использовавшихся файлов"
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Файл «%1» не найден.\n"
+#~ "Переустановите «%2». Возвращаемся к английскому языку."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#, fuzzy
+#~ msgid "Theme"
+#~ msgstr "Тема '&Море'"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr "При включении этой опции проигрывать звук при победе и поражении"
+
+#~ msgid "Graphics"
+#~ msgstr "Графика"
+
+#~ msgid "Nature theme background"
+#~ msgstr "Фон 'Природа'"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "Тема 'Синева', пиктограммы"
+
+#~ msgid "SVG icon"
+#~ msgstr "Значок SVG"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the \"Already Guessed\" "
+#~ "tooltip is displayed.</p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the "
+#~ "\"Already Guessed\" tooltip after you tried a letter that was already "
+#~ "guessed. Default is 1 second but younger children might need longer time "
+#~ "to be able to understand they are trying a letter that was already "
+#~ "guessed.</p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "Поздравляем! Вы победили! Начнём снова?"
+
+#~ msgid "Do Not Play"
+#~ msgstr "Не продолжать"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "Вы повешены. Начнём снова?"
+
+#, fuzzy
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr ""
+#~ "При включении этого флажка не показывать диалог 'Поздравляем! Вы "
+#~ "выиграли!'. Через 3 секунды новая игра начнётся автоматически."
+
+#, fuzzy
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "Если эта опция выключена в конце игры появится диалоговое окно с надписью "
+#~ "'Поздравляем! Вы выиграли!' (если это так).\n"
+#~ "Это поведение программы по умолчанию. \n"
+#~ "\n"
+#~ "Если опция включена, диалог не будет появляться и новая игра начнётся "
+#~ "через четыре секунды. Информация о выигрыше будет показана во всплывающем "
+#~ "окне."
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "&Не показывать диалог 'Поздравляем! Вы выиграли!'"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "&Не показывать диалог 'Поздравляем! Вы выиграли!'"
+
+#, fuzzy
+#~ msgid "&Hide Hint"
+#~ msgstr "&Показывать подсказки"
+
+#, fuzzy
+#~ msgid "When available"
+#~ msgstr "Если доступны"
+
+#~ msgid ""
+#~ "If you check it, a hint will be displayed by right-clicking on the game "
+#~ "window."
+#~ msgstr ""
+#~ "При включении этой опции при нажатии право кнопки мыши на окне будет "
+#~ "показана подсказка к угадываемому слову."
+
+#, fuzzy
+#~ msgid ""
+#~ "Some languages have hints to help you guess the word more easily. If this "
+#~ "is <b>disabled</b>, there is no such option for your current language "
+#~ "data file.\n"
+#~ "If this is <b>enabled</b>, then hints are available and you can get them "
+#~ "by checking this box. You will see the hint for the word you are trying "
+#~ "to guess by right-clicking somewhere on the KHangMan window. The hint "
+#~ "will be displayed for four seconds in a tooltip."
+#~ msgstr ""
+#~ "Для некоторых языков есть подсказки для разгадывания слова. Если эта "
+#~ "опция <b>не активна</b>, для текущего языка нет подсказок.\n"
+#~ "Если опция <b>активна</b> и вы её включили, вы можете использовать "
+#~ "подсказки. Подсказка к слову будет показана при нажатии правой кнопкой "
+#~ "мыши в любом месте игрового поля."
+
+#, fuzzy
+#~ msgid "Show hints"
+#~ msgstr "&Показывать подсказки"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the hint is displayed.</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the hint "
+#~ "tooltip. Default is four seconds but younger children might need longer "
+#~ "time to be able to read the hint.</p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">hint</span>:</p></body></html>"
+#~ msgstr ""
+#~ "Вы можете указать длительность показа информации об уже угаданной букве. "
+#~ "По умолчанию эта информация показывается три секунды, но маленьким детям "
+#~ "необходим больший интервал для того, чтобы понять, что они уже открыли "
+#~ "эту букву."
+
+#~ msgid "Hint on right-click"
+#~ msgstr "Показывать подсказку при нажатии правой кнопки мыши"
+
+#~ msgid "Hint available"
+#~ msgstr "Есть подсказки"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations! You won!' dialog"
+#~ msgstr "&Не показывать диалог 'Поздравляем! Вы выиграли!'"
+
+#~ msgid "Le&vel"
+#~ msgstr "&Уровень"
+
+#~ msgid "Choose the level of difficulty"
+#~ msgstr "Выберите уровень сложности"
+
+#~ msgid "Cyrillic"
+#~ msgstr "Кириллица"
+
+#~ msgid "Latin"
+#~ msgstr "Латиница"
+
+#~ msgid "Animals"
+#~ msgstr "Животные"
+
+#~ msgid "Easy"
+#~ msgstr "Лёгкий"
+
+#~ msgid "Medium"
+#~ msgstr "Средний"
+
+#~ msgid "Hard"
+#~ msgstr "Сложный"
+
+#~ msgid "First letter upper case"
+#~ msgstr "Первая буква слова заглавная"
+
+#~ msgid "Time during which the Hint is displayed"
+#~ msgstr "Время показа подсказки"
+
+#~ msgid "Set the time for displaying the hint:"
+#~ msgstr "Время показа подсказки:"
+
+#~ msgid "&New"
+#~ msgstr "&Создать"
+
+#~ msgid "Inserts the character %1"
+#~ msgstr "Вставить символ %1"

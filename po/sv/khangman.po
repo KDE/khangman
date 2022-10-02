@@ -1,0 +1,922 @@
+# translation of khangman.po to Swedish
+# Copyright (C).
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2005, 2011, 2012, 2014, 2015, 2017, 2018, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2020-03-07 11:08+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, kde-format
+msgid "Notes Theme"
+msgstr "Anteckningstema"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Havstema"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Vintertema"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Bitema"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Ökentema"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr "DONE"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Filen $KDEDIR/share/apps/kvtml/%1/%2 hittades inte.\n"
+"Kontrollera installationen."
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Fel"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Inget"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr "Inga temafiler hittades."
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr "Inga kvtml-filer hittades."
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Nivå"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "Språket som valts av användaren"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "Bakgrundstemats namn"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Markera det här om du inte vill visa alla förekomster av samma bokstav."
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Aktivera animeringar"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "Om markerad, spelas ljud vid nytt spel och vunnet spel"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Om markerad, kommer tips alltid att visas. Om det inte är markerat "
+"(normalvärdet)\n"
+"            visas bara tips för ett ord när användaren väljer att visa "
+"tipset."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Den här inställningen låter dig ange hur mycket tid som är tillgänglig för "
+"att lösa ordet."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Skriv in bokstäver med accent separat från normala bokstäver"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "Sökvägen till leverantörer för Hänga gubben"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "Hänga gubben"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "Det klassiska spelet Hänga gubben av KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "© 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Tidigare underhåll"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr "Ursprunglig upphovsman"
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr "Rahul Chowdhury"
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr "Utvecklare"
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Kodhjälp"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Svenska datafiler, kodningshjälp, genomskinliga bilder och i18n-rättning"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Spanska datafiler"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Danska datafiler"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Finska datafiler"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Brasiliansk portugisiska datafiler"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Katalanska datafiler"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Italienska datafiler"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Holländska datafiler"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Tjeckiska datafiler"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Ungerska datafiler"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Norska (Bokmål) datafiler"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Tajikiska datafiler"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Serbiska (kyrilliska och latinska) datafiler"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Slovenska datafiler"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Portugisiska datafiler"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Norska (Nynorska) datafiler"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Turkiska datafiler"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Ryska datafiler"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Bulgariska datafiler"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Irländska (gaeliska) datafiler"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Snällare bilder"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Kodningshjälp, fixade många saker"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "Kod för att skapa ikoner för teckenverktygsraden"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Kodstädning"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "Välj ordkategorin"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "Välj ett språk"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "Välj ett tema"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "Paus"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "Spela"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "Ändra temat."
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "Inställningar"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "Om Hänga gubben"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "Om KDE"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr "Visa Handbok Hänga Gubben"
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "Ladda ner nya språkfiler"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "Avsluta"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "Gissningar kvar: "
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "Poäng: "
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "Vinster: "
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "Förluster: "
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "Visa tipset."
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "Ändra kategorin."
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "Ändra språk."
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr "Avslöja ord"
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr "Avslöja aktuellt ord"
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr "Läs in nästa ord och starta ett nytt spel."
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "Inställningar av Hänga gubben"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr "Lösningstid för ordet i Hänga gubben"
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr "Maximal tillåten tid för att lösa ordet i Hänga gubben"
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr "Tid att visa tips"
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr "Tiden för att visa tipset om själva ordet"
+
+#: qml/MainSettingsDialog.qml:61
+#, kde-format
+msgid "KHangMan Score Multiplying Factor"
+msgstr "Multiplikationsfaktor för poäng i Hänga gubben"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Bestäm faktorn som poäng ska multipliceras med."
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Ljud"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr "Sätt på eller stäng av alla ljud inne i spelet"
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr "Tid för att lösa ordet i sekunder"
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr "Multiplikationsfaktor för poäng"
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "Ok"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "Avbryt"
+
+#~ msgid "khangman"
+#~ msgstr "Hänga gubben"
+
+#~ msgid "Notes"
+#~ msgstr "Anteckningar"
+
+#~ msgid "Misses- "
+#~ msgstr "Fel- "
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Visa teckenverktygsraden"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Den här inställningen låter dig ange hur länge Hänga gubbens tipsbubbla "
+#~ "visas i sekunder."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Tid som verktygstipset med \"redan gissat\" visas."
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Spanska, portugisiska, katalanska"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Skriv in bokstäver med a&ccent"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Om markerat, måste du själv skriva in bokstäver med accent (dvs. de "
+#~ "skiljs från motsvarande normala bokstäver utan accent)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Om det här <b>inte</b> kan väljas, stöder inte det valda språket det. Om "
+#~ "det här <b>kan</b> väljas, och du markerar det, ska du skriva in "
+#~ "bokstäver med accent för sig själv. Om det inte är markerat, visas "
+#~ "bokstäver med accent med vanliga bokstäver.<br>\n"
+#~ "Till exempel i katalanska, om det inte är markerat och du skriver \"o\", "
+#~ "visas o och ò i ordet <b>xenofòbia</b>. Om alternativet är markerat och "
+#~ "du skriver \"o\", visas bara \"o\" och du måste då skriva \"ò\" för att "
+#~ "bokstaven ska visas."
+
+#~ msgid "German"
+#~ msgstr "Tyska"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Spela med stora bokstäver"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "Om markerad, visas ordet med bara stora bokstäver"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Om det här är markerad, visas ordet med bara stora bokstäver även om du "
+#~ "skriver in små. Om det inte är markerat (normalvärdet), visas ordet med "
+#~ "små bokstäver.<br>\n"
+#~ "Inställningen är för närvarande bara tillgänglig med tyska språket."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Här kan du välja inställningar för alla språk."
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Om du markerar rutan, skrivs bara den första förekomsten av bokstaven om "
+#~ "den finns på flera platser i ordet. När du skriver in bokstaven igen, "
+#~ "ersätter den andra förekomsten i ordet, ända till det inte finns några "
+#~ "ytterligare förekomster av bokstaven.\n"
+#~ "Om ordet att gissa till exempel är \"potatis\", och alternativet inte är "
+#~ "markerat när du provar \"t\" upptäcks den andra bokstaven \"t\" i ordet "
+#~ "samtidigt. Om alternativet är markerat, måste du prova med \"t\" två "
+#~ "gånger.\n"
+#~ "\n"
+#~ "Normalt visas alla likadana bokstäver i ordet när en bokstav skrivs in."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Kräv flera gissningar för upprepade bokstäver"
+
+#~ msgid "Enable animations"
+#~ msgstr "Aktivera animeringar"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Aktivera tips globalt"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Om rutan är markerad, spelas något ljud vid varje nytt spel och när du "
+#~ "vinner ett spel. Om den inte är markerad, spelas inga ljud i Hänga "
+#~ "gubben.\n"
+#~ "Normalvärdet är inga ljud."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Aktivera ljud"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Spela med ett nytt ord"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Öppnar ett befintligt ordförrådsdokument"
+
+#~ msgid "&Show Hint"
+#~ msgstr "Visa &tips"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "Visa eller dölj tips för att hjälpa till att gissa ordet"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Hämta ord på nytt språk..."
+
+#~ msgid "&Category"
+#~ msgstr "&Kategori"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Välj ordkategori"
+
+#~ msgid "&Language"
+#~ msgstr "Sp&råk"
+
+#~ msgid "L&ook"
+#~ msgstr "&Utseende"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Välj utseende och känsla"
+
+#~ msgid "Quick access to some of the files that you have recently opened."
+#~ msgstr "Snabbåtkomst till vissa av filerna som du nyligen har öppnat."
+
+#~ msgid "General"
+#~ msgstr "Allmänt"
+
+#~ msgid "Languages"
+#~ msgstr "Språk"
+
+#~ msgid "Timers"
+#~ msgstr "Inställning av tider"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Skriv in bokstäver med accent"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Öppna ordförrådsdokument"
+
+#~ msgid "&Game"
+#~ msgstr "S&pel"
+
+#~ msgid "Main"
+#~ msgstr "Huvudverktygsrad"
+
+#~ msgid "Special Characters"
+#~ msgstr "Specialtecken"
+
+#~ msgid "Look"
+#~ msgstr "Utseende"
+
+#~ msgid "Language"
+#~ msgstr "Språk"
+
+#~ msgid "G&uess"
+#~ msgstr "&Gissa"
+
+#~ msgid "&Play again"
+#~ msgstr "S&pela igen"
+
+#~ msgid "Hint"
+#~ msgstr "Tips"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Du förlorade. Ordet är \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Gratulerar, du vann!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Bokstaven har redan gissats."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Här kan du välja specialinställningar för vissa språk."
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Nuvarande utvecklare, författare"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 sekund"
+#~ msgstr[1] "%1 sekunder"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Här kan du ställa in en viss tid som tipsmeddelandet och verktygstipset "
+#~ "med \"redan gissat\" visas."
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "Tid som verktygstipset med <b>redan gissat</b> visas:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Du kan ställa in tiden för att visa verktygstipset med \"redan gissat\", "
+#~ "efter du försöker med en bokstav som redan gissats. Normalvärdet är en "
+#~ "sekund, men yngre barn kan behöva längre tid för att förstå att de "
+#~ "försöker med en bokstav som redan gissats."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Det går att öppna senaste filer"
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Filen '%1' hittades inte.\n"
+#~ "Installera om '%2'. Går tillbaka till engelska."
+
+#~ msgid "&Upload KHangMan file..."
+#~ msgstr "Ladda &up Hänga gubben-fil..."
+
+#~ msgid "Share the current KHangMan file with other users."
+#~ msgstr "Dela den nuvarande Hänga gubben-filen med andra användare."
+
+#~ msgid "Local file"
+#~ msgstr "Lokal fil"

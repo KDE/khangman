@@ -1,0 +1,827 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Indonesian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Buku Panduan &khangman; </title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Mohammad</firstname
+><surname
+>Edwin</surname
+><affiliation
+><address
+><email
+>medwinz@gmail.com</email
+></address
+></affiliation
+><contrib
+>Terjemahan</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2016-04-25</date>
+<releaseinfo
+>3.0 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&khangman; adalah permainan klasik algojo/tiang gantung untuk anak-anak. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>algojo  </keyword>
+<keyword
+>permainan</keyword>
+<keyword
+>anak-anak</keyword>
+<keyword
+>kata-kata</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Pengantar</title>
+
+<para
+>&khangman; adalah permainan yang didasarkan pada permainan hangman (algojo/tiang gantung) yang terkenal. Ini ditujukan untuk anak-anak berusia enam tahun ke atas. Permainan ini memiliki beberapa kategori kata untuk dimainkan, misalnya: Hewan (nama-nama binatang), Pakaian, Komputer, Mata Uang, Mudah dan Buah-buahan. Sebuah kata dipilih secara acak, huruf-hurufnya disembunyikan, dan kamu harus menebak kata itu dengan mencoba huruf satu demi satu. Setiap kali kamu menebak huruf yang salah, bagian dari gambar algojo digambari. Kamu harus menebak kata sebelum digantung! Kamu memiliki 10 percobaan. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Menggunakan &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Ini adalah cuplikan layar dari &khangman; ketika Anda menggunakannya untuk pertama kali </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Cuplikan layar &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Gambar di atas adalah &khangman; saat Anda menjalankannya pertama kali. Kategorinya Nama Hewan, bahasa baku bawaan (dalam hal ini Bahasa Inggris, standarnya adalah bahasa sesuai pengaturan &kde; anda jika ada datanya), tema adalah <quote
+>Catatan</quote
+>. Segala perubahan dalam kategori, bahasa atau tema (latar belakang) ditulis dalam berkas konfigurasi dan ditampilkan kembali dalam permainan Anda berikutnya. </para>
+
+<para
+>Catatlah bahwa sangat mudah untuk mengganti tema, hanya dengan menekan tombol pada bilah alat bawah. Mendapatkan kata baru dan mengakhiri permainan juga sangat mudah dengan menekan tombol terkait pada bilah alat. </para>
+
+<sect1 id="general-usage">
+<title
+>Penggunaan Umum</title>
+
+<para
+>Sebuah kata dipilih dan huruf-hurufnya ditampilkan sebagai simbol garisbawah (_). Anda mengetahui berapa banyak huruf yanga ada dalam sebuah kata. Anda harus menebak kata dengan mencoba huruf satu persatu. Anda ketikkan huruf pada papan tik atau memilihnya menggunakan &LMB;. Jika huruf tersebut merupakan bagian dari kata maka warna latar belakang dari huruf akan berubah menjadi hijau, jika tidak maka berwarna merah.</para>
+
+<para
+>Huruf pada layar permainan memungkinkan Anda untuk memainkan &khangman; dalam bahasa asing tanpa mengganti pengaturan tata letak papan tik.</para>
+
+<para
+>Kata dipilih secara acak dan tidak sama dengan kata sebelumnya. </para>
+
+<important
+><para
+>Semua kata adalah kata benda (tidak ada kata kerja atau kata sifat, &etc;).</para
+></important>
+
+<para
+>Jika Anda membutuhkan bantuan untuk menebak kata, Anda dapat mengklik ikon <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> pada bilah alat dan sebuah petunjuk akan ditampilkan untuk memberi Anda beberapa petunjuk tentang kata. Mengklik aikonnya lagi akan menyembunyikan petunjuk. </para>
+
+<para
+>Secara baku petunjuk tidak ditampilkan. </para>
+
+<para
+>Biasanya, tidaklah penting apakah Anda mengetik dalam huruf kecila atau huruf besar. Perangkat lunak mengubah semua masukan kedalam huruf besar. Perangkat lunak melakukannya secara otomatis. </para>
+
+<para
+>Kategori saat ini, menang dan kalah ditampilkan pada layar. </para>
+
+<para
+>Setiap kali Anda menebak sebuah huruf yang tidak ada dalam kata, sebuah bagian dari tiang gantung akan digambar. Anda memiliki 10 kesempatan untuk menebak kata. Setelah itu, jawaban yang benar akan dimunculkan. </para>
+
+<para
+>Ada beberapa kategori kata yang tersedia, tergantung bahasa yang dipilih. Perangkat lunak memindai seluruh berkas data untuk semua bahasa dan juga menggunakan berkas kata-kata &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Setelah sebuah kata ditebak (atau permainan diselesaikan), Anda diberi selamat dan kata berikutnya ditampilkan. Untuk keluar dari permainan klik ikon <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> pada bilah alat atas. </para>
+
+<para
+>Anda ketikkan huruf yang ingin Anda coba pada papan tik atau pilihlah dengan &LMB;. Jika huruf yang dipilih merupakan bagian dari kata maka hurufnya akan menjadi berwarna hijau dan diletakkan pada posisinya dalam kata, sebanyak jumlahnya dalam kata. Apabila huruf bukan bagian dari kata. huruf akan ditampilkan berwarna merah. Anda memiliki 10 kesempatan dan setelah itu Anda dinyatakan kalah dan kata yang benar akan ditampilkan. </para>
+
+<para
+>Selama permainan, Anda dapat memilih untuk memulai permainan baru dengan mengklik <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> pada bilah alat di bagian bawah. Anda juga dapat mengganti kategori kata dengan mengklik kategori yang saat ini ditampilkan.</para>
+
+<para
+>Tampilan dapat dengan mudah diganti dengan tombol pilihan tema pada bilah alat di bagian bawah.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Memainkan dengan bahasa yang berbeda</title>
+<para
+>Anda dapat memainkan &khangman; dalam banyak bahasa termasuk di dalamnya: Bahasa Portugis Brasil, Bulgaria, Catalan, Ceko, Denmark, Inggris (Amerika dan Britania Raya), Filandia, Perancis, Jerman, Hungaria, Irlandia (Gaelic), Italia, Norwegia (Bokm&#229;l), Norwegia (Nynorsk), Polandia, Portugis,  Romania, Spanyol, Serbia (Latin dan Cyrilic), Slovenia, Tajik, Swedia; Rusia dan Turki. Anda bahkan dapat mencoba bahasa China jika Anda memasang berkasnya melalui &kanagram;. </para>
+
+<para
+>Secara baku, setelah instalasi pemasangan &khangman;, hanya Bahasa Inggris dan bahasa sesuai pengaturan &kde; jika itu termasuk dalam salah satu bahasa di atas dan apabila Anda memasang paket kde-i18n yang sesuai, yang akan dipasang. Sebagai contoh jika Anda seorang pengguna dari Denmark dan apabila Anda menggunakan &kde; dalam bahasa Denmark, dalam pihan Bahasa Anda akan melihat dua pilihan: Bahasa Inggris dan Bahasa Denmark, dengan Bahasa Denmark sebagai pilihan utama. </para>
+
+<para
+>Anda tetap dapat memainkan &khangman; dalam bahasa lain. Adalah sangat mudahuntuk menambahkan data baru ke dalam &khangman;. Yang Anda butuhkan hanyalah koneksi Internet. Klik pada <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> dan sebuah jendela dialog akan muncul, sama seperti yang satu ini: </para>
+
+<screenshot>
+<screeninfo
+>Dialog Mendapatkan Kata-Kata Baru untuk &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Dialog Mendapatkan Kata-Kata Baru untuk &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Klik pada nama bahasa yang ingin Anda pasang dan selanjutnya pada tombol <guibutton
+>Install</guibutton
+>. Jika bahasa berhasil dipasang, tanda hijau ditampilkan di depan nama bahasa dan <guibutton
+>Install</guibutton
+> berubah menjadi <guibutton
+>Uninstall</guibutton
+>. Data akan segera dipasang dan tersedia pada &khangman;. Anda klik pada tombol <guibutton
+>Close</guibutton
+> untuk menutup jendela dialog Mendapatkan Kata-Kata Baru (jika Anda menginginkan berkas data yang lain, Anda dapat mengulang langkah-langkah di atas). </para>
+
+<para
+>Anda dapat dengan mudah mengganti bahasa dengan mengklik tombol bahasa dan memilih bahasa yang baru. </para>
+
+<para
+>Mohon dicatat bahwa karakter spesial dalam sebuah bahasa akan ditampilkanpada papan tik. Dalam hal ini Anda akan melihat tombol dengan sebuah ikon untuk setiap karkater spesial dalam setiap bahasa seperti &eacute; dalam bahasa Perancis sebagai contoh. Mengklik pada tombol tersebut akan memilih huruf yang sesuai. Tentu saja Anda dapat menggunakan papan tik yang sesuai dengan pilihan bahasa. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed. </para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Beberapa tip/petunjuk</title>
+<para
+>Dalam Bahasa Inggris, pertama-tama cobalah untuk menduga huruf vokal. Kemudian cobalah konsonan umum: l, t, r, n, s. </para>
+<para
+>Apabila anda melihat <quote
+>io</quote
+>, cobalah n setelahnya, dalam bahasa Perancis dan Inggris. </para>
+
+<para
+>Anda harus mengetik huruf beraksen atau mengkliknya. Ketika anda mengetik <quote
+>a</quote
+>, hanya <quote
+>a</quote
+> yang ditampilkan dan Anda harus mengetik &atilde; sebagai contoh sehingga huruf tersebut akan ditampilkan. </para>
+<para
+>Apakah Anda tahu? Dalam Bahasa Inggris, huruf yang paling umum adalah e (12.7%), diikuti t (9.1%) kemudian a (8.2%), i (7.0%) dan n (6.7%). </para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Bilah menu dan Bilah alat</title>
+
+<sect1 id="mainwindow">
+<title
+>Jendela utama &khangman;</title>
+
+<screenshot>
+<screeninfo
+>&khangman; Tema Gurun</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; Tema Gurun</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Di sini Anda memiliki &khangman; dengan Tema Gurun, Bahasa Perancis dan kategori <quote
+>Binatang</quote
+>. Karakter khusus Bahasa Perancis diperlihatkan di sini.</para>
+
+<para
+>Permainan memiliki bilah alat utama pada bagian atas dari jendela:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> atau <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Memulai atau mengakhiri permainan </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Buka dialog pengaturan </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Tentang &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Tentang &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Lihat buku panduan &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Unduh berkas bahasa baru dari Internet </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Keluar &khangman; </member>
+</simplelist>
+
+<para
+>Bilah alat bawah ditampilkan hanya jika memainkan permainan, jika anda menyetop sementara permainan bilah alat ini akan disembunyikan:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> - Tampilkan petunjuk tentang kata yang harus ditebak </member>
+<member
+>Tombol untuk mengganti kategori</member>
+<member
+>Pilihan bahasa</member>
+<member
+>Pilihan tema</member>
+<member
+>Perlihatkan kata untuk ditebak</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Panggil kata berikutnya dan mulai permainan baru </member>
+</simplelist>
+
+<para
+>Semua kata adalah kata benda. Tidak ada kata kerja, juga tidak ada kata sifat. Kategori yang dipilih ditampilkan pada bilah status.</para>
+<para
+>Hanya huruf yang diizinkan untuk diketik dalan kotak teks</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Pengaturan</title>
+
+<screenshot>
+<screeninfo
+>&khangman; pengaturan</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; pengaturan</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+><guilabel
+>Waktu menebak kata dalam detik</guilabel
+> menetapkan waktu maksimum yang diizinkan untuk untuk memecahkan kata dalam &khangman;. Standarnya adalah 120 detik. Anak-anak membutuhkan waktu yang lebih lama untuk mengerti permainan, untuk orang dewasa kurangi waktunya untuk membuat permainan tetap menarik. </para>
+
+<para
+><guilabel
+>Fator Pengali Nilai</guilabel
+> adalah faktor yang menentukan berapa nilai akan dilipatgandakan. </para>
+
+<para
+>Jika Anda memeriksa <guilabel
+>Suara</guilabel
+> maka suara akan dimainkan untuk permainan baru dan suara lainnya akan dimainkan ketika Anda memenangkan permainan. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Petunjuk Pengembang untuk &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Bagaimana menerjemahkan kata-kata dalam bahasa baru untuk permainan</title>
+
+<para
+>Silakan ikuti prosedur dan kirim berkas tar dan gzip ke <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu mailinglist</ulink
+>. </para>
+<para
+>Silakan periksa &khangman; <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> pada bilah alat di bagian atas untuk melihat jika bahasa Anda telah tersedia. Jika iya, selanjutnya periksa apakah mengandung <emphasis
+>petunjuk</emphasis
+>. </para>
+<para
+>Daftar kata-kata baku disimpan dalam 4 berkas terpisah, untuk membuat kategori yang berbeda. Berkas terdapata dalam  <filename class="directory"
+>/khangman/data/</filename
+>.  Berkas <filename
+>easy.kvtml</filename
+> adalah untuk kategori mudah, berkas <filename
+>medium.kvtml</filename
+> adalah untuk kategori menengah, berkas <filename
+>animals.kvtml</filename
+> adalah untuk kategori hewan dan berkas <filename
+>hard.kvtml</filename
+> adalah untuk kategori sulit.</para>
+<para
+>Bahasa Inggris adalah bawaan standar dan satu-satunya bahas yang dipaketkan dengan &khangman;. Semua data bahasa lainnya terdapat pada modul kde-l10n yang sesuai. </para>
+<procedure>
+<step>
+<para
+>Berkas menggunakan format kvhtml. Tag <sgmltag class="starttag"
+>text</sgmltag
+> adalah untuk kata dan tag <sgmltag class="starttag"
+>comment</sgmltag
+> adalah untuk petunjuk, semuanya di dalam tag <sgmltag class="starttag"
+>entry</sgmltag
+>. Silakan coba untuk mencocokkan petunjuk dengan kategori kesulitan. Kategori <guimenuitem
+>Easy</guimenuitem
+> akan membutuhkan petunjuk yang mudah tetapi kategori  <guimenuitem
+>Hard</guimenuitem
+> akan membutuhkan definisi di dalam kamus. Usahakan untuk tidak menggunakan kata-kata dari keluarga yang sama di dalam petunjuk, hal tersebut akan menghasilkan kata yang sangat mudah!</para>
+
+<para
+>Catat bahwa Anda harus menggunakan <emphasis role="bold"
+>UTF-8 encoding</emphasis
+> ketika menyunting berkas. Jika editor anda tidak dapat melakukannya, coba menggunakan &kwrite; atau &kate;. Ketika membuka sebuah berkas melalui &kwrite; or &kate; Anda dapat memilih encoding utf8 dengan boks combo pada bagian atas dialog buka berkas.</para>
+
+<para
+>Sebuah contoh dari berkas kvtml adalah sebagai berikut:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>Di awal berkas, Anda harus menterjemahkan isi dari <sgmltag class="starttag"
+>title</sgmltag
+> dan tag <sgmltag class="starttag"
+>comment</sgmltag
+> yang terdapat di antara tag <sgmltag  class="starttag"
+>information</sgmltag
+>. Judul adalah sesuatu yang akan muncul pada menu Kategori dari permainan (dimana pengguna memilih berkas untuk bermain) </para>
+</step>
+<step>
+<para
+>Kemudian antara tag <sgmltag class="starttag"
+>identifier</sgmltag
+>, silakan tempatkan kode bahasa Anda selain en di <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>Mohon jangan menerjemahkan nama berkas karena nama berkas harus tidak memuat karakter khusus. Selanjutnya simpan berkas anda dengan nama berkas versi Bahasa Inggris yang sama.</para>
+</step>
+<step>
+<para
+>Sunting berkas kvhtml dengan ditor teks (akan lebih mudah jika Anda menggunakan penyorotan sintaksis &XML;) dan ganti setiap kata di dalam tag <sgmltag class="starttag"
+>text</sgmltag
+> dengan kata terjemahan dan setiap petunjuk di dalam <sgmltag class="starttag"
+>comment</sgmltag
+> dengan terjemahannya. Tidak terlalu penting untuk mempertahankan makna yang tepat, tetapi cobalah untuk mempertahankan panjang dan kategori kesulitannya kira-kira sama. </para
+> 
+
+<para
+>Anda dapat mengikutkan kata dengan spasi jarak atau - di dalamnya, jika demikian halnya spasi jarak atau - akan ditampilkan bukannya malah _. Silakan mengontak <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu mailinglist</ulink
+> jika ada sesuatu yang khusus terkait bahasa Anda sehingga Saya dapat mengadopsi nya di dalam kode (khususnya karakter spesial dan aksen). </para>
+</step
+>	
+
+<step>
+<para
+>Anda dapat menerjemahkan hanya kata tetapi Anda juga dapat menyesuaikan dengan kategori dan menambah kata bru jika Anda mau. Sebagai contoh, <quote
+>table</quote
+> ada di dalam kategori mudah dalam Bahasa Inggris tetapi dalam bahasa Anda, bisa saja masuk kategori medium. Anda bebas untuk menyesuaikan berkas sesuai kebutuhan bahasa Anda. Jumlah kata dalam sebuah berkas tidaklah penting, Anda dapat menambahnya jika Anda mau.</para>
+
+<para
+>Ingatlah bahwa semua kata adalah kata benda.</para>
+
+</step>
+
+<step>
+<para
+>Selanjutnya Anda dapat  menyerahkan berkas anda di dalam  <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. Jangan lupa untuk memutakhirkan berkas CMakeLists.txt juga. Silakan menghubungi <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu mailinglist</ulink
+> jika anda membutuhkan informasi lebih jauh. Jika Anda mengirimkan berkas, mohon jangan lupa untuk menyebutkan setiap  <emphasis role="bold"
+>karakter khusus</emphasis
+> yang digunakan dalam bahasa Anda (letakkan di dalam berkas txt, satu per baris dan tambahkan berkas ini dalam tarball) dan mohon sebutkan setiap kekhususannya.</para>
+<para
+><emphasis
+>Mohon jangan pernah mengirim berkas dalam sebuah BRANCH karena dapat merusak permainan.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Terima kasih untuk kontribusi Anda!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Apa yang disimpan oleh &khangman; dan dimana</title>
+<para
+>Ketika Anda mendapatkan bahasa baru melalui <menuchoice
+><guimenu
+>Game</guimenu
+> <guimenuitem
+>Get Words in New Language...</guimenuitem
+></menuchoice
+>, data bahasa baru disimpan di dalam <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+> pada folder kode bahasa. Nama direktori bahasa juga tersedia di dalam berkas pengaturan &khangman; pada <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Nama penyedia (yaitu alamat situs web tempat mengunduh bahasa baru) disimpan di dalam  <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Bahasa Inggris (baku) dan bahasa pengguna dari paket i18n (jika tersedia) disimpan di dalam <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>Pada berkas konfigurasi, tempat penyimpanan untuk setiap pengguna dalam <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+> menyimpan semua pengaturan permainan seperti latar belakang, kategori terakhir yang dimainkan, ... ditambah berkas yang diunduh dari dialog <guilabel
+>Dapatkan Hal Baru!</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Pujian dan Lisensi</title>
+
+<para
+>&khangman; </para>
+<para
+>Hak cipta program 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>Kontributor: <itemizedlist>
+<listitem
+><para
+>Grafik Hangman: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Suara: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Mantan pemelihara: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Swedia, bantuan pemrograman, gambar transparan dan perbaikan i18n: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Spanyol: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Data petunjuk Bahasa Spanyol: : Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>berkas data Bahasa Denmark: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Finlandia: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Portugis Brasil: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Katalan: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Italia: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Belanda: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Portugis: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Serbia (Cyrillic and Latin): Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Slovenia: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Ceko: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Tajik: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Norwegia (Bokm&#229;l): Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Hungaria: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Norwegia (Nynorsk): Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Turki: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Bulgaria: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Berkas data Bahasa Irlandia (Gaelic): Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Bantuan pemrograman: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Bantuan pemrograman: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Perbaikan kode: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Perbaikan kode: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Studi usabilitas: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Hak cipta dokumentasi 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Mohammad Edwin<email
+>medwinz@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

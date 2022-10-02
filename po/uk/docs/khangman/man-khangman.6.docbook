@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Підручник користувача &khangman;</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>Сторінка довідника (man) для &khangman;.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>22 грудня 2020 року</date>
+<productname
+>Програми 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Класична гра у ката від KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Опис</title>
+<para
+>&khangman; — це гра, заснована на добре відомій грі у ката. Її призначено для дітей у віці від 6 років. У ній є декілька рівнів складності: багато категорій, зокрема Тварини, Одяг, Комп’ютери, Валюти тощо.</para
+><para
+>Слово вибирається випадковим чином і всі його літери напочатку сховані від вас. Ви повинні вгадати слово, послідовно намагаючись вгадати його літери. Кожного разу, коли ви називатимете літеру, якої у слові немає, домальовуватиметься частина зображення людини на шибениці. Ви повинні вгадати слово перш ніж вас повісять! У вас десять спроб.</para
+><para
+>Ця програма є частиною освітньо-розважального модуля &kde;.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Прочитайте також</title>
+<para
+>Докладнішу документацію можна прочитати за адресою <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (або наберіть цю адресу <acronym
+>URL</acronym
+> у вікні адреси &konqueror; і натисніть Enter, або виконайте команду <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Додаткову інформацію можна знайти на <ulink url="https://edu.kde.org/khangman/"
+>сайті освітньо-розважального модуля &kde;</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Автори</title>
+<para
+>&khangman; було написано <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> і &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Цю сторінку довідника засновано на сторінці, підготовленій <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> для проєкту Debian.</para>
+
+
+</refsect1>
+
+</refentry>

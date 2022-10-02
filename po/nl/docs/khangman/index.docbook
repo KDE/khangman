@@ -1,0 +1,817 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &khangman;</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2020-12-22</date>
+<releaseinfo
+>Applications 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; is het klassieke spel Galgje voor kinderen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>Galgje</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>kind</keyword>
+<keyword
+>woorden</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<para
+>&khangman; is een spel dat is gebaseerd op het welbekende spel Galgje. Het richt zich op kinderen van 6 jaar en ouder. Het spel kent verschillende categorieën te spelen woorden waaronder: dieren, kleding, geldsoorten, eenvoudig en fruit. Woorden worden willekeurig gekozen en de letters ervan worden verborgen. U raadt het woord door een voor een letters op te geven. Telkens wanneer u een verkeerde letter raadt wordt er een gedeelte van de galg-afbeelding getekend. U moet het woord raden voordat u wordt opgehangen! U hebt 10 pogingen. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>&khangman; gebruiken</title>
+
+<screenshot>
+<screeninfo
+>Zier ziet u een schermafdruk van &khangman;, zoals het eruit ziet als u het de eerste keer start. </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>schermafdruk van &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Hier ziet u &khangman; zoals het eruit ziet als u het voor de eerste keer start. De category is dieren, de taal is de standaard (Engels hier, de standaard is de huidige taal van &kde; als de gegevens bestaan), het thema is <quote
+>Notities</quote
+>. Elke wijziging in categorie, taal of thema (achtergrond) wordt in het configuratiebestand geschreven en herstelt in uw volgende spel. </para>
+
+<para
+>Zie hoe eenvoudig het is om de achtergrond te wijzigen. Klik op de bijhorende knop onderaan de werkbalk. U kunt ook een nieuw woord krijgen of het spel afsluiten door op de bijhorende knoppen in de werkbalken te klikken. </para>
+
+<sect1 id="general-usage">
+<title
+>Algemeen gebruik</title>
+
+<para
+>Een woord wordt in de vorm van streepjes (_) getoond. Aan het aantal streepjes kunt u afleiden hoeveel letters er in het woord zitten. U dient het woord te raden door één voor één letters in te voeren. U typt de letter in op het toetsenbord of selecteert ze met de &LMB;. Als de letter bij het woord hoort wordt de achtergrond van de letter groen, anders rood.</para>
+
+<para
+>De lettertoetsen in het venster van het spel maken het mogelijk om &khangman; in vreemde talen te spelen zonder uw toetsenbordindeling te wijzigingen.</para>
+
+<para
+>Het woord wordt willekeurig gekozen en is niet hetzelfde als het vorige woord. </para>
+
+<important
+><para
+>Alle woorden zijn zelfstandige naamwoorden (dus geen werkwoorden, bijvoeglijke naamwoorden, &enz;).</para
+></important>
+
+<para
+>Als u hulp nodig hebt bij het raden van het woord, dan klikt u op het pictogram <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>De tip tonen</guiicon
+> in de onderste werkbalk en er wordt een tip getoond die u in de richting van het woord verwijst. Opnieuw op dit pictogram klikken laat de tip verdwijnen. </para>
+
+<para
+>Tips worden niet standaard getoond. </para>
+
+<para
+>Het spel maakt gewoonlijk geen onderscheid tussen hoofd- en kleine letters. Alle invoer wordt door het programma omgezet in hoofdletters. Het programma doet dit automatisch.</para>
+
+<para
+>De huidige categorie, winnen en verliezen worden getoond in het venster. </para>
+
+<para
+>Telkens als u een letter invoert die niet in het woord zit wordt er een gedeelte van de galg getekend. U hebt tien pogingen om het woord te raden. Daarna wordt het juiste antwoord getoond. </para>
+
+<para
+>Er zijn verschillende categorieën woorden beschikbaar: afhankelijk van de geselecteerde taal. Het programma zoekt naar gegevensbestanden in alle talen en gebruikt ook woordbestanden uit &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Nadat een woord is geraden (of de galg is volledig), wordt u gefeliciteerd en wordt het volgende woord gepresenteerd. Om het spel af te sluiten, klik op het pictogram <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Afsluiten</guiicon
+> in de bovenste werkbalk. </para>
+
+<para
+>Je typt de letter die je wilt proberen op het toetsenbord of selecteert het met de &LMB;. Als de letter tot het woord behoort, dan wordt de toets geaccentueerd in groen neemt de juiste plek(ken) in het woord in. Als de letter niet tot het woord hoort, dan wordt de toets met rood geaccentueerd. Je hebt tien pogingen en daarna verlies je en het juiste woord wordt getoond. </para>
+
+<para
+>Tijdens het spel kunt u een nieuw spel starten door te klikken op <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> onderaan de werkbalk. U kunt ook de categorie van de woorden veranderen door te klikken op de huidige categorie.</para>
+
+<para
+>Het uiterlijk kan gemakkelijk worden gewijzigd met de knop Thema in de bovenste werkbalk.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Het spel in andere talen spelen</title>
+<para
+>U kunt &khangman; spelen in vele talen inclusief: Braziliaans-Portugees, Bulgaars, Catalaans, Tsjechisch, Deens, Nederlands, Engels (VS en Brits), Fins, Frans, Duits, Hongaars, Italiaans, Iers (Gaelic), Italiaans, Noors (Bokm&#229;l), Noors (Nynorsk), Pools, Portugees, Roemeens, Spaans, Servisch (Latijn en Cyrillisch), Sloveens, Tadzjieks Zweeds, Russisch en Turks. U kunt zelfs Chinees proberen als u de bestanden van &kanagram; installeert. </para>
+
+<para
+>Standaard wordt er bij de installatie van &khangman; alleen Engels en uw &kde;-taal geïnstalleerd indien deze één van bovenstaande talen is en u hebt het overeenkomstige kde-i18n pakket geïnstalleerd. Indien u &khangman; dus in het Nederlands wilt spelen en u hebt &kde; in het Nederlands, dan ziet u op de plaats van de Taal, Engels en Nederlands, waarbij Nederlands de standaard zal zijn.</para>
+
+<para
+>U kunt &khangman; ook in andere talen spelen. Het is erg makkelijk om nieuwe talen toe te voegen in &khangman;. U klikt op <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> en zal een dialoog verschijnen, gelijkend op de volgende: </para>
+
+<screenshot>
+<screeninfo
+>Dialoog Nieuwe woorden van ophalen voor &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Dialoog Nieuwe woorden van ophalen voor &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Klik op de naam van de taal die u wilt installeren en dan op de knop <guibutton
+>Installeren</guibutton
+>. Wanneer de taal met succes is geïnstalleerd verschijnt er voor naam van de taal een groene V en de knop <guibutton
+>Installeren</guibutton
+> verandert in <guibutton
+>Installeren ongedaan maken</guibutton
+>. De gegevens zijn onmiddellijk geïnstalleerd en beschikbaar in &khangman;. U klikt op de knop <guibutton
+>Sluiten</guibutton
+> om de dialoog Nieuwe woorden ophalen te sluiten. U kunt eventueel ook nog andere talen installeren door deze stappen te herhalen.</para>
+
+<para
+>U kunt de taal dan gemakkelijk veranderen door te klikken op taalknop en de gewenste taal te liezen.</para>
+
+<para
+>Merk op dat de speciale tekens in een taal getoond worden op het toetsenbord. Hier ziet u knoppen met een pictogram van elk speciale teken per taal zoals &eacute; bijvoorbeeld in het Frans. Op zo'n knop drukken selecteert de bijbehorende letter. U kunt natuurlijk ook de toetsenbordindeling behorende bij de taal gebruiken. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Enkele tips</title>
+<para
+>Probeer in het Engels eerst de klinkers te raden. Probeer vervolgens de meest voorkomende medeklinkers, zoals n, l, r, s, t </para>
+<para
+>Als u in een Engels of Frans woord de combinatie <quote
+>io</quote
+> ziet, probeer hier dan een <quote
+>n</quote
+> achter te zetten. </para>
+
+<para
+>U moet ofwel de letters met een accent zelf intypen of er op klikken. Wanneer u een <quote
+>a</quote
+> typt, zal alleen de <quote
+>a</quote
+> worden getoond en u moet bijvoorbeeld een &atilde; intypen om deze letter getoond te krijgen. </para>
+<para
+>Wist u dat in het Engels, de meestvoorkomende letter de e is? (12,7%). Deze wordt gevolgd door t (9,1%), i (7.0%) en n (6,7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menubalk en werkbalken</title>
+
+<sect1 id="mainwindow">
+<title
+>Het hoofdvenster van &khangman;</title>
+
+<screenshot>
+<screeninfo
+>&khangman; woestijnthema</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; woestijnthema</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Hier ziet u &khangman; met het woestijnthema, Franse taal en categorie <quote
+>Animaux</quote
+>. De speciale tekens voor Frans worden hier getoond.</para>
+
+<para
+>Het spel heeft de hoofdwerkbalk bovenaan het venster:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> of <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Starten of stoppen van een spel </member>
+<member
+>Een knop om het thema te wijzigen </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> De instellingendialoog openen </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Info over &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Over &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Het handboek van &khangman; bekijken </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> De nieuwe taalbestanden van het internet downloaden </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> &khangman; afsluiten </member>
+</simplelist>
+
+<para
+>De werkbalk onderaan wordt alleen getoond bij het spelen van spel, als u het spel pauzeert dan wordt deze werkbalk verborgen: </para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Een tip tonen over het te raden woord </member>
+<member
+>Een knop om de categorie te wijzigen</member>
+<member
+>Selectie van taal</member>
+<member
+>Een knop <guibutton
+>Woord onthullen</guibutton
+> voor het onthullen van het te raden woord</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Het volgende woord laden en een nieuw spel starten </member>
+</simplelist>
+
+<para
+>Alle woorden zijn zelfstandige naamwoorden. De gekozen categorie wordt getoond in de onderste werkbalk.</para>
+<para
+>U kunt alleen letters in het tekstveld intypen.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Instellingen</title>
+
+<screenshot>
+<screeninfo
+>&khangman; instellingen</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; instellingen</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+>De <guilabel
+>Oplostijd van woord in seconden</guilabel
+> stelt de maximale toegestane tijd in voor het oplossen van het woord in &khangman;. De standaard waarde is 120 seconden. Jonge kinderen zullen meer tijd nodig hebben om het spel te begrijpen, voor volwassenen kan de oplostijd verminderd worden om het spel spannend te houden. </para>
+
+<para
+><guilabel
+>Vermenigvuldigingsfactor van score</guilabel
+> bepaalt de factor waarmee de scores vermenigvuldigd zullen worden. </para>
+
+<para
+>Als u <guilabel
+>Geluiden</guilabel
+> activeert, dan zal er een geluid worden afgespeeld wanneer een nieuw spel gestart wordt en een ander geluid wanneer u een spel hebt gewonnen. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Ontwikkelaarsgids voor &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Hoe kunt u woorden in een nieuwe taal vertalen voor het spel</title>
+
+<para
+>Gaarne de procedure volgen en stuur dan de bestanden met tar ingepakt en met gzip gecomprimeerd naar <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu e-maillijst</ulink
+>. </para>
+<para
+>Kijk eens in &khangman; <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> in de werkbalk bovenaan om te zien of uw taal al beschikbaar is. Zo ja, dan kunt u controleren of het <emphasis
+>tips</emphasis
+> bevat. </para>
+<para
+>De standaard lijsten met woorden zijn opgeslagen in 4 verschillende bestanden, een voor elk niveau. De bestanden bevinden zich in <filename class="directory"
+>/khangman/data/taal_code</filename
+>. Het bestand <filename
+>easy.txt</filename
+> is voor niveau eenvoudig, <filename
+>medium.txt</filename
+> is voor niveau middel, <filename
+>animals.txt</filename
+> is voor niveau dieren en <filename
+>hard.txt</filename
+> is voor niveau moeilijk.</para>
+<para
+>Engels is de standaard en dus de enige taal die met &khangman; wordt geleverd. Alle gegevens van andere talen data worden in de overeenkomstige kde-l10n module gestopt. </para>
+<procedure>
+<step>
+<para
+>De bestanden gebruiken de kvtml-opmaak. De tag <sgmltag class="starttag"
+>tekst</sgmltag
+> is voor het woord, en tag <sgmltag class="starttag"
+>toelichting</sgmltag
+> is voor de tip, deze zijn binnen een tag <sgmltag class="starttag"
+>entry</sgmltag
+>. Probeer de tip af te stemmen op de moeilijkheidsgraad van het niveau. Het niveau <quote
+>Eenvoudig</quote
+> heeft een gemakkelijke tip nodig, terwijl niveau <quote
+>Moeilijk</quote
+> de definitie uit het woordenboek nodig heeft. Gebruik geen woorden uit dezelfde familie in de tip, anders geeft u het woord te gemakkelijk weg!</para>
+
+<para
+>Opmerking, u dient de <emphasis role="bold"
+>UTF-8 codering</emphasis
+> te gebruiken bij het bewerken van de bestanden. Als uw editor dit niet ondersteunt, gebruik dan &kwrite; of &kate;. Bij het openen van een bestand kunt u utf-8 kiezen in het combinatieveld bovenaan de dialoog bestanden openen.</para>
+
+<para
+>Hier is een voorbeeld van een kvtml-bestand:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Dieren van overal op de
+planeet&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;beer&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Groot zwaar dier met dikke
+vacht&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>Aan het begin van het bestand, zou u de inhoud van de tags <sgmltag class="starttag"
+>titel</sgmltag
+> en de <sgmltag class="starttag"
+>toelichting</sgmltag
+> die in de tag <sgmltag class="starttag"
+>informatie</sgmltag
+> zich bevinden. De titel is er een die zal verschijnen in het menu Niveau van het spel (waar de gebruiker het bestand kiest om mee te spelen). </para>
+</step>
+<step>
+<para
+>Zet daarna in de <sgmltag class="starttag"
+>identifier</sgmltag
+>-tag, uw taalcode in plaats van "en" in de <sgmltag class="starttag"
+>locale</sgmltag
+>-tag.</para>
+
+<para
+>U moet niet de bestandsnaam zelf vertalen omdat deze nooit speciale tekens mogen bevatten. Dus gaarne uw bestand opslaan met dezelfde Engelse bestandsnaam.</para>
+</step>
+<step>
+<para
+>Bewerk de kvtml-bestanden met een tekstbewerker (het is gemakkelijker als u &XML;-syntax-accentuering gebruikt) en vervang elk woord in de <sgmltag class="starttag"
+>text</sgmltag
+>-tag door een vertaald woord en elke tip in een <sgmltag class="starttag"
+>comment</sgmltag
+>-tag door een vertaalde tip. Het is niet echt belangrijk dat de exacte betekenis wordt bewaard, maar probeer de lengte en moeilijkheidsgraad ruwweg hetzelfde te houden. </para
+> 
+
+<para
+>U kunt woorden met een spatie of - erin gebruiken, in dat geval zal de spatie of de - worden getoond in plaats van de _. Neem contact met <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu e-maillijst</ulink
+> op als er iets speciaals gerelateerd is aan uw taal zodat ik dat kan aanpassen in de code (speciaal de speciale tekens en die met accenten). </para>
+</step
+>	
+
+<step>
+<para
+>U kunt de woorden gewoon vertalen, maar u kunt ze ook als richtlijn gebruiken en ze aanpassen aan het niveau. Bovendien kunt u nieuwe woorden toevoegen. Bijvoorbeeld het woord <quote
+>tafel</quote
+> is in het Nederlands vrij eenvoudig, maar in een andere taal kan het best een veel langer of complexer woord zijn, zodat het beter in niveau Middel past. Wees dus vrij in het aanpassen van de bestanden. Het aantal woorden is niet zo belangrijk, u kunt er meer toevoegen als u dat wilt.</para>
+
+<para
+>Onthoud dat alle woorden zelfstandige woorden dienen te zijn.</para>
+
+</step>
+
+<step>
+<para
+>U kunt dan uw bestanden in <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu/kdeedu-data</emphasis
+> te bevestigen (commit). Vergeet ook niet om het bestand CMakeLists.txt bij te werken. Neem contact op met <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>kde-edu e-maillijst</ulink
+> als u verdere informatie nodig hebt. Wanneer u de bestanden zend, vergeet dan niet om <emphasis role="bold"
+>speciale tekens</emphasis
+> aan te geven die in uw taal worden gebruikt (stop ze in een tekstbestand, een per regel en voeg dit bestand toe aan de tarball) en meldt elke specifieke afwijking.</para>
+<para
+><emphasis
+>Geen bestanden vastleggen (commit) in een BRANCH omdat het het spel kan breken.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Hartelijk dank voor uw bijdrage.</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Wat wordt er opgeslagen door &khangman; en waar</title>
+<para
+>Wanneer u een nieuwe taal ophaalt via het pictogram <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Nieuwe taalbestanden downloaden</guiicon
+>, zullen de gegevens in de nieuwe taal worden opgeslagen in <filename class="directory"
+> $XDG_DATA_HOME/share/apps/kvtml/</filename
+> in een map die de naam van de taalcode heeft. De beschikbare namen van taalmappen worden ook opgeslagen in het instellingenbestand van &khangman; in <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>De naam van de provider (dus het adres van de website waar de nieuwe talen moeten worden opgehaald) wordt opgeslagen in <filename
+>$XDG_DATA_HOME/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>De Engelse taal (standaard) en de taal van de gebruiker vanuit zijn of haar i18n-pakket(ten) (indien beschikbaar) worden opgeslagen in <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml</filename
+>. </para>
+<para
+>In het instellingenbestand, dat voor iedere gebruiker wordt opgeslagen in <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>, worden alle instellingen van het spel opgeslagen, zoals de achtergrond, het niveau waarop u speelt, maar ook de bestanden die via de dialoog <guilabel
+>Vers van de pers!</guilabel
+> zijn gedownload. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&khangman; </para>
+<para
+>Programma copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>Met dank aan: <itemizedlist>
+<listitem
+><para
+>Galgje-afbeeldingen: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Geluiden: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Voormalig onderhouder: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Zweedse gegevensbestanden, programmeerhulp, transparante afbeeldingen en i18n-reparaties: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Spaanse gegevensbestanden: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Spaanse gegevenstips: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Deense gegevensbestanden: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Finse gegevensbestanden: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Braziliaans Portugese gegevensbestanden: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Catalaanse gegevensbestanden: Antoni Bella <email
+>bella5@teleline.es</email
+></para
+> </listitem>
+<listitem
+><para
+>Italiaanse gegevensbestanden: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Nederlandse gegevensbestanden: Rinse de Vries <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Portugese gegevensbestanden: Pedro Morais <email
+>morais@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Servische (Latijns en Cyrillisch) gegevensbestanden: Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Sloveense gegevensbestanden: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Tsjechische gegevensbestanden: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Tadzjiekse gegevensbestanden: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Noorse (Bokm&#229;l) gegevensbestanden: Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Hongaarse gegevensbestanden: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Noorse (Nynorsk) gegevensbestanden: Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Turkse gegevensbestanden: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Bulgaarse gegevensbestanden: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Ierse (Gaelic) databestanden: Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Programmeerhulp: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Programmeerhulp: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Codereparaties: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Codereparaties: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Bruikbaarheidsonderzoek: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Documentatie copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

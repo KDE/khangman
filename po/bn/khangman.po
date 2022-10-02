@@ -1,0 +1,1199 @@
+# translation of khangman.po to Bengali
+# Bangla translation of KHangman.
+# Copyright (C) 2004-2006 KDE Foundation.
+# This file is distributed under the same license as the KHangman package.
+#
+# Progga <progga@BengaLinux.Org>, 2004-2006.
+# Deepayan Sarkar <deepayan@bengalinux.org>, 2005.
+# Deepayan Sarkar <deepayan.sarkar@gmail.com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2006-04-24 01:25-0500\n"
+"Last-Translator: Progga <progga@BengaLinux.Org>\n"
+"Language-Team: Bengali <kde-translation@bengalinux.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+msgid "Notes Theme"
+msgstr "সামুদ্রিক থিম (&স)"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, fuzzy, kde-format
+msgid "Sea Theme"
+msgstr "সামুদ্রিক থিম (&স)"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, fuzzy, kde-format
+msgid "Winter Theme"
+msgstr "সামুদ্রিক থিম (&স)"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, fuzzy, kde-format
+msgid "Bee Theme"
+msgstr "সামুদ্রিক থিম (&স)"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, fuzzy, kde-format
+msgid "Desert Theme"
+msgstr "মরুময় থিম (&ম)"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, fuzzy, kde-format
+#| msgid ""
+#| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+#| "Check your installation, please!"
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"$KDEDIR/share/apps/khangman/data/%1/%2 নামক ফাইলটি পাওয়া যায় নি!\n"
+"অনুগ্রহপূর্বক ইনস্টলকৃত ফাইলগুলো পরীক্ষা করুন!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr ""
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr ""
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, fuzzy, kde-format
+msgid "Level"
+msgstr "স্ত&র"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr ""
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr ""
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, fuzzy, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "যদি একই অক্ষরকে একাধিকবার দেখতে না চান তবে এতে টিক দিন"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, fuzzy, kde-format
+msgid "Enable Animations"
+msgstr "&শব্দ সক্রিয় করো"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, fuzzy, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"এটিতে টিক দেওয়া থাকলে নতুন খেলা আরম্ভের সময় এবং খেলায় জয়ী হলে শব্দ বাজানো হবে"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "কে-হ্যাংম্যান"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+#| msgid "Classical hangman game for KDE"
+msgid "Classical hangman game by KDE"
+msgstr "কে.ডি.ই.'র পক্ষ থেকে ক্লাসিক্যাল হ্যাংম্যান খেলা"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "পূর্ববর্তী রক্ষণাবেক্ষণকারী"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr ""
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr ""
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "কোড লেখা সংক্রান্ত সাহায্য"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"সুইডিশ তথ্যের ফাইল, কোড লেখা সংক্রান্ত সাহায্য, স্বচ্ছ ছবি এবং আন্তর্জাতিকীকরণ (i18n) "
+"সংক্রান্ত সংশোধনী"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "স্প্যানিশ তথ্যের ফাইল"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr ""
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "দিনেমার (Danish) তথ্যের ফাইল"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "ফিনিশ তথ্যের ফাইল"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr ""
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "ব্রাজিলীয় পর্তুগিজ তথ্যের ফাইল"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr ""
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "ক্যাটালান তথ্যের ফাইল"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr ""
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "ইতালিয় তথ্যের ফাইল"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr ""
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "ওলন্দাজ তথ্যের ফাইল"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr ""
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "চেক তথ্যের ফাইল"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "হাঙ্গেরিয় তথ্যের ফাইল"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr ""
+
+# FIXME: Bokmål
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "নরওয়েজিয় (বোকমাল) তথ্যের ফাইল"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr ""
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "তাজিক তথ্যের ফাইল"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "সার্বিয় (সিরিলিক ও ল্যাটিন) তথ্যের ফাইল"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr ""
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "স্লোভেনিয় তথ্যের ফাইল"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr ""
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "পর্তুগীজ তথ্যের ফাইল"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr ""
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "নরওয়েজিয় (Nynorsk) তথ্যের ফাইল"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr ""
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "তুর্কি তথ্যের ফাইল"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr ""
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "রুশ তথ্যের ফাইল"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "বুলগেরিয় তথ্যের ফাইল"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr ""
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "আইরিশ (গ্যালিক) তথ্যের ফাইল"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr ""
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "কোমল হ্যাংম্যান ছবি"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr ""
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr ""
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "কোড লিখনে সহায়তা, ও আরো অনেক সংশোধনী"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr ""
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "অক্ষর প্রদর্শক টুলবারের আইকন তৈরির কোড"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "কোড সুন্দরকরণ"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "প্রজ্ঞা"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "progga@BengaLinux.Org"
+
+#: qml/GamePage.qml:157
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Choose the word category"
+msgstr "স্তর বেছে নিন"
+
+#: qml/GamePage.qml:178
+#, fuzzy, kde-format
+#| msgid "Choose the look and feel"
+msgid "Select a language"
+msgstr "পছন্দের চেহারা বেছে নিন"
+
+#: qml/GamePage.qml:191
+#, fuzzy, kde-format
+msgid "Select a theme"
+msgstr "সামুদ্রিক থিম (&স)"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Change the theme."
+msgstr "স্তর বেছে নিন"
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "Settings"
+msgstr "কে-হ্যাংম্যান"
+
+#: qml/GamePage.qml:297
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "About KHangMan"
+msgstr "কে-হ্যাংম্যান"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr ""
+
+#: qml/GamePage.qml:449
+#, fuzzy, kde-format
+#| msgid "Misses"
+msgid "Losses: "
+msgstr "ভুল অক্ষর"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, fuzzy, kde-format
+#| msgid "Choose the level"
+msgid "Change the category."
+msgstr "স্তর বেছে নিন"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Settings"
+msgstr "কে-হ্যাংম্যান"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "কে-হ্যাংম্যান"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "শব্দ"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "ভুল অক্ষর"
+
+#, fuzzy
+#~ msgid "Show the characters toolbar"
+#~ msgstr "অক্ষর প্রদর্শক টুলবারের আইকন তৈরির কোড"
+
+#, fuzzy
+#~| msgid "Time during which the Already Guessed tooltip is displayed"
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ প্রদর্শনের সময়সীমা"
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "স্পেনিয়, পর্তুগিজ, ক্যাটালানিয়"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "জোরপ্রদানে উচ্চারণকৃত &অক্ষর (Accented) লিখুন"
+
+#, fuzzy
+#~| msgid ""
+#~| "If this is checked, you must type accented letters yourself (i.e. they "
+#~| "are differentiated from the corresponding unaccented letter)."
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "এতে টিক দেওয়া থাকলে জোরপ্রদানে উচ্চারণকৃত অক্ষরগুলো (accented) আপনাকে নিজেকেই "
+#~ "লিখতে হবে (অর্থাৎ এই অক্ষরগুলোকে সংশ্লিষ্ট সাধারণ অক্ষর থেকে পৃথক গণ্য করা হয়)।"
+
+#, fuzzy
+#~| msgid ""
+#~| "If this is <b>disabled</b>, then the selected language does not support "
+#~| "it. If this is <b>enabled</b> and if you check it, then you should type "
+#~| "accented letters on their own. If it is not checked, accented letters "
+#~| "will be displayed with normal letters.<br>\n"
+#~| "Default is that accented letters will be shown when the corresponding "
+#~| "unaccented letter is guessed.<br>\n"
+#~| "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~| "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~| "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~| "then have to type \"ò\" for this letter to be displayed."
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "এটি <b>নিষ্ক্রিয়</b> থাকলে নির্বাচিত ভাষাটি এটিকে সমর্থন করে না।  এটি যদি "
+#~ "<b>সক্রিয়</b> থাকে এবং আপনি এটিতে টিক দেন, তবে আপনাকেই জোরপ্রদানে উচ্চারণকৃত "
+#~ "অক্ষর (accented) লিখতে হবে।  আর এটিতে টিক দেওয়া না থাকলে, জোরপ্রদানে "
+#~ "উচ্চারণকৃত অক্ষর (accented) অন্যান্য সাধারণ অক্ষরের সাথেই প্রদর্শন করা হবে।<br>\n"
+#~ "স্বাভাবিক অবস্থায়, সংশ্লিষ্ট সাধারণ অক্ষরকে অনুমান করলেই জোরপ্রদানে উচ্চারণকৃত "
+#~ "অক্ষরটিকে (accented) প্রদর্শন করা হবে।<br>\n"
+#~ "উদাহরণস্বরূপ, ভাষা যদি হয় ক্যাটালানিয় এবং এটিতে টিক দেওয়া না থাকে, তবে আপনি "
+#~ "\"o\" লিখলে <b>xenofòbia</b> শব্দের o এবং ò উভয়কেই প্রদর্শন করা হবে।  "
+#~ "অন্যদিকে এটিতে টিক দেওয়া থাকলে আপনি যখন \"o\" লিখবেন, তখন শুধু \"o\" প্রদর্শন "
+#~ "করা হবে।  ফলে \"ò\" প্রদর্শন করতে চাইলে একে স্বতন্ত্রভাবে টাইপ করতে হবে।"
+
+#, fuzzy
+#~ msgid "German"
+#~ msgstr "সাধারণ"
+
+#, fuzzy
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "এটিতে টিক দেওয়া থাকলে নতুন খেলা আরম্ভের সময় এবং খেলায় জয়ী হলে শব্দ বাজানো হবে"
+
+#, fuzzy
+#~| msgid ""
+#~| "If you check this box, only the first letter will be written if the "
+#~| "letter is found in several places in the word. Then when you rechoose "
+#~| "this letter, it will replace the second instance in the word until there "
+#~| "are no more instances of this letter.\n"
+#~| "For example, the word to guess is \"potato\". If this option is "
+#~| "unchecked, when you try \"o\", the 2 \"o\" in the word will be "
+#~| "discovered at the same time. If this is checked, you will need to try \"o"
+#~| "\" twice.\n"
+#~| "\n"
+#~| "Default is that for one letter typed, all instances of that letter in "
+#~| "the word are displayed."
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "আপনি যদি এই বাক্সে টিক দেন, তবে কোন শব্দে একটি অক্ষর একাধিকবার থাকলেও শুধুমাত্র "
+#~ "প্রথম অক্ষরটিই উন্মোচন করা হবে।  পরবর্তী কালে ঐ অক্ষরটি পুনরায় নির্বাচন করলে তা "
+#~ "শব্দস্থিত উক্ত অক্ষরের পরবর্তীটিকে প্রতিস্থাপন করবে।  তবে ঐ অক্ষরটি যদি শব্দের "
+#~ "মধ্যে আর না থাকে, তবে একে ভুল অক্ষর হিসেবে গণ্য করা হবে।\n"
+#~ "উদাহরণস্বরূপ \"potato\" শব্দটির কথা বিবেচনা করা যাক।  এই অপশনে যদি টিক দেওয়া "
+#~ "না থাকে, তবে আপনি \"o\" চাপলে দু'টি \"o\" একত্রে উন্মোচিত হবে।  অন্যদিকে "
+#~ "এটিতে টিক দেওয়া থাকলে দু'টি \"o\" খুঁজে বের করার জন্য আপনাকে দু'বার চেষ্টা করতে "
+#~ "হবে।\n"
+#~ "\n"
+#~ "স্বাভাবিক অবস্থায় কোন অক্ষর লিখলে শব্দস্থিত উক্ত অক্ষরের সবগুলোকেই প্রদর্শন করা হয়।"
+
+#, fuzzy
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "অনুরূপ অক্ষর উদঘাটন করার জন্য অধিক &অনুমান প্রয়োজন"
+
+#, fuzzy
+#~ msgid "Enable animations"
+#~ msgstr "&শব্দ সক্রিয় করো"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "এই বাক্সে টিক দেওয়া থাকলে নতুন খেলা আরম্ভের সময় এবং আপনি খেলায় জয়ী হলে কিছু "
+#~ "শব্দ বাজানো হবে।  আর এটিতে টিক দেওয়া না থাকলে কে-হ্যাংম্যান হবে সম্পূর্ণ "
+#~ "নিঃশব্দ।\n"
+#~ "স্বাভাবিক অবস্থায় কোন শব্দ বাজানো হয় না।"
+
+#, fuzzy
+#~ msgid "Enable sounds"
+#~ msgstr "&শব্দ সক্রিয় করো"
+
+#~ msgid "Play with a new word"
+#~ msgstr "নতুন শব্দ ব্যবহার করো"
+
+#, fuzzy
+#~ msgid "&Show Hint"
+#~ msgstr "ইঙ্গিত দা&ও"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "নতুন ভাষার শব্দ &আনো..."
+
+#~ msgid "&Language"
+#~ msgstr "ভাষা (&ভ)"
+
+#~ msgid "L&ook"
+#~ msgstr "চেহারা (&চ)"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "পছন্দের চেহারা বেছে নিন"
+
+#~ msgid "General"
+#~ msgstr "সাধারণ"
+
+#~ msgid "Languages"
+#~ msgstr "ভাষা"
+
+#~ msgid "Timers"
+#~ msgstr "সময়রক্ষক"
+
+#~ msgid "Type accented letters"
+#~ msgstr "জোরপ্রদানে উচ্চারণকৃত অক্ষর (accented) লিখুন"
+
+#~ msgid "Main"
+#~ msgstr "প্রধান"
+
+#~ msgid "Special Characters"
+#~ msgstr "বিশেষ অক্ষর"
+
+#, fuzzy
+#~| msgid "L&ook"
+#~ msgid "Look"
+#~ msgstr "চেহারা (&চ)"
+
+#, fuzzy
+#~| msgid "&Language"
+#~ msgid "Language"
+#~ msgstr "ভাষা (&ভ)"
+
+#~ msgid "G&uess"
+#~ msgstr "&অনুমান"
+
+#, fuzzy
+#~| msgid "Play Again"
+#~ msgid "&Play again"
+#~ msgstr "আবার খেলুন"
+
+#~ msgid "Hint"
+#~ msgstr "ইঙ্গিত"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>You lost!\n"
+#~| "The word was\n"
+#~| "<b>%1</b></qt>"
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr ""
+#~ "<qt>আপনি হেরে গিয়েছেন!\n"
+#~ "শব্দটি ছিল\n"
+#~ "<b>%1</b></qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "Congratulations,\n"
+#~| "you won!"
+#~ msgid "Congratulations! You won!"
+#~ msgstr ""
+#~ "অভিনন্দন,\n"
+#~ "আপনি জয়ী হয়েছেন!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "এই অক্ষরটি ইতিমধ্যেই অনুমান করা হয়েছে।"
+
+#, fuzzy
+#~ msgid "Current maintainer, author"
+#~ msgstr "প্রকৃত রক্ষণাবেক্ষণকারী, লেখক"
+
+#, fuzzy
+#~| msgid "seconds"
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "সেকেন্ড"
+#~ msgstr[1] "সেকেন্ড"
+
+#, fuzzy
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr "ইতিপূর্বেই অনুমানকৃত অক্ষর প্রদর্শনের সময়সীমা নির্ধারণ করুন:"
+
+#, fuzzy
+#~| msgid "Time during which the Already Guessed tooltip is displayed"
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ প্রদর্শনের সময়সীমা"
+
+#, fuzzy
+#~| msgid ""
+#~| "You can set the time for displaying the Hint tooltip. Default is 3 "
+#~| "seconds but younger children might need longer time to be able to read "
+#~| "the Hint."
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "আপনি ইঙ্গিত নির্দেশক টুলটিপ প্রদর্শনের সময়সীমা নির্ধারণ করতে পারেন।  এই "
+#~ "সময়সীমার ডিফল্ট মান হল ৩ সেকেন্ড, তবে ছোট শিশুদের সুবিধার কথা চিন্তা করে এর "
+#~ "মান বৃদ্ধি করতে পারেন।"
+
+#, fuzzy
+#~| msgid ""
+#~| "File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+#~| "check your installation."
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "$KDEDIR/share/apps/khangman/%1.txt নামক ফাইলটি পাওয়া যায় নি!\n"
+#~ "অনুগ্রহপূর্বক ইনস্টলকৃত ফাইলগুলো পরীক্ষা করুন!"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#, fuzzy
+#~ msgid "Theme"
+#~ msgstr "সামুদ্রিক থিম (&স)"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr ""
+#~ "এটিতে টিক দেওয়া থাকলে নতুন খেলা আরম্ভের সময় এবং খেলায় জয়ী হলে শব্দ বাজানো হবে"
+
+#~ msgid "Graphics"
+#~ msgstr "গ্রাফিক্স"
+
+#~ msgid "Nature theme background"
+#~ msgstr "প্রাকৃতিক থিমের পটভূমি"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "নীল থিমের পটভূমি, আইকন"
+
+#~ msgid "SVG icon"
+#~ msgstr "এস.ভি.জি. আইকন"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the \"Already Guessed\" "
+#~ "tooltip is displayed.</p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the "
+#~ "\"Already Guessed\" tooltip after you tried a letter that was already "
+#~ "guessed. Default is 1 second but younger children might need longer time "
+#~ "to be able to understand they are trying a letter that was already "
+#~ "guessed.</p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "অভিনন্দন! আপনি জয়ী হয়েছেন! আপনি কি আবারো খেলতে আগ্রহী?"
+
+#~ msgid "Do Not Play"
+#~ msgstr "খেলবো না"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "হেরে গিয়েছেন।  আপনি কি আবারো খেলতে আগ্রহী?"
+
+#, fuzzy
+#~| msgid ""
+#~| "If checked, the dialog 'Congratulations! You won!' is not displayed. "
+#~| "After 3 seconds, a new game will start automatically."
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr ""
+#~ "এটিতে টিক দেওয়া থাকলে 'অভিনন্দন! আপনি জয়ী হয়েছেন!' লেখা ডায়ালগ প্রদর্শন করা "
+#~ "হয় না।  ৩ সেকেন্ড পর স্বয়ংক্রিয়ভাবেই নতুন একটি খেলা আরম্ভ হয়ে যায়।"
+
+#, fuzzy
+#~| msgid ""
+#~| "If this option is not checked, when a game is won a dialog will appear "
+#~| "saying 'Congratulations! You won!'. It also asks you if you want to play "
+#~| "again and you have to say Yes or No.\n"
+#~| "This is the default state.\n"
+#~| "\n"
+#~| "If this option is checked, this dialog will not appear and a new game "
+#~| "will automatically start after four seconds. A passive popup tells you "
+#~| "you have won the game. When this opton is checked you don't have an "
+#~| "intrusive dialog each time you won a game."
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "এই অপশনে টিক দেওয়া না থাকলে, খেলায় জয়ী হলে একটি ডায়ালগ আবির্ভূত হবে এবং এতে "
+#~ "লেখা থাকবে 'অভিনন্দন! আপনি জয়ী হয়েছেন!'।\n"
+#~ "স্বাভাবিক অবস্থায় এটিই ঘটে।\n"
+#~ "\n"
+#~ "এই অপশনে টিক দেওয়া থাকলে, এই ডায়ালগটি দেখানো হবে না এবং তিন সেকেন্ড পর "
+#~ "স্বয়ংক্রিয়ভাবেই আরেকটি নতুন খেলা আরম্ভ হয়ে যাবে।  তবে একটি সাধারণ (passive) "
+#~ "পপ-আপ এর মাধ্যমে আপনাকে জানানো হবে যে আপনি জয়ী হয়েছেন।  ফলে এই অপশনে টিক "
+#~ "দেওয়া থাকলে, প্রতিবার খেলায় জয়ী হওয়ার পর আপনাকে কোন বিরক্তিকর ডায়ালগ বাক্সের "
+#~ "মুখোমুখি হতে হবে না।"
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "'অভিনন্দন! আপনি &জয়ী হয়েছেন!' লেখা ডায়ালগ প্রদর্শন করবে না"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "'অভিনন্দন! আপনি &জয়ী হয়েছেন!' লেখা ডায়ালগ প্রদর্শন করবে না"
+
+#, fuzzy
+#~ msgid "&Hide Hint"
+#~ msgstr "ইঙ্গিত দা&ও"
+
+# FIXME
+#, fuzzy
+#~ msgid "When available"
+#~ msgstr "যখন উপস্থিত"
+
+#~ msgid ""
+#~ "If you check it, a hint will be displayed by right-clicking on the game "
+#~ "window."
+#~ msgstr ""
+#~ "এটিতে যদি টিক দেওয়া থাকে, তবে খেলার উইন্ডোতে মাউসের ডান বাটন দিয়ে ক্লিক "
+#~ "করলে একটি ইঙ্গিত দেখানো হবে।"
+
+#, fuzzy
+#~| msgid ""
+#~| "Some languages have hints to help you guess the word more easily. If "
+#~| "this is <b>disabled</b>, there is no such option for your current "
+#~| "language data file.\n"
+#~| "If this is <b>enabled</b>, then hints are available and you can get them "
+#~| "by checking this box. You will then see the hint for the word you are "
+#~| "trying to guess by right-clicking somewhere on the KHangMan window, the "
+#~| "hint will then be displayed for 4 seconds in a tooltip."
+#~ msgid ""
+#~ "Some languages have hints to help you guess the word more easily. If this "
+#~ "is <b>disabled</b>, there is no such option for your current language "
+#~ "data file.\n"
+#~ "If this is <b>enabled</b>, then hints are available and you can get them "
+#~ "by checking this box. You will see the hint for the word you are trying "
+#~ "to guess by right-clicking somewhere on the KHangMan window. The hint "
+#~ "will be displayed for four seconds in a tooltip."
+#~ msgstr ""
+#~ "কিছু ভাষায় শব্দ অনুমানে আপনাকে সাহায্য করার জন্য ইঙ্গিতের ব্যবস্থা রয়েছে।  এটি "
+#~ "<b>নিষ্ক্রিয়</b> থাকলে বর্তমানে ব্যবহৃত ভাষার জন্য এ ধরনের কোন সুবিধা থাকবে না।\n"
+#~ "আর এটি <b>সক্রিয়</b> থাকলে ইঙ্গিত দেওয়ার ব্যবস্থা রয়েছে এবং এই বাক্সে টিক দিয়ে "
+#~ "আপনি এই সুবিধা ভোগ করতে পারেন।  এরপর শব্দ অনুমানরত অবস্থায় কে-হ্যাংম্যান "
+#~ "উইন্ডোতে মাউসের ডান বাটন ক্লিক করলেই বর্তমান শব্দ সম্পর্কে আপনি একটি ইঙ্গিত "
+#~ "দেখতে পাবেন।  এই ইঙ্গিতকে একটি টুলটিপ হিসেবে ৪ সেকেন্ড যাবৎ প্রদর্শন করা হবে।"
+
+#, fuzzy
+#~ msgid "Show hints"
+#~ msgstr "ইঙ্গিত দা&ও"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the hint is displayed.</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the hint "
+#~ "tooltip. Default is four seconds but younger children might need longer "
+#~ "time to be able to read the hint.</p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">hint</span>:</p></body></html>"
+#~ msgstr ""
+#~ "পূর্বে অনুমানকৃত অক্ষর পুনরায় লেখা হলে যে 'ইতিপূর্বেই অনুমানকৃত' নামক টুলটিপ দেখানো "
+#~ "হবে, তা প্রদর্শনের সময়সীমা আপনি নির্ধারণ করতে পারেন।  এই সময়সীমার ডিফল্ট মান "
+#~ "৩ সেকেন্ড হলেও ছোট শিশুদের হয়তো এটি বুঝতে অপেক্ষাকৃত বেশি সময় লাগতে পারে যে "
+#~ "তারা এমন একটি অক্ষর দিয়ে চেষ্টা করছে যা পূর্বেই অনুমান করা হয়ে গিয়েছে।"
+
+#~ msgid "Hint on right-click"
+#~ msgstr "মাউসের ডান বাটনে ক্লিক করলে ইঙ্গিত দেওয়া হবে"
+
+#~ msgid "Hint available"
+#~ msgstr "ইঙ্গিত দেওয়া সম্ভব"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations! You won!' dialog"
+#~ msgstr "'অভিনন্দন! আপনি &জয়ী হয়েছেন!' লেখা ডায়ালগ প্রদর্শন করবে না"
+
+#~ msgid "Le&vel"
+#~ msgstr "স্ত&র"
+
+#~ msgid "Choose the level of difficulty"
+#~ msgstr "দক্ষতা স্তর বেছে নিন"
+
+#~ msgid "Cyrillic"
+#~ msgstr "সিরিলিক"
+
+#~ msgid "Latin"
+#~ msgstr "ল্যাটিন"
+
+#~ msgid "Animals"
+#~ msgstr "প্রাণী"
+
+#~ msgid "Easy"
+#~ msgstr "সহজ"
+
+#~ msgid "Medium"
+#~ msgstr "মধ্যম"
+
+#~ msgid "Hard"
+#~ msgstr "কঠিন"
+
+#~ msgid "First letter upper case"
+#~ msgstr "প্রথম অক্ষর বড় ছাঁদের"
+
+#~ msgid "Time during which the Hint is displayed"
+#~ msgstr "যে সময় যাবৎ ইঙ্গিত প্রদর্শন করা হবে"
+
+#~ msgid "Set the time for displaying the hint:"
+#~ msgstr "ইঙ্গিত প্রদর্শনের সময়সীমা নির্ধারণ করুন:"
+
+#~ msgid "&New"
+#~ msgstr "&নতুন"
+
+#~ msgid "Inserts the character %1"
+#~ msgstr "%1 অক্ষরটি ঢুকিয়ে দেয়"

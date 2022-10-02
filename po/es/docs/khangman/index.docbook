@@ -1,0 +1,865 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Manual de &khangman;</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+><surname
+>Gallego</surname
+><affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Rafael</firstname
+><surname
+>Beccar</surname
+><affiliation
+><address
+><email
+>rafabeccar@speedy.com.ar</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Santiago</firstname
+> <surname
+>Fernández Sancho</surname
+><affiliation
+><address
+><email
+>santi@kde-es.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Leticia</firstname
+> <surname
+>Martín Hernández</surname
+><affiliation
+><address
+><email
+>leticia.martin@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2020-12-22</date>
+<releaseinfo
+>Aplicaciones 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; es el clásico juego infantil del ahorcado. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>ahorcado</keyword>
+<keyword
+>juego</keyword>
+<keyword
+>infantil</keyword>
+<keyword
+>palabras</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&khangman; es un juego basado en el conocido pasatiempo del ahorcado. Está dirigido a niños de seis años o más. El juego tiene varias categorías de palabras con las que jugar, como: animales, ropa, informática, monedas, fácil y frutas. El programa escoge una palabra de forma aleatoria, ocultando las letras, y se debe adivinar la palabra probando una letra tras otra. Cada vez que se pulsa una letra equivocada, se va dibujando una parte de la imagen del ahorcado. ¡Hay que adivinar la palabra antes de que lo cuelguen! Para ello tienes 10 intentos. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Uso de &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Esta es una captura de pantalla de &khangman; cuando se inicia por primera vez. </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Captura de pantalla de &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Aquí puedes ver el aspecto de &khangman; la primera vez que se ejecuta. La categoría es «Animales», el idioma es el predeterminado (en este caso inglés, pero será el que actualmente use &kde;, si hay uno definido) y el tema es «Notas». Cualquier cambio que hagas en la categoría, el idioma o el tema (el fondo) se registra en el archivo de configuración y se recupera la próxima vez que juegues. </para>
+
+<para
+>Fíjate en lo fácil que resulta cambiar el tema; basta con pulsar el botón de la barra de herramientas inferior. También puedes obtener una nueva palabra y salir del juego con tan solo pulsar los botones correspondientes de las barras de herramientas. </para>
+
+<sect1 id="general-usage">
+<title
+>Uso general</title>
+
+<para
+>El programa elige una palabra y sus letras se muestran con un símbolo de subrayado (_). Así sabrás cuántas letras tiene la palabra. Tienes que adivinar la palabra probando una letra tras otra. Escribe la letra con el teclado o selecciónala con el &LMB; . Si la letra pertenece a la palabra, su fondo cambiará a verde; en caso contrario será de color rojo.</para>
+
+<para
+>Las teclas de letras que hay en la ventana de juego permiten jugar a &khangman; en idiomas extranjeros sin tener que cambiar la configuración del teclado.</para>
+
+<para
+>La palabra se elige de forma aleatoria y no será la misma que la palabra anterior. </para>
+
+<important
+><para
+>Todas las palabras son sustantivos (no existen verbos, adjetivos, &etc;).</para
+></important>
+
+<para
+>Si necesitas ayuda para adivinar la palabra, pulsa el icono <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Mostrar pista</guiicon
+> de la barra de herramientas inferior para mostrar una pista relacionada con la palabra. Pulsa ese mismo icono otra vez para ocultar la pista. </para>
+
+<para
+>Las pistas no se muestran de manera predeterminada. </para>
+
+<para
+>Normalmente, no importa si las letras se introducen en mayúsculas o minúsculas, ya que el programa convierte todas las entradas a mayúsculas. El programa hace esto automáticamente.</para>
+
+<para
+>En la ventana se muestra la categoría actual, las veces que has ganado y las veces que has perdido. </para>
+
+<para
+>Cada vez que se introduce una letra que no está en la palabra, se dibuja una nueva parte del ahorcado. Tienes 10 intentos para completar la palabra, tras lo cual se mostrará la respuesta correcta. </para>
+
+<para
+>Existen varias categorías de palabras, según el idioma seleccionado. El programa rastrea todos los archivos de datos de todos los idiomas y también usa los archivos de palabras de &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Después de adivinar una palabra (o de que se dibuje el ahorcado completamente), se te felicitará y se mostrará la siguiente palabra. Para salir del juego pulsa el icono <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Salir</guiicon
+> de la barra de herramientas superior. </para>
+
+<para
+>Escribe la letra que quieras probar en el teclado o selecciónala con el &LMB;. Si la letra pertenece a la palabra, se resalta en color verde y se coloca en todas las posiciones donde aparece en la palabra. Si la letra no pertenece a la palabra, se resalta en color rojo. Tienes diez intentos antes de perder y de que se muestre la palabra correcta. </para>
+
+<para
+>Durante el juego, puedes decidir empezar un nuevo juego pulsando <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> en la barra de herramientas inferior. También puedes cambiar la categoría de las palabras pulsando en la categoría actual.</para>
+
+<para
+>Puedes cambiar fácilmente el aspecto del programa con botón de tema que hay en la barra de herramientas superior.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Cómo jugar en diferentes idiomas</title>
+<para
+>Puedes jugar con &khangman; en muchos idiomas: portugués de Brasil, búlgaro, catalán, checo, danés, holandés, inglés (de Estados Unidos y de Reino Unido), finlandés, francés, alemán, húngaro, irlandés (o gaélico), italiano, noruego (bokm&#229;l), noruego (nynorsk), polaco, portugués, rumano, español, serbio (latino y cirílico), esloveno, tayiko, sueco, ruso y turco. También puedes jugar en chino si instalas los archivos necesarios desde &kanagram;. </para>
+
+<para
+>De manera predeterminada, después de la primera instalación de &khangman;, solo se instalará el idioma inglés y el actual de  &kde;, siempre que sea uno de los mencionados anteriormente y si además está instalado el correspondiente paquete «kde-i18n». Por ejemplo, si tu idioma de usuario es el danés y tienes &kde; en danés, en «Idioma» verás dos elementos: inglés y danés (y el danés será el idioma predeterminado).</para>
+
+<para
+>No obstante, puedes jugar con &khangman; en otros idiomas. Es muy sencillo añadir datos nuevos en &khangman;. Todo lo que necesitas es una conexión a Internet. Pulsa <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> para mostrar un diálogo similar a este: </para>
+
+<screenshot>
+<screeninfo
+>El diálogo «Obtener novedades» de &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>El diálogo «Obtener novedades» de &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Pulsa en el nombre del idioma que quieras instalar y luego pulsa el botón <guibutton
+>Instalar</guibutton
+>. Si el idioma se instala correctamente, se mostrará una marca verde delante del nombre del idioma e <guibutton
+>Instalar</guibutton
+> cambiará a <guibutton
+>Desinstalar</guibutton
+>. Los datos se instalan inmediatamente y estarán enseguida disponibles en &khangman;. Pulsa el botón <guibutton
+>Cerrar</guibutton
+> para cerrar el diálogo «Obtener novedades» (si quieres instalar otro archivo de datos, debes repetir estos pasos).</para>
+
+<para
+>Puedes cambiar el idioma fácilmente pulsando el botón del idioma para escoger uno nuevo.</para>
+
+<para
+>Ten en cuenta que los caracteres especiales de un idioma se muestran en el teclado. Aquí puedes ver botones con un icono de cada carácter especial por idioma, como «&eacute;» en español, por ejemplo. Si pulsas estos botones se seleccionarán sus letras correspondientes. Por supuesto, también puedes usar la distribución de teclado correspondiente del idioma. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Algunos consejos</title>
+<para
+>En inglés, trata de adivinar primero las vocales. Después prueba con las consonantes más comunes: l, t, r, n, s. </para>
+<para
+>En francés e inglés, cuando veas «io», prueba la «n» a continuación. </para>
+
+<para
+>Debes introducir las letras acentuadas por ti mismo o pulsar sobre ellas. Si pulsas una «a», solo se muestra la «a», por lo que si quieres una «á» deberás escribirla con acento. </para>
+<para
+>¿Sabías que...? En inglés, la letra más común es la «e» (12,7%), seguida de la «t» (9,1%), la «a» (8,2%), la «i» (7,0%) y la «n» (6,7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Barra de menú y barras de herramientas</title>
+
+<sect1 id="mainwindow">
+<title
+>La ventana principal de &khangman;</title>
+
+<screenshot>
+<screeninfo
+>El tema «Desierto» de &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>El tema «Desierto» de &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Aquí tienes una captura de pantalla de &khangman; con el tema «Desierto», el idioma español y la categoría «Animales». Aquí se muestran caracteres especiales del español.</para>
+
+<para
+>El juego tiene la barra de herramientas principal en la parte superior de la ventana:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> O <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> iniciar o detener una partida. </member>
+<member
+>Un botón para cambiar el tema </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Abrir el diálogo de preferencias </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Acerca de &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Acerca de &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Ver el manual de &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Descargar nuevos archivos de idiomas de Internet </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Salir de &khangman; </member>
+</simplelist>
+
+<para
+>La barra de herramientas inferior se muestra solo cuando se está jugando. Si pausas el juego, esta barra de herramientas se oculta:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Mostrar una pista sobre la palabra a adivinar </member>
+<member
+>Un botón para cambiar la categoría</member>
+<member
+>Selección del idioma</member>
+<member
+>Un botón <guibutton
+>Revelar palabra</guibutton
+> para mostrar la palabra a adivinar</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Cargar la siguiente palabra y empezar un nuevo juego </member>
+</simplelist>
+
+<para
+>Todas las palabras son sustantivos. No hay verbos ni adjetivos. El nombre de la categoría seleccionada se muestra en la barra de herramientas inferior.</para>
+<para
+>Solo se permite teclear letras en el cuadro de texto.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Preferencias</title>
+
+<screenshot>
+<screeninfo
+>Preferencias de &khangman;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Preferencias de &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+>El <guilabel
+>Tiempo para resolver palabras en segundos</guilabel
+> define el tiempo máximo permitido para resolver una palabra en &khangman;. El valor predeterminado es de 120 segundos. Los niños más pequeños pueden necesitar más tiempo para entender el juego. Los adultos deberían reducir este tiempo para que el juego tenga aliciente. </para>
+
+<para
+>El <guilabel
+>Factor de multiplicación de la puntuación</guilabel
+> determina el factor por el que se multiplicarán las puntuaciones. </para>
+
+<para
+>Si seleccionas <guilabel
+>Sonidos</guilabel
+>, se reproducirá un sonido al comenzar un juego nuevo y otro cuando ganes un juego. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Guía del programador de &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Cómo traducir palabras en un nuevo idioma para el juego</title>
+
+<para
+>Por favor, siga este procedimiento y envíe los archivos comprimidos con tar y gzip a la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>lista de distribución de kde-edu</ulink
+>. </para>
+<para
+>Consulte <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> en la barra de herramientas superior de &khangman; para comprobar si su idioma está disponible. En tal caso, puede comprobar si contiene <emphasis
+>pistas</emphasis
+>. </para>
+<para
+>Las palabras de la lista estándar están guardadas en cuatro archivos independientes que dan lugar a las distintas categorías. Los archivos se encuentran en <filename class="directory"
+>/khangman/data</filename
+>. El archivo <filename
+>easy.kvtml</filename
+> es para la categoría «Fácil», el archivo <filename
+>medium.kvtml</filename
+> para la categoría «Media», el archivo <filename
+>animals.kvtml</filename
+> para la categoría «Animales» y el archivo <filename
+>hard.kvtml</filename
+> para la categoría «Difícil».</para>
+<para
+>El inglés es el idioma predeterminado y es el único idioma que se suministra con &khangman;. Los datos de los demás idiomas están incluidos en los módulos kde-l10n correspondientes. </para>
+<procedure>
+<step>
+<para
+>Los archivos utilizan el formato kvtml. La etiqueta <sgmltag class="starttag"
+>text</sgmltag
+> es para la palabra y la etiqueta <sgmltag class="starttag"
+>comment</sgmltag
+> es para la pista. Ambos están dentro de una etiqueta  <sgmltag class="starttag"
+>entry</sgmltag
+>. Intente relacionar la pista con la categoría o nivel de dificultad. La categoría «Fácil» requerirá una pista sencilla, pero la categoría «Difícil» requerirá la definición del diccionario. Intente no utilizar palabras de la misma familia en la pista, ¡o hará que el usuario adivine la palabra con facilidad!</para>
+
+<para
+>Tenga en cuenta que debe utilizar la <emphasis role="bold"
+>codificación UTF-8</emphasis
+> al editar los archivos. Si su editor no admite esta opción, utilice &kwrite; o &kate;. Cuando abra un archivo con &kwrite; or &kate;, encontrará una lista desplegable que se encuentra en la parte superior del diálogo de apertura que le permitirá seleccionar la codificación utf8.</para>
+
+<para
+>Un ejemplo de un archivo kvtml es el siguiente:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animales&lt;/title&gt;&lt;!--Traduzca el contenido de esta etiqueta--&gt;
+    &lt;comment&gt;Animales de todo el
+mundo&lt;/comment&gt;&lt;!--Traduzca el contenido de esta etiqueta--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;es&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;oso&lt;/text&gt;&lt;!--Traduzca el contenido de todas las etiquetas
+con texto--&gt;
+        &lt;comment&gt;Animal grande y pesado con mucho
+pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con comentarios--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>Al comienzo del archivo, debe traducir el contenido de las etiquetas <sgmltag class="starttag"
+>title</sgmltag
+> y <sgmltag class="starttag"
+>comment</sgmltag
+>; ambas  se encuentran dentro de la etiqueta <sgmltag class="starttag"
+>information</sgmltag
+>. Este título será el que aparezca en el menú Categoría (donde el usuario escoge el archivo con el que quiere jugar). </para>
+</step>
+<step>
+<para
+>A continuación, dentro de la etiqueta <sgmltag class="starttag"
+>identifier</sgmltag
+> introduzca, en lugar de «es», el código de su idioma en <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>No traduzca el nombre del propio archivo ya que los nombres de archivo no deben contener ningún carácter especial. Guarde por lo tanto su archivo con el nombre en inglés.</para>
+</step>
+<step>
+<para
+>Edite los archivos kvtml con un editor de textos (le resultará más fácil si usa el resaltado de sintaxis XML) y reemplace cada palabra dentro de la etiqueta <sgmltag class="starttag"
+>text</sgmltag
+> con una palabra traducida, y cada pista dentro de la etiqueta <sgmltag class="starttag"
+>comment</sgmltag
+> con una pista traducida. No es realmente importante preservar el significado exacto de la palabra, pero intente mantener aproximadamente su longitud y su nivel de dificultad. </para
+> 
+
+<para
+>Puede incluir palabras con espacios en blanco o guiones (-); en este caso, se mostrará el espacio en blanco o el guion en vez del símbolo de subrayado (_). Por favor, póngase en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>lista de distribución de kde-edu</ulink
+> si hubiera algún problema con su idioma; así podré realizar los ajustes necesarios en el código (en particular, aquellos relacionados con los caracteres especiales y los caracteres acentuados). </para>
+</step
+>	
+
+<step>
+<para
+>Puede simplemente traducir las palabras, pero también puede adaptarlas a la categoría o añadir otras nuevas si así lo desea. Por ejemplo, «table» (que quiere decir «mesa») está incluida en la categoría «Fácil» en inglés, pero en su idioma podría estar en la categoría «Media». Tiene libertad para adaptar los archivos a las necesidades de su idioma. El número de palabras en un archivo no es importante, por lo que puede añadir tantas como quiera.</para>
+
+<para
+>Recuerde que todas las palabras deben ser sustantivos.</para>
+
+</step>
+
+<step>
+<para
+>Puede subir sus archivos a <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. No olvide que debe también actualizar el archivo CMakeLists.txt . Por favor, pónganse en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>lista de distribución de kde-edu</ulink
+> si necesita más información al respecto. Cuando envíe los archivos, no olvide mencionar los <emphasis role="bold"
+>caracteres especiales</emphasis
+> usados en su idioma (póngalos en un archivo de texto, uno por línea, y a continuación incluya este archivo en el tar) así como cualquier otra especificidad.</para>
+<para
+><emphasis
+>Por favor, no suba nunca archivos a una RAMA ya que puede colgar el juego.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>¡Muchas gracias por su colaboración!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Qué guarda &khangman; y dónde</title>
+<para
+>Cuando instale un nuevo idioma a través del icono <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Descargar nuevos archivos de idioma</guiicon
+>, los datos de este nuevo idioma se guardan en una carpeta (cuyo nombre es el código del idioma) que se encuentra en <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+>. Los nombres de los directorios de los idiomas disponibles también se guardan en el archivo de configuración de &khangman;, que se encuentra en <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>El nombre del distribuidor (es decir, la dirección del sitio web de donde se han descargado los nuevos idiomas) se guarda en <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>El idioma inglés (predeterminado) y el idioma del usuario, tomado de su correspondiente paquete i18n (si es que está disponible), se guardan en <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>En el archivo de configuración, que se encuentra en <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>, se guardan, para cada usuario, todas las configuraciones del juego, como el fondo, la última categoría jugada, etc., así como los archivos descargados mediante el diálogo <guilabel
+>Obtener novedades</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos y licencia</title>
+
+<para
+>&khangman; </para>
+<para
+>Copyright del programa © 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;. </para>
+<para
+>Colaboradores: <itemizedlist>
+<listitem
+><para
+>Gráficos del ahorcado: Renaud Blanchard <email
+>kisukuma@chez.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Sonidos: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Responsable anterior: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en sueco, ayuda con la programación, imágenes transparentes y correcciones en la i18n: Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en español: eXParTaKus <email
+>expartakus@expartakus.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de pistas en español: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en danés: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en finlandés: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en portugués brasileño: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en catalán: Antoni Bella <email
+>bella5@teleline.es</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en italiano: Giovanni Venturi <email
+>jumpyj@tiscali.it</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en holandés: Rinse <email
+>rinse@kde.nl</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en portugués: Pedro Morais <email
+>morais@kde.org</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en serbio (cirílico y latino): Chusslove Illich <email
+>chaslav@sezampro.yu</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en esloveno: Jure Repinc <email
+>jlp@holodeck1.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en checo: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en tayiko: Roger Kovacs <email
+>rkovacs@khujand.org</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en noruego (bokm&#229;l): Torger &#197;ge Sinnes <email
+>torg-a-s@online.no</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en húngaro: Tamas Szanto <email
+>tszanto@mol.hu</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en noruego (nynorsk): Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en turco: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en búlgaro: Radostin Radnev <email
+>radnev@yahoo.com</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Archivos de datos en irlandés (gaélico): Kevin Patrick Scannell <email
+>scannell@slu.edu</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Ayuda con la programación: &Robert.Gogolok; &Robert.Gogolok.mail;.</para
+> </listitem>
+<listitem
+><para
+>Ayuda con la programación: Benjamin Meyer <email
+>ben@meyerhome.net</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Corrección de errores: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+>.</para
+> </listitem>
+<listitem
+><para
+>Corrección del código: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Estudio de usabilidad: Celeste Paul <email
+>seele@obso1337.org</email
+>.</para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Copyright de la documentación © 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;. </para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Rafael Beccar <email
+>rafabeccar@speedy.com.ar</email
+>, Santiago Fernández Sancho <email
+>santi@kde-es.org</email
+> y Leticia Martín Hernández <email
+>leticia.martin@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Estonian  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KDE kasutaja käsiraamat</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>&khangman;i manuaalilehekülg.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2010-10-06</date>
+<productname
+>KDE töökeskkond</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Klassikaline poomismäng KDE töökeskkonnale</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>khangman</command
+> <arg choice="opt"
+>KDE üldised võtmed</arg
+> <arg choice="opt"
+>Qt üldised võtmed</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Kirjeldus</title>
+<para
+>&khangman;i aluseks on hästi tuntud poomismäng. See on mõeldud lastele alates 6. eluaastast. Mängul on mitu raskusastet ja rida kategooriaid, näiteks loomad (loomanimedega sõnad) või kerge, keskmine ja raske.</para
+><para
+>Sõna valitakse juhuslikult, selle tähed on peidetud. Sa pead sõna ära arvama tähti pakkudes. Valet tähte pakkudes joonistatakse poomispildile midagi veidi juurde. Sõna tuleb enne ära arvata, kui sind üles puuakse! Tähti saab pakkuda 10 korda.</para
+><para
+>See rakendus kuulub &kde; õppeprogrammide mooduli koosseisu.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vaata ka</title>
+<para
+>Põhjalikumat kasutaja dokumentatsiooni pakub <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (kirjuta see &URL; &konqueror;i või käivita käsuga <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Täiendavat infot leiab ka <ulink url="http://edu.kde.org/khangman/"
+>&kde; Edu-projekti koduleheküljelt</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autorid</title>
+<para
+>&khangman;i autorid on <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> ja &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;.</para>
+<para
+>Käesoleva manuaalilehekülje eeskuju kirjutas Debiani jaoks <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+>.</para>
+
+
+</refsect1>
+
+</refentry>

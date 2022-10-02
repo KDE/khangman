@@ -1,0 +1,1137 @@
+# translation of khangman.po to Tajik Language
+# Copyright (C) 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, 2005,2006, 2007, Youth Opportunities, NGO.
+# Roger Kovacs <rkovacs@khujand.org>, 2004, 2005, 2006, 2007.
+# Victor Ibragimov <youth_opportunities@tajikngo.org>, 2004, 2005, 2006, 2007, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2019-09-29 12:32+0500\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Notes Theme"
+msgstr "&Мавзӯъи баҳр"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "&Мавзӯъи баҳр"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Winter Theme"
+msgstr "&Мавзӯъи баҳр"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Bee Theme"
+msgstr "&Мавзӯъи баҳр"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "&Мавзӯъи биёбон"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, fuzzy, kde-format
+#| msgid ""
+#| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+#| "Check your installation, please!"
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Файли $KDEDIR/share/apps/khangman/data/%1/%2 ёфт нашуд!\n"
+"Санҷед агар ин бози бо муваффақият барқарор карда шуд!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Хато"
+
+#: khangman.cpp:444
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Ҳеҷ чиз"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Дараҷа"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr ""
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, fuzzy, kde-format
+#| msgid "Background theme"
+msgid "Background theme name"
+msgstr "Мавзӯъи пасзамина"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, fuzzy, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "Агар шумо  доимӣ намоиши ҳамин хатро нахоҳед онро тафтиш кунед"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, fuzzy, kde-format
+msgid "Enable Animations"
+msgstr "Имкон &додани овозҳо"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, fuzzy, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Агар тафidn't understand тиш карда бошад, овозҳо дар бозии нав садо медиҳанд "
+"ва Win Game "
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KЧӯбаиДор"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+#| msgid "Classical hangman game for KDE"
+msgid "Classical hangman game by KDE"
+msgstr "Чӯбаи Дор - Бозии классикӣ барои KDE-Edu"
+
+#: main.cpp:63
+#, fuzzy, kde-format
+#| msgid "(c) 2001-2007, Anne-Marie Mahfouf"
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2007, Анна- Мария Маҳфов"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Пуштибони пешакӣ"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Анна- Мария Маҳфов"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr ""
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Ёрӣ барои рамзгузорӣ"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Файлҳои маълумоти Шведӣ, дастгирии рамзгузорӣ, тасвирҳои шаффофӣ ва "
+"бартарафҳои i18n"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Файлҳои маълумоти Испанӣ"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr ""
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Файлҳои маълумоти Данӣ"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Файлҳои маълумоти Финнӣ"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr ""
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Файлҳои маълумоти Бразилиявӣ ва Партугалӣ"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr ""
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Файлҳои маълумоти Каталанӣ"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr ""
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Файлҳои маълумоти Итолиёӣ"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr ""
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Файлҳои маълумоти Немисӣ"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr ""
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Файлҳои маълумоти Чехӣ"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Файлҳои маълумоти Венгрия"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr ""
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Файлҳои маълумоти Норвегӣ (Bokmål)"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Роҷер Ковакс"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Файлҳои маълумоти тоҷикӣ"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Файлҳои маълумоти Сербягӣ(Кириликӣ ва Лотинӣ)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr ""
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Файлҳои маълумоти Словениягӣ"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr ""
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Файлҳои маълумоти Партугалӣ"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr ""
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Файлҳои маълумотии Норвегӣ (Nynorsk)"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr ""
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Файлҳои маълумоти Туркӣ"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr ""
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Файлҳои маълумоти Русӣ"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Файлҳои маълумоти Булғорӣ"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr ""
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Файлҳои маълумоти Ирландӣ"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr ""
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Тасвирҳои нарм барои Чӯбаи Дор"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr ""
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr ""
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Ёрии кодӣ, бисёр чизҳоро соз кард"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr ""
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "Рамзҳо барои гузоштани нишонаҳо ба нишондиҳандаҳои компьютерӣ"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Тоза намудани код"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"НПО \"Имкониятҳои ҷавонон\" ва Khujand Computer Technologies, Inc. USA, "
+"Роҷер Ковакс, Виктор Ибрагимов, Марина Колючева"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"youth_opportunities@tajikngo.org,,rkovacs@khujand.org,,MarinaKL@tajikngo.org"
+
+#: qml/GamePage.qml:157
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Choose the word category"
+msgstr "Қисматро интихоб кунед"
+
+#: qml/GamePage.qml:178
+#, fuzzy, kde-format
+#| msgid "Choose the look and feel"
+msgid "Select a language"
+msgstr "Интихоби танзимоти мавзӯъ"
+
+#: qml/GamePage.qml:191
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Select a theme"
+msgstr "&Мавзӯъи баҳр"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the theme."
+msgstr "Қисматро интихоб кунед"
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "&Танзимот"
+
+#: qml/GamePage.qml:297
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "About KHangMan"
+msgstr "KЧӯбаиДор"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr ""
+
+#: qml/GamePage.qml:449
+#, fuzzy, kde-format
+#| msgid "Misses"
+msgid "Losses: "
+msgstr "Намерасад"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the category."
+msgstr "Қисматро интихоб кунед"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Settings"
+msgstr "KЧӯбаиДор"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "KЧӯбаиДор"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Овозҳо"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "Намерасад"
+
+#, fuzzy
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Рамзҳо барои гузоштани нишонаҳо ба нишондиҳандаҳои компьютерӣ"
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Испанӣ,Португалӣ , Каталан"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "Чоп кунед &ҳарфҳои акссентӣ"
+
+#, fuzzy
+#~| msgid ""
+#~| "If this is checked, you must type accented letters yourself (i.e. they "
+#~| "are differentiated from the corresponding unaccented letter)."
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Агар ин санҷида мешавад, шумо бояд чоп кунед ҳарфҳои акссентӣ "
+#~ "худатон(мисол онҳо фарқшудаанд аз ҳарфҳои аксентнашудаи ҷорӣ)."
+
+#, fuzzy
+#~| msgid ""
+#~| "If this is <b>disabled</b>, then the selected language does not support "
+#~| "it. If this is <b>enabled</b> and if you check it, then you should type "
+#~| "accented letters on their own. If it is not checked, accented letters "
+#~| "will be displayed with normal letters.<br>\n"
+#~| "Default is that accented letters will be shown when the corresponding "
+#~| "unaccented letter is guessed.<br>\n"
+#~| "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~| "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~| "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~| "then have to type \"ò\" for this letter to be displayed."
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Агар <b> вайрон шуда</b> пас забони интихобкарда инро дастгири намекунад. "
+#~ "Агар <b>ин номумкин аст </b> ва агар шумо инро тафтиш кунед ,пас шумо "
+#~ "бояд ҳарфҳои задаи худихтиёрро чоп кунед . Агар ин тафтиш карда "
+#~ "нашудааст ,ҳарфҳои зада бо ҳарфҳои оддӣ нишон дода мешаванд.\n"
+#~ "Пешфарз ҳарфҳои задаро он вақте ,нишон медиҳад,ки кай ҳарфи ҳамзадаро "
+#~ "тахмин мекунад.<br>\n"
+#~ "Пешфарз ҳарфҳои аксенти ҳастанд ки нишон дода мешаванд вақте ки ҳарфи "
+#~ "аксенти дониста мешавад.<br>\n"
+#~ "Мисол , дар каталан, агар ин санҷида нашавад ва шумо чоп намоед \"o\", о "
+#~ "ва о нишон дода мешаванд дар калимаи <b>ксенафобия</b>. Агар ин интихоб "
+#~ "санҷида шавад, вақте шумо чоп намоед \"o\", танҳо \"o\" нишон дода "
+#~ "мешавад ва шумо бояд чоп намоед \"ò\" барои ин ҳарф нишон дода шавад."
+
+#~ msgid "German"
+#~ msgstr "Олмонӣ"
+
+#, fuzzy
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "Агар тафidn't understand тиш карда бошад, овозҳо дар бозии нав садо "
+#~ "медиҳанд ва Win Game "
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr ""
+#~ "Дар ин ҷо Шумо метавонед танзимотҳоро барои ҳамаи забонҳо интихоб кунед."
+
+#, fuzzy
+#~| msgid ""
+#~| "If you check this box, only the first letter will be written if the "
+#~| "letter is found in several places in the word. Then when you rechoose "
+#~| "this letter, it will replace the second instance in the word until there "
+#~| "are no more instances of this letter.\n"
+#~| "For example, the word to guess is \"potato\". If this option is "
+#~| "unchecked, when you try \"o\", the 2 \"o\" in the word will be "
+#~| "discovered at the same time. If this is checked, you will need to try \"o"
+#~| "\" twice.\n"
+#~| "\n"
+#~| "Default is that for one letter typed, all instances of that letter in "
+#~| "the word are displayed."
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Агар шумо ин қутиро тафтиш кунед ,фақат ҳарфи якум навишта мешавад ба "
+#~ "шарте ки ҳарф дар якчапнд ҷои калима ёфт шавад. Пас вақте ки шумо ин "
+#~ "ҳарфро бори дигар интихоб мекунед,вай шакли дуюми калимаро иваз мекунад , "
+#~ "то даме ки дигар шаклҳои ин хат пайдо нашаванд .\n"
+#~ "Мисол, калима барои сарфаҳм расидан аст\"картошка\". Агар ин интихоб "
+#~ "санҷида нашавад, вақте ки кушиш кунед \"o\", 2 \"o\" дар калима кашф "
+#~ "карда мешавад дар як вақт.Агар ин санҷида шавад, пас ба шумо лозим аст ки "
+#~ "кушиш намоед \"o\" дубор.\n"
+#~ "\n"
+#~ "Пешфарз барои як ҳарфи чоп шуда, ҳамаи лаҳзаҳои ин ҳарф дар даруни калима "
+#~ "нишон дода мешавад."
+
+#, fuzzy
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "Талаб намоед бисёртар &сарфаҳмиҳо барои дубликат намудани калимаҳо"
+
+#, fuzzy
+#~ msgid "Enable animations"
+#~ msgstr "Имкон &додани овозҳо"
+
+#, fuzzy
+#~ msgid "Enable sounds"
+#~ msgstr "Имкон &додани овозҳо"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Бози кунед бо калимаи нав"
+
+#, fuzzy
+#~| msgid "Show hints"
+#~ msgid "&Show Hint"
+#~ msgstr "Намоиши луқмаҳо"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Гирифтани калимаи дар забони нав..."
+
+#~ msgid "&Category"
+#~ msgstr "&Қисмат"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "Интихоби қисмати калимаҳо"
+
+#~ msgid "&Language"
+#~ msgstr "&Забон"
+
+#~ msgid "L&ook"
+#~ msgstr "Ниг&оҳ"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Интихоби танзимотҳои мавзӯъ"
+
+#~ msgid "General"
+#~ msgstr "Асосан"
+
+#~ msgid "Languages"
+#~ msgstr "Забонҳо"
+
+#~ msgid "Timers"
+#~ msgstr "Вақтсанҷ"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Ҳарфҳои зарбадор гузоред"
+
+#~ msgid "&Game"
+#~ msgstr "&Бозӣ"
+
+#~ msgid "Main"
+#~ msgstr "Асосӣ"
+
+#~ msgid "Special Characters"
+#~ msgstr "Ҳарфҳои махсус"
+
+#, fuzzy
+#~| msgid "L&ook"
+#~ msgid "Look"
+#~ msgstr "Ниг&оҳ"
+
+#, fuzzy
+#~| msgid "&Language"
+#~ msgid "Language"
+#~ msgstr "&Забон"
+
+#~ msgid "G&uess"
+#~ msgstr "Фикр кард&ан"
+
+#, fuzzy
+#~| msgid "Play Again"
+#~ msgid "&Play again"
+#~ msgstr "Аз нав бози кунед"
+
+#~ msgid "Hint"
+#~ msgstr "Луқма"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>You lost!\n"
+#~| "The word was\n"
+#~| "<b>%1</b></qt>"
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr ""
+#~ "<qt>Шумо бой додед!\n"
+#~ "Калима буд\n"
+#~ "<b>%1</b></qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "Congratulations,\n"
+#~| "you won!"
+#~ msgid "Congratulations! You won!"
+#~ msgstr ""
+#~ "Табрик,\n"
+#~ "шумо буридед!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Ин ҳарфро аллакай ҷавоб доданд."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr ""
+#~ "Дар ин ҷо Шумо метавонед танзимотҳои махсусро барои ҳамаи забонҳо интихоб "
+#~ "кунед."
+
+#, fuzzy
+#~| msgid "seconds"
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "сикундаҳо"
+#~ msgstr[1] "сикундаҳо"
+
+#, fuzzy
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr "Вақтро монед барои пайдоиши ҳарфи аллакай ҷавобдода:"
+
+#, fuzzy
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#, fuzzy
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Файли $KDEDIR/share/apps/khangman/%1 ёфт нашуд;\n"
+#~ "Санҷет агар ин бози бо муваффақият барқарор карда шуд."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#, fuzzy
+#~| msgid "Sea Theme"
+#~ msgid "Theme"
+#~ msgstr "&Мавзӯъи баҳр"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr ""
+#~ "Агар тафidn't understand тиш карда бошад, овозҳо дар бозии нав садо "
+#~ "медиҳанд ва Win Game "
+
+#~ msgid "Graphics"
+#~ msgstr "Тасвирҳо"
+
+#~ msgid "Nature theme background"
+#~ msgstr "Заминаи мавзӯъи табиат"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "Заминаи мавзӯъи кабуд, нишонаҳои ҳақиқӣ"
+
+#~ msgid "SVG icon"
+#~ msgstr "Нишонаҳои SVG"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the \"Already Guessed\" "
+#~ "tooltip is displayed.</p></body></html>"
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "Муваффақият! Шумо бурдед! Шумо мехоҳед аз нав бозӣ кунед?"
+
+#~ msgid "Do Not Play"
+#~ msgstr "Бози накунед"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "Шумо бой додед. Шумо мехоҳед аз нав бозӣ кунед?"
+
+#, fuzzy
+#~| msgid ""
+#~| "If checked, the dialog 'Congratulations! You won!' is not displayed. "
+#~| "After 3 seconds, a new game will start automatically."
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr ""
+#~ "Агар пас аз санҷиши диалогҳои '' Муваффақият!'' ва ''Шумо бунрдед !'' ҳеҷ "
+#~ "чиз набарояд, баҳди  3 сония ба таври автоматӣ бозии нав сар мешавад."
+
+#, fuzzy
+#~| msgid ""
+#~| "If this option is not checked, when a game is won a dialog will appear "
+#~| "saying 'Congratulations! You won!'. It also asks you if you want to play "
+#~| "again and you have to say Yes or No.\n"
+#~| "This is the default state.\n"
+#~| "\n"
+#~| "If this option is checked, this dialog will not appear and a new game "
+#~| "will automatically start after four seconds. A passive popup tells you "
+#~| "you have won the game. When this opton is checked you don't have an "
+#~| "intrusive dialog each time you won a game."
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "Агар ин интихоб тафтиш нашуда бошад, вақте ки бозӣ бурад нишондоди "
+#~ "'Муваффақият!' ва 'Шумо буридед !'. Ин боз шуморо мепурсад агар шумо "
+#~ "мехоҳед боз аз нав бози кунед ва шумо бояд ҲО ё НЕ бигуед.\n"
+#~ "Ин пешфарзи давлат аст.\n"
+#~ "\n"
+#~ "Агар ин интихоб санҷида шавад, ин диалог пайдо нашавад ва бозии дигар бо "
+#~ "роҳи автоматикӣ огз меёбад баъди чор дақиқа. Попапи пассивӣ ба шумо "
+#~ "мегуяд ки шумо бозиро буридед. Вақте ин интихоб санҷида шавад ба шумо "
+#~ "дигар диалоге ки мегуяд ки шумо буридед , пайдо намешавад."
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "Нишон надиҳед 'Табрикот! Шумо бу&ридед!' диалог"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "Нишон надиҳед 'Табрикот! Шумо бу&ридед!' диалог"
+
+#, fuzzy
+#~| msgid "Show hints"
+#~ msgid "&Hide Hint"
+#~ msgstr "Намоиши луқмаҳо"
+
+#~ msgid ""
+#~ "If you check it, a hint will be displayed by right-clicking on the game "
+#~ "window."
+#~ msgstr ""
+#~ "Агар шумо инро санҷед, аломат пайдо мешавад бо пахш намудани тугмаи рост "
+#~ "дар тирезаи бози."
+
+#, fuzzy
+#~| msgid ""
+#~| "Some languages have hints to help you guess the word more easily. If "
+#~| "this is <b>disabled</b>, there is no such option for your current "
+#~| "language data file.\n"
+#~| "If this is <b>enabled</b>, then hints are available and you can get them "
+#~| "by checking this box. You will then see the hint for the word you are "
+#~| "trying to guess by right-clicking somewhere on the KHangMan window, the "
+#~| "hint will then be displayed for 4 seconds in a tooltip."
+#~ msgid ""
+#~ "Some languages have hints to help you guess the word more easily. If this "
+#~ "is <b>disabled</b>, there is no such option for your current language "
+#~ "data file.\n"
+#~ "If this is <b>enabled</b>, then hints are available and you can get them "
+#~ "by checking this box. You will see the hint for the word you are trying "
+#~ "to guess by right-clicking somewhere on the KHangMan window. The hint "
+#~ "will be displayed for four seconds in a tooltip."
+#~ msgstr ""
+#~ "Чанд забонҳо аломатҳо доранд ёри мерасонанд дар дарёфти калима боз "
+#~ "зудтар. Агар ин  <b>бекор шавад</b> дигар маълумоти иловаги намешавад.\n"
+#~ "Агар ин <b>вуҷуд дорад</b>, пас аломатҳо дастрасанд ва шумо метавонед "
+#~ "онҳоро гиред санҷидани ин қути. Шумо пас баъдтар мебинед аломатҳо барои "
+#~ "калимаи ки шумо кушиш мекунед барои сарфаҳм расидан бо пахш намудани "
+#~ "тугмаи рост дар тирезаи KHangMan, аломат баъдтар намоиш мешавад дар 4 "
+#~ "дақиқа дар даруни асбоб."
+
+#~ msgid "Show hints"
+#~ msgstr "Намоиши луқмаҳо"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the hint is displayed.</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the hint "
+#~ "tooltip. Default is four seconds but younger children might need longer "
+#~ "time to be able to read the hint.</p></body></html>"
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">hint</span>:</p></body></html>"
+#~ msgstr ""
+#~ "Шумо метавонед вақтро мондан барои пайдо намудани асбоби Аллакай "
+#~ "Ҷавобдода баъде ки шумо кушиш намоед ҳарфе ки аллакай ҷавоб дода. "
+#~ "Пешфарз3 дақиқагӣ аммо кӯдакони хурдтарак лозим аст вақти дарозтар барои "
+#~ "фаҳмидани ҳарфи аллакай сарфаҳмшуда."
+
+#~ msgid "Hint on right-click"
+#~ msgstr "Бо пахшкунии кнопкаи рост луқма фаъол мешавад"
+
+#~ msgid "Hint available"
+#~ msgstr "Луқма дастрас аст"

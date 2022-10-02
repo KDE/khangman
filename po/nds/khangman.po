@@ -1,0 +1,1199 @@
+# Translation of khangman.po to Low Saxon
+#
+# Manfred Wiese <m.j.wiese@web.de>, 2006, 2008, 2009, 2010, 2011, 2012, 2014.
+# Sönke Dibbern <s_dibbern@web.de>, 2006, 2008, 2009, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2014-04-24 00:46+0200\n"
+"Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Notes Theme"
+msgstr "Meer-Muster"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "Meer-Muster"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "Winter-Muster"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "Immen-Muster"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "Wöösten-Muster"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr "DONE"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Datei $KDEDIR/share/apps/kvtml/%1/%2 lett sik nich finnen.\n"
+"Prööv bitte Dien Installatschoon!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "Fehler"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Keen"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "Speelstoop"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "De vun den Bruker fastleggte Spraak"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, fuzzy, kde-format
+#| msgid "Background theme"
+msgid "Background theme name"
+msgstr "Achtergrund-Muster"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr ""
+"Maak dit an, wenn Du nich fuurts all Vörkamen vun een Bookstaav wiest hebben "
+"wullt"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "Animeren anmaken"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Wenn dit anmaakt is, warrt Kläng för \"Nieg Speel\" un \"Speel wunnen\" "
+"afspeelt"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, fuzzy, kde-format
+#| msgid ""
+#| "If checked, hints will always been displayed. If this is not checked "
+#| "(default) \n"
+#| "            hints will be displayed only per word when the user chooses "
+#| "to show the hint."
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"Wenn anmaakt, warrt jümmers Henwiesen wiest. Is dat nich anmaakt "
+"(Standard),\n"
+"            warrt de enkelten Woort-Henwiesen bloots wiest, wenn de Bruker "
+"dat utlööst."
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+"Mit disse Instellen kannst Du de Tiet fastleggen, de een för't Oplösen vun't "
+"Woort hett."
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "Bookstaven mit Akzenten as egen Bookstaven hanteren"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "De Anbeder-Padd för KHangman"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+#| msgid "Classical hangman game for KDE"
+msgid "Classical hangman game by KDE"
+msgstr "Klass'sch Galgenmanntje-Speel för KDE"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "© 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Verleden Pleger"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Programmeer-Hülp"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Sweedsch Datendateien, Programmeer-Hülp, transparent Biller un Översetten-"
+"Koderichten"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Spaansch Datendateien"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Däänsch Datendateien"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Finnsch Datendateien"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Brasiliaansch-Portugeesch Datendateien"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Katalaansch Datendateien"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Italieensch Datendateien"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Nedderlannsch Datendateien"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Tschechsch Datendateien"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Ungaarsch Datendateien"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Norweegsch (Bokmål) Datendateien"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Tadschiiksch Datendateien"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Serbsch Datendateien (Kyrillsch un Latien)"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Sloweensch Datendateien"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Portugeesch Datendateien"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Norweegsch (Nynorsk) Datendateien"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "Törksch Datendateien"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "Russ'sch Datendateien"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "Bulgaarsch Datendateien"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Irsch (Gäälsch) Datendateien"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Weker Galgenmanntje-Biller"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Programmeer-Hülp, vele Fehlerrichten"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr ""
+"Borntext för't Opstellen vun de Lüttbiller för den Tekens-Warktüüchbalken"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "Borntext-Oprümen"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Manfred Wiese, Sönke Dibbern"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "m.j.wiese@web.de, s_dibbern@web.de"
+
+#: qml/GamePage.qml:157
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Choose the word category"
+msgstr "De Kategorie utsöken"
+
+#: qml/GamePage.qml:178
+#, fuzzy, kde-format
+#| msgid "Choose the language"
+msgid "Select a language"
+msgstr "De Spraak utsöken"
+
+#: qml/GamePage.qml:191
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Select a theme"
+msgstr "Meer-Muster"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the theme."
+msgstr "De Kategorie utsöken"
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings"
+msgstr "&Instellen"
+
+#: qml/GamePage.qml:297
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "About KHangMan"
+msgstr "KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, fuzzy, kde-format
+#| msgid "Wins: %1"
+msgid "Wins: "
+msgstr "Wunnen: %1"
+
+#: qml/GamePage.qml:449
+#, fuzzy, kde-format
+#| msgid "Losses: %1"
+msgid "Losses: "
+msgstr "Verloren: %1"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the category."
+msgstr "De Kategorie utsöken"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Settings"
+msgstr "KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Kläng"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "Falsch raadt Bookstaven"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Den Teken-Warktüüchbalken wiesen"
+
+#~ msgid ""
+#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
+#~ "is shown."
+#~ msgstr ""
+#~ "Mit disse Instellen kannst Du de Wiesduer (in Sekunnen) vun de Tipp-"
+#~ "Blasen fastleggen."
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "Duer över de de \"Al raadt\"-Mellen wiest warrt"
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Spaansch, Portugeesch, Katalaansch"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "&Bookstaven mit Akzenten ingeven"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "Wenn dit anmaakt is, muttst Du Bookstaven mit Akzenten sülvst ingeven (d."
+#~ "h., dat sünd anner Bookstaven as de ahn Akzenten)."
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Wenn dit <b>nich verföögbor</b> is, ünnerstütt de utsöchte Spraak dat "
+#~ "nich. Is dit <b>verföögbor</b> un Du maakst dat an, muttst Du Bookstaven "
+#~ "mit Akzenten för sik sülven ingeven. Is dat nich anmaakt, warrt "
+#~ "Bookstaven mit Akzenten as de normalen Bookstaven wiest (Standard).<br>\n"
+#~ "Wenn dit för a.B. Katalaansch utmaakt is, un Du en \"o\" ingiffst, warrt "
+#~ "\"o\" un \"ò\" in't Woort <b>xenofòbia</b> wiest. Wenn disse Optschoon "
+#~ "anmaakt is, warrt bloots dat \"o\" wiest, wenn Du \"o\" ingiffst, un Du "
+#~ "muttst dat \"ò\" ingeven, dormit dat wiest warrt."
+
+#~ msgid "German"
+#~ msgstr "Hoochdüütsch"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "Mit Grootbookstaven spelen"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "Is dit anmaakt, warrt dat Woort bloots mit Grootbookstaven wiest"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "Is dit anmaakt, warrt dat Woort mit Grootbookstaven wiest, ok wenn Du "
+#~ "Lüttbookstaven ingiffst. Is dat nich anmaakt (de Vörinstellen), warrt "
+#~ "Lüttbookstaven bruukt.<br>\n"
+#~ "Disse Optschoon is opstunns bloots för Hoochdüütsch verföögbor."
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "Hier kannst Du Optschonen för all Spraken fastleggen"
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Wenn dit anmaakt is, warrt bloots een Bookstaav opdeckt, wenn dat Woort "
+#~ "den Bookstaav mehr as eenmaal bargt. Wenn Du den Bookstaav nochmaal "
+#~ "versöchst, warrt dat twete Vörkamen opdeckt usw., bet de Bookstaav nich "
+#~ "mehr binnen dat Woort vörkummt.\n"
+#~ "Dat Woort, dat raadt warrn schall, is a.B. \"Kantüffel\". Wenn disse "
+#~ "Optschoon ut is, un Du en \"f\" versöchst, warrt fuurts beed \"f\" "
+#~ "opdeckt. Wenn dit anmaakt is, muttst Du dat \"f\" tweemaal versöken.\n"
+#~ "\n"
+#~ "Standardwies warrt bi en richtig Bookstaav all sien Vörkamen binnen dat "
+#~ "Woort wiest."
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "För dubbelt Bookstaven doot mehr Versöök noot"
+
+#~ msgid "Enable animations"
+#~ msgstr "Animeren anmaken"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Henwiesen globaal anmaken"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Wenn dit Ankrüüzfeld anmaakt is, warrt jümmers vör den Speelstart un na "
+#~ "en wunnen Speel en poor Kläng afspeelt. Wenn dit utmaakt is, löppt "
+#~ "KHangMan ahn Kläng.\n"
+#~ "Standardwies warrt keen Kläng speelt."
+
+#~ msgid "Enable sounds"
+#~ msgstr "Kläng anmaken"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Mit en nieg Woort spelen"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "Vörhannen Vokavelsett opmaken"
+
+#~ msgid "&Show Hint"
+#~ msgstr "Tipp &wiesen"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "De Hülp bi't Raden vun't Woort wiesen/versteken"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "Wöör in en nieg Spraak &halen..."
+
+#~ msgid "&Category"
+#~ msgstr "&Kategorie"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "De Kategorie vun de Wöör utsöken"
+
+#~ msgid "&Language"
+#~ msgstr "&Spraak"
+
+#~ msgid "L&ook"
+#~ msgstr "&Utsehn"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Söök dat Utsehn ut"
+
+#~ msgid "General"
+#~ msgstr "Allgemeen"
+
+#~ msgid "Languages"
+#~ msgstr "Spraken"
+
+#~ msgid "Timers"
+#~ msgstr "Tieden"
+
+#~ msgid "Type accented letters"
+#~ msgstr "Bookstaven mit Akzenten ingeven"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "Vokavelsett opmaken"
+
+#~ msgid "&Game"
+#~ msgstr "&Speel"
+
+#~ msgid "Main"
+#~ msgstr "Allgemeen"
+
+#~ msgid "Special Characters"
+#~ msgstr "Sünnertekens"
+
+#~ msgid "Look"
+#~ msgstr "Utsehn"
+
+#~ msgid "Language"
+#~ msgstr "Spraak"
+
+#~ msgid "G&uess"
+#~ msgstr "&Raden"
+
+#~ msgid "&Play again"
+#~ msgstr "&Nochmaal spelen"
+
+#~ msgid "Hint"
+#~ msgstr "Tipp"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Du hest verloren! Dat Woort weer \"%1\"."
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Graleren, Du hest wunnen!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Disse Bookstaav wöör al raadt."
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "Hier kannst Du besünner Optschonen för en Reeg Spraken fastleggen"
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "Pleger opstunns, Autor"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 Sekunn"
+#~ msgstr[1] "%1 Sekunnen"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "Hier kannst Du de Wiesttiet vun Tipps un de \"Al raadt\"-Mellen fastleggen"
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "Duer, för de de \"Al raadt Bookstaav\"-Mellen wiest warrt:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "Du kannst de Wiestiet för de \"Al raadt\"-Mellen fastleggen. Se warrt "
+#~ "wiest, wenn Du en Bookstaav utprobeerst, den Du vördem al raadt harrst. "
+#~ "De Standard is 1 Sekunn, man lütter Kinner bruukt sachs wat länger, ehr "
+#~ "se begrepen hebbt, se probeert en Bookstaav ut, de al raadt wöör."
+
+#~ msgid "You can open last opened files"
+#~ msgstr "Du kannst tolest opmaakte Dateien opmaken."
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Datei \"%1\" lett sik nich finnen.\n"
+#~ "Installeer \"%2\" bitte nochmaal. Dat Programm bruukt nu Engelsch."
+
+#~ msgid "&Upload KHangMan file..."
+#~ msgstr "KHangMan-Datei &hoochladen..."
+
+#~ msgid "Share the current KHangMan file with other users."
+#~ msgstr "De aktuelle KHangMan-Datei för anner Brukers freegeven"
+
+#~ msgid "Local file"
+#~ msgstr "Lokaal Datei"
+
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">Already Guessed Letter</span> tooltip:</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Wiestiet för  <span style=\" font-weight:600;"
+#~ "\">Bookstaav al raadt</span>-Mellen:</p></body></html>"
+
+#~ msgid "Theme"
+#~ msgstr "Muster"
+
+#, fuzzy
+#~ msgid "Enable Sounds on New Game and Win Game"
+#~ msgstr ""
+#~ "Wenn dit anmaakt is, warrt Kläng för \"Nieg Speel\" un \"Speel wunnen\" "
+#~ "afspeelt"
+
+#~ msgid "Graphics"
+#~ msgstr "Grafik"
+
+#~ msgid "Nature theme background"
+#~ msgstr "Natuur-Musterachtergrund"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "Blaag Musterachtergrund, Lüttbiller"
+
+#~ msgid "SVG icon"
+#~ msgstr "SVG-Lüttbild"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the \"Already Guessed\" "
+#~ "tooltip is displayed.</p></body></html>"
+#~ msgstr ""
+#~ "Du kannst de Duer för de Mellen fastleggen, de na't Raden vun en al "
+#~ "versöcht Bookstaav opdukt. Standard sünd dree Sekunnen, man lütter "
+#~ "Kinners köönt villicht wat länger bruken, ehr se verstaht, dat se den "
+#~ "Bookstaav al versöcht hebbt."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the "
+#~ "\"Already Guessed\" tooltip after you tried a letter that was already "
+#~ "guessed. Default is 1 second but younger children might need longer time "
+#~ "to be able to understand they are trying a letter that was already "
+#~ "guessed.</p></body></html>"
+#~ msgstr ""
+#~ "Du kannst de Duer för de Mellen fastleggen, de na't Raden vun en al "
+#~ "versöcht Bookstaav opdukt. Standard sünd dree Sekunnen, man lütter "
+#~ "Kinners köönt villicht wat länger bruken, ehr se verstaht, dat se den "
+#~ "Bookstaav al versöcht hebbt."
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "Graleren! Du hest wunnen! Wullt Du nochmaal spelen?"
+
+#~ msgid "Do Not Play"
+#~ msgstr "Nich nochmaal spelen"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "Du hest verloren. Wullt Du nochmaal spelen?"
+
+#, fuzzy
+#~| msgid ""
+#~| "If checked, the dialog 'Congratulations! You won!' is not displayed. "
+#~| "After 3 seconds, a new game will start automatically."
+#~ msgid ""
+#~ "If checked, the congratulations dialog is not displayed. After four "
+#~ "seconds, a new game will start automatically."
+#~ msgstr ""
+#~ "Wenn dit anmaakt is, warrt de \"Graleren! Du hest wunnen!\"-Dialoog nich "
+#~ "wiest. Na dree Sekunnen start automaatsch en nieg Speel."
+
+#, fuzzy
+#~| msgid ""
+#~| "If this option is not checked, when a game is won a dialog will appear "
+#~| "saying 'Congratulations! You won!'. It also asks you if you want to play "
+#~| "again and you have to say Yes or No.\n"
+#~| "This is the default state.\n"
+#~| "\n"
+#~| "If this option is checked, this dialog will not appear and a new game "
+#~| "will automatically start after four seconds. A passive popup tells you "
+#~| "you have won the game. When this opton is checked you don't have an "
+#~| "intrusive dialog each time you won a game."
+#~ msgid ""
+#~ "If this option is not checked, a congratulations dialog will appear when "
+#~ "a game is won. It also asks you if you want to play again.\n"
+#~ "This is the default state.\n"
+#~ "\n"
+#~ "If this option is checked, the dialog will not appear and a new game will "
+#~ "automatically be started after four seconds. A passive popup tells you "
+#~ "that you have won the game. You do not have an intrusive dialog every "
+#~ "time you win a game."
+#~ msgstr ""
+#~ "Wenn disse Optschoon nich anmaakt is, warrt na en wunnen Speel de Dialoog "
+#~ "\"Du hest wunnen!\" wiest. Du warrst ok fraagt, wat Du nochmaal spelen "
+#~ "wullt, un Du muttst mit \"Jo\" oder \"Nee\" antern.\n"
+#~ "Dat is de Vörinstellen.\n"
+#~ "\n"
+#~ "Wenn disse Optschoon anmaakt is, warrt de Dialoog nich wiest, un na en "
+#~ "poor Sekunnen start automaatsch en nieg Speel. En passiv Opduker seggt "
+#~ "Di, dat Du wunnen hest. Wenn dit anmaakt is, hest Du nich na elk wunnen "
+#~ "Speel dissen opsternaatschen Dialoog."
+
+#, fuzzy
+#~ msgid "Do not display the congratulations dialog"
+#~ msgstr "Den \"Graleren! Du hest &wunnen!\"-Dialoog nich wiesen"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations You won!' dialog"
+#~ msgstr "Den \"Graleren! Du hest &wunnen!\"-Dialoog nich wiesen"
+
+#, fuzzy
+#~ msgid "&Hide Hint"
+#~ msgstr "Tipps &wiesen"
+
+#, fuzzy
+#~ msgid "When available"
+#~ msgstr "Wenn verföögbor"
+
+#~ msgid ""
+#~ "If you check it, a hint will be displayed by right-clicking on the game "
+#~ "window."
+#~ msgstr ""
+#~ "Wenn du dit anmaakst, warrt na en Klick op de rechte Muustast en Tipp "
+#~ "binnen dat Speelfinster wiest."
+
+#, fuzzy
+#~| msgid ""
+#~| "Some languages have hints to help you guess the word more easily. If "
+#~| "this is <b>disabled</b>, there is no such option for your current "
+#~| "language data file.\n"
+#~| "If this is <b>enabled</b>, then hints are available and you can get them "
+#~| "by checking this box. You will then see the hint for the word you are "
+#~| "trying to guess by right-clicking somewhere on the KHangMan window, the "
+#~| "hint will then be displayed for 4 seconds in a tooltip."
+#~ msgid ""
+#~ "Some languages have hints to help you guess the word more easily. If this "
+#~ "is <b>disabled</b>, there is no such option for your current language "
+#~ "data file.\n"
+#~ "If this is <b>enabled</b>, then hints are available and you can get them "
+#~ "by checking this box. You will see the hint for the word you are trying "
+#~ "to guess by right-clicking somewhere on the KHangMan window. The hint "
+#~ "will be displayed for four seconds in a tooltip."
+#~ msgstr ""
+#~ "En Reeg vun Spraken hebbt Tipps, de Di bi't Raden hölpen köönt. Wenn dit "
+#~ "<b>nich verföögbor</b> is, gifft dat för Dien Spraak keen Tipps. Is dat "
+#~ "<b>verföögbor</b>, denn gifft dat Tipps in Dien Spraak, un Du kannst se "
+#~ "bruken, wenn Du dit Feld ankrüüzt. Wenn Du denn mit den rechten Muusknoop "
+#~ "binnen dat Galgenmanntje-Finster klickst, warrt för veer Sekunnen en Tipp "
+#~ "as Kortinformatschoon wiest."
+
+#, fuzzy
+#~ msgid "Show hints"
+#~ msgstr "Tipps &wiesen"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time during which the hint is displayed.</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "Du kannst de Duer för de Mellen fastleggen, de na't Raden vun en al "
+#~ "versöcht Bookstaav opdukt. Standard sünd dree Sekunnen, man lütter "
+#~ "Kinners köönt villicht wat länger bruken, ehr se verstaht, dat se den "
+#~ "Bookstaav al versöcht hebbt."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">You can set the time for displaying the hint "
+#~ "tooltip. Default is four seconds but younger children might need longer "
+#~ "time to be able to read the hint.</p></body></html>"
+#~ msgstr ""
+#~ "Du kannst de Duer för de Mellen fastleggen, de na't Raden vun en al "
+#~ "versöcht Bookstaav opdukt. Standard sünd dree Sekunnen, man lütter "
+#~ "Kinners köönt villicht wat länger bruken, ehr se verstaht, dat se den "
+#~ "Bookstaav al versöcht hebbt."
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style="
+#~ "\" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-"
+#~ "weight:400; font-style:normal; text-decoration:none;\"><p style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; text-indent:0px;\">Time for displaying the <span style=\" font-"
+#~ "weight:600;\">hint</span>:</p></body></html>"
+#~ msgstr ""
+#~ "Du kannst de Duer för de Mellen fastleggen, de na't Raden vun en al "
+#~ "versöcht Bookstaav opdukt. Standard sünd dree Sekunnen, man lütter "
+#~ "Kinners köönt villicht wat länger bruken, ehr se verstaht, dat se den "
+#~ "Bookstaav al versöcht hebbt."
+
+#~ msgid "Hint on right-click"
+#~ msgstr "Tipps na Klick mit de rechte Muustast"
+
+#~ msgid "Hint available"
+#~ msgstr "Tipp verföögbor"
+
+#, fuzzy
+#~ msgid "Do not display the 'Congratulations! You won!' dialog"
+#~ msgstr "Den \"Graleren! Du hest &wunnen!\"-Dialoog nich wiesen"
+
+#~ msgid "Le&vel"
+#~ msgstr "&Speelstoop"
+
+#~ msgid "Choose the level of difficulty"
+#~ msgstr "Söök hier ut, wo swoor dat Speel is"
+
+#~ msgid "Cyrillic"
+#~ msgstr "Kyrillsch"
+
+#~ msgid "Latin"
+#~ msgstr "Latiensch"
+
+#~ msgid "Animals"
+#~ msgstr "Deerten"
+
+#~ msgid "Easy"
+#~ msgstr "Eenfach"
+
+#~ msgid "Medium"
+#~ msgstr "Middel"
+
+#~ msgid "Hard"
+#~ msgstr "Swoor"
+
+#~ msgid "First letter upper case"
+#~ msgstr "Eerst Bookstaav in Grootschrieven"
+
+#~ msgid "Time during which the Hint is displayed"
+#~ msgstr "Duer för't Wiesen vun Tipps"
+
+#~ msgid "Set the time for displaying the hint:"
+#~ msgstr "Duer för't Wiesen vun Tipps instellen:"
+
+#~ msgid "&New"
+#~ msgstr "&Nieg"
+
+#~ msgid "Inserts the character %1"
+#~ msgstr "Föögt den Bookstaven \"%1\" to"

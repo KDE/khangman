@@ -1,0 +1,829 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok Hänga gubben</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2020-12-22</date>
+<releaseinfo
+>Program 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; är det klassiska Hänga gubben spelet för barn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>hänga gubbe</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>barn</keyword>
+<keyword
+>ord</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>&khangman; är ett spel baserat på det välkända Hänga gubben spelet. Det är avsett för barn i åldrarna sex och uppåt. Spelet har flera ordkategorier att spela med, däribland djur, kläder, datorer, valutor och frukter. Ett ord väljes slumpmässigt, bokstäverna är dolda och du måste gissa ordet genom att försöka med en bokstav i taget. Varje gång du gissar fel bokstav, ritas en del av bilden av en hängd gubbe. Du måste gissa ordet innan du blir hängd! Du har tio försök. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Att använda Hänga gubben</title>
+
+<screenshot>
+<screeninfo
+>Här är en skärmbild av &khangman; när du startar det för första gången </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Skärmbild av Hänga gubben</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Här ser du Hänga gubben som det ser ut första gången det körs. Kategorin är djur, språket är det förvalda (här svenska, förval är ditt nuvarande språk i &kde; om data finns) och temat är <quote
+>Anteckningar</quote
+>. Alla ändringar av kategori, språk eller tema (bakgrund) skrivs in inställningsfilen och återställs nästa gång du spelar. </para>
+
+<para
+>Observera hur lätt det är att ändra tema. Klicka bara på knappen i den nedre verktygsraden. Att välja ett nytt ord, eller avsluta spelet görs också enkelt genom att klicka på motsvarande knappar i verktygsraderna. </para>
+
+<sect1 id="general-usage">
+<title
+>Allmän användning</title>
+
+<para
+>Ett ord väljes, och dess bokstäver visas med understrecksymboler (_). Du vet hur många bokstäver som finns i ordet. Du måste gissa vad ordet är genom att försöka med en bokstav i taget. Du skriver in bokstaven på tangentbordet eller väljer den med vänster musknapp. Om bokstaven hör till ordet ändras dess bakgrundsfärg till grön, annars till röd.</para>
+
+<para
+>Bokstavstangenterna i spelfönstret låter dig spela Hänga gubben på främmande språk utan att ändra tangentbordslayout.</para>
+
+<para
+>Ordet väljes slumpmässigt och är inte samma som föregående ord. </para>
+
+<important
+><para
+>Alla ord är substantiv (det finns inga verb eller adjektiv, etc.).</para
+></important>
+
+<para
+>Om du behöver hjälp att gissa ordet kan du klicka på ikonen <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Visa tips</guiicon
+> i verktygsraden. Då visas ett tips som ger dig några ledtrådar om ordet. Att klicka på ikonen igen gör att tipset döljs. </para>
+
+<para
+>Tips visas inte normalt. </para>
+
+<para
+>Oftast spelar det ingen roll om du skriver in små eller stora bokstäver. Programmet ändrar allt som skrivs in till stora bokstäver. Programmet gör detta automatiskt.</para>
+
+<para
+>Nuvarande kategori, samt vinster och förluster visas i fönstret. </para>
+
+<para
+>Varje gång du gissar en bokstav som inte finns i ordet, ritas ytterligare en del av den hängda gubben. Du har tio försök att gissa ordet. Därefter visas det riktiga svaret. </para>
+
+<para
+>Det finns flera ordkategorier tillgängliga, beroende på valt språk. Programmet letar efter alla datafiler på alla språk och använder dessutom ordfiler från &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Efter ett ord har gissats (eller gubben är hängd) gratuleras du och nästa ord visas. Klicka på ikonen <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Avsluta</guiicon
+> i den övre verktygsraden för att avsluta spelet. </para>
+
+<para
+>Du skriver in bokstaven som du vill prova på tangentbordet eller väljer den med vänster musknapp. Om bokstaven hör till ordet, markeras tangenten och bokstaven med grönt på alla ställen, så många gånger som den finns i ordet. Om bokstaven inte hör till ordet, markeras tangenten med rött. Du har tio försök, och därefter förlorar du, och det riktiga ordet visas. </para>
+
+<para
+>Under spelets gång kan du välja att starta ett nytt spel, genom att klicka på <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> i den nedre verktygsraden. Du kan också ändra ordkategori genom att klicka på aktuell kategori.</para>
+
+<para
+>Utseendet kan enkelt ändras med temaknappen i den övre verktygsraden.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Spela med olika språk</title>
+<para
+>Du kan spela Hänga gubben på många språk inklusive: brasiliansk portugisiska, bulgariska, danska, engelska (amerikansk och brittisk), finska, franska, holländska, iriska (gaeliska), italienska, katalanska, norska (bokmål och nynorska), polska, portugisiska, rumänska, ryska, serbiska (latinsk och kyrillisk), sloveniska, spanska, svenska, tadzjikiska, tjeckiska, turkiska, tyska och ungerska. Du kan till och med prova kinesiska om du installerar filer från &kanagram;. </para>
+
+<para
+>Normalt, efter den första installationen av Hänga gubben, är bara engelska och ditt &kde;-språk installerade, om det är ett av de ovanstående och om du har motsvarande kde-i18n paket. Om du till exempel är en svensk användare och har &kde; på svenska, ser du två alternativ under Språk: Engelska och Svenska, där Svenska är förvalt.</para>
+
+<para
+>Du kan ändå spela Hänga gubben på andra språk. Det är mycket lätt att lägga till ny data i Hänga gubben. Allt du behöver är en fungerade anslutning till Internet. Du klickar bara på <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>. En dialogruta visas, som liknar den här: </para>
+
+<screenshot>
+<screeninfo
+>Dialogrutan Hämta nya ord för Hänga gubben</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Dialogrutan Hämta nya ord för Hänga gubben</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Klicka på språknamnet som du vill installera, och därefter på knappen <guibutton
+>Installera</guibutton
+>. Om språket installeras med lyckat resultat, visas en grön bock framför språknamnet och knappen <guibutton
+>Installera</guibutton
+> ändras till <guibutton
+>Avinstallera</guibutton
+>. Data installeras omedelbart och är tillgängligt i Hänga gubben. Du klickar på knappen <guibutton
+>Stäng</guibutton
+> för att stänga dialogrutan Hämta nya ord (om du vill ha en annan datafil, får du upprepa stegen).</para>
+
+<para
+>Därefter kan du enkelt byta språk genom att klicka på språkknappen och välja det nya språket.</para>
+
+<para
+>Observera att specialtecken på ett språk visas på tangentbordet. Här kan du se knappar med en ikon för varje specialtecken på ett språk, som till exempel &eacute; på franska. Genom att klicka på en sådan knapp väljes motsvarande bokstav. Du kan förstås också använda tangentbordslayouten som motsvarar språket. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Några tips</title>
+<para
+>Försök gissa vokalerna först på svenska. Gör sedan ett försök med de vanligaste konsonanterna: l, t, r, n, s. </para>
+<para
+>På motsvarande sätt: När du ser <quote
+>io</quote
+>, försök då med n, för svenska, franska och engelska. </para>
+
+<para
+>Du måste antingen skriva in bokstäver med accent själv eller klicka å dem. När du skriver <quote
+>a</quote
+> visas bara <quote
+>a</quote
+>, och du måste exempelvis skriva &aring; för att den bokstaven ska visas. </para>
+<para
+>Visste du detta? På engelska är den vanligaste bokstaven e (12.7%), följd av t (9.1%) sedan a (8.2%), i (7.0%) och n (6.7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menyrad och verktygsrader</title>
+
+<sect1 id="mainwindow">
+<title
+>Hänga gubbens huvudfönster</title>
+
+<screenshot>
+<screeninfo
+>Ökentema i Hänga gubben</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Ökentema i Hänga gubben</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Här ser du Hänga gubben med ökentema, franska språket och kategorin <quote
+>Animaux</quote
+>. Specialtecknen för franska visas här.</para>
+
+<para
+>Spelet har sin huvudverktygsrad överst i fönstret:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> eller <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> börja eller sluta ett spel </member>
+<member
+>En knapp för att byta tema </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Öppna inställningsdialogrutan </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Om Hänga gubben </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Om &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Visa handboken för Hänga Gubben </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Ladda ner nya språkfiler från Internet </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Avsluta Hänga gubben </member>
+</simplelist>
+
+<para
+>Den nedre verktygsraden visas bara när ett spel pågår. Om spelet pausas döljs verktygsraden:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Visa ett tips om ordet att gissa </member>
+<member
+>En knapp för att byta kategori</member>
+<member
+>Språkval</member>
+<member
+>Knappen <guibutton
+>Avslöja ord</guibutton
+> för att avslöja ordet att gissa</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Läs in nästa ord och starta ett nytt spel </member>
+</simplelist>
+
+<para
+>Alla ord är substantiv. Inga verb och inga adjektiv. Den valda kategorin visas därefter i den nedre verktygsraden.</para>
+<para
+>Bara bokstäver tillåts skrivas in i textrutan.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Inställningar</title>
+
+<screenshot>
+<screeninfo
+>Hänga gubbens inställningar</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Hänga gubbens inställningar</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+><guilabel
+>Tid för att lösa ordet i sekunder</guilabel
+> ställer in den maximalt tillåtna tiden för att lösa ordet i Hänga gubben. Normalvärdet är 120 sekunder. Små barn behöver mer tid för att förstå spelet, medan vuxna kan minska lösningstiden för att göra spelet mer spännande. </para>
+
+<para
+><guilabel
+>Multiplikationsfaktor för poäng</guilabel
+> bestämmer faktorn som poängen multipliceras med. </para>
+
+<para
+>Om du markerar <guimenu
+>Ljud</guimenu
+>, spelas ett ljud när ett nytt spel startas och ett annat ljud när du vinner ett spel. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Utvecklingsguide till Hänga gubben</title>
+
+<sect1 id="changing-words">
+<title
+>Hur man översätter ord till ett nytt språk för spelet</title>
+
+<para
+>Följ proceduren och skicka därefter filerna som ett tar-arkiv komprimerat med gzip till <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+> e-postlistan kde-edu</ulink
+>. </para>
+<para
+>Ta en titt i Hänga gubben med <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> för att se om ditt språk redan är tillgängligt. Om det är det, kan du kontrollera om det innehåller <emphasis
+>tips</emphasis
+>. </para>
+<para
+>Orden i standardlistorna lagras i fyra olika filer, för att ge olika kategorier. Filerna finns i <filename class="directory"
+>/khangman/data/</filename
+>. Filen <filename
+>easy.kvtml</filename
+> är för den lätta kategorin, filen <filename
+>medium.kvtml</filename
+> är för den normala kategorin, filen <filename
+>animals.kvtml</filename
+> är för djurkategorin, och filen <filename
+>hard.kvtml</filename
+> är för den svåra kategorin.</para>
+<para
+>Engelska är förvalt och därför det enda språk som levereras med &khangman;. Data för alla övriga språk läggs i motsvarande katalog under modulen kde-l10n. </para>
+<procedure>
+<step>
+<para
+>Filerna använder kvtml-formatet. Taggen <sgmltag class="starttag"
+>text</sgmltag
+> är ordet, och taggen <sgmltag class="starttag"
+>comment</sgmltag
+> är tipset. Dessa finns inne i taggen <sgmltag class="starttag"
+>entry</sgmltag
+>. Försök att få tipset att stämma med svårighetsgraden. Kategorin 'Lätt' kräver ett enkelt tips, medan kategorin 'Svår' kräver definitionen från en ordlista. Försök att inte använda ord av samma typ i tipset, det gör det för lätt att gissa ordet!</para>
+
+<para
+>Observera att du måste använda <emphasis role="bold"
+>kodningen UTF-8</emphasis
+> när du redigerar filerna. Om din editor inte klarar det, försök använda &kwrite; eller &kate;. När du öppnar en fil i &kwrite; eller &kate;, kan du välja kodningen utf8 i kombinationsrutan längst upp till höger i dialogrutan för att öppna en fil.</para>
+
+<para
+>Ett exempel på en kvtml-fil är följande:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>Längst upp i filen ska du översätta innehållet i taggarna <sgmltag class="starttag"
+>title</sgmltag
+> och <sgmltag class="starttag"
+>comment</sgmltag
+> som finns under taggen <sgmltag class="starttag"
+>information</sgmltag
+>. Titeln är det som syns i menyn Kategori i spelet (där användaren väljer fil att spela med). </para>
+</step>
+<step>
+<para
+>Skriv därefter in din språkkod i taggen <sgmltag class="starttag"
+>identifier</sgmltag
+> istället för en under <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>Översätt inte själva filnamnet eftersom filnamn aldrig ska innehålla specialtecken. Spara därför din fil med samma engelska filnamn.</para>
+</step>
+<step>
+<para
+>Redigera kvtml-filerna med en texteditor (det är enklare om du använder &XML;-syntaxfärgläggning), och ersätt varje ord inne i taggen <sgmltag class="starttag"
+>text</sgmltag
+> med ett översatt ord och varje tips inne i <sgmltag class="starttag"
+>comment</sgmltag
+> med ett översatt tips. Det är inte särskilt viktigt att den exakta betydelsen bevaras, men försök att hålla längden och svårighetsnivån ungefär likadan. </para
+> 
+
+<para
+>Du kan inkludera ord med blanktecken eller '-', isåfall visas blanktecknet eller '-' istället för _. Kontakta <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>e-postlistan kde-edu</ulink
+> om det finns något särskilt att tänka på för ditt språk, så att koden kan anpassas till det (i synnerhet specialtecken och tecken med accent). </para>
+</step
+>	
+
+<step>
+<para
+>Du kan bara översätta orden, men du kan också anpassa dem enligt kategori och lägga till nya ord om du vill. Ordet <quote
+>bord</quote
+> finns i den lätta kategorin för svenska, men i ditt språk kan den vara i normalkategorin. Anpassa gärna filerna till behoven för ditt språk. Antalet ord i en fil är inte viktigt, du kan lägga till några om du vill.</para>
+
+<para
+>Kom ihåg att alla ord är substantiv.</para>
+
+</step>
+
+<step>
+<para
+>Därefter kan du checka in filerna i <emphasis
+>l10n-kf5/&lt;språkkod&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. Glöm inte att också uppdatera filen CMakeLists.txt. Kontakta <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>e-postlistan kde-edu</ulink
+> om du behöver ytterligare information. När du skickar filerna, glöm då inte att nämna eventuella <emphasis role="bold"
+>specialtecken</emphasis
+> som används av ditt språk (lägg dem i en textfil, ett tecken per rad och lägg till filen i det komprimerade arkivet), och nämn gärna om det finns något annat speciellt att tänka på.</para>
+<para
+><emphasis
+>Var snäll och arkivera aldrig filer i en gren, eftersom det kan göra att spelet slutar fungera.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Stort tack för ditt bidrag!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Vad som lagras av Hänga gubben och var det lagras</title>
+<para
+>När du hämtar ett nytt språk via ikonen <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Ladda ner nya språkfiler</guiicon
+>, lagras det nya språkets data i <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml</filename
+> under språkkodens katalog. Tillgängliga språknamn lagras också i Hänga gubbens konfigurationsfil i <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Leverantörsnamnet (dvs. adressen till webbplatsen där nya språk kan laddas ner) lagras i <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Det engelska språket (normalvärdet) och användarens språk från i18n-paketet (om tillgängligt) lagras i <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>I inställningsfilen, som lagras som <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+> hos varje användare, sparas alla spelinställningar, som bakgrunden, senast spelade kategori, ... samt filerna som laddats ner via dialogrutan <guilabel
+>Hämta heta nyheter</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Tack till och licens</title>
+
+<para
+>&khangman; </para>
+<para
+>Program copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>Bidragsgivare: <itemizedlist>
+<listitem
+><para
+>Hänga gubben grafik:Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Ljud: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Tidigare utvecklare: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Svenska datafiler, kodningshjälp, genomskinliga bilder och i18n-rättningar: Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Spanska datafiler: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Spanska datatips: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Danska datafiler: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Finska datafiler: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Brasiliansk portugisiska datafiler: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Katalanska datafiler: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Italienska datafiler: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Holländska datafiler: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Portugisiska datafiler: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Serbiska (kyrilliska och latinska) datafiler: Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Slovenska datafiler: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Tjeckiska datafiler: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Tadzjikiska datafiler: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Norska (bokmål) datafiler: Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Ungerska datafiler: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Norska (nynorska) datafiler: Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Turkiska datafiler: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Bulgariska datafiler: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Iriska (gaeliska) datafiler:  Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Kodningshjälp: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Kodningshjälp: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Kodrättningar: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Kodrättningar: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Studie av användbarhet: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Dokumentation copyright 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

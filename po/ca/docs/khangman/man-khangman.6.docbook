@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual d'usuari del &khangman;</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>Pàgina man del &khangman;.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>22 de desembre de 2020</date>
+<productname
+>Aplicacions 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>El clàssic joc del penjat creat per la comunitat KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Descripció</title>
+<para
+>El &khangman; és un joc basat en el conegut joc del penjat. Està dirigit a infants de 6 anys o més. Té diversos nivells de dificultat: Té diverses categories de paraules com Animals, Roba, Ordinadors, Monedes i molt més.</para
+><para
+>S'escull una paraula aleatòriament, les lletres resten ocultes i s'ha d'endevinar la paraula provant una lletra rere l'altra. Cada vegada que s'escriu una lletra errònia es va dibuixant la imatge del penjat. Haureu d'endevinar-la abans de quedar penjat! Disposareu de 10 intents.</para
+><para
+>Aquesta aplicació forma part del mòdul educatiu del &kde;.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Veure també</title>
+<para
+>Hi ha disponible documentació d'usuari més detallada des de <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (podeu emprar aquest &URL; al &konqueror; o bé executar <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>També hi ha més informació disponible al <ulink url="https://edu.kde.org/khangman/"
+>lloc web educatiu del &kde;</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autors</title>
+<para
+>&khangman; ha estat escrit per en <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> i &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Aquesta pàgina de manual està basada en una preparada per en <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> per al projecte &Debian;.</para>
+
+
+</refsect1>
+
+</refentry>

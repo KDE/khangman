@@ -1,0 +1,873 @@
+# translation of khangman.po to Icelandic
+# Copyright (C) 2003, 2004, 2009, 2010 Free Software Foundation, Inc.
+#
+# Pjetur G. Hjaltason <pjetur@pjetur.net>, 2003.
+# Arnar Leósson <leosson@frisurf.no>, 2003.
+# Björgvin Ragnarsson <nifgraup@hotmail.com>, 2004.
+# Sveinn í Felli <sveinki@nett.is>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2010-06-21 21:59+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+"\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+msgid "Notes Theme"
+msgstr "Blár bakgrunnur"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, fuzzy, kde-format
+msgid "Sea Theme"
+msgstr "Blár bakgrunnur"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, fuzzy, kde-format
+msgid "Winter Theme"
+msgstr "Blár bakgrunnur"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, fuzzy, kde-format
+msgid "Bee Theme"
+msgstr "Blár bakgrunnur"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, fuzzy, kde-format
+msgid "Desert Theme"
+msgstr "Blár bakgrunnur"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+
+#: khangman.cpp:150
+#, fuzzy, kde-format
+#| msgid ""
+#| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
+#| "Check your installation, please!"
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"Skráin $KDEDIR/share/apps/khangman/data/%1/%2 fannst ekki!\n"
+"Vinsamlegast athugaðu uppsetninguna!"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, fuzzy, kde-format
+msgid "Error"
+msgstr "Villa"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Ekkert"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, fuzzy, kde-format
+msgid "Level"
+msgstr "Styrkur"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, fuzzy, kde-format
+msgid "The language selected by the user"
+msgstr "Tungumálið valið af notandanum"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, fuzzy, kde-format
+#| msgid "Background theme"
+msgid "Background theme name"
+msgstr "Þema bakgrunns"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, fuzzy, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "Veldu þetta ef þú vilt ekki birta hvert eintak af sama stafnum"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, fuzzy, kde-format
+msgid "Enable Animations"
+msgstr "Virkja hljóð"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, fuzzy, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr ""
+"Ef þetta er valið verður hljóð spilað þegar nýr leikur hefst og þegar leikur "
+"er unninn."
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, kde-format
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "KHangMan"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+#| msgid "Classical hangman game for KDE"
+msgid "Classical hangman game by KDE"
+msgstr "Hinn klassíski hengimann-leikur fyrir KDE"
+
+#: main.cpp:63
+#, fuzzy, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "Primoz Anzur"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "Fyrri umsjónarmaður"
+
+#: main.cpp:69
+#, fuzzy, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "Anne-Marie Mahfouf"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, fuzzy, kde-format
+msgid "Stefan Böhmann"
+msgstr "Stefan Böhmann"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "Hjálp við kóðun"
+
+#: main.cpp:75
+#, fuzzy, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr ""
+"Sænskar gagnaskrár, hjálp við kóðun, gegnsæjar myndir og i18n leiðréttingar"
+
+#: main.cpp:78
+#, fuzzy, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "Spænskar gagnaskrár"
+
+#: main.cpp:80
+#, fuzzy, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "Erik Kjær Pedersenn"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "Danskar gagnaskrár"
+
+#: main.cpp:82
+#, fuzzy, kde-format
+msgid "Niko Lewman"
+msgstr "Niko Lewman"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "Finnskar gagnaskrár"
+
+#: main.cpp:84
+#, fuzzy, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "João Sebastião de Oliveira Bueno"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "Brasilískt Portúgalskar gagnaskrár"
+
+#: main.cpp:86
+#, fuzzy, kde-format
+msgid "Antoni Bella"
+msgstr "Antoni Bella"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "Katalónskar gagnaskrár"
+
+#: main.cpp:88
+#, fuzzy, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "Ítalskar gagnaskrár"
+
+#: main.cpp:90
+#, fuzzy, kde-format
+msgid "Rinse"
+msgstr "Rinse"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "Hollenskar gagnaskrár"
+
+#: main.cpp:92
+#, fuzzy, kde-format
+msgid "Lukáš Tinkl"
+msgstr "Lukáš Tinkl"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "Tékkneskar gagnaskrár"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "Ungverskar gagnaskrár"
+
+#: main.cpp:96
+#, fuzzy, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "Torger Åge Sinnes"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "Norskar (Bokmål) gagnaskrár"
+
+#: main.cpp:98
+#, fuzzy, kde-format
+msgid "Roger Kovacs"
+msgstr "Roger Kovacs"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "Tælenskar gagnaskrár"
+
+#: main.cpp:100
+#, fuzzy, kde-format
+msgid "Chusslove Illich"
+msgstr "Chusslove Illich"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "Serbneskar (kýrílskar og latneskar) gagnaskrár"
+
+#: main.cpp:102
+#, fuzzy, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "Slóvenskar gagnaskrár"
+
+#: main.cpp:104
+#, fuzzy, kde-format
+msgid "Pedro Morais"
+msgstr "Pedro Morais"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "Portúgalskar gagnaskrár"
+
+#: main.cpp:106
+#, fuzzy, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "Gaute Hvoslef Kvalnes"
+
+#: main.cpp:107
+#, fuzzy, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "Norskar (Bokmål) gagnaskrár"
+
+#: main.cpp:108
+#, fuzzy, kde-format
+msgid "Mehmet Özel"
+msgstr "Mehmet Özel"
+
+#: main.cpp:109
+#, fuzzy, kde-format
+msgid "Turkish data files"
+msgstr "Danskar gagnaskrár"
+
+#: main.cpp:110
+#, fuzzy, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, fuzzy, kde-format
+msgid "Russian data files"
+msgstr "Ungverskar gagnaskrár"
+
+#: main.cpp:112
+#, fuzzy, kde-format
+msgid "Radostin Radnev"
+msgstr "Radostin Radnev"
+
+#: main.cpp:113
+#, fuzzy, kde-format
+msgid "Bulgarian data files"
+msgstr "Ungverskar gagnaskrár"
+
+#: main.cpp:114
+#, fuzzy, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "Kevin Patrick Scannell"
+
+#: main.cpp:115
+#, fuzzy, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "Ítalskar gagnaskrár"
+
+#: main.cpp:116
+#, fuzzy, kde-format
+msgid "Matt Howe"
+msgstr "Matt Howe"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "Léttvægari hengimann-myndir"
+
+#: main.cpp:118
+#, fuzzy, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:120
+#, fuzzy, kde-format
+msgid "Robert Gogolok"
+msgstr "Robert Gogolok"
+
+#: main.cpp:122
+#, fuzzy, kde-format
+msgid "Lubos Lunàk"
+msgstr "Lubos Lunàk"
+
+#: main.cpp:124
+#, fuzzy, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: main.cpp:125
+#, fuzzy, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "Hjálp með kóða, lagaði margt"
+
+#: main.cpp:126
+#, fuzzy, kde-format
+msgid "Peter Hedlund"
+msgstr "Peter Hedlund"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "Kóði tila að búa til táknmyndir fyrir bókstafi tækjaslárinnar."
+
+#: main.cpp:128
+#, fuzzy, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: main.cpp:129
+#, fuzzy, kde-format
+msgid "Code cleaning"
+msgstr "Kóðahreinsun"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Pjetur G. Hjaltason,Arnar Leósson,Björgvin Ragnarsson"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "pjetur@pjetur.net,leosson@frisurf.no,nifgraup@hotmail.com"
+
+#: qml/GamePage.qml:157
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Choose the word category"
+msgstr "Veldu flokk"
+
+#: qml/GamePage.qml:178
+#, fuzzy, kde-format
+#| msgid "Choose the language"
+msgid "Select a language"
+msgstr "Veldu tungumál"
+
+#: qml/GamePage.qml:191
+#, fuzzy, kde-format
+msgid "Select a theme"
+msgstr "Blár bakgrunnur"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: qml/GamePage.qml:267
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the theme."
+msgstr "Veldu flokk"
+
+#: qml/GamePage.qml:278
+#, fuzzy, kde-format
+msgid "Settings"
+msgstr "&Stillingar"
+
+#: qml/GamePage.qml:297
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "About KHangMan"
+msgstr "KHangMan"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr ""
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr ""
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr ""
+
+#: qml/GamePage.qml:421
+#, fuzzy, kde-format
+#| msgid "Wins: %1"
+msgid "Wins: "
+msgstr "Vinningar: %1"
+
+#: qml/GamePage.qml:449
+#, fuzzy, kde-format
+#| msgid "Losses: %1"
+msgid "Losses: "
+msgstr "Töp: %1"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr ""
+
+#: qml/GamePage.qml:607
+#, fuzzy, kde-format
+#| msgid "Choose the category"
+msgid "Change the category."
+msgstr "Veldu flokk"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr ""
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Settings"
+msgstr "KHangMan"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "KHangMan"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "Hljóð"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Misses- "
+#~ msgstr "Geigaðir bókstafir:"
+
+#, fuzzy
+#~ msgid "Show the characters toolbar"
+#~ msgstr "Kóði tila að búa til táknmyndir fyrir bókstafi tækjaslárinnar."
+
+#, fuzzy
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "Portúgalskar gagnaskrár"
+
+#, fuzzy
+#~ msgid "Type accented &letters"
+#~ msgstr "Sláðu inn &broddstafi"
+
+#, fuzzy
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr "Í sumum tungumálum ef þetta er valið verður þú að skrifa"
+
+#, fuzzy
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "Ef þetta er <b>óvirkt</b> þá styður valið tungumál það ekki. Ef þetta er "
+#~ "<b>virkt</b>  og þú velur það, þá ættiru þú að slá inn --------"
+
+#, fuzzy
+#~ msgid "German"
+#~ msgstr "Þýska"
+
+#, fuzzy
+#~ msgid "Play in upper case letters"
+#~ msgstr "Spila í hástöfum"
+
+#, fuzzy
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr ""
+#~ "Ef þetta er valið verður hljóð spilað þegar nýr leikur hefst og þegar "
+#~ "leikur er unninn."
+
+#, fuzzy
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "Ef þú velur þennan kassa verður aðeins fyrsti stafurinn skrifaður ef "
+#~ "stafurinn finnst á mörgum stöðum í orðinu. Svo þegar þú endurvelur þennan "
+#~ "skiptir hann út öðru tilvikinu þar sem hann finnst í orðinu þangað til að "
+#~ "það eru engin fleiri eintök af stafnum.\n"
+#~ "\n"
+#~ "Sjálfgefið er að fyrir hvern skrifaðan staf er hann birtur á öllum stöðum "
+#~ "í orðinu."
+
+#, fuzzy
+#~ msgid "Enable animations"
+#~ msgstr "Virkja hljóð"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "Virkja vísbendingar víðvært"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "Ef þessi kassi er valinn færðu hljóð þegar hver nýr leikur hefst og þegar "
+#~ "þú vinnur leik. Ef hann er ekki valinn kemur ekkert hljóð í KHangMan.\n"
+#~ "Sjálfgefið er ekkert hljóð."
+
+#, fuzzy
+#~ msgid "Enable sounds"
+#~ msgstr "Virkja hljóð"
+
+#~ msgid "Play with a new word"
+#~ msgstr "Spila með nýju orði"
+
+#~ msgid "&Show Hint"
+#~ msgstr "&Sýna vísbendingar"
+
+#, fuzzy
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "&Sækja nýtt tungumál..."
+
+#~ msgid "&Category"
+#~ msgstr "&Flokkur"
+
+#, fuzzy
+#~ msgid "&Language"
+#~ msgstr "&Tungumál"
+
+#~ msgid "L&ook"
+#~ msgstr "Út&lit"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "Veldu útlit og áferð"
+
+#, fuzzy
+#~ msgid "General"
+#~ msgstr "Almennt"
+
+#, fuzzy
+#~ msgid "Languages"
+#~ msgstr "&Tungumál"
+
+#~ msgid "Timers"
+#~ msgstr "Stoppklukkur"
+
+#, fuzzy
+#~ msgid "Type accented letters"
+#~ msgstr "Sláðu inn broddstafi"
+
+#, fuzzy
+#~ msgid "&Game"
+#~ msgstr "&Leikur"
+
+#~ msgid "Main"
+#~ msgstr "Aðal"
+
+#~ msgid "Special Characters"
+#~ msgstr "Sérstafir"
+
+#, fuzzy
+#~ msgid "Look"
+#~ msgstr "Útlit"
+
+#~ msgid "Language"
+#~ msgstr "Tungumál"
+
+#, fuzzy
+#~ msgid "G&uess"
+#~ msgstr "Gis&ka"
+
+#, fuzzy
+#~ msgid "&Play again"
+#~ msgstr "S&pila aftur"
+
+#~ msgid "Hint"
+#~ msgstr "Vísbending"
+
+#, fuzzy
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "Þú tapaðir. Orðið var \"%1\"."
+
+#, fuzzy
+#~| msgid "Congratulations! You won! Do you want to play again?"
+#~ msgid "Congratulations! You won!"
+#~ msgstr "Til hamingju! Þú vannst! Viltu spila aftur?"
+
+#, fuzzy
+#~ msgid "This letter has already been guessed."
+#~ msgstr "Þú hefur þegar prófað þennan bókstaf."
+
+#, fuzzy
+#~ msgid "Current maintainer, author"
+#~ msgstr "Núverandi umsjónarmaður, höfundur"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 sekúnda"
+#~ msgstr[1] "%1 sekúndur"
+
+#, fuzzy
+#~ msgid "Tamas Szanto"
+#~ msgstr "Tamas Szanto"
+
+#, fuzzy
+#~| msgid ""
+#~| "File $KDEDIR/share/apps/khangman/%1.txt not found;\n"
+#~| "check your installation."
+#~ msgid ""
+#~ "File '%1' not found.\n"
+#~ "Please reinstall '%2'. Going back to English."
+#~ msgstr ""
+#~ "Skráin $KDEDIR/share/apps/khangman/%1.txt fannst ekki;\n"
+#~ "athugaðu uppsetninguna."

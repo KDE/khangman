@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Руководство пользователя &khangman;</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>Страница руководства (man) по &khangman;.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>22 декабря 2020 г.</date>
+<productname
+>Приложения KDE 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Классическая игра «Виселица» от KDE</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>Описание</title>
+<para
+>&khangman; &mdash; игра, основанная на известной игре «Виселица». Она рассчитана на детей в возрасте 6 лет и старше. В игру входит несколько наборов слов, среди них: «Животные», «Одежда», «Компьютеры», «Деньги» и другие.</para
+><para
+>Слова выбираются случайным образом, буквы закрыты: необходимо угадать слово, проверяя букву за буквой. Если буквы нет в слове, дорисовывается часть изображения виселицы. Слово нужно угадать до того, как виселица будет нарисована целиком! На угадывание слова даётся 10 попыток.</para
+><para
+>Данная программа — часть пакета &kde; «Образование».</para>
+</refsect1>
+
+<refsect1>
+<title
+>Смотрите также</title>
+<para
+>Более подробная документация доступна по адресу <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (введите этот &URL; в &konqueror;, или выполните команду <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>Дополнительная информация доступна на <ulink url="https://edu.kde.org/khangman/"
+>сайте образовательных программ &kde;</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Авторы</title>
+<para
+>Программа &khangman; написана <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> и &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>Данное руководство основано на странице для проекта &Debian;, написанной <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+>.</para>
+
+
+</refsect1>
+
+</refentry>

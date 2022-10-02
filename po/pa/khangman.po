@@ -1,0 +1,969 @@
+# translation of khangman.po to Punjabi
+#
+# A S Alam <aalam@users.sf.net>, 2007, 2011, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: khangman\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"PO-Revision-Date: 2019-02-10 10:27-0800\n"
+"Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:4
+#, fuzzy, kde-format
+#| msgid "Sea Theme"
+msgid "Notes Theme"
+msgstr "ਸਮੁੰਦਰ ਸਰੂਪ"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:20
+#, kde-format
+msgid "Sea Theme"
+msgstr "ਸਮੁੰਦਰ ਸਰੂਪ"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:36
+#, kde-format
+msgid "Winter Theme"
+msgstr "ਠੰਡ ਥੀਮ"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:52
+#, kde-format
+msgid "Bee Theme"
+msgstr "ਮੱਖੀ ਥੀਮ"
+
+#. i18n: tag theme attribute uiname
+#: ../themes/standardthemes.xml:68
+#, kde-format
+msgid "Desert Theme"
+msgstr "ਰੇਗਸਤਾਨ ਸਰੂਪ"
+
+#: data.i18n:2
+#, kde-format
+msgctxt "NOTE_TO_THE_TRANSLATORS"
+msgid ""
+"The translators have the opportunity to translate the\n"
+"words in the game.\n"
+"See the file README.languages in khangman's source directory\n"
+"for more information on how to do that.\n"
+"(translate this message as \"DONE\" when you have translated\n"
+"the words; otherwise leave it untranslated as a reminder)"
+msgstr ""
+"ਉਲੱਥਾਕਾਰਾਂ ਕੋਲ ਖੇਡ ਵਿੱਚ ਸ਼ਬਦਾਂ ਨੂੰ ਉਲੱਥਾ ਕਰਨ ਦਾ ਮੌਕਾ ਹੈ।\n"
+"ਕੇਹੈਂਗਮੈਨ ਦੀ ਸਰੋਤ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ README.languages ਫਾਇਲ ਨੂੰ\n"
+"ਇਸ ਸਭ ਕਰਨ ਲਈ ਹੋਰ ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ ਵੇਖੋ।\n"
+"(ਇਹ ਸੁਨੇਹੇ ਨੂੰ \"DONE\" ਲਿਖੋ, ਜਦੋਂ ਤੁਸੀਂ ਸ਼ਬਦਾਂ ਦਾ ਅਨੁਵਾਦ ਕਰ ਦਿੱਤਾ ਹੋਵੇ, ਬਾਕੀ\n"
+"ਉਸ ਵੇਲੇ ਤੱਕ ਇਸ ਨੂੰ ਖਾਲੀ ਰਹਿਣ ਦਿਉ, ਤਾਂ ਕਿ ਯਾਦ ਰਹੇ।)"
+
+#: khangman.cpp:150
+#, kde-format
+msgid ""
+"File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+"Please check your installation."
+msgstr ""
+"ਫਾਇਲ $KDEDIR/share/apps/kvtml/%1/%2 ਨਹੀਂ ਲੱਭੋ;\n"
+"ਆਪਣੀ ਇੰਸਟਾਲੇਸ਼ਨ ਚੈੱਕ ਕਰੋ।"
+
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#, kde-format
+msgid "Error"
+msgstr "ਗਲਤੀ"
+
+#: khangman.cpp:444
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "ਕੋਈ ਨਹੀਂ"
+
+#: khangman.cpp:461
+#, kde-format
+msgid "No theme files found."
+msgstr ""
+
+#: khangman.cpp:483
+#, kde-format
+msgid "No kvtml files found."
+msgstr ""
+
+#. i18n: ectx: label, entry (CurrentLevel), group (Language)
+#: khangman.kcfg:10
+#, kde-format
+msgid "Level"
+msgstr "ਪੱਧਰ"
+
+#. i18n: ectx: label, entry (SelectedLanguage), group (Language)
+#: khangman.kcfg:17
+#, kde-format
+msgid "The language selected by the user"
+msgstr "ਵਰਤੋਂਕਾਰ ਵਲੋਂ ਚੁਣੀ ਭਾਸ਼ਾ"
+
+#. i18n: ectx: label, entry (Theme), group (Look)
+#: khangman.kcfg:33
+#, kde-format
+msgid "Background theme name"
+msgstr "ਬੈਕਗਰਾਊਂਡ ਥੀਮ ਦਾ ਨਾਂ"
+
+#. i18n: ectx: label, entry (OneLetter), group (General)
+#: khangman.kcfg:40
+#, kde-format
+msgid ""
+"Check this if you do not want to discover each instance of the same letter."
+msgstr "ਜੇ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ ਤੁਸੀਂ ਉਸੇ ਅੱਖਰ ਲਈ ਹਰੇਕ ਮੌਕਾ ਨਹੀਂ ਲੱਭਣਾ ਚਾਹੋਗੇ।"
+
+#. i18n: ectx: label, entry (EnableAnimations), group (General)
+#: khangman.kcfg:44
+#, kde-format
+msgid "Enable Animations"
+msgstr "ਸਜੀਵਤਾ ਯੋਗ"
+
+#. i18n: ectx: label, entry (Sound), group (General)
+#: khangman.kcfg:48
+#, kde-format
+msgid "If checked, sounds will be played for New Game and Win Game"
+msgstr "ਜੇ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ ਸਾਊਂਡ ਨੂੰ ਨਵੇਂ ਖੇਡ ਅਤੇ ਖੇਡ ਜਿੱਤਣ ਦੌਰਾਨ ਚਲਾਇਆ ਜਾਵੇਗਾ"
+
+#. i18n: ectx: label, entry (Hint), group (General)
+#: khangman.kcfg:53
+#, fuzzy, kde-format
+#| msgid ""
+#| "If checked, hints will always been displayed. If this is not checked "
+#| "(default) \n"
+#| "            hints will be displayed only per word when the user chooses "
+#| "to show the hint."
+msgid ""
+"If checked, hints will always been displayed. If this is not checked "
+"(default)\n"
+"            hints will be displayed only per word when the user chooses to "
+"show the hint."
+msgstr ""
+"ਜੇ ਚੋਣ ਕੀਤੀ ਤਾਂ ਇਸ਼ਾਰਾ ਹਮੇਸ਼ਾਂ ਵੇਖਾਏ ਜਾਣਗੇ। ਜੇ ਨਾ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ (ਡਿਫਾਲਟ) ਤਾਂ\n"
+"      ਇਸ਼ਾਰੇ ਨੂੰ ਪ੍ਰਤੀ ਸ਼ਾਬਦ ਹੀ ਵੇਖਾਇਆ ਜਾਵੇਗਾ, ਜਦੋਂ ਯੂਜ਼ਰ ਇਸ਼ਾਰੇ ਲਈ ਮੰਗ ਕਰੇਗਾ।"
+
+#. i18n: ectx: label, entry (resolveTime), group (General)
+#: khangman.kcfg:57
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the word."
+msgstr ""
+
+#. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
+#: khangman.kcfg:64
+#, kde-format
+msgid "Type accented letters separately from normal letters"
+msgstr "ਪੁਰਾਤਨ ਅੱਖਰ ਆਮ ਅੱਖਰ ਤੋਂ ਵੱਖਰੇ ਰੂਪ ਵਿੱਚ ਲਿਖੋ"
+
+#. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
+#: khangman.kcfg:71
+#, kde-format
+msgid "The Providers path for KHangMan"
+msgstr "ਕੇਹੈਂਗਮੈਂਨ ਲਈ ਪਰੋਵਾਇਡਰ ਪਾਥ"
+
+#: main.cpp:59
+#, kde-format
+msgid "KHangMan"
+msgstr "ਕੇਹੈਂਗਮੈਨ"
+
+#: main.cpp:61
+#, kde-format
+msgid "Classical hangman game by KDE"
+msgstr "ਕੇਡੀਈ ਲਈ ਕਲਾਸਿਕ ਹੈਂਗਮੈਨ ਖੇਡ"
+
+#: main.cpp:63
+#, kde-format
+msgid "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+
+#: main.cpp:64
+#, kde-format
+msgid "Primoz Anzur"
+msgstr "ਪ੍ਰੀਮੋਜ਼ ਅੰਜੁਰ"
+
+#: main.cpp:64
+#, kde-format
+msgid "Previous maintainer"
+msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
+
+#: main.cpp:69
+#, kde-format
+msgid "Anne-Marie Mahfouf"
+msgstr "ਅੱਨੇ-ਮਾਰੀੇ ਮਾਹਫੋਫ"
+
+#: main.cpp:69
+#, kde-format
+msgid "Original Author"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Rahul Chowdhury"
+msgstr ""
+
+#: main.cpp:71
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: main.cpp:73
+#, kde-format
+msgid "Stefan Böhmann"
+msgstr "ਸਟੀਫਨ ਬੋਹਮਨ"
+
+#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#, kde-format
+msgid "Coding help"
+msgstr "ਕੋਡ ਲਿਖਣ ਲਈ ਮਦਦ"
+
+#: main.cpp:75
+#, kde-format
+msgid "Stefan Asserhäll"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:76
+#, kde-format
+msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
+msgstr "ਸਵੀਡਿਸ਼ ਡਾਟਾ ਫਾਇਲਾਂ, ਕੋਡ ਲਿਖਣ ਲਈ ਮਦਦ, ਟਰਾਂਸਪੇਰੇਂਟ ਤਸਵੀਰਾਂ ਅਤੇ i18n ਫਿਕਸ"
+
+#: main.cpp:78
+#, kde-format
+msgid "eXParTaKus"
+msgstr "eXParTaKus"
+
+#: main.cpp:79
+#, kde-format
+msgid "Spanish data files"
+msgstr "ਸਪੇਨੀ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:80
+#, kde-format
+msgid "Erik Kjær Pedersenn"
+msgstr "ਇਰਿਕ ਕਜੋਰ ਪੀਡਰਸਨ"
+
+#: main.cpp:81
+#, kde-format
+msgid "Danish data files"
+msgstr "ਡੈਨਿਸ਼ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:82
+#, kde-format
+msgid "Niko Lewman"
+msgstr "ਨੀਕੋ ਲਾਅਮਨ"
+
+#: main.cpp:83
+#, kde-format
+msgid "Finnish data files"
+msgstr "ਪਲੇਨ ਡਾਟਾ ਫਾਇਲਾਂ ਵੇਖੋ"
+
+#: main.cpp:84
+#, kde-format
+msgid "João Sebastião de Oliveira Bueno"
+msgstr "ਜਾਓ ਸਿਬਾਸਟੀਓ ਡੀ ਓਲਿਵੀਰਾ ਬਾਉਨੋ"
+
+#: main.cpp:85
+#, kde-format
+msgid "Brazilian Portuguese data files"
+msgstr "ਬਰਾਜ਼ੀਲੀ ਪੁਰਤਗਾਲੀ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:86
+#, kde-format
+msgid "Antoni Bella"
+msgstr "ਅਨਟੋਨੀ ਬਿਲਾ"
+
+#: main.cpp:87
+#, kde-format
+msgid "Catalan data files"
+msgstr "ਕਾਟਾਲਾਨ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:88
+#, kde-format
+msgid "Giovanni Venturi"
+msgstr "Giovanni Venturi"
+
+#: main.cpp:89
+#, kde-format
+msgid "Italian data files"
+msgstr "ਇਤਾਲਵੀ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:90
+#, kde-format
+msgid "Rinse"
+msgstr "ਰਿੰਜ਼"
+
+#: main.cpp:91
+#, kde-format
+msgid "Dutch data files"
+msgstr "ਡੱਚ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:92
+#, kde-format
+msgid "Lukáš Tinkl"
+msgstr "ਲੁਕੇਸ ਟਿੰਕਲ"
+
+#: main.cpp:93
+#, kde-format
+msgid "Czech data files"
+msgstr "ਚੈੱਕ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:94
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr ""
+
+#: main.cpp:95
+#, kde-format
+msgid "Hungarian data files"
+msgstr "ਹੰਗਰੀਆਈ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:96
+#, kde-format
+msgid "Torger Åge Sinnes"
+msgstr "ਟਾਰਗੇ ਅਗੇ ਸਿੱਨਸ"
+
+#: main.cpp:97
+#, kde-format
+msgid "Norwegian (Bokmål) data files"
+msgstr "ਨਾਰਵੇਗੀਆਈ (ਬੋਕਮਾਕ) ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:98
+#, kde-format
+msgid "Roger Kovacs"
+msgstr "ਰੋਜ਼ਰ ਕੋਵਿਸ"
+
+#: main.cpp:99
+#, kde-format
+msgid "Tajik data files"
+msgstr "ਤਜ਼ਾਕ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:100
+#, kde-format
+msgid "Chusslove Illich"
+msgstr "ਚੁੱਲਵ ਇਲਚ"
+
+#: main.cpp:101
+#, kde-format
+msgid "Serbian (Cyrillic and Latin) data files"
+msgstr "ਸਰਬੀਆਈ (ਸਿਰਲਿਕ ਅਤੇ ਲੈਟਿਨ) ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:102
+#, kde-format
+msgid "Jure Repinc"
+msgstr "ਜੁਰੀ ਰਿਪਿਨਕ"
+
+#: main.cpp:103
+#, kde-format
+msgid "Slovenian data files"
+msgstr "ਸਲੋਵੇਨੀਆਈ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:104
+#, kde-format
+msgid "Pedro Morais"
+msgstr "ਪਿਡਰੋ ਮੋਰਿਸ"
+
+#: main.cpp:105
+#, kde-format
+msgid "Portuguese data files"
+msgstr "ਪੁਰਤਗਾਲੀ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:106
+#, kde-format
+msgid "Gaute Hvoslef Kvalnes"
+msgstr "ਗਾਉਟੇ ਹਵਸਲਫ ਕਵਾਲਨਿਸ"
+
+#: main.cpp:107
+#, kde-format
+msgid "Norwegian (Nynorsk) data files"
+msgstr "ਨਾਰਵੇਗੀਆਈ (ਨਿਉਨੋਰਸਕ) ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:108
+#, kde-format
+msgid "Mehmet Özel"
+msgstr "ਮੇਹਮੇਂਟ ਓਜ਼ੇਲ"
+
+#: main.cpp:109
+#, kde-format
+msgid "Turkish data files"
+msgstr "ਤੁਰਕ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:110
+#, kde-format
+msgid "Черепанов Андрей"
+msgstr "Черепанов Андрей"
+
+#: main.cpp:111
+#, kde-format
+msgid "Russian data files"
+msgstr "ਰੂਸੀ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:112
+#, kde-format
+msgid "Radostin Radnev"
+msgstr "ਰਡੋਸਟਿਨ ਰਾਡਨੇਵ"
+
+#: main.cpp:113
+#, kde-format
+msgid "Bulgarian data files"
+msgstr "ਬੁਲਗਾਰੀਆਈ ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:114
+#, kde-format
+msgid "Kevin Patrick Scannell"
+msgstr "ਕੇਵਿਨ ਪਟਰਿਕ ਸਕੇਨੇਲ"
+
+#: main.cpp:115
+#, kde-format
+msgid "Irish (Gaelic) data files"
+msgstr "ਆਈਰਿਸ਼ (ਗਾਈਲਿਕ) ਡਾਟਾ ਫਾਇਲਾਂ"
+
+#: main.cpp:116
+#, kde-format
+msgid "Matt Howe"
+msgstr "ਮੱਟ ਹੋਵੇ"
+
+#: main.cpp:117
+#, kde-format
+msgid "Softer Hangman Pictures"
+msgstr "ਸਾਫਟਰ ਹੈਂਗਮੈਨ ਤਸਵੀਰਾਂ"
+
+#: main.cpp:118
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin C Meyer"
+
+#: main.cpp:120
+#, kde-format
+msgid "Robert Gogolok"
+msgstr "ਰੋਬਰਟ ਗੋਗੋਲੋਕ"
+
+#: main.cpp:122
+#, kde-format
+msgid "Lubos Lunàk"
+msgstr "ਲੁਬੋਸ ਲੁਨਿਕ"
+
+#: main.cpp:124
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "ਅਲਬਰਟ ਅਸਟਾਲਸ ਸਿਡ"
+
+#: main.cpp:125
+#, kde-format
+msgid "Coding help, fixed a lot of things"
+msgstr "ਕੋਡ ਲਿਖਣ ਲਈ ਮਦਦ, ਕਈ ਬੱਗ ਠੀਕ ਕੀਤੇ"
+
+#: main.cpp:126
+#, kde-format
+msgid "Peter Hedlund"
+msgstr "ਪੀਟਰ ਹਿਡਲੁੰਡ"
+
+#: main.cpp:127
+#, kde-format
+msgid "Code for generating icons for the characters toolbar"
+msgstr "ਖਾਸ ਅੱਖਰ ਟੂਲਬਾਰ ਲਈ ਆਈਕਾਨ ਬਣਾਉਣ ਲਈ ਕੋਡ"
+
+#: main.cpp:128
+#, kde-format
+msgid "Inge Wallin"
+msgstr "ਇਗੇ ਵਾਲਿਨ"
+
+#: main.cpp:129
+#, kde-format
+msgid "Code cleaning"
+msgstr "ਕੋਡ ਸੁਧਾਈ"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#: main.cpp:130
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: qml/GamePage.qml:157
+#, kde-format
+msgid "Choose the word category"
+msgstr "ਸ਼ਬਦ ਦੀ ਕੈਟਾਗਰੀ ਚੁਣੋ"
+
+#: qml/GamePage.qml:178
+#, kde-format
+msgid "Select a language"
+msgstr "ਭਾਸ਼ਾ ਚੁਣੋ"
+
+#: qml/GamePage.qml:191
+#, kde-format
+msgid "Select a theme"
+msgstr "ਥੀਮ ਚੁਣੋ"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Pause"
+msgstr "ਵਿਰਾਮ"
+
+#: qml/GamePage.qml:244
+#, kde-format
+msgid "Play"
+msgstr "ਖੇਡੋ"
+
+#: qml/GamePage.qml:267
+#, kde-format
+msgid "Change the theme."
+msgstr "ਥੀਮ ਬਦਲੋ।"
+
+#: qml/GamePage.qml:278
+#, kde-format
+msgid "Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: qml/GamePage.qml:297
+#, kde-format
+msgid "About KHangMan"
+msgstr "ਕੇਹੈਂਗਮੈਨ ਬਾਰੇ"
+
+#: qml/GamePage.qml:308
+#, kde-format
+msgid "About KDE"
+msgstr "ਕੇਡੀਈ ਬਾਰੇ"
+
+#: qml/GamePage.qml:319
+#, kde-format
+msgid "View the KHangMan Handbook"
+msgstr ""
+
+#: qml/GamePage.qml:330
+#, kde-format
+msgid "Download new language files"
+msgstr "ਨਵੀਆਂ ਭਾਸ਼ਾਵਾਂ ਫਾਇਲਾ ਡਾਊਨਲੋਡ ਕਰੋ"
+
+#: qml/GamePage.qml:341
+#, kde-format
+msgid "Quit"
+msgstr "ਬਾਹਰ ਜਾਓ"
+
+#: qml/GamePage.qml:362
+#, kde-format
+msgid "Remaining guesses: "
+msgstr "ਬਾਕੀ ਰਹਿੰਦੇ ਅੰਦਾਜ਼ੇ:"
+
+#: qml/GamePage.qml:387
+#, kde-format
+msgid "Score: "
+msgstr "ਸਕੋਰ:"
+
+#: qml/GamePage.qml:421
+#, kde-format
+msgid "Wins: "
+msgstr "ਜਿੱਤੇ:"
+
+#: qml/GamePage.qml:449
+#, kde-format
+msgid "Losses: "
+msgstr "ਹਾਰੇ:"
+
+#: qml/GamePage.qml:594
+#, kde-format
+msgid "Display the hint."
+msgstr "ਟੋਟਕਾ ਦਿਖਾਓ।"
+
+#: qml/GamePage.qml:607
+#, kde-format
+msgid "Change the category."
+msgstr "ਕੈਟਾਗਰੀ ਬਦਲੋ।"
+
+#: qml/GamePage.qml:618
+#, kde-format
+msgid "Change the language."
+msgstr "ਭਾਸ਼ਾ ਬਦਲਓ।"
+
+#: qml/GamePage.qml:628
+#, kde-format
+msgid "Reveal Word"
+msgstr ""
+
+#: qml/GamePage.qml:629
+#, kde-format
+msgid "Reveal the current word."
+msgstr ""
+
+#: qml/GamePage.qml:653
+#, kde-format
+msgid "Load the next word and start a new game."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#, kde-format
+msgid "KHangMan Settings"
+msgstr "ਕੇਹੈਂਗਮੈਨ ਸੈਟਿੰਗਾਂ"
+
+#: qml/MainSettingsDialog.qml:46
+#, kde-format
+msgid "KHangMan word resolve time"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:47
+#, kde-format
+msgid "Maximum allowed time for resolving the word in KHangMan"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:54
+#, kde-format
+msgid "Hint show duration"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:55
+#, kde-format
+msgid "The duration for showing the hint for the actual word"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "KHangMan"
+msgid "KHangMan Score Multiplying Factor"
+msgstr "ਕੇਹੈਂਗਮੈਨ"
+
+#: qml/MainSettingsDialog.qml:62
+#, kde-format
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
+#, kde-format
+msgid "Sounds"
+msgstr "ਧੁਨੀਆਂ"
+
+#: qml/MainSettingsDialog.qml:70
+#, kde-format
+msgid "Turn all the sounds on or off inside the game"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:119
+#, kde-format
+msgid "Word resolve time in seconds"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:162
+#, kde-format
+msgid "Score Multiplying Factor"
+msgstr ""
+
+#: qml/MainSettingsDialog.qml:246
+#, kde-format
+msgid "OK"
+msgstr "ਠੀਕ ਹੈ"
+
+#: qml/MainSettingsDialog.qml:280
+#, kde-format
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#~ msgid "Notes"
+#~ msgstr "ਨੋਟਿਸ"
+
+#, fuzzy
+#~| msgid "Misses"
+#~ msgid "Misses- "
+#~ msgstr "ਗਲਤ"
+
+#~ msgid "Show the characters toolbar"
+#~ msgstr "ਅੱਖਰ ਟੂਲਬਾਰ ਵੇਖਾਓ"
+
+#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
+#~ msgstr "\"ਪਹਿਲਾਂ ਹੀ ਅੰਦਾਜ਼ਾ ਲਗਾਇਆ\" ਟੂਲ-ਟਿੱਪ ਵੇਖਾਉਣ ਦਾ ਸਮਾਂ ਅੰਤਰਾਲ ਹੈ।"
+
+#~ msgid "Spanish, Portuguese, Catalan"
+#~ msgstr "ਸਪੇਨੀ, ਪੁਰਤਗਾਲੀ, ਕਾਟਾਲਾਨ"
+
+#~ msgid "Type accented &letters"
+#~ msgstr "ਪੁਰਾਤਨ ਅੱਖਰ ਲਿਖੋ(&l)"
+
+#~ msgid ""
+#~ "If this is checked, you have to type accented letters yourself (i.e. they "
+#~ "are differentiated from the corresponding unaccented letter)."
+#~ msgstr ""
+#~ "ਜੇ ਇਹ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁਰਾਤਨ ਅੱਖਰ ਖੁਦ ਲਿਖਣੇ ਪੈਣਗੇ (ਜਿਵੇਂ ਉਹ ਸਬੰਧਿਤ ਨਾ-ਪੁਰਾਤਨ ਅੱਖਰਾਂ "
+#~ "ਤੋਂ ਵੱਖਰੇ ਹਨ)।"
+
+#~ msgid ""
+#~ "If this is <b>disabled</b>, the selected language does not support it. If "
+#~ "this is <b>enabled</b> and if you check it, then you should type accented "
+#~ "letters on their own. If it is not checked, accented letters will be "
+#~ "displayed with normal letters (default).<br>\n"
+#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
+#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
+#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
+#~ "have to type \"ò\" for this letter to be displayed."
+#~ msgstr ""
+#~ "ਜੇ ਇਹ <b>ਬੰਦ ਹੈ</b>, ਤਾਂ ਚੁਣੀ ਭਾਸ਼ਾ ਇਸ ਲਈ ਸਹਿਯੋਗੀ ਨਹੀਂ ਹੈ। ਜੇ ਇਹ <b>ਚਾਲੂ ਹੈ</b> ਅਤੇ "
+#~ "ਤੁਸੀਂ ਇਹ ਚੁਣਿਆ ਹੈ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁਰਾਤਨ ਅੱਖਰ ਖੁਦ ਲਿਖਣੇ ਪੈਣਗੇ। ਜੇ ਇਹ ਚੋਣ ਨਾ ਕੀਤੀ ਤਾਂ, ਪੁਰਾਣੇ ਅੱਖਰ "
+#~ "ਆਮ ਅੱਖਰਾਂ ਨਾਲ ਵੇਖਾਏ ਜਾਣਗੇ (ਮੂਲ)।<br>\n"
+#~ "ਜਿਵੇਂ, ਕਟਾਲਾਨ ਵਿੱਚ, ਜੇ ਤੁਸੀਂ ਇਹ ਚੋਣ ਨਹੀਂ ਕਰਦੇ ਅਤੇ ਤੁਸੀਂ \"o\" ਲਿਖਦੇ ਹੋ ਤਾਂ o ਅਤੇ ò ਨੂੰ ਸ਼ਬਦ "
+#~ "<b>xenofòbia</b> ਵਿੱਚ ਵੇਖਾਇਆ ਜਾਵੇਗਾ। ਜੇ ਇਹ ਚੋਣ ਕੀਤੀ ਤਾਂ ਜਦੋਂ ਤੁਸੀਂ \"o\" ਲਿਖੋਗੇ ਤਾਂ "
+#~ "ਕੇਵਲ \"o\" ਹੀ ਵੇਖਾਈ ਜਾਵੇਗੀ ਅਤੇ ਤੁਹਾਨੂੰ ਇਸ ਅੱਖਰ ਵੇਖਾਉਣ ਲਈ \"ò\" ਖੁਦ ਲਿਖਣੀ ਪਵੇਗੀ।"
+
+#~ msgid "German"
+#~ msgstr "ਜਰਮਨ"
+
+#~ msgid "Play in upper case letters"
+#~ msgstr "ਵੱਡੇ ਅੱਖਰਾਂ ਨਾਲ ਖੇਡੋ"
+
+#~ msgid "If checked, the word will be displayed all in upper case letters"
+#~ msgstr "ਜੇ ਇਹ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ ਸਭ ਅੱਖਰ ਵੱਡੇ ਅੱਖਰਾਂ ਵਿੱਚ ਹੀ ਵੇਖਾਏ ਜਾਣਗੇ।"
+
+#~ msgid ""
+#~ "If this is checked, the word will be displayed in upper case letters, "
+#~ "even if you enter them in lower case. If this is unchecked (default), the "
+#~ "word will be in lower case.<br>\n"
+#~ "This setting is currently only available for the German language."
+#~ msgstr ""
+#~ "ਜੇ ਇਹ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ, ਸ਼ਬਦਾਂ ਨੂੰ ਅੱਖਰ ਅੱਖਰਾਂ ਵਿੱਚ ਹੀ ਵੇਖਾਇਆ ਜਾਵੇਗਾ, ਭਾਵੇਂ ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਛੋਟੇ "
+#~ "(ਅੰਗਰੇਜ਼ੀ ਦੇ) ਅੱਖਰਾਂ ਵਿੱਚ ਲਿਖੋ। ਜੇ ਇਹ ਚੋਣ ਨਾ ਕੀਤੀ ਗਈ (ਮੂਲ ਰੂਪ ਵਿੱਚ), ਤਾਂ ਸ਼ਬਦ ਛੋਟੇ ਰੂਪ ਵਿੱਚ "
+#~ "ਵੀ ਵੇਖਾਏ ਜਾਣਗੇ।<br>\n"
+#~ "ਇਹ ਸੈਟਿੰਗ ਕੇਵਲ ਜਰਮਨ ਭਾਸ਼ਾ ਲਈ ਹੀ ਉਪਲੱਬਧ ਹੈ।"
+
+#~ msgid "Here you can choose settings for all languages."
+#~ msgstr "ਇੱਥੇ ਤੁਸੀਂ ਸਭ ਭਾਸ਼ਾਵਾਂ ਲਈ ਸੈਟਿੰਗ ਚੁਣ ਸਕਦੇ ਹੋ।"
+
+#~ msgid ""
+#~ "If you check this box, only the first letter will be written if the "
+#~ "letter is found in several places in the word. Then you have to rechoose "
+#~ "the same letter, to replace the second instance in the word until there "
+#~ "are no more instances of this letter.\n"
+#~ "For example, the word to guess is \"potato\". If this option is "
+#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
+#~ "will be discovered at the same time. If this is checked, you will need to "
+#~ "try \"o\" twice.\n"
+#~ "\n"
+#~ "Default is that for one letter typed, all instances of that letter in the "
+#~ "word are discovered."
+#~ msgstr ""
+#~ "ਜੇ ਤੁਸੀਂ ਇਹ ਬਕਸਾ ਚੁਣਿਆ ਤਾਂ, ਕੇਵਲ ਪਹਿਲਾਂ ਹੀ ਅੱਖਰ ਵੇਖਾਇਆ ਜਾਵੇਗਾ, ਜਦੋਂ ਸ਼ਬਦ ਵਿੱਚ ਕਈ ਥਾਵਾਂ "
+#~ "ਉੱਤੇ ਆਉਂਦਾ ਹੋਵੇਗਾ। ਤਦ ਤੁਹਾਨੂੰ ਸ਼ਬਦ ਵਿੱਚ ਦੂਜੇ ਥਾਂ ਉੱਤੇ ਇਹੀ ਅੱਖਰ ਆਉਣ ਦੀ ਸਥਿਤੀ ਵਿੱਚ ਇਹ ਅੱਖਰ ਫੇਰ "
+#~ "ਚੁਣਨਾ ਪਵੇਗਾ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹ ਅੱਖਰ ਦੀ ਮੌਜੂਦ ਪੂਰੀ ਨਹੀਂ ਹੋ ਜਾਂਦੀ।\n"
+#~ "ਜਿਵੇਂ ਅੰਦਾਜ਼ਾ ਲਗਾਉਣ ਲਈ ਅੱਖਰ ਹੈ \"potato\"। ਜੇ ਇਹ ਚੋਣ ਨਾ ਕੀਤੀ ਹੋਈ ਹੋਵੇ ਤਾਂ  ਜਦੋਂ ਤੁਸੀਂ \"o"
+#~ "\" ਨਾਲ ਲਿਖਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋਗੇ ਤਾਂ ਸ਼ਬਦ ਵਿੱਚ \"o\" ਦੀਆਂ ਦੋ ਮੌਜੂਦਗੀਆਂ ਇੱਕ ਸਮੇਂ ਵੇਖਾਈਆਂ ਜਾਣਗੀਆਂ। "
+#~ "ਜੇ ਚੋਣ ਕੀਤੀ ਹੋਈ ਹੋਵੇਗੀ ਤਾਂ ਤੁਹਾਨੂੰ \"o\" ਨਾਲ ਦੋ ਵਾਰ ਕੋਸ਼ਿਸ਼ ਕਰਨੀ ਪਵੇਗੀ।\n"
+#~ "\n"
+#~ "ਮੂਲ ਰੂਪ ਵਿੱਚ ਇੱਕ ਅੱਖਰ ਲਿਖਣ ਨਾਲ ਸ਼ਬਦ ਵਿੱਚ ਉਸ ਅੱਖਰ ਦੀਆਂ ਸਭ ਮੌਜੂਦਗੀਆਂ ਲੱਭੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।"
+
+#~ msgid "Require more guesses for duplicate letters"
+#~ msgstr "ਦੁਹਰਾਏ ਅੱਖਰਾਂ ਲਈ ਹੋਰ ਅੰਦਾਜ਼ੇ ਦੀ ਲੋੜ ਹੈ"
+
+#~ msgid "Enable animations"
+#~ msgstr "ਐਨੀਮੇਸ਼ਨ ਚਾਲੂ"
+
+#~ msgid "Enable hints globally"
+#~ msgstr "ਇਸ਼ਾਰੇ ਗਲੋਬਲੀ ਚਾਲੂ ਕਰੋ"
+
+#~ msgid ""
+#~ "If this box is checked, you will have some sounds played for each new "
+#~ "game and when you win a game. If this is not checked, there will be no "
+#~ "sound in KHangMan.\n"
+#~ "Default is no sound."
+#~ msgstr ""
+#~ "ਜੇ ਇਹ ਬਕਸੇ ਦੀ ਚੋਣ ਕੀਤੀ ਗਈ ਤਾਂ ਹਰ ਨਵੀਂ ਖੇਡ ਲਈ ਅਤੇ ਜਦੋਂ ਤੁਸੀਂ ਖੇਡ ਜਿੱਤ ਗਏ ਤਾਂ ਕੁਝ ਆਵਾਜ਼ਾਂ "
+#~ "ਚਲਾਈਆਂ ਜਾਣਗੀਆਂ। ਜੇ ਇਹ ਚੋਣ ਨਾ ਕੀਤੀ ਗਈ ਤਾਂ, ਕੇਹੈਂਗਮੈਂ ਲਈ ਕੋਈ ਵੀ ਆਵਾਜ਼ ਨਹੀਂ ਆਵੇਗੀ।\n"
+#~ "ਮੂਲ ਰੂਪ ਵਿੱਚ ਕੋਈ ਆਵਾਜ਼ ਨਹੀਂ ਹੈ।"
+
+#~ msgid "Enable sounds"
+#~ msgstr "ਆਵਾਜ਼ਾਂ ਯੋਗ ਕਰੋ"
+
+#~ msgid "Play with a new word"
+#~ msgstr "ਇੱਕ ਨਵੇਂ ਸ਼ਬਦ ਨਾਲ ਖੇਡੋ"
+
+#~ msgid "Opens an existing vocabulary document"
+#~ msgstr "ਮੌਜੂਦਾ ਸ਼ਬਦਕੋਸ਼ ਡੌਕੂਮੈਂਟ ਖੋਲ੍ਹੋ"
+
+#~ msgid "&Show Hint"
+#~ msgstr "ਇਸ਼ਾਰੇ ਵੇਖਾਓ(&S)"
+
+#~ msgid "Show/Hide the hint to help guessing the word"
+#~ msgstr "ਸ਼ਬਦ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਉਣ ਲਈ ਇਸ਼ਾਰਾ ਵੇਖਾਓ/ਓਹਲੇ ਕਰੋ"
+
+#~ msgid "&Get Words in New Language..."
+#~ msgstr "ਨਵੀਂ ਭਾਸ਼ਾ ਲਈ ਸ਼ਬਦ ਲਵੋ(&G)..."
+
+#~ msgid "&Category"
+#~ msgstr "ਕੈਟਾਗਰੀ(&C)"
+
+#~ msgid "Choose the category of words"
+#~ msgstr "ਸ਼ਬਦਾਂ ਦਾ ਵਰਗ ਚੁਣੋ"
+
+#~ msgid "&Language"
+#~ msgstr "ਭਾਸ਼ਾ(&L)"
+
+#~ msgid "L&ook"
+#~ msgstr "ਦਿੱਖ(&o)"
+
+#~ msgid "Choose the look and feel"
+#~ msgstr "ਦਿੱਖ ਅਤੇ ਮਹਿਸੂਸ ਚੁਣੋ"
+
+#~ msgid "General"
+#~ msgstr "ਸਧਾਰਨ"
+
+#~ msgid "Languages"
+#~ msgstr "ਭਾਸ਼ਾਵਾਂ"
+
+#~ msgid "Timers"
+#~ msgstr "ਟਾਇਮਰ"
+
+#~ msgid "Type accented letters"
+#~ msgstr "ਪੁਰਾਤਨ ਅੱਖਰ ਲਿਖੋ"
+
+#~ msgid "Open Vocabulary Document"
+#~ msgstr "ਸ਼ਬਦਕੋਸ਼ ਡੌਕੂਮੈਂਟ ਖੋਲ੍ਹੋ"
+
+#~ msgid "&Game"
+#~ msgstr "ਖੇਡ(&G)"
+
+#~ msgid "Main"
+#~ msgstr "ਮੁੱਖ"
+
+#~ msgid "Special Characters"
+#~ msgstr "ਖਾਸ ਅੱਖਰ"
+
+#~ msgid "Look"
+#~ msgstr "ਦਿੱਖ"
+
+#~ msgid "Language"
+#~ msgstr "ਭਾਸ਼ਾ"
+
+#~ msgid "G&uess"
+#~ msgstr "ਅੰਦਾਜ਼ਾ(&U)"
+
+#~ msgid "&Play again"
+#~ msgstr "ਮੁੜ ਖੇਡੋ(&P)"
+
+#~ msgid "Hint"
+#~ msgstr "ਇਸ਼ਾਰਾ"
+
+#~ msgid "You lost. The word was \"%1\"."
+#~ msgstr "ਤੁਸੀਂ ਹਾਰੇ। ਸ਼ਬਦ ਸੀ \"%1\"।"
+
+#~ msgid "Congratulations! You won!"
+#~ msgstr "ਵਧਾਈਆਂ! ਤੁਸੀਂ ਜਿੱਤੇ ਗਏ!"
+
+#~ msgid "This letter has already been guessed."
+#~ msgstr "ਇਹ ਸ਼ਬਦ ਪਹਿਲਾਂ ਹੀ ਲੱਭਿਆ ਗਿਆ।"
+
+#~ msgid "Here you can choose special settings for some languages."
+#~ msgstr "ਇੱਥੇ ਤੁਸੀਂ ਕੁਝ ਭਾਸ਼ਾਵਾਂ ਲਈ ਖਾਸ ਸੈਟਿੰਗ ਚੁਣ ਸਕਦੇ ਹੋ।"
+
+#~ msgid "Current maintainer, author"
+#~ msgstr "ਮੌਜੂਦਾ ਪਰਬੰਧਕ, ਲੇਖਕ"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 ਸਕਿੰਟ"
+#~ msgstr[1] "%1 ਸਕਿੰਟ"
+
+#~ msgid ""
+#~ "Here you can set the display times for hints and the \"Already Guessed\" "
+#~ "tooltip."
+#~ msgstr ""
+#~ "ਇੱਥੇ ਤੁਸੀਂ ਇਸ਼ਾਰਿਆਂ ਅਤੇ \"ਪਹਿਲਾਂ ਅੰਦਾਜ਼ਾ ਲਾਏ' ਟੂਲ-ਟਿੱਪ ਲਈ ਵੇਖਾਉਣ ਸਮਾਂ ਸੈੱਟ ਕਰ ਸਕਦੇ ਹੋ।"
+
+#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
+#~ msgstr "<b>ਪਹਿਲਾਂ ਹੀ ਅੰਦਾਜ਼ਾ ਲਗਾਏ</b> ਟੂਲ-ਟਿੱਪ ਵੇਖਾਉਣ ਲਈ ਸਮਾਂ:"
+
+#~ msgid ""
+#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
+#~ "you tried a letter that was already guessed. Default is 1 second but "
+#~ "younger children might need longer time to be able to understand they are "
+#~ "trying a letter that was already guessed."
+#~ msgstr ""
+#~ "ਤੁਸੀਂ \"ਪਹਿਲਾਂ ਹੀ ਅੰਦਾਜ਼ਾ ਲਗਾਏ\" ਟੂਲ-ਟਿੱਪ ਵੇਖਾਉਣ ਦਾ ਸਮਾਂ ਸੈੱਟ ਕਰ ਸਕਦੇ ਹੋ, ਜੇ ਤੁਸੀਂ ਉਹ ਅੱਖਰ "
+#~ "ਲਈ ਪਹਿਲਾਂ ਹੀ ਅੰਦਾਜ਼ਾ ਲਗਾ ਚੁੱਕੇ ਹੋ। ਮੂਲ ਰੂਪ ਵਿੱਚ 1 ਸਕਿੰਟ ਹੈ, ਪਰ ਛੋਟੇ ਬੱਚਿਆਂ ਲਈ ਥੋੜ੍ਹਾ ਵੱਧ ਸਮਾਂ "
+#~ "ਚਾਹੀਦਾ ਹੈ ਤਾਂ ਕਿ ਉਹ ਸਮਝ ਸਕਣ ਕਿ ਉਨ੍ਹਾਂ ਵਲੋਂ ਵਰਤੇ ਜਾ ਰਹੇ ਹੋ ਅੱਖਰ ਦਾ ਅੰਦਾਜ਼ਾ ਪਹਿਲਾਂ ਹੀ "
+#~ "ਲਗਾਇਆ ਜਾ ਚੁੱਕਾ ਹੈ।"
+
+#~ msgid "You can open last opened files"
+#~ msgstr "ਤੁਸੀਂ ਆਖਰੀ ਸਮੇਂ ਖੋਲ੍ਹੀਆਂ ਫਾਇਲਾਂ ਖੋਲ੍ਹ ਸਕਦੇ ਹੋ"
+
+#~ msgid "Tamas Szanto"
+#~ msgstr "ਤਾਮਾਸ ਸਜ਼ਾਂਟੋ"
+
+#, fuzzy
+#~ msgid "Theme"
+#~ msgstr "ਸਮੁੰਦਰ ਸਰੂਪ(&S)"
+
+#~ msgid "Graphics"
+#~ msgstr "ਗਰਾਫਿਕਸ"
+
+#~ msgid "Nature theme background"
+#~ msgstr "ਕੁਦਰਤ ਸਰੂਪ ਬੈਕਗਰਾਊਂਡ"
+
+#~ msgid "Blue theme background, icons"
+#~ msgstr "ਨੀਲਾ ਸਰੂਪ ਬੈਕਗਰਾਊਂਡ, ਆਈਕਾਨ"
+
+#~ msgid "SVG icon"
+#~ msgstr "SVG ਆਈਕਾਨ"
+
+#~ msgid "Congratulations! You won! Do you want to play again?"
+#~ msgstr "ਮੁਬਾਰਕ!, ਤੁਸੀਂ ਜਿੱਤ ਗਏ, ਕੀ ਤੁਸੀਂ ਮੁੜ ਖੇਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Do Not Play"
+#~ msgstr "ਨਾ ਖੇਡੋ"
+
+#~ msgid "You lost. Do you want to play again?"
+#~ msgstr "ਤੁਸੀਂ ਹਾਰ ਗਏ, ਕੀ ਤੁਸੀਂ ਮੁੜ ਖੇਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#, fuzzy
+#~ msgid "&Hide Hint"
+#~ msgstr "ਇਸ਼ਾਰੇ ਵੇਖਾਓ(&S)"
+
+#, fuzzy
+#~ msgid "When available"
+#~ msgstr "ਜਦੋਂ ਉਪਲੱਬਧ ਹੋਣ"
+
+#, fuzzy
+#~ msgid "Show hints"
+#~ msgstr "ਇਸ਼ਾਰੇ ਵੇਖਾਓ(&S)"
+
+#~ msgid "Hint on right-click"
+#~ msgstr "ਸੱਜਾ ਦਬਾਉਣ ਤੇ ਇਸ਼ਾਰਾ"
+
+#~ msgid "Hint available"
+#~ msgstr "ਇਸ਼ਾਰੇ ਉਪਲੱਬਧ"
+
+#~ msgid "Le&vel"
+#~ msgstr "ਪੱਧਰ(&v)"
+
+#~ msgid "Choose the level of difficulty"
+#~ msgstr "ਔਖ ਦਾ ਪੱਧਰ ਚੁਣੋ"
+
+#~ msgid "Cyrillic"
+#~ msgstr "ਸਿਰਲਿਕ"
+
+#~ msgid "Latin"
+#~ msgstr "ਲੈਟਿਨ"
+
+#~ msgid "Animals"
+#~ msgstr "ਜਾਨਵਰ"
+
+#~ msgid "Easy"
+#~ msgstr "ਸੌਖਾ"
+
+#~ msgid "Medium"
+#~ msgstr "ਮੱਧਮ"
+
+#~ msgid "Hard"
+#~ msgstr "ਔਖਾ"
+
+#~ msgid "First letter upper case"
+#~ msgstr "ਪਹਿਲਾਂ ਅੱਖਰ ਵੱਡਾ"
+
+#~ msgid "&New"
+#~ msgstr "ਨਵਾਂ(&N)"
+
+#~ msgid "Inserts the character %1"
+#~ msgstr "ਅੱਖਰ %1 ਸ਼ਾਮਿਲ"
