@@ -234,7 +234,7 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
-"Fitxer de dades en suec, codi d'ajuda, imatges transparents i correccions a "
+"Fitxer de dades en suec, codi d'ajuda, imatges transparents i correccions en "
 "la traducció"
 
 #: main.cpp:78
