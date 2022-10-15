@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-29 00:41+0000\n"
+"POT-Creation-Date: 2022-10-01 00:41+0000\n"
 "PO-Revision-Date: 2020-05-25 21:28+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -65,7 +65,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "DONE"
 
-#: khangman.cpp:152
+#: khangman.cpp:150
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -74,23 +74,23 @@ msgstr ""
 "Fann ikkje fila «$KDEDIR/share/apps/kvtml/%1/%2».\n"
 "Sjå til at spelet er rett installert."
 
-#: khangman.cpp:156 khangman.cpp:463 khangman.cpp:485
+#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
 #, kde-format
 msgid "Error"
 msgstr "Feil"
 
-#: khangman.cpp:446
+#: khangman.cpp:444
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Ingen"
 
-#: khangman.cpp:463
+#: khangman.cpp:461
 #, kde-format
 msgid "No theme files found."
 msgstr "Fann ikkje nokon temafiler."
 
-#: khangman.cpp:485
+#: khangman.cpp:483
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Fann ikkje nokon kvtml-filer."
