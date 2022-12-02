@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:41+0000\n"
-"PO-Revision-Date: 2022-09-28 12:29+0200\n"
+"PO-Revision-Date: 2022-12-01 09:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -480,7 +480,7 @@ msgstr "Temuri.doghonadze@gmail.com"
 #: qml/GamePage.qml:157
 #, kde-format
 msgid "Choose the word category"
-msgstr ""
+msgstr "აირჩიეთ სიტყვის კატეგორია"
 
 #: qml/GamePage.qml:178
 #, kde-format
@@ -505,7 +505,7 @@ msgstr "დაკვრა"
 #: qml/GamePage.qml:267
 #, kde-format
 msgid "Change the theme."
-msgstr ""
+msgstr "თემის შეცვლა."
 
 #: qml/GamePage.qml:278
 #, kde-format
