@@ -1,33 +1,35 @@
-# translation of khangman.po to Basque
-# Copyright (C) 2003, 2005, 2006, 2009 Free Software Foundation, Inc.
+# Translation for khangman.po to Euskara/Basque (eu).
+# Copyright (C) 2003-2022 This file is copyright:
+# This file is distributed under the same license as the khangman package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
+# Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
 # Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2006.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2011.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2011, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:41+0000\n"
-"PO-Revision-Date: 2011-10-08 23:21+0200\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
-"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"PO-Revision-Date: 2022-12-02 21:15+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Notes Theme"
-msgstr "Itsasoa gaia"
+msgstr "Oharrak gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
@@ -37,17 +39,15 @@ msgstr "Itsasoa gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Winter Theme"
-msgstr "Itsasoa gaia"
+msgstr "Negua gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Bee Theme"
-msgstr "Itsasoa gaia"
+msgstr "Erlea gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
@@ -65,7 +65,7 @@ msgid ""
 "for more information on how to do that.\n"
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
-msgstr "DONE"
+msgstr ""
 
 #: khangman.cpp:150
 #, kde-format
@@ -73,8 +73,8 @@ msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
-"Ez da $KDEDIR/share/apps/kvtml/%1/%2 fitxategia aurkitu.\n"
-"Egiaztatu zure instalazioa."
+"Ez du $KDEDIR/share/apps/kvtml/%1/%2 fitxategia aurkitu.\n"
+"Mesedez, egiaztatu zure instalazioa."
 
 #: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
 #, kde-format
@@ -85,17 +85,17 @@ msgstr "Errorea"
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
-msgstr "Bat ere ez"
+msgstr "Batere ez"
 
 #: khangman.cpp:461
 #, kde-format
 msgid "No theme files found."
-msgstr ""
+msgstr "Ez da gai-fitxategirik aurkitu."
 
 #: khangman.cpp:483
 #, kde-format
 msgid "No kvtml files found."
-msgstr ""
+msgstr "Ez da kvtml fitxategirik aurkitu."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
@@ -111,10 +111,9 @@ msgstr "Erabiltzaileak hautatutako hizkuntza"
 
 #. i18n: ectx: label, entry (Theme), group (Look)
 #: khangman.kcfg:33
-#, fuzzy, kde-format
-#| msgid "Background theme"
+#, kde-format
 msgid "Background theme name"
-msgstr "Atzeko planoaren gaia"
+msgstr "Atzeko planoaren gaiaren izena"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
@@ -122,8 +121,8 @@ msgstr "Atzeko planoaren gaia"
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
 msgstr ""
-"Aktibatu aukera hau hizki bakoitzaren agerpen bakoitza aldi berean "
-"bistaratzea nahi ez baduzu"
+"Markatu hau hizki bakoitzaren agerpen guztiak batera estalgabetzea nahi ez "
+"baduzu."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
@@ -136,27 +135,21 @@ msgstr "Gaitu animazioak"
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
 msgstr ""
-"Aktibatzen bada, soinuak erreproduzituko dira joku berrietan eta hitza ongi "
-"asmatzen denean"
+"Markatuta badago, soinuak joko dira Joko berrirako eta Jokoa irabaztean"
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "If checked, hints will always been displayed. If this is not checked "
-#| "(default) \n"
-#| "            hints will be displayed only per word when the user chooses "
-#| "to show the hint."
+#, kde-format
 msgid ""
 "If checked, hints will always been displayed. If this is not checked "
 "(default)\n"
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Markatuta badago, argibideak beti bistaratuko dira. Ez badago markatuta "
+"Markatuta badago, argibideak beti azalduko dira. Markatu gabe badago "
 "(lehenetsitakoa) \n"
-"            aholkuak hitz bakoitzeko soilik bistaratuko dira erabiltzaileak "
-"aholkua erakustea erabakitzen duenean."
+"            aholkuak, erabiltzaileak haiek erakustea hautatzen duenean "
+"soilik, eta hitz bakoitzeko, azalduko dira,"
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -165,18 +158,20 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
+"Ezarpen horrek, hitza ebazteko zenbat denbora, segundotan, erabilgarri "
+"dagoen ezartzen uzten dizu."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr "Idatzi azentudun letrak letra normaletatik bereiztuta"
+msgstr "Tekleatu azentudun letrak letra arruntetatik bereizita"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr "KHangMan-en hornitzaileen bide-izena"
+msgstr "«KHangMan»en hornitzaileenganako bide-izena"
 
 #: main.cpp:59
 #, kde-format
@@ -184,10 +179,9 @@ msgid "KHangMan"
 msgstr "KHangMan"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "Classical hangman game for KDE"
+#, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "KDE-rentzako urkatuaren joku klasikoa"
+msgstr "KDEren urkatuaren joko klasikoa"
 
 #: main.cpp:63
 #, kde-format
@@ -202,7 +196,7 @@ msgstr "Primoz Anzur"
 #: main.cpp:64
 #, kde-format
 msgid "Previous maintainer"
-msgstr "Aurreko mantentzailea"
+msgstr "Arduradun ohia"
 
 #: main.cpp:69
 #, kde-format
@@ -212,17 +206,17 @@ msgstr "Anne-Marie Mahfouf"
 #: main.cpp:69
 #, kde-format
 msgid "Original Author"
-msgstr ""
+msgstr "Jatorrizko egilea"
 
 #: main.cpp:71
 #, kde-format
 msgid "Rahul Chowdhury"
-msgstr ""
+msgstr "Rahul Chowdhury"
 
 #: main.cpp:71
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Garatzailea"
 
 #: main.cpp:73
 #, kde-format
@@ -232,7 +226,7 @@ msgstr "Stefan Böhmann"
 #: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
 #, kde-format
 msgid "Coding help"
-msgstr "Laguntza programazioan"
+msgstr "Kodetzeko laguntza"
 
 #: main.cpp:75
 #, kde-format
@@ -243,8 +237,8 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
-"Suedir datu fitxategiak, laguntza programazioan, irudi gardenak eta i18n "
-"fitxategiak"
+"Suediera datu-fitxategiak, kodetzeko laguntza, irudi gardenak eta i18n "
+"zuzenketak"
 
 #: main.cpp:78
 #, kde-format
@@ -294,7 +288,7 @@ msgstr "Antoni Bella"
 #: main.cpp:87
 #, kde-format
 msgid "Catalan data files"
-msgstr "Katalan datu-fitxategiak"
+msgstr "Katalaneko datu-fitxategiak"
 
 #: main.cpp:88
 #, kde-format
@@ -304,7 +298,7 @@ msgstr "Giovanni Venturi"
 #: main.cpp:89
 #, kde-format
 msgid "Italian data files"
-msgstr "Italiera datu-fitxategiak"
+msgstr "Italierako datu-fitxategiak"
 
 #: main.cpp:90
 #, kde-format
@@ -314,7 +308,7 @@ msgstr "Rinse"
 #: main.cpp:91
 #, kde-format
 msgid "Dutch data files"
-msgstr "Holandar datu-fitxategiak"
+msgstr "Nederlanderako datu-fitxategiak"
 
 #: main.cpp:92
 #, kde-format
@@ -329,7 +323,7 @@ msgstr "Txekierako datu-fitxategiak"
 #: main.cpp:94
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "Kristóf Kiszel"
 
 #: main.cpp:95
 #, kde-format
@@ -344,7 +338,7 @@ msgstr "Torger Åge Sinnes"
 #: main.cpp:97
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
-msgstr "Norbegierako (Bokmål) datu-fitxategiak"
+msgstr "Norvegierako (Bokmål) datu-fitxategiak"
 
 #: main.cpp:98
 #, kde-format
@@ -354,7 +348,7 @@ msgstr "Roger Kovacs"
 #: main.cpp:99
 #, kde-format
 msgid "Tajik data files"
-msgstr "Tajik datu-fitxategiak"
+msgstr "Tajikerako datu-fitxategiak"
 
 #: main.cpp:100
 #, kde-format
@@ -364,7 +358,7 @@ msgstr "Chusslove Illich"
 #: main.cpp:101
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
-msgstr "Serbierako (Ziriliko eta latinoa) datu-fitxategiak"
+msgstr "Serbierako (Ziriliko eta latindarra) datu-fitxategiak"
 
 #: main.cpp:102
 #, kde-format
@@ -434,7 +428,7 @@ msgstr "Kevin Patrick Scannell"
 #: main.cpp:115
 #, kde-format
 msgid "Irish (Gaelic) data files"
-msgstr "Gaelikoko (irlanda) datu-fitxategiak"
+msgstr "Irlanderako (Gaelikoa) datu-fitxategiak"
 
 #: main.cpp:116
 #, kde-format
@@ -469,7 +463,7 @@ msgstr "Albert Astals Cid"
 #: main.cpp:125
 #, kde-format
 msgid "Coding help, fixed a lot of things"
-msgstr "Laguntza kodean, konponketa ugari"
+msgstr "Kodetzeko laguntza, zuzenketa ugari"
 
 #: main.cpp:126
 #, kde-format
@@ -479,7 +473,7 @@ msgstr "Peter Hedlund"
 #: main.cpp:127
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
-msgstr "Laguntza karaktereen tresna-barrako ikonoen sorreraren programazioan"
+msgstr "Karaktereen tresna-barrako ikonoak sortzeko kodea"
 
 #: main.cpp:128
 #, kde-format
@@ -495,169 +489,158 @@ msgstr "Kodearen garbiketa"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ion Gaztañaga"
+msgstr "Iñigo Salvador Azurmendi,Ion Gaztañaga"
 
 #: main.cpp:130
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ion_g_m@hotmail.com"
+msgstr "xalba@ni.eus,ion_g_m@hotmail.com"
 
 #: qml/GamePage.qml:157
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Choose the word category"
-msgstr "Aukeratu kategoria"
+msgstr "Aukeratu hitzen kategoria"
 
 #: qml/GamePage.qml:178
-#, fuzzy, kde-format
-#| msgid "Choose the language"
+#, kde-format
 msgid "Select a language"
-msgstr "Aukeratu hizkuntza"
+msgstr "Aukeratu hizkuntza bat"
 
 #: qml/GamePage.qml:191
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Select a theme"
-msgstr "Itsasoa gaia"
+msgstr "Aukeratu gai bat"
 
 #: qml/GamePage.qml:244
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Eten"
 
 #: qml/GamePage.qml:244
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Jokatu"
 
 #: qml/GamePage.qml:267
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Change the theme."
-msgstr "Aukeratu kategoria"
+msgstr "Aldatu gaia."
 
 #: qml/GamePage.qml:278
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "E&zarpenak"
+msgstr "Ezarpenak"
 
 #: qml/GamePage.qml:297
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "About KHangMan"
-msgstr "KHangMan"
+msgstr "«KHangMan»i buruz"
 
 #: qml/GamePage.qml:308
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "KDEri buruz"
 
 #: qml/GamePage.qml:319
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr ""
+msgstr "Ikusi KHangMan eskuliburua"
 
 #: qml/GamePage.qml:330
 #, kde-format
 msgid "Download new language files"
-msgstr ""
+msgstr "Zama-jaitsi hizkuntza-fitxategi berriak"
 
 #: qml/GamePage.qml:341
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Irten"
 
 #: qml/GamePage.qml:362
 #, kde-format
 msgid "Remaining guesses: "
-msgstr ""
+msgstr "Geratzen diren saiakerak:"
 
 #: qml/GamePage.qml:387
 #, kde-format
 msgid "Score: "
-msgstr ""
+msgstr "Puntuazioa: "
 
 #: qml/GamePage.qml:421
-#, fuzzy, kde-format
-#| msgid "Wins: %1"
+#, kde-format
 msgid "Wins: "
-msgstr "Irabazi: %1"
+msgstr "Irabazitakoak:"
 
 #: qml/GamePage.qml:449
-#, fuzzy, kde-format
-#| msgid "Losses: %1"
+#, kde-format
 msgid "Losses: "
-msgstr "Galdu: %1"
+msgstr "Galdutakoak: "
 
 #: qml/GamePage.qml:594
 #, kde-format
 msgid "Display the hint."
-msgstr ""
+msgstr "Azaldu aholkua."
 
 #: qml/GamePage.qml:607
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Change the category."
-msgstr "Aukeratu kategoria"
+msgstr "Aldatu kategoria."
 
 #: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the language."
-msgstr ""
+msgstr "Aldatu hizkuntza."
 
 #: qml/GamePage.qml:628
 #, kde-format
 msgid "Reveal Word"
-msgstr ""
+msgstr "Agertu hitza"
 
 #: qml/GamePage.qml:629
 #, kde-format
 msgid "Reveal the current word."
-msgstr ""
+msgstr "Agertu uneko hitza."
 
 #: qml/GamePage.qml:653
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "Zamatu hurrengo hitza eta hasi joko berri bat."
 
 #: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan"
+msgstr "KHangMan-en ezarpenak"
 
 #: qml/MainSettingsDialog.qml:46
 #, kde-format
 msgid "KHangMan word resolve time"
-msgstr ""
+msgstr "KHangMan hitza ebazteko denbora"
 
 #: qml/MainSettingsDialog.qml:47
 #, kde-format
 msgid "Maximum allowed time for resolving the word in KHangMan"
-msgstr ""
+msgstr "KHangMan-en hitza ebazteko gehienezko denbora"
 
 #: qml/MainSettingsDialog.qml:54
 #, kde-format
 msgid "Hint show duration"
-msgstr ""
+msgstr "Aholkua erakusteko denbora"
 
 #: qml/MainSettingsDialog.qml:55
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "Uneko hitzaren aholkua erakusteko iraupena"
 
 #: qml/MainSettingsDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "KHangMan Score Multiplying Factor"
-msgstr "KHangMan"
+msgstr "KHangMan-eko puntuazioaren faktore biderkatzailea"
 
 #: qml/MainSettingsDialog.qml:62
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "Zehaztu puntuazioak biderkatzeko faktorea."
 
 #: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
 #, kde-format
@@ -667,27 +650,27 @@ msgstr "Soinuak"
 #: qml/MainSettingsDialog.qml:70
 #, kde-format
 msgid "Turn all the sounds on or off inside the game"
-msgstr ""
+msgstr "Piztu/itzali soinu guztiak joko barruan"
 
 #: qml/MainSettingsDialog.qml:119
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr ""
+msgstr "Hitza ebazteko denbora segundotan"
 
 #: qml/MainSettingsDialog.qml:162
 #, kde-format
 msgid "Score Multiplying Factor"
-msgstr ""
+msgstr "Puntuazioa biderkatzeko faktorea"
 
 #: qml/MainSettingsDialog.qml:246
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Ados"
 
 #: qml/MainSettingsDialog.qml:280
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #, fuzzy
 #~| msgid "Misses"
