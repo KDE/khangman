@@ -21,6 +21,7 @@ include(ECMInstallIcons)
 include(GenerateExportHeader)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
+include(ECMDeprecationSettings)
 
 include(FeatureSummary)
 set(CMAKE_CXX_STANDARD 17)
@@ -48,7 +49,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
 )
 find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-
+ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.101.0)
 
 add_subdirectory( src )
 
