@@ -17,3 +17,6 @@ Dependencies:
     'frameworks/kxmlgui': '@stable'
     'frameworks/kio': '@stable'
     'education/libkeduvocdocument': '@same'
+
+Options:
+  require-passing-tests-on: [ '@all' ]
