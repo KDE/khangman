@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:41+0000\n"
-"PO-Revision-Date: 2022-12-10 18:37+0300\n"
+"PO-Revision-Date: 2022-12-11 14:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -344,7 +344,7 @@ msgstr "Torger Åge Sinnes"
 #: main.cpp:97
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
-msgstr "Norveççe veri dosyaları"
+msgstr "Bokmål Norveççesi veri dosyaları"
 
 #: main.cpp:98
 #, kde-format
@@ -354,7 +354,7 @@ msgstr "Roger Kovacs"
 #: main.cpp:99
 #, kde-format
 msgid "Tajik data files"
-msgstr "Tacikistan veri dosyaları"
+msgstr "Tacikçe veri dosyaları"
 
 #: main.cpp:100
 #, kde-format
@@ -414,7 +414,7 @@ msgstr "Andrey Çerepanov"
 #: main.cpp:111
 #, kde-format
 msgid "Russian data files"
-msgstr "Rusca veri dosyaları"
+msgstr "Rusça veri dosyaları"
 
 #: main.cpp:112
 #, kde-format
@@ -434,7 +434,7 @@ msgstr "Kevin Patrick Scannell"
 #: main.cpp:115
 #, kde-format
 msgid "Irish (Gaelic) data files"
-msgstr "İrlandaca  veri dosyaları"
+msgstr "İrlandaca (Gaelce) veri dosyaları"
 
 #: main.cpp:116
 #, kde-format
