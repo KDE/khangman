@@ -365,7 +365,7 @@ msgstr "Jure Repinc"
 #: main.cpp:103
 #, kde-format
 msgid "Slovenian data files"
-msgstr "Fitxers de dades en eslovè"
+msgstr "Fitxers de dades en eslové"
 
 #: main.cpp:104
 #, kde-format
