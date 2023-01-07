@@ -1,53 +1,96 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % English "INCLUDE">
+<!ENTITY % German "INCLUDE">
 ]>
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>&khangman; User's Manual</title>
-<author><firstname>Ben</firstname><surname>Burton</surname> <contrib>&khangman; man page.</contrib> 
-<email>bab@debian.org</email></author>
-<date>2020-12-22</date>
-<productname>Applications 20.12</productname>
+<title
+>&khangman;-Benutzerhandbuch</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>&khangman;-Handbuchseite.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2020-12-22</date>
+<productname
+>Anwendungen 20.12</productname>
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>khangman</command></refentrytitle>
-<manvolnum>6</manvolnum>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>khangman</command></refname>
-<refpurpose>The classical hangman game by KDE</refpurpose>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>Das klassische Galgenmänchenspiel von KDE</refpurpose>
 </refnamediv>
 
 <refsect1>
-<title>Description</title>
-<para>&khangman; is a game based on the well known hangman game. It is
-aimed for children 6 and above. It has several word categories like Animals,
-Clothing, Computers, Currencies and more.</para><para>A word is picked at
-random and the letters are hidden. You must guess the word by trying one
-letter after another. Each time you guess a wrong letter, part of a picture
-of a hangman is drawn. You must guess the word before getting hanged! You
-have 10 tries.</para><para>This application is part of the &kde; Edutainment
-module.</para>
+<title
+>Beschreibung</title>
+<para
+>&khangman; ist ein Spiel, das auf dem wohl bekannten Galgenmännchen basiert. Es ist ein Spiel für Kinder ab 6 Jahren und hat viele Wortkategorien wie zum Beispiel Tiere, Kleidung, Rechner, Währungen und mehr.</para
+><para
+>Ein Wort wird zufällig ausgewählt, die Buchstaben verdeckt und Sie müssen das Wort raten, indem Sie einen Buchstaben nach dem anderen eingeben. Jedesmal, wenn Sie einen falschen Buchstaben eingeben, wird ein weiterer Teil des Galgenmännchens gezeichnet. Sie müssen das gesuchte Wort erraten, ehe das Galgenmännchen fertig gezeichnet ist! Dafür haben Sie 10 Versuche.</para
+><para
+>Dieses Programm ist im Modul &kde;-Edutainment enthalten.</para>
 </refsect1>
 
 <refsect1>
-<title>See Also</title>
-<para>More detailed user documentation is available from <ulink
-url="help:/khangman">help:/khangman</ulink> (either enter this &URL; into
-&konqueror;, or run <userinput><command>khelpcenter</command>
-<parameter>help:/khangman</parameter></userinput>).</para>
+<title
+>Siehe auch</title>
+<para
+>Weitere ausführliche Dokumentation finden Sie unter <ulink url="help:/kangman"
+>help:/khangman</ulink
+> (geben Sie diese &URL; entweder im &konqueror; ein oder starten Sie <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
 
-<para>There is also further information available at the <ulink url="https://edu.kde.org/khangman/">&kde; Edutainment web site</ulink>.</para>
+<para
+>Weitere Informationen finden Sie auf der <ulink url="https://edu.kde.org/khangman/"
+> &kde;-Edu-Webseite</ulink
+>.</para>
 </refsect1>
 
 <refsect1>
-<title>Authors</title>
-<para>&khangman; was written by <personname><firstname>Primoz</firstname><surname>Anzur</surname></personname> and &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
-<para>This manual page based on the one prepared by <personname><firstname>Ben</firstname><surname>Burton</surname></personname> for the &Debian; project.</para>
+<title
+>Autoren</title>
+<para
+>&khangman; wurde von <personname
+><firstname
+>Primoz</firstname
+><surname
+>Anzur</surname
+></personname
+> und &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; geschrieben.</para>
+<para
+>Diese Handbuchseite wurde auf der Grundlage des von <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+> für das &Debian;-Projekt geschriebenen Handbuchs erstellt.</para>
 
 
 </refsect1>
