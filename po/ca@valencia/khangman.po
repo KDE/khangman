@@ -607,7 +607,7 @@ msgstr "Carrega la paraula següent i inicia un joc nou."
 #: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
 #, kde-format
 msgid "KHangMan Settings"
-msgstr "Configuració de KHangMan"
+msgstr "Configureu KHangMan"
 
 #: qml/MainSettingsDialog.qml:46
 #, kde-format
