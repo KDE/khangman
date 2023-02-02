@@ -24,9 +24,12 @@ kconfig_add_kcfg_files(khangman prefs.kcfgc)
 target_link_libraries(khangman
     Qt${QT_MAJOR_VERSION}::QuickWidgets
     Qt${QT_MAJOR_VERSION}::Core
-    KF5::Crash
-    KF5::I18n
-    KF5::NewStuff
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::NewStuff
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::XmlGui
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
