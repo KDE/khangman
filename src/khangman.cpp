@@ -507,7 +507,11 @@ void KHangMan::slotDownloadNewStuff()
     dialog->open();
 
     connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const QList<KNSCore::EntryInternal> entries = dialog->changedEntries();
+#else
+        const QList<KNSCore::Entry> entries = dialog->changedEntries();
+#endif
         if ( !entries.isEmpty() ){
             SharedKvtmlFiles::sortDownloadedFiles();
             //look for languages dirs installed
