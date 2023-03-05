@@ -173,7 +173,7 @@ msgstr "الشنق"
 #: main.cpp:61
 #, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "لعبة الرّجل المشنوق التّقليديّة بواسطة كدي"
+msgstr "لعبة الرّجل المشنوق التّقليديّة بواسطة كِيدِي"
 
 #: main.cpp:63
 #, kde-format
@@ -531,7 +531,7 @@ msgstr "حول رجل المشنوق ك."
 #: qml/GamePage.qml:308
 #, kde-format
 msgid "About KDE"
-msgstr "حول كدي."
+msgstr "حول كِيدِي."
 
 #: qml/GamePage.qml:319
 #, kde-format
