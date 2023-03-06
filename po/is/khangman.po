@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"POT-Creation-Date: 2023-03-06 00:42+0000\n"
 "PO-Revision-Date: 2010-06-21 21:59+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -65,7 +65,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
 
-#: khangman.cpp:150
+#: khangman.cpp:155
 #, fuzzy, kde-format
 #| msgid ""
 #| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -77,23 +77,23 @@ msgstr ""
 "Skráin $KDEDIR/share/apps/khangman/data/%1/%2 fannst ekki!\n"
 "Vinsamlegast athugaðu uppsetninguna!"
 
-#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
 #, fuzzy, kde-format
 msgid "Error"
 msgstr "Villa"
 
-#: khangman.cpp:444
+#: khangman.cpp:449
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Ekkert"
 
-#: khangman.cpp:461
+#: khangman.cpp:466
 #, kde-format
 msgid "No theme files found."
 msgstr ""
 
-#: khangman.cpp:483
+#: khangman.cpp:488
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""

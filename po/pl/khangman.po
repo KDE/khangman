@@ -1,5 +1,5 @@
 # translation of khangman.po to
-# Version: $Revision: 1635006 $
+# Version: $Revision: 1646140 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 #
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"POT-Creation-Date: 2023-03-06 00:42+0000\n"
 "PO-Revision-Date: 2020-10-17 05:50+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 "(przetłumacz tą wiadomość jako \"DONE\", gdy przetłumaczono\n"
 "słowa; w przeciwnym wypadku pozostaw ją nieprzetłumaczoną jako przypomnienie)"
 
-#: khangman.cpp:150
+#: khangman.cpp:155
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -83,23 +83,23 @@ msgstr ""
 "Nie znaleziono pliku $KDEDIR/share/apps/kvtml/%1/%2\n"
 "Proszę sprawdź poprawność instalacji."
 
-#: khangman.cpp:154 khangman.cpp:461 khangman.cpp:483
+#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
 #, kde-format
 msgid "Error"
 msgstr "Błąd"
 
-#: khangman.cpp:444
+#: khangman.cpp:449
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Brak"
 
-#: khangman.cpp:461
+#: khangman.cpp:466
 #, kde-format
 msgid "No theme files found."
 msgstr "Nie znaleziono plików wystrojów."
 
-#: khangman.cpp:483
+#: khangman.cpp:488
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Nie znaleziono plików kvtml."
