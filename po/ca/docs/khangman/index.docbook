@@ -572,7 +572,7 @@ fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 
 <step>
 <para
->Després podreu fer commit dels vostres fitxers a <emphasis
+>Després podreu cometre els vostres fitxers a <emphasis
 >l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
 >. No oblideu actualitzar també el fitxer CMakeLists.txt. Si us plau, contacteu amb la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
 >llista de correu kde-edu</ulink
@@ -581,7 +581,7 @@ fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 > emprat en el vostre idioma (poseu-los en un fitxer de text, un per línia i afegiu-lo a l'arxiu tar), i feu també menció a qualsevol altra peculiaritat.</para>
 <para
 ><emphasis
->Si us plau, no publiqueu cap fitxer en una branca perquè podríeu fer petar el joc.</emphasis
+>Si us plau, no cometeu cap fitxer en una branca perquè podríeu fer petar el joc.</emphasis
 ></para>
 </step>
 </procedure>
