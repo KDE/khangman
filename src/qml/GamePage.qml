@@ -102,6 +102,10 @@ Item {
                 if (khangman.soundEnabled) {
                     ewDialogAppearSoundEffect.play();
                 }
+
+                if (khangman.speechEnabled) {
+                    khangman.sayWord();
+                }
             }
         } else {
             // Only add to missedLetters if it's not already there

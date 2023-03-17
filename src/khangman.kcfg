@@ -48,6 +48,10 @@
             <label>If checked, sounds will be played for New Game and Win Game</label>
             <default>false</default>
         </entry>
+        <entry name="Speech" type="Bool">
+            <label>If checked, word will be spoken after correct guesses</label>
+            <default>true</default>
+        </entry>
         <entry name="Hint" type="Bool">
             <label>If checked, hints will always been displayed. If this is not checked (default)
             hints will be displayed only per word when the user chooses to show the hint.</label>

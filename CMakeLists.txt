@@ -35,7 +35,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
-
+find_package(Qt${QT_MAJOR_VERSION} QUIET OPTIONAL_COMPONENTS TextToSpeech)
+if (NOT Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
+    message(STATUS "Qt${QT_MAJOR_VERSION}TextToSpeech not found, speech feature will be disabled")
+else()
+    add_definitions(-DHAVE_SPEECH)
+endif()
 
 find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     I18n

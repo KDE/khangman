@@ -75,18 +75,21 @@ Dialog {
         function saveSettings() {
             khangman.resolveTime = resolveTimeSlider.value
             khangman.soundEnabled = soundsSwitch.checked
+            khangman.speechEnabled = speechSwitch.checked
             khangman.scoreMultiplyingFactor = parseInt(scoreMultiplyingFactorTextEdit.text)
         }
 
         function resetSettings () {
             resolveTimeSlider.value = khangman.resolveTime
             soundsSwitch.checked = khangman.soundEnabled
+            speechSwitch.checked = khangman.speechEnabled
             scoreMultiplyingFactorTextEdit.text = khangman.scoreMultiplyingFactor
         }
 
         Component.onCompleted: {
             resolveTimeSlider.value = khangman.resolveTime;
             soundsSwitch.checked = khangman.soundEnabled;
+            speechSwitch.checked = khangman.speechEnabled;
         }
 
 
@@ -219,6 +222,27 @@ Dialog {
                     onClicked: {
                         soundsUserGuideDialog.open();
                     }
+                }
+
+            }
+
+            RowLayout {
+                width: parent.width;
+                id: speechRowLayout
+
+                Label {
+                    id: speechLabel
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    Layout.margins: 5
+
+                    text: i18n("Speech");
+                    font.bold: true
+                    color: "white"
+                }
+
+                CheckBox {
+                    id: speechSwitch
+                    Layout.alignment: Qt.AlignVCenter
                 }
             }
 

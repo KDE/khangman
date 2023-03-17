@@ -27,6 +27,10 @@
 #include <QQuickWidget>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QPointer>
+#ifdef HAVE_SPEECH
+#include <QTextToSpeech>
+#endif
 
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -57,6 +61,9 @@ KHangMan::KHangMan()
           m_scoreMultiplyingFactor(1),
           m_netScore(0),
           m_helpMenu(new KHelpMenu(NULL))
+#ifdef HAVE_SPEECH
+          ,m_speech(NULL)
+#endif
 {
     setObjectName(QStringLiteral("KHangMan"));
 
@@ -66,6 +73,10 @@ KHangMan::KHangMan()
     // prepare i18n
     auto context = new KLocalizedContext(this);
     m_view->engine()->rootContext()->setContextObject(context);
+
+#ifdef HAVE_SPEECH
+    m_speech = new QTextToSpeech(this);
+#endif
 
     KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
@@ -92,6 +103,10 @@ KHangMan::~KHangMan()
 
     delete m_view;
     m_view = NULL;
+#ifdef HAVE_SPEECH
+    delete m_speech;
+    m_speech = NULL;
+#endif
 }
 
 void KHangMan::showAboutKHangMan()
@@ -221,6 +236,17 @@ void KHangMan::slotSetWordsSequence()
     KRandom::shuffle(m_randomList);
 }
 
+void KHangMan::sayWord()
+{
+    // If we don't have QtSpeech, do nothing
+#ifdef HAVE_SPEECH
+    if (m_speech)
+    {
+        m_speech->say(m_originalWord);
+    }
+#endif
+}
+
 QString KHangMan::stripAccents(const QString & original)
 {
     QString noAccents;
@@ -291,6 +317,17 @@ void KHangMan::setSoundEnabled(bool sound)
 {
     Prefs::setSound(sound);
     Q_EMIT soundEnabledChanged();
+}
+
+bool KHangMan::speechEnabled()
+{
+    return Prefs::speech();
+}
+
+void KHangMan::setSpeechEnabled(bool enabled)
+{
+    Prefs::setSpeech(enabled);
+    Q_EMIT speechEnabledChanged();
 }
 
 QStringList KHangMan::languages()

@@ -33,6 +33,11 @@ target_link_libraries(khangman
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
+if (Qt5TextToSpeech_FOUND)
+    target_link_libraries(khangman
+        Qt5::TextToSpeech)
+endif()
+
 install(
     FILES
     khangman.kcfg

@@ -32,6 +32,10 @@ class QQmlEngine;
 class QQuickWidget;
 class KHelpMenu;
 
+#ifdef HAVE_SPEECH
+class QTextToSpeech;
+#endif
+
 /**
  * @short KHangMan Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
@@ -43,6 +47,7 @@ class KHangMan : public QMainWindow
 
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
     Q_PROPERTY( bool soundEnabled READ soundEnabled WRITE setSoundEnabled NOTIFY soundEnabledChanged )
+    Q_PROPERTY( bool speechEnabled READ speechEnabled WRITE setSpeechEnabled NOTIFY speechEnabledChanged )
 
     Q_PROPERTY( int currentLanguage READ currentLanguage WRITE setCurrentLanguage NOTIFY currentLanguageChanged )
     Q_PROPERTY( QStringList languages READ languages NOTIFY languagesChanged)
@@ -87,6 +92,10 @@ public:
     bool soundEnabled();
     void setSoundEnabled(bool sound);
 
+    /** Getter and Setter for speechEnabled property */
+    bool speechEnabled();
+    void setSpeechEnabled(bool enabled);
+
     int currentCategory();
     QStringList categories();
 
@@ -129,6 +138,9 @@ public:
     /** Reveals the solution to the current puzzle */
     Q_INVOKABLE void revealCurrentWord();
 
+    /** speak the word */
+    Q_INVOKABLE void sayWord();
+
 public Q_SLOTS:
     ///When the language is changed in the Language menu
     void setCurrentLanguage(int index);
@@ -168,6 +180,7 @@ Q_SIGNALS:
 
     void resolveTimeChanged();
     void soundEnabledChanged();
+    void speechEnabledChanged();
     void currentLanguageChanged();
     void currentCategoryChanged();
     void currentWordChanged();
@@ -204,7 +217,6 @@ private:
     //shuffle words+hints
     void slotSetWordsSequence();
 
-    ///the different data titles and files in the current language dir
     QMap<QString, QString> m_titleLevels;
 
     int m_currentCategory;
@@ -251,6 +263,11 @@ private:
 
     /** help menu for displaying about box */
     KHelpMenu *m_helpMenu;
+
+#ifdef HAVE_SPEECH
+    /** Text to Speech API */
+    QTextToSpeech *m_speech;
+#endif
 };
 
 #endif // _KHANGMAN_H_
