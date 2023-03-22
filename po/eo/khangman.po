@@ -1,12 +1,14 @@
 # Translation of khangman into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 00:42+0000\n"
-"PO-Revision-Date: 2009-11-14 06:06-0500\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-20 22:43+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -19,31 +21,31 @@ msgstr ""
 #: ../themes/standardthemes.xml:4
 #, kde-format
 msgid "Notes Theme"
-msgstr ""
+msgstr "Etoso de Notoj"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr ""
+msgstr "Mar-etoso"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
 #, kde-format
 msgid "Winter Theme"
-msgstr ""
+msgstr "Vintr-etoso"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
 #, kde-format
 msgid "Bee Theme"
-msgstr ""
+msgstr "Abel-etoso"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
 #, kde-format
 msgid "Desert Theme"
-msgstr ""
+msgstr "Dezert-etoso"
 
 #: data.i18n:2
 #, kde-format
@@ -163,9 +165,9 @@ msgid "Classical hangman game by KDE"
 msgstr ""
 
 #: main.cpp:63
-#, fuzzy, kde-format
+#, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
-msgstr "Anne-Marie Mahfouf"
+msgstr ""
 
 #: main.cpp:64
 #, kde-format
@@ -173,9 +175,9 @@ msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
 #: main.cpp:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Previous maintainer"
-msgstr "Nuna retpoŝta agordo"
+msgstr ""
 
 #: main.cpp:69
 #, kde-format
@@ -505,9 +507,9 @@ msgid "Change the theme."
 msgstr ""
 
 #: qml/GamePage.qml:278
-#, fuzzy, kde-format
+#, kde-format
 msgid "Settings"
-msgstr "A&gordo"
+msgstr ""
 
 #: qml/GamePage.qml:297
 #, kde-format
@@ -585,9 +587,9 @@ msgid "Load the next word and start a new game."
 msgstr ""
 
 #: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "A&gordo"
+msgstr ""
 
 #: qml/MainSettingsDialog.qml:46
 #, kde-format
@@ -610,9 +612,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr ""
 
 #: qml/MainSettingsDialog.qml:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "KHangMan Score Multiplying Factor"
-msgstr "A&gordo"
+msgstr ""
 
 #: qml/MainSettingsDialog.qml:62
 #, kde-format
