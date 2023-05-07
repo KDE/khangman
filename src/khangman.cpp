@@ -46,6 +46,7 @@
 
 #include "langutils.h"
 #include "prefs.h"
+#include <QShortcut>
 
 KHangMan::KHangMan()
         : QMainWindow(),
@@ -82,6 +83,9 @@ KHangMan::KHangMan()
 
     //find the themes
     m_themeFactory.addTheme(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khangman/themes/standardthemes.xml")));
+    
+    QShortcut *quitShortcut = new QShortcut(QKeySequence::Quit, this);
+    connect(quitShortcut, &QShortcut::activated, qApp, &QCoreApplication::quit);
 }
 
 KHangMan::~KHangMan()
