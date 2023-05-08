@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 00:42+0000\n"
+"POT-Creation-Date: 2023-05-08 00:42+0000\n"
 "PO-Revision-Date: 2022-12-06 09:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -60,7 +60,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "სათარგმნია სხვა ფაილები. ადგილს იკავებს"
 
-#: khangman.cpp:155
+#: khangman.cpp:159
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -69,23 +69,23 @@ msgstr ""
 "ფაილი $KDEDIR/share/apps/kvtml/%1/%2 ვერ ვიპოვე.\n"
 "შეამოწმეთ პროგრამის თქვენი დაყენებული ვერსა."
 
-#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
+#: khangman.cpp:163 khangman.cpp:470 khangman.cpp:492
 #, kde-format
 msgid "Error"
 msgstr "შეცდომა"
 
-#: khangman.cpp:449
+#: khangman.cpp:453
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "არაფერი"
 
-#: khangman.cpp:466
+#: khangman.cpp:470
 #, kde-format
 msgid "No theme files found."
 msgstr "თემის ფაილები ვერ ვიპოვე."
 
-#: khangman.cpp:488
+#: khangman.cpp:492
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Kvtml ფაილები ვერ ვიპოვე."

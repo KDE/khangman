@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 00:42+0000\n"
+"POT-Creation-Date: 2023-05-08 00:42+0000\n"
 "PO-Revision-Date: 2020-05-24 19:05+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -68,7 +68,7 @@ msgstr ""
 "v opačném případě ji nechce nepřeloženou jako "
 "připomínku)NOTE_TO_THE_TRANSLATORS"
 
-#: khangman.cpp:155
+#: khangman.cpp:159
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -77,23 +77,23 @@ msgstr ""
 "Soubor $KDEDIR/share/apps/kvtml/%1/%2 nebyl nalezen.\n"
 "Zkontrolujte svou instalaci!"
 
-#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
+#: khangman.cpp:163 khangman.cpp:470 khangman.cpp:492
 #, kde-format
 msgid "Error"
 msgstr "Chyba"
 
-#: khangman.cpp:449
+#: khangman.cpp:453
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Nic"
 
-#: khangman.cpp:466
+#: khangman.cpp:470
 #, kde-format
 msgid "No theme files found."
 msgstr ""
 
-#: khangman.cpp:488
+#: khangman.cpp:492
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""

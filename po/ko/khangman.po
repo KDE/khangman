@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 00:42+0000\n"
+"POT-Creation-Date: 2023-05-08 00:42+0000\n"
 "PO-Revision-Date: 2021-05-24 18:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -59,7 +59,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
 
-#: khangman.cpp:155
+#: khangman.cpp:159
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -68,23 +68,23 @@ msgstr ""
 "$KDEDIR/share/apps/kvtml/%1/%2 파일을 찾을 수 없습니다.\n"
 "설치 상태를 확인하십시오."
 
-#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
+#: khangman.cpp:163 khangman.cpp:470 khangman.cpp:492
 #, kde-format
 msgid "Error"
 msgstr "오류"
 
-#: khangman.cpp:449
+#: khangman.cpp:453
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "없음"
 
-#: khangman.cpp:466
+#: khangman.cpp:470
 #, kde-format
 msgid "No theme files found."
 msgstr "테마 파일을 찾을 수 없습니다."
 
-#: khangman.cpp:488
+#: khangman.cpp:492
 #, kde-format
 msgid "No kvtml files found."
 msgstr "KVTML 파일을 찾을 수 없습니다."
