@@ -13,6 +13,7 @@
   <name xml:lang="de">KHangMan</name>
   <name xml:lang="el">KHangMan</name>
   <name xml:lang="en-GB">KHangMan</name>
+  <name xml:lang="eo">KHangMan</name>
   <name xml:lang="es">KHangMan</name>
   <name xml:lang="et">KHangMan</name>
   <name xml:lang="eu">KHangMan</name>
@@ -51,6 +52,7 @@
   <summary xml:lang="de">Buchstabierspiel</summary>
   <summary xml:lang="el">Κρεμάλα</summary>
   <summary xml:lang="en-GB">Hangman Game</summary>
+  <summary xml:lang="eo">Pendumisto-Ludo</summary>
   <summary xml:lang="es">Juego del ahorcado</summary>
   <summary xml:lang="et">Poomismäng</summary>
   <summary xml:lang="eu">Urkatuaren jokoa</summary>
@@ -130,6 +132,7 @@
       <caption xml:lang="de">KHangMan spielen</caption>
       <caption xml:lang="el">Παίζω Κρεμάλα</caption>
       <caption xml:lang="en-GB">Playing KHangMan</caption>
+      <caption xml:lang="eo">Ludante KHangMan</caption>
       <caption xml:lang="es">Jugando a KHangMan</caption>
       <caption xml:lang="et">KHangManis mängimine</caption>
       <caption xml:lang="eu">KHangMan jokatzea</caption>
