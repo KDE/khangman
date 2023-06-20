@@ -124,7 +124,7 @@ msgstr "Nome do tema do fondo."
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
 msgstr ""
-"Marca esta opción se non queres que se mostren todas a veces que aparece a "
+"Marca esta opción se non queres que se amosen todas a veces que aparece a "
 "mesma letra."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
@@ -152,7 +152,7 @@ msgid ""
 msgstr ""
 "Se se marca, as axudas aparecen sempre. Se non se selecciona (o "
 "predeterminado)\n"
-"            as axudas móstranse só para unha palabra cando o usuario escolle "
+"            as axudas amósanse só para unha palabra cando o usuario escolle "
 "vela."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
@@ -584,7 +584,7 @@ msgstr "Perdidas: "
 #: qml/GamePage.qml:594
 #, kde-format
 msgid "Display the hint."
-msgstr "Mostrar a pista."
+msgstr "Amosar a pista."
 
 #: qml/GamePage.qml:607
 #, kde-format
@@ -629,12 +629,12 @@ msgstr "Tempo máximo permitido para resolver cada palabra en KHangMan."
 #: qml/MainSettingsDialog.qml:54
 #, kde-format
 msgid "Hint show duration"
-msgstr "Tempo durante o que se mostran as pistas."
+msgstr "Tempo durante o que se amosan as pistas."
 
 #: qml/MainSettingsDialog.qml:55
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr "Tempo durante o que se mostran as pistas sobre a palabra real."
+msgstr "Tempo durante o que se amosan as pistas sobre a palabra real."
 
 #: qml/MainSettingsDialog.qml:61
 #, kde-format
