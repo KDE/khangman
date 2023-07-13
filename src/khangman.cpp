@@ -57,7 +57,7 @@ KHangMan::KHangMan()
           m_randomInt(0),
           m_scoreMultiplyingFactor(1),
           m_netScore(0),
-          m_helpMenu(new KHelpMenu(NULL))
+          m_helpMenu(new KHelpMenu(nullptr))
 {
     setObjectName(QStringLiteral("KHangMan"));
 
@@ -95,7 +95,7 @@ KHangMan::~KHangMan()
     windowConfig.writeEntry("windowState", int(windowState()));
 
     delete m_view;
-    m_view = NULL;
+    m_view = nullptr;
 }
 
 void KHangMan::showAboutKHangMan()
