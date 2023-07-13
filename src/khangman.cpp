@@ -582,7 +582,7 @@ void KHangMan::loadLanguageSpecialCharacters()
     openFileStream.close();
 }
 
+#include "moc_khangman.cpp"
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
 // vim: set et sw=4 ts=4 cino=l1,cs,U1:
-
