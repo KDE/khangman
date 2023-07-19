@@ -668,6 +668,3 @@ msgstr "D'acord"
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
-
-#~ msgid "khangman"
-#~ msgstr "khangman"
