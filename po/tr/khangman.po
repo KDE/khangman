@@ -13,13 +13,13 @@
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-08 00:42+0000\n"
-"PO-Revision-Date: 2022-12-11 14:30+0300\n"
+"PO-Revision-Date: 2023-08-02 01:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -178,12 +178,12 @@ msgstr "Aksanlı harfleri, normal harflerden ayrı yaz"
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr "KHangman için Sağlayıcıların yolu"
+msgstr "K Adam Asmaca için sağlayıcıların yolu"
 
 #: main.cpp:59
 #, kde-format
 msgid "KHangMan"
-msgstr "KHangMan"
+msgstr "K Adam Asmaca"
 
 #: main.cpp:61
 #, kde-format
@@ -541,7 +541,7 @@ msgstr "Ayarlar"
 #: qml/GamePage.qml:297
 #, kde-format
 msgid "About KHangMan"
-msgstr "KHangMan Hakkında"
+msgstr "K Adam Asmaca Hakkında"
 
 #: qml/GamePage.qml:308
 #, kde-format
@@ -551,7 +551,7 @@ msgstr "KDE Hakkında"
 #: qml/GamePage.qml:319
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr "KHangMan El Kitabını Görüntüle"
+msgstr "K Adam Asmaca El Kitabını Görüntüle"
 
 #: qml/GamePage.qml:330
 #, kde-format
@@ -616,17 +616,17 @@ msgstr "Sıradaki sözcüğü yükle ve yeni bir oyun başlat."
 #: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
 #, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan Ayarları"
+msgstr "K Adam Asmaca Ayarları"
 
 #: qml/MainSettingsDialog.qml:46
 #, kde-format
 msgid "KHangMan word resolve time"
-msgstr "KHangMan sözcük çözme zamanı"
+msgstr "K Adam Asmaca sözcük çözme zamanı"
 
 #: qml/MainSettingsDialog.qml:47
 #, kde-format
 msgid "Maximum allowed time for resolving the word in KHangMan"
-msgstr "KHangMan içinde sözcük çözme için izin verilen en fazla zaman"
+msgstr "K Adam Asmaca içinde sözcük çözme için izin verilen en fazla zaman"
 
 #: qml/MainSettingsDialog.qml:54
 #, kde-format
@@ -641,7 +641,7 @@ msgstr "Gerçek sözcük için ipucu gösterim süresi"
 #: qml/MainSettingsDialog.qml:61
 #, kde-format
 msgid "KHangMan Score Multiplying Factor"
-msgstr "KHangMan Puan Çarpanı"
+msgstr "K Adam Asmaca Puan Çarpanı"
 
 #: qml/MainSettingsDialog.qml:62
 #, kde-format
