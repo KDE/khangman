@@ -18,21 +18,5 @@ Dependencies:
     'frameworks/kio': '@latest-kf6'
     'education/libkeduvocdocument': '@same'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/kcompletion': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/knewstuff': '@stable'
-    'frameworks/knotifications': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/kio': '@stable'
-    'education/libkeduvocdocument': '@same'
-
 Options:
   require-passing-tests-on: [ '@all' ]

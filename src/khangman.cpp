@@ -33,11 +33,7 @@
 #include <KMessageBox>
 #include <KRandom>
 #include <knewstuff_version.h>
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 240, 0)
-#include <KNS3/QtQuickDialogWrapper>
-#else
 #include <KNSWidgets/Dialog>
-#endif
 #include <KHelpMenu>
 
 #include <KEduVocDocument>
@@ -512,23 +508,11 @@ void KHangMan::loadLevels()
 
 void KHangMan::slotDownloadNewStuff()
 {
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    KNS3::QtQuickDialogWrapper *dialog = new KNS3::QtQuickDialogWrapper(QStringLiteral("khangman.knsrc"), this);
-#else
     KNSWidgets::Dialog *dialog = new KNSWidgets::Dialog(QStringLiteral("khangman.knsrc"), this);
-#endif
     dialog->open();
 
-#if KNEWSTUFF_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
-#else
     connect(dialog, &KNSWidgets::Dialog::finished, this, [this, dialog] {
-#endif
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const QList<KNSCore::EntryInternal> entries = dialog->changedEntries();
-#else
         const QList<KNSCore::Entry> entries = dialog->changedEntries();
-#endif
         if ( !entries.isEmpty() ){
             SharedKvtmlFiles::sortDownloadedFiles();
             //look for languages dirs installed
@@ -572,9 +556,7 @@ void KHangMan::loadLanguageSpecialCharacters()
     QFile openFileStream(langFile.fileName());
     openFileStream.open(QIODevice::ReadOnly);
     QTextStream readFileStr(&openFileStream);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    readFileStr.setCodec("UTF-8");
-#endif
+    readFileStr.setEncoding(QStringConverter::Utf8);
 
     // m_specialCharacters contains all the words from the file
     // FIXME: Better name
