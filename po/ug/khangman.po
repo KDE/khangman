@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-08 00:42+0000\n"
+"POT-Creation-Date: 2023-10-08 01:37+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -59,30 +59,30 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
 
-#: khangman.cpp:159
+#: khangman.cpp:155
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
 
-#: khangman.cpp:163 khangman.cpp:470 khangman.cpp:492
+#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
 #, kde-format
 msgid "Error"
 msgstr "خاتالىق"
 
-#: khangman.cpp:453
+#: khangman.cpp:449
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "يوق"
 
-#: khangman.cpp:470
+#: khangman.cpp:466
 #, kde-format
 msgid "No theme files found."
 msgstr ""
 
-#: khangman.cpp:492
+#: khangman.cpp:488
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""
@@ -155,323 +155,323 @@ msgstr ""
 msgid "The Providers path for KHangMan"
 msgstr ""
 
-#: main.cpp:59
+#: main.cpp:49
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:61
+#: main.cpp:51
 #, kde-format
 msgid "Classical hangman game by KDE"
 msgstr ""
 
-#: main.cpp:63
+#: main.cpp:53
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:54
 #, kde-format
 msgid "Primoz Anzur"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:54
 #, kde-format
 msgid "Previous maintainer"
 msgstr "ئالدىنقى مەسئۇل ئادەم"
 
-#: main.cpp:69
+#: main.cpp:59
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:69
+#: main.cpp:59
 #, kde-format
 msgid "Original Author"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:61
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:61
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:63
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:74 main.cpp:119 main.cpp:121 main.cpp:123
+#: main.cpp:64 main.cpp:109 main.cpp:111 main.cpp:113
 #, kde-format
 msgid "Coding help"
 msgstr "كود يېزىش ياردىمى"
 
-#: main.cpp:75
+#: main.cpp:65
 #, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:76
+#: main.cpp:66
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:68
 #, kde-format
 msgid "eXParTaKus"
 msgstr ""
 
-#: main.cpp:79
+#: main.cpp:69
 #, kde-format
 msgid "Spanish data files"
 msgstr ""
 
-#: main.cpp:80
+#: main.cpp:70
 #, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr ""
 
-#: main.cpp:81
+#: main.cpp:71
 #, kde-format
 msgid "Danish data files"
 msgstr ""
 
-#: main.cpp:82
+#: main.cpp:72
 #, kde-format
 msgid "Niko Lewman"
 msgstr ""
 
-#: main.cpp:83
+#: main.cpp:73
 #, kde-format
 msgid "Finnish data files"
 msgstr ""
 
-#: main.cpp:84
+#: main.cpp:74
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr ""
 
-#: main.cpp:85
+#: main.cpp:75
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr ""
 
-#: main.cpp:86
+#: main.cpp:76
 #, kde-format
 msgid "Antoni Bella"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:77
 #, kde-format
 msgid "Catalan data files"
 msgstr ""
 
-#: main.cpp:88
+#: main.cpp:78
 #, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:89
+#: main.cpp:79
 #, kde-format
 msgid "Italian data files"
 msgstr ""
 
-#: main.cpp:90
+#: main.cpp:80
 #, kde-format
 msgid "Rinse"
 msgstr ""
 
-#: main.cpp:91
+#: main.cpp:81
 #, kde-format
 msgid "Dutch data files"
 msgstr ""
 
-#: main.cpp:92
+#: main.cpp:82
 #, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:93
+#: main.cpp:83
 #, kde-format
 msgid "Czech data files"
 msgstr ""
 
-#: main.cpp:94
+#: main.cpp:84
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr ""
 
-#: main.cpp:95
+#: main.cpp:85
 #, kde-format
 msgid "Hungarian data files"
 msgstr ""
 
-#: main.cpp:96
+#: main.cpp:86
 #, kde-format
 msgid "Torger Åge Sinnes"
 msgstr ""
 
-#: main.cpp:97
+#: main.cpp:87
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "نورۋېگچە(بوكمالچە) سانلىق-مەلۇمات ھۆججەتلىرى"
 
-#: main.cpp:98
+#: main.cpp:88
 #, kde-format
 msgid "Roger Kovacs"
 msgstr ""
 
-#: main.cpp:99
+#: main.cpp:89
 #, kde-format
 msgid "Tajik data files"
 msgstr ""
 
-#: main.cpp:100
+#: main.cpp:90
 #, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:101
+#: main.cpp:91
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr ""
 
-#: main.cpp:102
+#: main.cpp:92
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:103
+#: main.cpp:93
 #, kde-format
 msgid "Slovenian data files"
 msgstr ""
 
-#: main.cpp:104
+#: main.cpp:94
 #, kde-format
 msgid "Pedro Morais"
 msgstr ""
 
-#: main.cpp:105
+#: main.cpp:95
 #, kde-format
 msgid "Portuguese data files"
 msgstr ""
 
-#: main.cpp:106
+#: main.cpp:96
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr ""
 
-#: main.cpp:107
+#: main.cpp:97
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "نورۋېگچە(يېڭى نورۋېگچە) سانلىق-مەلۇمات ھۆججەتلىرى"
 
-#: main.cpp:108
+#: main.cpp:98
 #, kde-format
 msgid "Mehmet Özel"
 msgstr ""
 
-#: main.cpp:109
+#: main.cpp:99
 #, kde-format
 msgid "Turkish data files"
 msgstr ""
 
-#: main.cpp:110
+#: main.cpp:100
 #, kde-format
 msgid "Черепанов Андрей"
 msgstr ""
 
-#: main.cpp:111
+#: main.cpp:101
 #, kde-format
 msgid "Russian data files"
 msgstr ""
 
-#: main.cpp:112
+#: main.cpp:102
 #, kde-format
 msgid "Radostin Radnev"
 msgstr ""
 
-#: main.cpp:113
+#: main.cpp:103
 #, kde-format
 msgid "Bulgarian data files"
 msgstr "بۇلغارچە سانلىق-مەلۇمات ھۆججىتى"
 
-#: main.cpp:114
+#: main.cpp:104
 #, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr ""
 
-#: main.cpp:115
+#: main.cpp:105
 #, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr ""
 
-#: main.cpp:116
+#: main.cpp:106
 #, kde-format
 msgid "Matt Howe"
 msgstr ""
 
-#: main.cpp:117
+#: main.cpp:107
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr ""
 
-#: main.cpp:118
+#: main.cpp:108
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:120
+#: main.cpp:110
 #, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:122
+#: main.cpp:112
 #, kde-format
 msgid "Lubos Lunàk"
 msgstr ""
 
-#: main.cpp:124
+#: main.cpp:114
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:125
+#: main.cpp:115
 #, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr ""
 
-#: main.cpp:126
+#: main.cpp:116
 #, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:127
+#: main.cpp:117
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr ""
 
-#: main.cpp:128
+#: main.cpp:118
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:129
+#: main.cpp:119
 #, kde-format
 msgid "Code cleaning"
 msgstr ""
 
-#: main.cpp:130
+#: main.cpp:120
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
 
-#: main.cpp:130
+#: main.cpp:120
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
