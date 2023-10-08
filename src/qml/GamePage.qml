@@ -25,7 +25,7 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Window 2.2
 import QtMultimedia 5.0
 import QtQml 2.2
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 import org.kde.newstuff 1.81 as NewStuff
 
