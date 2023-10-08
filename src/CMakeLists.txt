@@ -22,14 +22,14 @@ kconfig_add_kcfg_files(khangman prefs.kcfgc)
 # generate_export_header(khangman BASE_NAME KHANGMAN)
 
 target_link_libraries(khangman
-    Qt${QT_MAJOR_VERSION}::QuickWidgets
-    Qt${QT_MAJOR_VERSION}::Core
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::NewStuffWidgets
-    KF${KF_MAJOR_VERSION}::ConfigCore
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::XmlGui
+    Qt6::QuickWidgets
+    Qt6::Core
+    KF6::Crash
+    KF6::I18n
+    KF6::NewStuffWidgets
+    KF6::ConfigCore
+    KF6::WidgetsAddons
+    KF6::XmlGui
     LibKEduVocDocumentImport__KEduVocDocument
 )
 

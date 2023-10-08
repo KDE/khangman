@@ -6,7 +6,7 @@ set(RELEASE_SERVICE_VERSION_MINOR "11")
 set(RELEASE_SERVICE_VERSION_MICRO "70")
 set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
-set(QT_MIN_VERSION "5.15.2")
+set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 project(khangman VERSION ${RELEASE_SERVICE_VERSION})
@@ -22,14 +22,12 @@ include(GenerateExportHeader)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
-set(QT_REQUIRED_VERSION "6.4.0")
-set(KF_MAJOR_VERSION "6")
 
 include(FeatureSummary)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Qml Quick QuickWidgets Svg)
 
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
@@ -63,7 +61,7 @@ add_subdirectory( icons )
 add_subdirectory( languages )
 
 ki18n_install(po)
-if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
