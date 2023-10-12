@@ -8,21 +8,21 @@
 # Leticia Martin <leticia.martin@gmail.com>, 2009.
 # Leticia Martin Hernandez <leticia.martin@gmail.com>, 2009.
 # Administrator, 2010.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2010, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2020, 2021, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Sofía Priego <spriego@darksylvania.net>, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-08 01:37+0000\n"
-"PO-Revision-Date: 2021-10-19 02:13+0100\n"
+"PO-Revision-Date: 2023-10-12 02:26+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: tag theme attribute uiname
@@ -74,7 +74,7 @@ msgid ""
 "Please check your installation."
 msgstr ""
 "No se ha encontrado el archivo $KDEDIR/share/apps/kvtml/%1/%2.\n"
-"Compruebe su instalación."
+"Comprueba la instalación."
 
 #: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "El idioma seleccionado por el usuario"
 #: khangman.kcfg:33
 #, kde-format
 msgid "Background theme name"
-msgstr "Nombre del tema de fondo"
+msgstr "Nombre del tema del fondo"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
@@ -121,21 +121,20 @@ msgstr "Nombre del tema de fondo"
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
 msgstr ""
-"Marca esta opción si no deseas que se muestren simultáneamente todas las "
-"apariciones de una misma letra."
+"Marca esta opción si no quieres descubrir cada aparición de la misma letra."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
 #, kde-format
 msgid "Enable Animations"
-msgstr "Habilitar las animaciones"
+msgstr "Activar las animaciones"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
 msgstr ""
-"Si está marcado, se reproducirán sonidos con las nuevas partidas y las "
+"Si está marcada, se reproducirán sonidos con las nuevas partidas y las "
 "partidas ganadas."
 
 #. i18n: ectx: label, entry (Hint), group (General)
@@ -147,10 +146,10 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Si está marcado, siempre se mostrarán pistas. Si no está marcado (por "
+"Si está marcada, siempre se mostrarán pistas. Si no está marcada (por "
 "omisión)\n"
-"            las pistas se mostrarán solo por palabra cuando el usuario elija "
-"mostrar la pista."
+"            las pistas se mostrarán solo por palabra cuando elijas mostrar "
+"la pista."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -159,14 +158,14 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
-"Esta preferencia le permite establecer el tiempo en segundos del que "
-"dispondrá para resolver la palabra."
+"Esta preferencia te permite establecer el tiempo en segundos del que "
+"dispondrás para resolver la palabra."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr "Teclear las letras con tilde de forma separada de las letras normales"
+msgstr "Escribir las letras con tilde de forma separada a las letras normales"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
@@ -197,7 +196,7 @@ msgstr "Primoz Anzur"
 #: main.cpp:54
 #, kde-format
 msgid "Previous maintainer"
-msgstr "Encargado anterior."
+msgstr "Responsable anterior."
 
 #: main.cpp:59
 #, kde-format
@@ -239,7 +238,7 @@ msgstr "Stefan Asserhäll"
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 "Archivos de datos en sueco, ayuda con la programación, imágenes "
-"transparentes y correcciones en la i18n."
+"transparentes y correcciones de i18n."
 
 #: main.cpp:68
 #, kde-format
@@ -464,7 +463,7 @@ msgstr "Albert Astals Cid"
 #: main.cpp:115
 #, kde-format
 msgid "Coding help, fixed a lot of things"
-msgstr "Ayudas de programación, resolvió un montón de cosas."
+msgstr "Ayudas de programación, corrección de muchas cosas."
 
 #: main.cpp:116
 #, kde-format
@@ -508,7 +507,7 @@ msgstr "Elije la categoría de las palabras"
 #: qml/GamePage.qml:178
 #, kde-format
 msgid "Select a language"
-msgstr "Elije un idioma"
+msgstr "Selecciona un idioma"
 
 #: qml/GamePage.qml:191
 #, kde-format
@@ -563,7 +562,7 @@ msgstr "Salir"
 #: qml/GamePage.qml:362
 #, kde-format
 msgid "Remaining guesses: "
-msgstr "Suposiciones restantes: "
+msgstr "Intentos restantes: "
 
 #: qml/GamePage.qml:387
 #, kde-format
@@ -663,7 +662,7 @@ msgstr "Tiempo para resolver la palabra en segundos"
 #: qml/MainSettingsDialog.qml:162
 #, kde-format
 msgid "Score Multiplying Factor"
-msgstr "Factor de multiplicación de puntuaciones"
+msgstr "Factor de multiplicación de las puntuaciones"
 
 #: qml/MainSettingsDialog.qml:246
 #, kde-format

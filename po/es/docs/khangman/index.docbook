@@ -80,6 +80,20 @@
 > <contrib
 >Traductor</contrib
 > </othercredit
+><othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 
@@ -131,7 +145,7 @@
 >Introducción</title>
 
 <para
->&khangman; es un juego basado en el conocido pasatiempo del ahorcado. Está dirigido a niños de seis años o más. El juego tiene varias categorías de palabras con las que jugar, como: animales, ropa, informática, monedas, fácil y frutas. El programa escoge una palabra de forma aleatoria, ocultando las letras, y se debe adivinar la palabra probando una letra tras otra. Cada vez que se pulsa una letra equivocada, se va dibujando una parte de la imagen del ahorcado. ¡Hay que adivinar la palabra antes de que lo cuelguen! Para ello tienes 10 intentos. </para>
+>&khangman; es un juego basado en el conocido pasatiempo del ahorcado. Está dirigido a niños de seis años o más. El juego tiene varias categorías de palabras con las que jugar, como: animales, ropa, informática, monedas, fácil y frutas. El programa escoge una palabra de forma aleatoria, ocultando las letras, y se debe adivinar la palabra probando una letra tras otra. Cada vez que se pulsa una letra equivocada, se va dibujando una parte de la imagen del ahorcado. ¡Tienes que adivinar la palabra antes de acabar colgado! Tienes 10 intentos. </para>
 
 </chapter>
 
@@ -157,7 +171,7 @@
 >Aquí puedes ver el aspecto de &khangman; la primera vez que se ejecuta. La categoría es «Animales», el idioma es el predeterminado (en este caso inglés, pero será el que actualmente use &kde;, si hay uno definido) y el tema es «Notas». Cualquier cambio que hagas en la categoría, el idioma o el tema (el fondo) se registra en el archivo de configuración y se recupera la próxima vez que juegues. </para>
 
 <para
->Fíjate en lo fácil que resulta cambiar el tema; basta con pulsar el botón de la barra de herramientas inferior. También puedes obtener una nueva palabra y salir del juego con tan solo pulsar los botones correspondientes de las barras de herramientas. </para>
+>Fíjate en lo fácil que resulta cambiar el tema: basta con pulsar el botón de la barra de herramientas inferior. También puedes obtener una nueva palabra y salir del juego con tan solo pulsar los botones correspondientes de las barras de herramientas. </para>
 
 <sect1 id="general-usage">
 <title
@@ -485,18 +499,18 @@ The duration for showing the hint for the actual word
 
 <sect1 id="changing-words">
 <title
->Cómo traducir palabras en un nuevo idioma para el juego</title>
+>Cómo traducir palabras a un nuevo idioma para el juego</title>
 
 <para
->Por favor, siga este procedimiento y envíe los archivos comprimidos con tar y gzip a la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>Sigue este procedimiento y envía los archivos comprimidos con tar y gzip a la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
 >lista de distribución de kde-edu</ulink
 >. </para>
 <para
->Consulte <inlinemediaobject
+>Consulta <inlinemediaobject
 ><imageobject
 ><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
 ></inlinemediaobject
-> en la barra de herramientas superior de &khangman; para comprobar si su idioma está disponible. En tal caso, puede comprobar si contiene <emphasis
+> en la barra de herramientas superior de &khangman; para comprobar si tu idioma está disponible. En tal caso, puedes comprobar si contiene <emphasis
 >pistas</emphasis
 >. </para>
 <para
@@ -522,12 +536,12 @@ The duration for showing the hint for the actual word
 >comment</sgmltag
 > es para la pista. Ambos están dentro de una etiqueta  <sgmltag class="starttag"
 >entry</sgmltag
->. Intente relacionar la pista con la categoría o nivel de dificultad. La categoría «Fácil» requerirá una pista sencilla, pero la categoría «Difícil» requerirá la definición del diccionario. Intente no utilizar palabras de la misma familia en la pista, ¡o hará que el usuario adivine la palabra con facilidad!</para>
+>. Intenta relacionar la pista con la categoría o nivel de dificultad. La categoría «Fácil» requerirá una pista sencilla, pero la categoría «Difícil» requerirá la definición del diccionario. Intenta no utilizar palabras de la misma familia en la pista, ¡o harás que el usuario adivine la palabra con facilidad!</para>
 
 <para
->Tenga en cuenta que debe utilizar la <emphasis role="bold"
+>Ten en cuenta que debes utilizar la <emphasis role="bold"
 >codificación UTF-8</emphasis
-> al editar los archivos. Si su editor no admite esta opción, utilice &kwrite; o &kate;. Cuando abra un archivo con &kwrite; or &kate;, encontrará una lista desplegable que se encuentra en la parte superior del diálogo de apertura que le permitirá seleccionar la codificación utf8.</para>
+> al editar los archivos. Si tu editor no admite esta opción, usa &kwrite; o &kate;. Cuando abras un archivo con &kwrite; o con &kate;, encontrarás una lista desplegable que se encuentra en la parte superior del diálogo de apertura que te permitirá seleccionar la codificación utf8.</para>
 
 <para
 >Un ejemplo de un archivo kvtml es el siguiente:</para>
@@ -539,9 +553,9 @@ The duration for showing the hint for the actual word
 &lt;kvtml version="2.0"&gt; 
 &lt;information&gt;
     &lt;generator&gt;converter&lt;/generator&gt;
-    &lt;title&gt;Animales&lt;/title&gt;&lt;!--Traduzca el contenido de esta etiqueta--&gt;
+    &lt;title&gt;Animales&lt;/title&gt;&lt;!--Traduce el contenido de esta etiqueta--&gt;
     &lt;comment&gt;Animales de todo el
-mundo&lt;/comment&gt;&lt;!--Traduzca el contenido de esta etiqueta--&gt;
+mundo&lt;/comment&gt;&lt;!--Traduce el contenido de esta etiqueta--&gt;
   &lt;/information&gt;
   &lt;identifiers&gt;
     &lt;identifier id="0" &gt;
@@ -553,10 +567,10 @@ mundo&lt;/comment&gt;&lt;!--Traduzca el contenido de esta etiqueta--&gt;
       &lt;inactive&gt;false&lt;/inactive&gt;
       &lt;inquery&gt;false&lt;/inquery&gt;
       &lt;translation id="0" &gt;
-        &lt;text&gt;oso&lt;/text&gt;&lt;!--Traduzca el contenido de todas las etiquetas
+        &lt;text&gt;oso&lt;/text&gt;&lt;!--Traduce el contenido de todas las etiquetas
 con texto--&gt;
         &lt;comment&gt;Animal grande y pesado con mucho
-pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con comentarios--&gt;
+pelo&lt;/comment&gt;&lt;!--Traduce el contenido de todas las etiquetas con comentarios--&gt;
       &lt;/translation&gt;
     &lt;/entry&gt;
 ...
@@ -566,7 +580,7 @@ pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con come
 </step>
 <step>
 <para
->Al comienzo del archivo, debe traducir el contenido de las etiquetas <sgmltag class="starttag"
+>Al comienzo del archivo, debes traducir el contenido de las etiquetas <sgmltag class="starttag"
 >title</sgmltag
 > y <sgmltag class="starttag"
 >comment</sgmltag
@@ -578,62 +592,62 @@ pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con come
 <para
 >A continuación, dentro de la etiqueta <sgmltag class="starttag"
 >identifier</sgmltag
-> introduzca, en lugar de «es», el código de su idioma en <sgmltag class="starttag"
+> introduce, en lugar de «en», el código de tu idioma en <sgmltag class="starttag"
 >locale</sgmltag
 >.</para>
 
 <para
->No traduzca el nombre del propio archivo ya que los nombres de archivo no deben contener ningún carácter especial. Guarde por lo tanto su archivo con el nombre en inglés.</para>
+>No traduzcas el nombre del propio archivo ya que los nombres de archivo no deben contener ningún carácter especial. Guarda el archivo con el nombre en inglés.</para>
 </step>
 <step>
 <para
->Edite los archivos kvtml con un editor de textos (le resultará más fácil si usa el resaltado de sintaxis XML) y reemplace cada palabra dentro de la etiqueta <sgmltag class="starttag"
+>Modifica los archivos kvtml con un editor de textos (te resultará más fácil si usas el resaltado de sintaxis XML) y sustituye cada palabra dentro de la etiqueta <sgmltag class="starttag"
 >text</sgmltag
 > con una palabra traducida, y cada pista dentro de la etiqueta <sgmltag class="starttag"
 >comment</sgmltag
-> con una pista traducida. No es realmente importante preservar el significado exacto de la palabra, pero intente mantener aproximadamente su longitud y su nivel de dificultad. </para
+> con una pista traducida. No es realmente importante preservar el significado exacto de la palabra, pero intenta mantener aproximadamente su longitud y su nivel de dificultad. </para
 > 
 
 <para
->Puede incluir palabras con espacios en blanco o guiones (-); en este caso, se mostrará el espacio en blanco o el guion en vez del símbolo de subrayado (_). Por favor, póngase en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>Puedes incluir palabras con espacios en blanco o guiones (-); en este caso, se mostrará el espacio en blanco o el guion en vez del símbolo de subrayado (_). Ponte en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
 >lista de distribución de kde-edu</ulink
-> si hubiera algún problema con su idioma; así podré realizar los ajustes necesarios en el código (en particular, aquellos relacionados con los caracteres especiales y los caracteres acentuados). </para>
+> si hubiera algún problema con tu idioma para que podamos adaptar el código (en particular, los relacionados con caracteres especiales y con caracteres acentuados). </para>
 </step
 >	
 
 <step>
 <para
->Puede simplemente traducir las palabras, pero también puede adaptarlas a la categoría o añadir otras nuevas si así lo desea. Por ejemplo, «table» (que quiere decir «mesa») está incluida en la categoría «Fácil» en inglés, pero en su idioma podría estar en la categoría «Media». Tiene libertad para adaptar los archivos a las necesidades de su idioma. El número de palabras en un archivo no es importante, por lo que puede añadir tantas como quiera.</para>
+>Puedes simplemente traducir las palabras, pero también puedes adaptarlas a la categoría o añadir otras nuevas si así lo deseas. Por ejemplo, «table» (que quiere decir «mesa») está incluida en la categoría «Fácil» en inglés, pero en tu idioma podría estar en la categoría «Media». Tienes libertad para adaptar los archivos a las necesidades de tu idioma. El número de palabras de un archivo no es importante, por lo que puedes añadir tantas como quieras.</para>
 
 <para
->Recuerde que todas las palabras deben ser sustantivos.</para>
+>Recuerda que todas las palabras deben ser sustantivos.</para>
 
 </step>
 
 <step>
 <para
->Puede subir sus archivos a <emphasis
+>Puedes subir sus archivos a <emphasis
 >l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
->. No olvide que debe también actualizar el archivo CMakeLists.txt . Por favor, pónganse en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>. No olvides que también debes actualizar el archivo CMakeLists.txt . Ponte en contacto con la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
 >lista de distribución de kde-edu</ulink
-> si necesita más información al respecto. Cuando envíe los archivos, no olvide mencionar los <emphasis role="bold"
+> si necesitas más información al respecto. Cuando envíes los archivos, no olvides mencionar los <emphasis role="bold"
 >caracteres especiales</emphasis
-> usados en su idioma (póngalos en un archivo de texto, uno por línea, y a continuación incluya este archivo en el tar) así como cualquier otra especificidad.</para>
+> que usa tu idioma (ponlos en un archivo de texto, uno por línea, y a continuación incluye este archivo en el tar) así como cualquier otra especificidad.</para>
 <para
 ><emphasis
->Por favor, no suba nunca archivos a una RAMA ya que puede colgar el juego.</emphasis
+>No subas nunca archivos a una RAMA, ya que puedes hacer que el juego deje de funcionar.</emphasis
 ></para>
 </step>
 </procedure>
 <para
->¡Muchas gracias por su colaboración!</para>
+>¡Muchas gracias por tu colaboración!</para>
 </sect1>
 
 <sect1 id="internal">
 <title
->Qué guarda &khangman; y dónde</title>
+>Qué guarda &khangman; y dónde lo hace</title>
 <para
->Cuando instale un nuevo idioma a través del icono <inlinemediaobject
+>Cuando instales un nuevo idioma usando el icono <inlinemediaobject
 ><imageobject
 ><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
 ></inlinemediaobject
@@ -655,7 +669,7 @@ pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con come
 <para
 >En el archivo de configuración, que se encuentra en <filename
 >$XDG_DATA_HOME/share/config/khangmanrc</filename
->, se guardan, para cada usuario, todas las configuraciones del juego, como el fondo, la última categoría jugada, etc., así como los archivos descargados mediante el diálogo <guilabel
+>, se guardan, para cada usuario, todas las preferencias del juego, como el fondo, la última categoría con la que se ha jugado, etc., así como los archivos descargados con el diálogo <guilabel
 >Obtener novedades</guilabel
 >. </para>
 </sect1>
@@ -849,6 +863,10 @@ pelo&lt;/comment&gt;&lt;!--Traduzca el contenido de todas las etiquetas con come
 >santi@kde-es.org</email
 > y Leticia Martín Hernández <email
 >leticia.martin@gmail.com</email
+>.</para
+> <para
+>Corregido por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 

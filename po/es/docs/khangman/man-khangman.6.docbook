@@ -47,9 +47,9 @@
 <para
 >&khangman; es un juego basado en el conocido juego del ahorcado. Esta pensado para niños de 6 años en adelante. Tiene varias categorías de palabras, como animales, ropa, informática, monedas y otras más.</para
 ><para
->Se elige una palabra de forma aleatoria y se ocultan las letras. Debe adivinar la palabra probando una letra tras otra. Cada vez que elija una letra errónea, se dibujará parte del dibujo del ahorcado. Debe adivinar la palabra antes de ser ahorcado. Tiene 10 intentos.</para
+>Se elige una palabra de forma aleatoria y se ocultan las letras. Se debe adivinar la palabra probando una letra tras otra. Cada vez que se elija una letra errónea, se mostrará una parte del dibujo del ahorcado. Se debe adivinar la palabra antes de acabar colgado. Se tienen 10 intentos.</para
 ><para
->Esta aplicación es parte del módulo educativo &kde;.</para>
+>Esta aplicación es parte del módulo educativo de &kde;.</para>
 </refsect1>
 
 <refsect1>
@@ -76,7 +76,7 @@
 <title
 >Autores</title>
 <para
->&khangman; lo escribió <personname
+>&khangman; fue escrito por <personname
 ><firstname
 >Primoz</firstname
 ><surname
