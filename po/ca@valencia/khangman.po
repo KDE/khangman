@@ -168,7 +168,7 @@ msgstr "Imprimix separadament les lletres normals i accentuades"
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr "El camí als proveïdors de KHangMan"
+msgstr "El camí cap als proveïdors de KHangMan"
 
 #: main.cpp:49
 #, kde-format
