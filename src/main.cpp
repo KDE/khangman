@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("khangman");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("khangman"));
     QApplication::setApplicationName(QStringLiteral("khangman"));
     QApplication::setApplicationVersion(QStringLiteral(KHANGMAN_VERSION_STRING));
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
