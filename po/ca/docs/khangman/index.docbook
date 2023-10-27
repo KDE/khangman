@@ -98,9 +98,7 @@
 </screenshot>
 
 <para
->Aquí podeu veure l'aspecte del &khangman; la primera vegada que s'executa. La categoria és «Animals», l'idioma és el predeterminat (anglès en aquest cas, el predeterminat serà el vostre idioma actual al &kde;, sempre que hi siguin les dades), el tema és el <quote
->Notes</quote
->. Qualsevol canvi que feu en la categoria, l'idioma o el tema (fons) serà escrit en el fitxer de configuració i restaurat a la següent partida. </para>
+>Aquí podeu veure l'aspecte del &khangman; la primera vegada que s'executa. La categoria és «Animals», l'idioma és el predeterminat (anglès en aquest cas, el predeterminat serà el vostre idioma actual al &kde;, sempre que hi siguin les dades), el tema és el «Notes». Qualsevol canvi que feu en la categoria, l'idioma o el tema (fons) serà escrit en el fitxer de configuració i restaurat a la següent partida. </para>
 
 <para
 >Si us plau, cal tenir present el fàcil que resulta canviar el tema, senzillament fent clic sobre el botó de la barra d'eines de baix. Obtenir una paraula nova i sortir del joc també resulta fàcil fent clic sobre el corresponent botó de les barres d'eines. </para>
@@ -263,16 +261,10 @@ you have installed.</para
 <para
 >En l'anglès, primer intenteu endevinar les vocals. Aleshores proveu-ho amb les consonants més comunes: l, t, r, n, s. </para>
 <para
->En els idiomes francès i anglès; si veieu <quote
->io</quote
->, tot seguit proveu amb una n. </para>
+>En els idiomes francès i anglès; si veieu «io», tot seguit proveu amb una n. </para>
 
 <para
->Podeu optar per escriure les lletres accentuades o fer clic a sobre seu. Quan escriviu <quote
->a</quote
->, només es mostrarà <quote
->a</quote
-> i perquè es mostri l'accent haureu d'escriure &atilde; per a aquesta lletra. </para>
+>Podeu optar per escriure les lletres accentuades o fer clic a sobre seu. Quan escriviu «a», només es mostrarà «a» i perquè es mostri l'accent haureu d'escriure &atilde; per a aquesta lletra. </para>
 <para
 >Sabíeu que? A l'anglès, la lletra més comuna és la «e» (12,7%), seguida per la «t» (9,1%), després la «a» (8,2%), «i» (7,0%) i «n» (6,7%).</para>
 </sect1>
@@ -302,9 +294,7 @@ you have installed.</para
 </screenshot>
 
 <para
->Aquí teniu el &khangman; amb el tema desert, l'idioma català amb la categoria <quote
->Comarques</quote
->. També es mostren els caràcters especials per al català.</para>
+>Aquí teniu el &khangman; amb el tema desert, l'idioma català amb la categoria «Comarques». També es mostren els caràcters especials per al català.</para>
 
 <para
 >El joc té la barra d'eines principal a la part superior de la finestra:</para>
@@ -561,9 +551,7 @@ fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 
 <step>
 <para
->Senzillament podeu traduir les paraules, però després també les haureu d'adaptar a la categoria i afegir-n'hi de noves, si així ho voleu. Per exemple, <quote
->taula</quote
-> està a la categoria fàcil en anglès, però al vostre idioma aquesta podria ser de categoria mitjana. Trobeu-vos lliure d'adaptar els fitxers al que necessita el vostre idioma. El nombre de paraules en un fitxer no és important, se n'hi poden afegir tantes com es vulgui.</para>
+>Senzillament podeu traduir les paraules, però després també les haureu d'adaptar a la categoria i afegir-n'hi de noves, si així ho voleu. Per exemple, «taula» està a la categoria fàcil en anglès, però al vostre idioma aquesta podria ser de categoria mitjana. Trobeu-vos lliure d'adaptar els fitxers al que necessita el vostre idioma. El nombre de paraules en un fitxer no és important, se n'hi poden afegir tantes com es vulgui.</para>
 
 <para
 >Recordeu que totes les paraules són substantius.</para>
