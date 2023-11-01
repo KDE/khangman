@@ -44,7 +44,7 @@ install(
     FILES
     khangman.knsrc
     DESTINATION
-    ${KDE_INSTALL_CONFDIR}
+    ${KDE_INSTALL_KNSRCDIR}
 )
 
 install(
