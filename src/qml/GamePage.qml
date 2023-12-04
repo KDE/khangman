@@ -27,11 +27,12 @@ import QtQml
 import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.newstuff as NewStuff
 
-Item {
-
+Kirigami.Page {
     id: gamePage
+
     focus: true
 
     property variant alphabet: khangman.alphabet
@@ -42,7 +43,12 @@ Item {
     property alias isPlaying: secondTimer.running
     property string missedLetters: ""
 
-    anchors.fill: parent
+    background: Image {
+        id: backgroundImage
+        smooth: true
+        anchors.fill: parent
+        source: khangman.backgroundUrl
+    }
 
     function nextWord(): void {
         khangman.nextWord();
@@ -227,113 +233,100 @@ Item {
         }
     }
 
-    ToolBar {
-        id: homePageTools
+    actions: [
+        Kirigami.Action {
+            id: playPauseButton
+            icon.name: gamePage.isPlaying ? "media-playback-pause" : "media-playback-play"
 
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
+            text: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
-        contentItem: Kirigami.ActionToolBar {
-            actions: [
-                Kirigami.Action {
-                    id: playPauseButton
-                    icon.name: gamePage.isPlaying ? "media-playback-pause" : "media-playback-play"
-
-                    text: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
-
-                    onTriggered: {
-                        if( gamePage.isPlaying ) { // game is currently going on, so pause it
-                            secondTimer.repeat = false
-                            secondTimer.running = false
-                            hintLabel.visible = false
-                            secondTimer.stop();
-                        } else {  // the game is paused or not yet started, so resume or start it
-                            // if the game is not yet started, play nextWordSoundeffect
-                            // denotes the game is not yet started, should return false if game is paused instead
-                            if (khangman.soundEnabled) {
-                                nextWordSoundEffect.play()
-                            }
-                            startTimer()
-                        }
+            onTriggered: {
+                if( gamePage.isPlaying ) { // game is currently going on, so pause it
+                    secondTimer.repeat = false
+                    secondTimer.running = false
+                    hintLabel.visible = false
+                    secondTimer.stop();
+                } else {  // the game is paused or not yet started, so resume or start it
+                    // if the game is not yet started, play nextWordSoundeffect
+                    // denotes the game is not yet started, should return false if game is paused instead
+                    if (khangman.soundEnabled) {
+                        nextWordSoundEffect.play()
                     }
-                },
-
-                Kirigami.Action {
-                    id: themeSelectionButton
-                    text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
-
-                    onTriggered: {
-                        themeSelectionDialog.open()
-                    }
-                },
-
-                Kirigami.Action {
-                    id: settingsButton
-                    icon.name: "settings-configure-symbolic"
-                    text: i18nc("@action:button", "Configure")
-
-                    onTriggered: {
-                        // if game is currently going on then pause it
-                        mainSettingsDialog.wasPlaying = isPlaying
-                        if( gamePage.isPlaying ) {
-                            secondTimer.repeat = false
-                            secondTimer.running = false
-                            hintLabel.visible = false
-                            secondTimer.stop();
-                        }
-                        mainSettingsDialog.open()
-                    }
-                },
-
-                Kirigami.Action {
-                    id: ghnsButton
-                    icon.name: "get-hot-new-stuff"
-                    text: i18n("Download new language files")
-                    visible: NewStuff.Settings.allowedByKiosk
-
-                    onTriggered: {
-                        khangman.slotDownloadNewStuff()
-                    }
-                },
-
-                Kirigami.Action {
-                    id: showHandbookButton
-                    icon.name: "help-browser"
-                    text: i18n("View the KHangMan Handbook")
-                    displayHint: Kirigami.DisplayHint.AlwaysHide
-
-                    onTriggered: {
-                        khangman.showHandbook()
-                    }
-                },
-
-                Kirigami.Action {
-                    id: aboutKhangmanButton
-                    icon.name: "help-about-symbolic"
-                    text: i18n("About KHangMan")
-                    displayHint: Kirigami.DisplayHint.AlwaysHide
-
-                    onTriggered: {
-                        khangman.showAboutKHangMan()
-                    }
-                },
-
-                Kirigami.Action {
-                    id: aboutKDEButton
-                    text: i18n("About KDE")
-                    icon.name: "help-about-symbolic"
-                    displayHint: Kirigami.DisplayHint.AlwaysHide
-
-                    onTriggered: {
-                        khangman.showAboutKDE()
-                    }
+                    startTimer()
                 }
-            ]
+            }
+        },
+
+        Kirigami.Action {
+            id: themeSelectionButton
+            text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
+
+            onTriggered: {
+                themeSelectionDialog.open()
+            }
+        },
+
+        Kirigami.Action {
+            id: settingsButton
+            icon.name: "settings-configure-symbolic"
+            text: i18nc("@action:button", "Configure")
+
+            onTriggered: {
+                // if game is currently going on then pause it
+                mainSettingsDialog.wasPlaying = isPlaying
+                if( gamePage.isPlaying ) {
+                    secondTimer.repeat = false
+                    secondTimer.running = false
+                    hintLabel.visible = false
+                    secondTimer.stop();
+                }
+            }
+        },
+
+        Kirigami.Action {
+            id: ghnsButton
+            icon.name: "get-hot-new-stuff"
+            text: i18n("Download new language files")
+            visible: NewStuff.Settings.allowedByKiosk
+
+            onTriggered: {
+                khangman.slotDownloadNewStuff()
+            }
+        },
+
+        Kirigami.Action {
+            id: showHandbookButton
+            icon.name: "help-browser"
+            text: i18n("View the KHangMan Handbook")
+            displayHint: Kirigami.DisplayHint.AlwaysHide
+
+            onTriggered: {
+                khangman.showHandbook()
+            }
+        },
+
+        Kirigami.Action {
+            id: aboutKhangmanButton
+            icon.name: "help-about-symbolic"
+            text: i18n("About KHangMan")
+            displayHint: Kirigami.DisplayHint.AlwaysHide
+
+            onTriggered: {
+                khangman.showAboutKHangMan()
+            }
+        },
+
+        Kirigami.Action {
+            id: aboutKDEButton
+            text: i18n("About KDE")
+            icon.name: "help-about-symbolic"
+            displayHint: Kirigami.DisplayHint.AlwaysHide
+
+            onTriggered: {
+                khangman.showAboutKDE()
+            }
         }
-    }
+    ]
 
     // display the remaining number of wrong guesses
     Row {
@@ -342,7 +335,7 @@ Item {
         visible: isPlaying
 
         anchors {
-            top: homePageTools.bottom
+            top: gamePage.top
             topMargin: 5
             right: parent.right
             rightMargin: 5
@@ -500,7 +493,7 @@ Item {
         visible: gamePage.isPlaying
         anchors {
             horizontalCenter: parent.horizontalCenter;
-            bottom: mainPageTools.top;
+            bottom: gamePage.bottom;
             bottomMargin: 10;
         }
 
@@ -567,11 +560,8 @@ Item {
         visible: false
     }
 
-    ToolBar {
+    footer: ToolBar {
         id: mainPageTools
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
         visible: isPlaying
 
         RowLayout {

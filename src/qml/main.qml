@@ -21,19 +21,13 @@
 import QtQuick 2.3
 import QtQuick.Controls
 import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 import QtMultimedia
 
-Rectangle {
+Kirigami.ApplicationWindow {
     id: rootWindow;
 
-    Image {
-        id: backgroundImage
-        smooth: true
-        anchors.fill: parent
-        source: khangman.backgroundUrl
-    }
-
-    GamePage {
+    pageStack.initialPage: GamePage {
         id: gamePage
     }
 
