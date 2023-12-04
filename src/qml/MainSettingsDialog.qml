@@ -18,12 +18,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA  *
  ***********************************************************************************/
 
-import QtQuick 2.3
+import QtQuick
 import QtQuick.Controls
-import QtQuick.Controls.Styles 1.2
-import QtQuick.Layouts 1.1
-import QtQuick.Dialogs 1.2
-import QtQuick.Window 2.2
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import QtQuick.Window
 
 Dialog {
     id: mainSettingsDialog
@@ -45,31 +44,27 @@ Dialog {
             id: khangmanWordResolveTimeUserGuideDialog;
             title: i18n("KHangMan word resolve time")
             text: i18n("Maximum allowed time for resolving the word in KHangMan")
-            icon: StandardIcon.Information
-            standardButtons: StandardButton.Ok
+            buttons: MessageDialog.Ok
         }
 
         MessageDialog {
             id: hintShowDurationUserGuideDialog;
             title: i18n("Hint show duration")
             text: i18n("The duration for showing the hint for the actual word");
-            icon: StandardIcon.Information
-            standardButtons: StandardButton.Ok
+            buttons: MessageDialog.Ok
         }
         MessageDialog {
             id: scoreMultiplyingFactorUserGuideDialog;
             title: i18n("KHangMan Score Multiplying Factor")
             text: i18n("Determine the factor by which the scores will be multiplied.");
-            icon: StandardIcon.Information
-            standardButtons: StandardButton.Ok
-                    }
+            buttons: MessageDialog.Ok
+        }
 
         MessageDialog {
             id: soundsUserGuideDialog;
             title: i18n("Sounds")
             text: i18n("Turn all the sounds on or off inside the game");
-            icon: StandardIcon.Information
-            standardButtons: StandardButton.Ok
+            buttons: MessageDialog.Ok
         }
 
         function saveSettings() {
@@ -123,13 +118,10 @@ Dialog {
 
                 Slider {
                     id: resolveTimeSlider;
-                    width: parent.width - 10;
                     stepSize: 15;
-                    tickmarksEnabled : true
-                    updateValueWhileDragging : true
-                    minimumValue: 0;
-                    maximumValue: 300;
-                    Layout.alignment: Qt.AlignVCenter
+                    from: 0;
+                    to: 300;
+                    Layout.fillWidth: true
                 }
 
                 Label {
@@ -140,7 +132,7 @@ Dialog {
                 }
 
                 ToolButton {
-                    iconSource: "Images/dialog-information.png"
+                    icon.source: "Images/dialog-information.png"
 
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
@@ -182,7 +174,7 @@ Dialog {
                     }
                 }
                     ToolButton {
-                        iconSource: "Images/dialog-information.png"
+                        icon.source: "Images/dialog-information.png"
 
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
@@ -212,7 +204,7 @@ Dialog {
                 }
 
                 ToolButton {
-                    iconSource: "Images/dialog-information.png"
+                    icon.source: "Images/dialog-information.png"
 
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
@@ -231,26 +223,22 @@ Dialog {
                 Button {
                     id: okButton
 
-                    style: ButtonStyle {
-                        background: Rectangle {
-                            id: okButtonStyleRectangle
-                            height: 10
-                            width: 50
-                            color: okButton.pressed ? "grey" : "white"
-                            radius: 8
-                        }
+                    background: Rectangle {
+                        id: okButtonStyleRectangle
+                        color: okButton.pressed ? "grey" : "white"
+                        radius: 8
+                    }
 
-                        label: Text {
-                            id: okButtonLabel
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                            text: i18n("OK")
-                            font.family : "Arial"
-                            font.capitalization : Font.AllUppercase
-                            font.weight : Font.Bold
-                            horizontalAlignment : Text.AlignHCenter
-                            verticalAlignment : Text.AlignVCenter
-                            color: "black"
-                        }
+                    contentItem: Label {
+                        id: okButtonLabel
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                        text: i18n("OK")
+                        font.family : "Arial"
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "black"
                     }
 
                     onClicked: {
@@ -265,26 +253,24 @@ Dialog {
 
                     Layout.margins: 5
 
-                    style: ButtonStyle {
-                        background: Rectangle {
-                            id: cancelButtonStyleRectangle
-                            height: 10
-                            width: 50
-                            color: cancelButton.pressed ? "grey" : "white"
-                            radius: 8
-                        }
+                    background: Rectangle {
+                        id: cancelButtonStyleRectangle
+                        height: 10
+                        width: 50
+                        color: cancelButton.pressed ? "grey" : "white"
+                        radius: 8
+                    }
 
-                        label: Text {
-                            id: cancelButtonLabel
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                            text: i18n("Cancel")
-                            font.family : "Arial"
-                            font.capitalization : Font.AllUppercase
-                            font.weight : Font.Bold
-                            horizontalAlignment : Text.AlignHCenter
-                            verticalAlignment : Text.AlignVCenter
-                            color: "black"
-                        }
+                    contentItem: Label {
+                        id: cancelButtonLabel
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                        text: i18n("Cancel")
+                        font.family : "Arial"
+                        font.capitalization : Font.AllUppercase
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        color: "black"
                     }
 
                     onClicked: {

@@ -18,16 +18,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA  *
  ***********************************************************************************/
 
-import QtQuick 2.3
-import QtQuick.Controls 1.2
-import QtQuick.Layouts 1.1
-import QtQuick.Controls.Styles 1.2
-import QtQuick.Window 2.2
-import QtMultimedia 5.0
-import QtQml 2.2
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+import QtMultimedia
+import QtQml
 import Qt5Compat.GraphicalEffects
 
-import org.kde.newstuff 1.81 as NewStuff
+import org.kde.kirigami as Kirigami
+import org.kde.newstuff as NewStuff
 
 Item {
 
@@ -44,7 +44,7 @@ Item {
 
     anchors.fill: parent
 
-    function nextWord() {
+    function nextWord(): void {
         khangman.nextWord();
 
         countDownTimerValue = khangman.resolveTime;
@@ -67,7 +67,7 @@ Item {
         }
     }
 
-    function startTimer() {
+    function startTimer(): void {
         secondTimer.repeat = true;
         secondTimer.running = true;
         secondTimer.start();
@@ -229,118 +229,109 @@ Item {
 
     ToolBar {
         id: homePageTools
+
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
         }
 
-        RowLayout {
-            anchors.fill: parent
+        contentItem: Kirigami.ActionToolBar {
+            actions: [
+                Kirigami.Action {
+                    id: playPauseButton
+                    icon.name: gamePage.isPlaying ? "media-playback-pause" : "media-playback-play"
 
-            ToolButton {
-                id: playPauseButton
-                iconSource: gamePage.isPlaying ? "Images/pause.png" : "Images/play.png"
-                tooltip: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
+                    text: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
-                onClicked: {
-                    if( gamePage.isPlaying ) { // game is currently going on, so pause it
-                        secondTimer.repeat = false
-                        secondTimer.running = false
-                        hintLabel.visible = false
-                        secondTimer.stop();
-                    } else {  // the game is paused or not yet started, so resume or start it
-                        // if the game is not yet started, play nextWordSoundeffect
-                        // denotes the game is not yet started, should return false if game is paused instead
-                        if (khangman.soundEnabled) {
-                            nextWordSoundEffect.play()
+                    onTriggered: {
+                        if( gamePage.isPlaying ) { // game is currently going on, so pause it
+                            secondTimer.repeat = false
+                            secondTimer.running = false
+                            hintLabel.visible = false
+                            secondTimer.stop();
+                        } else {  // the game is paused or not yet started, so resume or start it
+                            // if the game is not yet started, play nextWordSoundeffect
+                            // denotes the game is not yet started, should return false if game is paused instead
+                            if (khangman.soundEnabled) {
+                                nextWordSoundEffect.play()
+                            }
+                            startTimer()
                         }
-                        startTimer()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: themeSelectionButton
+                    text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
+
+                    onTriggered: {
+                        themeSelectionDialog.open()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: settingsButton
+                    icon.name: "settings-configure-symbolic"
+                    text: i18nc("@action:button", "Configure")
+
+                    onTriggered: {
+                        // if game is currently going on then pause it
+                        mainSettingsDialog.wasPlaying = isPlaying
+                        if( gamePage.isPlaying ) {
+                            secondTimer.repeat = false
+                            secondTimer.running = false
+                            hintLabel.visible = false
+                            secondTimer.stop();
+                        }
+                        mainSettingsDialog.open()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: ghnsButton
+                    icon.name: "get-hot-new-stuff"
+                    text: i18n("Download new language files")
+                    visible: NewStuff.Settings.allowedByKiosk
+
+                    onTriggered: {
+                        khangman.slotDownloadNewStuff()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: showHandbookButton
+                    icon.name: "help-browser"
+                    text: i18n("View the KHangMan Handbook")
+                    displayHint: Kirigami.DisplayHint.AlwaysHide
+
+                    onTriggered: {
+                        khangman.showHandbook()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: aboutKhangmanButton
+                    icon.name: "help-about-symbolic"
+                    text: i18n("About KHangMan")
+                    displayHint: Kirigami.DisplayHint.AlwaysHide
+
+                    onTriggered: {
+                        khangman.showAboutKHangMan()
+                    }
+                },
+
+                Kirigami.Action {
+                    id: aboutKDEButton
+                    text: i18n("About KDE")
+                    icon.name: "help-about-symbolic"
+                    displayHint: Kirigami.DisplayHint.AlwaysHide
+
+                    onTriggered: {
+                        khangman.showAboutKDE()
                     }
                 }
-            }
-
-            ToolButton {
-                id: themeSelectionButton
-                Layout.fillWidth: false
-                text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
-                tooltip: i18n("Change the theme.")
-
-                onClicked: {
-                    themeSelectionDialog.open()
-                }
-            }
-
-            ToolButton {
-                id: settingsButton
-                Layout.fillWidth: true
-                iconSource: "Images/settings_icon.png";
-                tooltip: i18n("Settings")
-
-                onClicked: {
-                    // if game is currently going on then pause it
-                    mainSettingsDialog.wasPlaying = isPlaying
-                    if( gamePage.isPlaying ) {
-                        secondTimer.repeat = false
-                        secondTimer.running = false
-                        hintLabel.visible = false
-                        secondTimer.stop();
-                    }
-                    mainSettingsDialog.open()
-                }
-            }
-
-            ToolButton {
-                id: aboutKhangmanButton
-                Layout.fillWidth: true
-                iconSource: "Images/dialog-information.png"
-                tooltip: i18n("About KHangMan")
-
-                onClicked: {
-                    khangman.showAboutKHangMan()
-                }
-            }
-
-            ToolButton {
-                id: aboutKDEButton
-                Layout.fillWidth: true
-                iconSource: "Images/about-kde.png"
-                tooltip: i18n("About KDE")
-
-                onClicked: {
-                    khangman.showAboutKDE()
-                }
-            }
-
-            ToolButton {
-                id: showHandbookButton
-                Layout.fillWidth: true
-                iconSource: "Images/handbook.png"
-                tooltip: i18n("View the KHangMan Handbook")
-
-                onClicked: {
-                    khangman.showHandbook()
-                }
-            }
-
-            ToolButton {
-                id: ghnsButton
-                Layout.fillWidth: true
-                iconSource: "Images/get-hot-new-stuff.png"
-                tooltip: i18n("Download new language files")
-                visible: NewStuff.Settings.allowedByKiosk
-
-                onClicked: {
-                    khangman.slotDownloadNewStuff()
-                }
-            }
-
-            ToolButton {
-                id: quitButton
-                iconSource: "Images/quit.png"
-                tooltip: i18n("Quit")
-                onClicked: Qt.quit()
-            }
+            ]
         }
     }
 
@@ -524,38 +515,36 @@ Item {
                 property string upperCase: modelData.toUpperCase()
                 property string buttonColor: "black"
 
-                style: ButtonStyle {
-                    id: alphabetLetterIdStyle
-                    background: Rectangle {
-                        id: alphabetLetterIdStyleRectangle
-                        implicitWidth: gamePage.width / 22
-                        implicitHeight: gamePage.width / 22
-                        color: buttonColor
-                        radius: 8
-                        layer.enabled: true
-                        layer.effect: DropShadow {
-                            radius: 4
-                            horizontalOffset: 3
-                            verticalOffset: 3
-                            spread: 0
-                            samples: radius * 2
-                            source: alphabetLetterIdStyleRectangle
-                            color: Qt.rgba(0, 0, 0, 0.5)
-                            transparentBorder: true
-                        }
+                background: Rectangle {
+                    id: alphabetLetterIdStyleRectangle
+                    implicitWidth: gamePage.width / 22
+                    implicitHeight: gamePage.width / 22
+                    color: buttonColor
+                    radius: 8
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        radius: 4
+                        horizontalOffset: 3
+                        verticalOffset: 3
+                        spread: 0
+                        samples: radius * 2
+                        source: alphabetLetterIdStyleRectangle
+                        color: Qt.rgba(0, 0, 0, 0.5)
+                        transparentBorder: true
                     }
-                    label: Text {
-                        id: buttonLabel
-                        anchors.centerIn: parent
-                        text: letter
-                        font.family : "Arial"
-                        font.pixelSize: gamePage.width / 40
-                        font.capitalization : Font.AllUppercase
-                        font.weight : Font.Bold
-                        horizontalAlignment : Text.AlignHCenter
-                        verticalAlignment : Text.AlignVCenter
-                        color: parent.enabled ? "white" : "grey"
-                    }
+                }
+
+                contentItem: Text {
+                    id: buttonLabel
+                    anchors.centerIn: parent
+                    text: letter
+                    font.family : "Arial"
+                    font.pixelSize: gamePage.width / 40
+                    font.capitalization : Font.AllUppercase
+                    font.weight : Font.Bold
+                    horizontalAlignment : Text.AlignHCenter
+                    verticalAlignment : Text.AlignVCenter
+                    color: parent.enabled ? "white" : "grey"
                 }
 
                 onClicked: {
@@ -590,8 +579,10 @@ Item {
 
             ToolButton {
                 id: helpHintButton
-                iconSource: "Images/help-hint.png"
-                tooltip: i18n("Display the hint.")
+                icon.source: "Images/help-hint.png"
+                ToolTip.text: i18n("Display the hint.")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
                 enabled: hintLabel.text != ""
 
                 onClicked: {
@@ -604,7 +595,9 @@ Item {
                 id: categorySelectionButton
                 Layout.fillWidth: true
                 text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
-                tooltip: i18n("Change the category.")
+                ToolTip.text: i18n("Change the category.")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
                     categorySelectionDialog.open();
@@ -615,7 +608,9 @@ Item {
                 id: languageSelectionButton
                 Layout.fillWidth: true
                 text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
-                tooltip: i18n("Change the language.")
+                ToolTip.text: i18n("Change the language.")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
                     languageSelectionDialog.open()
@@ -626,7 +621,9 @@ Item {
                 id: revealWordButton
                 Layout.fillWidth: true
                 text: i18n("Reveal Word")
-                tooltip: i18n("Reveal the current word.")
+                ToolTip.text: i18n("Reveal the current word.")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
                     khangman.revealCurrentWord();
@@ -649,8 +646,10 @@ Item {
             ToolButton {
                 id: nextWordButton
                 Layout.fillWidth: true
-                iconSource: "Images/go-next.png";
-                tooltip: i18n("Load the next word and start a new game.")
+                icon.source: "Images/go-next.png";
+                ToolTip.text: i18n("Load the next word and start a new game.")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
                     if (khangman.soundEnabled) {

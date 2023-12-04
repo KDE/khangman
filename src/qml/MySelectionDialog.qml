@@ -38,10 +38,9 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.3
-import QtQuick.Dialogs 1.2
+import QtQuick
+import QtQuick.Dialogs
 import QtQuick.Controls
-import QtQuick.Controls.Styles 1.2
 
 Dialog {
     id: root
@@ -68,26 +67,24 @@ Dialog {
                 Button {
                     id: categoryButton
 
-                    style: ButtonStyle {
-                        id: categoryButtonStyle
-                        background: Rectangle {
-                            id: backgroundRect
-                            anchors.fill: parent
-                            color: "black"
-                            radius: 8
-                        }
-                        label: Text {
-                            id: itemText
-                            elide: Text.ElideRight
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.fill: parent
-                            font.family : "Arial"
-                            font.weight : Font.Bold
-                            horizontalAlignment : Text.AlignHCenter
-                            verticalAlignment : Text.AlignVCenter
-                            text: modelData
-                            color: "white"
-                        }
+                    background: Rectangle {
+                        id: backgroundRect
+                        anchors.fill: parent
+                        color: "black"
+                        radius: 8
+                    }
+
+                    contentItem: Text {
+                        id: itemText
+                        elide: Text.ElideRight
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.fill: parent
+                        font.family : "Arial"
+                        font.weight : Font.Bold
+                        horizontalAlignment : Text.AlignHCenter
+                        verticalAlignment : Text.AlignVCenter
+                        text: modelData
+                        color: "white"
                     }
 
                     onClicked: {
