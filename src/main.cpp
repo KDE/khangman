@@ -24,6 +24,7 @@
 #include <KAboutData>
 
 #include <KLocalizedString>
+#include <KLocalizedContext>
 #include <KCrash>
 
 #include <QApplication>
@@ -32,6 +33,9 @@
 #include <QStandardPaths>
 #include <QQmlEngine>
 #include <QCommandLineParser>
+#include <QQmlContext>
+#include <QIcon>
+#include <QQmlApplicationEngine>
 
 int main(int argc, char **argv)
 {
@@ -140,9 +144,15 @@ int main(int argc, char **argv)
         QFontDatabase::addApplicationFont(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("fonts/Dustismo_Roman.ttf")));
     }
 
-    KHangMan hangman;
-    QObject::connect(hangman.getEngine(), &QQmlEngine::quit, &app, &QCoreApplication::quit);
-    hangman.show();
+    QQmlApplicationEngine engine;
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+
+    engine.loadFromModule(QStringLiteral("org.kde.khangman"), QStringLiteral("Main"));
+    if (engine.rootObjects().isEmpty()) {
+        return -1;
+    }
+
+    QObject::connect(&engine, &QQmlEngine::quit, &app, &QCoreApplication::quit);
     return app.exec();
 }
 

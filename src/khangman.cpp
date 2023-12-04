@@ -24,28 +24,26 @@
 
 #include <QApplication>
 #include <QStandardPaths>
-#include <QQuickWidget>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QShortcut>
 
-#include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandom>
 #include <knewstuff_version.h>
-#include <KNSWidgets/Dialog>
 #include <KHelpMenu>
 
 #include <KEduVocDocument>
 #include <keduvocexpression.h>
+#include <qobject.h>
 #include <sharedkvtmlfiles.h>
 
 #include "langutils.h"
 #include "prefs.h"
-#include <QShortcut>
 
 KHangMan::KHangMan()
-        : QMainWindow(),
+        : QObject (),
           m_currentCategory(0),
           m_currentLanguage(0),
           m_winCount(0),
@@ -57,24 +55,6 @@ KHangMan::KHangMan()
 {
     setObjectName(QStringLiteral("KHangMan"));
 
-    m_view = new QQuickWidget(this);
-    m_view->rootContext()->setContextProperty(QStringLiteral("khangman"), this);
-
-    // prepare i18n
-    auto context = new KLocalizedContext(this);
-    m_view->engine()->rootContext()->setContextObject(context);
-
-    KConfigGroup windowConfig = config(QStringLiteral("Window"));
-    if (windowConfig.hasKey("geometry")) {
-        setGeometry(windowConfig.readEntry<QRect>("geometry", QRect()));
-        setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
-    }
-
-    setMinimumSize(800, 600);
-
-    m_view->setResizeMode(QQuickWidget::SizeRootObjectToView);
-
-    setCentralWidget(m_view);
     scanLanguages();
 
     //find the themes
@@ -86,12 +66,6 @@ KHangMan::KHangMan()
 
 KHangMan::~KHangMan()
 {
-    KConfigGroup windowConfig = config(QStringLiteral("Window"));
-    windowConfig.writeEntry("geometry", geometry());
-    windowConfig.writeEntry("windowState", int(windowState()));
-
-    delete m_view;
-    m_view = nullptr;
 }
 
 void KHangMan::showAboutKHangMan()
@@ -118,9 +92,13 @@ KConfigGroup KHangMan::config(const QString &group)
 //                               Slots
 void KHangMan::setCurrentCategory(int index)
 {
-    QMap<QString, QString>::const_iterator currentLevel = m_titleLevels.constBegin() + index;
+    if (m_titleLevels.keys().count() <= index) {
+        return;
+    }
+    const auto key = m_titleLevels.keys()[index];
+
     Prefs::setCurrentLevel(index);
-    Prefs::setLevelFile(currentLevel.value());
+    Prefs::setLevelFile(m_titleLevels[key]);
     Prefs::self()->save();
     m_currentCategory = index;
     Q_EMIT currentCategoryChanged();
@@ -152,11 +130,10 @@ void KHangMan::readFile()
     myFile.setFileName(Prefs::levelFile());
 
     if (!myFile.exists()) {
-        QString  mString = i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
+        Q_EMIT errorOccured(i18n("File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
             "Please check your installation.",
             Prefs::selectedLanguage(),
-            Prefs::levelFile());
-        KMessageBox::error (this, mString, i18n("Error"));
+            Prefs::levelFile()));
     }
 
     // Detects if file is a kvtml file so that it's a hint enable file
@@ -167,6 +144,7 @@ void KHangMan::nextWord()
 {
     // If there are no words, there's nothing we can do, trying will crash
     if (m_randomList.isEmpty()) {
+        Q_EMIT errorOccured(i18n("No word list loaded"));
         return;
     }
 
@@ -344,27 +322,27 @@ int KHangMan::currentLanguage()
     return m_currentLanguage;
 }
 
-QStringList KHangMan::themes()
+QStringList KHangMan::themes() const
 {
     return m_themeFactory.themeList();
 }
 
-int KHangMan::currentTheme()
+int KHangMan::currentTheme() const
 {
     QStringList themes = m_themeFactory.getNames();
     return themes.indexOf(Prefs::theme());
 }
 
-QString KHangMan::backgroundUrl()
+QUrl KHangMan::backgroundUrl() const
 {
     const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
-        return QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName());
+        return QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("themes/") + theme->svgFileName()));
     }
-    return QString();
+    return {};
 }
 
-QColor KHangMan::currentThemeLetterColor()
+QColor KHangMan::currentThemeLetterColor() const
 {
     const KHMTheme *theme = m_themeFactory.getTheme(currentTheme());
     if (theme) {
@@ -400,11 +378,6 @@ QStringList KHangMan::currentWord() const
 QString KHangMan::getCurrentHint() const
 {
     return m_hint;
-}
-
-QQmlEngine* KHangMan::getEngine()
-{
-    return m_view->engine();
 }
 
 QStringList KHangMan::alphabet() const
@@ -463,15 +436,9 @@ void KHangMan::show()
     // kvtml files have been found
 
     if (m_themeFactory.getQty() == 0) { // themes not present
-        KMessageBox::error(this, i18n("No theme files found."), i18n("Error"));
+        Q_EMIT errorOccured(i18n("No theme files found."));
         exit(EXIT_FAILURE);
     }
-
-    QMainWindow::show();
-    // add the qml view as the main widget
-    QString location = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("qml/main.qml"));
-    QUrl url = QUrl::fromLocalFile(location);
-    m_view->setSource(url);
 }
 
 void KHangMan::loadLevels()
@@ -485,7 +452,7 @@ void KHangMan::loadLevels()
         Prefs::self()->save();
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         if (levelFilenames.isEmpty()) {
-            KMessageBox::error(this, i18n("No kvtml files found."), i18n("Error"));
+            Q_EMIT errorOccured(i18n("No kvtml files found."));
             exit(EXIT_FAILURE);
         }
     }
@@ -506,23 +473,13 @@ void KHangMan::loadLevels()
     loadLanguageSpecialCharacters();
 }
 
-void KHangMan::slotDownloadNewStuff()
+void KHangMan::slotDownloadNewStuff(KNSCore::Entry *entry)
 {
-    KNSWidgets::Dialog *dialog = new KNSWidgets::Dialog(QStringLiteral("khangman.knsrc"), this);
-    dialog->open();
-
-    connect(dialog, &KNSWidgets::Dialog::finished, this, [this, dialog] {
-        const QList<KNSCore::Entry> entries = dialog->changedEntries();
-        if ( !entries.isEmpty() ){
-            SharedKvtmlFiles::sortDownloadedFiles();
-            //look for languages dirs installed
-            scanLanguages();
-            //refresh Languages menu
-            setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
-        }
-
-        dialog->deleteLater();
-    });
+    SharedKvtmlFiles::sortDownloadedFiles();
+    //look for languages dirs installed
+    scanLanguages();
+    //refresh Languages menu
+    setCurrentLanguage(m_languages.indexOf(Prefs::selectedLanguage()));
 }
 
 void KHangMan::loadLanguageSpecialCharacters()
@@ -549,8 +506,6 @@ void KHangMan::loadLanguageSpecialCharacters()
             return;
         }
     }
-
-    update();
 
     // We open the file and store info into the stream...
     QFile openFileStream(langFile.fileName());

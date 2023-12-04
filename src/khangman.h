@@ -1,35 +1,15 @@
-/***************************************************************************
- *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
- *   Copyright 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>          *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
- ***************************************************************************/
+ // SPDX-FileCopyrightText: 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
+ // SPDX-FileCopyrightText: 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+ // SPDX-License-Identifier: GPL-2.0-or-later
 
-
-#ifndef _KHANGMAN_H_
-#define _KHANGMAN_H_
+#pragma once
 
 #include <KSharedConfig>
-
-#include <QMainWindow>
+#include <KNSCore/Entry>
+#include <QtQml>
 
 #include "khmthemefactory.h"
 
-class QQmlEngine;
-class QQuickWidget;
 class KHelpMenu;
 
 /**
@@ -37,9 +17,11 @@ class KHelpMenu;
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
  * @version 3.0
  */
-class KHangMan : public QMainWindow
+class KHangMan : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
     Q_PROPERTY( bool soundEnabled READ soundEnabled WRITE setSoundEnabled NOTIFY soundEnabledChanged )
@@ -52,7 +34,7 @@ class KHangMan : public QMainWindow
 
     Q_PROPERTY( int currentTheme READ currentTheme WRITE setCurrentTheme NOTIFY currentThemeChanged )
     Q_PROPERTY( QStringList themes READ themes NOTIFY themesChanged)
-    Q_PROPERTY( QString backgroundUrl READ backgroundUrl NOTIFY currentThemeChanged)
+    Q_PROPERTY( QUrl backgroundUrl READ backgroundUrl NOTIFY currentThemeChanged)
     Q_PROPERTY( QColor letterColor READ currentThemeLetterColor NOTIFY currentThemeChanged)
 
     Q_PROPERTY( QStringList currentWord READ currentWord NOTIFY currentWordChanged)
@@ -99,16 +81,13 @@ public:
     int scoreMultiplyingFactor() const;
     int netScore() const;
 
-    int currentTheme();
-    QStringList themes();
-    QString backgroundUrl();
-    QColor currentThemeLetterColor();
+    int currentTheme() const;
+    QStringList themes() const;
+    QUrl backgroundUrl() const;
+    QColor currentThemeLetterColor() const;
 
     //Display the mainwindow only when kvtml files are present, else show an error message and quit.
     void show();
-
-    // get m_view->engine()
-    QQmlEngine* getEngine();
 
     /** Calculate the net score */
     void calculateNetScore();
@@ -140,7 +119,7 @@ public Q_SLOTS:
     void setCurrentTheme(int index);
 
     ///access the KNewStuff class to install new data
-    void slotDownloadNewStuff();
+    void slotDownloadNewStuff(KNSCore::Entry *entry);
 
     ///Load kvtml file and get a word and its tip in random
     void readFile();
@@ -180,6 +159,7 @@ Q_SIGNALS:
     void lossCountChanged();
     void scoreMultiplyingFactorChanged();
     void netScoreChanged();
+    void errorOccured(const QString &text);
 
 private:
     KConfigGroup config(const QString &group);
@@ -213,9 +193,6 @@ private:
     // language information
     QStringList m_languages;
     QStringList m_languageNames;
-
-    // Some important members: the view and newStuff.
-    QQuickWidget   *m_view;
 
     // Contains all the words that are read from the data file.
     QStringList m_specialCharacters;
@@ -252,8 +229,6 @@ private:
     /** help menu for displaying about box */
     KHelpMenu *m_helpMenu;
 };
-
-#endif // _KHANGMAN_H_
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;
 // vim: set et sw=4 ts=4 cino=l1,cs,U1:

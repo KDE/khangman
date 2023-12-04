@@ -1,22 +1,6 @@
-/***********************************************************************************
- * This file is part of the KHangMan project                                       *
- * Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>                                  *
- * Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>                *
- *                                                                                 *
- * This library is free software; you can redistribute it and/or                   *
- * modify it under the terms of the GNU Lesser General Public                      *
- * License as published by the Free Software Foundation; either                    *
- * version 2.1 of the License, or (at your option) any later version.              *
- *                                                                                 *
- * This library is distributed in the hope that it will be useful,                 *
- * but WITHOUT ANY WARRANTY; without even the implied warranty of                  *
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU               *
- * Lesser General Public License for more details.                                 *
- *                                                                                 *
- * You should have received a copy of the GNU Lesser General Public                *
- * License along with this library; if not, write to the Free Software             *
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA  *
- ***********************************************************************************/
+// Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
+// Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-License-Identifier: LGPL-2.1-or-later
 
 import QtQuick
 import QtQuick.Controls
@@ -28,16 +12,18 @@ import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.newstuff as NewStuff
+import org.kde.khangman
 
 Kirigami.Page {
     id: gamePage
 
     focus: true
 
-    property variant alphabet: khangman.alphabet
+    property variant alphabet: KHangMan.alphabet
     property color currentWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0)
-    property int countDownTimerValue: khangman.resolveTime
+    property int countDownTimerValue: KHangMan.resolveTime
     property int gallowsSeriesCounter: 0
     property bool initialized: false
     property alias isPlaying: secondTimer.running
@@ -47,13 +33,13 @@ Kirigami.Page {
         id: backgroundImage
         smooth: true
         anchors.fill: parent
-        source: khangman.backgroundUrl
+        source: KHangMan.backgroundUrl
     }
 
     function nextWord(): void {
-        khangman.nextWord();
+        KHangMan.nextWord();
 
-        countDownTimerValue = khangman.resolveTime;
+        countDownTimerValue = KHangMan.resolveTime;
 
         // Re enable all alphabet buttons
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
@@ -68,7 +54,7 @@ Kirigami.Page {
 
         hintLabel.visible = false;
 
-        if (khangman.soundEnabled) {
+        if (KHangMan.soundEnabled) {
             nextWordSoundEffect.play();
         }
     }
@@ -90,22 +76,22 @@ Kirigami.Page {
 
     function guessLetter(letter) {
         letter = letter.toUpperCase()
-        if (khangman.soundEnabled) {
+        if (KHangMan.soundEnabled) {
             khangmanAlphabetButtonPressSoundEffect.play();
         }
 
         disableLetterButton(letter);
         changeButtonColor(letter);
-        if (khangman.containsChar(letter)) {
-            khangman.replaceLetters(letter);
+        if (KHangMan.containsChar(letter)) {
+            KHangMan.replaceLetters(letter);
 
-            if (khangman.isResolved()) {
+            if (KHangMan.isResolved()) {
                 // the current puzzle is solved
-                khangman.winCount++;
+                KHangMan.winCount++;
                 successImage.visible = true;
                 khangmanResultTimer.start();
 
-                if (khangman.soundEnabled) {
+                if (KHangMan.soundEnabled) {
                     ewDialogAppearSoundEffect.play();
                 }
             }
@@ -114,8 +100,8 @@ Kirigami.Page {
             if (missedLetters.indexOf(letter) == -1) {
                 if (gallowsSeriesCounter++ == 9) {
                     // wrong solution given for current puzzle
-                    khangman.lossCount++;
-                    if (khangman.soundEnabled) {
+                    KHangMan.lossCount++;
+                    if (KHangMan.soundEnabled) {
                         wrongSoundEffect.play();
                     }
 
@@ -130,7 +116,7 @@ Kirigami.Page {
     function changeButtonColor(letter) {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
-                alphabetLetterRepeater.itemAt(i).buttonColor = khangman.containsChar(letter) ? "green" : "red";
+                alphabetLetterRepeater.itemAt(i).buttonColor = KHangMan.containsChar(letter) ? "green" : "red";
             }
         }
     }
@@ -157,48 +143,78 @@ Kirigami.Page {
         }
     }
 
-    // Create a selection dialog with the vocabulary titles to choose from.
-    MySelectionDialog {
+    SelectionDialog {
         id: categorySelectionDialog;
-        title: i18n("Choose the word category");
-        model: khangman.categories
-        Component.onCompleted: selectedIndex = khangman.currentCategory
 
-        onSelectedIndexChanged: {
-            if (khangman.soundEnabled) {
-                if (!initialized)
+        title: i18n("Choose the word category");
+        model: KHangMan.categories
+        Component.onCompleted: {
+            currentIndex = KHangMan.currentCategory;
+        }
+
+        onCurrentIndexChanged: {
+            if (KHangMan.soundEnabled) {
+                if (!initialized) {
                     initialized = true;
-                else
+                } else {
                     nextWordSoundEffect.play();
+                }
             }
 
-            khangman.setCurrentCategory(selectedIndex);
-            khangman.readFile();
+            KHangMan.setCurrentCategory(currentIndex);
+            KHangMan.readFile();
             nextWord();
+        }
+
+        delegate: Delegates.RoundedItemDelegate {
+            required property int index
+            required property string modelData
+
+            text: modelData
+            onClicked: categorySelectionDialog.currentIndex = index
         }
     }
 
-    // And another selection dialog with the languages to choose from.
-    MySelectionDialog {
+    SelectionDialog {
         id: languageSelectionDialog;
+
         title: i18n("Select a language");
-        model: khangman.languages
-        Component.onCompleted: selectedIndex = khangman.currentLanguage
-        onSelectedIndexChanged: {
-            khangman.setCurrentLanguage(selectedIndex);
-            khangman.readFile();
-            nextWord();
+        model: KHangMan.languages
+        Component.onCompleted: currentIndex = KHangMan.currentLanguage
+
+        delegate: Delegates.RoundedItemDelegate {
+            required property int index
+            required property string modelData
+
+            text: modelData
+
+            onClicked: {
+                categorySelectionDialog.currentIndex = index;
+
+                KHangMan.setCurrentLanguage(index);
+                KHangMan.readFile();
+                nextWord();
+            }
         }
     }
 
-    // And another selection dialog for choosing the theme.
-    MySelectionDialog {
+    SelectionDialog {
         id: themeSelectionDialog;
         title: i18n("Select a theme");
-        model: khangman.themes
-        Component.onCompleted: selectedIndex = khangman.currentTheme
-        onSelectedIndexChanged: {
-            khangman.setCurrentTheme(selectedIndex);
+        model: KHangMan.themes
+        Component.onCompleted: currentIndex = KHangMan.currentTheme
+
+        delegate: Delegates.RoundedItemDelegate {
+            required property int index
+            required property string modelData
+
+            text: modelData
+
+            onClicked: {
+                categorySelectionDialog.currentIndex = index;
+
+                KHangMan.setCurrentTheme(selectedIndex);
+            }
         }
     }
 
@@ -210,10 +226,10 @@ Kirigami.Page {
         triggeredOnStart: false;
 
         onTriggered: {
-            if (khangman.resolveTime != 0 && --countDownTimerValue == 0) {
+            if (KHangMan.resolveTime != 0 && --countDownTimerValue == 0) {
                 stop();
                 khangmanResultTimer.start();
-                if (khangman.soundEnabled) {
+                if (KHangMan.soundEnabled) {
                     wrongSoundEffect.play();
                 }
             }
@@ -241,7 +257,7 @@ Kirigami.Page {
             text: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
             onTriggered: {
-                if( gamePage.isPlaying ) { // game is currently going on, so pause it
+                if (gamePage.isPlaying ) { // game is currently going on, so pause it
                     secondTimer.repeat = false
                     secondTimer.running = false
                     hintLabel.visible = false
@@ -249,7 +265,7 @@ Kirigami.Page {
                 } else {  // the game is paused or not yet started, so resume or start it
                     // if the game is not yet started, play nextWordSoundeffect
                     // denotes the game is not yet started, should return false if game is paused instead
-                    if (khangman.soundEnabled) {
+                    if (KHangMan.soundEnabled) {
                         nextWordSoundEffect.play()
                     }
                     startTimer()
@@ -259,7 +275,7 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: themeSelectionButton
-            text: themeSelectionDialog.model[themeSelectionDialog.selectedIndex]
+            text: themeSelectionDialog.model[themeSelectionDialog.currentIndex]
 
             onTriggered: {
                 themeSelectionDialog.open()
@@ -280,17 +296,23 @@ Kirigami.Page {
                     hintLabel.visible = false
                     secondTimer.stop();
                 }
+
+                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.khangman", "SettingsPage"), {}, {title: i18n("Configure")});
             }
         },
 
-        Kirigami.Action {
+        NewStuff.Action {
             id: ghnsButton
+
+            configFile: "khangman.knsrc"
             icon.name: "get-hot-new-stuff"
-            text: i18n("Download new language files")
+            text: i18n("Get new language files")
             visible: NewStuff.Settings.allowedByKiosk
 
-            onTriggered: {
-                khangman.slotDownloadNewStuff()
+            onEntryEvent: (entry, event) => {
+                if (event === NewStuff.Entry.StatusChangedEvent) {
+                    KHangMan.slotDownloadNewStuff(entry)
+                }
             }
         },
 
@@ -301,7 +323,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                khangman.showHandbook()
+                KHangMan.showHandbook()
             }
         },
 
@@ -312,7 +334,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                khangman.showAboutKHangMan()
+                KHangMan.showAboutKHangMan()
             }
         },
 
@@ -323,7 +345,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                khangman.showAboutKDE()
+                KHangMan.showAboutKDE()
             }
         }
     ]
@@ -335,7 +357,7 @@ Kirigami.Page {
         visible: isPlaying
 
         anchors {
-            top: gamePage.top
+            top: parent.top
             topMargin: 5
             right: parent.right
             rightMargin: 5
@@ -346,7 +368,7 @@ Kirigami.Page {
             text: i18n("Remaining guesses: ")
             font.pixelSize: 40
             font.bold: true
-            color: khangman.letterColor
+            color: KHangMan.letterColor
         }
 
         Text {
@@ -371,7 +393,7 @@ Kirigami.Page {
         text: i18n("Score: ")
         font.pixelSize: 40
         font.bold: true
-        color: khangman.letterColor
+        color: KHangMan.letterColor
     }
 
     Label {
@@ -383,8 +405,8 @@ Kirigami.Page {
             top: scoreLabel.top
         }
 
-        text: khangman.netScore
-        color: khangman.netScore < 0 ? "red" : "black"
+        text: KHangMan.netScore
+        color: KHangMan.netScore < 0 ? "red" : "black"
         font.pixelSize: 40
         font.bold: true
     }
@@ -405,15 +427,15 @@ Kirigami.Page {
             text: i18n("Wins: ")
             font.pixelSize: 40
             font.bold: true
-            color: khangman.letterColor
+            color: KHangMan.letterColor
         }
 
         Label {
             id: winCountLabel
-            text: khangman.winCount
+            text: KHangMan.winCount
             font.pixelSize: 40
             font.bold: true
-            color: khangman.letterColor
+            color: KHangMan.letterColor
         }
     }
 
@@ -433,22 +455,26 @@ Kirigami.Page {
             text: i18n("Losses: ")
             font.pixelSize: 40
             font.bold: true
-            color: khangman.letterColor
+            color: KHangMan.letterColor
         }
 
         Label {
             id: lossCountLabel
-            text: khangman.lossCount
+            text: KHangMan.lossCount
             font.pixelSize: 40
             font.bold: true
-            color: khangman.letterColor
+            color: KHangMan.letterColor
         }
     }
 
-    Image {
-        id: successImage;
-        source: "Images/action-success.png";
-        visible: false;
+    Kirigami.Icon {
+        id: successImage
+
+        source: "data-success"
+        visible: false
+
+        width: Kirigami.Units.iconSizes.huge
+        height: Kirigami.Units.iconSizes.huge
 
         anchors {
             horizontalCenter: parent.horizontalCenter;
@@ -459,7 +485,7 @@ Kirigami.Page {
 
     Image {
         id: gallowsSeriesImage;
-        source: gallowsSeriesCounter == 0 ? "" : "gallows/gallows" + gallowsSeriesCounter + ".png"
+        source: gallowsSeriesCounter == 0 ? "" : "qrc:/qml/gallows/gallows" + gallowsSeriesCounter + ".png"
         visible: (isPlaying && gallowsSeriesCounter > 0)
 
         anchors {
@@ -480,7 +506,7 @@ Kirigami.Page {
         columns: 13;
         Repeater {
             id: currentWordLetterRepeater;
-            model: khangman.currentWord;
+            model: KHangMan.currentWord;
             LetterElement {
                 id: currentWordLetterId;
                 letterText: modelData;
@@ -493,7 +519,7 @@ Kirigami.Page {
         visible: gamePage.isPlaying
         anchors {
             horizontalCenter: parent.horizontalCenter;
-            bottom: gamePage.bottom;
+            bottom: parent.bottom;
             bottomMargin: 10;
         }
 
@@ -549,7 +575,7 @@ Kirigami.Page {
 
     Label {
         id: hintLabel
-        text: khangman.currentHint
+        text: KHangMan.currentHint
         font.family: "serif-sans"
         color: "green"
         font.italic: true
@@ -616,9 +642,9 @@ Kirigami.Page {
                 ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
-                    khangman.revealCurrentWord();
-                    khangman.lossCount++;
-                    if (khangman.soundEnabled) {
+                    KHangMan.revealCurrentWord();
+                    KHangMan.lossCount++;
+                    if (KHangMan.soundEnabled) {
                         wrongSoundEffect.play();
                     }
 
@@ -628,7 +654,7 @@ Kirigami.Page {
 
             Text {
                 id: timerText
-                visible: khangman.resolveTime == 0 ? false : true
+                visible: KHangMan.resolveTime == 0 ? false : true
                 text: Math.floor(countDownTimerValue / 60) + ":" + Math.floor(countDownTimerValue % 60 / 10)
                       + Math.floor(countDownTimerValue % 60 % 10)
             }
@@ -636,13 +662,13 @@ Kirigami.Page {
             ToolButton {
                 id: nextWordButton
                 Layout.fillWidth: true
-                icon.source: "Images/go-next.png";
+                icon.name: "go-next"
                 ToolTip.text: i18n("Load the next word and start a new game.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
-                    if (khangman.soundEnabled) {
+                    if (KHangMan.soundEnabled) {
                         nextWordSoundEffect.play();
                     }
 
@@ -655,7 +681,7 @@ Kirigami.Page {
         }
     }
 
-    Keys.onPressed: {
+    Keys.onPressed: (event) => {
         if (event.text.length > 0) {
             guessLetter(event.text);
         }

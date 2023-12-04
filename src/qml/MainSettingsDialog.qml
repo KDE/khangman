@@ -1,28 +1,13 @@
-/***********************************************************************************
- * This file is part of the KHangMan project                                       *
- * Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>                                  *
- * Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>                *
- *                                                                                 *
- * This library is free software; you can redistribute it and/or                   *
- * modify it under the terms of the GNU Lesser General Public                      *
- * License as published by the Free Software Foundation; either                    *
- * version 2.1 of the License, or (at your option) any later version.              *
- *                                                                                 *
- * This library is distributed in the hope that it will be useful,                 *
- * but WITHOUT ANY WARRANTY; without even the implied warranty of                  *
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU               *
- * Lesser General Public License for more details.                                 *
- *                                                                                 *
- * You should have received a copy of the GNU Lesser General Public                *
- * License along with this library; if not, write to the Free Software             *
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA  *
- ***********************************************************************************/
+// Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
+// Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-License-Identifier: LGPL-2.1-or-later
 
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Dialogs
 import QtQuick.Window
+import org.kde.khangman
 
 Dialog {
     id: mainSettingsDialog
@@ -68,20 +53,20 @@ Dialog {
         }
 
         function saveSettings() {
-            khangman.resolveTime = resolveTimeSlider.value
-            khangman.soundEnabled = soundsSwitch.checked
-            khangman.scoreMultiplyingFactor = parseInt(scoreMultiplyingFactorTextEdit.text)
+            KHangMan.resolveTime = resolveTimeSlider.value
+            KHangMan.soundEnabled = soundsSwitch.checked
+            KHangMan.scoreMultiplyingFactor = parseInt(scoreMultiplyingFactorTextEdit.text)
         }
 
         function resetSettings () {
-            resolveTimeSlider.value = khangman.resolveTime
-            soundsSwitch.checked = khangman.soundEnabled
-            scoreMultiplyingFactorTextEdit.text = khangman.scoreMultiplyingFactor
+            resolveTimeSlider.value = KHangMan.resolveTime
+            soundsSwitch.checked = KHangMan.soundEnabled
+            scoreMultiplyingFactorTextEdit.text = KHangMan.scoreMultiplyingFactor
         }
 
         Component.onCompleted: {
-            resolveTimeSlider.value = khangman.resolveTime;
-            soundsSwitch.checked = khangman.soundEnabled;
+            resolveTimeSlider.value = KHangMan.resolveTime;
+            soundsSwitch.checked = KHangMan.soundEnabled;
         }
 
 
@@ -167,7 +152,7 @@ Dialog {
                         id: scoreMultiplyingFactorTextEdit
                         horizontalAlignment: TextEdit.AlignJustify
                         wrapMode: TextEdit.Wrap
-                        text: khangman.scoreMultiplyingFactor.toString()
+                        text: KHangMan.scoreMultiplyingFactor.toString()
                         font.bold: true
                         color: "white"
                         focus: true
