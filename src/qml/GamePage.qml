@@ -230,7 +230,7 @@ Kirigami.Page {
     actions: [
         Kirigami.Action {
             id: playPauseButton
-            icon.name: gamePage.isPlaying ? "media-playback-pause" : "media-playback-play"
+            icon.name: gamePage.isPlaying ? "media-playback-pause" : "media-playback-start"
 
             text: gamePage.isPlaying ? i18n("Pause") : i18n("Play")
 
