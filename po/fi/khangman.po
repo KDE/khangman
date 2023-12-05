@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:33+0000\n"
 "PO-Revision-Date: 2021-06-12 21:42+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -71,7 +71,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "DONE"
 
-#: khangman.cpp:155
+#: khangman.cpp:133
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -80,23 +80,23 @@ msgstr ""
 "Tiedostoa $KDEDIR/share/apps/khangman/data/%1/%2 ei löytynyt.\n"
 "Tarkista asennus."
 
-#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
+#: khangman.cpp:147
 #, kde-format
-msgid "Error"
-msgstr "Virhe"
+msgid "No word list loaded"
+msgstr ""
 
-#: khangman.cpp:449
+#: khangman.cpp:422
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Ei mikään"
 
-#: khangman.cpp:466
+#: khangman.cpp:439
 #, kde-format
 msgid "No theme files found."
 msgstr "Teematiedostoja ei löytynyt."
 
-#: khangman.cpp:488
+#: khangman.cpp:455
 #, kde-format
 msgid "No kvtml files found."
 msgstr "kvtml-tiedostoja ei löytynyt."
@@ -178,503 +178,523 @@ msgstr "Linkki KHangMan-ohjelman kotisivulle"
 
 # pmap: =/gen=KHangManin/
 # pmap: =/elat=KHangManista/
-#: main.cpp:49
+#: main.cpp:53
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:51
+#: main.cpp:55
 #, kde-format
 msgid "Classical hangman game by KDE"
 msgstr "Klassisen hirsipuun KDE-versio"
 
-#: main.cpp:53
+#: main.cpp:57
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr "© 2001–2011 Anne-Marie Mahfouf"
 
-#: main.cpp:54
+#: main.cpp:58
 #, kde-format
 msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
-#: main.cpp:54
+#: main.cpp:58
 #, kde-format
 msgid "Previous maintainer"
 msgstr "Edellinen ylläpitäjä"
 
-#: main.cpp:59
+#: main.cpp:63
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:59
+#: main.cpp:63
 #, kde-format
 msgid "Original Author"
 msgstr "Alkuperäinen tekijä"
 
-#: main.cpp:61
+#: main.cpp:65
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr "Rahul Chowdhury"
 
-#: main.cpp:61
+#: main.cpp:65
 #, kde-format
 msgid "Developer"
 msgstr "Kehittäjä"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:64 main.cpp:109 main.cpp:111 main.cpp:113
+#: main.cpp:68 main.cpp:113 main.cpp:115 main.cpp:117
 #, kde-format
 msgid "Coding help"
 msgstr "Apua ohjelmoinnissa"
 
-#: main.cpp:65
+#: main.cpp:69
 #, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:66
+#: main.cpp:70
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 "Ruotsin tiedostot, apua ohjelmoinnissa, läpinäkyvät kuvat ja i18n-korjauksia"
 
-#: main.cpp:68
+#: main.cpp:72
 #, kde-format
 msgid "eXParTaKus"
 msgstr "eXParTaKus"
 
-#: main.cpp:69
+#: main.cpp:73
 #, kde-format
 msgid "Spanish data files"
 msgstr "Espanjan tiedostot"
 
-#: main.cpp:70
+#: main.cpp:74
 #, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr "Erik Kjær Pedersenn"
 
-#: main.cpp:71
+#: main.cpp:75
 #, kde-format
 msgid "Danish data files"
 msgstr "Tanskan tiedostot"
 
-#: main.cpp:72
+#: main.cpp:76
 #, kde-format
 msgid "Niko Lewman"
 msgstr "Niko Lewman"
 
-#: main.cpp:73
+#: main.cpp:77
 #, kde-format
 msgid "Finnish data files"
 msgstr "Suomen tiedostot"
 
-#: main.cpp:74
+#: main.cpp:78
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr "João Sebastião de Oliveira Bueno"
 
-#: main.cpp:75
+#: main.cpp:79
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr "Brasilianportugalin tiedostot"
 
-#: main.cpp:76
+#: main.cpp:80
 #, kde-format
 msgid "Antoni Bella"
 msgstr "Antoni Bella"
 
-#: main.cpp:77
+#: main.cpp:81
 #, kde-format
 msgid "Catalan data files"
 msgstr "Katalaanin tiedostot"
 
-#: main.cpp:78
+#: main.cpp:82
 #, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:79
+#: main.cpp:83
 #, kde-format
 msgid "Italian data files"
 msgstr "Italian tiedostot"
 
-#: main.cpp:80
+#: main.cpp:84
 #, kde-format
 msgid "Rinse"
 msgstr "Rinse"
 
-#: main.cpp:81
+#: main.cpp:85
 #, kde-format
 msgid "Dutch data files"
 msgstr "Hollannin tiedostot"
 
-#: main.cpp:82
+#: main.cpp:86
 #, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:83
+#: main.cpp:87
 #, kde-format
 msgid "Czech data files"
 msgstr "Tsekin tiedostot"
 
-#: main.cpp:84
+#: main.cpp:88
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:85
+#: main.cpp:89
 #, kde-format
 msgid "Hungarian data files"
 msgstr "Unkarin tiedostot"
 
-#: main.cpp:86
+#: main.cpp:90
 #, kde-format
 msgid "Torger Åge Sinnes"
 msgstr "Torger Åge Sinnes"
 
-#: main.cpp:87
+#: main.cpp:91
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "Norjan (kirjakielen) tiedostot"
 
-#: main.cpp:88
+#: main.cpp:92
 #, kde-format
 msgid "Roger Kovacs"
 msgstr "Roger Kovacs"
 
-#: main.cpp:89
+#: main.cpp:93
 #, kde-format
 msgid "Tajik data files"
 msgstr "Tadžikin tiedostot"
 
-#: main.cpp:90
+#: main.cpp:94
 #, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:91
+#: main.cpp:95
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr "Serbian (kyrilliset ja latinalaiset) tiedostot"
 
-#: main.cpp:92
+#: main.cpp:96
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:93
+#: main.cpp:97
 #, kde-format
 msgid "Slovenian data files"
 msgstr "Sloveenin tiedostot"
 
-#: main.cpp:94
+#: main.cpp:98
 #, kde-format
 msgid "Pedro Morais"
 msgstr "Pedro Morais"
 
-#: main.cpp:95
+#: main.cpp:99
 #, kde-format
 msgid "Portuguese data files"
 msgstr "Portugalin tiedostot"
 
-#: main.cpp:96
+#: main.cpp:100
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr "Gaute Hvoslef Kvalnes"
 
-#: main.cpp:97
+#: main.cpp:101
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "Norjan (puhekielen) tiedostot"
 
-#: main.cpp:98
+#: main.cpp:102
 #, kde-format
 msgid "Mehmet Özel"
 msgstr "Mehmet Özel"
 
-#: main.cpp:99
+#: main.cpp:103
 #, kde-format
 msgid "Turkish data files"
 msgstr "Turkin tiedostot"
 
-#: main.cpp:100
+#: main.cpp:104
 #, kde-format
 msgid "Черепанов Андрей"
 msgstr "Черепанов Андрей"
 
-#: main.cpp:101
+#: main.cpp:105
 #, kde-format
 msgid "Russian data files"
 msgstr "Venäjän tiedostot"
 
-#: main.cpp:102
+#: main.cpp:106
 #, kde-format
 msgid "Radostin Radnev"
 msgstr "Radostin Radnev"
 
-#: main.cpp:103
+#: main.cpp:107
 #, kde-format
 msgid "Bulgarian data files"
 msgstr "Bulgarian tiedostot"
 
-#: main.cpp:104
+#: main.cpp:108
 #, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr "Kevin Patrick Scannell"
 
-#: main.cpp:105
+#: main.cpp:109
 #, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr "Iirin tiedostot"
 
-#: main.cpp:106
+#: main.cpp:110
 #, kde-format
 msgid "Matt Howe"
 msgstr "Matt Howe"
 
-#: main.cpp:107
+#: main.cpp:111
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr "Hillityt hirsipuukuvat"
 
-#: main.cpp:108
+#: main.cpp:112
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:110
+#: main.cpp:114
 #, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:112
+#: main.cpp:116
 #, kde-format
 msgid "Lubos Lunàk"
 msgstr "Lubos Lunàk"
 
-#: main.cpp:114
+#: main.cpp:118
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:115
+#: main.cpp:119
 #, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr "Ohjelmointiapua, korjannut monia asioita"
 
-#: main.cpp:116
+#: main.cpp:120
 #, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:117
+#: main.cpp:121
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr "Koodi, jolla luodaan kuvakkeita merkki-työkaluriville"
 
-#: main.cpp:118
+#: main.cpp:122
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:119
+#: main.cpp:123
 #, kde-format
 msgid "Code cleaning"
 msgstr "Koodin siistiminen"
 
-#: main.cpp:120
+#: main.cpp:124
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Mikko Ikola, Mikko Piippo, Markku Borén"
 
-#: main.cpp:120
+#: main.cpp:124
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ikola@iki.fi, mikko.piippo@helsinki.fi, mobemu@gmail.com"
 
-#: qml/GamePage.qml:157
+#: qml/GamePage.qml:127
 #, kde-format
 msgid "Choose the word category"
 msgstr "Valitse sanaryhmä"
 
-#: qml/GamePage.qml:178
+#: qml/GamePage.qml:159
 #, kde-format
 msgid "Select a language"
 msgstr "Valitse kieli"
 
-#: qml/GamePage.qml:191
+#: qml/GamePage.qml:181
 #, kde-format
 msgid "Select a theme"
 msgstr "Valitse teema"
 
-#: qml/GamePage.qml:244
+#: qml/GamePage.qml:235
 #, kde-format
 msgid "Pause"
 msgstr "Tauko"
 
-#: qml/GamePage.qml:244
+#: qml/GamePage.qml:235
 #, kde-format
 msgid "Play"
 msgstr "Jatka peliä"
 
-#: qml/GamePage.qml:267
+#: qml/GamePage.qml:266
 #, kde-format
-msgid "Change the theme."
-msgstr "Vaihda teemaa"
+msgctxt "@action:button"
+msgid "Configure"
+msgstr ""
 
-#: qml/GamePage.qml:278
+#: qml/GamePage.qml:280
 #, kde-format
-msgid "Settings"
-msgstr "Asetukset"
+msgid "Configure"
+msgstr ""
 
-#: qml/GamePage.qml:297
-#, kde-format
-msgid "About KHangMan"
-msgstr "Tietoa KHangManista"
+#: qml/GamePage.qml:305
+#, fuzzy, kde-format
+#| msgid "Download new language files"
+msgid "Get new language files"
+msgstr "Lataa uusia kielitiedostoja"
 
-#: qml/GamePage.qml:308
-#, kde-format
-msgid "About KDE"
-msgstr "Tietoa KDE:stä"
-
-#: qml/GamePage.qml:319
+#: qml/GamePage.qml:318
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Näytä KHangManin käyttöohje"
 
-#: qml/GamePage.qml:330
+#: qml/GamePage.qml:329 qml/GamePage.qml:335
 #, kde-format
-msgid "Download new language files"
-msgstr "Lataa uusia kielitiedostoja"
+msgid "About KHangMan"
+msgstr "Tietoa KHangManista"
 
-#: qml/GamePage.qml:341
+#: qml/GamePage.qml:342 qml/GamePage.qml:349
 #, kde-format
-msgid "Quit"
-msgstr "Lopeta"
+msgid "About KDE"
+msgstr "Tietoa KDE:stä"
 
-#: qml/GamePage.qml:362
+#: qml/GamePage.qml:370
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Arvauksia jäljellä: "
 
-#: qml/GamePage.qml:387
+#: qml/GamePage.qml:395
 #, kde-format
 msgid "Score: "
 msgstr "Pisteet: "
 
-#: qml/GamePage.qml:421
+#: qml/GamePage.qml:429
 #, kde-format
 msgid "Wins: "
 msgstr "Voittoja: "
 
-#: qml/GamePage.qml:449
+#: qml/GamePage.qml:457
 #, kde-format
 msgid "Losses: "
 msgstr "Häviöitä: "
 
-#: qml/GamePage.qml:594
+#: qml/GamePage.qml:601
 #, kde-format
 msgid "Display the hint."
 msgstr "Näytä vinkki"
 
-#: qml/GamePage.qml:607
+#: qml/GamePage.qml:616
 #, kde-format
 msgid "Change the category."
 msgstr "Vaihda ryhmää"
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:629
 #, kde-format
 msgid "Change the language."
 msgstr "Vaihda kieli"
 
-#: qml/GamePage.qml:628
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal Word"
 msgstr "Näytä sana"
 
-#: qml/GamePage.qml:629
+#: qml/GamePage.qml:642
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Näytä nykyinen sana."
 
-#: qml/GamePage.qml:653
+#: qml/GamePage.qml:668
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Lataa seuraava sana ja aloita uusi peli"
 
-#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#: qml/Main.qml:55
+#, fuzzy, kde-format
+#| msgid "Error"
+msgid "Error: %1"
+msgstr "Virhe"
+
+#: qml/SelectionDialog.qml:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "KHangMan Settings"
 msgstr "KHangManin asetukset"
 
-#: qml/MainSettingsDialog.qml:46
-#, kde-format
-msgid "KHangMan word resolve time"
-msgstr "Aika sanan ratkaisemiseen KHangManissa"
-
-#: qml/MainSettingsDialog.qml:47
-#, kde-format
-msgid "Maximum allowed time for resolving the word in KHangMan"
-msgstr "Pisin sallittu aika sanan ratkaisemiseen KHangManissa"
-
-#: qml/MainSettingsDialog.qml:54
-#, kde-format
-msgid "Hint show duration"
-msgstr "Vihjeen näyttämisen kesto"
-
-#: qml/MainSettingsDialog.qml:55
-#, kde-format
-msgid "The duration for showing the hint for the actual word"
-msgstr "Sanan vihjeen näyttämisen kesto"
-
-#: qml/MainSettingsDialog.qml:61
-#, kde-format
-msgid "KHangMan Score Multiplying Factor"
-msgstr "KHangManin pisteiden kerroin"
-
-#: qml/MainSettingsDialog.qml:62
-#, kde-format
-msgid "Determine the factor by which the scores will be multiplied."
-msgstr "Määritä kerroin, jolla pisteiden määrä kerrotaan."
-
-#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
-#, kde-format
-msgid "Sounds"
-msgstr "Äänet"
-
-#: qml/MainSettingsDialog.qml:70
-#, kde-format
-msgid "Turn all the sounds on or off inside the game"
-msgstr "Ota kaikki pelin äänet käyttöön tai poista ne käytöstä"
-
-#: qml/MainSettingsDialog.qml:119
+#: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
 msgstr "Aika sanan ratkaisemiseen (sekunteina)"
 
-#: qml/MainSettingsDialog.qml:162
+#: qml/Settings/SettingsPage.qml:68
 #, kde-format
-msgid "Score Multiplying Factor"
+msgid "The duration for showing the hint for the actual word"
+msgstr "Sanan vihjeen näyttämisen kesto"
+
+#: qml/Settings/SettingsPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Score Multiplying Factor"
+msgid "Score Multiplying Factor:"
 msgstr "Pisteiden kerroin"
 
-#: qml/MainSettingsDialog.qml:246
+#: qml/Settings/SettingsPage.qml:85
 #, kde-format
-msgid "OK"
-msgstr "OK"
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "Määritä kerroin, jolla pisteiden määrä kerrotaan."
 
-#: qml/MainSettingsDialog.qml:280
+#: qml/Settings/SettingsPage.qml:96
+#, fuzzy, kde-format
+#| msgid "Enable sounds"
+msgctxt "@option:check"
+msgid "Enable sounds"
+msgstr "Käytä ääniä"
+
+#: qml/Settings/SettingsPage.qml:107
 #, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:117
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Peru"
+
+#~ msgid "Change the theme."
+#~ msgstr "Vaihda teemaa"
+
+#~ msgid "Settings"
+#~ msgstr "Asetukset"
+
+#~ msgid "Quit"
+#~ msgstr "Lopeta"
+
+#~ msgid "KHangMan word resolve time"
+#~ msgstr "Aika sanan ratkaisemiseen KHangManissa"
+
+#~ msgid "Maximum allowed time for resolving the word in KHangMan"
+#~ msgstr "Pisin sallittu aika sanan ratkaisemiseen KHangManissa"
+
+#~ msgid "Hint show duration"
+#~ msgstr "Vihjeen näyttämisen kesto"
+
+#~ msgid "KHangMan Score Multiplying Factor"
+#~ msgstr "KHangManin pisteiden kerroin"
+
+#~ msgid "Sounds"
+#~ msgstr "Äänet"
+
+#~ msgid "Turn all the sounds on or off inside the game"
+#~ msgstr "Ota kaikki pelin äänet käyttöön tai poista ne käytöstä"
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid "khangman"
 #~ msgstr "khangman"
@@ -796,9 +816,6 @@ msgstr "Peru"
 #~ "jokaisesta voitetusta pelistä. Jos sitä ei ole valittu, KHangMan ei "
 #~ "soitaääniä.\n"
 #~ "Oletuksena äänet eivät ole käytössä."
-
-#~ msgid "Enable sounds"
-#~ msgstr "Käytä ääniä"
 
 #~ msgid "Play with a new word"
 #~ msgstr "Pelaa uudella sanalla."

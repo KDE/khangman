@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:33+0000\n"
 "PO-Revision-Date: 2022-12-30 19:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -66,7 +66,7 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "DONE"
 
-#: khangman.cpp:155
+#: khangman.cpp:133
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -75,23 +75,23 @@ msgstr ""
 "找不到檔案 $KDEDIR/share/apps/kvtml/%1/%2。\n"
 "請檢查您的安裝。"
 
-#: khangman.cpp:159 khangman.cpp:466 khangman.cpp:488
+#: khangman.cpp:147
 #, kde-format
-msgid "Error"
-msgstr "錯誤"
+msgid "No word list loaded"
+msgstr ""
 
-#: khangman.cpp:449
+#: khangman.cpp:422
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "無"
 
-#: khangman.cpp:466
+#: khangman.cpp:439
 #, kde-format
 msgid "No theme files found."
 msgstr "找不到主題檔。"
 
-#: khangman.cpp:488
+#: khangman.cpp:455
 #, kde-format
 msgid "No kvtml files found."
 msgstr "找不到 kvtml 檔。"
@@ -165,502 +165,522 @@ msgstr "輸入時區分重音與一般字母"
 msgid "The Providers path for KHangMan"
 msgstr "KHangMan 的提供者路徑"
 
-#: main.cpp:49
+#: main.cpp:53
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:51
+#: main.cpp:55
 #, kde-format
 msgid "Classical hangman game by KDE"
 msgstr "KDE 上的傳統「劊子手」（hangman）遊戲"
 
-#: main.cpp:53
+#: main.cpp:57
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
 
-#: main.cpp:54
+#: main.cpp:58
 #, kde-format
 msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
-#: main.cpp:54
+#: main.cpp:58
 #, kde-format
 msgid "Previous maintainer"
 msgstr "前任維護者"
 
-#: main.cpp:59
+#: main.cpp:63
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:59
+#: main.cpp:63
 #, kde-format
 msgid "Original Author"
 msgstr "原始作者"
 
-#: main.cpp:61
+#: main.cpp:65
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr "Rahul Chowdhury"
 
-#: main.cpp:61
+#: main.cpp:65
 #, kde-format
 msgid "Developer"
 msgstr "開發者"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:64 main.cpp:109 main.cpp:111 main.cpp:113
+#: main.cpp:68 main.cpp:113 main.cpp:115 main.cpp:117
 #, kde-format
 msgid "Coding help"
 msgstr "協助撰寫程式碼"
 
-#: main.cpp:65
+#: main.cpp:69
 #, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:66
+#: main.cpp:70
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr "瑞典資料檔，協助撰寫程式，透明圖片及 i18n 修正"
 
-#: main.cpp:68
+#: main.cpp:72
 #, kde-format
 msgid "eXParTaKus"
 msgstr "eXParTaKus"
 
-#: main.cpp:69
+#: main.cpp:73
 #, kde-format
 msgid "Spanish data files"
 msgstr "西班牙文資料檔"
 
-#: main.cpp:70
+#: main.cpp:74
 #, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr "Erik Kjær Pedersenn"
 
-#: main.cpp:71
+#: main.cpp:75
 #, kde-format
 msgid "Danish data files"
 msgstr "丹麥文資料檔"
 
-#: main.cpp:72
+#: main.cpp:76
 #, kde-format
 msgid "Niko Lewman"
 msgstr "Niko Lewman"
 
-#: main.cpp:73
+#: main.cpp:77
 #, kde-format
 msgid "Finnish data files"
 msgstr "芬蘭文資料檔"
 
-#: main.cpp:74
+#: main.cpp:78
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr "João Sebastião de Oliveira Bueno"
 
-#: main.cpp:75
+#: main.cpp:79
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr "巴西葡萄牙文資料檔"
 
-#: main.cpp:76
+#: main.cpp:80
 #, kde-format
 msgid "Antoni Bella"
 msgstr "Antoni Bella"
 
-#: main.cpp:77
+#: main.cpp:81
 #, kde-format
 msgid "Catalan data files"
 msgstr "加泰隆語資料檔"
 
-#: main.cpp:78
+#: main.cpp:82
 #, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:79
+#: main.cpp:83
 #, kde-format
 msgid "Italian data files"
 msgstr "義大利文資料檔"
 
-#: main.cpp:80
+#: main.cpp:84
 #, kde-format
 msgid "Rinse"
 msgstr "Rinse"
 
-#: main.cpp:81
+#: main.cpp:85
 #, kde-format
 msgid "Dutch data files"
 msgstr "荷蘭文資料檔"
 
-#: main.cpp:82
+#: main.cpp:86
 #, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:83
+#: main.cpp:87
 #, kde-format
 msgid "Czech data files"
 msgstr "捷克文資料檔"
 
-#: main.cpp:84
+#: main.cpp:88
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:85
+#: main.cpp:89
 #, kde-format
 msgid "Hungarian data files"
 msgstr "匈牙利文資料檔"
 
-#: main.cpp:86
+#: main.cpp:90
 #, kde-format
 msgid "Torger Åge Sinnes"
 msgstr "Torger Åge Sinnes"
 
-#: main.cpp:87
+#: main.cpp:91
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "挪威文（Bokmål）資料檔"
 
-#: main.cpp:88
+#: main.cpp:92
 #, kde-format
 msgid "Roger Kovacs"
 msgstr "Roger Kovacs"
 
-#: main.cpp:89
+#: main.cpp:93
 #, kde-format
 msgid "Tajik data files"
 msgstr "塔吉克文資料檔"
 
-#: main.cpp:90
+#: main.cpp:94
 #, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:91
+#: main.cpp:95
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr "塞爾維亞，斯拉夫與拉丁文資料檔"
 
-#: main.cpp:92
+#: main.cpp:96
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:93
+#: main.cpp:97
 #, kde-format
 msgid "Slovenian data files"
 msgstr "斯洛伐克文資料檔"
 
-#: main.cpp:94
+#: main.cpp:98
 #, kde-format
 msgid "Pedro Morais"
 msgstr "Pedro Morais"
 
-#: main.cpp:95
+#: main.cpp:99
 #, kde-format
 msgid "Portuguese data files"
 msgstr "葡萄牙文資料檔"
 
-#: main.cpp:96
+#: main.cpp:100
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr "Gaute Hvoslef Kvalnes"
 
-#: main.cpp:97
+#: main.cpp:101
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "挪威文（Nynorsk）資料檔"
 
-#: main.cpp:98
+#: main.cpp:102
 #, kde-format
 msgid "Mehmet Özel"
 msgstr "Mehmet Özel"
 
-#: main.cpp:99
+#: main.cpp:103
 #, kde-format
 msgid "Turkish data files"
 msgstr "土耳其文資料檔"
 
-#: main.cpp:100
+#: main.cpp:104
 #, kde-format
 msgid "Черепанов Андрей"
 msgstr "Черепанов Андрей"
 
-#: main.cpp:101
+#: main.cpp:105
 #, kde-format
 msgid "Russian data files"
 msgstr "俄文資料檔"
 
-#: main.cpp:102
+#: main.cpp:106
 #, kde-format
 msgid "Radostin Radnev"
 msgstr "Radostin Radnev"
 
-#: main.cpp:103
+#: main.cpp:107
 #, kde-format
 msgid "Bulgarian data files"
 msgstr "保加利亞文資料檔"
 
-#: main.cpp:104
+#: main.cpp:108
 #, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr "Kevin Patrick Scannell"
 
-#: main.cpp:105
+#: main.cpp:109
 #, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr "愛爾蘭文（Gaelic）資料檔"
 
-#: main.cpp:106
+#: main.cpp:110
 #, kde-format
 msgid "Matt Howe"
 msgstr "Matt Howe"
 
-#: main.cpp:107
+#: main.cpp:111
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr "Hangman 圖片"
 
-#: main.cpp:108
+#: main.cpp:112
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:110
+#: main.cpp:114
 #, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:112
+#: main.cpp:116
 #, kde-format
 msgid "Lubos Lunàk"
 msgstr "Lubos Lunàk"
 
-#: main.cpp:114
+#: main.cpp:118
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:115
+#: main.cpp:119
 #, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr "協助撰寫與修正程式碼"
 
-#: main.cpp:116
+#: main.cpp:120
 #, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:117
+#: main.cpp:121
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr "產生字元工具列圖示的程式碼"
 
-#: main.cpp:118
+#: main.cpp:122
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:119
+#: main.cpp:123
 #, kde-format
 msgid "Code cleaning"
 msgstr "程式碼整理"
 
-#: main.cpp:120
+#: main.cpp:124
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "陳英傑,Franklin Weng"
 
-#: main.cpp:120
+#: main.cpp:124
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yinjieh@csie.nctu.edu.tw,franklin@goodhorse.idv.tw"
 
-#: qml/GamePage.qml:157
+#: qml/GamePage.qml:127
 #, kde-format
 msgid "Choose the word category"
 msgstr "選擇單字類別"
 
-#: qml/GamePage.qml:178
+#: qml/GamePage.qml:159
 #, kde-format
 msgid "Select a language"
 msgstr "選擇語言"
 
-#: qml/GamePage.qml:191
+#: qml/GamePage.qml:181
 #, kde-format
 msgid "Select a theme"
 msgstr "選擇主題"
 
-#: qml/GamePage.qml:244
+#: qml/GamePage.qml:235
 #, kde-format
 msgid "Pause"
 msgstr "暫停"
 
-#: qml/GamePage.qml:244
+#: qml/GamePage.qml:235
 #, kde-format
 msgid "Play"
 msgstr "遊戲"
 
-#: qml/GamePage.qml:267
+#: qml/GamePage.qml:266
 #, kde-format
-msgid "Change the theme."
-msgstr "變更主題。"
+msgctxt "@action:button"
+msgid "Configure"
+msgstr ""
 
-#: qml/GamePage.qml:278
+#: qml/GamePage.qml:280
 #, kde-format
-msgid "Settings"
-msgstr "設定"
+msgid "Configure"
+msgstr ""
 
-#: qml/GamePage.qml:297
-#, kde-format
-msgid "About KHangMan"
-msgstr "關於 KHangMan"
+#: qml/GamePage.qml:305
+#, fuzzy, kde-format
+#| msgid "Download new language files"
+msgid "Get new language files"
+msgstr "下載新語言檔"
 
-#: qml/GamePage.qml:308
-#, kde-format
-msgid "About KDE"
-msgstr "關於 KDE"
-
-#: qml/GamePage.qml:319
+#: qml/GamePage.qml:318
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "查看 KHangMan 手冊"
 
-#: qml/GamePage.qml:330
+#: qml/GamePage.qml:329 qml/GamePage.qml:335
 #, kde-format
-msgid "Download new language files"
-msgstr "下載新語言檔"
+msgid "About KHangMan"
+msgstr "關於 KHangMan"
 
-#: qml/GamePage.qml:341
+#: qml/GamePage.qml:342 qml/GamePage.qml:349
 #, kde-format
-msgid "Quit"
-msgstr "離開"
+msgid "About KDE"
+msgstr "關於 KDE"
 
-#: qml/GamePage.qml:362
+#: qml/GamePage.qml:370
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "剩餘猜測次數："
 
-#: qml/GamePage.qml:387
+#: qml/GamePage.qml:395
 #, kde-format
 msgid "Score: "
 msgstr "分數："
 
-#: qml/GamePage.qml:421
+#: qml/GamePage.qml:429
 #, kde-format
 msgid "Wins: "
 msgstr "勝場："
 
-#: qml/GamePage.qml:449
+#: qml/GamePage.qml:457
 #, kde-format
 msgid "Losses: "
 msgstr "敗場："
 
-#: qml/GamePage.qml:594
+#: qml/GamePage.qml:601
 #, kde-format
 msgid "Display the hint."
 msgstr "顯示提示。"
 
-#: qml/GamePage.qml:607
+#: qml/GamePage.qml:616
 #, kde-format
 msgid "Change the category."
 msgstr "變更類別"
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:629
 #, kde-format
 msgid "Change the language."
 msgstr "變更語言。"
 
-#: qml/GamePage.qml:628
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal Word"
 msgstr "顯示單字"
 
-#: qml/GamePage.qml:629
+#: qml/GamePage.qml:642
 #, kde-format
 msgid "Reveal the current word."
 msgstr "顯示目前的單字。"
 
-#: qml/GamePage.qml:653
+#: qml/GamePage.qml:668
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "載入下個單字並重新開始遊戲。"
 
-#: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
+#: qml/Main.qml:55
+#, fuzzy, kde-format
+#| msgid "Error"
+msgid "Error: %1"
+msgstr "錯誤"
+
+#: qml/SelectionDialog.qml:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "KHangMan Settings"
 msgstr "KHangMan 設定"
 
-#: qml/MainSettingsDialog.qml:46
-#, kde-format
-msgid "KHangMan word resolve time"
-msgstr "KHangMan 單字解謎時間"
-
-#: qml/MainSettingsDialog.qml:47
-#, kde-format
-msgid "Maximum allowed time for resolving the word in KHangMan"
-msgstr "在 KHangMan 中允許最長的解謎時間"
-
-#: qml/MainSettingsDialog.qml:54
-#, kde-format
-msgid "Hint show duration"
-msgstr "提示顯示時間"
-
-#: qml/MainSettingsDialog.qml:55
-#, kde-format
-msgid "The duration for showing the hint for the actual word"
-msgstr "顯示答案提示的時間"
-
-#: qml/MainSettingsDialog.qml:61
-#, kde-format
-msgid "KHangMan Score Multiplying Factor"
-msgstr "KHangMan 加權分數"
-
-#: qml/MainSettingsDialog.qml:62
-#, kde-format
-msgid "Determine the factor by which the scores will be multiplied."
-msgstr "決定分數的權重。"
-
-#: qml/MainSettingsDialog.qml:69 qml/MainSettingsDialog.qml:204
-#, kde-format
-msgid "Sounds"
-msgstr "聲音"
-
-#: qml/MainSettingsDialog.qml:70
-#, kde-format
-msgid "Turn all the sounds on or off inside the game"
-msgstr "開或關遊戲中的所有音效"
-
-#: qml/MainSettingsDialog.qml:119
+#: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
 msgstr "單字解謎時間（秒）"
 
-#: qml/MainSettingsDialog.qml:162
+#: qml/Settings/SettingsPage.qml:68
 #, kde-format
-msgid "Score Multiplying Factor"
+msgid "The duration for showing the hint for the actual word"
+msgstr "顯示答案提示的時間"
+
+#: qml/Settings/SettingsPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Score Multiplying Factor"
+msgid "Score Multiplying Factor:"
 msgstr "分數權重"
 
-#: qml/MainSettingsDialog.qml:246
+#: qml/Settings/SettingsPage.qml:85
 #, kde-format
-msgid "OK"
-msgstr "確認"
+msgid "Determine the factor by which the scores will be multiplied."
+msgstr "決定分數的權重。"
 
-#: qml/MainSettingsDialog.qml:280
+#: qml/Settings/SettingsPage.qml:96
+#, fuzzy, kde-format
+#| msgid "Enable Animations"
+msgctxt "@option:check"
+msgid "Enable sounds"
+msgstr "開啟動畫"
+
+#: qml/Settings/SettingsPage.qml:107
 #, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:117
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
 msgid "Cancel"
 msgstr "取消"
+
+#~ msgid "Change the theme."
+#~ msgstr "變更主題。"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
+
+#~ msgid "Quit"
+#~ msgstr "離開"
+
+#~ msgid "KHangMan word resolve time"
+#~ msgstr "KHangMan 單字解謎時間"
+
+#~ msgid "Maximum allowed time for resolving the word in KHangMan"
+#~ msgstr "在 KHangMan 中允許最長的解謎時間"
+
+#~ msgid "Hint show duration"
+#~ msgstr "提示顯示時間"
+
+#~ msgid "KHangMan Score Multiplying Factor"
+#~ msgstr "KHangMan 加權分數"
+
+#~ msgid "Sounds"
+#~ msgstr "聲音"
+
+#~ msgid "Turn all the sounds on or off inside the game"
+#~ msgstr "開或關遊戲中的所有音效"
+
+#~ msgid "OK"
+#~ msgstr "確認"
 
 #~ msgid "khangman"
 #~ msgstr "khangman"
