@@ -16,11 +16,6 @@ Kirigami.ApplicationWindow {
         id: gamePage
     }
 
-    MainSettingsDialog {
-        id: mainSettingsDialog
-        visible: false
-    }
-
     Component.onCompleted: {
         // play this audio file during startup
         if (KHangMan.soundEnabled) {

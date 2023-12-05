@@ -39,12 +39,14 @@ QQC2.Dialog {
 
         RowLayout {
             Layout.fillWidth: true
-            Layout.margins: Kirigami.Units.largeSpacing
+            Layout.margins: Kirigami.Units.smallSpacing
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.Heading {
                 text: root.title
                 Layout.fillWidth: true
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+                Layout.rightMargin: Kirigami.Units.smallSpacing
             }
 
             QQC2.ToolButton {

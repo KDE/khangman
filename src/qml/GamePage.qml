@@ -121,28 +121,6 @@ Kirigami.Page {
         }
     }
 
-    MainSettingsDialog {
-        id: mainSettingsDialog
-        property bool wasPlaying: false
-        onOkClicked: {
-            // close the settings dialog
-            mainSettingsDialog.close()
-            if (wasPlaying) {
-                // game is going on, so load a new word and start with the saved settings
-                nextWord()
-                startTimer()
-            }
-        }
-        onCancelClicked: {
-            // close the settings dialog
-            mainSettingsDialog.close()
-            if (wasPlaying) {
-                // game was in progress, so resume the timer countdown
-                startTimer()
-            }
-        }
-    }
-
     SelectionDialog {
         id: categorySelectionDialog;
 
@@ -287,9 +265,11 @@ Kirigami.Page {
             icon.name: "settings-configure-symbolic"
             text: i18nc("@action:button", "Configure")
 
+            property bool wasPlaying: false
+
             onTriggered: {
                 // if game is currently going on then pause it
-                mainSettingsDialog.wasPlaying = isPlaying
+                settingsButton.wasPlaying = isPlaying
                 if( gamePage.isPlaying ) {
                     secondTimer.repeat = false
                     secondTimer.running = false
@@ -297,7 +277,23 @@ Kirigami.Page {
                     secondTimer.stop();
                 }
 
-                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.khangman", "SettingsPage"), {}, {title: i18n("Configure")});
+                const item = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.khangman", "SettingsPage"), {}, {title: i18n("Configure"), width: Kirigami.Units.gridUnit * 24});
+
+                item.okClicked.connect(() => {
+                    // close the settings dialog
+                    if (wasPlaying) {
+                        // game is going on, so load a new word and start with the saved settings
+                        nextWord()
+                        startTimer()
+                    }
+                });
+
+                item.cancelClicked.connect(() => {
+                    if (wasPlaying) {
+                        // game was in progress, so resume the timer countdown
+                        startTimer()
+                    }
+                });
             }
         },
 
@@ -329,12 +325,15 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: aboutKhangmanButton
-            icon.name: "help-about-symbolic"
+            icon.name: "khangman"
             text: i18n("About KHangMan")
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                KHangMan.showAboutKHangMan()
+                applicationWindow().pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/khangman/qml/Settings/AboutPage.qml", {} , {
+                    width: Kirigami.Units.gridUnit * 24,
+                    title: i18n("About KHangMan")
+                })
             }
         },
 
@@ -345,7 +344,10 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                KHangMan.showAboutKDE()
+                applicationWindow().pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/khangman/qml/Settings/AboutKDEPage.qml", {}, {
+                    width: Kirigami.Units.gridUnit * 24,
+                    title: i18n("About KDE")
+                })
             }
         }
     ]

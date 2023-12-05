@@ -32,14 +32,13 @@ qt_target_qml_sources(khangman_static
     QML_FILES
         qml/GamePage.qml
         qml/LetterElement.qml
-        qml/MainSettingsDialog.qml
         qml/SelectionDialog.qml
         qml/Main.qml
 
         ## Settings
+        qml/Settings/SettingsPage.qml
         qml/Settings/AboutKDEPage.qml
         qml/Settings/AboutPage.qml
-        qml/Settings/SettingsPage.qml
 )
 
 qt_target_qml_sources(khangman_static
