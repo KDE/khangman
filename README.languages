@@ -7,6 +7,9 @@ For supporting a new language, what needs to be done within KHangMan is:
 * add a file languages/??/??.txt  (replace ?? by your language code)
   containing the lower-case version of any non ASCII letters that your
   language may contain, one letter per line;
+* add a file languages/??/CMakeLists.txt containing the line
+    install(FILES ??.txt DESTINATION ${KDE_INSTALL_DATADIR}/khangman)
+  (again ?? by your language code);
 * in languages/CMakeLists.txt, add an add_subdirectory line for
   your language.
 
