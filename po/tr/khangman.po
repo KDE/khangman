@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-05 01:33+0000\n"
-"PO-Revision-Date: 2023-08-02 01:16+0300\n"
+"PO-Revision-Date: 2023-12-05 16:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: khangman.cpp:147
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Yüklü sözcük listesi yok"
 
 #: khangman.cpp:422
 #, kde-format
@@ -137,13 +137,13 @@ msgstr ""
 #: khangman.kcfg:44
 #, kde-format
 msgid "Enable Animations"
-msgstr "Animasyonları Etkinleştir"
+msgstr "Canlandırmaları Etkinleştir"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
-msgstr "Seçilirse, Yeni Oyun ve Oyun Kazanıldı için sesler çalınacak"
+msgstr "İşaretlenirse Yeni Oyun ve Kazanılan Oyun için sesler çalınır"
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
@@ -154,7 +154,7 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"İşaretlendiğinde ipuçlarını her zaman gösterir. İşaretlenmezse (varsayılan)\n"
+"İşaretlenirse ipuçlarını her zaman gösterir. İşaretlenmezse (öntanımlı)\n"
 "             kullanıcı, \"ipuçlarını göster\" seçeneğini seçtiğinde ipuçları "
 "yalnızca sözcük başına gösterilir."
 
@@ -213,7 +213,7 @@ msgstr "Anne-Marie Mahfouf"
 #: main.cpp:63
 #, kde-format
 msgid "Original Author"
-msgstr "Özgün Yazar"
+msgstr "Özgün yazar"
 
 #: main.cpp:65
 #, kde-format
@@ -511,12 +511,12 @@ msgstr "Bir sözcük kategorisi seçin"
 #: qml/GamePage.qml:159
 #, kde-format
 msgid "Select a language"
-msgstr "Bir dil seçin"
+msgstr "Dil seç"
 
 #: qml/GamePage.qml:181
 #, kde-format
 msgid "Select a theme"
-msgstr "Tema seçin"
+msgstr "Tema seç"
 
 #: qml/GamePage.qml:235
 #, kde-format
@@ -532,18 +532,17 @@ msgstr "Yürüt"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Yapılandır"
 
 #: qml/GamePage.qml:280
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Yapılandır"
 
 #: qml/GamePage.qml:305
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Yeni dil dosyaları indir"
+msgstr "Yeni Dil Dosyaları Al"
 
 #: qml/GamePage.qml:318
 #, kde-format
@@ -583,17 +582,17 @@ msgstr "Kaybedilen: "
 #: qml/GamePage.qml:601
 #, kde-format
 msgid "Display the hint."
-msgstr "İpucunu görüntüle."
+msgstr "İpucunu görüntüleyin."
 
 #: qml/GamePage.qml:616
 #, kde-format
 msgid "Change the category."
-msgstr "Kategoriyi seç."
+msgstr "Kategoriyi değiştirin."
 
 #: qml/GamePage.qml:629
 #, kde-format
 msgid "Change the language."
-msgstr "Dili değiştir."
+msgstr "Dili değiştirin."
 
 #: qml/GamePage.qml:641
 #, kde-format
@@ -603,24 +602,23 @@ msgstr "Sözcüğü Göster"
 #: qml/GamePage.qml:642
 #, kde-format
 msgid "Reveal the current word."
-msgstr "Mevcut sözcüğü göster."
+msgstr "Geçerli sözcüğü gösterin."
 
 #: qml/GamePage.qml:668
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr "Sıradaki sözcüğü yükle ve yeni bir oyun başlat."
+msgstr "Sıradaki sözcüğü yükleyin ve yeni bir oyun başlatın."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Hata"
+msgstr "Hata: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -638,10 +636,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "Gerçek sözcük için ipucu gösterim süresi"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Puan Çarpanı"
+msgstr "Puan çarpanı:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -649,21 +646,19 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Puanın çarpılacağı katsayıyı belirleyin."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable Animations"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Animasyonları Etkinleştir"
+msgstr "Sesleri etkinleştir"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İptal"

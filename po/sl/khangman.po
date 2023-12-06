@@ -1,6 +1,6 @@
 # Translation of khangman.po to Slovenian
 # Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: khangman.po 1666566 2023-12-05 02:00:01Z scripty $
+# $Id: khangman.po 1666647 2023-12-06 02:03:39Z scripty $
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2002, 2003, 2004.
@@ -12,17 +12,17 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-05 01:33+0000\n"
-"PO-Revision-Date: 2020-03-14 08:30+0100\n"
+"PO-Revision-Date: 2023-12-05 06:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -78,7 +78,7 @@ msgstr ""
 #: khangman.cpp:147
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Seznam besed ni naložen"
 
 #: khangman.cpp:422
 #, kde-format
@@ -523,18 +523,17 @@ msgstr "Nadaljuj"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Konfiguriraj"
 
 #: qml/GamePage.qml:280
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Konfiguriraj"
 
 #: qml/GamePage.qml:305
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Prejmi nove jezikovne datoteke"
+msgstr "Pridobi nove jezikovne datoteke"
 
 #: qml/GamePage.qml:318
 #, kde-format
@@ -602,16 +601,15 @@ msgid "Load the next word and start a new game."
 msgstr "Naloži naslednjo besedo in začni novo igro."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Napaka"
+msgstr "Napaka: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -629,10 +627,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "Trajanje prikaza namiga za trenutno besedo"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Faktor pomnoževanja rezultata"
+msgstr "Faktor pomnoževanja rezultata:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -640,8 +637,7 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Navedite faktor, s katerim bodo pomnoženi rezultati."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Omogoči zvoke"
@@ -650,11 +646,10 @@ msgstr "Omogoči zvoke"
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Prekliči"

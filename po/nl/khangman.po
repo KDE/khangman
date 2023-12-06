@@ -12,20 +12,20 @@
 # Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007, 2008.
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2006.
 # Jaap Woldringh <jjh punt woldringh op planet punt nl>, 2008.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012, 2014, 2015, 2017, 2018, 2020.
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2014, 2015, 2017, 2018, 2020, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-05 01:33+0000\n"
-"PO-Revision-Date: 2020-03-04 12:30+0100\n"
+"PO-Revision-Date: 2023-12-05 10:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: tag theme attribute uiname
@@ -82,7 +82,7 @@ msgstr ""
 #: khangman.cpp:147
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Geen lijst met woorden geladen"
 
 #: khangman.cpp:422
 #, kde-format
@@ -530,18 +530,17 @@ msgstr "Afspelen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Configureren"
 
 #: qml/GamePage.qml:280
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Configureren"
 
 #: qml/GamePage.qml:305
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Nieuwe taalbestanden downloaden"
+msgstr "Nieuwe taalbestanden ophalen"
 
 #: qml/GamePage.qml:318
 #, kde-format
@@ -609,16 +608,15 @@ msgid "Load the next word and start a new game."
 msgstr "Het volgende woord laden en een nieuw spel beginnen."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Fout"
+msgstr "Fout: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -636,10 +634,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "De duur van het tonen van de hint voor het actuele woord"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Vermenigvuldigingsfactor van score"
+msgstr "Vermenigvuldigingsfactor van score:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -647,21 +644,19 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Bepaal de factor waarmee de scores vermenigvuldigt zullen worden."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Geluiden activeren"
+msgstr "Geluid inschakelen"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuleren"

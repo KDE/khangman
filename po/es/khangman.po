@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-05 01:33+0000\n"
-"PO-Revision-Date: 2023-10-12 02:26+0100\n"
+"PO-Revision-Date: 2023-12-06 00:34+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: tag theme attribute uiname
@@ -79,7 +79,7 @@ msgstr ""
 #: khangman.cpp:147
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "No se ha cargado ninguna lista de palabras"
 
 #: khangman.cpp:422
 #, kde-format
@@ -528,18 +528,17 @@ msgstr "Jugar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Configurar"
 
 #: qml/GamePage.qml:280
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Configurar"
 
 #: qml/GamePage.qml:305
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Descargar nuevos archivos de idiomas"
+msgstr "Obtener nuevos archivos de idiomas"
 
 #: qml/GamePage.qml:318
 #, kde-format
@@ -607,16 +606,15 @@ msgid "Load the next word and start a new game."
 msgstr "Cargar la siguiente palabra y empezar un nuevo juego."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Error"
+msgstr "Error: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -634,10 +632,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "El tiempo que se muestra la pista para la palabra actual"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Factor de multiplicación de las puntuaciones"
+msgstr "Factor de multiplicación de las puntuaciones:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -645,21 +642,19 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Determinar el factor por el que se multiplicarán las puntuaciones."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Habilitar los sonidos"
+msgstr "Activar el sonido"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancelar"
