@@ -1,76 +1,21 @@
 Dear Translator,
 
-Here is a an outline of the steps necessary to translate the words of the game to your language. There are 175 words to translate but you can add more if you want.
+The language data files have been moved to
+  https://invent.kde.org/education/kdeedu-data
 
-The twenty two available languages so far by code: ca cs da de en es fr fi hu it nb nl nn pt pt_BR ru sl sr sr@Ltn sv tg tr 
+For supporting a new language, what needs to be done within KHangMan is:
+* add a file languages/??/??.txt  (replace ?? by your language code)
+  containing the lower-case version of any non ASCII letters that your
+  language may contain, one letter per line;
+* in languages/CMakeLists.txt, add an add_subdirectory line for
+  your language.
 
-Most of this data should be completed to include hints, please see below. 
+What needs to be done within the kdeedu-data repository is:
+* create a subdirectory data/kvtml/??  (replace ?? by your language code);
+* create at least the files easy.kvtml, medium.kvtml, hard.kvtml, animals.kvtml
+  in the new subdirectory (see other language subdirectories for examples);
+* create file data/kvtml/??/CMakeLists.txt (see other language subdirectories
+  for examples);
+* in data/kvtml/CMakeLists.txt add the add_subdirectory line for your language.
 
-Complete data: fr en it only have hints so the other above languages must be updated as soon as possible.
-
-The words are stored in 4 separate files, one for each level. The files are in /khangman/data/en. The file easy.txt is for level easy, the file medium.txt is for level medium, the file animals.txt is for level animals and the file hard.txt is for level hard.
-
- English is the default and thus the only language to be shipped with KHangMan. All other language data are put in the correct kde-i18n. 
- 
-1. Be sure you are working with the latest cvs HEAD sources of KHangMan by issuing a 
-
-cvs up -dPA khangman 
-
-in the kdeedu module.
-Then
-cd kdeedu/khangman
-
-2. Enter the following commands in a konsole to create the directory
-   and files for the new language:
-
-     ./add_language <language_code>
-
-   Here you must replace <language_code> with your language code.
-   
-The program will refuse a non-valid language code! 
-
-3. The files now use the kvtml format. The tag <o> is for the word and the tag <t> is for the hint. Try to match the hint with the level of difficulty. The level 'Easy' will require an easy hint but the level 'Hard' will require the definition in the dictionary. Try not to use words of the same family in the hint, that would give the word away too easily! An example of a kvtml file is as follow: 
-
-<?xml version="1.0"?> 
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd"> 
-<kvtml> 
-<e> 
-<o>cane</o> 
-<t>è il tuo animale domestico preferito</t> 
-</e> 
-...
-...
-</kvtml>
- 
- 4. Edit all indicated text files in the new directory with a text editor, and replace each word inside the <o> tag with a translated word and each hint inside a <t> with a translated hint. It is not really important that the exact meaning is preserved, but try to keep the length and level of difficulty roughly the same.
- You can include words with white space or - in them, in that case the white space or the - will be shown instead of the _.
- Please contact me if there is anything special related to your language so I can adapt the code to it (especially the special and accented characters). 
-
-You can just translate the words but you can also adapt them following the level and add new words if you want. For example, "table" is in level easy in English but in your language, it can be level medium. Feel free to adapt the files to your language needs. The number of words in a file is not important, you can add some if you want.
-
- 
-
-Note that you must use UTF-8 encoding when editing the files. If your editor can't do this, try using kwrite or kate. When opening a file in kwrite or kate you can select utf8 encoding with the top right combo box.
-
- Please keep the actual english tts in your language_code dir.
-
-5. Enter the following command to install the new data files:
-
-     make
-     make install
-
-   You may have to become root to run 'make install', depending on your
-   installation.
-
-6. Run the game and check that your language has been added:
-
-     khangman
-
-7. Instead of committing your files, please sent them to me tarred and gzipped. As there are now twenty two languages, a   wizard (KNewStuff) is now included in KHangMan to easily download and install new languages that are placed on the website. This is done to reduce the size of the kdeedu module and it will also be done in KLettres, KStars and maybe KTouch.
- Please contact me by email (annemarie.mahfouf AT free DOT fr) if you need further information.
- When you send me the files, please don't forget to mention any special characters used in your language (put them in a text file, one per line and add this file in the tarball) and please mention any other specificity.
- Please never commit files in a BRANCH as it might break the game.
-
-Good luck and thanks!
-
-Last update: October 23rd 2004
+Last update: 06-Dec-2023
