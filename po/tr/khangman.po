@@ -13,13 +13,13 @@
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-08 00:42+0000\n"
-"PO-Revision-Date: 2022-12-11 14:30+0300\n"
+"PO-Revision-Date: 2023-12-05 16:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -137,13 +137,13 @@ msgstr ""
 #: khangman.kcfg:44
 #, kde-format
 msgid "Enable Animations"
-msgstr "Animasyonları Etkinleştir"
+msgstr "Canlandırmaları Etkinleştir"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
-msgstr "Seçilirse, Yeni Oyun ve Oyun Kazanıldı için sesler çalınacak"
+msgstr "İşaretlenirse Yeni Oyun ve Kazanılan Oyun için sesler çalınır"
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
@@ -154,7 +154,7 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"İşaretlendiğinde ipuçlarını her zaman gösterir. İşaretlenmezse (varsayılan)\n"
+"İşaretlenirse ipuçlarını her zaman gösterir. İşaretlenmezse (öntanımlı)\n"
 "             kullanıcı, \"ipuçlarını göster\" seçeneğini seçtiğinde ipuçları "
 "yalnızca sözcük başına gösterilir."
 
@@ -213,7 +213,7 @@ msgstr "Anne-Marie Mahfouf"
 #: main.cpp:69
 #, kde-format
 msgid "Original Author"
-msgstr "Özgün Yazar"
+msgstr "Özgün yazar"
 
 #: main.cpp:71
 #, kde-format
@@ -511,12 +511,12 @@ msgstr "Bir sözcük kategorisi seçin"
 #: qml/GamePage.qml:178
 #, kde-format
 msgid "Select a language"
-msgstr "Bir dil seçin"
+msgstr "Dil seç"
 
 #: qml/GamePage.qml:191
 #, kde-format
 msgid "Select a theme"
-msgstr "Tema seçin"
+msgstr "Tema seç"
 
 #: qml/GamePage.qml:244
 #, kde-format
@@ -586,17 +586,17 @@ msgstr "Kaybedilen: "
 #: qml/GamePage.qml:594
 #, kde-format
 msgid "Display the hint."
-msgstr "İpucunu görüntüle."
+msgstr "İpucunu görüntüleyin."
 
 #: qml/GamePage.qml:607
 #, kde-format
 msgid "Change the category."
-msgstr "Kategoriyi seç."
+msgstr "Kategoriyi değiştirin."
 
 #: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the language."
-msgstr "Dili değiştir."
+msgstr "Dili değiştirin."
 
 #: qml/GamePage.qml:628
 #, kde-format
@@ -606,12 +606,12 @@ msgstr "Sözcüğü Göster"
 #: qml/GamePage.qml:629
 #, kde-format
 msgid "Reveal the current word."
-msgstr "Mevcut sözcüğü göster."
+msgstr "Geçerli sözcüğü gösterin."
 
 #: qml/GamePage.qml:653
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr "Sıradaki sözcüğü yükle ve yeni bir oyun başlat."
+msgstr "Sıradaki sözcüğü yükleyin ve yeni bir oyun başlatın."
 
 #: qml/MainSettingsDialog.qml:34 qml/MainSettingsDialog.qml:101
 #, kde-format
