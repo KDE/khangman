@@ -612,7 +612,7 @@ Kirigami.Page {
             ToolButton {
                 id: categorySelectionButton
                 Layout.fillWidth: true
-                text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+                text: categorySelectionDialog.model[categorySelectionDialog.currentIndex];
                 ToolTip.text: i18n("Change the category.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -625,7 +625,7 @@ Kirigami.Page {
             ToolButton {
                 id: languageSelectionButton
                 Layout.fillWidth: true
-                text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
+                text: languageSelectionDialog.model[languageSelectionDialog.currentIndex]
                 ToolTip.text: i18n("Change the language.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
