@@ -170,7 +170,7 @@ Kirigami.Page {
             text: modelData
 
             onClicked: {
-                categorySelectionDialog.currentIndex = index;
+                languageSelectionDialog.currentIndex = index;
 
                 KHangMan.setCurrentLanguage(index);
                 KHangMan.readFile();
@@ -193,7 +193,7 @@ Kirigami.Page {
             text: modelData
 
             onClicked: {
-                categorySelectionDialog.currentIndex = index;
+                themeSelectionDialog.currentIndex = index;
 
                 KHangMan.setCurrentTheme(index);
                 themeSelectionDialog.close();
