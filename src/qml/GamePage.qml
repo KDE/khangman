@@ -149,7 +149,10 @@ Kirigami.Page {
             required property string modelData
 
             text: modelData
-            onClicked: categorySelectionDialog.currentIndex = index
+            onClicked: {
+                categorySelectionDialog.currentIndex = index
+                categorySelectionDialog.close();
+            }
         }
     }
 
@@ -172,6 +175,7 @@ Kirigami.Page {
                 KHangMan.setCurrentLanguage(index);
                 KHangMan.readFile();
                 nextWord();
+                languageSelectionDialog.close();
             }
         }
     }
@@ -192,6 +196,7 @@ Kirigami.Page {
                 categorySelectionDialog.currentIndex = index;
 
                 KHangMan.setCurrentTheme(index);
+                themeSelectionDialog.close();
             }
         }
     }
