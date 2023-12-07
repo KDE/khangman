@@ -24,6 +24,27 @@
 #include "langutils.h"
 #include "prefs.h"
 
+namespace
+{
+/**
+ * Strip the accents off given string
+ * @params original string to strip accents off of
+ * @returns string without accents
+ */
+QString stripAccents(const QString &original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
+}
+
+}
+
 KHangMan::KHangMan()
         : QObject (),
           m_currentCategory(0),
@@ -54,21 +75,7 @@ KHangMan::KHangMan()
     }
 }
 
-KHangMan::~KHangMan()
-{
-}
-
-void KHangMan::showAboutKHangMan()
-{
-    m_helpMenu->aboutApplication();
-}
-
-void KHangMan::showAboutKDE()
-{
-    m_helpMenu->aboutKDE();
-}
-
-void KHangMan::showHandbook()
+void KHangMan::showHandbook() const
 {
     m_helpMenu->appHelpActivated();
 }
@@ -189,18 +196,6 @@ void KHangMan::slotSetWordsSequence()
     KRandom::shuffle(m_randomList);
 }
 
-QString KHangMan::stripAccents(const QString & original)
-{
-    QString noAccents;
-    QString decomposed = original.normalized(QString::NormalizationForm_D);
-    for (int i = 0; i < decomposed.length(); ++i) {
-        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
-            noAccents.append(decomposed[i]);
-        }
-    }
-    return noAccents;
-}
-
 void KHangMan::replaceLetters(const QString& charString)
 {
     QChar ch = charString.at(0);
@@ -234,7 +229,7 @@ void KHangMan::calculateNetScore()
     Q_EMIT netScoreChanged();
 }
 
-bool KHangMan::containsChar(const QString &sChar)
+bool KHangMan::containsChar(const QString &sChar) const
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
@@ -250,7 +245,7 @@ void KHangMan::setResolveTime(int resolveTime)
     Q_EMIT resolveTimeChanged();
 }
 
-bool KHangMan::soundEnabled()
+bool KHangMan::soundEnabled() const
 {
     return Prefs::sound();
 }
@@ -261,7 +256,7 @@ void KHangMan::setSoundEnabled(bool sound)
     Q_EMIT soundEnabledChanged();
 }
 
-QStringList KHangMan::languages()
+QStringList KHangMan::languages() const
 {
     return m_languageNames;
 }
@@ -307,7 +302,7 @@ int KHangMan::netScore() const
     return m_netScore;
 }
 
-int KHangMan::currentLanguage()
+int KHangMan::currentLanguage() const
 {
     return m_currentLanguage;
 }
@@ -343,12 +338,12 @@ QColor KHangMan::currentThemeLetterColor() const
     return QColor("white");
 }
 
-QStringList KHangMan::categories()
+QStringList KHangMan::categories() const
 {
     return m_titleLevels.keys();
 }
 
-int KHangMan::currentCategory()
+int KHangMan::currentCategory() const
 {
     return m_currentCategory;
 }
