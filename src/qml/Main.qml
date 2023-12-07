@@ -1,5 +1,5 @@
-// Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
-// Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-FileCopyrightText: 2012 Laszlo Papp <lpapp@kde.org>
+// SPDX-FileCopyrightText: 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
 import QtQuick 2.3
