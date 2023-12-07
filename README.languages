@@ -1,6 +1,6 @@
 Dear Translator,
 
-The language data files have been moved to
+The language data files are at
   https://invent.kde.org/education/kdeedu-data
 
 For supporting a new language, what needs to be done within KHangMan is:
@@ -21,4 +21,4 @@ What needs to be done within the kdeedu-data repository is:
   for examples);
 * in data/kvtml/CMakeLists.txt add the add_subdirectory line for your language.
 
-Last update: 06-Dec-2023
+Last update: 07-Dec-2023
