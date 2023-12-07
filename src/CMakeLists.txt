@@ -79,7 +79,6 @@ PUBLIC
     KF6::NewStuffCore
     KF6::ConfigCore
     KF6::WidgetsAddons
-    KF6::XmlGui
     LibKEduVocDocumentImport__KEduVocDocument
 )
 

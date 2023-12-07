@@ -10,8 +10,6 @@
 
 #include "khmthemefactory.h"
 
-class KHelpMenu;
-
 /**
  * @short KHangMan Main Window
  * @author Anne-Marie Mahfouf <annemarie.mahfouf@free.fr>
@@ -209,9 +207,6 @@ private:
 
     //Current hint
     QString m_hint;
-
-    /** help menu for displaying about box */
-    KHelpMenu *m_helpMenu;
 };
 
 // kate: space-indent on; tab-width 4; indent-width 4; mixed-indent off; replace-tabs on;

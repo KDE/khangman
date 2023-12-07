@@ -9,16 +9,16 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QShortcut>
+#include <QDesktopServices>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandom>
 #include <knewstuff_version.h>
-#include <KHelpMenu>
+#include <KAuthorized>
 
 #include <KEduVocDocument>
 #include <keduvocexpression.h>
-#include <qobject.h>
 #include <sharedkvtmlfiles.h>
 
 #include "langutils.h"
@@ -53,8 +53,7 @@ KHangMan::KHangMan()
           m_lossCount(0),
           m_randomInt(0),
           m_scoreMultiplyingFactor(1),
-          m_netScore(0),
-          m_helpMenu(new KHelpMenu(nullptr))
+          m_netScore(0)
 {
     setObjectName(QStringLiteral("KHangMan"));
 
@@ -77,7 +76,9 @@ KHangMan::KHangMan()
 
 void KHangMan::showHandbook() const
 {
-    m_helpMenu->appHelpActivated();
+    if (KAuthorized::authorizeAction(QStringLiteral("help_contents"))) {
+        QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
+    }
 }
 
 KConfigGroup KHangMan::config(const QString &group)
