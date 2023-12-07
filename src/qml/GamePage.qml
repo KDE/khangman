@@ -191,7 +191,7 @@ Kirigami.Page {
             onClicked: {
                 categorySelectionDialog.currentIndex = index;
 
-                KHangMan.setCurrentTheme(selectedIndex);
+                KHangMan.setCurrentTheme(index);
             }
         }
     }
