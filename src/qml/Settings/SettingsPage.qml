@@ -1,5 +1,5 @@
-// Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
-// Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-FileCopyrightText: 2012 Laszlo Papp <lpapp@kde.org>
+// SPDX-FileCopyrightText: 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
 import QtQuick
@@ -19,16 +19,16 @@ FormCard.FormCardPage {
 
     title: i18n("KHangMan Settings")
 
-    function saveSettings() {
-        KHangMan.resolveTime = resolveTimeSlider.value
-        KHangMan.soundEnabled = soundsSwitch.checked
-        KHangMan.scoreMultiplyingFactor =scoreMultiplyingFactor.value
+    function saveSettings(): void {
+        KHangMan.resolveTime = resolveTimeSlider.value;
+        KHangMan.soundEnabled = soundsSwitch.checked;
+        KHangMan.scoreMultiplyingFactor = scoreMultiplyingFactor.value;
     }
 
-    function resetSettings () {
-        resolveTimeSlider.value = KHangMan.resolveTime
-        soundsSwitch.checked = KHangMan.soundEnabled
-        scoreMultiplyingFactor.value = KHangMan.scoreMultiplyingFactor
+    function resetSettings(): void {
+        resolveTimeSlider.value = KHangMan.resolveTime;
+        soundsSwitch.checked = KHangMan.soundEnabled;
+        scoreMultiplyingFactor.value = KHangMan.scoreMultiplyingFactor;
     }
 
     Component.onCompleted: {

@@ -1,24 +1,6 @@
-/***************************************************************************
- *   Copyright 2001-2009 Anne-Marie Mahfouf <annma@kde.org>                *
- *   Copyright 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>          *
- *                                                                         *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
- ***************************************************************************/
-
+// SPDX-FileCopyrightText: 2001-2009 Anne-Marie Mahfouf <annma@kde.org>
+// SPDX-FileCopyCopyright: 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "khangman.h"
 
@@ -42,6 +24,27 @@
 #include "langutils.h"
 #include "prefs.h"
 
+namespace
+{
+/**
+ * Strip the accents off given string
+ * @params original string to strip accents off of
+ * @returns string without accents
+ */
+QString stripAccents(const QString &original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
+}
+
+}
+
 KHangMan::KHangMan()
         : QObject (),
           m_currentCategory(0),
@@ -62,23 +65,17 @@ KHangMan::KHangMan()
     
     QShortcut *quitShortcut = new QShortcut(QKeySequence::Quit, this);
     connect(quitShortcut, &QShortcut::activated, qApp, &QCoreApplication::quit);
+
+    loadLevels();
+    // kvtml files have been found
+
+    if (m_themeFactory.getQty() == 0) { // themes not present
+        Q_EMIT errorOccured(i18n("No theme files found."));
+        exit(EXIT_FAILURE);
+    }
 }
 
-KHangMan::~KHangMan()
-{
-}
-
-void KHangMan::showAboutKHangMan()
-{
-    m_helpMenu->aboutApplication();
-}
-
-void KHangMan::showAboutKDE()
-{
-    m_helpMenu->aboutKDE();
-}
-
-void KHangMan::showHandbook()
+void KHangMan::showHandbook() const
 {
     m_helpMenu->appHelpActivated();
 }
@@ -199,18 +196,6 @@ void KHangMan::slotSetWordsSequence()
     KRandom::shuffle(m_randomList);
 }
 
-QString KHangMan::stripAccents(const QString & original)
-{
-    QString noAccents;
-    QString decomposed = original.normalized(QString::NormalizationForm_D);
-    for (int i = 0; i < decomposed.length(); ++i) {
-        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
-            noAccents.append(decomposed[i]);
-        }
-    }
-    return noAccents;
-}
-
 void KHangMan::replaceLetters(const QString& charString)
 {
     QChar ch = charString.at(0);
@@ -244,7 +229,7 @@ void KHangMan::calculateNetScore()
     Q_EMIT netScoreChanged();
 }
 
-bool KHangMan::containsChar(const QString &sChar)
+bool KHangMan::containsChar(const QString &sChar) const
 {
     return m_originalWord.contains(sChar) || stripAccents(m_originalWord).contains(sChar);
 }
@@ -260,7 +245,7 @@ void KHangMan::setResolveTime(int resolveTime)
     Q_EMIT resolveTimeChanged();
 }
 
-bool KHangMan::soundEnabled()
+bool KHangMan::soundEnabled() const
 {
     return Prefs::sound();
 }
@@ -271,7 +256,7 @@ void KHangMan::setSoundEnabled(bool sound)
     Q_EMIT soundEnabledChanged();
 }
 
-QStringList KHangMan::languages()
+QStringList KHangMan::languages() const
 {
     return m_languageNames;
 }
@@ -317,7 +302,7 @@ int KHangMan::netScore() const
     return m_netScore;
 }
 
-int KHangMan::currentLanguage()
+int KHangMan::currentLanguage() const
 {
     return m_currentLanguage;
 }
@@ -353,12 +338,12 @@ QColor KHangMan::currentThemeLetterColor() const
     return QColor("white");
 }
 
-QStringList KHangMan::categories()
+QStringList KHangMan::categories() const
 {
     return m_titleLevels.keys();
 }
 
-int KHangMan::currentCategory()
+int KHangMan::currentCategory() const
 {
     return m_currentCategory;
 }
@@ -428,17 +413,6 @@ void KHangMan::scanLanguages()
     }
 
     Q_EMIT languagesChanged();
-}
-
-void KHangMan::show()
-{
-    loadLevels();
-    // kvtml files have been found
-
-    if (m_themeFactory.getQty() == 0) { // themes not present
-        Q_EMIT errorOccured(i18n("No theme files found."));
-        exit(EXIT_FAILURE);
-    }
 }
 
 void KHangMan::loadLevels()
@@ -515,7 +489,7 @@ void KHangMan::loadLanguageSpecialCharacters()
 
     // m_specialCharacters contains all the words from the file
     // FIXME: Better name
-    m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'));
+    m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'), Qt::SkipEmptyParts);
     openFileStream.close();
 }
 

@@ -54,11 +54,6 @@ public:
     */
     KHangMan();
 
-    /**
-    * Default Destructor
-    */
-    ~KHangMan() override;
-
     // These accessor and mutator methods are not needed once the
     // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
     // properties
@@ -66,14 +61,14 @@ public:
     void setResolveTime(int resolveTime);
 
     /** Getter and Setter for soundEnabled property */
-    bool soundEnabled();
+    bool soundEnabled() const;
     void setSoundEnabled(bool sound);
 
-    int currentCategory();
-    QStringList categories();
+    int currentCategory() const;
+    QStringList categories() const;
 
-    int currentLanguage();
-    QStringList languages();
+    int currentLanguage() const;
+    QStringList languages() const;
 
     int winCount() const;
     int lossCount() const;
@@ -86,9 +81,6 @@ public:
     QUrl backgroundUrl() const;
     QColor currentThemeLetterColor() const;
 
-    //Display the mainwindow only when kvtml files are present, else show an error message and quit.
-    void show();
-
     /** Calculate the net score */
     void calculateNetScore();
 
@@ -100,7 +92,7 @@ public:
     Q_INVOKABLE QStringList alphabet() const;
 
     /** Return true if the word contains the char in the QString */
-    Q_INVOKABLE bool containsChar(const QString &original);
+    Q_INVOKABLE bool containsChar(const QString &original) const;
 
     /** Return true if the answer and the current word match */
     Q_INVOKABLE bool isResolved() const;
@@ -139,9 +131,7 @@ public Q_SLOTS:
     /** Handle the guessed letter */
     void replaceLetters(const QString& charString);
 
-    void showAboutKHangMan();
-    void showAboutKDE();
-    void showHandbook();
+    void showHandbook() const;
 
 Q_SIGNALS:
 
@@ -163,12 +153,6 @@ Q_SIGNALS:
 
 private:
     KConfigGroup config(const QString &group);
-
-    /** Strip the accents off given string
-     * @params original string to strip accents off of
-     * @returns string without accents
-     */
-    QString stripAccents(const QString & original);
 
     ///Scan the files in the selected language dir to set the levels
     void loadLevels();

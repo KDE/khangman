@@ -1,5 +1,5 @@
-// Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
-// Copyright (C) 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
+// SPDX-FileCopyrightText: 2012 Laszlo Papp <lpapp@kde.org>
+// SPDX-FileCopyrightText: 2014 Rahul Chowdhury <rahul.chowdhury@kdemail.net>
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
 import QtQuick
@@ -65,7 +65,7 @@ Kirigami.Page {
         secondTimer.start();
     }
 
-    function disableLetterButton(letter) {
+    function disableLetterButton(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).enabled = false;
@@ -74,7 +74,7 @@ Kirigami.Page {
         }
     }
 
-    function guessLetter(letter) {
+    function guessLetter(letter: string): void {
         letter = letter.toUpperCase()
         if (KHangMan.soundEnabled) {
             khangmanAlphabetButtonPressSoundEffect.play();
@@ -113,7 +113,7 @@ Kirigami.Page {
         }
     }
 
-    function changeButtonColor(letter) {
+    function changeButtonColor(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).buttonColor = KHangMan.containsChar(letter) ? "green" : "red";
@@ -149,7 +149,10 @@ Kirigami.Page {
             required property string modelData
 
             text: modelData
-            onClicked: categorySelectionDialog.currentIndex = index
+            onClicked: {
+                categorySelectionDialog.currentIndex = index
+                categorySelectionDialog.close();
+            }
         }
     }
 
@@ -167,11 +170,12 @@ Kirigami.Page {
             text: modelData
 
             onClicked: {
-                categorySelectionDialog.currentIndex = index;
+                languageSelectionDialog.currentIndex = index;
 
                 KHangMan.setCurrentLanguage(index);
                 KHangMan.readFile();
                 nextWord();
+                languageSelectionDialog.close();
             }
         }
     }
@@ -189,9 +193,10 @@ Kirigami.Page {
             text: modelData
 
             onClicked: {
-                categorySelectionDialog.currentIndex = index;
+                themeSelectionDialog.currentIndex = index;
 
-                KHangMan.setCurrentTheme(selectedIndex);
+                KHangMan.setCurrentTheme(index);
+                themeSelectionDialog.close();
             }
         }
     }
@@ -612,7 +617,7 @@ Kirigami.Page {
             ToolButton {
                 id: categorySelectionButton
                 Layout.fillWidth: true
-                text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+                text: categorySelectionDialog.model[categorySelectionDialog.currentIndex];
                 ToolTip.text: i18n("Change the category.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -625,7 +630,7 @@ Kirigami.Page {
             ToolButton {
                 id: languageSelectionButton
                 Layout.fillWidth: true
-                text: languageSelectionDialog.model[languageSelectionDialog.selectedIndex]
+                text: languageSelectionDialog.model[languageSelectionDialog.currentIndex]
                 ToolTip.text: i18n("Change the language.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
