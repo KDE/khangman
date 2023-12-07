@@ -515,7 +515,7 @@ void KHangMan::loadLanguageSpecialCharacters()
 
     // m_specialCharacters contains all the words from the file
     // FIXME: Better name
-    m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'));
+    m_specialCharacters = readFileStr.readAll().split(QLatin1Char('\n'), Qt::SkipEmptyParts);
     openFileStream.close();
 }
 
