@@ -19,16 +19,16 @@ FormCard.FormCardPage {
 
     title: i18n("KHangMan Settings")
 
-    function saveSettings() {
-        KHangMan.resolveTime = resolveTimeSlider.value
-        KHangMan.soundEnabled = soundsSwitch.checked
-        KHangMan.scoreMultiplyingFactor =scoreMultiplyingFactor.value
+    function saveSettings(): void {
+        KHangMan.resolveTime = resolveTimeSlider.value;
+        KHangMan.soundEnabled = soundsSwitch.checked;
+        KHangMan.scoreMultiplyingFactor = scoreMultiplyingFactor.value;
     }
 
-    function resetSettings () {
-        resolveTimeSlider.value = KHangMan.resolveTime
-        soundsSwitch.checked = KHangMan.soundEnabled
-        scoreMultiplyingFactor.value = KHangMan.scoreMultiplyingFactor
+    function resetSettings(): void {
+        resolveTimeSlider.value = KHangMan.resolveTime;
+        soundsSwitch.checked = KHangMan.soundEnabled;
+        scoreMultiplyingFactor.value = KHangMan.scoreMultiplyingFactor;
     }
 
     Component.onCompleted: {

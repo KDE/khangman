@@ -65,7 +65,7 @@ Kirigami.Page {
         secondTimer.start();
     }
 
-    function disableLetterButton(letter) {
+    function disableLetterButton(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).enabled = false;
@@ -74,7 +74,7 @@ Kirigami.Page {
         }
     }
 
-    function guessLetter(letter) {
+    function guessLetter(letter: string): void {
         letter = letter.toUpperCase()
         if (KHangMan.soundEnabled) {
             khangmanAlphabetButtonPressSoundEffect.play();
@@ -113,7 +113,7 @@ Kirigami.Page {
         }
     }
 
-    function changeButtonColor(letter) {
+    function changeButtonColor(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
             if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
                 alphabetLetterRepeater.itemAt(i).buttonColor = KHangMan.containsChar(letter) ? "green" : "red";
