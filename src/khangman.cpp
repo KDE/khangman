@@ -62,6 +62,14 @@ KHangMan::KHangMan()
     
     QShortcut *quitShortcut = new QShortcut(QKeySequence::Quit, this);
     connect(quitShortcut, &QShortcut::activated, qApp, &QCoreApplication::quit);
+
+    loadLevels();
+    // kvtml files have been found
+
+    if (m_themeFactory.getQty() == 0) { // themes not present
+        Q_EMIT errorOccured(i18n("No theme files found."));
+        exit(EXIT_FAILURE);
+    }
 }
 
 KHangMan::~KHangMan()
@@ -428,17 +436,6 @@ void KHangMan::scanLanguages()
     }
 
     Q_EMIT languagesChanged();
-}
-
-void KHangMan::show()
-{
-    loadLevels();
-    // kvtml files have been found
-
-    if (m_themeFactory.getQty() == 0) { // themes not present
-        Q_EMIT errorOccured(i18n("No theme files found."));
-        exit(EXIT_FAILURE);
-    }
 }
 
 void KHangMan::loadLevels()

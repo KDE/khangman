@@ -86,9 +86,6 @@ public:
     QUrl backgroundUrl() const;
     QColor currentThemeLetterColor() const;
 
-    //Display the mainwindow only when kvtml files are present, else show an error message and quit.
-    void show();
-
     /** Calculate the net score */
     void calculateNetScore();
 
