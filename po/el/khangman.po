@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 01:33+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2020-05-08 10:33+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -67,7 +67,12 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "DONE"
 
-#: khangman.cpp:133
+#: khangman.cpp:72
+#, kde-format
+msgid "No theme files found."
+msgstr "Δε βεθηκαν αρχεία θεμάτων."
+
+#: khangman.cpp:131
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -76,23 +81,18 @@ msgstr ""
 "Το αρχείο $KDEDIR/share/apps/kvtml/data/%1/%2 δε βρέθηκε!\n"
 "Παρακαλώ ελέγξτε την εγκατάστασή σας."
 
-#: khangman.cpp:147
+#: khangman.cpp:145
 #, kde-format
 msgid "No word list loaded"
 msgstr ""
 
-#: khangman.cpp:422
+#: khangman.cpp:408
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Κανένα"
 
-#: khangman.cpp:439
-#, kde-format
-msgid "No theme files found."
-msgstr "Δε βεθηκαν αρχεία θεμάτων."
-
-#: khangman.cpp:455
+#: khangman.cpp:430
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Δε βεθηκαν kvtml αρχεία."
@@ -174,326 +174,326 @@ msgstr "Πληκτρολόγηση τονισμένων γραμμάτων χω�
 msgid "The Providers path for KHangMan"
 msgstr "Η διαδρομή προμηθευτών για το KHangMan"
 
-#: main.cpp:53
+#: main.cpp:37
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:55
+#: main.cpp:39
 #, kde-format
 msgid "Classical hangman game by KDE"
 msgstr "Το κλασικό παιχνίδι κρεμάλας από το KDE"
 
-#: main.cpp:57
+#: main.cpp:41
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
 
-#: main.cpp:58
+#: main.cpp:42
 #, kde-format
 msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
-#: main.cpp:58
+#: main.cpp:42
 #, kde-format
 msgid "Previous maintainer"
 msgstr "Προηγούμενος συντηρητής"
 
-#: main.cpp:63
+#: main.cpp:47
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:63
+#: main.cpp:47
 #, kde-format
 msgid "Original Author"
 msgstr "Αρχικός συγγραφέας"
 
-#: main.cpp:65
+#: main.cpp:49
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr "Rahul Chowdhury"
 
-#: main.cpp:65
+#: main.cpp:49
 #, kde-format
 msgid "Developer"
 msgstr "Προγραμματιστής"
 
-#: main.cpp:67
+#: main.cpp:51
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:68 main.cpp:113 main.cpp:115 main.cpp:117
+#: main.cpp:52 main.cpp:97 main.cpp:99 main.cpp:101
 #, kde-format
 msgid "Coding help"
 msgstr "Βοήθεια στον προγραμματισμό"
 
-#: main.cpp:69
+#: main.cpp:53
 #, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:70
+#: main.cpp:54
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 "Σουηδικά αρχεία δεδομένων, βοήθεια στον προγραμματισμό, διαφανείς εικόνες "
 "και διορθώσεις i18n"
 
-#: main.cpp:72
+#: main.cpp:56
 #, kde-format
 msgid "eXParTaKus"
 msgstr "eXParTaKus"
 
-#: main.cpp:73
+#: main.cpp:57
 #, kde-format
 msgid "Spanish data files"
 msgstr "Ισπανικά αρχεία δεδομένων"
 
-#: main.cpp:74
+#: main.cpp:58
 #, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr "Erik Kjær Pedersenn"
 
-#: main.cpp:75
+#: main.cpp:59
 #, kde-format
 msgid "Danish data files"
 msgstr "Δανέζικα αρχεία δεδομένων"
 
-#: main.cpp:76
+#: main.cpp:60
 #, kde-format
 msgid "Niko Lewman"
 msgstr "Niko Lewman"
 
-#: main.cpp:77
+#: main.cpp:61
 #, kde-format
 msgid "Finnish data files"
 msgstr "Φινλανδικά αρχεία δεδομένων"
 
-#: main.cpp:78
+#: main.cpp:62
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr "João Sebastião de Oliveira Bueno"
 
-#: main.cpp:79
+#: main.cpp:63
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr "Βραζιλιάνικα πορτογαλικά αρχεία δεδομένων"
 
-#: main.cpp:80
+#: main.cpp:64
 #, kde-format
 msgid "Antoni Bella"
 msgstr "Antoni Bella"
 
-#: main.cpp:81
+#: main.cpp:65
 #, kde-format
 msgid "Catalan data files"
 msgstr "Καταλανικά αρχεία δεδομένων"
 
-#: main.cpp:82
+#: main.cpp:66
 #, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:83
+#: main.cpp:67
 #, kde-format
 msgid "Italian data files"
 msgstr "Ιταλικά αρχεία δεδομένων"
 
-#: main.cpp:84
+#: main.cpp:68
 #, kde-format
 msgid "Rinse"
 msgstr "Rinse"
 
-#: main.cpp:85
+#: main.cpp:69
 #, kde-format
 msgid "Dutch data files"
 msgstr "Ολλανδικά αρχεία δεδομένων"
 
-#: main.cpp:86
+#: main.cpp:70
 #, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:87
+#: main.cpp:71
 #, kde-format
 msgid "Czech data files"
 msgstr "Τσέχικα αρχεία δεδομένων"
 
-#: main.cpp:88
+#: main.cpp:72
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:89
+#: main.cpp:73
 #, kde-format
 msgid "Hungarian data files"
 msgstr "Ουγκρικά αρχεία δεδομένων"
 
-#: main.cpp:90
+#: main.cpp:74
 #, kde-format
 msgid "Torger Åge Sinnes"
 msgstr "Torger Åge Sinnes"
 
-#: main.cpp:91
+#: main.cpp:75
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "Νορβηγικά (Bokmål) αρχεία δεδομένων"
 
-#: main.cpp:92
+#: main.cpp:76
 #, kde-format
 msgid "Roger Kovacs"
 msgstr "Roger Kovacs"
 
-#: main.cpp:93
+#: main.cpp:77
 #, kde-format
 msgid "Tajik data files"
 msgstr "Τατζικικά αρχεία δεδομένων"
 
-#: main.cpp:94
+#: main.cpp:78
 #, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:95
+#: main.cpp:79
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr "Σερβικά (Κυριλλικά και Λατινικά) αρχεία δεδομένων"
 
-#: main.cpp:96
+#: main.cpp:80
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:97
+#: main.cpp:81
 #, kde-format
 msgid "Slovenian data files"
 msgstr "Σλοβένικα αρχεία δεδομένων"
 
-#: main.cpp:98
+#: main.cpp:82
 #, kde-format
 msgid "Pedro Morais"
 msgstr "Pedro Morais"
 
-#: main.cpp:99
+#: main.cpp:83
 #, kde-format
 msgid "Portuguese data files"
 msgstr "Πορτογαλικά πορτογαλικά αρχεία δεδομένων"
 
-#: main.cpp:100
+#: main.cpp:84
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr "Gaute Hvoslef Kvalnes"
 
-#: main.cpp:101
+#: main.cpp:85
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "Νορβηγικά αρχεία δεδομένων"
 
-#: main.cpp:102
+#: main.cpp:86
 #, kde-format
 msgid "Mehmet Özel"
 msgstr "Mehmet Özel"
 
-#: main.cpp:103
+#: main.cpp:87
 #, kde-format
 msgid "Turkish data files"
 msgstr "Τουρκικά αρχεία δεδομένων"
 
-#: main.cpp:104
+#: main.cpp:88
 #, kde-format
 msgid "Черепанов Андрей"
 msgstr "Черепанов Андрей"
 
-#: main.cpp:105
+#: main.cpp:89
 #, kde-format
 msgid "Russian data files"
 msgstr "Ρωσικά αρχεία δεδομένων"
 
-#: main.cpp:106
+#: main.cpp:90
 #, kde-format
 msgid "Radostin Radnev"
 msgstr "Radostin Radnev"
 
-#: main.cpp:107
+#: main.cpp:91
 #, kde-format
 msgid "Bulgarian data files"
 msgstr "Βουλγαρικά αρχεία δεδομένων"
 
-#: main.cpp:108
+#: main.cpp:92
 #, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr "Kevin Patrick Scannell"
 
-#: main.cpp:109
+#: main.cpp:93
 #, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr "Ιρλανδικά αρχεία δεδομένων"
 
-#: main.cpp:110
+#: main.cpp:94
 #, kde-format
 msgid "Matt Howe"
 msgstr "Matt Howe"
 
-#: main.cpp:111
+#: main.cpp:95
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr "Ομαλότερες εικόνες κρεμάλας"
 
-#: main.cpp:112
+#: main.cpp:96
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:114
+#: main.cpp:98
 #, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:116
+#: main.cpp:100
 #, kde-format
 msgid "Lubos Lunàk"
 msgstr "Lubos Lunàk"
 
-#: main.cpp:118
+#: main.cpp:102
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:119
+#: main.cpp:103
 #, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr "Βοήθεια στον προγραμματισμό, διόρθωση πολλών πραγμάτων"
 
-#: main.cpp:120
+#: main.cpp:104
 #, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:121
+#: main.cpp:105
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr ""
 "Κώδικας για τη δημιουργία των εικονιδίων της γραμμής εργαλείων χαρακτήρων"
 
-#: main.cpp:122
+#: main.cpp:106
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:123
+#: main.cpp:107
 #, kde-format
 msgid "Code cleaning"
 msgstr "Καθαρισμός κώδικα"
 
-#: main.cpp:124
+#: main.cpp:108
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Τούσης Μανώλης, Σπύρος Γεωργαράς"
 
-#: main.cpp:124
+#: main.cpp:108
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -504,104 +504,104 @@ msgstr "manolis@koppermind.homelinux.org,sng@hellug.gr"
 msgid "Choose the word category"
 msgstr "Επιλέξτε την κατηγορία της λέξης"
 
-#: qml/GamePage.qml:159
+#: qml/GamePage.qml:162
 #, kde-format
 msgid "Select a language"
 msgstr "Επιλέξτε γλώσσα"
 
-#: qml/GamePage.qml:181
+#: qml/GamePage.qml:185
 #, kde-format
 msgid "Select a theme"
 msgstr "ΕΠιλέξτε θέμα"
 
-#: qml/GamePage.qml:235
+#: qml/GamePage.qml:240
 #, kde-format
 msgid "Pause"
 msgstr "Παύση"
 
-#: qml/GamePage.qml:235
+#: qml/GamePage.qml:240
 #, kde-format
 msgid "Play"
 msgstr "Παίξε"
 
-#: qml/GamePage.qml:266
+#: qml/GamePage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:280
+#: qml/GamePage.qml:285
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:305
+#: qml/GamePage.qml:310
 #, fuzzy, kde-format
 #| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Λήψη νέων γλωσσικών αρχείων"
 
-#: qml/GamePage.qml:318
+#: qml/GamePage.qml:323
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Προβολή του εγχειριδίου του KHangMan"
 
-#: qml/GamePage.qml:329 qml/GamePage.qml:335
+#: qml/GamePage.qml:334 qml/GamePage.qml:340
 #, kde-format
 msgid "About KHangMan"
 msgstr "Σχετικά με το KHangMan"
 
-#: qml/GamePage.qml:342 qml/GamePage.qml:349
+#: qml/GamePage.qml:347 qml/GamePage.qml:354
 #, kde-format
 msgid "About KDE"
 msgstr "Σχετικά με το KDE"
 
-#: qml/GamePage.qml:370
+#: qml/GamePage.qml:375
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Υπόλοιπες εκτιμήσεις: "
 
-#: qml/GamePage.qml:395
+#: qml/GamePage.qml:400
 #, kde-format
 msgid "Score: "
 msgstr "Σκορ: "
 
-#: qml/GamePage.qml:429
+#: qml/GamePage.qml:434
 #, kde-format
 msgid "Wins: "
 msgstr "Νίκες: "
 
-#: qml/GamePage.qml:457
+#: qml/GamePage.qml:462
 #, kde-format
 msgid "Losses: "
 msgstr "Ήττες: "
 
-#: qml/GamePage.qml:601
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "Εμφάνιση υπόδειξης."
 
-#: qml/GamePage.qml:616
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "Αλλαγή της κατηγορίας."
 
-#: qml/GamePage.qml:629
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "Αλλαγή της γλώσσας."
 
-#: qml/GamePage.qml:641
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "Αποκάλυψη λέξης"
 
-#: qml/GamePage.qml:642
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Αποκάλυψη της τρέχουσας λέξης."
 
-#: qml/GamePage.qml:668
+#: qml/GamePage.qml:673
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Φόρτωση της επόμενης λέξης και αρχή νέου παιχνιδιού."

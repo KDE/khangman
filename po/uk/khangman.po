@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 01:33+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2023-12-05 08:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -63,7 +63,12 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr "DONE"
 
-#: khangman.cpp:133
+#: khangman.cpp:72
+#, kde-format
+msgid "No theme files found."
+msgstr "Не знайдено файлів тем."
+
+#: khangman.cpp:131
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -72,23 +77,18 @@ msgstr ""
 "Файл $KDEDIR/share/apps/kvtml/%1/%2 не знайдено!\n"
 "Будь ласка, перевірте чи все встановлено правильно!"
 
-#: khangman.cpp:147
+#: khangman.cpp:145
 #, kde-format
 msgid "No word list loaded"
 msgstr "Не завантажено жодного списку слів"
 
-#: khangman.cpp:422
+#: khangman.cpp:408
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Немає"
 
-#: khangman.cpp:439
-#, kde-format
-msgid "No theme files found."
-msgstr "Не знайдено файлів тем."
-
-#: khangman.cpp:455
+#: khangman.cpp:430
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Не знайдено файлів kvtml."
@@ -169,325 +169,325 @@ msgstr "Набирати літери зі штрихом окремо від з
 msgid "The Providers path for KHangMan"
 msgstr "Шлях постачальника для KHangMan"
 
-#: main.cpp:53
+#: main.cpp:37
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:55
+#: main.cpp:39
 #, kde-format
 msgid "Classical hangman game by KDE"
 msgstr "Класична гра «шибениця» від KDE"
 
-#: main.cpp:57
+#: main.cpp:41
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr "© Anne-Marie Mahfouf, 2001–2011"
 
-#: main.cpp:58
+#: main.cpp:42
 #, kde-format
 msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
-#: main.cpp:58
+#: main.cpp:42
 #, kde-format
 msgid "Previous maintainer"
 msgstr "Попередній супровід"
 
-#: main.cpp:63
+#: main.cpp:47
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:63
+#: main.cpp:47
 #, kde-format
 msgid "Original Author"
 msgstr "Автор початкової версії"
 
-#: main.cpp:65
+#: main.cpp:49
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr "Rahul Chowdhury"
 
-#: main.cpp:65
+#: main.cpp:49
 #, kde-format
 msgid "Developer"
 msgstr "Розробник"
 
-#: main.cpp:67
+#: main.cpp:51
 #, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:68 main.cpp:113 main.cpp:115 main.cpp:117
+#: main.cpp:52 main.cpp:97 main.cpp:99 main.cpp:101
 #, kde-format
 msgid "Coding help"
 msgstr "Допомога в програмуванні"
 
-#: main.cpp:69
+#: main.cpp:53
 #, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:70
+#: main.cpp:54
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 "Файли даних для шведської, допомога у програмуванні, прозорі картинки та "
 "виправлення у i18n"
 
-#: main.cpp:72
+#: main.cpp:56
 #, kde-format
 msgid "eXParTaKus"
 msgstr "eXParTaKus"
 
-#: main.cpp:73
+#: main.cpp:57
 #, kde-format
 msgid "Spanish data files"
 msgstr "Файли даних для іспанської"
 
-#: main.cpp:74
+#: main.cpp:58
 #, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr "Erik Kjær Pedersenn"
 
-#: main.cpp:75
+#: main.cpp:59
 #, kde-format
 msgid "Danish data files"
 msgstr "Файли даних для данської"
 
-#: main.cpp:76
+#: main.cpp:60
 #, kde-format
 msgid "Niko Lewman"
 msgstr "Niko Lewman"
 
-#: main.cpp:77
+#: main.cpp:61
 #, kde-format
 msgid "Finnish data files"
 msgstr "Файли даних для фінської"
 
-#: main.cpp:78
+#: main.cpp:62
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr "João Sebastião de Oliveira Bueno"
 
-#: main.cpp:79
+#: main.cpp:63
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr "Файли даних для бразильської португальської"
 
-#: main.cpp:80
+#: main.cpp:64
 #, kde-format
 msgid "Antoni Bella"
 msgstr "Antoni Bella"
 
-#: main.cpp:81
+#: main.cpp:65
 #, kde-format
 msgid "Catalan data files"
 msgstr "Файли даних для каталанської"
 
-#: main.cpp:82
+#: main.cpp:66
 #, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:83
+#: main.cpp:67
 #, kde-format
 msgid "Italian data files"
 msgstr "Файли даних для італійської"
 
-#: main.cpp:84
+#: main.cpp:68
 #, kde-format
 msgid "Rinse"
 msgstr "Rinse"
 
-#: main.cpp:85
+#: main.cpp:69
 #, kde-format
 msgid "Dutch data files"
 msgstr "Файли даних для голландської"
 
-#: main.cpp:86
+#: main.cpp:70
 #, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:87
+#: main.cpp:71
 #, kde-format
 msgid "Czech data files"
 msgstr "Файли даних для чеської"
 
-#: main.cpp:88
+#: main.cpp:72
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:89
+#: main.cpp:73
 #, kde-format
 msgid "Hungarian data files"
 msgstr "Файли даних для угорської"
 
-#: main.cpp:90
+#: main.cpp:74
 #, kde-format
 msgid "Torger Åge Sinnes"
 msgstr "Torger Åge Sinnes"
 
-#: main.cpp:91
+#: main.cpp:75
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "Файли даних для норвезької (букмол)"
 
-#: main.cpp:92
+#: main.cpp:76
 #, kde-format
 msgid "Roger Kovacs"
 msgstr "Roger Kovacs"
 
-#: main.cpp:93
+#: main.cpp:77
 #, kde-format
 msgid "Tajik data files"
 msgstr "Файли даних для таджицької"
 
-#: main.cpp:94
+#: main.cpp:78
 #, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:95
+#: main.cpp:79
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr "Файли даних для сербської (кирилиця та латиниця)"
 
-#: main.cpp:96
+#: main.cpp:80
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:97
+#: main.cpp:81
 #, kde-format
 msgid "Slovenian data files"
 msgstr "Файли даних для словенської"
 
-#: main.cpp:98
+#: main.cpp:82
 #, kde-format
 msgid "Pedro Morais"
 msgstr "Pedro Morais"
 
-#: main.cpp:99
+#: main.cpp:83
 #, kde-format
 msgid "Portuguese data files"
 msgstr "Файли даних для португальської"
 
-#: main.cpp:100
+#: main.cpp:84
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr "Gaute Hvoslef Kvalnes"
 
-#: main.cpp:101
+#: main.cpp:85
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "Файли даних для норвезької (нюноршк)"
 
-#: main.cpp:102
+#: main.cpp:86
 #, kde-format
 msgid "Mehmet Özel"
 msgstr "Mehmet Özel"
 
-#: main.cpp:103
+#: main.cpp:87
 #, kde-format
 msgid "Turkish data files"
 msgstr "Файли даних для турецької"
 
-#: main.cpp:104
+#: main.cpp:88
 #, kde-format
 msgid "Черепанов Андрей"
 msgstr "Черепанов Андрій"
 
-#: main.cpp:105
+#: main.cpp:89
 #, kde-format
 msgid "Russian data files"
 msgstr "Файли даних для російської"
 
-#: main.cpp:106
+#: main.cpp:90
 #, kde-format
 msgid "Radostin Radnev"
 msgstr "Radostin Radnev"
 
-#: main.cpp:107
+#: main.cpp:91
 #, kde-format
 msgid "Bulgarian data files"
 msgstr "Файли даних для болгарської"
 
-#: main.cpp:108
+#: main.cpp:92
 #, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr "Kevin Patrick Scannell"
 
-#: main.cpp:109
+#: main.cpp:93
 #, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr "Файли даних для ірландської (гельської)"
 
-#: main.cpp:110
+#: main.cpp:94
 #, kde-format
 msgid "Matt Howe"
 msgstr "Matt Howe"
 
-#: main.cpp:111
+#: main.cpp:95
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr "М’якіші картинки для Hangman"
 
-#: main.cpp:112
+#: main.cpp:96
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:114
+#: main.cpp:98
 #, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:116
+#: main.cpp:100
 #, kde-format
 msgid "Lubos Lunàk"
 msgstr "Lubos Lunàk"
 
-#: main.cpp:118
+#: main.cpp:102
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:119
+#: main.cpp:103
 #, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr "Допомога в програмуванні, багато виправлень"
 
-#: main.cpp:120
+#: main.cpp:104
 #, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:121
+#: main.cpp:105
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr "Код для створення піктограм для панелі літер"
 
-#: main.cpp:122
+#: main.cpp:106
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:123
+#: main.cpp:107
 #, kde-format
 msgid "Code cleaning"
 msgstr "Чистка коду"
 
-#: main.cpp:124
+#: main.cpp:108
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "о. Іван Петрущак,Юрій Чорноіван"
 
-#: main.cpp:124
+#: main.cpp:108
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -498,103 +498,103 @@ msgstr "fr.ivan@ukrainian-orthodox.org,yurchor@ukr.net"
 msgid "Choose the word category"
 msgstr "Виберіть категорію слів"
 
-#: qml/GamePage.qml:159
+#: qml/GamePage.qml:162
 #, kde-format
 msgid "Select a language"
 msgstr "Виберіть мову"
 
-#: qml/GamePage.qml:181
+#: qml/GamePage.qml:185
 #, kde-format
 msgid "Select a theme"
 msgstr "Виберіть тему"
 
-#: qml/GamePage.qml:235
+#: qml/GamePage.qml:240
 #, kde-format
 msgid "Pause"
 msgstr "Пауза"
 
-#: qml/GamePage.qml:235
+#: qml/GamePage.qml:240
 #, kde-format
 msgid "Play"
 msgstr "Пуск"
 
-#: qml/GamePage.qml:266
+#: qml/GamePage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "Налаштувати"
 
-#: qml/GamePage.qml:280
+#: qml/GamePage.qml:285
 #, kde-format
 msgid "Configure"
 msgstr "Налаштувати"
 
-#: qml/GamePage.qml:305
+#: qml/GamePage.qml:310
 #, kde-format
 msgid "Get new language files"
 msgstr "Отримати нові файли мов"
 
-#: qml/GamePage.qml:318
+#: qml/GamePage.qml:323
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Переглянути підручник з KHangMan"
 
-#: qml/GamePage.qml:329 qml/GamePage.qml:335
+#: qml/GamePage.qml:334 qml/GamePage.qml:340
 #, kde-format
 msgid "About KHangMan"
 msgstr "Про KHangMan"
 
-#: qml/GamePage.qml:342 qml/GamePage.qml:349
+#: qml/GamePage.qml:347 qml/GamePage.qml:354
 #, kde-format
 msgid "About KDE"
 msgstr "Про KDE"
 
-#: qml/GamePage.qml:370
+#: qml/GamePage.qml:375
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Лишилося спроб: "
 
-#: qml/GamePage.qml:395
+#: qml/GamePage.qml:400
 #, kde-format
 msgid "Score: "
 msgstr "Рахунок: "
 
-#: qml/GamePage.qml:429
+#: qml/GamePage.qml:434
 #, kde-format
 msgid "Wins: "
 msgstr "Перемог: "
 
-#: qml/GamePage.qml:457
+#: qml/GamePage.qml:462
 #, kde-format
 msgid "Losses: "
 msgstr "Програшів: "
 
-#: qml/GamePage.qml:601
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "Показати підказку."
 
-#: qml/GamePage.qml:616
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "Змінити категорію."
 
-#: qml/GamePage.qml:629
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "Змінити мову."
 
-#: qml/GamePage.qml:641
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "Відкрити слово"
 
-#: qml/GamePage.qml:642
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Відкрити поточне слово."
 
-#: qml/GamePage.qml:668
+#: qml/GamePage.qml:673
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Завантажити наступне слово і розпочати нову гру."
