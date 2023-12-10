@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2023-11-25 02:26\n"
+"PO-Revision-Date: 2023-12-09 09:25\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -523,10 +523,9 @@ msgid "Configure"
 msgstr ""
 
 #: qml/GamePage.qml:310
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "下载新的语言文件"
+msgstr ""
 
 #: qml/GamePage.qml:323
 #, kde-format
@@ -594,10 +593,9 @@ msgid "Load the next word and start a new game."
 msgstr "加载下一个单词并开始新游戏。"
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "错误"
+msgstr ""
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
@@ -621,10 +619,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "显示该单词的提示的持续时间"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "分数相乘因子"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -632,11 +629,10 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "确定分数需要乘以的系数。"
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable Animations"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "启用动画"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
@@ -645,38 +641,7 @@ msgid "Save"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "取消"
-
-#~ msgid "Change the theme."
-#~ msgstr "更改主题。"
-
-#~ msgid "Settings"
-#~ msgstr "设置"
-
-#~ msgid "Quit"
-#~ msgstr "退出"
-
-#~ msgid "KHangMan word resolve time"
-#~ msgstr "KHangMan 单词解答时间"
-
-#~ msgid "Maximum allowed time for resolving the word in KHangMan"
-#~ msgstr "在 KHangMan 中解出单词的限时"
-
-#~ msgid "Hint show duration"
-#~ msgstr "提示显示时长"
-
-#~ msgid "KHangMan Score Multiplying Factor"
-#~ msgstr "KHangMan 分数相乘因子"
-
-#~ msgid "Sounds"
-#~ msgstr "声音"
-
-#~ msgid "Turn all the sounds on or off inside the game"
-#~ msgstr "在游戏中打开或关闭所有声音"
-
-#~ msgid "OK"
-#~ msgstr "确定"

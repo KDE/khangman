@@ -654,33 +654,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Avbryt"
-
-#~ msgid "Change the theme."
-#~ msgstr "Byt tema."
-
-#~ msgid "Settings"
-#~ msgstr "Innstillingar"
-
-#~ msgid "Quit"
-#~ msgstr "Avslutt"
-
-#~ msgid "KHangMan word resolve time"
-#~ msgstr "Ordløysetid for KHangMan"
-
-#~ msgid "Maximum allowed time for resolving the word in KHangMan"
-#~ msgstr "Tidsgrense for å løysa eit ord i KHangMan"
-
-#~ msgid "Hint show duration"
-#~ msgstr "Vis tid så lenge"
-
-#~ msgid "KHangMan Score Multiplying Factor"
-#~ msgstr "Multiplikasjonsfaktor for poeng"
-
-#~ msgid "Sounds"
-#~ msgstr "Lydar"
-
-#~ msgid "Turn all the sounds on or off inside the game"
-#~ msgstr "Slå alle lydane i spelet av eller på"
-
-#~ msgid "OK"
-#~ msgstr "OK"

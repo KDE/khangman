@@ -637,9 +637,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
-
-#~ msgid "Settings"
-#~ msgstr "Heivehusat"
-
-#~ msgid "Quit"
-#~ msgstr "Heaittit"

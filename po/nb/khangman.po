@@ -648,12 +648,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
-
-#~ msgid "Settings"
-#~ msgstr "Innstillinger"
-
-#~ msgid "Quit"
-#~ msgstr "Avslutt"
-
-#~ msgid "Sounds"
-#~ msgstr "Lyder"
