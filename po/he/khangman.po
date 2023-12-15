@@ -1,19 +1,20 @@
 # translation of khangman.po to Hebrew
 # Leon Mintz <leon.mintz@gmail.com>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2017-05-16 06:59-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew\n"
+"PO-Revision-Date: 2023-12-14 08:20+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -21,31 +22,31 @@ msgstr ""
 #: ../themes/standardthemes.xml:4
 #, kde-format
 msgid "Notes Theme"
-msgstr ""
+msgstr "ערכת עיצוב פתקים"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr ""
+msgstr "ערכת עיצוב ים"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
 #, kde-format
 msgid "Winter Theme"
-msgstr ""
+msgstr "ערכת עיצוב חורף"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
 #, kde-format
 msgid "Bee Theme"
-msgstr ""
+msgstr "ערכת עיצוב דבורים"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
 #, kde-format
 msgid "Desert Theme"
-msgstr ""
+msgstr "ערכת עיצוב מדבר"
 
 #: data.i18n:2
 #, kde-format
@@ -57,72 +58,72 @@ msgid ""
 "for more information on how to do that.\n"
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
-msgstr ""
+msgstr "דורש עבודה, עדיין לא בוצע"
 
 #: khangman.cpp:72
 #, kde-format
 msgid "No theme files found."
-msgstr ""
+msgstr "לא נמצאו קובצי ערכות עיצוב."
 
 #: khangman.cpp:131
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
-"הקובץ $KDEDIR/share/apps/khangman/data/%1/%2 לא נמצא!\n"
-"יש לוודא את תקינות ההתקנה!"
+"הקובץ $KDEDIR/share/apps/kvtml/%1/%2 לא נמצא.\n"
+"נא לבדוק שההתקנה שלך תקינה."
 
 #: khangman.cpp:145
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "לא נטענה רשימת מילים"
 
 #: khangman.cpp:408
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
-msgstr ""
+msgstr "אין"
 
 #: khangman.cpp:430
 #, kde-format
 msgid "No kvtml files found."
-msgstr ""
+msgstr "לא נמצאו קובצי kvtml."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level"
-msgstr "&רמה"
+msgstr "רמה"
 
 #. i18n: ectx: label, entry (SelectedLanguage), group (Language)
 #: khangman.kcfg:17
 #, kde-format
 msgid "The language selected by the user"
-msgstr ""
+msgstr "השפה שנבחרה על ידי המשתמש"
 
 #. i18n: ectx: label, entry (Theme), group (Look)
 #: khangman.kcfg:33
 #, kde-format
 msgid "Background theme name"
-msgstr ""
+msgstr "שם ערכת עיצוב הרקע"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
 #, kde-format
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
-msgstr ""
+msgstr "יש לסמן זאת כדי לא לחשוף כל מופע של אותה האות."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enable Animations"
-msgstr "הפעל &צלילים"
+msgstr "הפעלת הנפשות"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
-#, fuzzy, kde-format
+#, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
 msgstr "אם יסומן, ינוגנו צלילים בעת משחק חדש ובעת ניצחון"
 
@@ -135,6 +136,8 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
+"אם מסומן, תמיד יופיעו רמזים. אם לא מסומן (ברירת מחדל)\n"
+"            רמזים יופיעו רק לפי מילה אם המשתמש בחר להציג אותם."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -142,19 +145,19 @@ msgstr ""
 msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
-msgstr ""
+msgstr "הגדרה זו מאפשרת לך להגדיר בשניות כמה זמן זמין לפתרון המילה."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr ""
+msgstr "הקלדת אותיות עם סימונים דיאקריטיים בנפרד מאותיות רגילות"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr ""
+msgstr "נתיבי הספקים ל־KHangMan"
 
 #: main.cpp:37
 #, kde-format
@@ -162,19 +165,19 @@ msgid "KHangMan"
 msgstr "KHangMan"
 
 #: main.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "משחק קלאסי של התליין לKDE"
+msgstr "משחק איש תלוי קלסי ל־KDE"
 
 #: main.cpp:41
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
-msgstr ""
+msgstr "(c) 2001‏-2011, אן־מרי מחפוף"
 
 #: main.cpp:42
 #, kde-format
 msgid "Primoz Anzur"
-msgstr ""
+msgstr "פרימוז אנזור"
 
 #: main.cpp:42
 #, kde-format
@@ -184,463 +187,459 @@ msgstr "מתחזק קודם"
 #: main.cpp:47
 #, kde-format
 msgid "Anne-Marie Mahfouf"
-msgstr ""
+msgstr "אן־מרי מחפוף"
 
 #: main.cpp:47
 #, kde-format
 msgid "Original Author"
-msgstr ""
+msgstr "יוצרת מקורית"
 
 #: main.cpp:49
 #, kde-format
 msgid "Rahul Chowdhury"
-msgstr ""
+msgstr "רהול צ׳אודהרי"
 
 #: main.cpp:49
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "מפתח"
 
 #: main.cpp:51
 #, kde-format
 msgid "Stefan Böhmann"
-msgstr ""
+msgstr "סטיבן בויהמן"
 
 #: main.cpp:52 main.cpp:97 main.cpp:99 main.cpp:101
 #, kde-format
 msgid "Coding help"
-msgstr ""
+msgstr "עזרה בפיתוח"
 
 #: main.cpp:53
 #, kde-format
 msgid "Stefan Asserhäll"
-msgstr ""
+msgstr "סטיבן אסרהייל"
 
 #: main.cpp:54
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
-msgstr ""
+msgstr "קובצי הנתונים בשוודית, עזרה בפיתוח, תמונות שקופות ותיקוני בינאום"
 
 #: main.cpp:56
 #, kde-format
 msgid "eXParTaKus"
-msgstr ""
+msgstr "אקספרטקוס"
 
 #: main.cpp:57
 #, kde-format
 msgid "Spanish data files"
-msgstr ""
+msgstr "קובצי הנתונים בספרדית"
 
 #: main.cpp:58
 #, kde-format
 msgid "Erik Kjær Pedersenn"
-msgstr ""
+msgstr "אריק קייאר פדרסן"
 
 #: main.cpp:59
 #, kde-format
 msgid "Danish data files"
-msgstr ""
+msgstr "קובצי הנתונים בדנית"
 
 #: main.cpp:60
 #, kde-format
 msgid "Niko Lewman"
-msgstr ""
+msgstr "ניקו ליומן"
 
 #: main.cpp:61
 #, kde-format
 msgid "Finnish data files"
-msgstr ""
+msgstr "קובצי הנתונים בפינית"
 
 #: main.cpp:62
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
-msgstr ""
+msgstr "ג׳ואו סבסטיאו דה אוליביירה בואנו"
 
 #: main.cpp:63
 #, kde-format
 msgid "Brazilian Portuguese data files"
-msgstr ""
+msgstr "קובצי הנתונים בפורטוגלית ברזילאית"
 
 #: main.cpp:64
 #, kde-format
 msgid "Antoni Bella"
-msgstr ""
+msgstr "אנטוניו בלה"
 
 #: main.cpp:65
 #, kde-format
 msgid "Catalan data files"
-msgstr ""
+msgstr "קובצי הנתונים בקטלאנית"
 
 #: main.cpp:66
 #, kde-format
 msgid "Giovanni Venturi"
-msgstr ""
+msgstr "ג׳ובאני ונטורי"
 
 #: main.cpp:67
 #, kde-format
 msgid "Italian data files"
-msgstr ""
+msgstr "קובצי הנתונים באיטלקית"
 
 #: main.cpp:68
 #, kde-format
 msgid "Rinse"
-msgstr ""
+msgstr "ריינס"
 
 #: main.cpp:69
 #, kde-format
 msgid "Dutch data files"
-msgstr ""
+msgstr "קובצי הנתונים בהולנדית"
 
 #: main.cpp:70
 #, kde-format
 msgid "Lukáš Tinkl"
-msgstr ""
+msgstr "לוקאש טינקל"
 
 #: main.cpp:71
 #, kde-format
 msgid "Czech data files"
-msgstr ""
+msgstr "קובצי הנתונים בצ׳כית"
 
 #: main.cpp:72
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "קריסטוף קיזל"
 
 #: main.cpp:73
 #, kde-format
 msgid "Hungarian data files"
-msgstr ""
+msgstr "קובצי הנתונים בהונגרית"
 
 #: main.cpp:74
 #, kde-format
 msgid "Torger Åge Sinnes"
-msgstr ""
+msgstr "טורגר אוגה סינס"
 
 #: main.cpp:75
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
-msgstr ""
+msgstr "קובצי הנתונים בנורבגית (בוקמול)"
 
 #: main.cpp:76
 #, kde-format
 msgid "Roger Kovacs"
-msgstr ""
+msgstr "רוג׳ר קובאץ׳"
 
 #: main.cpp:77
 #, kde-format
 msgid "Tajik data files"
-msgstr ""
+msgstr "קובצי הנתונים בטג׳יקית"
 
 #: main.cpp:78
 #, kde-format
 msgid "Chusslove Illich"
-msgstr ""
+msgstr "צ׳אסלאב איליטץ׳"
 
 #: main.cpp:79
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
-msgstr ""
+msgstr "קובצי הנתונים בסרבית (קירילית ולטינית)"
 
 #: main.cpp:80
 #, kde-format
 msgid "Jure Repinc"
-msgstr ""
+msgstr "יורה רפינץ"
 
 #: main.cpp:81
 #, kde-format
 msgid "Slovenian data files"
-msgstr ""
+msgstr "קובצי הנתונים בסלובנית"
 
 #: main.cpp:82
 #, kde-format
 msgid "Pedro Morais"
-msgstr ""
+msgstr "פדרו מוראיס"
 
 #: main.cpp:83
 #, kde-format
 msgid "Portuguese data files"
-msgstr ""
+msgstr "קובצי הנתונים בפורטוגלית"
 
 #: main.cpp:84
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
-msgstr ""
+msgstr "גוטה קבוסלף קבאלנס"
 
 #: main.cpp:85
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
-msgstr ""
+msgstr "קובצי נתונים לנורבגית (נינורשק)"
 
 #: main.cpp:86
 #, kde-format
 msgid "Mehmet Özel"
-msgstr ""
+msgstr "מהמט אוזל"
 
 #: main.cpp:87
 #, kde-format
 msgid "Turkish data files"
-msgstr ""
+msgstr "קובצי הנתונים בטורקית"
 
 #: main.cpp:88
 #, kde-format
 msgid "Черепанов Андрей"
-msgstr ""
+msgstr "אנדריי צ׳רפאנוב"
 
 #: main.cpp:89
 #, kde-format
 msgid "Russian data files"
-msgstr ""
+msgstr "קובצי הנתונים ברוסית"
 
 #: main.cpp:90
 #, kde-format
 msgid "Radostin Radnev"
-msgstr ""
+msgstr "רדוסטין ראדנב"
 
 #: main.cpp:91
 #, kde-format
 msgid "Bulgarian data files"
-msgstr ""
+msgstr "קובצי הנתונים בבולגרית"
 
 #: main.cpp:92
 #, kde-format
 msgid "Kevin Patrick Scannell"
-msgstr ""
+msgstr "קווין פטריק סקאנל"
 
 #: main.cpp:93
 #, kde-format
 msgid "Irish (Gaelic) data files"
-msgstr ""
+msgstr "קובצי הנתונים באירית גאלית"
 
 #: main.cpp:94
 #, kde-format
 msgid "Matt Howe"
-msgstr ""
+msgstr "מט האו"
 
 #: main.cpp:95
 #, kde-format
 msgid "Softer Hangman Pictures"
-msgstr ""
+msgstr "תמונות רכות יותר של האיש התלוי"
 
 #: main.cpp:96
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr ""
+msgstr "בנג׳מין מייר"
 
 #: main.cpp:98
 #, kde-format
 msgid "Robert Gogolok"
-msgstr ""
+msgstr "רוברט גוגולוק"
 
 #: main.cpp:100
 #, kde-format
 msgid "Lubos Lunàk"
-msgstr ""
+msgstr "לובוש לוניאק"
 
 #: main.cpp:102
 #, kde-format
 msgid "Albert Astals Cid"
-msgstr ""
+msgstr "אלברט אסטלס סיד"
 
 #: main.cpp:103
 #, kde-format
 msgid "Coding help, fixed a lot of things"
-msgstr ""
+msgstr "עזרה בפיתוח, המון תיקונים"
 
 #: main.cpp:104
 #, kde-format
 msgid "Peter Hedlund"
-msgstr ""
+msgstr "פיטר הדלונד"
 
 #: main.cpp:105
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
-msgstr ""
+msgstr "קוד ליצירת סמלים לסרגל כלי האותיות"
 
 #: main.cpp:106
 #, kde-format
 msgid "Inge Wallin"
-msgstr ""
+msgstr "אינגה וולין"
 
 #: main.cpp:107
 #, kde-format
 msgid "Code cleaning"
-msgstr ""
+msgstr "ניקוי קוד"
 
 #: main.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
-"_: NAME OF TRANSLATORS\n"
-"Leon Mintz"
+msgstr "Leon Mintz,צוות התרגום של KDE ישראל"
 
 #: main.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"_: EMAIL OF TRANSLATORS\n"
-"leon.mintz@gmail.com"
+msgstr "leon.mintz@gmail.com,kde-l10n-he@kde.org"
 
 #: qml/GamePage.qml:127
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose the word category"
-msgstr "בחר את הרמה"
+msgstr "נא לבחור את קטגוריית המילים"
 
 #: qml/GamePage.qml:162
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select a language"
-msgstr "בחר את הרמה"
+msgstr "בחירת שפה"
 
 #: qml/GamePage.qml:185
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select a theme"
-msgstr "בחר את הרמה"
+msgstr "בחירת ערכת עיצוב"
 
 #: qml/GamePage.qml:240
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "השהיה"
 
 #: qml/GamePage.qml:240
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "הפעלה"
 
 #: qml/GamePage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "הגדרה"
 
 #: qml/GamePage.qml:285
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "הגדרה"
 
 #: qml/GamePage.qml:310
-#, fuzzy, kde-format
+#, kde-format
 msgid "Get new language files"
-msgstr "בחר את הרמה"
+msgstr "משיכת קובצי שפות חדשים"
 
 #: qml/GamePage.qml:323
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr ""
+msgstr "הצגת ספרון ההדרכה של KHangMan"
 
 #: qml/GamePage.qml:334 qml/GamePage.qml:340
-#, fuzzy, kde-format
+#, kde-format
 msgid "About KHangMan"
-msgstr "KHangMan"
+msgstr "על KHangMan"
 
 #: qml/GamePage.qml:347 qml/GamePage.qml:354
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "על KDE"
 
 #: qml/GamePage.qml:375
 #, kde-format
 msgid "Remaining guesses: "
-msgstr ""
+msgstr "ניחושים שנותרו:"
 
 #: qml/GamePage.qml:400
 #, kde-format
 msgid "Score: "
-msgstr ""
+msgstr "ניקוד:"
 
 #: qml/GamePage.qml:434
 #, kde-format
 msgid "Wins: "
-msgstr ""
+msgstr "נצחונות:"
 
 #: qml/GamePage.qml:462
-#, fuzzy, kde-format
+#, kde-format
 msgid "Losses: "
-msgstr "טעויות"
+msgstr "הפסדים:"
 
 #: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
-msgstr ""
+msgstr "הצגת הרמז."
 
 #: qml/GamePage.qml:621
-#, fuzzy, kde-format
+#, kde-format
 msgid "Change the category."
-msgstr "בחר את הרמה"
+msgstr "החלפת הקטגוריה:"
 
 #: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
-msgstr ""
+msgstr "החלפת השפה."
 
 #: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
-msgstr ""
+msgstr "חשיפת המילה"
 
 #: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
-msgstr ""
+msgstr "חשיפת המילה הנוכחית."
 
 #: qml/GamePage.qml:673
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "לטעון את המילה הבאה ולהתחיל משחק חדש."
 
 #: qml/Main.qml:55
 #, kde-format
 msgid "Error: %1"
-msgstr ""
+msgstr "שגיאה: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: qml/Settings/SettingsPage.qml:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan"
+msgstr "הגדרות KHangMan"
 
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr ""
+msgstr "זמן פתרון המילה בשניות"
 
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "משך הזמן להצגת הרמז למילה עצמה"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "KHangMan"
+msgstr "גורם הכפלת ניקוד:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "ציון הגורם שבו יוכפל הניקוד."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "הפעל &צלילים"
+msgstr "הפעלת צלילים"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #, fuzzy
 #~ msgid "Change the theme."
