@@ -22,6 +22,7 @@
   <name xml:lang="fr">KHangMan</name>
   <name xml:lang="gl">KHangMan</name>
   <name xml:lang="hu">KHangMan</name>
+  <name xml:lang="ia">KHangMan</name>
   <name xml:lang="id">KHangMan</name>
   <name xml:lang="it">KHangMan</name>
   <name xml:lang="ka">KHangMan</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="fr">Jeu de pendu</summary>
   <summary xml:lang="gl">O xogo do aforcado</summary>
   <summary xml:lang="hu">Akasztófajáték</summary>
+  <summary xml:lang="ia">Joco Hangman</summary>
   <summary xml:lang="id">Permainan Hangman (Algojo)</summary>
   <summary xml:lang="it">Gioco dell'impiccato</summary>
   <summary xml:lang="ka">თამაში Hangman</summary>
