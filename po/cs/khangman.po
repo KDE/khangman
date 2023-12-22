@@ -528,12 +528,12 @@ msgstr "Přehrát"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Nastavit"
 
 #: qml/GamePage.qml:285
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Nastavit"
 
 #: qml/GamePage.qml:310
 #, fuzzy, kde-format
@@ -607,16 +607,15 @@ msgid "Load the next word and start a new game."
 msgstr ""
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Chyba"
+msgstr "Chyba: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -655,11 +654,10 @@ msgstr "Povolit animace"
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušit"
