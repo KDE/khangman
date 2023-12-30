@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Carsten Niehaus <cniehaus@kde.org>, 2002.
 # Thomas Diehl <thd@kde.org>, 2003.
 # Thorsten Mürell <thorsten@muerell.de>, 2003 - 2007.
@@ -19,6 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
