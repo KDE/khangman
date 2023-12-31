@@ -664,16 +664,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Choose the category"
-#~ msgid "Change the theme."
-#~ msgstr "カテゴリを選択"
-
-#, fuzzy
-#~| msgid "KHangMan"
-#~ msgid "Settings"
-#~ msgstr "KHangMan"
-
-#~ msgid "Sounds"
-#~ msgstr "サウンド"
