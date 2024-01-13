@@ -8,19 +8,20 @@
 # Yury G. Kudryashov <urkud.urkud@gmail.com>, 2011, 2012.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2022-07-14 16:12+0300\n"
-"Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2024-01-11 10:26+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -86,7 +87,7 @@ msgstr ""
 #: khangman.cpp:145
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Список слов не загружен"
 
 #: khangman.cpp:408
 #, kde-format
@@ -525,7 +526,7 @@ msgstr "Начать или продолжить игру"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Настроить"
 
 #: qml/GamePage.qml:285
 #, kde-format
@@ -533,8 +534,7 @@ msgid "Configure"
 msgstr ""
 
 #: qml/GamePage.qml:310
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
 msgstr "Загрузить новые словари"
 
@@ -604,16 +604,15 @@ msgid "Load the next word and start a new game."
 msgstr "Показать следующее загаданное слово (начать новую игру)."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Ошибка"
+msgstr "Ошибка: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -631,10 +630,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "Длительность показа подсказки к загаданному слову"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Множитель очков"
+msgstr "Множитель очков:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -642,8 +640,7 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Задаёт число, на которое будет умножен счёт в игре."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Включить звуки"
@@ -652,11 +649,10 @@ msgstr "Включить звуки"
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Отмена"
