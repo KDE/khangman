@@ -642,14 +642,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Change the theme."
-#~ msgstr "Избор на категория"
-
-#, fuzzy
-#~ msgid "Settings"
-#~ msgstr "&Настройки"
-
-#~ msgid "Sounds"
-#~ msgstr "Звуци"
