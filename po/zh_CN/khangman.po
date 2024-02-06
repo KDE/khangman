@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2024-01-21 14:12\n"
+"PO-Revision-Date: 2024-02-05 11:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -82,7 +82,7 @@ msgstr ""
 #: khangman.cpp:145
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "未加载单词表"
 
 #: khangman.cpp:408
 #, kde-format
@@ -515,17 +515,17 @@ msgstr "玩游戏"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "设置"
 
 #: qml/GamePage.qml:285
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "设置"
 
 #: qml/GamePage.qml:310
 #, kde-format
 msgid "Get new language files"
-msgstr ""
+msgstr "获取新的语言文件"
 
 #: qml/GamePage.qml:323
 #, kde-format
@@ -595,13 +595,13 @@ msgstr "加载下一个单词并开始新游戏。"
 #: qml/Main.qml:55
 #, kde-format
 msgid "Error: %1"
-msgstr ""
+msgstr "错误：%1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -621,7 +621,7 @@ msgstr "显示该单词的提示的持续时间"
 #: qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "Score Multiplying Factor:"
-msgstr ""
+msgstr "得分相乘因素："
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -632,13 +632,13 @@ msgstr "确定分数需要乘以的系数。"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr ""
+msgstr "启用声音"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
