@@ -536,10 +536,9 @@ msgid "Configure"
 msgstr "Nastavit"
 
 #: qml/GamePage.qml:310
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Stáhnout nové soubory jazyka"
+msgstr ""
 
 #: qml/GamePage.qml:323
 #, kde-format
@@ -633,10 +632,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "KHangMan Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Násobitel skóre KHangMan"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -644,11 +642,10 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable Animations"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Povolit animace"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
@@ -661,18 +658,3 @@ msgstr "Uložit"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušit"
-
-#~ msgid "Change the theme."
-#~ msgstr "Změnit motiv."
-
-#~ msgid "Settings"
-#~ msgstr "Nastavení"
-
-#~ msgid "Quit"
-#~ msgstr "Ukončit"
-
-#~ msgid "Sounds"
-#~ msgstr "Zvuky"
-
-#~ msgid "OK"
-#~ msgstr "OK"
