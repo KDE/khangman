@@ -8,7 +8,6 @@ import QtQuick.Layouts
 import QtQuick.Window
 import QtMultimedia
 import QtQml
-import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -541,22 +540,17 @@ Kirigami.Page {
                 property string upperCase: modelData.toUpperCase()
                 property string buttonColor: "black"
 
-                background: Rectangle {
+                background: Kirigami.ShadowedRectangle {
                     id: alphabetLetterIdStyleRectangle
                     implicitWidth: gamePage.width / 22
                     implicitHeight: gamePage.width / 22
                     color: buttonColor
                     radius: 8
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        radius: 4
-                        horizontalOffset: 3
-                        verticalOffset: 3
-                        spread: 0
-                        samples: radius * 2
-                        source: alphabetLetterIdStyleRectangle
+                    shadow {
+                        size: 4
+                        xOffset: 3
+                        yOffset: 3
                         color: Qt.rgba(0, 0, 0, 0.5)
-                        transparentBorder: true
                     }
                 }
 
