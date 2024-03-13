@@ -70,7 +70,6 @@ KHangMan::KHangMan()
 
     if (m_themeFactory.getQty() == 0) { // themes not present
         Q_EMIT errorOccured(i18n("No theme files found."));
-        exit(EXIT_FAILURE);
     }
 }
 
@@ -428,7 +427,7 @@ void KHangMan::loadLevels()
         levelFilenames = SharedKvtmlFiles::fileNames(Prefs::selectedLanguage());
         if (levelFilenames.isEmpty()) {
             Q_EMIT errorOccured(i18n("No kvtml files found."));
-            exit(EXIT_FAILURE);
+            return;
         }
     }
 
