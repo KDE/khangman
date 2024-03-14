@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:33+0000\n"
+"POT-Creation-Date: 2024-03-14 00:35+0000\n"
 "PO-Revision-Date: 2005-03-28 02:48-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "No theme files found."
 msgstr ""
 
-#: khangman.cpp:131
+#: khangman.cpp:130
 #, fuzzy, kde-format
 #| msgid ""
 #| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -86,18 +86,18 @@ msgstr ""
 "File $KDEDIR/share/apps/khangman/data/%1/%2 காணவில்லை!\n"
 "நிறுவுவலை பரிசோதி!"
 
-#: khangman.cpp:145
+#: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
 msgstr ""
 
-#: khangman.cpp:408
+#: khangman.cpp:407
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr ""
 
-#: khangman.cpp:430
+#: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""
@@ -492,113 +492,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sshanmu@yahoo.com,gomathiss@hotmail.com,t_vasee@yahoo.com"
 
-#: qml/GamePage.qml:127
+#: qml/GamePage.qml:126
 #, fuzzy, kde-format
 #| msgid "Choose the level"
 msgid "Choose the word category"
 msgstr "நிலைகளை தேர்ந்தெடுக்கவும்"
 
-#: qml/GamePage.qml:162
+#: qml/GamePage.qml:161
 #, fuzzy, kde-format
 #| msgid "Choose the look and feel"
 msgid "Select a language"
 msgstr "பார்த்து உணர்ந்ததை தேர்ந்தெடு"
 
-#: qml/GamePage.qml:185
+#: qml/GamePage.qml:184
 #, fuzzy, kde-format
 msgid "Select a theme"
 msgstr "&நீலநிற தலைப்பு"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
 msgstr ""
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Play"
 msgstr ""
 
-#: qml/GamePage.qml:271
+#: qml/GamePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:285
+#: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:310
+#: qml/GamePage.qml:309
 #, fuzzy, kde-format
 #| msgid "Choose the look and feel"
 msgid "Get new language files"
 msgstr "பார்த்து உணர்ந்ததை தேர்ந்தெடு"
 
-#: qml/GamePage.qml:323
+#: qml/GamePage.qml:322
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr ""
 
-#: qml/GamePage.qml:334 qml/GamePage.qml:340
+#: qml/GamePage.qml:333 qml/GamePage.qml:339
 #, fuzzy, kde-format
 #| msgid "KHangMan"
 msgid "About KHangMan"
 msgstr "கேஹாங்மேன்"
 
-#: qml/GamePage.qml:347 qml/GamePage.qml:354
+#: qml/GamePage.qml:346 qml/GamePage.qml:353
 #, kde-format
 msgid "About KDE"
 msgstr ""
 
-#: qml/GamePage.qml:375
+#: qml/GamePage.qml:374
 #, kde-format
 msgid "Remaining guesses: "
 msgstr ""
 
-#: qml/GamePage.qml:400
+#: qml/GamePage.qml:399
 #, kde-format
 msgid "Score: "
 msgstr ""
 
-#: qml/GamePage.qml:434
+#: qml/GamePage.qml:433
 #, kde-format
 msgid "Wins: "
 msgstr ""
 
-#: qml/GamePage.qml:462
+#: qml/GamePage.qml:461
 #, fuzzy, kde-format
 msgid "Losses: "
 msgstr "தவறிய:"
 
-#: qml/GamePage.qml:606
+#: qml/GamePage.qml:600
 #, kde-format
 msgid "Display the hint."
 msgstr ""
 
-#: qml/GamePage.qml:621
+#: qml/GamePage.qml:615
 #, fuzzy, kde-format
 #| msgid "Choose the level"
 msgid "Change the category."
 msgstr "நிலைகளை தேர்ந்தெடுக்கவும்"
 
-#: qml/GamePage.qml:634
+#: qml/GamePage.qml:628
 #, kde-format
 msgid "Change the language."
 msgstr ""
 
-#: qml/GamePage.qml:646
+#: qml/GamePage.qml:640
 #, kde-format
 msgid "Reveal Word"
 msgstr ""
 
-#: qml/GamePage.qml:647
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal the current word."
 msgstr ""
 
-#: qml/GamePage.qml:673
+#: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr ""

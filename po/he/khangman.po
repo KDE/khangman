@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:33+0000\n"
+"POT-Creation-Date: 2024-03-14 00:35+0000\n"
 "PO-Revision-Date: 2023-12-14 08:20+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -65,7 +65,7 @@ msgstr "דורש עבודה, עדיין לא בוצע"
 msgid "No theme files found."
 msgstr "לא נמצאו קובצי ערכות עיצוב."
 
-#: khangman.cpp:131
+#: khangman.cpp:130
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -74,18 +74,18 @@ msgstr ""
 "הקובץ $KDEDIR/share/apps/kvtml/%1/%2 לא נמצא.\n"
 "נא לבדוק שההתקנה שלך תקינה."
 
-#: khangman.cpp:145
+#: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
 msgstr "לא נטענה רשימת מילים"
 
-#: khangman.cpp:408
+#: khangman.cpp:407
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "אין"
 
-#: khangman.cpp:430
+#: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
 msgstr "לא נמצאו קובצי kvtml."
@@ -481,108 +481,108 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "leon.mintz@gmail.com,kde-l10n-he@kde.org"
 
-#: qml/GamePage.qml:127
+#: qml/GamePage.qml:126
 #, kde-format
 msgid "Choose the word category"
 msgstr "נא לבחור את קטגוריית המילים"
 
-#: qml/GamePage.qml:162
+#: qml/GamePage.qml:161
 #, kde-format
 msgid "Select a language"
 msgstr "בחירת שפה"
 
-#: qml/GamePage.qml:185
+#: qml/GamePage.qml:184
 #, kde-format
 msgid "Select a theme"
 msgstr "בחירת ערכת עיצוב"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
 msgstr "השהיה"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Play"
 msgstr "הפעלה"
 
-#: qml/GamePage.qml:271
+#: qml/GamePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "הגדרה"
 
-#: qml/GamePage.qml:285
+#: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
 msgstr "הגדרה"
 
-#: qml/GamePage.qml:310
+#: qml/GamePage.qml:309
 #, kde-format
 msgid "Get new language files"
 msgstr "משיכת קובצי שפות חדשים"
 
-#: qml/GamePage.qml:323
+#: qml/GamePage.qml:322
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "הצגת ספרון ההדרכה של KHangMan"
 
-#: qml/GamePage.qml:334 qml/GamePage.qml:340
+#: qml/GamePage.qml:333 qml/GamePage.qml:339
 #, kde-format
 msgid "About KHangMan"
 msgstr "על KHangMan"
 
-#: qml/GamePage.qml:347 qml/GamePage.qml:354
+#: qml/GamePage.qml:346 qml/GamePage.qml:353
 #, kde-format
 msgid "About KDE"
 msgstr "על KDE"
 
-#: qml/GamePage.qml:375
+#: qml/GamePage.qml:374
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "ניחושים שנותרו:"
 
-#: qml/GamePage.qml:400
+#: qml/GamePage.qml:399
 #, kde-format
 msgid "Score: "
 msgstr "ניקוד:"
 
-#: qml/GamePage.qml:434
+#: qml/GamePage.qml:433
 #, kde-format
 msgid "Wins: "
 msgstr "נצחונות:"
 
-#: qml/GamePage.qml:462
+#: qml/GamePage.qml:461
 #, kde-format
 msgid "Losses: "
 msgstr "הפסדים:"
 
-#: qml/GamePage.qml:606
+#: qml/GamePage.qml:600
 #, kde-format
 msgid "Display the hint."
 msgstr "הצגת הרמז."
 
-#: qml/GamePage.qml:621
+#: qml/GamePage.qml:615
 #, kde-format
 msgid "Change the category."
 msgstr "החלפת הקטגוריה:"
 
-#: qml/GamePage.qml:634
+#: qml/GamePage.qml:628
 #, kde-format
 msgid "Change the language."
 msgstr "החלפת השפה."
 
-#: qml/GamePage.qml:646
+#: qml/GamePage.qml:640
 #, kde-format
 msgid "Reveal Word"
 msgstr "חשיפת המילה"
 
-#: qml/GamePage.qml:647
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal the current word."
 msgstr "חשיפת המילה הנוכחית."
 
-#: qml/GamePage.qml:673
+#: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "לטעון את המילה הבאה ולהתחיל משחק חדש."

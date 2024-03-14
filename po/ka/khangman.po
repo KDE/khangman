@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:33+0000\n"
+"POT-Creation-Date: 2024-03-14 00:35+0000\n"
 "PO-Revision-Date: 2023-12-05 16:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -65,7 +65,7 @@ msgstr "სათარგმნია სხვა ფაილები. ა�
 msgid "No theme files found."
 msgstr "თემის ფაილები ვერ ვიპოვე."
 
-#: khangman.cpp:131
+#: khangman.cpp:130
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -74,18 +74,18 @@ msgstr ""
 "ფაილი $KDEDIR/share/apps/kvtml/%1/%2 ვერ ვიპოვე.\n"
 "შეამოწმეთ პროგრამის თქვენი დაყენებული ვერსა."
 
-#: khangman.cpp:145
+#: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
 msgstr "სიტყვების სია ჩატვირთული არაა"
 
-#: khangman.cpp:408
+#: khangman.cpp:407
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "არაფერი"
 
-#: khangman.cpp:430
+#: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Kvtml ფაილები ვერ ვიპოვე."
@@ -487,108 +487,108 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: qml/GamePage.qml:127
+#: qml/GamePage.qml:126
 #, kde-format
 msgid "Choose the word category"
 msgstr "აირჩიეთ სიტყვის კატეგორია"
 
-#: qml/GamePage.qml:162
+#: qml/GamePage.qml:161
 #, kde-format
 msgid "Select a language"
 msgstr "ენის არჩევა"
 
-#: qml/GamePage.qml:185
+#: qml/GamePage.qml:184
 #, kde-format
 msgid "Select a theme"
 msgstr "აირჩიეთ თემა"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
 msgstr "შეჩერება"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Play"
 msgstr "დაკვრა"
 
-#: qml/GamePage.qml:271
+#: qml/GamePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "მორგება"
 
-#: qml/GamePage.qml:285
+#: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
 
-#: qml/GamePage.qml:310
+#: qml/GamePage.qml:309
 #, kde-format
 msgid "Get new language files"
 msgstr "ახალი ენის ფაილების გადმოწერა"
 
-#: qml/GamePage.qml:323
+#: qml/GamePage.qml:322
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "იხილეთ KHangMan -ის სახელმძღვანელო"
 
-#: qml/GamePage.qml:334 qml/GamePage.qml:340
+#: qml/GamePage.qml:333 qml/GamePage.qml:339
 #, kde-format
 msgid "About KHangMan"
 msgstr "KHangMan-ის შესახებ"
 
-#: qml/GamePage.qml:347 qml/GamePage.qml:354
+#: qml/GamePage.qml:346 qml/GamePage.qml:353
 #, kde-format
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
 
-#: qml/GamePage.qml:375
+#: qml/GamePage.qml:374
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "დარჩენილი მინიშენები: "
 
-#: qml/GamePage.qml:400
+#: qml/GamePage.qml:399
 #, kde-format
 msgid "Score: "
 msgstr "ქულები: "
 
-#: qml/GamePage.qml:434
+#: qml/GamePage.qml:433
 #, kde-format
 msgid "Wins: "
 msgstr "მოგებები: "
 
-#: qml/GamePage.qml:462
+#: qml/GamePage.qml:461
 #, kde-format
 msgid "Losses: "
 msgstr "წაგებები: "
 
-#: qml/GamePage.qml:606
+#: qml/GamePage.qml:600
 #, kde-format
 msgid "Display the hint."
 msgstr "მინიშნების ჩვენება."
 
-#: qml/GamePage.qml:621
+#: qml/GamePage.qml:615
 #, kde-format
 msgid "Change the category."
 msgstr "კატეგორიის ჩვენება."
 
-#: qml/GamePage.qml:634
+#: qml/GamePage.qml:628
 #, kde-format
 msgid "Change the language."
 msgstr "ენის შეცვლა."
 
-#: qml/GamePage.qml:646
+#: qml/GamePage.qml:640
 #, kde-format
 msgid "Reveal Word"
 msgstr "სიტყვის გამოჩენა"
 
-#: qml/GamePage.qml:647
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal the current word."
 msgstr "მიმდინარე სიტყვის გამოჩენა."
 
-#: qml/GamePage.qml:673
+#: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "შემდეგი სიტყვის ჩატვირთვა და ახალი თამაშის დაწყება."

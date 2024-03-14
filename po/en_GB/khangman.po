@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:33+0000\n"
+"POT-Creation-Date: 2024-03-14 00:35+0000\n"
 "PO-Revision-Date: 2020-03-30 20:28+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -67,7 +67,7 @@ msgstr "DONE"
 msgid "No theme files found."
 msgstr "No theme files found."
 
-#: khangman.cpp:131
+#: khangman.cpp:130
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -76,18 +76,18 @@ msgstr ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 
-#: khangman.cpp:145
+#: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
 msgstr ""
 
-#: khangman.cpp:408
+#: khangman.cpp:407
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "None"
 
-#: khangman.cpp:430
+#: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
 msgstr "No kvtml files found."
@@ -488,109 +488,109 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dwayne@translate.org.za, steve.allewell@gmail.com"
 
-#: qml/GamePage.qml:127
+#: qml/GamePage.qml:126
 #, kde-format
 msgid "Choose the word category"
 msgstr "Choose the word category"
 
-#: qml/GamePage.qml:162
+#: qml/GamePage.qml:161
 #, kde-format
 msgid "Select a language"
 msgstr "Select a language"
 
-#: qml/GamePage.qml:185
+#: qml/GamePage.qml:184
 #, kde-format
 msgid "Select a theme"
 msgstr "Select a theme"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
 msgstr "Pause"
 
-#: qml/GamePage.qml:240
+#: qml/GamePage.qml:239
 #, kde-format
 msgid "Play"
 msgstr "Play"
 
-#: qml/GamePage.qml:271
+#: qml/GamePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:285
+#: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:310
+#: qml/GamePage.qml:309
 #, fuzzy, kde-format
 #| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Download new language files"
 
-#: qml/GamePage.qml:323
+#: qml/GamePage.qml:322
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "View the KHangMan Handbook"
 
-#: qml/GamePage.qml:334 qml/GamePage.qml:340
+#: qml/GamePage.qml:333 qml/GamePage.qml:339
 #, kde-format
 msgid "About KHangMan"
 msgstr "About KHangMan"
 
-#: qml/GamePage.qml:347 qml/GamePage.qml:354
+#: qml/GamePage.qml:346 qml/GamePage.qml:353
 #, kde-format
 msgid "About KDE"
 msgstr "About KDE"
 
-#: qml/GamePage.qml:375
+#: qml/GamePage.qml:374
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Remaining guesses: "
 
-#: qml/GamePage.qml:400
+#: qml/GamePage.qml:399
 #, kde-format
 msgid "Score: "
 msgstr "Score: "
 
-#: qml/GamePage.qml:434
+#: qml/GamePage.qml:433
 #, kde-format
 msgid "Wins: "
 msgstr "Wins: "
 
-#: qml/GamePage.qml:462
+#: qml/GamePage.qml:461
 #, kde-format
 msgid "Losses: "
 msgstr "Losses: "
 
-#: qml/GamePage.qml:606
+#: qml/GamePage.qml:600
 #, kde-format
 msgid "Display the hint."
 msgstr "Display the hint."
 
-#: qml/GamePage.qml:621
+#: qml/GamePage.qml:615
 #, kde-format
 msgid "Change the category."
 msgstr "Change the category."
 
-#: qml/GamePage.qml:634
+#: qml/GamePage.qml:628
 #, kde-format
 msgid "Change the language."
 msgstr "Change the language."
 
-#: qml/GamePage.qml:646
+#: qml/GamePage.qml:640
 #, kde-format
 msgid "Reveal Word"
 msgstr "Reveal Word"
 
-#: qml/GamePage.qml:647
+#: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Reveal the current word."
 
-#: qml/GamePage.qml:673
+#: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Load the next word and start a new game."
