@@ -34,7 +34,9 @@ int main(int argc, char **argv)
                          QStringLiteral(KHANGMAN_VERSION_STRING),
                          i18n("Classical hangman game by KDE"),
                          KAboutLicense::GPL,
-                         i18n("(c) 2001-2011, Anne-Marie Mahfouf"));
+                         i18n("(c) 2001-2011, Anne-Marie Mahfouf"),
+                         QString(),
+                         QStringLiteral("https://apps.kde.org/khangman"));
     aboutData.addAuthor(i18n("Primoz Anzur"), i18n("Previous maintainer"),
             QStringLiteral("zerokode@gmx.net"));
 

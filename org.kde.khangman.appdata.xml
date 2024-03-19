@@ -128,7 +128,7 @@
     <p xml:lang="zh-CN">KHangMan 是基于著名猜单词游戏的一款游戏，游戏对象为六岁以上儿童。本游戏有多种类型的单词可供游玩，例如：动物 (动物单词)，及三种不同难度的分类：简单、中等和困难。随机选择单词并隐藏字母，您必须通过一个个字母猜测的方式猜出单词。每次您猜错字母，就会画出吊颈公仔的一部分。您必须在吊颈公仔画完前猜出单词！您有十次机会。</p>
     <p xml:lang="zh-TW">KHangMan 是一套基於廣為人知的劊子手遊戲 hangman 的遊戲。目標是讓六歲以上的孩子們學習單字。這個遊戲有一些不同類別的單字，例如動物（跟動物相關的單字），有三種不同困難等級。隨機選取單字，但將字母隱藏，您必須一個個猜測字母。每次猜錯，就會劃出一部份被吊住的人，必須在人被吊死之前猜對！您會有十次機會。</p>
   </description>
-  <url type="homepage">https://edu.kde.org/khangman/</url>
+  <url type="homepage">https://apps.kde.org/khangman</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khangman</url>
   <url type="help">https://docs.kde.org/?application=khangman</url>
   <url type="donation">https://www.kde.org/community/donations/?app=khangman&amp;source=appdata</url>
