@@ -26,10 +26,6 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("khangman"));
-    QApplication::setApplicationName(QStringLiteral("khangman"));
-    QApplication::setApplicationVersion(QStringLiteral(KHANGMAN_VERSION_STRING));
-    QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("khangman")));
 
     app.connect(&app, &QGuiApplication::lastWindowClosed, &app, &QCoreApplication::quit);
 
@@ -108,6 +104,7 @@ int main(int argc, char **argv)
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("khangman")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
