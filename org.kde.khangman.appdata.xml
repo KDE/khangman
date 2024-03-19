@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>org.kde.khangman.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>KHangMan</name>
   <name xml:lang="ar">الشنق</name>
   <name xml:lang="ast">KHangMan</name>
@@ -174,6 +177,7 @@
   <provides>
     <binary>khangman</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.khangman.desktop</launchable>
   <releases>
     <release version="24.02.1" date="2024-03-21"/>
     <release version="24.02.0" date="2024-02-28"/>
