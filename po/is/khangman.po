@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-03-20 00:35+0000\n"
 "PO-Revision-Date: 2010-06-21 21:59+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -168,325 +168,325 @@ msgstr ""
 msgid "The Providers path for KHangMan"
 msgstr ""
 
-#: main.cpp:37
+#: main.cpp:33
 #, kde-format
 msgid "KHangMan"
 msgstr "KHangMan"
 
-#: main.cpp:39
+#: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "Classical hangman game for KDE"
 msgid "Classical hangman game by KDE"
 msgstr "Hinn klassíski hengimann-leikur fyrir KDE"
 
-#: main.cpp:41
+#: main.cpp:37
 #, fuzzy, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:42
+#: main.cpp:40
 #, kde-format
 msgid "Primoz Anzur"
 msgstr "Primoz Anzur"
 
-#: main.cpp:42
+#: main.cpp:40
 #, kde-format
 msgid "Previous maintainer"
 msgstr "Fyrri umsjónarmaður"
 
-#: main.cpp:47
+#: main.cpp:45
 #, fuzzy, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: main.cpp:47
+#: main.cpp:45
 #, kde-format
 msgid "Original Author"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:47
 #, kde-format
 msgid "Rahul Chowdhury"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:47
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:49
 #, fuzzy, kde-format
 msgid "Stefan Böhmann"
 msgstr "Stefan Böhmann"
 
-#: main.cpp:52 main.cpp:97 main.cpp:99 main.cpp:101
+#: main.cpp:50 main.cpp:95 main.cpp:97 main.cpp:99
 #, kde-format
 msgid "Coding help"
 msgstr "Hjálp við kóðun"
 
-#: main.cpp:53
+#: main.cpp:51
 #, fuzzy, kde-format
 msgid "Stefan Asserhäll"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:54
+#: main.cpp:52
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
 "Sænskar gagnaskrár, hjálp við kóðun, gegnsæjar myndir og i18n leiðréttingar"
 
-#: main.cpp:56
+#: main.cpp:54
 #, fuzzy, kde-format
 msgid "eXParTaKus"
 msgstr "eXParTaKus"
 
-#: main.cpp:57
+#: main.cpp:55
 #, kde-format
 msgid "Spanish data files"
 msgstr "Spænskar gagnaskrár"
 
-#: main.cpp:58
+#: main.cpp:56
 #, fuzzy, kde-format
 msgid "Erik Kjær Pedersenn"
 msgstr "Erik Kjær Pedersenn"
 
-#: main.cpp:59
+#: main.cpp:57
 #, kde-format
 msgid "Danish data files"
 msgstr "Danskar gagnaskrár"
 
-#: main.cpp:60
+#: main.cpp:58
 #, fuzzy, kde-format
 msgid "Niko Lewman"
 msgstr "Niko Lewman"
 
-#: main.cpp:61
+#: main.cpp:59
 #, kde-format
 msgid "Finnish data files"
 msgstr "Finnskar gagnaskrár"
 
-#: main.cpp:62
+#: main.cpp:60
 #, fuzzy, kde-format
 msgid "João Sebastião de Oliveira Bueno"
 msgstr "João Sebastião de Oliveira Bueno"
 
-#: main.cpp:63
+#: main.cpp:61
 #, kde-format
 msgid "Brazilian Portuguese data files"
 msgstr "Brasilískt Portúgalskar gagnaskrár"
 
-#: main.cpp:64
+#: main.cpp:62
 #, fuzzy, kde-format
 msgid "Antoni Bella"
 msgstr "Antoni Bella"
 
-#: main.cpp:65
+#: main.cpp:63
 #, kde-format
 msgid "Catalan data files"
 msgstr "Katalónskar gagnaskrár"
 
-#: main.cpp:66
+#: main.cpp:64
 #, fuzzy, kde-format
 msgid "Giovanni Venturi"
 msgstr "Giovanni Venturi"
 
-#: main.cpp:67
+#: main.cpp:65
 #, kde-format
 msgid "Italian data files"
 msgstr "Ítalskar gagnaskrár"
 
-#: main.cpp:68
+#: main.cpp:66
 #, fuzzy, kde-format
 msgid "Rinse"
 msgstr "Rinse"
 
-#: main.cpp:69
+#: main.cpp:67
 #, kde-format
 msgid "Dutch data files"
 msgstr "Hollenskar gagnaskrár"
 
-#: main.cpp:70
+#: main.cpp:68
 #, fuzzy, kde-format
 msgid "Lukáš Tinkl"
 msgstr "Lukáš Tinkl"
 
-#: main.cpp:71
+#: main.cpp:69
 #, kde-format
 msgid "Czech data files"
 msgstr "Tékkneskar gagnaskrár"
 
-#: main.cpp:72
+#: main.cpp:70
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:71
 #, kde-format
 msgid "Hungarian data files"
 msgstr "Ungverskar gagnaskrár"
 
-#: main.cpp:74
+#: main.cpp:72
 #, fuzzy, kde-format
 msgid "Torger Åge Sinnes"
 msgstr "Torger Åge Sinnes"
 
-#: main.cpp:75
+#: main.cpp:73
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
 msgstr "Norskar (Bokmål) gagnaskrár"
 
-#: main.cpp:76
+#: main.cpp:74
 #, fuzzy, kde-format
 msgid "Roger Kovacs"
 msgstr "Roger Kovacs"
 
-#: main.cpp:77
+#: main.cpp:75
 #, kde-format
 msgid "Tajik data files"
 msgstr "Tælenskar gagnaskrár"
 
-#: main.cpp:78
+#: main.cpp:76
 #, fuzzy, kde-format
 msgid "Chusslove Illich"
 msgstr "Chusslove Illich"
 
-#: main.cpp:79
+#: main.cpp:77
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
 msgstr "Serbneskar (kýrílskar og latneskar) gagnaskrár"
 
-#: main.cpp:80
+#: main.cpp:78
 #, fuzzy, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:81
+#: main.cpp:79
 #, kde-format
 msgid "Slovenian data files"
 msgstr "Slóvenskar gagnaskrár"
 
-#: main.cpp:82
+#: main.cpp:80
 #, fuzzy, kde-format
 msgid "Pedro Morais"
 msgstr "Pedro Morais"
 
-#: main.cpp:83
+#: main.cpp:81
 #, kde-format
 msgid "Portuguese data files"
 msgstr "Portúgalskar gagnaskrár"
 
-#: main.cpp:84
+#: main.cpp:82
 #, fuzzy, kde-format
 msgid "Gaute Hvoslef Kvalnes"
 msgstr "Gaute Hvoslef Kvalnes"
 
-#: main.cpp:85
+#: main.cpp:83
 #, fuzzy, kde-format
 msgid "Norwegian (Nynorsk) data files"
 msgstr "Norskar (Bokmål) gagnaskrár"
 
-#: main.cpp:86
+#: main.cpp:84
 #, fuzzy, kde-format
 msgid "Mehmet Özel"
 msgstr "Mehmet Özel"
 
-#: main.cpp:87
+#: main.cpp:85
 #, fuzzy, kde-format
 msgid "Turkish data files"
 msgstr "Danskar gagnaskrár"
 
-#: main.cpp:88
+#: main.cpp:86
 #, fuzzy, kde-format
 msgid "Черепанов Андрей"
 msgstr "Черепанов Андрей"
 
-#: main.cpp:89
+#: main.cpp:87
 #, fuzzy, kde-format
 msgid "Russian data files"
 msgstr "Ungverskar gagnaskrár"
 
-#: main.cpp:90
+#: main.cpp:88
 #, fuzzy, kde-format
 msgid "Radostin Radnev"
 msgstr "Radostin Radnev"
 
-#: main.cpp:91
+#: main.cpp:89
 #, fuzzy, kde-format
 msgid "Bulgarian data files"
 msgstr "Ungverskar gagnaskrár"
 
-#: main.cpp:92
+#: main.cpp:90
 #, fuzzy, kde-format
 msgid "Kevin Patrick Scannell"
 msgstr "Kevin Patrick Scannell"
 
-#: main.cpp:93
+#: main.cpp:91
 #, fuzzy, kde-format
 msgid "Irish (Gaelic) data files"
 msgstr "Ítalskar gagnaskrár"
 
-#: main.cpp:94
+#: main.cpp:92
 #, fuzzy, kde-format
 msgid "Matt Howe"
 msgstr "Matt Howe"
 
-#: main.cpp:95
+#: main.cpp:93
 #, kde-format
 msgid "Softer Hangman Pictures"
 msgstr "Léttvægari hengimann-myndir"
 
-#: main.cpp:96
+#: main.cpp:94
 #, fuzzy, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:98
+#: main.cpp:96
 #, fuzzy, kde-format
 msgid "Robert Gogolok"
 msgstr "Robert Gogolok"
 
-#: main.cpp:100
+#: main.cpp:98
 #, fuzzy, kde-format
 msgid "Lubos Lunàk"
 msgstr "Lubos Lunàk"
 
-#: main.cpp:102
+#: main.cpp:100
 #, fuzzy, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: main.cpp:103
+#: main.cpp:101
 #, fuzzy, kde-format
 msgid "Coding help, fixed a lot of things"
 msgstr "Hjálp með kóða, lagaði margt"
 
-#: main.cpp:104
+#: main.cpp:102
 #, fuzzy, kde-format
 msgid "Peter Hedlund"
 msgstr "Peter Hedlund"
 
-#: main.cpp:105
+#: main.cpp:103
 #, kde-format
 msgid "Code for generating icons for the characters toolbar"
 msgstr "Kóði tila að búa til táknmyndir fyrir bókstafi tækjaslárinnar."
 
-#: main.cpp:106
+#: main.cpp:104
 #, fuzzy, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: main.cpp:107
+#: main.cpp:105
 #, fuzzy, kde-format
 msgid "Code cleaning"
 msgstr "Kóðahreinsun"
 
-#: main.cpp:108
+#: main.cpp:106
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Pjetur G. Hjaltason,Arnar Leósson,Björgvin Ragnarsson"
 
-#: main.cpp:108
+#: main.cpp:106
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
