@@ -1,7 +1,6 @@
 # translation of khangman.po to
-# Version: $Revision: 1681059 $
+# Version: $Revision: 1681191 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-#
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Marcin Garski <mgarski@post.pl>, 2003, 2004, 2005.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2004.
@@ -9,6 +8,7 @@
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2005, 2006.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2007, 2008, 2009.
 # SPDX-FileCopyrightText: 2011, 2012, 2014, 2015, 2016, 2017, 2019, 2020, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
