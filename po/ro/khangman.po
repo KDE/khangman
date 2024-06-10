@@ -3,53 +3,53 @@
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2010.
 # Militaru Cristian <cristipiticul@yahoo.com>, 2010.
 # Victor Cărbune <victor.carbune@kdemail.net>, 2010.
-# Sergiu Bivol <sergiu@cip.md>, 2012, 2020.
+# Sergiu Bivol <sergiu@cip.md>, 2012, 2020, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-20 00:35+0000\n"
-"PO-Revision-Date: 2020-09-08 22:55+0100\n"
+"PO-Revision-Date: 2024-06-09 13:14+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
 #, kde-format
 msgid "Notes Theme"
-msgstr ""
+msgstr "Tematică cu note"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr ""
+msgstr "Tematică marină"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
 #, kde-format
 msgid "Winter Theme"
-msgstr ""
+msgstr "Tematică de iarnă"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
 #, kde-format
 msgid "Bee Theme"
-msgstr ""
+msgstr "Tematică de albini"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
 #, kde-format
 msgid "Desert Theme"
-msgstr ""
+msgstr "Tematică de deșert"
 
 #: data.i18n:2
 #, kde-format
@@ -66,7 +66,7 @@ msgstr ""
 #: khangman.cpp:72
 #, kde-format
 msgid "No theme files found."
-msgstr ""
+msgstr "Niciun fișier cu tematică găsit."
 
 #: khangman.cpp:130
 #, kde-format
@@ -80,7 +80,7 @@ msgstr ""
 #: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Nicio listă de cuvinte încărcată"
 
 #: khangman.cpp:407
 #, kde-format
@@ -91,7 +91,7 @@ msgstr "Niciuna"
 #: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
-msgstr ""
+msgstr "Nu au fostă găsite fișiere kvtml."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
@@ -135,21 +135,17 @@ msgstr ""
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "If checked, hints will always been displayed. If this is not checked "
-#| "(default) \n"
-#| "            hints will be displayed only per word when the user chooses "
-#| "to show the hint."
+#, kde-format
 msgid ""
 "If checked, hints will always been displayed. If this is not checked "
 "(default)\n"
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Dacă este bifată, indiciile vor apărea întotdeauna. Dacă nu este bifată, "
-"indiciile vor apărea doar la cuvintele pe care le alege utilizatorul. "
-"Inițial căsuța nu este bifată."
+"Dacă este bifată, indiciile vor apărea întotdeauna. Dacă nu este bifată "
+"(implicit),\n"
+"            indiciile vor apărea doar la cuvintele pe care le alege "
+"utilizatorul."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -158,6 +154,8 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
+"Această configurare vă permite să stabiliți câte secunde sunt disponibile "
+"pentru rezolvarea cuvântului."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
@@ -525,18 +523,17 @@ msgstr "Joacă"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Configurează"
 
 #: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Configurează"
 
 #: qml/GamePage.qml:309
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
-msgstr "Descarcă fișiere noi de limbă"
+msgstr "Obține fișiere noi de limbă"
 
 #: qml/GamePage.qml:322
 #, kde-format
@@ -601,19 +598,18 @@ msgstr "Dezvăluie cuvântul actual."
 #: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "Încarcă următorul cuvânt și începe un joc nou."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Eroare"
+msgstr "Eroare: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Închide"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -623,40 +619,37 @@ msgstr "Configurări KHangMan"
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr ""
+msgstr "Durata de rezolvare a cuvântului în secunde"
 
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "Durata de afișare a indiciului pentru cuvânt"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "Factor de multiplicare a scorului"
+msgstr "Factor de multiplicare a scorului:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "Determină factorul cu care vor fi înmulțite scorurile."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Porniți sunetele"
+msgstr "Activează sunete"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Salvează"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Renunță"
