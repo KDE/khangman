@@ -6,7 +6,7 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title
->Manuel de l'utilisateur de KHangman</title>
+>Manuel utilisateur de &khangman;</title>
 <author
 ><firstname
 >Ben</firstname
@@ -18,9 +18,9 @@
 >bab@debian.org</email
 ></author>
 <date
->25-04-2016</date>
+>22-12-2022</date>
 <productname
->Les applications de KDE</productname>
+>Applications 20.12</productname>
 </refentryinfo>
 
 <refmeta>
@@ -56,11 +56,9 @@
 <title
 >Voir aussi</title>
 <para
->Une documentation utilisateur détaillée est disponible à partir de <ulink url="help:/khangman"
+>Une documentation utilisateur plus détaillée est disponible à partir de <ulink url="help:/khangman"
 >help:/khangman</ulink
-> (vous pouvez soit saisir cette <acronym
->URL</acronym
-> dans &konqueror; soit lancer <userinput
+> (Vous pouvez, soit saisir cette &URL;  dans &konqueror;, soit lancer <userinput
 ><command
 >khelpcenter</command
 > <parameter
@@ -92,7 +90,7 @@
 > <surname
 >Burton</surname
 ></personname
-> pour le projet Debian.</para>
+> pour le projet &Debian;.</para>
 
 
 </refsect1>
