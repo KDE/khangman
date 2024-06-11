@@ -39,6 +39,7 @@
   <name xml:lang="pl">KWisielec</name>
   <name xml:lang="pt">KHangMan</name>
   <name xml:lang="pt-BR">KHangMan</name>
+  <name xml:lang="ro">KHangMan</name>
   <name xml:lang="ru">KHangMan</name>
   <name xml:lang="sk">KHangMan</name>
   <name xml:lang="sl">KHangMan</name>
@@ -80,6 +81,7 @@
   <summary xml:lang="pl">Gra w Wisielca</summary>
   <summary xml:lang="pt">Jogo do Enforcado</summary>
   <summary xml:lang="pt-BR">Jogo da forca</summary>
+  <summary xml:lang="ro">Joc de Spânzurătoare</summary>
   <summary xml:lang="ru">Игра «Виселица»</summary>
   <summary xml:lang="sk">Hra Hangman</summary>
   <summary xml:lang="sl">Igra vislic</summary>
@@ -161,6 +163,7 @@
       <caption xml:lang="pl">Granie w KWisielec</caption>
       <caption xml:lang="pt">A jogar ao KHangMan</caption>
       <caption xml:lang="pt-BR">Jogando o KHangMan</caption>
+      <caption xml:lang="ro">Jucând KHangMan</caption>
       <caption xml:lang="ru">Игра в KHangMan</caption>
       <caption xml:lang="sk">Hranie KHangMan</caption>
       <caption xml:lang="sl">Igra KHangMan</caption>
