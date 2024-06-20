@@ -525,7 +525,6 @@ msgstr "Anpassa"
 
 #: qml/GamePage.qml:309
 #, kde-format
-#| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Hämta nya språkfiler"
 
@@ -596,7 +595,6 @@ msgstr "Läs in nästa ord och starta ett nytt spel."
 
 #: qml/Main.qml:55
 #, kde-format
-#| msgid "Error"
 msgid "Error: %1"
 msgstr "Fel: %1"
 
@@ -623,7 +621,6 @@ msgstr "Tiden för att visa tipset om själva ordet"
 
 #: qml/Settings/SettingsPage.qml:81
 #, kde-format
-#| msgid "Score Multiplying Factor"
 msgid "Score Multiplying Factor:"
 msgstr "Multiplikationsfaktor för poäng:"
 
@@ -634,7 +631,6 @@ msgstr "Bestäm faktorn som poäng ska multipliceras med."
 
 #: qml/Settings/SettingsPage.qml:96
 #, kde-format
-#| msgid "Enable sounds"
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Aktivera ljud"
@@ -647,7 +643,6 @@ msgstr "Spara"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Avbryt"
@@ -937,4 +932,3 @@ msgstr "Avbryt"
 
 #~ msgid "Local file"
 #~ msgstr "Lokal fil"
-
