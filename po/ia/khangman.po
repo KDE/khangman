@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the khangman package.
 #
-# giovanni <g.sora@tiscali.it>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-20 00:35+0000\n"
-"PO-Revision-Date: 2023-12-18 12:11+0100\n"
+"PO-Revision-Date: 2024-07-12 16:06+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -157,7 +157,7 @@ msgstr ""
 #: main.cpp:33
 #, kde-format
 msgid "KHangMan"
-msgstr ""
+msgstr "KHangMan"
 
 #: main.cpp:35
 #, kde-format
@@ -622,7 +622,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr ""
+msgstr "Habilita sonos"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
