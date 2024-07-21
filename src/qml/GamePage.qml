@@ -66,7 +66,7 @@ Kirigami.Page {
 
     function disableLetterButton(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
+            if (alphabetLetterRepeater.itemAt(i).upperCase === letter) {
                 alphabetLetterRepeater.itemAt(i).enabled = false;
                 break;
             }
@@ -114,7 +114,7 @@ Kirigami.Page {
 
     function changeButtonColor(letter: string): void {
         for (var i = 0; i < alphabetLetterRepeater.count; ++i) {
-            if (alphabetLetterRepeater.itemAt(i).upperCase == letter) {
+            if (alphabetLetterRepeater.itemAt(i).upperCase === letter) {
                 alphabetLetterRepeater.itemAt(i).buttonColor = KHangMan.containsChar(letter) ? "green" : "red";
             }
         }
@@ -208,7 +208,7 @@ Kirigami.Page {
         triggeredOnStart: false;
 
         onTriggered: {
-            if (KHangMan.resolveTime != 0 && --countDownTimerValue == 0) {
+            if (KHangMan.resolveTime !== 0 && --countDownTimerValue == 0) {
                 stop();
                 khangmanResultTimer.start();
                 if (KHangMan.soundEnabled) {
@@ -655,7 +655,7 @@ Kirigami.Page {
 
             Text {
                 id: timerText
-                visible: KHangMan.resolveTime == 0 ? false : true
+                visible: KHangMan.resolveTime === 0 ? false : true
                 text: Math.floor(countDownTimerValue / 60) + ":" + Math.floor(countDownTimerValue % 60 / 10)
                       + Math.floor(countDownTimerValue % 60 % 10)
             }
