@@ -17,9 +17,9 @@
             <label>The language selected by the user</label>
             <code>
                 KSharedConfigPtr globalConf = KSharedConfig::openConfig();
-                QString userLanguage=globalConf->group("Locale").readEntry("Language", "en");
+                QString userLanguage=globalConf->group(QStringLiteral("Locale")).readEntry("Language", QStringLiteral("en"));
                 if (userLanguage.isEmpty())
-                    userLanguage = "en";
+                    userLanguage = QStringLiteral("en");
                 else
                     //keep only the first 2 characters
                     userLanguage = userLanguage.left(2);

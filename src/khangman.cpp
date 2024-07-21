@@ -369,7 +369,7 @@ QStringList KHangMan::alphabet() const
 {
     QStringList letterList;
     for (char c = 'A'; c <= 'Z'; ++c) {
-        letterList.append(QChar(c));
+        letterList.append(QChar::fromLatin1(c));
     }
 
     letterList.append(m_specialCharacters);
@@ -392,7 +392,7 @@ void KHangMan::scanLanguages()
 
     // Write the present languages in config so they cannot be downloaded.
     // FIXME: use pre-seeding here
-    KConfigGroup cg( KSharedConfig::openConfig() ,"KNewStuff2");
+    KConfigGroup cg( KSharedConfig::openConfig() , QStringLiteral("KNewStuff2"));
     for (int i=0;  i<m_languages.count(); ++i) {
         //QString tmp = cg.readEntry(m_languages[i]);
        // if (!tmp)
