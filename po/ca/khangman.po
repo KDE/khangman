@@ -653,36 +653,3 @@ msgstr "Desa"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel·la"
-
-#~ msgid "Change the theme."
-#~ msgstr "Canvia el tema."
-
-#~ msgid "Settings"
-#~ msgstr "Arranjament"
-
-#~ msgid "Quit"
-#~ msgstr "Surt"
-
-#~ msgid "KHangMan word resolve time"
-#~ msgstr "Temps de resolució de la paraula del KHangMan"
-
-#~ msgid "Maximum allowed time for resolving the word in KHangMan"
-#~ msgstr "Temps màxim permès per a resoldre una paraula en el KHangMan"
-
-#~ msgid "Hint show duration"
-#~ msgstr "Durada de visualització del consell"
-
-#~ msgid "KHangMan Score Multiplying Factor"
-#~ msgstr "Factor multiplicador de la puntuació del KHangMan"
-
-#~ msgid "Sounds"
-#~ msgstr "Sons"
-
-#~ msgid "Turn all the sounds on or off inside the game"
-#~ msgstr "Encén o apaga tots els sons dins el joc"
-
-#~ msgid "OK"
-#~ msgstr "D'acord"
-
-#~ msgid "khangman"
-#~ msgstr "khangman"
