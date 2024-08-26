@@ -595,7 +595,6 @@ msgstr ""
 
 #: qml/Main.qml:55
 #, fuzzy, kde-format
-#| msgid "Error"
 msgid "Error: %1"
 msgstr "Feil"
 
@@ -632,7 +631,6 @@ msgstr ""
 
 #: qml/Settings/SettingsPage.qml:96
 #, fuzzy, kde-format
-#| msgid "Enable Animations"
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Slå på  animasjon"
