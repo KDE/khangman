@@ -1,0 +1,805 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>&khangman; Priročnik</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>22.12.2020</date>
+<releaseinfo
+>Applications 20.12</releaseinfo>
+
+<abstract>
+<para
+>&khangman; je klasična igra obešenjak za otroke. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>KHangMan</keyword>
+<keyword
+>obešenjak</keyword>
+<keyword
+>igra</keyword>
+<keyword
+>otrok</keyword>
+<keyword
+>besede</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&khangman; je igra, ki temelji na znani igri vislice. Namenjen je otrokom, starim šest let in več. Igra ima več kategorij besed, s katerimi se lahko igrate in med njimi: živali, oblačila, računalniki, valute, preprosto in sadje. Beseda je izbrana naključno, črke so skrite in besedo morate uganiti tako, da poskusite eno črko za drugo. Vsakič, ko uganete napačno črko, se izriše del slike obešenjaka. Besedo morate uganiti, preden vas obesijo! Imate 10 poskusov. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>Uporaba &khangman;</title>
+
+<screenshot>
+<screeninfo
+>Tukaj je posnetek zaslona &khangman; ko ga zaženete prvič </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; posnetek zaslona</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Tukaj lahko vidite &khangman; kot ga zaženete prvič. Kategorija je Živali, jezik je privzet (tukaj je angleščina, privzeto je vaš trenutni jezik &kde;, če obstajajo podatki), tema je <quote
+>Opombe</quote
+>. Vse spremembe kategorije, jezika ali teme (ozadje) so zapisane v konfiguracijski datoteki in obnovljene v vaši naslednji igri. </para>
+
+<para
+>Upoštevajte, kako enostavno je spremeniti temo, samo kliknite gumb v spodnji orodni vrstici. Pridobivanje nove besede in zapustitev igre sta preprosta tudi s klikom na ustrezne gumbe v orodnih vrsticah. </para>
+
+<sect1 id="general-usage">
+<title
+>Splošna uporaba</title>
+
+<para
+>Izbrana je beseda in njene črke so prikazane kot simbol podčrtaja (_). Veste, koliko črk je v besedi. Besedo morate uganiti tako, da poskusite eno črko za drugo. Črke vnesete na tipkovnico ali jih izberete z &LMB;. Če črka pripada besedi, se barva ozadja črke spremeni v zeleno, sicer v rdečo.</para>
+
+<para
+>Tipke s črkami v oknu igre vam omogočajo igranje &khangman; v tujih jezikih, ne da bi spremenili razporeditev tipkovnice.</para>
+
+<para
+>Beseda je izbrana naključno in ni enaka prejšnji besedi. </para>
+
+<important
+><para
+>Vse besede so samostalniki (ni glagolov ali pridevnikov &etc;).</para
+></important>
+
+<para
+>Če potrebujete pomoč pri ugibanju besede, lahko kliknete <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Prikaži namig</guiicon
+> v spodnji orodni vrstici in prikazal se bo namig, ki vam bo dal nekaj namig o besedi. Če ponovno kliknete to ikono, se namig skrije. </para>
+
+<para
+>Namigi privzeto niso prikazani. </para>
+
+<para
+>Običajno ni pomembno, ali pišete z malimi ali velikimi črkami. Program vse vnose pretvori v velike črke. Program to naredi samodejno.</para>
+
+<para
+>V oknu so prikazani trenutna kategorija, zmage in porazi. </para>
+
+<para
+>Vsakič, ko uganete črko, ki je ni v besedi, se izžreba še en del obešenjaka. Imate 10 poskusov, da uganete besedo. Po tem se prikaže pravilen odgovor. </para>
+
+<para
+>Na voljo je več kategorij besed, odvisno od izbranega jezika. Program išče vse podatkovne datoteke v vseh jezikih in uporablja &kanagram; besede tudi datoteke. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>Ko je beseda uganjena (ali je obešenjak dokončan), vam čestitajo in prikažejo naslednjo besedo. Za izhod iz igre kliknite ikono <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Zapusti</guiicon
+> v zgornji orodni vrstici. </para>
+
+<para
+>Črko, ki jo želite preizkusiti, vnesete na tipkovnico ali jo izberete z &LMB;. Če ključna črka pripada besedi, je ključ označen z zeleno in črka na svojem mestu, tolikokrat se pojavi v besedi. Če črka ne pripada besedi, je ključ označen rdeče. Imate deset poskusov, nato pa izgubite in prikaže se pravilna beseda. </para>
+
+<para
+>Med igro se lahko odločite za začetek nove igre s klikom na <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> na spodnjo orodno vrstico. Prav tako lahko spremenite kategorijo besed s klikom na trenutno kategorijo.</para>
+
+<para
+>Videz je mogoče preprosto spremeniti z gumbom teme v zgornji orodni vrstici.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>Igranje v različnih jezikih</title>
+<para
+>Igrate lahko &khangman; v številnih jezikih, vključno z: brazilsko portugalščino, bolgarščino, katalonščino, češčino, danščino, nizozemščino, angleščino (ZDA in GB), finščino, francoščino, nemščino, madžarščino, irščino (galščina), italijanščino, norveščino (Bokm&#229;l), norveščino (Nynorsk), poljščino, portugalščino, romunščino, španščino, srbščino (latinico in cirilico), slovenščino, tadžikistanščino, švedščino, ruščino in turščino. Poskusite lahko celo kitajščino, če namestite datoteke iz &kanagram;. </para>
+
+<para
+>Privzeto sta po prvi namestitvi &khangman; samo angleščina in vaš &kde; jezik, če je eden od zgornjih in če imate ustrezen paket kde-i18n, bo nameščen. Na primer, če ste danski uporabnik in če imate &kde; v danščini boste v Jeziku videli dve postavki: angleščina in danščina, danščina pa bo privzeta.</para>
+
+<para
+>Še vedno lahko igrate &khangman; v drugih jezikih. Dodajanje novih podatkov v &khangman; je zelo preprosto. Vse kar potrebujete je delujoča internetna povezava. Kliknete na <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> in prikaže se pogovorno okno, podobno temu: </para>
+
+<screenshot>
+<screeninfo
+>Pogovorno okno Pridobi nove besede za &khangman;</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>Pogovorno okno Pridobi nove besede za &khangman;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Kliknite ime jezika, ki ga želite namestiti, in nato gumb <guibutton
+>Namesti</guibutton
+>. Če je jezik uspešno nameščen, se pred imenom jezika prikaže zelena kljukica in <guibutton
+>Namesti</guibutton
+> se spremeni v <guibutton
+>Odstrani</guibutton
+>. Podatki so takoj nameščeni in na voljo v &khangman;. Kliknite gumb <guibutton
+>Zapri</guibutton
+>, da zaprete pogovorno okno Pridobi nove besede (če želite drugo podatkovno datoteko, lahko ponovite te korake).</para>
+
+<para
+>Nato lahko preprosto spremenite jezik tako, da kliknete gumb za jezik in izberete nov jezik.</para>
+
+<para
+>Upoštevajte, da so posebni znaki v jeziku prikazani na tipkovnici. Tukaj vidite gumbe z ikono vsakega posebnega znaka za jezik, kot je &eacute; na primer v francoščini. S klikom na tak gumb boste izbrali ustrezno črko. Seveda lahko uporabite tudi razporeditev tipkovnice, ki ustreza jeziku. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>Nekaj nasvetov</title>
+<para
+>V angleščini poskusite najprej uganiti samoglasnike. Nato poskusite z najpogostejšimi soglasniki: l, t, r, n, s. </para>
+<para
+>Ko vidite <quote
+>io</quote
+>, poskusite za tem n v francoščini in angleščini. </para>
+
+<para
+>Naglašene črke morate vtipkati sami ali klikniti nanje. Ko vtipkate <quote
+>a</quote
+>, se prikaže samo <quote
+>a</quote
+> in vnesti morate na primer &atilde; da se ta črka prikaže. </para>
+<para
+>Ali ste vedeli? V angleščini je najpogostejša črka e (12,7%), sledi t (9,1%), nato a (8,2%), i (7,0%) in n (6,7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menijska vrstica in orodne vrstice</title>
+
+<sect1 id="mainwindow">
+<title
+>Glavni &khangman; Okno</title>
+
+<screenshot>
+<screeninfo
+>&khangman; Puščavska tema</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; Puščavska tema</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Tukaj imate &khangman; s temo Puščava, francoskim jezikom in kategorijo <quote
+>Animaux</quote
+>. Tukaj so prikazani posebni znaki za francoščino.</para>
+
+<para
+>Igra ima glavno orodno vrstico na vrhu okna:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> ali <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Začnite ali ustavite igro </member>
+<member
+>Gumb za spremembo teme </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Odprite pogovorno okno z nastavitvami </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> O &khangman; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> O &kde; </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Oglejte si &khangman; priročnik </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Prenesite nove jezikovne datoteke iz interneta </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Zapusti &khangman; </member>
+</simplelist>
+
+<para
+>Spodnja orodna vrstica je prikazana samo med igranjem igre, če igro začasno ustavite, je ta orodna vrstica skrita:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Pokažite namig o besedi, ki jo želite uganiti </member>
+<member
+>Gumb za spreminjanje kategorije</member>
+<member
+>Izbira jezika</member>
+<member
+>Gumb <guibutton
+>Razkrij besedo</guibutton
+> za razkrivanje besede, ki jo želite uganiti</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Naložite naslednjo besedo in začnite novo igro </member>
+</simplelist>
+
+<para
+>Vse besede so samostalniki. Brez glagolov, brez pridevnikov. Izbrana kategorija se nato prikaže v spodnji orodni vrstici.</para>
+<para
+>V besedilno polje je dovoljeno vnašati samo črke.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>Nastavitve</title>
+
+<screenshot>
+<screeninfo
+>&khangman; nastavitve</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&khangman; nastavitve</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+><guilabel
+>Čas razrešitve besede v sekundah</guilabel
+> nastavi največji dovoljeni čas za razrešitev besede v &khangman;. Privzeta vrednost je 120 sekund. Majhni otroci bodo potrebovali več časa, da razumejo igro, kajti odrasli skrajšajo čas za razrešitev, da bo igra vznemirljiva. </para>
+
+<para
+><guilabel
+>Faktor množenja rezultatov</guilabel
+> določa faktor, s katerim bodo rezultati pomnoženi. </para>
+
+<para
+>Če označite <guilabel
+>Zvoki</guilabel
+>, bo zvok predvajan v novi igri, drugi zvok pa bo predvajan, ko zmagate igro. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>Vodnik za razvijalce za &khangman;</title>
+
+<sect1 id="changing-words">
+<title
+>Kako prevesti besede v nov jezik za igro</title>
+
+<para
+>Sledite postopku in nato pošljite tarirane in gzipane datoteke na <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>poštni seznam kde-edu</ulink
+>. </para>
+<para
+>Prosimo, poglejte v &khangman; <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> v zgornji orodni vrstici, da preverite, ali je vaš jezik še na voljo. Če je, potem lahko preverite, ali vsebuje <emphasis
+>namige</emphasis
+>. </para>
+<para
+>Besede standardnega seznama so shranjene v 4 ločenih datotekah, tako da ustvarite različne kategorije. Datoteke so v <filename class="directory"
+>/khangman/data/</filename
+>. Datoteka <filename
+>easy.kvtml</filename
+> je za kategorijo easy, datoteka <filename
+>medium.kvtml</filename
+> je za kategorijo medium, datoteka <filename
+>animals.kvtml</filename
+> za kategorijo živali in datoteka <filename
+>hard.kvtml</filename
+> je za kategorijo hard.</para>
+<para
+>Angleščina je privzeta in zato edini jezik, ki je dobavljen z &khangman;. Vsi podatki drugih jezikov so shranjeni v ustreznem modulu kde-l10n. </para>
+<procedure>
+<step>
+<para
+>Datoteke uporabljajo format kvtml. Oznaka <sgmltag class="starttag"
+>besedilo</sgmltag
+> je za besedo, oznaka <sgmltag class="starttag"
+>komentar</sgmltag
+> pa za namig, ki sta znotraj <sgmltag class="starttag "
+>entry</sgmltag
+> oznako. Poskusite uskladiti namig s kategorijo težavnosti. Za kategorijo <guimenuitem
+>Enostavno</guimenuitem
+> bo potreben preprost namig, za kategorijo <guimenuitem
+>Težko</guimenuitem
+> pa bo potrebna definicija v slovarju. Poskusi, da v namigu ne uporabljate besed iste družine, saj bi to prelahko izdalo besedo!</para>
+
+<para
+>Upoštevajte, da morate pri urejanju datotek uporabiti <emphasis role="bold"
+>kodiranje UTF-8</emphasis
+>. Če vaš urejevalnik tega ne zmore, poskusite uporabiti &kwrite; ali &kate;. Ko odprete datoteko v &kwrite; ali &kate; kodiranje utf8 lahko izberete s kombiniranim poljem na vrhu pogovornega okna za odpiranje datoteke.</para>
+
+<para
+>Primer datoteke kvtml je naslednji:</para>
+<programlisting
+><markup
+> &lt;?xml version="1.0"?&gt; &lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd" "https://edu.kde.org/kvtml/kvtml2.dtd"&gt; &lt;kvtml različica="2.0"&gt; &lt;informacije&gt; &lt;generator&gt;pretvornik&lt;/generator&gt; &lt;title&gt;Živali&lt;/title&gt;&lt;!--Prevedi vsebino oznake--&gt; &lt;comment&gt;Živali z vsega planeta&lt;/comment&gt;&lt;!--Prevedi vsebino oznake--&gt; &lt;/informacije&gt; &lt;identifikatorji&gt; &lt;ID identifikatorja="0" &gt; &lt;locale&gt;en&lt;/locale&gt; &lt;/identifier&gt; &lt;/identifiers&gt; ... &lt;entry id="0" &gt; &lt;neaktivno&gt;false&lt;/neaktivno&gt; &lt;poizvedba&gt;false&lt;/poizvedba&gt; &lt;id prevoda="0" &gt; &lt;text&gt;bear&lt;/text&gt;&lt;!--Prevedi vse vsebine besedilnih oznak--&gt; &lt;comment&gt;Velika težka žival z gostim kožuhom&lt;/comment&gt;&lt;!--Prevedi vse vsebine oznak komentarjev--&gt; &lt;/translation&gt; &lt;/entry&gt; ... &lt;/kvtml&gt; </markup
+></programlisting>
+</step>
+<step>
+<para
+>Na začetku datoteke morate prevesti vsebino oznak <sgmltag class="starttag"
+>title</sgmltag
+> in <sgmltag class="starttag"
+>comment</sgmltag
+>, ki sta znotraj razreda <sgmltag class="starttag"
+>informacije</sgmltag
+>. Naslov bo tisti, ki se bo pojavil v meniju Kategorija igre (kjer uporabnik izbere datoteko za igranje). </para>
+</step>
+<step>
+<para
+>Nato znotraj oznake <sgmltag class="starttag"
+>identifier</sgmltag
+> vnesite kodo svojega jezika namesto en v <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>Prosimo, da ne prevajate samega imena datoteke, saj imena datotek nikoli ne smejo vsebovati posebnih znakov. Zato vas prosimo, da shranite datoteko z enakim angleškim imenom datoteke.</para>
+</step>
+<step>
+<para
+>Uredite datoteke kvtml z urejevalnikom besedil (lažje bo, če uporabite označevanje sintakse &XML;) in zamenjajte vsako besedo znotraj oznake <sgmltag class="starttag"
+>text</sgmltag
+> s prevedeno besedo in vsakim namigom znotraj <sgmltag class="starttag"
+>komentar</sgmltag
+> s prevedenim namigom. Ni pomembno, da se ohrani natančen pomen, vendar poskušajte ohraniti dolžino in težavnostno kategorijo približno enako. </para
+> 
+
+<para
+>Vključite lahko besede s presledkom ali - v njih, v tem primeru bo namesto _ prikazan presledek ali -. Obrnite se na <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>poštni seznam kde-edu</ulink
+>, če je kaj posebnega v zvezi z vašim jezikom, da lahko prilagodim kodo nanjo (zlasti posebne in naglašene znake). </para>
+</step
+>	
+
+<step>
+<para
+>Besede lahko samo prevedete, lahko pa jih tudi prilagodite kategoriji in dodate nove besede, če želite. Na primer, <quote
+>table</quote
+> je v angleščini v kategoriji easy, v vašem jeziku pa je lahko kategorija medium. Datoteke lahko prilagodite svojim jezikovnim potrebam. Število besed v datoteki ni pomembno, lahko jih dodate, če želite.</para>
+
+<para
+>Ne pozabite, da so vse besede samostalniki.</para>
+
+</step>
+
+<step>
+<para
+>Nato lahko svoje datoteke objavite v <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. Ne pozabite posodobiti tudi datoteke CMakeLists.txt. Če potrebujete dodatne informacije, se obrnite na <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>poštni seznam kde-edu</ulink
+>. Ko pošljete datoteke, ne pozabite omeniti morebitnih <emphasis role="bold"
+>posebnih znakov</emphasis
+>, ki se uporabljajo v vašem jeziku (vstavite jih v besedilno datoteko, enega v vsako vrstico, in dodajte to datoteko v arhiv) in prosim navedite morebitne druge posebnosti.</para>
+<para
+><emphasis
+>Prosimo, nikoli ne potrjujte datotek v BRANCH, saj bi to lahko pokvarilo igro.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>Najlepša hvala za vaš prispevek!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>Kaj shrani &khangman; in kje</title>
+<para
+>Ko dobite nov jezik prek <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Prenos novega jezika datoteke</guiicon
+> so novi jezikovni podatki shranjeni v <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+> v mapi z jezikovno kodo. Imena imenikov jezikov, ki so na voljo, so shranjena tudi v mapi &khangman; konfiguracijsko datoteko v <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>Ime ponudnika (tj. naslov spletnega mesta, kjer lahko prenesete nove jezike) je shranjeno v <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>Angleščina (privzeto) in uporabniški jezik iz njegovih paketov i18n (če je na voljo) sta shranjena v <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>V konfiguracijski datoteki, ki je za vsakega uporabnika shranjena v <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>, so shranjene vse nastavitve igre, kot so ozadje, zadnja igrana kategorija ... in datoteke, ki so bile prenesene iz pogovornega okna <guilabel
+>Get Hot New Stuff!</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Zasluge in licenca</title>
+
+<para
+>&khangman; </para>
+<para
+>Avtorske pravice za program 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>Sodelavci: <itemizedlist>
+<listitem
+><para
+>Grafika vislice: Renaud Blanchard <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>Zvoki: Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>Nekdanji vzdrževalec: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>Švedske podatkovne datoteke, pomoč pri kodiranju, pregledne slike in popravki i18n: Stefan Asserhäll <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Španske podatkovne datoteke: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Namigi za španske podatke: Rafael Beccar <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>Danske podatkovne datoteke: Erik Kjaer Pedersen <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>Finske podatkovne datoteke: Niko Lewman <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>Podatkovne datoteke v brazilski portugalščini: João Sebastião de Oliveira Bueno <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>Katalonske podatkovne datoteke: Antoni Bella <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>Italijanske podatkovne datoteke: Giovanni Venturi <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>Nizozemske podatkovne datoteke: Rinse <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>Portugalske podatkovne datoteke: Pedro Morais <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Srbske (cirilica in latinica) podatkovne datoteke: Chusslove Illich <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>Slovenske podatkovne datoteke: Jure Repinc <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Češke podatkovne datoteke: Luk&aacute;&scaron; Tinkl <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Tadžikistanske podatkovne datoteke: Roger Kovacs <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>Norveške (Bokm&#229;l) podatkovne datoteke: Torger &#197;ge Sinnes <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>Madžarske podatkovne datoteke: Tamas Szanto <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>Norveške (Nynorsk) podatkovne datoteke: Gaute Hvoslef Kvalnes <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Turške podatkovne datoteke: Mehmet &Ouml;zel <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Bolgarske podatkovne datoteke: Radostin Radnev <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>Irske (galske) podatkovne datoteke: Kevin Patrick Scannell <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>Pomoč pri kodiranju: &Robert.Gogolok; &Robert.Gogolok.mail;</para
+> </listitem>
+<listitem
+><para
+>Pomoč pri kodiranju: Benjamin Meyer <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>Popravki kode: Lubos Lun&agrave;k <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>Popravki kode: Albert Astals Cid &Albert.Astals.Cid.mail;</para
+> </listitem>
+<listitem
+><para
+>Študija uporabnosti: Celeste Paul <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Avtorske pravice za dokumentacijo 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
