@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+SPDX-PackageName = "KHangman"
+SPDX-PackageSupplier = "KDE Edu <kde-edu@kde.org"
+SPDX-PackageDownloadLocation = "https://invent.kde.org/education/khangman"
+
+[[annotations]]
+path = "fonts/Dustismo_Roman.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2002 Dustin Norlander <dustin@dustismo.com>"
+SPDX-License-Identifier = "GPL-2.0-or-later"
+
+[[annotations]]
+path = "fonts/Domestic_Manners.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2003 Dustin Norlander <dustin@dustismo.com>"
+SPDX-License-Identifier = "GPL-2.0-or-later"
