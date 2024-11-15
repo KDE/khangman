@@ -37,7 +37,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Completion
     Config
     CoreAddons
-    ConfigWidgets
     NewStuff
     Notifications
     KIO
