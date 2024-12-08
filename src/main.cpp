@@ -20,6 +20,9 @@
 #include <QQmlContext>
 #include <QIcon>
 #include <QQmlApplicationEngine>
+#if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+#include <KLocalizedQmlContext>
+#endif
 
 int main(int argc, char **argv)
 {
@@ -128,7 +131,11 @@ int main(int argc, char **argv)
     }
 
     QQmlApplicationEngine engine;
+#if KI18N_VERSION < QT_VERSION_CHECK(6, 8, 0)
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+#else
+    engine.rootContext()->setContextObject(new KLocalizedQmlContext(&engine));
+#endif    
 
     engine.loadFromModule(QStringLiteral("org.kde.khangman"), QStringLiteral("Main"));
     if (engine.rootObjects().isEmpty()) {

@@ -87,6 +87,12 @@ add_executable(khangman
 
 target_link_libraries(khangman PRIVATE khangman_static khangman_staticplugin)
 
+if(TARGET KF6::I18nQml)
+target_link_libraries(khangman PUBLIC
+        KF6::I18nQml
+)
+endif()
+
 install(
     FILES
     khangman.kcfg
