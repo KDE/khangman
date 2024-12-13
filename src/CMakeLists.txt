@@ -36,8 +36,6 @@ qt_target_qml_sources(khangman_static
 
         ## Settings
         qml/Settings/SettingsPage.qml
-        qml/Settings/AboutKDEPage.qml
-        qml/Settings/AboutPage.qml
 )
 
 qt_target_qml_sources(khangman_static

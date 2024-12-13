@@ -334,7 +334,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                applicationWindow().pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/khangman/qml/Settings/AboutPage.qml", {} , {
+                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {} , {
                     width: Kirigami.Units.gridUnit * 24,
                     title: i18n("About KHangMan")
                 })
@@ -348,7 +348,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.AlwaysHide
 
             onTriggered: {
-                applicationWindow().pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/khangman/qml/Settings/AboutKDEPage.qml", {}, {
+                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {}, {
                     width: Kirigami.Units.gridUnit * 24,
                     title: i18n("About KDE")
                 })
