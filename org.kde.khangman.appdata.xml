@@ -41,6 +41,7 @@
   <name xml:lang="pt-BR">KHangMan</name>
   <name xml:lang="ro">KHangMan</name>
   <name xml:lang="ru">KHangMan</name>
+  <name xml:lang="sa">खङमन्</name>
   <name xml:lang="sk">KHangMan</name>
   <name xml:lang="sl">KHangMan</name>
   <name xml:lang="sv">Hänga gubben</name>
@@ -83,6 +84,7 @@
   <summary xml:lang="pt-BR">Jogo da forca</summary>
   <summary xml:lang="ro">Joc de Spânzurătoare</summary>
   <summary xml:lang="ru">Игра «Виселица»</summary>
+  <summary xml:lang="sa">लटकन खेल</summary>
   <summary xml:lang="sk">Hra Hangman</summary>
   <summary xml:lang="sl">Igra vislic</summary>
   <summary xml:lang="sv">Hänga gubben-spel</summary>
@@ -121,6 +123,7 @@
     <p xml:lang="pt">O KHangMan é um jogo baseado no conhecido jogo da forca. Destina-se a crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. É escolhida uma palavra de forma aleatória, as letras são escondidas e deverá adivinhar a palavra, escrevendo para tal uma letra após outra. De cada vez que errar uma letra, é desenhada parte da figura de um enforcado. Deverá desenhar a palavra antes que o enforcado fique completo! Tem 10 tentativas.</p>
     <p xml:lang="pt-BR">KHangMan é um jogo baseado no conhecido jogo da forca. É destinado às crianças com seis ou mais anos. O jogo tem diversas categorias de palavras com as quais jogar, como por exemplo: Animais (palavras de animais) e três categorias de dificuldade: Fácil, Médio e Difícil. Uma palavra é escolhida aleatoriamente, sendo ocultas as suas letras, para que você possa adivinhar a palavra, digitando uma letra após a outra. Cada vez que escolher uma letra errada, é desenhada uma parte de um enforcado. Você deverá adivinhar a palavra antes de ficar enforcado! Você tem 10 tentativas.</p>
     <p xml:lang="ru">KHangMan — игра, основанная на известной игре «Виселица». Она рассчитана на детей в возрасте 6 лет и старше. В игру входит несколько тематических наборов слов (например, «Животные» — названия животных), а также три набора слов разного уровня сложности («Простой», «Средний» и «Сложный»). Слова выбираются случайным образом, буквы закрыты: необходимо угадать слово, проверяя букву за буквой. Если буквы нет в слове, дорисовывается часть изображения виселицы. Слово нужно угадать до того, как виселица будет нарисована целиком! На угадывание слова даётся 10 попыток.</p>
+    <p xml:lang="sa">KHangMan इति प्रसिद्धस्य hangman game इत्यस्य आधारेण निर्मितः क्रीडा । षड्वर्षाणि अपि च अधिकवयस्कानाम् बालकानां कृते अस्य उद्देश्यम् अस्ति । क्रीडायां क्रीडितुं शब्दानां अनेकाः वर्गाः सन्ति, यथा - पशवः (पशुशब्दाः) तथा च त्रयः कठिनतावर्गाः सन्ति : सुलभः, मध्यमः, कठिनः च । शब्दः यादृच्छिकरूपेण उद्धृतः भवति, अक्षराणि गुप्ताः भवन्ति, भवन्तः एकस्य पश्चात् अन्यस्य अक्षरस्य प्रयासं कृत्वा शब्दस्य अनुमानं कर्तुं अर्हन्ति । प्रत्येकं भवन्तः गलतपत्रस्य अनुमानं कुर्वन्ति तदा लटकनकारस्य चित्रस्य भागः आकृष्यते । भवन्तः लटकनस्य पूर्वं शब्दस्य अनुमानं अवश्यं कुर्वन्तु! भवतः १० प्रयासाः सन्ति।</p>
     <p xml:lang="sk">KHangMan je hra založená na známej hre Kat. Je určená pre deti od 6 rokov. Hra má niekoľko kategórií slov na hranie, napríklad zvieratá a tri stupne obtiažnosti: ľahká, stredná a ťažká. Slová sa vyberajú náhodne, písmená sa skryjú a musíte uhádnuť slovo skúšaním jedného písmena za druhým. Vždy keď neuhádnete písmeno, nakreslí sa časť obrázku kata. Musíte uhádnuť slovo skôr, ako vás kat popraví! Máte 10 pokusov.</p>
     <p xml:lang="sl">KHangMan je igra, ki temelji na dobro poznani igri vislic. Ciljna starostna skupina so otroci starejši od pet let. Igra ima številne kategorije besed (npr. Živali) in tri težavnostne stopnje: Lahko, Srednje in Težko. Beseda je naključno izbrana, črke so skrite, igralec pa mora besedo uganiti tako da posamično ugiba črke. Vsakič, ko je izbrana črka napačna, je izrisan del vislic. Besedo morate rešiti preden vas obesijo, pri tem pa vam je na voljo 10 poskusov.</p>
     <p xml:lang="sv">Hänga gubben är ett spel baserat på det välkända Hänga gubben spelet. Det är avsett för barn i åldrarna sex och uppåt. Spelet har flera ordkategorier att spela med, däribland Djur (djurord), och tre svårighetsnivåer: Lätt, Normal och Svår. Ett ord väljes slumpmässigt, bokstäverna är dolda och du måste gissa ordet genom att försöka med en bokstav i taget. Varje gång du gissar fel bokstav, ritas en del av bilden av en hängd gubbe. Du måste gissa ordet innan du blir hängd! Du har tio försök.</p>
@@ -165,6 +168,7 @@
       <caption xml:lang="pt-BR">Jogando o KHangMan</caption>
       <caption xml:lang="ro">Jucând KHangMan</caption>
       <caption xml:lang="ru">Игра в KHangMan</caption>
+      <caption xml:lang="sa">KHangMan खेलते हुए</caption>
       <caption xml:lang="sk">Hranie KHangMan</caption>
       <caption xml:lang="sl">Igra KHangMan</caption>
       <caption xml:lang="sv">Spela Hänga gubben</caption>
