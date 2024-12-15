@@ -57,6 +57,12 @@ msgid ""
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
+"अनुवादकानां कृते अनुवादस्य अवसरः अस्ति\n"
+"क्रीडायां शब्दाः ।\n"
+"khangman इत्यस्य स्रोतनिर्देशिकायां README.languages इति सञ्चिकां पश्यन्तु\n"
+"तत् कथं कर्तव्यमिति अधिकविवरणार्थम्।\n"
+"(अनुवादं कृत्वा एतत् सन्देशं \"DONE\" इति अनुवादयन्तु\n"
+"वचनानि; अन्यथा स्मरणार्थं अननुवादं त्यजन्तु)"
 
 #: khangman.cpp:72
 #, kde-format
@@ -81,7 +87,7 @@ msgstr "शब्दसूची लोड् न कृता"
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
-msgstr ""
+msgstr "न कश्चित्"
 
 #: khangman.cpp:429
 #, kde-format
@@ -475,13 +481,13 @@ msgstr "संहिता सफाई"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: main.cpp:109
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: qml/GamePage.qml:126
 #, kde-format
@@ -598,7 +604,7 @@ msgstr "त्रुटिः %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "पिधानं करोतु"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -629,16 +635,16 @@ msgstr "येन कारकेन स्कोराः गुणिताः
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr ""
+msgstr "ध्वनयः सक्षमाः कुर्वन्तु"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "रक्ष्"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "निरसयतु"
