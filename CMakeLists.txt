@@ -47,7 +47,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 find_package(LibKEduVocDocument REQUIRED)
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.9.0)
 
 add_subdirectory( src )
