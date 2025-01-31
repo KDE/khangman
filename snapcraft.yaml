@@ -35,8 +35,8 @@ parts:
     plugin: cmake
     source: https://invent.kde.org/education/libkeduvocdocument.git
     stage-packages:
-    - rsync
-    - libpopt0
+      - rsync
+      - libpopt0
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -104,4 +104,3 @@ parts:
       for snap in "core22" "kf6-core22" "qt-common-themes"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
-
