@@ -7,53 +7,52 @@
 # Maris Nartiss <maris.kde@gmail.com>, 2007, 2008.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Einars Sprugis <einars8@gmail.com>, 2010, 2012.
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-09 00:37+0000\n"
-"PO-Revision-Date: 2012-01-11 09:18+0200\n"
-"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2025-02-11 10:16+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Notes Theme"
-msgstr "Jūras tēma"
+msgstr "Piezīmju motīvs"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr "Jūras tēma"
+msgstr "Jūras motīvs"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Winter Theme"
-msgstr "Jūras tēma"
+msgstr "Ziemas motīvs"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
 #, kde-format
 msgid "Bee Theme"
-msgstr "Bišu tēma"
+msgstr "Bišu motīvs"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
 #, kde-format
 msgid "Desert Theme"
-msgstr "Tuksneša tēma"
+msgstr "Tuksneša motīvs"
 
 #: data.i18n:2
 #, kde-format
@@ -70,7 +69,7 @@ msgstr ""
 #: khangman.cpp:72
 #, kde-format
 msgid "No theme files found."
-msgstr ""
+msgstr "Nav atrasta motīvu datne"
 
 #: khangman.cpp:130
 #, kde-format
@@ -78,13 +77,13 @@ msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
-"Fails $KDEDIR/share/apps/kvtml/%1/%2 nav atrasts.\n"
-"Lūdzu, pārbaudiet jūsu instalāciju!"
+"Datne „$KDEDIR/share/apps/kvtml/%1/%2“ nav atrasta.\n"
+"Pārbaudiet instalāciju!"
 
 #: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Nav ielādēts neviens vārdu saraksts"
 
 #: khangman.cpp:407
 #, kde-format
@@ -95,7 +94,7 @@ msgstr "Nav"
 #: khangman.cpp:429
 #, kde-format
 msgid "No kvtml files found."
-msgstr ""
+msgstr "Nav atrastas „kvtml“ datnes."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
@@ -111,10 +110,9 @@ msgstr "Lietotāja izvēlētā valoda"
 
 #. i18n: ectx: label, entry (Theme), group (Look)
 #: khangman.kcfg:33
-#, fuzzy, kde-format
-#| msgid "Background theme"
+#, kde-format
 msgid "Background theme name"
-msgstr "Fona tēma"
+msgstr "Fona motīva nosaukums"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
@@ -133,25 +131,20 @@ msgstr "Ieslēgt animācijas"
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
-msgstr "Ja atzīmēts, sākot jaunu spēli vai uzvarot tiks atskaņotas skaņas."
+msgstr "Ja atzīmēts, sākot jaunu spēli vai uzvarot, būs dzirdamas skaņas."
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "If checked, hints will always been displayed. If this is not checked "
-#| "(default) \n"
-#| "            hints will be displayed only per word when the user chooses "
-#| "to show the hint."
+#, kde-format
 msgid ""
 "If checked, hints will always been displayed. If this is not checked "
 "(default)\n"
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Ja atzīmēts, ieteikumi tiks rādīti vienmēr. Ja nav atzīmēts (noklusējums), \n"
-"            ieteikumi tiks parādīti tikai pie katra vārda, kad lietotājs "
-"izvēlas parādīt ieteikumu."
+"Ja atzīmēts, programma vienmēr rādīs padomus. Ja nav atzīmēts (noklusējums)\n"
+"            padomus rādīs tikai attiecīgajam vārdam un tikai tad, kad "
+"lietotājs lūgs to parādīt."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -160,6 +153,8 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
+"Šis iestatījums ļauj norādīt sekundēs, cik daudz laika ir atlicis vārda "
+"atminēšanai."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
@@ -171,7 +166,7 @@ msgstr "Rakstīt burtus ar garumzīmēm/mīkstinājumiem atsevišķi no pārēji
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr "KHangMan sniedzēja ceļš"
+msgstr "„KHangMan“ sniedzēja ceļš"
 
 #: main.cpp:36
 #, kde-format
@@ -179,15 +174,14 @@ msgid "KHangMan"
 msgstr "KHangMan"
 
 #: main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Classical hangman game for KDE"
+#, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "Klasiskā karātavu spēle priekš KDE"
+msgstr "Klasiskā karātavu spēle KDE videi"
 
 #: main.cpp:40
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
-msgstr "(c) 2001-2011, Anne-Marie Mahfouf"
+msgstr "(c) 2001—2011, Anne-Marie Mahfouf"
 
 #: main.cpp:43
 #, kde-format
@@ -207,17 +201,17 @@ msgstr "Anne-Marie Mahfouf"
 #: main.cpp:48
 #, kde-format
 msgid "Original Author"
-msgstr ""
+msgstr "Sākotnējās versijas autore"
 
 #: main.cpp:50
 #, kde-format
 msgid "Rahul Chowdhury"
-msgstr ""
+msgstr "Rahul Chowdhury"
 
 #: main.cpp:50
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Izstrādātājs"
 
 #: main.cpp:52
 #, kde-format
@@ -227,7 +221,7 @@ msgstr "Stefan Böhmann"
 #: main.cpp:53 main.cpp:98 main.cpp:100 main.cpp:102
 #, kde-format
 msgid "Coding help"
-msgstr "Kodēšanas palīdzība"
+msgstr "Programmēšanas palīdzība"
 
 #: main.cpp:54
 #, kde-format
@@ -238,7 +232,8 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
-"Zviedru datu faili, kodēšanas palīdzība, caurspīdīgās bildes un i18n labojumi"
+"Zviedru valodas datnes, programmēšanas palīdzība, caurspīdīgās bildes un "
+"„i18n“ labojumi"
 
 #: main.cpp:57
 #, kde-format
@@ -248,7 +243,7 @@ msgstr "eXParTaKus"
 #: main.cpp:58
 #, kde-format
 msgid "Spanish data files"
-msgstr "Spāņu valodas datu faili"
+msgstr "Spāņu valodas datnes"
 
 #: main.cpp:59
 #, kde-format
@@ -258,7 +253,7 @@ msgstr "Erik Kjær Pedersenn"
 #: main.cpp:60
 #, kde-format
 msgid "Danish data files"
-msgstr "Dāņu valodas datu faili"
+msgstr "Dāņu valodas datnes"
 
 #: main.cpp:61
 #, kde-format
@@ -268,7 +263,7 @@ msgstr "Niko Lewman"
 #: main.cpp:62
 #, kde-format
 msgid "Finnish data files"
-msgstr "Somu valodas datu faili"
+msgstr "Somu valodas datnes"
 
 #: main.cpp:63
 #, kde-format
@@ -278,7 +273,7 @@ msgstr "João Sebastião de Oliveira Bueno"
 #: main.cpp:64
 #, kde-format
 msgid "Brazilian Portuguese data files"
-msgstr "Brazīļu portugāļu valodas datu faili"
+msgstr "Brazīlijas portugāļu valodas datnes"
 
 #: main.cpp:65
 #, kde-format
@@ -288,7 +283,7 @@ msgstr "Antoni Bella"
 #: main.cpp:66
 #, kde-format
 msgid "Catalan data files"
-msgstr "Kataloņu valodas datu faili"
+msgstr "Katalāņu valodas datnes"
 
 #: main.cpp:67
 #, kde-format
@@ -298,7 +293,7 @@ msgstr "Giovanni Venturi"
 #: main.cpp:68
 #, kde-format
 msgid "Italian data files"
-msgstr "Itāļu valodas datu faili"
+msgstr "Itāļu valodas datnes"
 
 #: main.cpp:69
 #, kde-format
@@ -308,7 +303,7 @@ msgstr "Rinse"
 #: main.cpp:70
 #, kde-format
 msgid "Dutch data files"
-msgstr "Holandiešu valodas datu faili"
+msgstr "Holandiešu valodas datnes"
 
 #: main.cpp:71
 #, kde-format
@@ -318,17 +313,17 @@ msgstr "Lukáš Tinkl"
 #: main.cpp:72
 #, kde-format
 msgid "Czech data files"
-msgstr "Čehu valodas datu faili"
+msgstr "Čehu valodas datnes"
 
 #: main.cpp:73
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "Kristóf Kiszel"
 
 #: main.cpp:74
 #, kde-format
 msgid "Hungarian data files"
-msgstr "Ungāru valodas datu faili"
+msgstr "Ungāru valodas datnes"
 
 #: main.cpp:75
 #, kde-format
@@ -338,7 +333,7 @@ msgstr "Torger Åge Sinnes"
 #: main.cpp:76
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
-msgstr "Norvēģu (Bokmål) valodas datu faili"
+msgstr "Norvēģu (būkmols) valodas datnes"
 
 #: main.cpp:77
 #, kde-format
@@ -348,7 +343,7 @@ msgstr "Roger Kovacs"
 #: main.cpp:78
 #, kde-format
 msgid "Tajik data files"
-msgstr "Tadžiku valodas datu faili"
+msgstr "Tadžiku valodas datnes"
 
 #: main.cpp:79
 #, kde-format
@@ -358,7 +353,7 @@ msgstr "Chusslove Illich"
 #: main.cpp:80
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
-msgstr "Serbu (kirilicas un latīņu) valodas datu faili"
+msgstr "Serbu (kirilicas un latīņu) valodas datnes"
 
 #: main.cpp:81
 #, kde-format
@@ -368,7 +363,7 @@ msgstr "Jure Repinc"
 #: main.cpp:82
 #, kde-format
 msgid "Slovenian data files"
-msgstr "Slovēņu valodas  datu faili"
+msgstr "Slovēņu valodas datnes"
 
 #: main.cpp:83
 #, kde-format
@@ -378,7 +373,7 @@ msgstr "Pedro Morais"
 #: main.cpp:84
 #, kde-format
 msgid "Portuguese data files"
-msgstr "Portugāļu valodas  datu faili"
+msgstr "Portugāļu valodas datnes"
 
 #: main.cpp:85
 #, kde-format
@@ -388,7 +383,7 @@ msgstr "Gaute Hvoslef Kvalnes"
 #: main.cpp:86
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
-msgstr "Norvēģu (Nynorsk) valodas datu faili"
+msgstr "Norvēģu (jaunnorvēģu) valodas datnes"
 
 #: main.cpp:87
 #, kde-format
@@ -398,7 +393,7 @@ msgstr "Mehmet Özel"
 #: main.cpp:88
 #, kde-format
 msgid "Turkish data files"
-msgstr "Turku valodas datu faili"
+msgstr "Turku valodas datnes"
 
 #: main.cpp:89
 #, kde-format
@@ -408,7 +403,7 @@ msgstr "Черепанов Андрей"
 #: main.cpp:90
 #, kde-format
 msgid "Russian data files"
-msgstr "Krievu valodas datu faili"
+msgstr "Krievu valodas datnes"
 
 #: main.cpp:91
 #, kde-format
@@ -418,7 +413,7 @@ msgstr "Radostin Radnev"
 #: main.cpp:92
 #, kde-format
 msgid "Bulgarian data files"
-msgstr "Bulgāru valodas datu faili"
+msgstr "Bulgāru valodas datnes"
 
 #: main.cpp:93
 #, kde-format
@@ -428,7 +423,7 @@ msgstr "Kevin Patrick Scannell"
 #: main.cpp:94
 #, kde-format
 msgid "Irish (Gaelic) data files"
-msgstr "Īru valodas datu faili"
+msgstr "Īru valodas datnes"
 
 #: main.cpp:95
 #, kde-format
@@ -438,7 +433,7 @@ msgstr "Matt Howe"
 #: main.cpp:96
 #, kde-format
 msgid "Softer Hangman Pictures"
-msgstr "Mīkstāki karātavu attēli"
+msgstr "Vienkāršāki karātavu attēli"
 
 #: main.cpp:97
 #, kde-format
@@ -463,7 +458,7 @@ msgstr "Albert Astals Cid"
 #: main.cpp:104
 #, kde-format
 msgid "Coding help, fixed a lot of things"
-msgstr "Kodēšanas palīdzība, daudzi labojumi"
+msgstr "Programmēšanas palīdzība, daudzi labojumi"
 
 #: main.cpp:105
 #, kde-format
@@ -489,7 +484,9 @@ msgstr "Koda attīrīšana"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Gints Polis,Raivis Dejus,Toms Mikoss, Māris Nartišs, Einārs Sprūģis"
+msgstr ""
+"Gints Polis,Raivis Dejus,Toms Mikoss, Māris Nartišs, Einārs Sprūģis, Toms "
+"Trasūns"
 
 #: main.cpp:109
 #, kde-format
@@ -497,164 +494,152 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "gintam@inbox.lv,orvils@gmail.com,toms.mikoss@gmail.com,maris.kde@gmail.com,"
-"einars8@gmail.com"
+"einars8@gmail.com, toms.trasuns@posteo.net"
 
 #: qml/GamePage.qml:126
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Choose the word category"
 msgstr "Izvēlieties kategoriju"
 
 #: qml/GamePage.qml:161
-#, fuzzy, kde-format
-#| msgid "Choose the language"
+#, kde-format
 msgid "Select a language"
 msgstr "Izvēlēties valodu"
 
 #: qml/GamePage.qml:184
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Select a theme"
-msgstr "Jūras tēma"
+msgstr "Atlasiet motīvu"
 
 #: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Pauzēt"
 
 #: qml/GamePage.qml:239
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Turpināt"
 
 #: qml/GamePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurēt"
 
 #: qml/GamePage.qml:284
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurēt"
 
 #: qml/GamePage.qml:309
-#, fuzzy, kde-format
-#| msgid "Choose the language"
+#, kde-format
 msgid "Get new language files"
-msgstr "Izvēlēties valodu"
+msgstr "Iegūt jaunas valodu datnes"
 
 #: qml/GamePage.qml:322
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr ""
+msgstr "Skatīt „KHangMan“ rokasgrāmatu"
 
 #: qml/GamePage.qml:333 qml/GamePage.qml:339
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "About KHangMan"
-msgstr "KHangMan"
+msgstr "Par „KHangMan“"
 
 #: qml/GamePage.qml:346 qml/GamePage.qml:353
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Par KDE"
 
 #: qml/GamePage.qml:374
 #, kde-format
 msgid "Remaining guesses: "
-msgstr ""
+msgstr "Atlikušie minējumi: "
 
 #: qml/GamePage.qml:399
 #, kde-format
 msgid "Score: "
-msgstr ""
+msgstr "Punkti: "
 
 #: qml/GamePage.qml:433
-#, fuzzy, kde-format
-#| msgid "Wins: %1"
+#, kde-format
 msgid "Wins: "
-msgstr "Uzvaras: %1"
+msgstr "Uzvaras: "
 
 #: qml/GamePage.qml:461
-#, fuzzy, kde-format
-#| msgid "Losses: %1"
+#, kde-format
 msgid "Losses: "
-msgstr "Zaudējumi: %1"
+msgstr "Zaudējumi: "
 
 #: qml/GamePage.qml:600
 #, kde-format
 msgid "Display the hint."
-msgstr ""
+msgstr "Parādīt padomu."
 
 #: qml/GamePage.qml:615
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Change the category."
-msgstr "Izvēlieties kategoriju"
+msgstr "Mainīt kategoriju."
 
 #: qml/GamePage.qml:628
 #, kde-format
 msgid "Change the language."
-msgstr ""
+msgstr "Mainīt valodu."
 
 #: qml/GamePage.qml:640
 #, kde-format
 msgid "Reveal Word"
-msgstr ""
+msgstr "Atklāt vārdu"
 
 #: qml/GamePage.qml:641
 #, kde-format
 msgid "Reveal the current word."
-msgstr ""
+msgstr "Atklāt pašreizējo vārdu."
 
 #: qml/GamePage.qml:667
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "Ielādēt nākamo vārdu un sākt jaunu spēli."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Kļūda"
+msgstr "Kļūda: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Aizvērt"
 
 #: qml/Settings/SettingsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan"
+msgstr "„KHangMan“ iestatījumi"
 
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr ""
+msgstr "Vārda atminēšanas laiks sekundēs"
 
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "Padoma rādīšanas ilgums vārdam"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "KHangMan"
+msgstr "Punktu reizināšanas koeficients:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "Nosaka koeficientu, ar kādu reizināt punktus."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Ieslēgt skaņas"
@@ -663,13 +648,13 @@ msgstr "Ieslēgt skaņas"
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #, fuzzy
 #~| msgid "Choose the category"
