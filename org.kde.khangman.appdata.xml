@@ -32,6 +32,7 @@
   <name xml:lang="ka">KHangMan</name>
   <name xml:lang="ko">KHangMan</name>
   <name xml:lang="lt">KHangMan</name>
+  <name xml:lang="lv">KHangMan</name>
   <name xml:lang="nds">KHangMan</name>
   <name xml:lang="nl">KHangMan</name>
   <name xml:lang="nn">KHangMan</name>
@@ -75,6 +76,7 @@
   <summary xml:lang="ka">თამაში Hangman</summary>
   <summary xml:lang="ko">행맨 게임</summary>
   <summary xml:lang="lt">Budelio žaidimas</summary>
+  <summary xml:lang="lv">Karātavu spēle</summary>
   <summary xml:lang="nds">Galgenmanntje-Speel</summary>
   <summary xml:lang="nl">Het spel Galgje</summary>
   <summary xml:lang="nn">Hengdmann-spel</summary>
@@ -116,6 +118,7 @@
     <p xml:lang="it">KHangMan è basato sul ben noto gioco dell'impiccato. È pensato per i bambini da sei anni in su. Il gioco ha diverse categorie di parole con cui giocare tra cui Animali (parole di animali) e tre livelli di difficoltà: facile, medio e difficile. Una parola è scelta a caso, le lettere sono nascoste, e bisogna indovinare la parola provando una lettera alla volta. Ogni volta che provi una lettera sbagliata, compare parte dell'immagine di un impiccato. Devi indovinare la parola prima di farti impiccare! Hai a disposizione dieci tentativi.</p>
     <p xml:lang="ka">KHangMan ჩამოხრჩობანას თამაშია. ის 6+ ბავშვებისთვისაა განკუთვნილი. თამაშს სიტყვების რამდენიმე კატეგორია გააჩნია. მაგალთად: ცხოველები და სამი სირთულის კატეგორია: ადვილი, საშუალო და რთული. სიტყვები შემთხვევით შეირჩევა, ასოები დამალულია და სიტყვა ასოების ცდებით უნდა გამოიცნოთ. თითოეულ ჯერზე, რამდენჯერაც არასწორ ასოს აირჩევთ. ჩამოხრჩობილი კაცის სურთის ნაწილი გამოჩნდება. სიტყვა ჩამოხრჩობამდე უნდა გამოიცნოთ! სულ 10 ცდა გაქვთ.</p>
     <p xml:lang="ko">KHangMan은 잘 알려진 행맨 게임을 기반으로 한 게임입니다. 6세 이상의 어린이를 대상으로 합니다. 동물 등 다양한 주제별 단어를 선택할 수 있으며, 쉬움, 보통, 어려움 난이도를 선택할 수 있습니다. 단어가 무작위로 선택되고, 문자가 숨겨지며, 한 문자씩 시도하여 단어를 추측해야 합니다. 잘못된 글자를 추측 할 때마다 행맨 그림의 일부가 그려집니다. 사람이 완전히 그려지기 전에 단어를 추측해야 합니다! 총 10번 시도할 수 있습니다.</p>
+    <p xml:lang="lv">„KHangMan“ ir spēle, kuras pamatā ir pazīstamā karātavu spēle. Tā ir paredzēta bērniem no sešu gadu vecuma. Spēle piedāvā dažādas vārdu kategorijas, piemēram, dzīvniekus, kā arī dažādus grūtības līmeņus: vieglu, vidēju un grūtu. Spēle pēc nejaušības principa izvēlas vārdu, bet spēlētāja uzdevums ir to uzminēt, minot atsevišķi pa burtam. Katru reizi, kad minat nepareizu burtu, spēle uzzīmē jaunu karātavu daļu. Vārds ir jāuzmin pirms karātavas ir pilnībā uzzīmētas, proti, desmit mēģinājumos.</p>
     <p xml:lang="nds">KHangMan is en Speel, dat op dat begäng Speel „Galgenraden“ opbuut. Dat is för Kinners vun söss Johr af. Dat Speel hett en Reeg Woortkategorien, so as „Deerten“, un de dree Swoorheitstopen „Eenfach“, „Middel“ un „Swoor“. Dat Woort warrt tofällig utsöcht, de Bookstaven sünd toeerst versteken, un Du muttst de an na den annern raden. Raadst Du verkehrt, warrt en mehr Deel vun den Mann an'n Galgen maalt. Du muttst dat Woort raadt hebben, ehr he fardig is! Du hest 10 Versöök.</p>
     <p xml:lang="nl">KHangMan is een spel dat is gebaseerd op het welbekende galgje. Het richt zich op kinderen van zes jaar en ouder. Het spel kent verschillende categorieën te spelen woorden waaronder: Dieren (dierenwoorden) en drie moeilijkheidsgraden, Eenvoudig, Middel en Moeilijk. Woorden worden willekeurig gekozen en de letters ervan worden verborgen. U raadt het woord door een voor een letters op te geven. Telkens als u een verkeerde letter raadt wordt er een gedeelte van de galg-afbeelding getekend. U moet het woord raden voordat u wordt opgehangen! U hebt 10 pogingen.</p>
     <p xml:lang="nn">KHangMan er eit spel basert på det klassiske hengdmann-spelet. Målgruppa er ungar frå seks år og oppover. Spelet har fleire ordkategoriar du kan velja mellom, for eksempel dyrenamn, og tre vanskegradar – lett, middels og vanskeleg. Datamaskina vel eit tilfeldig ord, og du må gjetta alle bokstavane i ordet. Kvar gong du gjettar ein bokstav som ikkje finst i ordet, vert delar av ein hengdmann teikna opp. Du må gjetta heile ordet før mannen vert hengd! Du har 10 forsøk.</p>
@@ -160,6 +163,7 @@
       <caption xml:lang="it">Giocare con KHangMan</caption>
       <caption xml:lang="ka">KHangMan-ის თამაში</caption>
       <caption xml:lang="ko">KHangMan 플레이</caption>
+      <caption xml:lang="lv">„KHangMan“ spēlēšana</caption>
       <caption xml:lang="nl">KHangMan spelen</caption>
       <caption xml:lang="nn">Spelar KHangMan</caption>
       <caption xml:lang="pa">ਕੇਹੈਂਗਮੈਨ ਖੇਡਣਾ</caption>
