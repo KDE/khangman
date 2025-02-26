@@ -4,15 +4,26 @@
 //project headers
 #include "langutils.h"
 
+bool LangUtils::isLatinAlphabet(const QString& lang)
+{
+    if (lang == QLatin1String("ru")
+            || lang == QLatin1String("uk"))
+    {
+        return false;
+    }
+    return true;
+}
+
 bool LangUtils::hasSpecialChars(const QString& lang)
 {
+    if (!LangUtils::isLatinAlphabet(lang)) {
+        return true;
+    }
     if (lang == QLatin1String("en")
             || lang == QLatin1String("en_GB")
             || lang == QLatin1String("it")
             || lang == QLatin1String("nl")
-            || lang == QLatin1String("ru")
             || lang == QLatin1String("bg")
-            || lang == QLatin1String("uk")
             || lang == QLatin1String("el")
             || lang == QLatin1String("ro"))
     {

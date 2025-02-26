@@ -9,6 +9,7 @@
 class LangUtils
 {
 public:
+    static bool isLatinAlphabet(const QString& lang);
     static bool hasSpecialChars(const QString& lang);
     static QFont fontForLanguage(const QString& lang);
     static QString capitalize(const QString& str, const QString& lang);

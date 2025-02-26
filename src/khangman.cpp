@@ -368,8 +368,12 @@ QString KHangMan::getCurrentHint() const
 QStringList KHangMan::alphabet() const
 {
     QStringList letterList;
-    for (char c = 'A'; c <= 'Z'; ++c) {
-        letterList.append(QChar::fromLatin1(c));
+
+    QString lang = Prefs::selectedLanguage();
+    if (LangUtils::isLatinAlphabet(lang)) {
+        for (char c = 'A'; c <= 'Z'; ++c) {
+            letterList.append(QChar::fromLatin1(c));
+        }
     }
 
     letterList.append(m_specialCharacters);
