@@ -108,7 +108,7 @@ FormCard.FormCardPage {
                 icon.name: "document-save"
                 onClicked: {
                     // save the current settings
-                    mainSettingsRectangle.saveSettings()
+                    mainSettingsDialog.saveSettings()
                     mainSettingsDialog.okClicked()
                 }
             }
@@ -118,7 +118,7 @@ FormCard.FormCardPage {
                 icon.name: "dialog-cancel"
                 onClicked: {
                     // ignore the changes made to the settings
-                    mainSettingsRectangle.resetSettings()
+                    mainSettingsDialog.resetSettings()
                     mainSettingsDialog.cancelClicked()
                 }
             }
