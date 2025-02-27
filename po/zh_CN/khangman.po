@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:37+0000\n"
+"POT-Creation-Date: 2025-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -84,13 +84,13 @@ msgstr ""
 msgid "No word list loaded"
 msgstr "未加载单词表"
 
-#: khangman.cpp:407
+#: khangman.cpp:411
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "无"
 
-#: khangman.cpp:429
+#: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
 msgstr "找不到kvtml文件。"

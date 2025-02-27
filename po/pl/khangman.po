@@ -1,5 +1,5 @@
 # translation of khangman.po to
-# Version: $Revision: 1697089 $
+# Version: $Revision: 1703867 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Marcin Garski <mgarski@post.pl>, 2003, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:37+0000\n"
+"POT-Creation-Date: 2025-02-27 00:37+0000\n"
 "PO-Revision-Date: 2023-12-23 14:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -91,13 +91,13 @@ msgstr ""
 msgid "No word list loaded"
 msgstr "Nie wczytano listy słów"
 
-#: khangman.cpp:407
+#: khangman.cpp:411
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Brak"
 
-#: khangman.cpp:429
+#: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Nie znaleziono plików kvtml."

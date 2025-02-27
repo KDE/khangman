@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:37+0000\n"
+"POT-Creation-Date: 2025-02-27 00:37+0000\n"
 "PO-Revision-Date: 2023-12-06 16:00+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -81,13 +81,13 @@ msgstr ""
 msgid "No word list loaded"
 msgstr "Nessun elenco di parole caricato"
 
-#: khangman.cpp:407
+#: khangman.cpp:411
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Nessuno"
 
-#: khangman.cpp:429
+#: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Nessun file kvtml trovato."

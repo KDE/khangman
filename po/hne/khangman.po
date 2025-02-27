@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:37+0000\n"
+"POT-Creation-Date: 2025-02-27 00:37+0000\n"
 "PO-Revision-Date: 2009-02-23 12:59+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -83,14 +83,14 @@ msgstr ""
 msgid "No word list loaded"
 msgstr ""
 
-#: khangman.cpp:407
+#: khangman.cpp:411
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "कुछ नइ"
 
-#: khangman.cpp:429
+#: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""
