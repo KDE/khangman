@@ -285,6 +285,7 @@ Kirigami.Page {
 
                 item.okClicked.connect(() => {
                     // close the settings dialog
+                    item.closeDialog();
                     if (wasPlaying) {
                         // game is going on, so load a new word and start with the saved settings
                         nextWord()
@@ -293,6 +294,8 @@ Kirigami.Page {
                 });
 
                 item.cancelClicked.connect(() => {
+                    // close the settings dialog
+                    item.closeDialog();
                     if (wasPlaying) {
                         // game was in progress, so resume the timer countdown
                         startTimer()
