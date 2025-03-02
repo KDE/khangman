@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:35+0000\n"
+"POT-Creation-Date: 2025-03-02 02:31+0000\n"
 "PO-Revision-Date: 2023-12-06 16:00+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -530,72 +530,72 @@ msgstr "Configura"
 msgid "Configure"
 msgstr "Configura"
 
-#: qml/GamePage.qml:309
+#: qml/GamePage.qml:312
 #, kde-format
 msgid "Get new language files"
 msgstr "Scarica nuovi file linguistici"
 
-#: qml/GamePage.qml:322
+#: qml/GamePage.qml:325
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Vedi il manuale di KHangman"
 
-#: qml/GamePage.qml:333 qml/GamePage.qml:339
+#: qml/GamePage.qml:336 qml/GamePage.qml:342
 #, kde-format
 msgid "About KHangMan"
 msgstr "Informazioni su KHangMan"
 
-#: qml/GamePage.qml:346 qml/GamePage.qml:353
+#: qml/GamePage.qml:349 qml/GamePage.qml:356
 #, kde-format
 msgid "About KDE"
 msgstr "Informazioni su KDE"
 
-#: qml/GamePage.qml:374
+#: qml/GamePage.qml:377
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Tentativi rimasti: "
 
-#: qml/GamePage.qml:399
+#: qml/GamePage.qml:402
 #, kde-format
 msgid "Score: "
 msgstr "Punteggio: "
 
-#: qml/GamePage.qml:433
+#: qml/GamePage.qml:436
 #, kde-format
 msgid "Wins: "
 msgstr "Vittorie: "
 
-#: qml/GamePage.qml:461
+#: qml/GamePage.qml:464
 #, kde-format
 msgid "Losses: "
 msgstr "Sconfitte: "
 
-#: qml/GamePage.qml:600
+#: qml/GamePage.qml:603
 #, kde-format
 msgid "Display the hint."
 msgstr "Mostra il suggerimento."
 
-#: qml/GamePage.qml:615
+#: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the category."
 msgstr "Cambia la categoria."
 
-#: qml/GamePage.qml:628
+#: qml/GamePage.qml:631
 #, kde-format
 msgid "Change the language."
 msgstr "Cambia la lingua."
 
-#: qml/GamePage.qml:640
+#: qml/GamePage.qml:643
 #, kde-format
 msgid "Reveal Word"
 msgstr "Svela la parola"
 
-#: qml/GamePage.qml:641
+#: qml/GamePage.qml:644
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Svela la parola corrente."
 
-#: qml/GamePage.qml:667
+#: qml/GamePage.qml:670
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Carica la prossima parola ed inizia una nuova partita."

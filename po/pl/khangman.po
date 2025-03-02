@@ -1,5 +1,5 @@
 # translation of khangman.po to
-# Version: $Revision: 1681191 $
+# Version: $Revision: 1704046 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Marcin Garski <mgarski@post.pl>, 2003, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:35+0000\n"
+"POT-Creation-Date: 2025-03-02 02:31+0000\n"
 "PO-Revision-Date: 2023-12-23 14:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -539,72 +539,72 @@ msgstr "Ustawienia"
 msgid "Configure"
 msgstr "Ustawienia"
 
-#: qml/GamePage.qml:309
+#: qml/GamePage.qml:312
 #, kde-format
 msgid "Get new language files"
 msgstr "Pobierz nowe pliki językowe"
 
-#: qml/GamePage.qml:322
+#: qml/GamePage.qml:325
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Obejrzyj podręcznik KWisielca"
 
-#: qml/GamePage.qml:333 qml/GamePage.qml:339
+#: qml/GamePage.qml:336 qml/GamePage.qml:342
 #, kde-format
 msgid "About KHangMan"
 msgstr "O KWisielecu"
 
-#: qml/GamePage.qml:346 qml/GamePage.qml:353
+#: qml/GamePage.qml:349 qml/GamePage.qml:356
 #, kde-format
 msgid "About KDE"
 msgstr "O KDE"
 
-#: qml/GamePage.qml:374
+#: qml/GamePage.qml:377
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Pozostało prób: "
 
-#: qml/GamePage.qml:399
+#: qml/GamePage.qml:402
 #, kde-format
 msgid "Score: "
 msgstr "Wynik: "
 
-#: qml/GamePage.qml:433
+#: qml/GamePage.qml:436
 #, kde-format
 msgid "Wins: "
 msgstr "Zwycięstwa: "
 
-#: qml/GamePage.qml:461
+#: qml/GamePage.qml:464
 #, kde-format
 msgid "Losses: "
 msgstr "Przegrane: "
 
-#: qml/GamePage.qml:600
+#: qml/GamePage.qml:603
 #, kde-format
 msgid "Display the hint."
 msgstr "Wyświetl podpowiedź."
 
-#: qml/GamePage.qml:615
+#: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the category."
 msgstr "Zmień kategorię."
 
-#: qml/GamePage.qml:628
+#: qml/GamePage.qml:631
 #, kde-format
 msgid "Change the language."
 msgstr "Zmień język."
 
-#: qml/GamePage.qml:640
+#: qml/GamePage.qml:643
 #, kde-format
 msgid "Reveal Word"
 msgstr "Odkryj słowo"
 
-#: qml/GamePage.qml:641
+#: qml/GamePage.qml:644
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Odkryj bieżące słowo."
 
-#: qml/GamePage.qml:667
+#: qml/GamePage.qml:670
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Wczytaj następne słowo i zacznij nową grę."

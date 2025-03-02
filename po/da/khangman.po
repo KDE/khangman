@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:35+0000\n"
+"POT-Creation-Date: 2025-03-02 02:31+0000\n"
 "PO-Revision-Date: 2020-07-21 18:12+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -524,73 +524,73 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:309
+#: qml/GamePage.qml:312
 #, fuzzy, kde-format
 #| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Download nye sprogfiler"
 
-#: qml/GamePage.qml:322
+#: qml/GamePage.qml:325
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Se KHangMan-håndbogen"
 
-#: qml/GamePage.qml:333 qml/GamePage.qml:339
+#: qml/GamePage.qml:336 qml/GamePage.qml:342
 #, kde-format
 msgid "About KHangMan"
 msgstr "Om KHangMan"
 
-#: qml/GamePage.qml:346 qml/GamePage.qml:353
+#: qml/GamePage.qml:349 qml/GamePage.qml:356
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
 
-#: qml/GamePage.qml:374
+#: qml/GamePage.qml:377
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Gæt tilbage:"
 
-#: qml/GamePage.qml:399
+#: qml/GamePage.qml:402
 #, kde-format
 msgid "Score: "
 msgstr "Score: "
 
-#: qml/GamePage.qml:433
+#: qml/GamePage.qml:436
 #, kde-format
 msgid "Wins: "
 msgstr "Sejre: "
 
-#: qml/GamePage.qml:461
+#: qml/GamePage.qml:464
 #, kde-format
 msgid "Losses: "
 msgstr "Nederlag: "
 
-#: qml/GamePage.qml:600
+#: qml/GamePage.qml:603
 #, kde-format
 msgid "Display the hint."
 msgstr "Vis vink."
 
-#: qml/GamePage.qml:615
+#: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the category."
 msgstr "Skift kategori."
 
-#: qml/GamePage.qml:628
+#: qml/GamePage.qml:631
 #, kde-format
 msgid "Change the language."
 msgstr "Skift sprog."
 
-#: qml/GamePage.qml:640
+#: qml/GamePage.qml:643
 #, kde-format
 msgid "Reveal Word"
 msgstr "Afslør ord"
 
-#: qml/GamePage.qml:641
+#: qml/GamePage.qml:644
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Afslør det aktuelle ord."
 
-#: qml/GamePage.qml:667
+#: qml/GamePage.qml:670
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Indlæs det næste ord og start et nyt spil."
