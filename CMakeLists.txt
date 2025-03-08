@@ -47,7 +47,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 find_package(LibKEduVocDocument REQUIRED)
-ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.9.0)
+ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.12.0)
 
 add_subdirectory( src )
 
