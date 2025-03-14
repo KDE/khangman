@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:37+0000\n"
-"PO-Revision-Date: 2025-03-07 23:32+0300\n"
+"PO-Revision-Date: 2025-03-13 22:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -70,12 +70,11 @@ msgid ""
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
-"Çevirmenlerin oyundaki sözcükleri çevirme fırsatı\n"
-"vardır.\n"
+"Çevirmenlerin oyundaki sözcükleri çevirme fırsatı vardır.\n"
 "Nasıl yapılacağını anlamak ve daha fazla bilgi edinmek için\n"
-"Khangman'ın kaynak dizinindeki README.languages dosyasına bakın.\n"
-"(Sözcükleri çevirdikten sonra bu iletiyi \"TAMAMLANDI\" olarak çevirin;\n"
-"ya da bu iletiyi bir anımsatıcı olarak çevrilmemiş bırakın)"
+"K Adam Asmaca’nın kaynak dizinindeki README.languages dosyasına bakın.\n"
+"(Sözcükleri çevirdikten sonra bu iletiyi “TAMAMLANDI” olarak çevirin;\n"
+"veya bu iletiyi bir anımsatıcı olarak çevrilmemiş bırakın)."
 
 #: khangman.cpp:72
 #, kde-format
@@ -155,8 +154,8 @@ msgid ""
 "show the hint."
 msgstr ""
 "İşaretlenirse ipuçlarını her zaman gösterir. İşaretlenmezse (öntanımlı)\n"
-"             kullanıcı, \"ipuçlarını göster\" seçeneğini seçtiğinde ipuçları "
-"yalnızca sözcük başına gösterilir."
+"kullanıcı, “ipuçlarını göster” seçeneğini seçtiğinde ipuçları yalnızca\n"
+"sözcük başına gösterilir."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -188,7 +187,7 @@ msgstr "K Adam Asmaca"
 #: main.cpp:38
 #, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "KDE'nin klasik adam asmaca oyunu"
+msgstr "KDE’nin klasik adam asmaca oyunu"
 
 #: main.cpp:40
 #, kde-format
@@ -208,7 +207,7 @@ msgstr "Önceki bakımcı"
 #: main.cpp:48
 #, kde-format
 msgid "Anne-Marie Mahfouf"
-msgstr "Anne-Marie Mahfouf"
+msgstr "Anne–Marie Mahfouf"
 
 #: main.cpp:48
 #, kde-format
