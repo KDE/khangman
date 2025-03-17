@@ -200,10 +200,10 @@ void KHangMan::replaceLetters(const QString& charString)
 {
     QChar ch = charString.at(0);
     bool oneLetter = Prefs::oneLetter();
-
-    for (int i = 0; i < m_originalWord.size(); ++i) {
-        if (m_originalWord.at(i) == ch) {
-            m_currentWord[i] = ch;
+    QString normalized_word = LangUtils::shouldStripAccents(Prefs::selectedLanguage()) ? stripAccents(m_originalWord) : m_originalWord;
+    for (int i = 0; i < normalized_word.size(); ++i) {
+        if (normalized_word.at(i) == ch) {
+            m_currentWord[i] = m_originalWord[i];
 
             if (oneLetter)
                 break;

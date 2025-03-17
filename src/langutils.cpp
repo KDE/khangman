@@ -7,11 +7,19 @@
 bool LangUtils::isLatinAlphabet(const QString& lang)
 {
     if (lang == QLatin1String("ru")
-            || lang == QLatin1String("uk"))
-    {
+            || lang == QLatin1String("uk")
+            || lang == QLatin1String("el")) {
         return false;
     }
     return true;
+}
+
+bool LangUtils::shouldStripAccents(const QString& lang)
+{
+    if (lang == QLatin1String("el")) {
+        return true;
+    }
+    return false;
 }
 
 bool LangUtils::hasSpecialChars(const QString& lang)
@@ -24,7 +32,6 @@ bool LangUtils::hasSpecialChars(const QString& lang)
             || lang == QLatin1String("it")
             || lang == QLatin1String("nl")
             || lang == QLatin1String("bg")
-            || lang == QLatin1String("el")
             || lang == QLatin1String("ro"))
     {
         return false;
