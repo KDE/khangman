@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Carsten Niehaus <cniehaus@kde.org>, 2002.
 # Thomas Diehl <thd@kde.org>, 2003.
 # Thorsten Mürell <thorsten@muerell.de>, 2003 - 2007.
@@ -6,21 +7,21 @@
 # Martin Ereth <martin.ereth@arcor.de>, 2008.
 # Frederik Schwarzer <schwarzer@kde.org>, 2009, 2010, 2011, 2012.
 # Peter Rüthemann <peter.ruethemann@gmx.ch>, 2010.
-# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:37+0000\n"
-"PO-Revision-Date: 2023-12-21 16:53+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-07-10 18:25+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -67,7 +68,7 @@ msgstr "DONE"
 #: khangman.cpp:72
 #, kde-format
 msgid "No theme files found."
-msgstr "Es wurden keine Designdateien gefunden."
+msgstr "Keine Designdateien gefunden."
 
 #: khangman.cpp:130
 #, kde-format
@@ -81,7 +82,7 @@ msgstr ""
 #: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
-msgstr "Es ist keine Wortliste geladen"
+msgstr "Keine Wortliste geladen"
 
 #: khangman.cpp:411
 #, kde-format
@@ -92,13 +93,13 @@ msgstr "Keine"
 #: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
-msgstr "Es wurden keine kvtml-Dateien gefunden."
+msgstr "Keine kvtml-Dateien gefunden."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
 #, kde-format
 msgid "Level"
-msgstr "Spielstufe"
+msgstr "Level"
 
 #. i18n: ectx: label, entry (SelectedLanguage), group (Language)
 #: khangman.kcfg:17
@@ -118,7 +119,7 @@ msgstr "Name des Hintergrunddesigns"
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
 msgstr ""
-"Wählen Sie dies, wenn nicht jedes Vorkommen eines Buchstaben aufgedeckt "
+"Wählen Sie dies, wenn nicht jedes Vorkommen eines Buchstabens aufgedeckt "
 "werden soll."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
@@ -132,7 +133,8 @@ msgstr "Animationen aktivieren"
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
 msgstr ""
-"Falls aktiviert, werden Töne bei neuem Spiel und gewonnenen Spiel gespielt"
+"Ist diese Einstellung aktiviert, werden Töne bei neuem Spiel und gewonnenem "
+"Spiel gespielt"
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
@@ -143,7 +145,7 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Ist diese Einstellung aktiviert, werden immer Tipps angezeigt. Ist sie "
+"Ist diese Einstellung aktiviert, werden Tipps immer angezeigt. Ist sie "
 "deaktiviert (Voreinstellung),\n"
 "werden Tipps nur angezeigt, wenn der Benutzer sie anfordert."
 
@@ -154,14 +156,14 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
-"Mit dieser Einstellung können Sie festlegen, wie viele Sekunden für dieses "
-"Wort verfügbar sind."
+"Mit dieser Einstellung können Sie festlegen, wie viele Sekunden zur Lösung "
+"eines Worts verfügbar sind."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr "Akzentuierte und normale Buchstaben separat eingeben."
+msgstr "Akzentuierte und normale Buchstaben separat eingeben"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
@@ -177,12 +179,12 @@ msgstr "KHangMan"
 #: main.cpp:38
 #, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "Das klassische Galgenmännchenspiel von KDE"
+msgstr "Klassisches Galgenmännchenspiel von KDE"
 
 #: main.cpp:40
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
-msgstr "© 2001–2011, Anne-Marie Mahfouf"
+msgstr "© 2001–2011 Anne-Marie Mahfouf"
 
 #: main.cpp:43
 #, kde-format
@@ -511,7 +513,7 @@ msgstr "Wählen Sie ein Design"
 #: qml/GamePage.qml:239
 #, kde-format
 msgid "Pause"
-msgstr "Anhalten"
+msgstr "Pause"
 
 #: qml/GamePage.qml:239
 #, kde-format
@@ -552,7 +554,7 @@ msgstr "Über KDE"
 #: qml/GamePage.qml:377
 #, kde-format
 msgid "Remaining guesses: "
-msgstr "Verbleibende Wörter "
+msgstr "Verbleibende Versuche: "
 
 #: qml/GamePage.qml:402
 #, kde-format
@@ -572,17 +574,17 @@ msgstr "Falsch: "
 #: qml/GamePage.qml:603
 #, kde-format
 msgid "Display the hint."
-msgstr "Anzeige des Tipps."
+msgstr "Tipp anzeigen."
 
 #: qml/GamePage.qml:618
 #, kde-format
 msgid "Change the category."
-msgstr "Ändern Sie die Kategorie."
+msgstr "Kategorie ändern."
 
 #: qml/GamePage.qml:631
 #, kde-format
 msgid "Change the language."
-msgstr "Ändern Sie die Sprache."
+msgstr "Sprache ändern."
 
 #: qml/GamePage.qml:643
 #, kde-format
@@ -592,12 +594,12 @@ msgstr "Wort aufdecken"
 #: qml/GamePage.qml:644
 #, kde-format
 msgid "Reveal the current word."
-msgstr "Deckt das aktuelle Wort auf."
+msgstr "Das aktuelle Wort aufdecken."
 
 #: qml/GamePage.qml:670
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr "Lädt das nächste Wort und startet ein neues Spiel."
+msgstr "Das nächste Wort laden und ein neues Spiel starten."
 
 #: qml/Main.qml:55
 #, kde-format
@@ -623,7 +625,7 @@ msgstr "Zeit für das Lösen des Worts in Sekunden"
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr "Die Dauer der Anzeige des Tipps für das aktuelle Wort"
+msgstr "Die Anzeigedauer des Tipps für das tatsächliche Wort"
 
 #: qml/Settings/SettingsPage.qml:81
 #, kde-format
