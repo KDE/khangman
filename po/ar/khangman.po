@@ -118,7 +118,7 @@ msgstr "اسم سمة الخلفيّة"
 #, kde-format
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
-msgstr "أشّر على هذا إن لم ترد اكتشاف كلّ سيرورة من نفس الحرف."
+msgstr "أشّر على هذا إن لم ترد اكتشاف كلّ نسخة من نفس الحرف."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
