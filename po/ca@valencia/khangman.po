@@ -497,17 +497,17 @@ msgstr "antonibella5@yahoo.com,al016950@yahoo.es,orestes@tsc.upc.edu"
 #: qml/GamePage.qml:126
 #, kde-format
 msgid "Choose the word category"
-msgstr "Seleccioneu la categoria de les paraules"
+msgstr "Trieu la categoria de les paraules"
 
 #: qml/GamePage.qml:161
 #, kde-format
 msgid "Select a language"
-msgstr "Seleccioneu un idioma"
+msgstr "Trieu un idioma"
 
 #: qml/GamePage.qml:184
 #, kde-format
 msgid "Select a theme"
-msgstr "Seleccioneu un tema"
+msgstr "Trieu un tema"
 
 #: qml/GamePage.qml:239
 #, kde-format
