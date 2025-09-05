@@ -18,7 +18,7 @@
 #include <KAuthorized>
 
 #include <KEduVocDocument>
-#include <keduvocexpression.h>
+#include <KEduVocExpression>
 #include <sharedkvtmlfiles.h>
 
 #include "langutils.h"
