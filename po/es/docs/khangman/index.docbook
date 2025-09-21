@@ -336,7 +336,7 @@ you have installed.</para
 <para
 >Debes introducir las letras acentuadas por ti mismo o pulsar sobre ellas. Si pulsas una «a», solo se muestra la «a», por lo que si quieres una «á» deberás escribirla con acento. </para>
 <para
->¿Sabías que...? En inglés, la letra más común es la «e» (12,7%), seguida de la «t» (9,1%), la «a» (8,2%), la «i» (7,0%) y la «n» (6,7%).</para>
+>¿Sabías que…? En inglés, la letra más común es la «e» (12,7 %), seguida de la «t» (9,1 %), la «a» (8,2 %), la «i» (7,0 %) y la «n» (6,7 %).</para>
 </sect1>
 
 </chapter>
@@ -562,7 +562,7 @@ mundo&lt;/comment&gt;&lt;!--Traduce el contenido de esta etiqueta--&gt;
       &lt;locale&gt;es&lt;/locale&gt;
     &lt;/identifier&gt;
   &lt;/identifiers&gt;
-...
+…
 &lt;entry id="0" &gt;
       &lt;inactive&gt;false&lt;/inactive&gt;
       &lt;inquery&gt;false&lt;/inquery&gt;
@@ -573,7 +573,7 @@ con texto--&gt;
 pelo&lt;/comment&gt;&lt;!--Traduce el contenido de todas las etiquetas con comentarios--&gt;
       &lt;/translation&gt;
     &lt;/entry&gt;
-...
+…
 &lt;/kvtml&gt;
 </markup
 ></programlisting>
