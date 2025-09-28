@@ -488,7 +488,7 @@ The duration for showing the hint for the actual word
 >besedilo</sgmltag
 > je za besedo, oznaka <sgmltag class="starttag"
 >komentar</sgmltag
-> pa za namig, ki sta znotraj <sgmltag class="starttag "
+> pa za namig, ki sta znotraj <sgmltag class="starttag"
 >entry</sgmltag
 > oznako. Poskusite uskladiti namig s kategorijo težavnosti. Za kategorijo <guimenuitem
 >Enostavno</guimenuitem
