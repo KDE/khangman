@@ -171,7 +171,7 @@ adults.
 > dans la barre supérieure d'outils. </para>
 
 <para
->Vous saisissez la lettre que vous souhaitez essayer sur votre clavier ou la sélectionner avec le &BGS;. Si la lettre appartient au mot, la touche est mise en évidence en vert ainsi que l'emplacement de la lettre, autant de fois qu'elle y apparaît. Si elle n'y appartient pas au mot, la touche est affichée en rouge. Vous avez dix essais, après quoi vous perdez, et le mot correct est affiché. </para>
+>Vous saisissez la lettre que vous souhaitez essayer sur votre clavier ou la sélectionner avec le &BGS;. Si la lettre appartient au mot, la touche est mise en évidence en vert ainsi que l'emplacement de la lettre, autant de fois qu'elle y apparait. Si elle n'y appartient pas au mot, la touche est affichée en rouge. Vous avez dix essais, après quoi vous perdez, et le mot correct est affiché. </para>
 
 <para
 >Pendant la partie, vous pouvez sélectionner de démarrer une nouvelle partie par un clic sur <inlinemediaobject
@@ -213,7 +213,7 @@ that you will open using the <guimenu
 ><imageobject
 ><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
 ></inlinemediaobject
->. Une boîte de dialogue apparaît, similaire à celle ci : </para>
+>. Une boite de dialogue apparait, similaire à celle ci : </para>
 
 <screenshot>
 <screeninfo
@@ -238,7 +238,7 @@ that you will open using the <guimenu
 >Désinstaller</guibutton
 >. La liste de mots est immédiatement installée et disponible dans &khangman;. Vous cliquez sur le bouton <guibutton
 >Fermer</guibutton
-> pour fermer la boîte de dialogue Obtenir les mots d'une nouvelle langue (si vous voulez une autre catégorie de mots, veuillez répéter ces étapes)</para>
+> pour fermer la boite de dialogue Obtenir les mots d'une nouvelle langue (si vous voulez une autre catégorie de mots, veuillez répéter ces étapes)</para>
 
 <para
 >Vous pouvez alors facilement modifier la langue en cliquant sur le bouton des langues et sélectionnant une autre langue.</para>
@@ -331,7 +331,7 @@ you have installed.</para
 ><imageobject
 ><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
-> Ouvrir la boîte de dialogue de configuration </member>
+> Ouvrir la boite de dialogue de configuration </member>
 <member
 ><inlinemediaobject
 ><imageobject
@@ -489,7 +489,7 @@ The duration for showing the hint for the actual word
 <para
 >Notez que vous devez utiliser <emphasis role="bold"
 >l'encodage UTF-8 </emphasis
-> lorsque vous éditez les fichiers. Si votre éditeur ne le permet pas, essayez &kwrite; ou &kate;. À l'ouverture d'un fichier dans &kwrite; ou &kate;, vous pouvez sélectionner l'encodage UTF-8 dans la liste déroulante en haut de la boîte de dialogue d'ouverture de fichier.</para>
+> lorsque vous éditez les fichiers. Si votre éditeur ne le permet pas, essayez &kwrite; ou &kate;. À l'ouverture d'un fichier dans &kwrite; ou &kate;, vous pouvez sélectionner l'encodage UTF-8 dans la liste déroulante en haut de la boite de dialogue d'ouverture de fichier.</para>
 
 <para
 >Voici un exemple de fichier kvtml :</para>
@@ -534,7 +534,7 @@ fine fourrure&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 >comment</sgmltag
 > qui sont dans la balise <sgmltag class="starttag"
 >information</sgmltag
->. Le titre sera celui qui apparaîtra dans le menu Catégorie du jeu (là où l'utilisateur choisit le fichier avec lequel il veut jouer). </para>
+>. Le titre sera celui qui apparaitra dans le menu Catégorie du jeu (là où l'utilisateur choisit le fichier avec lequel il veut jouer). </para>
 </step>
 <step>
 <para
@@ -619,7 +619,7 @@ fine fourrure&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 <para
 >Le fichier de configuration, enregistré pour chaque utilisateur dans <filename
 >$XDG_DATA_HOME/share/config/khangmanrc</filename
-> contient toute la configuration de la partie comme le fond d'écran, le dernier niveau joué, &etc;, plus les fichiers ayant été téléchargés à partir de la boîte de dialogue <guilabel
+> contient toute la configuration de la partie comme le fond d'écran, le dernier niveau joué, &etc;, plus les fichiers ayant été téléchargés à partir de la boite de dialogue <guilabel
 >Obtenir les dernières nouveautés ! </guilabel
 >. </para>
 </sect1>
