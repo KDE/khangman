@@ -599,7 +599,8 @@ Kirigami.Page {
 
             ToolButton {
                 id: helpHintButton
-                icon.source: "Images/help-hint.png"
+                Layout.fillWidth: true
+                text: i18n("Hint")
                 ToolTip.text: i18n("Display the hint.")
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
