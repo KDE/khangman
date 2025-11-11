@@ -662,6 +662,7 @@ Kirigami.Page {
                 visible: KHangMan.resolveTime === 0 ? false : true
                 text: Math.floor(countDownTimerValue / 60) + ":" + Math.floor(countDownTimerValue % 60 / 10)
                       + Math.floor(countDownTimerValue % 60 % 10)
+                color: Kirigami.Theme.textColor
             }
 
             ToolButton {
