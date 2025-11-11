@@ -74,6 +74,8 @@ Kirigami.Page {
     }
 
     function guessLetter(letter: string): void {
+        if (!isPlaying || khangmanResultTimer.running) return;
+
         letter = letter.toUpperCase()
         if (KHangMan.soundEnabled) {
             khangmanAlphabetButtonPressSoundEffect.play();
