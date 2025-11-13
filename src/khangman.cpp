@@ -487,7 +487,10 @@ void KHangMan::loadLanguageSpecialCharacters()
 
     // We open the file and store info into the stream...
     QFile openFileStream(langFile.fileName());
-    openFileStream.open(QIODevice::ReadOnly);
+    if(!openFileStream.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed opening for reading" << langFile.fileName();
+        return;
+    }
     QTextStream readFileStr(&openFileStream);
     readFileStr.setEncoding(QStringConverter::Utf8);
 
