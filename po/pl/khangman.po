@@ -1,5 +1,5 @@
 # translation of khangman.po to
-# Version: $Revision: 1704036 $
+# Version: $Revision: 1723076 $
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Marcin Garski <mgarski@post.pl>, 2003, 2004, 2005.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:37+0000\n"
+"POT-Creation-Date: 2025-11-17 11:48+0000\n"
 "PO-Revision-Date: 2023-12-23 14:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
