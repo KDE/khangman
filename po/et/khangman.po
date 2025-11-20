@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:38+0000\n"
+"POT-Creation-Date: 2025-11-20 02:31+0000\n"
 "PO-Revision-Date: 2020-03-05 22:47+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -486,109 +486,114 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "qiilaq69@gmail.com"
 
-#: qml/GamePage.qml:126
+#: qml/GamePage.qml:128
 #, kde-format
 msgid "Choose the word category"
 msgstr "Sõna kategooria valimine"
 
-#: qml/GamePage.qml:161
+#: qml/GamePage.qml:163
 #, kde-format
 msgid "Select a language"
 msgstr "Keele valimine"
 
-#: qml/GamePage.qml:184
+#: qml/GamePage.qml:186
 #, kde-format
 msgid "Select a theme"
 msgstr "Teema valimine"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
 msgstr "Paus"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
 msgstr "Mängi"
 
-#: qml/GamePage.qml:270
+#: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:284
+#: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:312
+#: qml/GamePage.qml:314
 #, fuzzy, kde-format
 #| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Laadi alla uusi keelefaile"
 
-#: qml/GamePage.qml:325
+#: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "KHangMani käsiraamat"
 
-#: qml/GamePage.qml:336 qml/GamePage.qml:342
+#: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, kde-format
 msgid "About KHangMan"
 msgstr "KHangMani teave"
 
-#: qml/GamePage.qml:349 qml/GamePage.qml:356
+#: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
 msgstr "KDE teave"
 
-#: qml/GamePage.qml:377
+#: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Pakkumisi jäänud: "
 
-#: qml/GamePage.qml:402
+#: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
 msgstr "Punkte: "
 
-#: qml/GamePage.qml:436
+#: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
 msgstr "Võite: "
 
-#: qml/GamePage.qml:464
+#: qml/GamePage.qml:466
 #, kde-format
 msgid "Losses: "
 msgstr "Kaotusi: "
 
-#: qml/GamePage.qml:603
+#: qml/GamePage.qml:605
+#, kde-format
+msgid "Hint"
+msgstr "Vihje"
+
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "Vihje näitamine."
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "Kategooria muutmine."
 
-#: qml/GamePage.qml:631
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "Keele muutmine."
 
-#: qml/GamePage.qml:643
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "Näita sõna"
 
-#: qml/GamePage.qml:644
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Aktiivse sõna näitamine."
 
-#: qml/GamePage.qml:670
+#: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Järgmise sõna laadimine ja uue mängu alustamine."
@@ -868,9 +873,6 @@ msgstr "Loobu"
 
 #~ msgid "&Play again"
 #~ msgstr "&Mängi uuesti"
-
-#~ msgid "Hint"
-#~ msgstr "Vihje"
 
 #~ msgid "You lost. The word was \"%1\"."
 #~ msgstr "Sa kaotasid. Sõna oli \"%1\"."

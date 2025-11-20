@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:38+0000\n"
+"POT-Creation-Date: 2025-11-20 02:31+0000\n"
 "PO-Revision-Date: 2024-06-18 19:54+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -487,108 +487,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: qml/GamePage.qml:126
+#: qml/GamePage.qml:128
 #, kde-format
 msgid "Choose the word category"
 msgstr "Välj ordkategorin"
 
-#: qml/GamePage.qml:161
+#: qml/GamePage.qml:163
 #, kde-format
 msgid "Select a language"
 msgstr "Välj ett språk"
 
-#: qml/GamePage.qml:184
+#: qml/GamePage.qml:186
 #, kde-format
 msgid "Select a theme"
 msgstr "Välj ett tema"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
 msgstr "Paus"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
 msgstr "Spela"
 
-#: qml/GamePage.qml:270
+#: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "Anpassa"
 
-#: qml/GamePage.qml:284
+#: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
 msgstr "Anpassa"
 
-#: qml/GamePage.qml:312
+#: qml/GamePage.qml:314
 #, kde-format
 msgid "Get new language files"
 msgstr "Hämta nya språkfiler"
 
-#: qml/GamePage.qml:325
+#: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Visa Handbok Hänga Gubben"
 
-#: qml/GamePage.qml:336 qml/GamePage.qml:342
+#: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, kde-format
 msgid "About KHangMan"
 msgstr "Om Hänga gubben"
 
-#: qml/GamePage.qml:349 qml/GamePage.qml:356
+#: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
 
-#: qml/GamePage.qml:377
+#: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Gissningar kvar: "
 
-#: qml/GamePage.qml:402
+#: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
 msgstr "Poäng: "
 
-#: qml/GamePage.qml:436
+#: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
 msgstr "Vinster: "
 
-#: qml/GamePage.qml:464
+#: qml/GamePage.qml:466
 #, kde-format
 msgid "Losses: "
 msgstr "Förluster: "
 
-#: qml/GamePage.qml:603
+#: qml/GamePage.qml:605
+#, kde-format
+msgid "Hint"
+msgstr "Tips"
+
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "Visa tipset."
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "Ändra kategorin."
 
-#: qml/GamePage.qml:631
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "Ändra språk."
 
-#: qml/GamePage.qml:643
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "Avslöja ord"
 
-#: qml/GamePage.qml:644
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Avslöja aktuellt ord"
 
-#: qml/GamePage.qml:670
+#: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Läs in nästa ord och starta ett nytt spel."
@@ -866,9 +871,6 @@ msgstr "Avbryt"
 
 #~ msgid "&Play again"
 #~ msgstr "S&pela igen"
-
-#~ msgid "Hint"
-#~ msgstr "Tips"
 
 #~ msgid "You lost. The word was \"%1\"."
 #~ msgstr "Du förlorade. Ordet är \"%1\"."
