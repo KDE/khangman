@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2025-11-20 00:38+0000\n"
 "PO-Revision-Date: 2007-12-31 14:27+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -499,116 +499,121 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "submanesh@gmail.com, shyamkrishna_bal@yahoo.com"
 
-#: qml/GamePage.qml:126
+#: qml/GamePage.qml:128
 #, fuzzy, kde-format
 #| msgid "Choose the category"
 msgid "Choose the word category"
 msgstr "कोटि रोज्नुहोस्"
 
-#: qml/GamePage.qml:161
+#: qml/GamePage.qml:163
 #, fuzzy, kde-format
 #| msgid "Choose the language"
 msgid "Select a language"
 msgstr "भाषा रोज्नुहोस्"
 
-#: qml/GamePage.qml:184
+#: qml/GamePage.qml:186
 #, fuzzy, kde-format
 #| msgid "Sea Theme"
 msgid "Select a theme"
 msgstr "सामुद्रिक विषयवस्तु"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
 msgstr ""
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
 msgstr ""
 
-#: qml/GamePage.qml:270
+#: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:284
+#: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:312
+#: qml/GamePage.qml:314
 #, fuzzy, kde-format
 #| msgid "Choose the language"
 msgid "Get new language files"
 msgstr "भाषा रोज्नुहोस्"
 
-#: qml/GamePage.qml:325
+#: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr ""
 
-#: qml/GamePage.qml:336 qml/GamePage.qml:342
+#: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, fuzzy, kde-format
 #| msgid "KHangMan"
 msgid "About KHangMan"
 msgstr "केडीई ह्याङ्म्यान"
 
-#: qml/GamePage.qml:349 qml/GamePage.qml:356
+#: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
 msgstr ""
 
-#: qml/GamePage.qml:377
+#: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
 msgstr ""
 
-#: qml/GamePage.qml:402
+#: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
 msgstr ""
 
-#: qml/GamePage.qml:436
+#: qml/GamePage.qml:438
 #, fuzzy, kde-format
 #| msgid "Wins: %1"
 msgid "Wins: "
 msgstr "जित्छ: %1"
 
-#: qml/GamePage.qml:464
+#: qml/GamePage.qml:466
 #, fuzzy, kde-format
 #| msgid "Losses: %1"
 msgid "Losses: "
 msgstr "हार्छ: %1"
 
-#: qml/GamePage.qml:603
+#: qml/GamePage.qml:605
+#, kde-format
+msgid "Hint"
+msgstr "सङ्केत"
+
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr ""
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:621
 #, fuzzy, kde-format
 #| msgid "Choose the category"
 msgid "Change the category."
 msgstr "कोटि रोज्नुहोस्"
 
-#: qml/GamePage.qml:631
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr ""
 
-#: qml/GamePage.qml:643
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr ""
 
-#: qml/GamePage.qml:644
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr ""
 
-#: qml/GamePage.qml:670
+#: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr ""
@@ -851,9 +856,6 @@ msgstr ""
 
 #~ msgid "&Play again"
 #~ msgstr "फेरि खेल्नुहोस्"
-
-#~ msgid "Hint"
-#~ msgstr "सङ्केत"
 
 #~ msgid "You lost. The word was \"%1\"."
 #~ msgstr "तपाईँ पराजित हुनुभयो । शब्द \"%1\" थियो ।"

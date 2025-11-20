@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2025-11-20 00:38+0000\n"
 "PO-Revision-Date: 2025-10-30 10:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -492,108 +492,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tariq.alwarhi@gmail.com,safa1996alfulaij@gmail.com"
 
-#: qml/GamePage.qml:126
+#: qml/GamePage.qml:128
 #, kde-format
 msgid "Choose the word category"
 msgstr "اختر فئة الكلمات"
 
-#: qml/GamePage.qml:161
+#: qml/GamePage.qml:163
 #, kde-format
 msgid "Select a language"
 msgstr "حدّد لغة"
 
-#: qml/GamePage.qml:184
+#: qml/GamePage.qml:186
 #, kde-format
 msgid "Select a theme"
 msgstr "اختر سمة"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
 msgstr "ألبث"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
 msgstr "شغّل"
 
-#: qml/GamePage.qml:270
+#: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "اضبط"
 
-#: qml/GamePage.qml:284
+#: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
 msgstr "اضبط"
 
-#: qml/GamePage.qml:312
+#: qml/GamePage.qml:314
 #, kde-format
 msgid "Get new language files"
 msgstr "احصل على ملفّات لغات جديدة"
 
-#: qml/GamePage.qml:325
+#: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "اعرض كتيّب رجل المشنوق ك."
 
-#: qml/GamePage.qml:336 qml/GamePage.qml:342
+#: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, kde-format
 msgid "About KHangMan"
 msgstr "حول رجل المشنوق ك."
 
-#: qml/GamePage.qml:349 qml/GamePage.qml:356
+#: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
 msgstr "حول كِيدِي."
 
-#: qml/GamePage.qml:377
+#: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "التخمينات المتبقية: "
 
-#: qml/GamePage.qml:402
+#: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
 msgstr "النتيجة: "
 
-#: qml/GamePage.qml:436
+#: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
 msgstr "الفوز:"
 
-#: qml/GamePage.qml:464
+#: qml/GamePage.qml:466
 #, kde-format
 msgid "Losses: "
 msgstr "الإخفاق:"
 
-#: qml/GamePage.qml:603
+#: qml/GamePage.qml:605
+#, kde-format
+msgid "Hint"
+msgstr "التلميح"
+
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "اعرض التّلميحة."
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "غيّر الفئة."
 
-#: qml/GamePage.qml:631
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "غيّر اللغة."
 
-#: qml/GamePage.qml:643
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "اكشف الكلمة"
 
-#: qml/GamePage.qml:644
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "اكشف الكلمة الحالية"
 
-#: qml/GamePage.qml:670
+#: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "حمّل الكلمة التّالية وابدأ لعبة جديدة."
@@ -859,9 +864,6 @@ msgstr "ألغِ"
 
 #~ msgid "&Play again"
 #~ msgstr "ألعب مرة أخرى"
-
-#~ msgid "Hint"
-#~ msgstr "التلميح"
 
 #~ msgid "You lost. The word was \"%1\"."
 #~ msgstr "خسرت! الكملة كانت \"%1\"."

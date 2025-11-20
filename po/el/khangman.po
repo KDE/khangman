@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2025-11-20 00:38+0000\n"
 "PO-Revision-Date: 2020-05-08 10:33+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -499,109 +499,114 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "manolis@koppermind.homelinux.org,sng@hellug.gr"
 
-#: qml/GamePage.qml:126
+#: qml/GamePage.qml:128
 #, kde-format
 msgid "Choose the word category"
 msgstr "Επιλέξτε την κατηγορία της λέξης"
 
-#: qml/GamePage.qml:161
+#: qml/GamePage.qml:163
 #, kde-format
 msgid "Select a language"
 msgstr "Επιλέξτε γλώσσα"
 
-#: qml/GamePage.qml:184
+#: qml/GamePage.qml:186
 #, kde-format
 msgid "Select a theme"
 msgstr "ΕΠιλέξτε θέμα"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
 msgstr "Παύση"
 
-#: qml/GamePage.qml:239
+#: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
 msgstr "Παίξε"
 
-#: qml/GamePage.qml:270
+#: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:284
+#: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: qml/GamePage.qml:312
+#: qml/GamePage.qml:314
 #, fuzzy, kde-format
 #| msgid "Download new language files"
 msgid "Get new language files"
 msgstr "Λήψη νέων γλωσσικών αρχείων"
 
-#: qml/GamePage.qml:325
+#: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
 msgstr "Προβολή του εγχειριδίου του KHangMan"
 
-#: qml/GamePage.qml:336 qml/GamePage.qml:342
+#: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, kde-format
 msgid "About KHangMan"
 msgstr "Σχετικά με το KHangMan"
 
-#: qml/GamePage.qml:349 qml/GamePage.qml:356
+#: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
 msgstr "Σχετικά με το KDE"
 
-#: qml/GamePage.qml:377
+#: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
 msgstr "Υπόλοιπες εκτιμήσεις: "
 
-#: qml/GamePage.qml:402
+#: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
 msgstr "Σκορ: "
 
-#: qml/GamePage.qml:436
+#: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
 msgstr "Νίκες: "
 
-#: qml/GamePage.qml:464
+#: qml/GamePage.qml:466
 #, kde-format
 msgid "Losses: "
 msgstr "Ήττες: "
 
-#: qml/GamePage.qml:603
+#: qml/GamePage.qml:605
+#, kde-format
+msgid "Hint"
+msgstr "Υπόδειξη"
+
+#: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
 msgstr "Εμφάνιση υπόδειξης."
 
-#: qml/GamePage.qml:618
+#: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
 msgstr "Αλλαγή της κατηγορίας."
 
-#: qml/GamePage.qml:631
+#: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
 msgstr "Αλλαγή της γλώσσας."
 
-#: qml/GamePage.qml:643
+#: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
 msgstr "Αποκάλυψη λέξης"
 
-#: qml/GamePage.qml:644
+#: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
 msgstr "Αποκάλυψη της τρέχουσας λέξης."
 
-#: qml/GamePage.qml:670
+#: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
 msgstr "Φόρτωση της επόμενης λέξης και αρχή νέου παιχνιδιού."
@@ -885,9 +890,6 @@ msgstr "Ακύρωση"
 
 #~ msgid "&Play again"
 #~ msgstr "&Αναπαραγωγή ξανά"
-
-#~ msgid "Hint"
-#~ msgstr "Υπόδειξη"
 
 #~ msgid "You lost. The word was \"%1\"."
 #~ msgstr "Χάσατε. Η λέξη ήταν \"%1\"."
