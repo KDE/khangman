@@ -572,7 +572,8 @@ msgid "Losses: "
 msgstr "Falsch: "
 
 #: qml/GamePage.qml:605
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hint"
 msgid "Hint"
 msgstr "Tipp"
 
