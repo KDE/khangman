@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:38+0000\n"
-"PO-Revision-Date: 2025-11-19 12:47+0000\n"
+"PO-Revision-Date: 2025-11-24 16:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -33,7 +33,7 @@ msgstr "Minnispunktaþema"
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr "Sjávaþema"
+msgstr "Sjávarþema"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
@@ -596,7 +596,7 @@ msgstr "Afhjúpa fyrirliggjandi orð."
 #: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "Hlaða inn næsta orði og byrja nýjan leik."
 
 #: qml/Main.qml:55
 #, kde-format
@@ -622,7 +622,7 @@ msgstr "Tími við að leysa orð í sekúndum"
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "Tímalengdin sem birta á ábendinguna fyrir raunverulega orðið"
 
 #: qml/Settings/SettingsPage.qml:81
 #, kde-format
@@ -632,7 +632,7 @@ msgstr "Margföldunarstuðull stigagjafar:"
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "Ákvarðaðu gildið sem stigin verða margfölduð með."
 
 #: qml/Settings/SettingsPage.qml:96
 #, kde-format
