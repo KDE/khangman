@@ -571,7 +571,8 @@ msgid "Losses: "
 msgstr "Înfrângeri: "
 
 #: qml/GamePage.qml:605
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hint"
 msgid "Hint"
 msgstr "Indiciu"
 
