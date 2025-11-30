@@ -56,9 +56,9 @@
 
 
 <date
->25/04/2016</date>
+>22/12/2020</date>
 <releaseinfo
->3.0 (Applications 16.04)</releaseinfo>
+>Applications 20.12</releaseinfo>
 
 <abstract>
 <para
@@ -142,13 +142,15 @@
 ><imageobject
 > <imagedata fileref="help-hint.png" format="PNG"/></imageobject
 ></inlinemediaobject
+> <guiicon
+>Exibir a dica</guiicon
 > da barra de ferramentas, para que possa ser apresentada uma dica que lhe dê alguma pista sobre a palavra. Clicar nesse ícone novamente irá ocultar a dica. </para>
 
 <para
 >As dicas não são apresentadas por padrão. </para>
 
 <para
->Normalmente, não é relevante se você digita letras maiúsculas ou minúsculas. O programa converte tudo para maiúsculo de forma automática. </para>
+>Normalmente, não é relevante se você digita letras maiúsculas ou minúsculas. O programa converte tudo para maiúsculo de forma automática.</para>
 
 <para
 >A categoria atual, assim como as vitórias e derrotas, são mostradas na janela. </para>
@@ -178,6 +180,8 @@ adults.
 ><imageobject
 ><imagedata fileref="quit.png" format="PNG"/></imageobject
 ></inlinemediaobject
+> <guiicon
+>Sair</guiicon
 > na barra de ferramentas superior. </para>
 
 <para
@@ -191,7 +195,7 @@ adults.
 > na barra de ferramentas da parte inferior da janela.  Você também poderá alterar a categoria das palavras clicando na categoria atual.</para>
 
 <para
->A aparência poderá ser alterada facilmente com o botão de tema na barra de ferramentas inferior.</para>
+>A aparência poderá ser alterada facilmente com o botão de tema na barra de ferramentas superior.</para>
 
 <!--Not in kf5?
 <para
@@ -212,7 +216,7 @@ that you will open using the <guimenu
 >Você poderá jogar o &khangman; em diversos idiomas, incluindo: Português do Brasil, Búlgaro, Catalão, Checo, Dinamarquês, Holandês, Inglês (EUA e GB), Finlandês, Francês, Alemão, Húngaro, Irlandês (Gaélico), Italiano, Norueguês(Bokm&#229;l), Norueguês (Nynorsk), Polaco, Português, Espanhol, Sérvio (Latim e Cirílico), Esloveno, Tajique, Sueco, Russo e Turco. Você poderá até tentar o Chinês, se instalar os arquivos do &kanagram;. </para>
 
 <para
->Por padrão, depois da primeira instalação do &khangman;, somente o Inglês e o seu idioma do &kde;, se for uma das mencionadas acima e se você tiver o pacote kde-i18n correspondente, estarão instalados. Por exemplo, se você for um usuário brasileiro e tiver o &kde; em Português do Brasil, no menu Idioma você terá dois itens: Inglês e Português do Brasil, sendo este último a opção padrão. </para>
+>Por padrão, depois da primeira instalação do &khangman;, somente o Inglês e o seu idioma do &kde;, se for uma das mencionadas acima e se você tiver o pacote kde-i18n correspondente, estarão instalados. Por exemplo, se você for um usuário brasileiro e tiver o &kde; em Português do Brasil, no menu Idioma você terá dois itens: Inglês e Português do Brasil, sendo este último a opção padrão.</para>
 
 <para
 >Você ainda poderá jogar o &khangman; em outros idiomas. É muito fácil adicionar novos dados no &khangman;. Tudo o que precisa é de uma conexão com a Internet funcionando. Clique em <inlinemediaobject
@@ -223,14 +227,14 @@ that you will open using the <guimenu
 
 <screenshot>
 <screeninfo
->A janela para Obter Palavras Novas do &khangman;</screeninfo>
+>A janela para baixar novas palavras do &khangman;</screeninfo>
 <mediaobject
 ><imageobject>
 <imagedata fileref="getnewstuff.png" format="PNG"/>
 </imageobject
 ><textobject>
 <phrase
->A janela para Obter Palavras Novas do &khangman;</phrase>
+>A janela para baixar novas palavras do &khangman;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -244,10 +248,10 @@ that you will open using the <guimenu
 >Desinstalar</guibutton
 >. Os dados ficarão imediatamente instalados e disponíveis no &khangman;. Você poderá clicar em <guibutton
 >Fechar</guibutton
-> para sair da janela Obter Palavras Novas (se quiser outro idioma, poderá repetir estes passos). </para>
+> para sair da janela Baixar novas palavras (se quiser outro idioma, poderá repetir estes passos).</para>
 
 <para
->Você poderá então alterar facilmente o idioma clicando no botão de idioma e e escolher uma nova. </para>
+>Você poderá então alterar facilmente o idioma clicando no botão de idioma e e escolher uma nova.</para>
 
 <para
 >Repare que os caracteres especiais de um idioma são apresentados no teclado. Aqui você vê os botões com um ícone de cada caractere especial por idioma, como &eacute; em Português do Brasil, por exemplo. Clicando em um desses botões, você irá selecionar a letra correspondente. Você poderá, obviamente, usar o layout do teclado correspondente ao idioma. </para>
@@ -262,7 +266,7 @@ instead of letters, then you may not have one of these fonts installed. Type
 <command
 >fonts:/</command
 > into the &konqueror; address bar to check which fonts
-you have installed. </para
+you have installed.</para
 ></important
 > -->
 </sect1>
@@ -284,7 +288,7 @@ you have installed. </para
 >a</quote
 > e você deverá procurar por &atilde;, por exemplo, para mostrar esta letra. </para>
 <para
->Sabia que, no Inglês, a letra mais comum é o 'e' (12,7%), seguida do 't' (9,1%), depois com o 'a' (8,2%), o 'i' (7,0%) e o 'n' (6,7%). </para>
+>Sabia que, no Inglês, a letra mais comum é o 'e' (12,7%), seguida do 't' (9,1%), depois com o 'a' (8,2%), o 'i' (7,0%) e o 'n' (6,7%).</para>
 </sect1>
 
 </chapter>
@@ -330,6 +334,8 @@ you have installed. </para
 ><imagedata fileref="pause.png" format="PNG"/></imageobject
 ></inlinemediaobject
 > para iniciar ou parar um jogo. </member>
+<member
+>Um botão para alterar o tema </member>
 <member
 ><inlinemediaobject
 ><imageobject
@@ -377,15 +383,15 @@ you have installed. </para
 ><imageobject
 ><imagedata fileref="help-hint.png" format="PNG"/></imageobject
 ></inlinemediaobject
-> - Apresentar uma dica sobre a palavra a adivinhar </member>
+> Apresentar uma dica sobre a palavra a adivinhar </member>
 <member
 >Um botão para alterar a categoria</member>
 <member
 >Seleção de idioma</member>
 <member
->Seleção de tema</member>
-<member
->Revela a palavra a adivinhar</member>
+>Um botão <guibutton
+>Revelar palavra</guibutton
+> para revelar a palavra a ser adivinhada</member>
 <member
 ><inlinemediaobject
 ><imageobject
@@ -395,7 +401,7 @@ you have installed. </para
 </simplelist>
 
 <para
->Todas as palavras são substantivos. Não existem verbos nem adjetivos. A categoria escolhida é então apresentada na barra de estado.</para>
+>Todas as palavras são substantivos. Não existem verbos nem adjetivos. A categoria escolhida é então apresentada na barra de ferramentas inferior.</para>
 <para
 >Só é permitido digitar letras na caixa de texto.</para>
 </sect1>
@@ -598,12 +604,12 @@ The duration for showing the hint for the actual word
 <title
 >O que é gravado pelo &khangman; e onde</title>
 <para
->Quando você obter um novo idioma através da opção <menuchoice
-><guimenu
->Jogo</guimenu
-><guimenuitem
->Obter palavras em um novo idioma...</guimenuitem
-></menuchoice
+>Quando você obter um novo idioma através da opção <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>Baixar novos arquivos de idioma</guiicon
 >, os dados dele são gravados em <filename class="directory"
 > $XDG_DATA_HOME/share/apps/kvtml</filename
 >, na pasta com o código do idioma. Os nomes das pastas de idiomas são também gravados no arquivo de configuração do &khangman; em <filename
@@ -621,7 +627,7 @@ The duration for showing the hint for the actual word
 >No arquivo de configuração, por cada usuário no seu arquivo <filename
 >$XDG_DATA_HOME/share/config/khangmanrc</filename
 >, são salvas todas as configurações do jogo como o fundo, o último nível jogado, ... além dos arquivos que foram transferidos a partir da janela para <guilabel
->Obter novidades!</guilabel
+>Baixar novidades!</guilabel
 >. </para>
 </sect1>
 </chapter>
