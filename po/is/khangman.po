@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:38+0000\n"
-"PO-Revision-Date: 2025-11-24 16:54+0000\n"
+"PO-Revision-Date: 2025-12-01 05:56+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -143,6 +143,10 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
+"Ef þetta er valið verða ábendingar alltaf birtar. Ef þetta er ekki merkt "
+"(sjálfgefið)\n"
+"            munu ábendingar fyrir orð aðeins verða birtar þegar notandinn "
+"velur að láta þær birtast."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -151,6 +155,8 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
+"Þessi stilling gerir þér kleift að tiltaka hve langur tími sé í boði til að "
+"leysa orðið."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
@@ -162,7 +168,7 @@ msgstr "Skrifa broddstafi aðskilið frá venjulegum stöfum"
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr ""
+msgstr "Upprunaslóð fyrir KHangMan"
 
 #: main.cpp:36
 #, kde-format
