@@ -579,7 +579,7 @@ msgstr "Prohry: "
 #: qml/GamePage.qml:605
 #, kde-format
 msgid "Hint"
-msgstr ""
+msgstr "Rada"
 
 #: qml/GamePage.qml:606
 #, kde-format
