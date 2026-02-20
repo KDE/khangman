@@ -19,10 +19,9 @@ msgstr ""
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Notes Theme"
-msgstr "Téama Farraige"
+msgstr ""
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
@@ -104,10 +103,9 @@ msgstr "An teanga roghnaithe ag an úsáideoir"
 
 #. i18n: ectx: label, entry (Theme), group (Look)
 #: khangman.kcfg:33
-#, fuzzy, kde-format
-#| msgid "Background theme"
+#, kde-format
 msgid "Background theme name"
-msgstr "Téama an chúlra"
+msgstr ""
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
@@ -134,22 +132,13 @@ msgstr ""
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "If checked, hints will always been displayed. If this is not checked "
-#| "(default) \n"
-#| "            hints will be displayed only per word when the user chooses "
-#| "to show the hint."
+#, kde-format
 msgid ""
 "If checked, hints will always been displayed. If this is not checked "
 "(default)\n"
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Má tá tic sa bhosca seo, taispeántar leideanna i gcónaí. Mura bhfuil tic "
-"anseo (réamhshocrú)\n"
-"            taispeántar leideanna nuair a roghnaíonn an t-úsáideoir iad a "
-"thaispeáint amháin."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -179,10 +168,9 @@ msgid "KHangMan"
 msgstr "KHangMan"
 
 #: main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Classical hangman game for KDE"
+#, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "Cluiche clasaiceach \"An Crochadóir\" le haghaidh KDE"
+msgstr ""
 
 #: main.cpp:40
 #, kde-format
@@ -499,22 +487,19 @@ msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: qml/GamePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Choose the word category"
-msgstr "Roghnaigh an chatagóir"
+msgstr ""
 
 #: qml/GamePage.qml:163
-#, fuzzy, kde-format
-#| msgid "Choose the language"
+#, kde-format
 msgid "Select a language"
-msgstr "Roghnaigh an teanga"
+msgstr ""
 
 #: qml/GamePage.qml:186
-#, fuzzy, kde-format
-#| msgid "Sea Theme"
+#, kde-format
 msgid "Select a theme"
-msgstr "Téama Farraige"
+msgstr ""
 
 #: qml/GamePage.qml:241
 #, kde-format
@@ -538,10 +523,9 @@ msgid "Configure"
 msgstr ""
 
 #: qml/GamePage.qml:314
-#, fuzzy, kde-format
-#| msgid "Choose the language"
+#, kde-format
 msgid "Get new language files"
-msgstr "Roghnaigh an teanga"
+msgstr ""
 
 #: qml/GamePage.qml:327
 #, kde-format
@@ -549,10 +533,9 @@ msgid "View the KHangMan Handbook"
 msgstr ""
 
 #: qml/GamePage.qml:338 qml/GamePage.qml:344
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "About KHangMan"
-msgstr "KHangMan"
+msgstr ""
 
 #: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
@@ -570,16 +553,14 @@ msgid "Score: "
 msgstr ""
 
 #: qml/GamePage.qml:438
-#, fuzzy, kde-format
-#| msgid "Wins: %1"
+#, kde-format
 msgid "Wins: "
-msgstr "Cluichí buaite: %1"
+msgstr ""
 
 #: qml/GamePage.qml:466
-#, fuzzy, kde-format
-#| msgid "Losses: %1"
+#, kde-format
 msgid "Losses: "
-msgstr "Cluichí caillte: %1"
+msgstr ""
 
 #: qml/GamePage.qml:605
 #, kde-format
@@ -592,10 +573,9 @@ msgid "Display the hint."
 msgstr ""
 
 #: qml/GamePage.qml:621
-#, fuzzy, kde-format
-#| msgid "Choose the category"
+#, kde-format
 msgid "Change the category."
-msgstr "Roghnaigh an chatagóir"
+msgstr ""
 
 #: qml/GamePage.qml:634
 #, kde-format
@@ -618,10 +598,9 @@ msgid "Load the next word and start a new game."
 msgstr ""
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Earráid"
+msgstr ""
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
@@ -630,10 +609,9 @@ msgid "Close"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
@@ -646,10 +624,9 @@ msgid "The duration for showing the hint for the actual word"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "KHangMan"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
@@ -657,11 +634,10 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Cumasaigh fuaimeanna"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
@@ -674,362 +650,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Choose the category"
-#~ msgid "Change the theme."
-#~ msgstr "Roghnaigh an chatagóir"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgid "Settings"
-#~ msgstr "&Socruithe"
-
-#~ msgid "Sounds"
-#~ msgstr "Fuaimeanna"
-
-#, fuzzy
-#~| msgid "Misses"
-#~ msgid "Misses- "
-#~ msgstr "Iomraill"
-
-#~ msgid "Show the characters toolbar"
-#~ msgstr "Taispeáin an barra uirlisí carachtar"
-
-#~ msgid ""
-#~ "This setting allows you to set in seconds how long KHangMan's hint bubble "
-#~ "is shown."
-#~ msgstr ""
-#~ "Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-#~ "KHangMan."
-
-#~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
-#~ msgstr "Tréimhse a dtaispeántar an leid uirlisí \"Úsáidte Cheana\"."
-
-#~ msgid "Spanish, Portuguese, Catalan"
-#~ msgstr "Spáinnis, Portaingéilis, Catalóinis"
-
-#~ msgid "Type accented &letters"
-#~ msgstr "Clóscríobh &síntí fada"
-
-#~ msgid ""
-#~ "If this is checked, you have to type accented letters yourself (i.e. they "
-#~ "are differentiated from the corresponding unaccented letter)."
-#~ msgstr ""
-#~ "Leis an rogha seo, caithfidh tú litreacha le síntí fada a chlóscríobh (."
-#~ "i. idirdhealaítear litir le síneadh fada ón litir chéanna gan síneadh "
-#~ "fada)."
-
-#~ msgid ""
-#~ "If this is <b>disabled</b>, the selected language does not support it. If "
-#~ "this is <b>enabled</b> and if you check it, then you should type accented "
-#~ "letters on their own. If it is not checked, accented letters will be "
-#~ "displayed with normal letters (default).<br>\n"
-#~ "For example, in Catalan, if this is unchecked and you type \"o\", the o "
-#~ "and ò will be displayed in the word <b>xenofòbia</b>. If this option is "
-#~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
-#~ "have to type \"ò\" for this letter to be displayed."
-#~ msgstr ""
-#~ "Má tá an rogha seo <b>díchumasaithe</b>, ní thacaíonn an teanga "
-#~ "roghnaithe leis. Má tá sé <b>cumasaithe</b> agus má roghnaíonn tú é, ba "
-#~ "chóir duit síntí fada a chlóscríobh iad féin.  Mura roghnaíonn tú é, "
-#~ "taispeánfar litreacha le síntí fada mar ghnáthlitreacha (réamhshocrú)."
-#~ "<br>\n"
-#~ "Mar shampla, as Gaeilge, mura bhfuil tic sa bhosca seo agus clóscríobhann "
-#~ "tú \"o\", taispeánfar an \"o\" agus an \"ó\" san fhocal <b>coróin</b>. Má "
-#~ "tá tic sa bhosca seo, ní thaispeánfar ach an \"o\" nuair a chlóscríobhann "
-#~ "tú \"o\", agus beidh ort \"ó\" a iontráil chun an litir sin a thaispeáint "
-#~ "freisin."
-
-#~ msgid "German"
-#~ msgstr "Gearmáinis"
-
-#~ msgid "Play in upper case letters"
-#~ msgstr "Imir le litreacha cás uachtair"
-
-#~ msgid "If checked, the word will be displayed all in upper case letters"
-#~ msgstr "Cuir tic sa bhosca seo chun focail a thaispeáint sa chás uachtair"
-
-#~ msgid ""
-#~ "If this is checked, the word will be displayed in upper case letters, "
-#~ "even if you enter them in lower case. If this is unchecked (default), the "
-#~ "word will be in lower case.<br>\n"
-#~ "This setting is currently only available for the German language."
-#~ msgstr ""
-#~ "Má tá tic sa bhosca seo, taispeánfar an focal i litreacha cás uachtair, "
-#~ "fiú má chlóscríobhann tú iad sa chás íochtair. Mura bhfuil tic sa bhosca "
-#~ "seo (réamhshocrú), taispeánfar an focal sa chás íochtair.<br>\n"
-#~ "Níl an rogha seo ar fáil ach don Ghearmáinis faoi láthair."
-
-#~ msgid "Here you can choose settings for all languages."
-#~ msgstr "Anseo is féidir na socruithe a dhéanamh do gach teanga."
-
-#~ msgid ""
-#~ "If you check this box, only the first letter will be written if the "
-#~ "letter is found in several places in the word. Then you have to rechoose "
-#~ "the same letter, to replace the second instance in the word until there "
-#~ "are no more instances of this letter.\n"
-#~ "For example, the word to guess is \"potato\". If this option is "
-#~ "unchecked, when you try \"o\", the two instances of \"o\" in the word "
-#~ "will be discovered at the same time. If this is checked, you will need to "
-#~ "try \"o\" twice.\n"
-#~ "\n"
-#~ "Default is that for one letter typed, all instances of that letter in the "
-#~ "word are discovered."
-#~ msgstr ""
-#~ "Má chuireann tú tic sa bhosca seo, ní scríobhfar ach an chéad litir nuair "
-#~ "atá an litir san fhocal níos mó ná uair amháin. Sa chás sin, caithfidh tú "
-#~ "an litir chéanna a roghnú arís, go dtí nach mbeidh an litir seo fágtha "
-#~ "san fhocal.\n"
-#~ "Mar shampla, más é \"cothrom\" an focal, agus níl tic sa bhosca seo, "
-#~ "taispeánfar an dá \"o\" ag an am céanna nuair a thugann tú \"o\" mar "
-#~ "bhuille faoi thuairim. Má tá tic sa bhosca seo, caithfidh tú \"o\" a "
-#~ "thabhairt faoi dhó.\n"
-#~ "\n"
-#~ "Is é an chéad chás an réamhshocrú."
-
-#~ msgid "Require more guesses for duplicate letters"
-#~ msgstr ""
-#~ "Tuilleadh buillí faoi thuairim de dhíth nuair atá litir ann níos mó ná "
-#~ "uair amháin"
-
-#~ msgid "Enable animations"
-#~ msgstr "Cumasaigh beochan"
-
-#~ msgid "Enable hints globally"
-#~ msgstr "Cumasaigh leideanna comhchoiteanna"
-
-#~ msgid ""
-#~ "If this box is checked, you will have some sounds played for each new "
-#~ "game and when you win a game. If this is not checked, there will be no "
-#~ "sound in KHangMan.\n"
-#~ "Default is no sound."
-#~ msgstr ""
-#~ "Má chuireann tú tic sa bhosca seo, seinnfear fuaim nuair a thosófar "
-#~ "cluiche nua agus nuair a bhuafaidh tú cluiche. Mura bhfuil tic sa bhosca "
-#~ "seo, ní bheidh aon fhuaim i KHangMan.\n"
-#~ "Is é gan fuaim an réamhshocrú."
-
-#~ msgid "Play with a new word"
-#~ msgstr "Imir le focal nua"
-
-#~ msgid "Opens an existing vocabulary document"
-#~ msgstr "Oscail cáipéis stóir fhocal atá ann"
-
-#~ msgid "&Show Hint"
-#~ msgstr "Tabhair &Leid"
-
-#~ msgid "Show/Hide the hint to help guessing the word"
-#~ msgstr ""
-#~ "Taispeáin/Folaigh an leid a chabhraíonn leat an focal a dhéanamh amach"
-
-#~ msgid "&Get Words in New Language..."
-#~ msgstr "Fai&gh Focail i dTeanga Nua..."
-
-#~ msgid "&Category"
-#~ msgstr "&Catagóir"
-
-#~ msgid "Choose the category of words"
-#~ msgstr "Roghnaigh catagóir na bhfocal"
-
-#~ msgid "&Language"
-#~ msgstr "&Teanga"
-
-#~ msgid "L&ook"
-#~ msgstr "C&uma"
-
-#~ msgid "Choose the look and feel"
-#~ msgstr "Roghnaigh cuma"
-
-#~ msgid "General"
-#~ msgstr "Ginearálta"
-
-#~ msgid "Languages"
-#~ msgstr "Teangacha"
-
-#~ msgid "Timers"
-#~ msgstr "Uaineadóirí"
-
-#~ msgid "Type accented letters"
-#~ msgstr "Clóscríobh síntí fada"
-
-#~ msgid "Open Vocabulary Document"
-#~ msgstr "Oscail Cáipéis Stóir Fhocal"
-
-#~ msgid "&Game"
-#~ msgstr "&Cluiche"
-
-#~ msgid "Main"
-#~ msgstr "Príomhchlár"
-
-#~ msgid "Special Characters"
-#~ msgstr "Carachtair Speisialta"
-
-#~ msgid "Look"
-#~ msgstr "Cuma"
-
-#~ msgid "Language"
-#~ msgstr "Teanga"
-
-#~ msgid "G&uess"
-#~ msgstr "B&uille Faoi Thuairim"
-
-#~ msgid "&Play again"
-#~ msgstr "&Imir arís"
-
-#~ msgid "You lost. The word was \"%1\"."
-#~ msgstr "Chaill tú an cluiche. Ba é \"%1\" an focal."
-
-#~ msgid "Congratulations! You won!"
-#~ msgstr "Comhghairdeas! Bhí an bua agat!"
-
-#~ msgid "This letter has already been guessed."
-#~ msgstr "Bhain tú úsáid as an litir seo cheana."
-
-#~ msgid "Here you can choose special settings for some languages."
-#~ msgstr ""
-#~ "Anseo is féidir socruithe speisialta a roghnú do theangacha áirithe."
-
-#~ msgid "Current maintainer, author"
-#~ msgstr "Cothaitheoir reatha, údar"
-
-#~ msgid "1 second"
-#~ msgid_plural "%1 seconds"
-#~ msgstr[0] "1 soicind"
-#~ msgstr[1] "%1 shoicind"
-#~ msgstr[2] "%1 shoicind"
-#~ msgstr[3] "%1 soicind"
-#~ msgstr[4] "%1 soicind"
-
-#~ msgid ""
-#~ "Here you can set the display times for hints and the \"Already Guessed\" "
-#~ "tooltip."
-#~ msgstr ""
-#~ "Anseo is féidir tréimhse taispeána a shocrú le haghaidh leideanna agus an "
-#~ "leid uirlisí \"Úsáidte Cheana\"."
-
-#~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
-#~ msgstr "Tréimhse a dtaispeántar an leid uirlisí <b>Úsáidte Cheana</b>:"
-
-#~ msgid ""
-#~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
-#~ "you tried a letter that was already guessed. Default is 1 second but "
-#~ "younger children might need longer time to be able to understand they are "
-#~ "trying a letter that was already guessed."
-#~ msgstr ""
-#~ "Is féidir an tréimhse a dtaispeántar an leid uirlisí \"Úsáidte Cheana\" a "
-#~ "roghnú tar éis duit litir a úsáid a bhí úsáidte cheana. Is é 1 soicind an "
-#~ "luach réamhshocraithe, ach seans go mbeidh tuilleadh ama de dhíth ar "
-#~ "pháistí óga sular féidir leo tuiscint cad é atá i gceist."
-
-#~ msgid "You can open last opened files"
-#~ msgstr "Tig leat na comhaid a bhí oscailte le déanaí a oscailt"
-
-#~ msgid "Tamas Szanto"
-#~ msgstr "Tamas Szanto"
-
-#~ msgid ""
-#~ "File '%1' not found.\n"
-#~ "Please reinstall '%2'. Going back to English."
-#~ msgstr ""
-#~ "Níor aimsíodh comhad '%1'.\n"
-#~ "Ba chóir duit '%2' a shuiteáil arís. Úsáidfear Béarla anois."
-
-#~ msgid "Local file"
-#~ msgstr "Comhad logánta"
-
-#~ msgid "Theme"
-#~ msgstr "Téama"
-
-#~ msgid "NOTE_TO_THE_TRANSLATORS"
-#~ msgstr "NOTE_TO_THE_TRANSLATORS"
-
-#~ msgid "Renaud Blanchard"
-#~ msgstr "Renaud Blanchard"
-
-#~ msgid "Graphics"
-#~ msgstr "Grafaic"
-
-#~ msgid "Joe Bolin"
-#~ msgstr "Joe Bolin"
-
-#~ msgid "Nature theme background"
-#~ msgstr "Cúlra do théama nádúir"
-
-#~ msgid "Blue theme background, icons"
-#~ msgstr "Cúlra do théama gorm, deilbhíní"
-
-#~ msgid "Danny Allen"
-#~ msgstr "Danny Allen"
-
-#~ msgid "SVG icon"
-#~ msgstr "Deilbhín SVG"
-
-#~ msgid "Congratulations! You won! Do you want to play again?"
-#~ msgstr "Comhghairdeas! Bhí an bua agat! Imir arís?"
-
-#~ msgid "Do Not Play"
-#~ msgstr "Ná hImir Arís"
-
-#~ msgid "You lost. Do you want to play again?"
-#~ msgstr "Chaill tú an cluiche. An bhfuil fonn ort cluiche eile?"
-
-#~ msgid "Do not display the congratulations dialog"
-#~ msgstr "Ná taispeáin an dialóg 'Comhghairdeas!'"
-
-#~ msgid "Do not display the 'Congratulations You won!' dialog"
-#~ msgstr "Ná taispeáin an dialóg 'Comhghairdeas!'"
-
-#~ msgid "&Hide Hint"
-#~ msgstr "Folaig&h Leid"
-
-#~ msgid "When available"
-#~ msgstr "Nuair atá siad ar fáil"
-
-#~ msgid "Show hints"
-#~ msgstr "Tabhair leideanna"
-
-#~ msgid "Hint on right-click"
-#~ msgstr "Leid ar dheaschliceáil"
-
-#~ msgid "Hint available"
-#~ msgstr "Leid le fáil"
-
-#~ msgid "Do not display the 'Congratulations! You won!' dialog"
-#~ msgstr "Ná taispeáin an dialóg 'Comhghairdeas!'"
-
-#~ msgid "Le&vel"
-#~ msgstr "Le&ibhéal"
-
-#~ msgid "advanced"
-#~ msgstr "casta"
-
-#~ msgid "Alt+L"
-#~ msgstr "Alt+S"
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgid "Cyrillic"
-#~ msgstr "Coireallach"
-
-#~ msgid "Latin"
-#~ msgstr "Laidin"
-
-#~ msgid "Animals"
-#~ msgstr "Ainmhithe"
-
-#~ msgid "Easy"
-#~ msgstr "Éasca"
-
-#~ msgid "Medium"
-#~ msgstr "Measartha"
-
-#~ msgid "Hard"
-#~ msgstr "Crua"
-
-#~ msgid "&New"
-#~ msgstr "&Nua"
-
-#~ msgid "Inserts the character %1"
-#~ msgstr "Ionsáigh carachtar %1"
