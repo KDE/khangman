@@ -12,7 +12,6 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KHANGMAN VERSION_HE
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${QT_INCLUDES}
 )
 
 target_sources(khangman_static PRIVATE
