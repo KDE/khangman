@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -86,7 +86,7 @@ msgstr ""
 #: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Nie je načítaný žiadny zoznam slov"
 
 #: khangman.cpp:411
 #, kde-format
@@ -526,16 +526,15 @@ msgstr "Hrať"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Nastaviť"
 
 #: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Nastaviť"
 
 #: qml/GamePage.qml:314
-#, fuzzy, kde-format
-#| msgid "Download new language files"
+#, kde-format
 msgid "Get new language files"
 msgstr "Stiahnuť nové súbory jazyka"
 
@@ -610,16 +609,15 @@ msgid "Load the next word and start a new game."
 msgstr "Načítať ďalšie slovo a spustiť novú hru."
 
 #: qml/Main.qml:55
-#, fuzzy, kde-format
-#| msgid "Error"
+#, kde-format
 msgid "Error: %1"
-msgstr "Chyba"
+msgstr "Chyba: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
@@ -637,8 +635,7 @@ msgid "The duration for showing the hint for the actual word"
 msgstr "Trvanie zobrazenia pomoci pre aktuálne slovo"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Score Multiplying Factor"
+#, kde-format
 msgid "Score Multiplying Factor:"
 msgstr "Činiteľ násobku skóre"
 
@@ -648,8 +645,7 @@ msgid "Determine the factor by which the scores will be multiplied."
 msgstr "Určiť činiteľa, ktorým sa vynásobí skóre."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Enable sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
 msgstr "Povoliť zvuky"
@@ -658,11 +654,10 @@ msgstr "Povoliť zvuky"
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: qml/Settings/SettingsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušiť"
