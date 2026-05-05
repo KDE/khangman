@@ -85,14 +85,14 @@
 
 <screenshot>
 <screeninfo
->Voici une copie d'écran de &khangman; lors du premier lancement. </screeninfo
+>Voici une capture d'écran de &khangman; lors du premier lancement. </screeninfo
 ><mediaobject>
 <imageobject>
 <imagedata fileref="khangman-main.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Copie d'écran de &khangman;</phrase>
+>Capture d'écran de &khangman;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
