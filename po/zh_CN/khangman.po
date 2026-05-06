@@ -565,7 +565,7 @@ msgstr "失败次数： "
 #: qml/GamePage.qml:605
 #, kde-format
 msgid "Hint"
-msgstr ""
+msgstr "提示"
 
 #: qml/GamePage.qml:606
 #, kde-format
