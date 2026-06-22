@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: khangman 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:38+0000\n"
-"PO-Revision-Date: 2007-01-21 01:24+0100\n"
-"Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
+"PO-Revision-Date: 2026-06-21 23:38+0200\n"
+"Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,40 +14,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: TransDict server\n"
+"X-Generator: Poedit 3.9\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notes Theme"
-msgstr "Tema &More"
+msgstr "Tema bilješki"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sea Theme"
-msgstr "Tema &More"
+msgstr "Morska tema"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Winter Theme"
-msgstr "Tema &More"
+msgstr "Zimska tema"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bee Theme"
-msgstr "Tema &More"
+msgstr "Tema pčela"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
-#, fuzzy, kde-format
+#, kde-format
 msgid "Desert Theme"
-msgstr "Tema &Pustinja"
+msgstr "Pustinjska tema"
 
 #: data.i18n:2
 #, kde-format
@@ -64,73 +64,69 @@ msgstr ""
 #: khangman.cpp:72
 #, kde-format
 msgid "No theme files found."
-msgstr ""
+msgstr "Nema pronađenih datoteka tema."
 
 #: khangman.cpp:130
-#, fuzzy, kde-format
-#| msgid ""
-#| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
-#| "Check your installation, please!"
+#, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
-"Datoteka $KDEDIR/share/apps/khangman/data/%1/%2 nije pronađena!\n"
-"Provjerite vašu instalaciju!"
+"Datoteka $KDEDIR/share/apps/khangman/data/%1/%2 nije pronađena.\n"
+"Provjerite vašu instalaciju."
 
 #: khangman.cpp:144
 #, kde-format
 msgid "No word list loaded"
-msgstr ""
+msgstr "Nema učitanog popisa riječi"
 
 #: khangman.cpp:411
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
-msgstr ""
+msgstr "Ništa"
 
 #: khangman.cpp:433
 #, kde-format
 msgid "No kvtml files found."
-msgstr ""
+msgstr "Nema pronađenih kvtml datoteka."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level"
-msgstr "&Razina"
+msgstr "Razina"
 
 #. i18n: ectx: label, entry (SelectedLanguage), group (Language)
 #: khangman.kcfg:17
 #, kde-format
 msgid "The language selected by the user"
-msgstr ""
+msgstr "Jezik koji je korisnik odabrao"
 
 #. i18n: ectx: label, entry (Theme), group (Look)
 #: khangman.kcfg:33
 #, kde-format
 msgid "Background theme name"
-msgstr ""
+msgstr "Naziv pozadinske teme"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
-msgstr ""
-"Označite ovu opciju ako ne želite prikazivanje svake pojave istog slova"
+msgstr "Provjerite ovo ako ne želite otkriti svaki primjerak istog pisma."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enable Animations"
-msgstr "Omogući &zvukove"
+msgstr "Omogući animacije"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
-msgstr ""
+msgstr "Ako se označi, zvukovi će se puštati za Novu igru i Pobjedu u igri"
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
@@ -141,6 +137,10 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
+"Ako je označeno, savjeti će se uvijek prikazivati. Ako ovo nije označeno "
+"(zadano)\n"
+"            Savjeti će se prikazivati samo po riječi kada korisnik odluči "
+"prikazati nagovještaj."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -149,18 +149,20 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
+"Ova postavka omogućuje da u sekundama odredite koliko je vremena dostupno za "
+"rješavanje riječi."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr ""
+msgstr "Tipkajte naglašena slova odvojeno od običnih slova"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr ""
+msgstr "Put pružatelja usluga za KHangMan"
 
 #: main.cpp:36
 #, kde-format
@@ -168,20 +170,19 @@ msgid "KHangMan"
 msgstr "KVješala"
 
 #: main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Classical hangman game for KDE"
+#, kde-format
 msgid "Classical hangman game by KDE"
-msgstr "Klasična igra vješala za KDE"
+msgstr "KDE klasična igra vješala"
 
 #: main.cpp:40
 #, kde-format
 msgid "(c) 2001-2011, Anne-Marie Mahfouf"
-msgstr ""
+msgstr "(c) 2001.-2011., Anne-Marie Mahfouf"
 
 #: main.cpp:43
 #, kde-format
 msgid "Primoz Anzur"
-msgstr ""
+msgstr "Primoz Anzur"
 
 #: main.cpp:43
 #, kde-format
@@ -191,27 +192,27 @@ msgstr "Prethodni održavatelj"
 #: main.cpp:48
 #, kde-format
 msgid "Anne-Marie Mahfouf"
-msgstr ""
+msgstr "Anne-Marie Mahfouf"
 
 #: main.cpp:48
 #, kde-format
 msgid "Original Author"
-msgstr ""
+msgstr "Izvorni autor"
 
 #: main.cpp:50
 #, kde-format
 msgid "Rahul Chowdhury"
-msgstr ""
+msgstr "Rahul Chowdhury"
 
 #: main.cpp:50
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Razvojni programer"
 
 #: main.cpp:52
 #, kde-format
 msgid "Stefan Böhmann"
-msgstr ""
+msgstr "Stefan Böhmann"
 
 #: main.cpp:53 main.cpp:98 main.cpp:100 main.cpp:102
 #, kde-format
@@ -221,7 +222,7 @@ msgstr "Pomoć pri kodiranju"
 #: main.cpp:54
 #, kde-format
 msgid "Stefan Asserhäll"
-msgstr ""
+msgstr "Stefan Asserhäll"
 
 #: main.cpp:55
 #, kde-format
@@ -233,7 +234,7 @@ msgstr ""
 #: main.cpp:57
 #, kde-format
 msgid "eXParTaKus"
-msgstr ""
+msgstr "eXParTaKus"
 
 #: main.cpp:58
 #, kde-format
@@ -243,7 +244,7 @@ msgstr "Datoteke s podacima na španjolskom"
 #: main.cpp:59
 #, kde-format
 msgid "Erik Kjær Pedersenn"
-msgstr ""
+msgstr "Erik Kjær Pedersenn"
 
 #: main.cpp:60
 #, kde-format
@@ -253,7 +254,7 @@ msgstr "Datoteke s podacima na danskom"
 #: main.cpp:61
 #, kde-format
 msgid "Niko Lewman"
-msgstr ""
+msgstr "Niko Lewman"
 
 #: main.cpp:62
 #, kde-format
@@ -263,7 +264,7 @@ msgstr "Datoteke s podacima na finskom"
 #: main.cpp:63
 #, kde-format
 msgid "João Sebastião de Oliveira Bueno"
-msgstr ""
+msgstr "João Sebastião de Oliveira Bueno"
 
 #: main.cpp:64
 #, kde-format
@@ -273,7 +274,7 @@ msgstr "Datoteke s podacima na brazilskom portugalskom"
 #: main.cpp:65
 #, kde-format
 msgid "Antoni Bella"
-msgstr ""
+msgstr "Antoni Bella"
 
 #: main.cpp:66
 #, kde-format
@@ -283,7 +284,7 @@ msgstr "Datoteke s podacima na katalonskom"
 #: main.cpp:67
 #, kde-format
 msgid "Giovanni Venturi"
-msgstr ""
+msgstr "Giovanni Venturi"
 
 #: main.cpp:68
 #, kde-format
@@ -293,7 +294,7 @@ msgstr "Datoteke s podacima na talijanskom"
 #: main.cpp:69
 #, kde-format
 msgid "Rinse"
-msgstr ""
+msgstr "Rinse"
 
 #: main.cpp:70
 #, kde-format
@@ -303,7 +304,7 @@ msgstr "Datoteke s podacima na nizozemskom"
 #: main.cpp:71
 #, kde-format
 msgid "Lukáš Tinkl"
-msgstr ""
+msgstr "Lukáš Tinkl"
 
 #: main.cpp:72
 #, kde-format
@@ -313,7 +314,7 @@ msgstr "Datoteke s podacima na češkom"
 #: main.cpp:73
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "Kristóf Kiszel"
 
 #: main.cpp:74
 #, kde-format
@@ -323,7 +324,7 @@ msgstr "Datoteke s podacima na mađarskom"
 #: main.cpp:75
 #, kde-format
 msgid "Torger Åge Sinnes"
-msgstr ""
+msgstr "Torger Åge Sinnes"
 
 #: main.cpp:76
 #, kde-format
@@ -333,7 +334,7 @@ msgstr "Datoteke s podacima na norveškom (bokmål)"
 #: main.cpp:77
 #, kde-format
 msgid "Roger Kovacs"
-msgstr ""
+msgstr "Roger Kovacs"
 
 #: main.cpp:78
 #, kde-format
@@ -343,7 +344,7 @@ msgstr "Datoteke s podacima na tadžiku"
 #: main.cpp:79
 #, kde-format
 msgid "Chusslove Illich"
-msgstr ""
+msgstr "Chusslove Illich"
 
 #: main.cpp:80
 #, kde-format
@@ -353,7 +354,7 @@ msgstr "Datoteke s podacima na srpskom (ćirilica i latinica)"
 #: main.cpp:81
 #, kde-format
 msgid "Jure Repinc"
-msgstr ""
+msgstr "Jure Repinc"
 
 #: main.cpp:82
 #, kde-format
@@ -363,7 +364,7 @@ msgstr "Datoteke s podacima na slovenskom"
 #: main.cpp:83
 #, kde-format
 msgid "Pedro Morais"
-msgstr ""
+msgstr "Pedro Morais"
 
 #: main.cpp:84
 #, kde-format
@@ -373,7 +374,7 @@ msgstr "Datoteke s podacima na portugalskom"
 #: main.cpp:85
 #, kde-format
 msgid "Gaute Hvoslef Kvalnes"
-msgstr ""
+msgstr "Gaute Hvoslef Kvalnes"
 
 #: main.cpp:86
 #, kde-format
@@ -383,7 +384,7 @@ msgstr "Datoteke s podacima na norveškom (nynorsk)"
 #: main.cpp:87
 #, kde-format
 msgid "Mehmet Özel"
-msgstr ""
+msgstr "Mehmet Özel"
 
 #: main.cpp:88
 #, kde-format
@@ -393,7 +394,7 @@ msgstr "Datoteke s podacima na turskom"
 #: main.cpp:89
 #, kde-format
 msgid "Черепанов Андрей"
-msgstr ""
+msgstr "Черепанов Андрей"
 
 #: main.cpp:90
 #, kde-format
@@ -403,7 +404,7 @@ msgstr "Datoteke s podacima na ruskom"
 #: main.cpp:91
 #, kde-format
 msgid "Radostin Radnev"
-msgstr ""
+msgstr "Radostin Radnev"
 
 #: main.cpp:92
 #, kde-format
@@ -413,7 +414,7 @@ msgstr "Datoteke s podacima na bugarskom"
 #: main.cpp:93
 #, kde-format
 msgid "Kevin Patrick Scannell"
-msgstr ""
+msgstr "Kevin Patrick Scannell"
 
 #: main.cpp:94
 #, kde-format
@@ -423,7 +424,7 @@ msgstr "Datoteke s podacima na irskom (galski)"
 #: main.cpp:95
 #, kde-format
 msgid "Matt Howe"
-msgstr ""
+msgstr "Matt Howe"
 
 #: main.cpp:96
 #, kde-format
@@ -433,22 +434,22 @@ msgstr "Mekše slike vješala"
 #: main.cpp:97
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr ""
+msgstr "Benjamin Meyer"
 
 #: main.cpp:99
 #, kde-format
 msgid "Robert Gogolok"
-msgstr ""
+msgstr "Robert Gogolok"
 
 #: main.cpp:101
 #, kde-format
 msgid "Lubos Lunàk"
-msgstr ""
+msgstr "Lubos Lunàk"
 
 #: main.cpp:103
 #, kde-format
 msgid "Albert Astals Cid"
-msgstr ""
+msgstr "Albert Astals Cid"
 
 #: main.cpp:104
 #, kde-format
@@ -458,7 +459,7 @@ msgstr "Pomoć u kodiranju, dotjerivanje mnogih detalja"
 #: main.cpp:105
 #, kde-format
 msgid "Peter Hedlund"
-msgstr ""
+msgstr "Peter Hedlund"
 
 #: main.cpp:106
 #, kde-format
@@ -468,7 +469,7 @@ msgstr "Kod za generiranje ikona alatne trake znakova"
 #: main.cpp:107
 #, kde-format
 msgid "Inge Wallin"
-msgstr ""
+msgstr "Inge Wallin"
 
 #: main.cpp:108
 #, kde-format
@@ -479,94 +480,89 @@ msgstr "Čišćenje i uklanjanje nedostataka iz kôda"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Renato Pavičić"
+msgstr "Igor Dobrača, Renato Pavičić"
 
 #: main.cpp:109
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "renato@translator-shop.org"
+msgstr "igor.dobraca@gmail.com, renato@translator-shop.org"
 
 #: qml/GamePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Choose the level"
+#, kde-format
 msgid "Choose the word category"
-msgstr "Odaberite razinu"
+msgstr "Odaberite kategoriju riječi"
 
 #: qml/GamePage.qml:163
-#, fuzzy, kde-format
-#| msgid "Choose the look and feel"
+#, kde-format
 msgid "Select a language"
-msgstr "Odaberite izgled i osećaj"
+msgstr "Odabir jezika"
 
 #: qml/GamePage.qml:186
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select a theme"
-msgstr "Tema &More"
+msgstr "Odaberite temu"
 
 #: qml/GamePage.qml:241
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Pauza"
 
 #: qml/GamePage.qml:241
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Pokreni"
 
 #: qml/GamePage.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr ""
+msgstr "Postavke"
 
 #: qml/GamePage.qml:286
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Postavke"
 
 #: qml/GamePage.qml:314
-#, fuzzy, kde-format
-#| msgid "Choose the look and feel"
+#, kde-format
 msgid "Get new language files"
-msgstr "Odaberite izgled i osećaj"
+msgstr "Preuzmite nove jezične datoteke"
 
 #: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr ""
+msgstr "Pogledajte KHangMan priručnik"
 
 #: qml/GamePage.qml:338 qml/GamePage.qml:344
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "About KHangMan"
-msgstr "KVješala"
+msgstr "O KHangManu"
 
 #: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "O KDE-u"
 
 #: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
-msgstr ""
+msgstr "Preostale pokušaja:"
 
 #: qml/GamePage.qml:404
 #, kde-format
 msgid "Score: "
-msgstr ""
+msgstr "Rezultat:"
 
 #: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
-msgstr ""
+msgstr "Pobjede: "
 
 #: qml/GamePage.qml:466
-#, fuzzy, kde-format
-#| msgid "Misses"
+#, kde-format
 msgid "Losses: "
-msgstr "Promašaji"
+msgstr "Gubici: "
 
 #: qml/GamePage.qml:605
 #, kde-format
@@ -576,89 +572,86 @@ msgstr "Savjet"
 #: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
-msgstr ""
+msgstr "Prikaži savjet."
 
 #: qml/GamePage.qml:621
-#, fuzzy, kde-format
-#| msgid "Choose the level"
+#, kde-format
 msgid "Change the category."
-msgstr "Odaberite razinu"
+msgstr "Promijeni kategoriju."
 
 #: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
-msgstr ""
+msgstr "Promijeni jezik."
 
 #: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
-msgstr ""
+msgstr "Otkrij riječ"
 
 #: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
-msgstr ""
+msgstr "Otkrij trenutnu riječ."
 
 #: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr ""
+msgstr "Učitaj sljedeću riječ i započni novu igru."
 
 #: qml/Main.qml:55
 #, kde-format
 msgid "Error: %1"
-msgstr ""
+msgstr "Pogreška: %1"
 
 #: qml/SelectionDialog.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: qml/Settings/SettingsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "KHangMan Settings"
-msgstr "KVješala"
+msgstr "KHangMan postavke"
 
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr ""
+msgstr "Vrijeme rješavanja riječi (u sekundama)"
 
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr ""
+msgstr "Trajanje prikazivanja naznake za stvarnu riječ"
 
 #: qml/Settings/SettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "KHangMan"
+#, kde-format
 msgid "Score Multiplying Factor:"
-msgstr "KVješala"
+msgstr "Faktor množenja bodova:"
 
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr ""
+msgstr "Odredite faktor za koji će se bodovi množiti."
 
 #: qml/Settings/SettingsPage.qml:96
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Omogući &zvukove"
+msgstr "Omogući zvukove"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 #: qml/Settings/SettingsPage.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #, fuzzy
 #~| msgid "Choose the level"
