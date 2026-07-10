@@ -14,7 +14,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandom>
-#include <knewstuff_version.h>
 #include <KAuthorized>
 
 #include <KEduVocDocument>
