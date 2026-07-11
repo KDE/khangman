@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:38+0000\n"
+"POT-Creation-Date: 2026-07-11 00:39+0000\n"
 "PO-Revision-Date: 2026-05-02 19:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -76,12 +76,12 @@ msgstr ""
 "(Sözcükleri çevirdikten sonra bu iletiyi “TAMAMLANDI” olarak çevirin;\n"
 "veya bu iletiyi bir anımsatıcı olarak çevrilmemiş bırakın)."
 
-#: khangman.cpp:72
+#: khangman.cpp:71
 #, kde-format
 msgid "No theme files found."
 msgstr "Tema dosyası bulunamadı."
 
-#: khangman.cpp:130
+#: khangman.cpp:129
 #, kde-format
 msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
@@ -90,18 +90,18 @@ msgstr ""
 "$KDEDIR/share/apps/kvtml/%1/%2 dosyası bulunamadı!\n"
 "Lütfen kurulumunuzu kontrol edin."
 
-#: khangman.cpp:144
+#: khangman.cpp:143
 #, kde-format
 msgid "No word list loaded"
 msgstr "Yüklü sözcük listesi yok"
 
-#: khangman.cpp:411
+#: khangman.cpp:410
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Hiçbiri"
 
-#: khangman.cpp:433
+#: khangman.cpp:432
 #, kde-format
 msgid "No kvtml files found."
 msgstr "Bulunan kvtml dosyası yok."

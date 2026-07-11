@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:38+0000\n"
+"POT-Creation-Date: 2026-07-11 00:39+0000\n"
 "PO-Revision-Date: 2007-12-21 17:43+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -63,12 +63,12 @@ msgid ""
 "the words; otherwise leave it untranslated as a reminder)"
 msgstr ""
 
-#: khangman.cpp:72
+#: khangman.cpp:71
 #, kde-format
 msgid "No theme files found."
 msgstr ""
 
-#: khangman.cpp:130
+#: khangman.cpp:129
 #, fuzzy, kde-format
 #| msgid ""
 #| "File $KDEDIR/share/apps/khangman/data/%1/%2 not found!\n"
@@ -80,19 +80,19 @@ msgstr ""
 "फ़ाइल $KDEDIR/share/apps/khangman/data/%1/%2 नहीं मिला!\n"
 "कृपया अपना संस्थापन जाँचें!"
 
-#: khangman.cpp:144
+#: khangman.cpp:143
 #, kde-format
 msgid "No word list loaded"
 msgstr ""
 
-#: khangman.cpp:411
+#: khangman.cpp:410
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: khangman.cpp:433
+#: khangman.cpp:432
 #, kde-format
 msgid "No kvtml files found."
 msgstr ""
