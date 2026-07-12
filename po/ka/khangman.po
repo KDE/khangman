@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:39+0000\n"
-"PO-Revision-Date: 2025-11-20 04:56+0100\n"
+"PO-Revision-Date: 2026-07-11 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
@@ -58,7 +58,13 @@ msgid ""
 "for more information on how to do that.\n"
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
-msgstr "სათარგმნია სხვა ფაილები. ადგილს იკავებს"
+msgstr ""
+"მთარგმნელებს აქვთ საშუალება,\n"
+"თამაშში სიტყვები თარგმნონ.\n"
+"იხილეთ ფაილი README.language khangman-ის წყაროს საქაღალდეში\n"
+"მეტი ინფორმაციის მისაღებად, თუ როგორ ხდება ეს.\n"
+"(გადათარგმნეთ შეტყობინებები როგორც \"მზადაა, როცა თარგმნით\n"
+"სიტყვებს. წინააღმდეგ შემთხვევაში დატოვეთ ის უთარგმნელად, როგორც შეხსენება)"
 
 #: khangman.cpp:71
 #, kde-format
