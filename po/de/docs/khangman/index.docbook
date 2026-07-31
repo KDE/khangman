@@ -119,7 +119,7 @@
 > ist der Hintergrund. Änderungen in der Kategorie, der Sprache oder dem Design (Hintergrund) werden in der Konfigurationsdatei gespeichert und beim nächsten Spiel wiederhergestellt. </para>
 
 <para
->Bitte beachten Sie, wie einfach es ist, den Hintergrund zu verändern, benutzen Sie dazu die Auswahlfelder in der unteren Werkzeugleiste. Ein neues Spiel zu beginnen oder das Spiel zu beenden ist ebenso einfach, auch dafür sind Knöpfe in der Werkzeugleiste zu finden. </para>
+>Bitte beachten Sie, wie einfach es ist, den Hintergrund zu verändern, verwenden Sie dazu die Auswahlfelder in der unteren Werkzeugleiste. Ein neues Spiel zu beginnen oder das Spiel zu beenden ist ebenso einfach, auch dafür sind Knöpfe in der Werkzeugleiste zu finden. </para>
 
 <sect1 id="general-usage">
 <title
@@ -161,7 +161,7 @@
 >Jedesmal, wenn Sie einen Buchstaben probieren, der nicht im Wort enthalten ist, wird das Galgenmännchen ein wenig weiter gezeichnet. Sie haben 10 Versuche, das Wort zu erraten. Danach wird das gesuchte Wort angezeigt. </para>
 
 <para
->Es gibt mehrere Kategorien von Wörtern vorhanden, abhängig von der ausgewählten Sprach. Das Programm sucht alle Datendateien in allen Sprachen und benutzt auch Wortdateien von &kanagram;. </para>
+>Es gibt mehrere Kategorien von Wörtern vorhanden, abhängig von der ausgewählten Sprach. Das Programm sucht alle Datendateien in allen Sprachen und verwendet auch Wortdateien von &kanagram;. </para>
 <!--FIXME no difficulty levels in KF5?
 <para>
 In the easy category, the words are quite simple and related to everyday life.
@@ -194,7 +194,7 @@ adults.
 ><imageobject
 ><imagedata fileref="go-next.png" format="PNG"/></imageobject
 ></inlinemediaobject
-> in der oberen Werkzeugleiste benutzen. Sie können auch die Wortkategorie in dieser Werkzeugleiste ändern.</para>
+> in der oberen Werkzeugleiste verwenden. Sie können auch die Wortkategorie in dieser Werkzeugleiste ändern.</para>
 
 <para
 >Das Erscheinungsbild kann in der oberen Werkzeugleiste schnell geändert werden.</para>
@@ -223,7 +223,7 @@ that you will open using the <guimenu
 > zwei Einträge: Englisch und Dänisch, dabei ist Dänisch Ihre Standardeinstellung.</para>
 
 <para
->Sie können &khangman; aber auch in anderen Sprachen spielen. Neue Sprachen können Sie sehr leicht zu &khangman; hinzufügen. Sie brauchen nur eine Verbindung zum Internet. Klicken Sie auf <inlinemediaobject
+>Sie können &khangman; aber auch in anderen Sprachen spielen. Neue Sprachen können Sie sehr leicht zu &khangman; hinzufügen. Sie benötigen nur eine Verbindung zum Internet. Klicken Sie auf <inlinemediaobject
 ><imageobject
 ><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
 ></inlinemediaobject
@@ -443,7 +443,7 @@ The duration for showing the hint for the actual word
 <para
 ><guilabel
 >Zeit für das Lösen des Worts in Sekunden</guilabel
-> legt die maximal erlaubte Zeit für das Raten des Worts in &khangman; fest. Die Vorgabe beträgt 120 Sekunden. Kinder brauchen mehr Zeit, um das Spiel zu verstehen, für Erwachsenen können Sie die Zeit verringern, damit das Spiel spannend bleibt. </para>
+> legt die maximal erlaubte Zeit für das Raten des Worts in &khangman; fest. Die Vorgabe beträgt 120 Sekunden. Kinder benötigen mehr Zeit, um das Spiel zu verstehen, für Erwachsenen können Sie die Zeit verringern, damit das Spiel spannend bleibt. </para>
 
 <para
 ><guilabel
@@ -514,14 +514,14 @@ The duration for showing the hint for the actual word
 >entry</sgmltag
 > zusammengefasst. Versuchen Sie den Tipp an den Schwierigkeitsgrad anzupassen. Die Kategorie <guimenuitem
 >Leicht</guimenuitem
-> braucht auch einen einfachen Tipp, aber für <guimenuitem
+> benötigt auch einen einfachen Tipp, aber für <guimenuitem
 >Schwer</guimenuitem
-> sollten Sie eine Definition aus dem Wörterbuch verwenden. Versuchen Sie keine Wörter derselben Sprachfamilie zu benutzen, das könnte das Wort zu einfach verraten!</para>
+> sollten Sie eine Definition aus dem Wörterbuch verwenden. Versuchen Sie keine Wörter derselben Sprachfamilie zu verwenden, das könnte das Wort zu einfach verraten!</para>
 
 <para
 >Beachten Sie, dass Sie beim Bearbeiten die Kodierung <emphasis role="bold"
 >UTF-8</emphasis
-> benutzen müssen. Wenn Ihr Editor dies nicht kann, benutzen Sie &kwrite; oder &kate;. Wenn Sie eine Datei in &kwrite; oder &kate; öffnen, können Sie die Kodierung <quote
+> verwenden müssen. Wenn Ihr Editor dies nicht kann, verwenden Sie &kwrite; oder &kate;. Wenn Sie eine Datei in &kwrite; oder &kate; öffnen, können Sie die Kodierung <quote
 >utf8</quote
 > in der Auswahlbox am oberen Rand des Öffnen-Dialogs auswählen.</para>
 
@@ -647,7 +647,7 @@ fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 >$XDG_DATA_HOME/share/config/khangmanrc</filename
 > gespeichert. </para>
 <para
->Die Adresse des Anbieters (d. h. die Adresse der Internetseite, von der Sie die neue Sprache heruntergeladen haben) wird in der Datei <filename
+>Die Adresse des Anbieters (d. h. die Adresse der Internetseite, von der Sie die neue Sprache heruntergeladen haben) wird in der Datei <filename
 >$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
 > gespeichert. </para>
 <para
