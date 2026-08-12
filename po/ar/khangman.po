@@ -161,7 +161,7 @@ msgstr "يسمح لك هذا الإعداد بتعيين عدد الثّواني
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr "اكتب الحروف المُشددة منفصلاً من الحروف العادية"
+msgstr "اكتب الحروف المُشددة منفصلًا من الحروف العادية"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
