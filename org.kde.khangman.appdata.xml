@@ -142,6 +142,9 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khangman</url>
   <url type="help">https://docs.kde.org/?application=khangman</url>
   <url type="donation">https://www.kde.org/community/donations/?app=khangman&amp;source=appdata</url>
+  <custom>
+    <value key="KDE::mailinglist">kde-edu@kde.org</value>
+  </custom>
   <screenshots>
     <screenshot type="default">
       <caption>Playing KHangMan</caption>
