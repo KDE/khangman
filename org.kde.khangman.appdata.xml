@@ -25,6 +25,7 @@
   <name xml:lang="fr">KHangMan</name>
   <name xml:lang="gl">KHangMan</name>
   <name xml:lang="he">KHangMan</name>
+  <name xml:lang="hr">KHangMan</name>
   <name xml:lang="hu">KHangMan</name>
   <name xml:lang="ia">KHangMan</name>
   <name xml:lang="id">KHangMan</name>
@@ -69,6 +70,7 @@
   <summary xml:lang="fr">Jeu de pendu</summary>
   <summary xml:lang="gl">O xogo do aforcado</summary>
   <summary xml:lang="he">משחק איש תלוי</summary>
+  <summary xml:lang="hr">Igra vješala</summary>
   <summary xml:lang="hu">Akasztófajáték</summary>
   <summary xml:lang="ia">Joco Hangman</summary>
   <summary xml:lang="id">Permainan Hangman (Algojo)</summary>
@@ -116,6 +118,7 @@
     <p xml:lang="gl">KHangMan é un xogo baseado no coñecido xogo do enforcado. Está dirixido a rapaces de seis anos para riba. O xogo ten varias categorías de palabras coas que xogar (por exemplo «Animais», palabras relacionadas con animais) e tres categorías de dificultade: doado, medio e difícil.Escóllese unha palabra ao chou, agóchanse as letras e hai que adiviñar a palabra intentando letra a letra. Cada vez que se propón unha letra errada, debúxase unha parte dunha imaxe dun enforcado. Hai que adiviñar a palabra antes de que che colguen! Tes dez intentos.</p>
     <p xml:lang="he">KHangMan
 הוא משחק שמבוסס על משחק האיש התלוי המפורסם. הוא מיועד לילדים מגיל שש ומעלה. למשחק יש מגוון קטגוריות של מילים שאפשר לשחק איתן, למשל: חיות (מילים של חיות) ושלוש קטגוריות קושי (קל, בינוני וקשה. מילה נבחרת באקראי, האותיות מוסתרות וצריך לנחש את המילה על ידי ניחוש של אות אחת אחרי השנייה. בכל פעם שניחשת אות שגויה, נוסף חלק לציור של האיש התלוי. צריך לנחש את המילה לפני שהאיש נתלה! יש לך 10 ניסיונות.</p>
+    <p xml:lang="hr">KHangMan je igra temeljena na poznatoj igri vješala. Namijenjena je djeci u dobi od šest i više godina. Igra ima nekoliko kategorija riječi za igranje, na primjer: Životinje (riječi o životinjama) i tri kategorije težine: Lako, Srednje i Teško. Riječ se bira nasumično, slova su skrivena i morate pogoditi riječ pokušavajući jedno slovo za drugim. Svaki put kada pogodite krivo slovo, crta se dio slike vješala. Morate pogoditi riječ prije nego što budete obješeni! Imate 10 pokušaja.</p>
     <p xml:lang="id">KHangMan adalah permainan yang didasarkan pada permainan hangman (algojo) yang terkenal. Ini ditujukan untuk anak-anak berusia enam tahun ke atas. Permainan ini memiliki beberapa kategori kata untuk dimainkan, misalnya: Hewan (nama-nama binatang) dan tiga kategori kesulitan: Mudah, Sedang dan Sukar. Sebuah kata dipilih secara acak, huruf-hurufnya disembunyikan, dan kamu harus menebak kata itu dengan mencoba huruf satu demi satu. Setiap kali kamu menebak huruf yang salah, bagian dari gambar algojo digambari. Kamu harus menebak kata sebelum digantung! Kamu memiliki 10 percobaan.</p>
     <p xml:lang="is">KHangMan er leikur sem byggist á hinum velþekkta hengimansleik. Hann miðast við börn sex ára og eldri. Leikurinn er með nokkra mismunandi flokka orða til að spila með, eins og til dæmis: Dýr (orð sem tengjast dýrum) og þrjú erfiðleikastig: Auðvelt, Miðlungs og Erfitt. Orð er valið af handahófi, stafirnir í því eru faldir, og þú þarft að giska á orðið með því að prófa einn staf í einu. Í hvert sinn sem þú giskar á rangan staf sem orðið inniheldur ekki, þá er teiknaður hluti af hengdum manni. Þú þarft að giska á orðið áður en allur maðurinn er hangandi - ojbarasta! Þú færð 10 tilraunir til að giska.</p>
     <p xml:lang="it">KHangMan è basato sul ben noto gioco dell'impiccato. È pensato per i bambini da sei anni in su. Il gioco ha diverse categorie di parole con cui giocare tra cui Animali (parole di animali) e tre livelli di difficoltà: facile, medio e difficile. Una parola è scelta a caso, le lettere sono nascoste, e bisogna indovinare la parola provando una lettera alla volta. Ogni volta che provi una lettera sbagliata, compare parte dell'immagine di un impiccato. Devi indovinare la parola prima di farti impiccare! Hai a disposizione dieci tentativi.</p>
@@ -161,6 +164,7 @@
       <caption xml:lang="fr">Partie de KHangMan en cours</caption>
       <caption xml:lang="gl">Xogando a KHangMan</caption>
       <caption xml:lang="he">לשחק ב־KHangMan</caption>
+      <caption xml:lang="hr">Igraj KHangMan</caption>
       <caption xml:lang="id">Memainkan KHangMan</caption>
       <caption xml:lang="is">Spila KHangMan</caption>
       <caption xml:lang="it">Giocare con KHangMan</caption>
