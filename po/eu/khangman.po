@@ -1,7 +1,7 @@
 # Translation for khangman.po to Euskara/Basque (eu).
-# Copyright (C) 2003-2025 This file is copyright:
+# Copyright (C) 2003-2026 This file is copyright:
 # This file is distributed under the same license as the khangman package.
-# SPDX-FileCopyrightText: 2023, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2025-2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
@@ -9,51 +9,57 @@
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2006.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2011, 2022, 2023, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2011, 2022, 2023, 2025, 2026.
+#
+# Egoera:
+# Proiektu osoaren berrikuspen integrala: 2026-08-22.
+# Terminologia, estiloa, ortotipografia, koherentzia eta kohesioa berrikusi dira.
+# Erreferentzia-gida: kde-jokoen_eu_itzulpen-gida.md
+# Ikus, halaber: KDE-eu-berrikuspen-integralen-erregistroa.md
 msgid ""
 msgstr ""
 "Project-Id-Version: khangman\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:39+0000\n"
-"PO-Revision-Date: 2023-12-08 09:42+0100\n"
+"PO-Revision-Date: 2026-08-22 19:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:4
 #, kde-format
 msgid "Notes Theme"
-msgstr "Oharrak gaia"
+msgstr "Oharren gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:20
 #, kde-format
 msgid "Sea Theme"
-msgstr "Itsasoa gaia"
+msgstr "Itsasoaren gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:36
 #, kde-format
 msgid "Winter Theme"
-msgstr "Negua gaia"
+msgstr "Neguaren gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:52
 #, kde-format
 msgid "Bee Theme"
-msgstr "Erlea gaia"
+msgstr "Erlearen gaia"
 
 #. i18n: tag theme attribute uiname
 #: ../themes/standardthemes.xml:68
 #, kde-format
 msgid "Desert Theme"
-msgstr "Basamortua gaia"
+msgstr "Basamortuaren gaia"
 
 #: data.i18n:2
 #, kde-format
@@ -65,7 +71,7 @@ msgid ""
 "for more information on how to do that.\n"
 "(translate this message as \"DONE\" when you have translated\n"
 "the words; otherwise leave it untranslated as a reminder)"
-msgstr ""
+msgstr "DONE"
 
 #: khangman.cpp:71
 #, kde-format
@@ -78,8 +84,8 @@ msgid ""
 "File $KDEDIR/share/apps/kvtml/%1/%2 not found.\n"
 "Please check your installation."
 msgstr ""
-"Ez du $KDEDIR/share/apps/kvtml/%1/%2 fitxategia aurkitu.\n"
-"Mesedez, egiaztatu zure instalazioa."
+"Ez da $KDEDIR/share/apps/kvtml/%1/%2 fitxategia aurkitu.\n"
+"Mesedez, zure instalazioa egiaztatu."
 
 #: khangman.cpp:143
 #, kde-format
@@ -90,12 +96,12 @@ msgstr "Ez da hitz-zerrendarik zamatu"
 #, kde-format
 msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
-msgstr "Batere ez"
+msgstr "Bat ere ez"
 
 #: khangman.cpp:432
 #, kde-format
 msgid "No kvtml files found."
-msgstr "Ez da kvtml fitxategirik aurkitu."
+msgstr "Ez da KVTML fitxategirik aurkitu."
 
 #. i18n: ectx: label, entry (CurrentLevel), group (Language)
 #: khangman.kcfg:10
@@ -113,7 +119,7 @@ msgstr "Erabiltzaileak hautatutako hizkuntza"
 #: khangman.kcfg:33
 #, kde-format
 msgid "Background theme name"
-msgstr "Atzeko planoaren gaiaren izena"
+msgstr "Atzeko planoko gaiaren izena"
 
 #. i18n: ectx: label, entry (OneLetter), group (General)
 #: khangman.kcfg:40
@@ -121,21 +127,21 @@ msgstr "Atzeko planoaren gaiaren izena"
 msgid ""
 "Check this if you do not want to discover each instance of the same letter."
 msgstr ""
-"Markatu hau hizki bakoitzaren agerpen guztiak batera estalgabetzea nahi ez "
+"Markatu hau letra beraren agerpen guztiak aldi berean agerian uztea nahi ez "
 "baduzu."
 
 #. i18n: ectx: label, entry (EnableAnimations), group (General)
 #: khangman.kcfg:44
 #, kde-format
 msgid "Enable Animations"
-msgstr "Gaitu animazioak"
+msgstr "Animazioak gaitu"
 
 #. i18n: ectx: label, entry (Sound), group (General)
 #: khangman.kcfg:48
 #, kde-format
 msgid "If checked, sounds will be played for New Game and Win Game"
 msgstr ""
-"Markatuta badago, soinuak joko dira Joko berrirako eta Jokoa irabaztean"
+"Markatuta badago, joko berria hastean eta jokoa irabaztean soinuak joko dira."
 
 #. i18n: ectx: label, entry (Hint), group (General)
 #: khangman.kcfg:53
@@ -146,10 +152,10 @@ msgid ""
 "            hints will be displayed only per word when the user chooses to "
 "show the hint."
 msgstr ""
-"Markatuta badago, argibideak beti azalduko dira. Markatu gabe badago "
-"(lehenetsitakoa) \n"
-"            aholkuak, erabiltzaileak haiek erakustea hautatzen duenean "
-"soilik, eta hitz bakoitzeko, azalduko dira,"
+"Markatuta badago, argibideak beti erakutsiko dira. Markatu gabe badago "
+"(lehenetsia),\n"
+"            hitz bakoitzaren argibidea erabiltzaileak hura erakustea "
+"hautatzen duenean soilik erakutsiko da."
 
 #. i18n: ectx: label, entry (resolveTime), group (General)
 #: khangman.kcfg:57
@@ -158,20 +164,20 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the word."
 msgstr ""
-"Ezarpen horrek, hitza ebazteko zenbat denbora, segundotan, erabilgarri "
-"dagoen ezartzen uzten dizu."
+"Ezarpen honen bidez, hitza asmatzeko erabilgarri dagoen denbora segundotan "
+"ezar dezakezu."
 
 #. i18n: ectx: label, entry (AccentedLetters), group (Advanced)
 #: khangman.kcfg:64
 #, kde-format
 msgid "Type accented letters separately from normal letters"
-msgstr "Tekleatu azentudun letrak letra arruntetatik bereizita"
+msgstr "Azentudun letrak letra arruntetatik bereizita tekleatu"
 
 #. i18n: ectx: label, entry (ProvidersUrl), group (KNewStuff)
 #: khangman.kcfg:71
 #, kde-format
 msgid "The Providers path for KHangMan"
-msgstr "«KHangMan»en hornitzaileenganako bide-izena"
+msgstr "KHangManen hornitzaileen bide-izena"
 
 #: main.cpp:36
 #, kde-format
@@ -196,7 +202,7 @@ msgstr "Primoz Anzur"
 #: main.cpp:43
 #, kde-format
 msgid "Previous maintainer"
-msgstr "Arduradun ohia"
+msgstr "Aurreko mantentzailea"
 
 #: main.cpp:48
 #, kde-format
@@ -237,7 +243,7 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgid "Swedish data files, coding help, transparent pictures and i18n fixes"
 msgstr ""
-"Suediera datu-fitxategiak, kodetzeko laguntza, irudi gardenak eta i18n "
+"Suedierarako datu-fitxategiak, kodetzeko laguntza, irudi gardenak eta i18n "
 "zuzenketak"
 
 #: main.cpp:57
@@ -248,7 +254,7 @@ msgstr "eXParTaKus"
 #: main.cpp:58
 #, kde-format
 msgid "Spanish data files"
-msgstr "Gaztelerako datu-fitxategiak"
+msgstr "Gaztelaniarako datu-fitxategiak"
 
 #: main.cpp:59
 #, kde-format
@@ -258,7 +264,7 @@ msgstr "Erik Kjær Pedersenn"
 #: main.cpp:60
 #, kde-format
 msgid "Danish data files"
-msgstr "Danierako datu-fitxategiak"
+msgstr "Danierarako datu-fitxategiak"
 
 #: main.cpp:61
 #, kde-format
@@ -268,7 +274,7 @@ msgstr "Niko Lewman"
 #: main.cpp:62
 #, kde-format
 msgid "Finnish data files"
-msgstr "Finlandierako datu-fitxategiak"
+msgstr "Finlandierarako datu-fitxategiak"
 
 #: main.cpp:63
 #, kde-format
@@ -278,7 +284,7 @@ msgstr "João Sebastião de Oliveira Bueno"
 #: main.cpp:64
 #, kde-format
 msgid "Brazilian Portuguese data files"
-msgstr "Brasilgo portugeseko datu-fitxategiak"
+msgstr "Brasilgo portugeserako datu-fitxategiak"
 
 #: main.cpp:65
 #, kde-format
@@ -288,7 +294,7 @@ msgstr "Antoni Bella"
 #: main.cpp:66
 #, kde-format
 msgid "Catalan data files"
-msgstr "Katalaneko datu-fitxategiak"
+msgstr "Katalanerako datu-fitxategiak"
 
 #: main.cpp:67
 #, kde-format
@@ -298,7 +304,7 @@ msgstr "Giovanni Venturi"
 #: main.cpp:68
 #, kde-format
 msgid "Italian data files"
-msgstr "Italierako datu-fitxategiak"
+msgstr "Italierarako datu-fitxategiak"
 
 #: main.cpp:69
 #, kde-format
@@ -308,7 +314,7 @@ msgstr "Rinse"
 #: main.cpp:70
 #, kde-format
 msgid "Dutch data files"
-msgstr "Nederlanderako datu-fitxategiak"
+msgstr "Nederlanderarako datu-fitxategiak"
 
 #: main.cpp:71
 #, kde-format
@@ -318,7 +324,7 @@ msgstr "Lukáš Tinkl"
 #: main.cpp:72
 #, kde-format
 msgid "Czech data files"
-msgstr "Txekierako datu-fitxategiak"
+msgstr "Txekierarako datu-fitxategiak"
 
 #: main.cpp:73
 #, kde-format
@@ -328,7 +334,7 @@ msgstr "Kristóf Kiszel"
 #: main.cpp:74
 #, kde-format
 msgid "Hungarian data files"
-msgstr "Hungarierako datu-fitxategiak"
+msgstr "Hungarierarako datu-fitxategiak"
 
 #: main.cpp:75
 #, kde-format
@@ -338,7 +344,7 @@ msgstr "Torger Åge Sinnes"
 #: main.cpp:76
 #, kde-format
 msgid "Norwegian (Bokmål) data files"
-msgstr "Norvegierako (Bokmål) datu-fitxategiak"
+msgstr "Norvegieraren bokmål aldaerarako datu-fitxategiak"
 
 #: main.cpp:77
 #, kde-format
@@ -348,7 +354,7 @@ msgstr "Roger Kovacs"
 #: main.cpp:78
 #, kde-format
 msgid "Tajik data files"
-msgstr "Tajikerako datu-fitxategiak"
+msgstr "Tajikerarako datu-fitxategiak"
 
 #: main.cpp:79
 #, kde-format
@@ -358,7 +364,7 @@ msgstr "Chusslove Illich"
 #: main.cpp:80
 #, kde-format
 msgid "Serbian (Cyrillic and Latin) data files"
-msgstr "Serbierako (Ziriliko eta latindarra) datu-fitxategiak"
+msgstr "Serbierarako (alfabeto zirilikoan eta latindarrean) datu-fitxategiak"
 
 #: main.cpp:81
 #, kde-format
@@ -368,7 +374,7 @@ msgstr "Jure Repinc"
 #: main.cpp:82
 #, kde-format
 msgid "Slovenian data files"
-msgstr "Eslovenierako datu-fitxategiak"
+msgstr "Eslovenierarako datu-fitxategiak"
 
 #: main.cpp:83
 #, kde-format
@@ -378,7 +384,7 @@ msgstr "Pedro Morais"
 #: main.cpp:84
 #, kde-format
 msgid "Portuguese data files"
-msgstr "Portugeseko datu-fitxategiak"
+msgstr "Portugeserako datu-fitxategiak"
 
 #: main.cpp:85
 #, kde-format
@@ -388,7 +394,7 @@ msgstr "Gaute Hvoslef Kvalnes"
 #: main.cpp:86
 #, kde-format
 msgid "Norwegian (Nynorsk) data files"
-msgstr "Norvegierako datu-fitxategiak"
+msgstr "Norvegieraren nynorsk aldaerarako datu-fitxategiak"
 
 #: main.cpp:87
 #, kde-format
@@ -398,17 +404,17 @@ msgstr "Mehmet Özel"
 #: main.cpp:88
 #, kde-format
 msgid "Turkish data files"
-msgstr "Turkierako datu-fitxategiak"
+msgstr "Turkierarako datu-fitxategiak"
 
 #: main.cpp:89
 #, kde-format
 msgid "Черепанов Андрей"
-msgstr "Черепанов Андрей"
+msgstr "Andrey Cherepanov"
 
 #: main.cpp:90
 #, kde-format
 msgid "Russian data files"
-msgstr "Errusierako datu-fitxategiak"
+msgstr "Errusierarako datu-fitxategiak"
 
 #: main.cpp:91
 #, kde-format
@@ -418,7 +424,7 @@ msgstr "Radostin Radnev"
 #: main.cpp:92
 #, kde-format
 msgid "Bulgarian data files"
-msgstr "Bulgarierako datu-fitxategiak"
+msgstr "Bulgarierarako datu-fitxategiak"
 
 #: main.cpp:93
 #, kde-format
@@ -428,7 +434,7 @@ msgstr "Kevin Patrick Scannell"
 #: main.cpp:94
 #, kde-format
 msgid "Irish (Gaelic) data files"
-msgstr "Irlanderako (Gaelikoa) datu-fitxategiak"
+msgstr "Irlanderarako (gaelikoa) datu-fitxategiak"
 
 #: main.cpp:95
 #, kde-format
@@ -438,7 +444,7 @@ msgstr "Matt Howe"
 #: main.cpp:96
 #, kde-format
 msgid "Softer Hangman Pictures"
-msgstr "Urkatuaren irudi xamurragoak"
+msgstr "Urkatuaren irudi leunagoak"
 
 #: main.cpp:97
 #, kde-format
@@ -463,7 +469,7 @@ msgstr "Albert Astals Cid"
 #: main.cpp:104
 #, kde-format
 msgid "Coding help, fixed a lot of things"
-msgstr "Kodetzeko laguntza, zuzenketa ugari"
+msgstr "Kodetzeko laguntza eta zuzenketa ugari"
 
 #: main.cpp:105
 #, kde-format
@@ -483,7 +489,7 @@ msgstr "Inge Wallin"
 #: main.cpp:108
 #, kde-format
 msgid "Code cleaning"
-msgstr "Kodearen garbiketa"
+msgstr "Kode-garbiketa"
 
 #: main.cpp:109
 #, kde-format
@@ -500,17 +506,17 @@ msgstr "xalba@ni.eus,ion_g_m@hotmail.com"
 #: qml/GamePage.qml:128
 #, kde-format
 msgid "Choose the word category"
-msgstr "Aukeratu hitzen kategoria"
+msgstr "Hitz-kategoria hautatu"
 
 #: qml/GamePage.qml:163
 #, kde-format
 msgid "Select a language"
-msgstr "Aukeratu hizkuntza bat"
+msgstr "Hizkuntza bat hautatu"
 
 #: qml/GamePage.qml:186
 #, kde-format
 msgid "Select a theme"
-msgstr "Aukeratu gai bat"
+msgstr "Gai bat hautatu"
 
 #: qml/GamePage.qml:241
 #, kde-format
@@ -536,17 +542,17 @@ msgstr "Konfiguratu"
 #: qml/GamePage.qml:314
 #, kde-format
 msgid "Get new language files"
-msgstr "Lortu hizkuntza-fitxategi berriak"
+msgstr "Hizkuntza-fitxategi berriak lortu"
 
 #: qml/GamePage.qml:327
 #, kde-format
 msgid "View the KHangMan Handbook"
-msgstr "Ikusi KHangMan eskuliburua"
+msgstr "KHangManen eskuliburua ikusi"
 
 #: qml/GamePage.qml:338 qml/GamePage.qml:344
 #, kde-format
 msgid "About KHangMan"
-msgstr "«KHangMan»i buruz"
+msgstr "KHangMani buruz"
 
 #: qml/GamePage.qml:351 qml/GamePage.qml:358
 #, kde-format
@@ -556,7 +562,7 @@ msgstr "KDEri buruz"
 #: qml/GamePage.qml:379
 #, kde-format
 msgid "Remaining guesses: "
-msgstr "Geratzen diren saiakerak:"
+msgstr "Geratzen diren saiakerak: "
 
 #: qml/GamePage.qml:404
 #, kde-format
@@ -566,12 +572,12 @@ msgstr "Puntuazioa: "
 #: qml/GamePage.qml:438
 #, kde-format
 msgid "Wins: "
-msgstr "Irabazitakoak:"
+msgstr "Garaipenak: "
 
 #: qml/GamePage.qml:466
 #, kde-format
 msgid "Losses: "
-msgstr "Galdutakoak: "
+msgstr "Porrotak: "
 
 #: qml/GamePage.qml:605
 #, kde-format
@@ -581,32 +587,32 @@ msgstr "Argibidea"
 #: qml/GamePage.qml:606
 #, kde-format
 msgid "Display the hint."
-msgstr "Azaldu aholkua."
+msgstr "Argibidea erakutsi."
 
 #: qml/GamePage.qml:621
 #, kde-format
 msgid "Change the category."
-msgstr "Aldatu kategoria."
+msgstr "Kategoria aldatu."
 
 #: qml/GamePage.qml:634
 #, kde-format
 msgid "Change the language."
-msgstr "Aldatu hizkuntza."
+msgstr "Hizkuntza aldatu."
 
 #: qml/GamePage.qml:646
 #, kde-format
 msgid "Reveal Word"
-msgstr "Agertu hitza"
+msgstr "Hitza agerian utzi"
 
 #: qml/GamePage.qml:647
 #, kde-format
 msgid "Reveal the current word."
-msgstr "Agertu uneko hitza."
+msgstr "Uneko hitza agerian utzi."
 
 #: qml/GamePage.qml:674
 #, kde-format
 msgid "Load the next word and start a new game."
-msgstr "Zamatu hurrengo hitza eta hasi joko berri bat."
+msgstr "Hurrengo hitza zamatu eta joko berri bat hasi."
 
 #: qml/Main.qml:55
 #, kde-format
@@ -622,17 +628,17 @@ msgstr "Itxi"
 #: qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "KHangMan Settings"
-msgstr "KHangMan-en ezarpenak"
+msgstr "KHangManen ezarpenak"
 
 #: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Word resolve time in seconds"
-msgstr "Hitza ebazteko denbora segundotan"
+msgstr "Hitza asmatzeko denbora segundotan"
 
 #: qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "The duration for showing the hint for the actual word"
-msgstr "Uneko hitzaren aholkua erakusteko iraupena"
+msgstr "Uneko hitzaren argibidea erakusteko iraupena"
 
 #: qml/Settings/SettingsPage.qml:81
 #, kde-format
@@ -642,13 +648,13 @@ msgstr "Puntuazioa biderkatzeko faktorea:"
 #: qml/Settings/SettingsPage.qml:85
 #, kde-format
 msgid "Determine the factor by which the scores will be multiplied."
-msgstr "Zehaztu puntuazioak biderkatzeko faktorea."
+msgstr "Puntuazioak biderkatzeko faktorea zehaztu."
 
 #: qml/Settings/SettingsPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable sounds"
-msgstr "Gaitu soinuak"
+msgstr "Soinuak gaitu"
 
 #: qml/Settings/SettingsPage.qml:107
 #, kde-format
@@ -663,7 +669,7 @@ msgid "Cancel"
 msgstr "Utzi"
 
 #~ msgid "Change the theme."
-#~ msgstr "Aldatu gaia."
+#~ msgstr "Gaia aldatu."
 
 #~ msgid "Settings"
 #~ msgstr "Ezarpenak"
@@ -672,50 +678,48 @@ msgstr "Utzi"
 #~ msgstr "Irten"
 
 #~ msgid "KHangMan word resolve time"
-#~ msgstr "KHangMan hitza ebazteko denbora"
+#~ msgstr "KHangManen hitza asmatzeko denbora"
 
 #~ msgid "Maximum allowed time for resolving the word in KHangMan"
-#~ msgstr "KHangMan-en hitza ebazteko gehienezko denbora"
+#~ msgstr "KHangManen hitza asmatzeko baimendutako gehieneko denbora"
 
 #~ msgid "Hint show duration"
-#~ msgstr "Aholkua erakusteko denbora"
+#~ msgstr "Argibidea erakusteko iraupena"
 
 #~ msgid "KHangMan Score Multiplying Factor"
-#~ msgstr "KHangMan-eko puntuazioaren faktore biderkatzailea"
+#~ msgstr "KHangManen puntuazioa biderkatzeko faktorea"
 
 #~ msgid "Sounds"
 #~ msgstr "Soinuak"
 
 #~ msgid "Turn all the sounds on or off inside the game"
-#~ msgstr "Piztu/itzali soinu guztiak joko barruan"
+#~ msgstr "Joko barruko soinu guztiak gaitu edo desgaitu"
 
 #~ msgid "OK"
 #~ msgstr "Ados"
 
-#, fuzzy
 #~| msgid "Misses"
 #~ msgid "Misses- "
-#~ msgstr "Erroreak"
+#~ msgstr "Saiakera okerrak- "
 
 #~ msgid "Show the characters toolbar"
-#~ msgstr "Erakutsi karaktereen tresna-barra"
+#~ msgstr "Karaktereen tresna-barra erakutsi"
 
 #~ msgid "Time during which the \"Already Guessed\" tooltip is displayed."
-#~ msgstr ""
-#~ "\"Dagoeneko asmatuta\" adierazten duen argibidea bistaratuko den denbora."
+#~ msgstr "«Dagoeneko probatuta» tresna-argibidea erakusteko denbora."
 
 #~ msgid "Spanish, Portuguese, Catalan"
-#~ msgstr "Gaztelera, Portugesak, Katalaniera"
+#~ msgstr "Gaztelania, portugesa, katalana"
 
 #~ msgid "Type accented &letters"
-#~ msgstr "Sartu azentudun &letrak"
+#~ msgstr "Azentudun &letrak tekleatu"
 
 #~ msgid ""
 #~ "If this is checked, you have to type accented letters yourself (i.e. they "
 #~ "are differentiated from the corresponding unaccented letter)."
 #~ msgstr ""
-#~ "Hau aktibatzen bada, azentudun letrak zuk zeuk sartu behar dituzu (hau "
-#~ "da, dagokien azentu-gako letren ezberdinak izango dira)."
+#~ "Hau markatuta badago, azentudun letrak zuk zeuk tekleatu behar dituzu "
+#~ "(hau da, dagozkien azenturik gabeko letretatik bereizten dira)."
 
 #~ msgid ""
 #~ "If this is <b>disabled</b>, the selected language does not support it. If "
@@ -727,23 +731,23 @@ msgstr "Utzi"
 #~ "checked, when you type \"o\", only \"o\" will be displayed and you will "
 #~ "have to type \"ò\" for this letter to be displayed."
 #~ msgstr ""
-#~ "Hau <b>desgaituta</b> badago, orduan hautatutako hizkuntzak ez ditu "
-#~ "onartzen. Hau <b>gaituta</b> badago eta aktibatzen baduzu, orduan "
-#~ "azentudun letrak sartu beharko zenituzke. Hautatuta ez badago, azentudun "
-#~ "letrak letra normalekin bistaratuko dira (lehenetsia). <br>\n"
-#~ "Adibidez, katalanieraz, hau desaktibatuta badago eta \"o\" sartzen "
-#~ "baduzu, o eta ò agertuko dira  <b>xenofòbia</b> hitzean. aukera hau "
-#~ "gaitzen baduzu, \"o\" bakarrik agertuko da eta \"ò\" idatzi beharko duzu "
-#~ "letra hau bistaratzeko."
+#~ "Hau <b>desgaituta</b> badago, hautatutako hizkuntzak ez du aukera hau "
+#~ "onartzen. Hau <b>gaituta</b> badago eta markatzen baduzu, azentudun "
+#~ "letrak bereizita tekleatu behar dituzu. Markatu gabe badago, azentudun "
+#~ "letrak letra arruntekin batera erakutsiko dira (lehenetsia).<br>\n"
+#~ "Adibidez, katalanez, aukera hau markatu gabe badago eta «o» tekleatzen "
+#~ "baduzu, o eta ò erakutsiko dira <b>xenofòbia</b> hitzean. Aukera hau "
+#~ "markatuta badago, «o» tekleatzean «o» bakarrik erakutsiko da, eta «ò» "
+#~ "tekleatu beharko duzu letra hori erakusteko."
 
 #~ msgid "German"
 #~ msgstr "Alemana"
 
 #~ msgid "Play in upper case letters"
-#~ msgstr "Jokatu letra maiuskuletan"
+#~ msgstr "Letra maiuskulekin jokatu"
 
 #~ msgid "If checked, the word will be displayed all in upper case letters"
-#~ msgstr "Aktibatzen bada, hitza letra maiuskuletan bistaratuko da"
+#~ msgstr "Markatuta badago, hitza osorik maiuskulaz erakutsiko da"
 
 #~ msgid ""
 #~ "If this is checked, the word will be displayed in upper case letters, "
@@ -751,13 +755,13 @@ msgstr "Utzi"
 #~ "word will be in lower case.<br>\n"
 #~ "This setting is currently only available for the German language."
 #~ msgstr ""
-#~ "Hau aktibatzen bada, hitza letra maiuskuletan bstaratuko da, nahiz eta "
-#~ "zuk letra minuskuletan idatzi. Desaktibatuta egonez gero (lehenetsia), "
-#~ "hitza letra minuskuletan bistaratuko da.<br>\n"
-#~ "Ezarpen hau oraingoz Alemana hizkuntzarentzako dago soilik erabilgarri."
+#~ "Hau markatuta badago, hitza maiuskulaz erakutsiko da, letrak minuskulaz "
+#~ "tekleatzen badituzu ere. Markatu gabe badago (lehenetsia), hitza "
+#~ "minuskulaz erakutsiko da.<br>\n"
+#~ "Ezarpen hau oraingoz alemanez bakarrik dago erabilgarri."
 
 #~ msgid "Here you can choose settings for all languages."
-#~ msgstr "Hemen hizkuntza guztientzako ezarpenak aukera ditzakezu."
+#~ msgstr "Hemen hizkuntza guztietarako ezarpenak hauta ditzakezu."
 
 #~ msgid ""
 #~ "If you check this box, only the first letter will be written if the "
@@ -772,26 +776,25 @@ msgstr "Utzi"
 #~ "Default is that for one letter typed, all instances of that letter in the "
 #~ "word are discovered."
 #~ msgstr ""
-#~ "Koadro hau aktibatzen baduzu, hitzean letra bat behin baino gehiagotan "
-#~ "agertzen bada, lehenengo letra bakarrik idatziko da. Letra hau berriro "
-#~ "hautatzen duzunean, hurrengo agerpena ordeztuko du eta horrela hizki "
-#~ "horren beste agerpenik ez egon arte.\n"
+#~ "Lauki hau markatzen baduzu, letra bat hitzean hainbat aldiz agertzen "
+#~ "denean, lehen agerpena bakarrik utziko da agerian. Ondoren, letra bera "
+#~ "berriro probatu beharko duzu hurrengo agerpena agerian uzteko, letra "
+#~ "horren agerpen guztiak agerian geratu arte.\n"
+#~ "Adibidez, asmatu beharreko hitza «potato» bada, aukera hau markatu gabe "
+#~ "dagoenean «o» probatuz gero, hitzeko bi «o»ak aldi berean utziko dira "
+#~ "agerian. Markatuta badago, «o» bi aldiz probatu beharko duzu.\n"
 #~ "\n"
-#~ "Adibidez \"potato\" hitza asmatu behar baduzu, eta aukera hau "
-#~ "desaktibatuta badago, \"o\" sartzean bi \"o\" letrak agertuko dira "
-#~ "batera. Hautatzen bada, \"o\" bi aldiz idatzi beharko duzu.\n"
-#~ "\n"
-#~ "Lehenespenez, letra bat idaztean, hitz horretako letraren agerpen guztiak "
-#~ "bistaratuko dira."
+#~ "Lehenespenez, letra bat probatzean, letra horren hitzeko agerpen guztiak "
+#~ "agerian uzten dira."
 
 #~ msgid "Require more guesses for duplicate letters"
-#~ msgstr "Eskatu hainbat saiakera errepikatutako letrentzat"
+#~ msgstr "Letra errepikatuetarako saiakera gehiago eskatu"
 
 #~ msgid "Enable animations"
-#~ msgstr "Gaitu animazioak"
+#~ msgstr "Animazioak gaitu"
 
 #~ msgid "Enable hints globally"
-#~ msgstr "Gaitu iradokizunak osorako"
+#~ msgstr "Argibideak globalki gaitu"
 
 #~ msgid ""
 #~ "If this box is checked, you will have some sounds played for each new "
@@ -799,40 +802,40 @@ msgstr "Utzi"
 #~ "sound in KHangMan.\n"
 #~ "Default is no sound."
 #~ msgstr ""
-#~ "Hau hautatzen bada, joku berri bat abiatzean eta joku bat irabaztean "
-#~ "soinu batzuk erreproduzituko dira. Hau hautatzen ez bada, ez da soinurik "
-#~ "erreproduzituko.\n"
-#~ "Lehenetsia soinurik ez izatea da."
+#~ "Lauki hau markatuta badago, joko berri bakoitza hastean eta joko bat "
+#~ "irabaztean soinu batzuk joko dira. Markatu gabe badago, KHangManen ez da "
+#~ "soinurik joko.\n"
+#~ "Lehenespenez, ez da soinurik joko."
 
 #~ msgid "Play with a new word"
-#~ msgstr "Jokatu hitz berri batekin"
+#~ msgstr "Hitz berri batekin jokatu"
 
 #~ msgid "Opens an existing vocabulary document"
-#~ msgstr "Jadanik badagoen hiztegiko dokumentu bat irekitzen du"
+#~ msgstr "Lehendik dagoen hiztegi-dokumentu bat irekitzen du"
 
 #~ msgid "&Show Hint"
-#~ msgstr "&Erakutsi argibidea"
+#~ msgstr "&Argibidea erakutsi"
 
 #~ msgid "Show/Hide the hint to help guessing the word"
-#~ msgstr "Erakutsi/Ezkutatu argibidea hitza asmatzen laguntzeko"
+#~ msgstr "Hitza asmatzen laguntzeko argibidea erakutsi/ezkutatu"
 
 #~ msgid "&Get Words in New Language..."
-#~ msgstr "&Eskuratu datuak hizkuntza berrian..."
+#~ msgstr "Hizkuntza berriko hitzak &lortu…"
 
 #~ msgid "&Category"
 #~ msgstr "&Kategoria"
 
 #~ msgid "Choose the category of words"
-#~ msgstr "Aukeratu hitzen kategoria"
+#~ msgstr "Hitz-kategoria hautatu"
 
 #~ msgid "&Language"
 #~ msgstr "&Hizkuntza"
 
 #~ msgid "L&ook"
-#~ msgstr "B&egiratu"
+#~ msgstr "I&txura"
 
 #~ msgid "Choose the look and feel"
-#~ msgstr "Hautatu itxura eta izaera"
+#~ msgstr "Itxura eta izaera hautatu"
 
 #~ msgid "General"
 #~ msgstr "Orokorra"
@@ -841,13 +844,13 @@ msgstr "Utzi"
 #~ msgstr "Hizkuntzak"
 
 #~ msgid "Timers"
-#~ msgstr "Kronometroak"
+#~ msgstr "Tenporizadoreak"
 
 #~ msgid "Type accented letters"
-#~ msgstr "Bereizi azentudun letrak"
+#~ msgstr "Azentudun letrak tekleatu"
 
 #~ msgid "Open Vocabulary Document"
-#~ msgstr "Ireki hiztegiaren dokumentua"
+#~ msgstr "Hiztegi-dokumentua ireki"
 
 #~ msgid "&Game"
 #~ msgstr "&Jokoa"
@@ -868,19 +871,19 @@ msgstr "Utzi"
 #~ msgstr "&Asmatu"
 
 #~ msgid "&Play again"
-#~ msgstr "&Jokatu berriro"
+#~ msgstr "Berriro &jokatu"
 
 #~ msgid "You lost. The word was \"%1\"."
-#~ msgstr "Galdu egin duzu. Hitza hau zen: %1."
+#~ msgstr "Galdu egin duzu. Hitza «%1» zen."
 
 #~ msgid "Congratulations! You won!"
-#~ msgstr "Zorionak, irabazi duzu!"
+#~ msgstr "Zorionak! Irabazi duzu!"
 
 #~ msgid "This letter has already been guessed."
-#~ msgstr "Letra hau dagoeneko asmatu da."
+#~ msgstr "Letra hori dagoeneko probatu duzu!"
 
 #~ msgid "Here you can choose special settings for some languages."
-#~ msgstr "Hemen ezarpen beresiak aukera ditzakezu hizkuntza batzuentzako."
+#~ msgstr "Hemen hizkuntza batzuetarako ezarpen bereziak hauta ditzakezu."
 
 #~ msgid "Current maintainer, author"
 #~ msgstr "Uneko mantentzailea, egilea"
@@ -894,13 +897,12 @@ msgstr "Utzi"
 #~ "Here you can set the display times for hints and the \"Already Guessed\" "
 #~ "tooltip."
 #~ msgstr ""
-#~ "Hemen \"Dagoeneko asmatuta\" adierazteko argibidearen denbora ezar "
-#~ "dezakezu."
+#~ "Hemen argibideak eta «Dagoeneko probatuta» tresna-argibidea erakusteko "
+#~ "denborak ezar ditzakezu."
 
 #~ msgid "Time for displaying the <b>Already Guessed Letter</b> tooltip:"
 #~ msgstr ""
-#~ "<b>Dagoeneko asmatuta</b> adierazten duen argibidea bistaratuko den "
-#~ "denbora:"
+#~ "<b>Dagoeneko probatutako letra</b> tresna-argibidea erakusteko denbora:"
 
 #~ msgid ""
 #~ "You can set the time for displaying the \"Already Guessed\" tooltip after "
@@ -908,13 +910,14 @@ msgstr "Utzi"
 #~ "younger children might need longer time to be able to understand they are "
 #~ "trying a letter that was already guessed."
 #~ msgstr ""
-#~ "Dagoeneko asmatuta dagoen letra batekin saiatu ostean \"Dagoeneko asmatuta"
-#~ "\" argibidea bistaratuko den denbora ezarri dezakezu. Lehenetsia segundo "
-#~ "1 da baina hau gazteagoek denbora gehiago behar dezakete jadanik asmatuta "
-#~ "dagoen hizki bat saiatzen ari direla ulertzeko."
+#~ "Dagoeneko probatutako letra bat berriro probatu ondoren, «Dagoeneko "
+#~ "probatuta» tresna-argibidea zenbat denboraz erakutsiko den ezar dezakezu. "
+#~ "Lehenetsitako denbora segundo 1 da, baina haur gazteagoek denbora gehiago "
+#~ "behar izan dezakete dagoeneko probatutako letra bat berriro probatzen ari "
+#~ "direla ulertzeko."
 
 #~ msgid "You can open last opened files"
-#~ msgstr "Irakitako azken fitxategiak ireki ditzakezu"
+#~ msgstr "Azken aldiz irekitako fitxategiak ireki ditzakezu"
 
 #~ msgid "Tamas Szanto"
 #~ msgstr "Tamas Szanto"
@@ -923,8 +926,8 @@ msgstr "Utzi"
 #~ "File '%1' not found.\n"
 #~ "Please reinstall '%2'. Going back to English."
 #~ msgstr ""
-#~ "Ez da %1 fitxategia aurkitu.\n"
-#~ "Instalatu berriro '%2'. Ingelesera itzultzen."
+#~ "«%1» fitxategia ez da aurkitu.\n"
+#~ "Mesedez, «%2» berrinstalatu. Ingelesera itzuliko da."
 
 #~ msgid "Local file"
-#~ msgstr "Fitxategi lokala"
+#~ msgstr "Tokiko fitxategia"
