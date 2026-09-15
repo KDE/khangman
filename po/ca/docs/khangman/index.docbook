@@ -48,7 +48,7 @@
 
 <abstract>
 <para
->El &khangman; és el clàssic joc del penjat per a la canalla. </para>
+>El &khangman; és el clàssic joc del penjat per a infants. </para>
 </abstract>
 
 <keywordset>
@@ -63,7 +63,7 @@
 <keyword
 >joc</keyword>
 <keyword
->canalla</keyword>
+>infant</keyword>
 <keyword
 >paraules</keyword>
 </keywordset>
@@ -564,9 +564,9 @@ fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
 >l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
 >. No oblideu actualitzar també el fitxer CMakeLists.txt. Si us plau, contacteu amb la <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
 >llista de correu kde-edu</ulink
-> si necessiteu quelcom més d'informació. Envieu-nos els fitxers, no us oblideu de fer menció a qualsevol <emphasis role="bold"
+> si necessiteu quelcom més d'informació. Envieu-nos els fitxers, no us oblideu de fer menció de qualsevol <emphasis role="bold"
 >caràcter especial</emphasis
-> emprat en el vostre idioma (poseu-los en un fitxer de text, un per línia i afegiu-lo a l'arxiu tar), i feu també menció a qualsevol altra peculiaritat.</para>
+> emprat en el vostre idioma (poseu-los en un fitxer de text, un per línia i afegiu-lo a l'arxiu tar), i feu també menció de qualsevol altra peculiaritat.</para>
 <para
 ><emphasis
 >Si us plau, no cometeu cap fitxer en una branca perquè podríeu fer petar el joc.</emphasis
