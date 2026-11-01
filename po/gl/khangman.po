@@ -578,7 +578,8 @@ msgid "Losses: "
 msgstr "Perdidas: "
 
 #: qml/GamePage.qml:605
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hint"
 msgid "Hint"
 msgstr "Axuda"
 
