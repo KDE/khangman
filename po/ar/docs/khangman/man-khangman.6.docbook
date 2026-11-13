@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>دليل مستخدم لعبة الشنق</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>دليل مستخدم الشنق.</contrib
+> <email
+>bab@debian.org</email
+></author>
+<date
+>2020-12-22</date>
+<productname
+>تطبيقات 20.12</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>khangman</command
+></refentrytitle>
+<manvolnum
+>6</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>khangman</command
+></refname>
+<refpurpose
+>لعبة حبل المشنقة الكلاسيكية من كيدي</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title
+>الوصف</title>
+<para
+>الشنق هي لعبة مبنية على لعبة حبل المشنقة المعروفة. وهي موجهة للأطفال من سن 6 سنوات فما فوق. تحتوي على عدة فئات كلمات مثل الحيوانات، الملابس، الحواسيب، العملات والمزيد.</para
+><para
+>تُختار كلمة عشوائيًا وتُخفى الحروف. يجب عليك تخمين الكلمة بتجربة حرف تلو الآخر. في كل مرة تخمن فيها حرفًا خاطئًا، يُرسم جزء من صورة حبل المشنقة. يجب عليك تخمين الكلمة قبل أن تُشنق! لديك 10 محاولات.</para
+><para
+>هذا التطبيق جزء من وحدة الترفيه التعليمي لكيدي.</para>
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+<para
+>وثائق المستخدم المفصلة متوفرة من <ulink url="help:/khangman"
+>help:/khangman</ulink
+> (إما أدخل هذا &URL; في &konqueror;، أو شغّل <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/khangman</parameter
+></userinput
+>).</para>
+
+<para
+>تتوفر أيضًا معلومات إضافية على <ulink url="https://edu.kde.org/khangman/"
+>موقع كيدي للترفيه التعليمي</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>المؤلفون</title>
+<para
+>الشنق كُتب بواسطة <personname
+><firstname
+>بريموز</firstname
+><surname
+>أنزور</surname
+></personname
+> و &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail;</para>
+<para
+>صفحة الدليل هذه مبنية على الصفحة التي أعدها <personname
+><firstname
+>بن</firstname
+><surname
+>بيرتون</surname
+></personname
+> لمشروع &Debian;.</para>
+
+
+</refsect1>
+
+</refentry>
