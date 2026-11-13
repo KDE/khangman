@@ -1,0 +1,837 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&khangman;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="khangman" lang="&language;">
+
+<bookinfo>
+<title
+>دليل لعبة الشنق</title>
+
+<authorgroup>
+<author
+><firstname
+>Anne-Marie</firstname
+> <surname
+>Mahfouf</surname
+> <affiliation
+> <address
+>&Anne-Marie.Mahfouf.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year
+><year
+>2009</year>
+<holder
+>&Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2020-12-22</date>
+<releaseinfo
+>تطبيقات 20.12</releaseinfo>
+
+<abstract>
+<para
+>الشنق هي لعبة الرجل المشنوق الكلاسيكية للأطفال. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>الشنق</keyword>
+<keyword
+>لعبة الرجل المشنوق</keyword>
+<keyword
+>لعبة</keyword>
+<keyword
+>طفل</keyword>
+<keyword
+>كلمات</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>الشنق هي لعبة مبنية على لعبة الرجل المشنوق المعروفة. وهي موجهة للأطفال من سن 6 سنوات فما فوق. تحتوي اللعبة على عدة فئات من الكلمات للعب بها، ومن بينها: الحيوانات، الملابس، الحواسيب، العملات، السهل والفواكه. تُختار كلمة عشوائيًا، وتُخفى الحروف، ويجب عليك تخمين الكلمة بتجربة حرف تلو الآخر. في كل مرة تخمن فيها حرفًا خاطئًا، يُرسم جزء من صورة الرجل المشنوق. يجب عليك تخمين الكلمة قبل أن تُشنق! لديك 10 محاولات. </para>
+
+</chapter>
+
+<chapter id="using-khangman">
+<title
+>استخدام الشنق</title>
+
+<screenshot>
+<screeninfo
+>هذه لقطة شاشة لـ الشنق عند تشغيلها لأول مرة </screeninfo
+><mediaobject>
+<imageobject>
+<imagedata fileref="khangman-main.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>لقطة شاشة الشنق</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>هنا ترى الشنق كما هي عند تشغيلها لأول مرة. الفئة هي الحيوانات، اللغة هي المبدئية (الإنجليزية هنا، المبدئي هو لغة &kde; الحالية إذا وُجدت البيانات)، السمة هي <quote
+>ملاحظات</quote
+>. أي تغييرات في الفئة أو اللغة أو السمة (الخلفية) تُكتب في ملف الضبط وتُستعاد في لعبتك التالية. </para>
+
+<para
+>يُرجى ملاحظة مدى سهولة تغيير السمة، فقط انقر على الزر في شريط الأدوات السفلي. الحصول على كلمة جديدة والخروج من اللعبة يتمان بسهولة أيضًا بالنقر على الأزرار المقابلة في أشرطة الأدوات. </para>
+
+<sect1 id="general-usage">
+<title
+>الاستخدام العام</title>
+
+<para
+>تُختار كلمة وتُعرض حروفها كرمز شرطة سفلية (_). تعرف عدد الحروف في الكلمة. يجب عليك تخمين الكلمة بتجربة حرف تلو الآخر. تكتب الحرف على لوحة المفاتيح أو تختاره بـ &LMB;. إذا كان الحرف ينتمي إلى الكلمة، سيتغير لون خلفية الحرف إلى الأخضر، وإلا إلى الأحمر.</para>
+
+<para
+>مفاتيح الحروف في نافذة اللعبة تسمح لك بلعب الشنق بلغات أجنبية دون تغيير تخطيط لوحة المفاتيح.</para>
+
+<para
+>تُختار الكلمة عشوائيًا وهي ليست نفس الكلمة السابقة. </para>
+
+<important
+><para
+>جميع الكلمات هي أسماء (لا توجد أفعال أو صفات، &etc;).</para
+></important>
+
+<para
+>إذا احتجت مساعدة في تخمين الكلمة، يمكنك النقر على أيقونة <inlinemediaobject
+><imageobject
+> <imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>اعرض التلميح</guiicon
+> في شريط الأدوات السفلي وسيُعرض تلميح ليعطيك فكرة عن الكلمة. النقر على هذه الأيقونة مرة أخرى سيخفي التلميح. </para>
+
+<para
+>التلميحات لا تُعرض مبدئيًا. </para>
+
+<para
+>عادةً، ليس من المهم ما إذا كنت تكتب بأحرف صغيرة أو كبيرة. يحول البرنامج كل الإدخال إلى حرف كبير. يقوم البرنامج بذلك آليًا.</para>
+
+<para
+>تُعرض الفئة الحالية والانتصارات والخسائر في النافذة. </para>
+
+<para
+>في كل مرة تخمن فيها حرفًا ليس في الكلمة، يُرسم جزء آخر من الرجل المشنوق. لديك 10 محاولات لتخمين الكلمة. بعد ذلك، تُعرض الإجابة الصحيحة. </para>
+
+<para
+>تتوفر عدة فئات من الكلمات، حسب اللغة المختارة. يمسح البرنامج جميع ملفات البيانات بجميع اللغات ويستخدم أيضًا ملفات كلمات &kanagram;. </para>
+<!--FIXME no difficulty levels in KF5?
+<para>
+In the easy category, the words are quite simple and related to everyday life.
+It
+is suitable for children from 6 to 9.  The animals category contains only names
+of
+animals so they are easier to find. Some of them are easy, others are more
+difficult. In the medium category, the words are longer and more difficult. It
+is
+suitable for ages 9+. The hard category is just that, hard, &ie; the words are
+difficult to spell and not very well known. This category is challenging, even
+for
+adults.
+</para>
+-->
+<para
+>بعد تخمين كلمة (أو اكتمال الرجل المشنوق)، تُهنأ وتُعرض الكلمة التالية. للخروج من اللعبة، انقر على أيقونة <inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>اخرج</guiicon
+> في شريط الأدوات العلوي. </para>
+
+<para
+>تكتب الحرف الذي تريد تجربته على لوحة المفاتيح أو تختاره بـ &LMB;. إذا كان الحرف ينتمي إلى الكلمة، يُبرز المفتاح باللون الأخضر ويوضع الحرف في مكانه، بعدد مرات ظهوره في الكلمة. إذا كان الحرف لا ينتمي إلى الكلمة، يُبرز المفتاح باللون الأحمر. لديك عشر محاولات وبعدها تخسر وتُعرض الكلمة الصحيحة. </para>
+
+<para
+>أثناء اللعبة، يمكنك اختيار بدء لعبة جديدة بالنقر على <inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> في شريط الأدوات السفلي. يمكنك أيضًا تغيير فئة الكلمات بالنقر على الفئة الحالية.</para>
+
+<para
+>يمكن تغيير المظهر بسهولة باستخدام زر السمة في شريط الأدوات العلوي.</para>
+
+<!--Not in kf5?
+<para
+>You can also play the game with a local file installed on your machine
+that you will open using the <guimenu
+>Game</guimenu
+> menu and choosing
+<guimenuitem
+>Open</guimenuitem
+>.</para>
+-->
+</sect1>
+
+<sect1 id="languages">
+<title
+>اللعب بلغات مختلفة</title>
+<para
+>يمكنك لعب الشنق بعدة لغات منها: البرتغالية البرازيلية، البلغارية، الكاتالونية، التشيكية، الدنماركية، الهولندية، الإنجليزية (الأمريكية والبريطانية)، الفنلندية، الفرنسية، الألمانية، المجرية، الأيرلندية (الغيلية)، الإيطالية، النرويجية (بوكمول)، النرويجية (نينوشك)، البولندية، البرتغالية، الرومانية، الإسبانية، الصربية (اللاتينية والسيريلية)، السلوفينية، الطاجيكية، السويدية، الروسية والتركية. يمكنك حتى تجربة الصينية إذا ثبتّ الملفات من &kanagram;. </para>
+
+<para
+>مبدئيًا، بعد التثبيت الأول لـ الشنق، سيُثبت فقط الإنجليزية ولغة &kde; الخاصة بك إذا كانت إحدى اللغات المذكورة أعلاه وإذا كان لديك حزمة kde-i18n المقابلة. على سبيل المثال إذا كنت مستخدمًا دنماركيًا ولديك &kde; بالدنماركية، في اللغة سترى عنصرين: الإنجليزية والدنماركية وستكون الدنماركية هي المبدئية.</para>
+
+<para
+>لا يزال بإمكانك لعب الشنق بلغات أخرى. من السهل جدًا إضافة بيانات جديدة في الشنق. كل ما تحتاجه هو اتصال إنترنت يعمل. تنقر على <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> ويظهر حوار مشابه لهذا: </para>
+
+<screenshot>
+<screeninfo
+>حوار الحصول على كلمات جديدة لـ الشنق</screeninfo>
+<mediaobject
+><imageobject>
+<imagedata fileref="getnewstuff.png" format="PNG"/>
+</imageobject
+><textobject>
+<phrase
+>حوار الحصول على كلمات جديدة لـ الشنق</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>انقر على اسم اللغة التي تريد تثبيتها ثم على زر <guibutton
+>تثبيت</guibutton
+>. إذا ثُبتت اللغة بنجاح، تُعرض علامة اختيار خضراء أمام اسم اللغة ويتحول زر <guibutton
+>تثبيت</guibutton
+> إلى <guibutton
+>إزالة تثبيت</guibutton
+>. تُثبت البيانات فورًا وتصبح متاحة في الشنق. تنقر على زر <guibutton
+>إغلاق</guibutton
+> لإغلاق حوار الحصول على كلمات جديدة (إذا أردت ملف بيانات آخر، يمكنك تكرار هذه الخطوات).</para>
+
+<para
+>يمكنك بعد ذلك تغيير اللغة بسهولة بالنقر على زر اللغة واختيار اللغة الجديدة.</para>
+
+<para
+>يُرجى ملاحظة أن الأحرف الخاصة في لغة ما تُعرض على لوحة المفاتيح. هنا ترى أزرارًا بأيقونة لكل حرف خاص لكل لغة مثل &eacute; في الفرنسية مثلًا. النقر على مثل هذا الزر سيختار الحرف المقابل. يمكنك بالطبع أيضًا استخدام تخطيط لوحة المفاتيح المقابل للغة. </para>
+
+<!--FIXME still true in KF5? apparently khangman installs Dustismo_Roman + Domestic_Manners fonts
+<important
+><para>
+Please note that you need Arial and URW Bookman fonts in order to display the
+special characters correctly in some languages. Provided you have those fonts
+installed, &khangman; will automatically use them. If you see small squares
+instead of letters, then you may not have one of these fonts installed. Type
+<command
+>fonts:/</command
+> into the &konqueror; address bar to check which fonts
+you have installed.</para
+></important
+> -->
+</sect1>
+
+<sect1 id="few-tips">
+<title
+>بعض النصائح</title>
+<para
+>في الإنجليزية، حاول تخمين الحروف المتحركة أولًا. ثم جرب الحروف الساكنة الأكثر شيوعًا: l، t، r، n، s. </para>
+<para
+>عندما ترى <quote
+>io</quote
+>، جرب n بعدها، في الفرنسية والإنجليزية. </para>
+
+<para
+>عليك إما كتابة الحروف المُشكّلة بنفسك أو النقر عليها. عندما تكتب <quote
+>a</quote
+>، يُعرض <quote
+>a</quote
+> فقط وعليك كتابة مثلًا &atilde; لعرض هذا الحرف. </para>
+<para
+>هل تعلم؟ في الإنجليزية، الحرف الأكثر شيوعًا هو e (12.7%)، يليه t (9.1%) ثم a (8.2%)، i (7.0%) و n (6.7%).</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>شريط القوائم وأشرطة الأدوات</title>
+
+<sect1 id="mainwindow">
+<title
+>النافذة الرئيسة لـ الشنق</title>
+
+<screenshot>
+<screeninfo
+>سمة الصحراء لـ الشنق</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="khangman-desert.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>سمة الصحراء لـ الشنق</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>هنا لديك الشنق مع سمة الصحراء، اللغة الفرنسية والفئة <quote
+>Animaux</quote
+>. تظهر الأحرف الخاصة بالفرنسية هنا.</para>
+
+<para
+>تحتوي اللعبة على شريط الأدوات الرئيس في أعلى النافذة:</para>
+
+<simplelist>
+<member>
+<inlinemediaobject
+><imageobject
+><imagedata fileref="play.png" format="PNG"/></imageobject
+></inlinemediaobject
+> أو <inlinemediaobject
+><imageobject
+><imagedata fileref="pause.png" format="PNG"/></imageobject
+></inlinemediaobject
+> ابدأ أو أوقف لعبة </member>
+<member
+>زر لتغيير السمة </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="settings_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> افتح حوار الإعدادات </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dialog-information.png" format="PNG"/></imageobject
+></inlinemediaobject
+> حول الشنق </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="about-kde.png" format="PNG"/></imageobject
+></inlinemediaobject
+> عن كِيدِي </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="handbook.png" format="PNG"/></imageobject
+></inlinemediaobject
+> اعرض كتيّب رجل المشنوق ك. </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> نزّل ملفات لغة جديدة من الإنترنت </member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+> اخرج من الشنق </member>
+</simplelist>
+
+<para
+>يُعرض شريط الأدوات السفلي فقط أثناء لعب لعبة، إذا أوقفت اللعبة مؤقتًا يُخفى هذا الشريط:</para>
+
+<simplelist>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="help-hint.png" format="PNG"/></imageobject
+></inlinemediaobject
+> اعرض تلميحًا عن الكلمة المراد تخمينها </member>
+<member
+>زر لتغيير الفئة</member>
+<member
+>اختيار اللغة</member>
+<member
+>زر <guibutton
+>كشف الكلمة</guibutton
+> لكشف الكلمة المراد تخمينها</member>
+<member
+><inlinemediaobject
+><imageobject
+><imagedata fileref="go-next.png" format="PNG"/></imageobject
+></inlinemediaobject
+> حمّل الكلمة التّالية وابدأ لعبة جديدة </member>
+</simplelist>
+
+<para
+>جميع الكلمات أسماء. لا أفعال ولا صفات. تُعرض الفئة المختارة بعد ذلك على شريط الأدوات السفلي.</para>
+<para
+>يُسمح فقط بكتابة الحروف في مربع النص.</para>
+</sect1>
+
+<sect1 id="settings">
+<title
+>إعدادات</title>
+
+<screenshot>
+<screeninfo
+>إعدادات الشنق</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>إعدادات الشنق</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<!--FIXME Not displayed ?
+Hint show duration
+The duration for showing the hint for the actual word
+-->
+<para
+>يضبط <guilabel
+>زمن حل الكلمة بالثواني</guilabel
+> الحد الأقصى للوقت المسموح به لحل الكلمة في الشنق. القيمة المبدئية هي 120 ثانية. سيحتاج الأطفال الصغار إلى وقت أطول لفهم اللعبة، أما للبالغين فقلّل زمن الحل لإبقاء اللعبة مثيرة. </para>
+
+<para
+>يحدد <guilabel
+>عامل ضرب النقاط</guilabel
+> العامل الذي ستُضرب به النقاط. </para>
+
+<para
+>إذا حددت <guilabel
+>أصوات</guilabel
+>، فسيُشغل صوت عند بدء لعبة جديدة وصوت آخر عند الفوز بلعبة. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title
+>دليل المطور لـ الشنق</title>
+
+<sect1 id="changing-words">
+<title
+>كيفية ترجمة الكلمات بلغة جديدة للعبة</title>
+
+<para
+>يرجى اتباع الإجراء ثم إرسال الملفات مضغوطة بصيغة tar.gz إلى <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>القائمة البريدية kde-edu</ulink
+>. </para>
+<para
+>يرجى الاطلاع في الشنق <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> في شريط الأدوات العلوي لمعرفة ما إذا كانت لغتك متاحة بعد. إذا كانت كذلك، يمكنك التحقق مما إذا كانت تحتوي على <emphasis
+>تلميحات</emphasis
+>. </para>
+<para
+>تُخزَّن قوائم الكلمات القياسية في 4 ملفات منفصلة، وذلك لإنشاء فئات مختلفة. الملفات موجودة في <filename class="directory"
+>/khangman/data/</filename
+>. الملف <filename
+>easy.kvtml</filename
+> مخصص لفئة السهل، والملف <filename
+>medium.kvtml</filename
+> مخصص لفئة المتوسط، والملف <filename
+>animals.kvtml</filename
+> مخصص لفئة الحيوانات، والملف <filename
+>hard.kvtml</filename
+> مخصص لفئة الصعب.</para>
+<para
+>اللغة الإنجليزية هي المبدئية وبالتالي اللغة الوحيدة التي تُشحن مع الشنق. جميع بيانات اللغات الأخرى تُوضع في وحدة kde-l10n المقابلة. </para>
+<procedure>
+<step>
+<para
+>تستخدم الملفات تنسيق kvtml. الوسم <sgmltag class="starttag"
+>text</sgmltag
+> مخصص للكلمة والوسم <sgmltag class="starttag"
+>comment</sgmltag
+> مخصص للتلميح، وهما ضمن وسم <sgmltag class="starttag"
+>entry</sgmltag
+>. يرجى محاولة مطابقة التلميح مع فئة الصعوبة. الفئة <guimenuitem
+>سهل</guimenuitem
+> ستتطلب تلميحًا سهلًا، لكن الفئة <guimenuitem
+>صعب</guimenuitem
+> ستتطلب التعريف من القاموس. حاول ألا تستخدم كلمات من نفس العائلة في التلميح، فهذا سيكشف الكلمة بسهولة!</para>
+
+<para
+>لاحظ أنه يجب عليك استخدام <emphasis role="bold"
+>ترميز UTF-8</emphasis
+> عند تحرير الملفات. إذا لم يتمكن محررك من فعل ذلك، فجرب استخدام &kwrite; أو &kate;. عند فتح ملف في &kwrite; أو &kate; يمكنك اختيار ترميز utf8 من المربع المنسدل في أعلى حوار فتح الملف.</para>
+
+<para
+>مثال على ملف kvtml هو كما يلي:</para>
+<programlisting
+><markup>
+&lt;?xml version="1.0"?&gt; 
+&lt;DOCTYPE kvtml PUBLIC "kvtml2.dtd"
+"https://edu.kde.org/kvtml/kvtml2.dtd"&gt; 
+&lt;kvtml version="2.0"&gt; 
+&lt;information&gt;
+    &lt;generator&gt;converter&lt;/generator&gt;
+    &lt;title&gt;Animals&lt;/title&gt;&lt;!--Translate tag content--&gt;
+    &lt;comment&gt;Animals from across the
+planet&lt;/comment&gt;&lt;!--Translate tag content--&gt;
+  &lt;/information&gt;
+  &lt;identifiers&gt;
+    &lt;identifier id="0" &gt;
+      &lt;locale&gt;en&lt;/locale&gt;
+    &lt;/identifier&gt;
+  &lt;/identifiers&gt;
+...
+&lt;entry id="0" &gt;
+      &lt;inactive&gt;false&lt;/inactive&gt;
+      &lt;inquery&gt;false&lt;/inquery&gt;
+      &lt;translation id="0" &gt;
+        &lt;text&gt;bear&lt;/text&gt;&lt;!--Translate all text tags
+content--&gt;
+        &lt;comment&gt;Large heavy animal with thick
+fur&lt;/comment&gt;&lt;!--Translate all comment tags content--&gt;
+      &lt;/translation&gt;
+    &lt;/entry&gt;
+...
+&lt;/kvtml&gt;
+</markup
+></programlisting>
+</step>
+<step>
+<para
+>في بداية الملف، يجب عليك ترجمة محتوى وسوم <sgmltag class="starttag"
+>title</sgmltag
+> و <sgmltag class="starttag"
+>comment</sgmltag
+> الموجودة ضمن وسم <sgmltag class="starttag"
+>information</sgmltag
+>. سيكون العنوان هو الذي سيظهر في قائمة الفئة في اللعبة (حيث يختار المستخدم الملف للعب به). </para>
+</step>
+<step>
+<para
+>ثم ضمن وسم <sgmltag class="starttag"
+>identifier</sgmltag
+>، يرجى وضع رمز لغتك بدلًا من en في <sgmltag class="starttag"
+>locale</sgmltag
+>.</para>
+
+<para
+>يرجى عدم ترجمة اسم الملف نفسه، إذ يجب ألا تحتوي أسماء الملفات أبدًا على أي أحرف خاصة. لذا يرجى حفظ ملفك بنفس اسم الملف الإنجليزي.</para>
+</step>
+<step>
+<para
+>حرر ملفات kvtml بمحرر نصوص (سيكون أسهل إذا استخدمت تمييز بناء الجملة &XML;) واستبدل كل كلمة داخل وسم <sgmltag class="starttag"
+>text</sgmltag
+> بكلمة مترجمة وكل تلميح داخل وسم <sgmltag class="starttag"
+>comment</sgmltag
+> بتلميح مترجم. ليس من المهم حقًا الحفاظ على المعنى الدقيق، لكن حاول إبقاء الطول وفئة الصعوبة متقاربتين تقريبًا. </para
+> 
+
+<para
+>يمكنك تضمين كلمات بمسافات بيضاء أو - فيها، في هذه الحالة ستظهر المسافة البيضاء أو - بدلًا من _. يرجى الاتصال بـ <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>القائمة البريدية kde-edu</ulink
+> إذا كان هناك أي شيء خاص بلغتك حتى أتمكن من تكييف الكود معها (خاصة الأحرف الخاصة والمنقوطة). </para>
+</step
+>	
+
+<step>
+<para
+>يمكنك فقط ترجمة الكلمات ولكن يمكنك أيضًا تكييفها وفقًا للفئة وإضافة كلمات جديدة إذا أردت. على سبيل المثال، <quote
+>طاولة</quote
+> في فئة السهل بالإنجليزية ولكن في لغتك، قد تكون فئة المتوسط. لا تتردد في تكييف الملفات لتناسب احتياجات لغتك. عدد الكلمات في الملف ليس مهمًا، يمكنك إضافة بعضها إذا أردت.</para>
+
+<para
+>تذكر أن جميع الكلمات هي أسماء.</para>
+
+</step>
+
+<step>
+<para
+>يمكنك بعد ذلك إيداع ملفاتك في <emphasis
+>l10n-kf5/&lt;lang_code&gt;/data/kdeedu/kdeedu-data/</emphasis
+>. لا تنسَ تحديث ملف CMakeLists.txt أيضًا. يرجى الاتصال بـ <ulink url="https://mail.kde.org/mailman/listinfo/kde-edu"
+>القائمة البريدية kde-edu</ulink
+> إذا كنت بحاجة إلى مزيد من المعلومات. عند إرسال الملفات، يرجى عدم نسيان ذكر أي <emphasis role="bold"
+>أحرف خاصة</emphasis
+> مستخدمة في لغتك (ضعها في ملف نصي، سطر واحد لكل منها وأضف هذا الملف في الحزمة المضغوطة) ويرجى ذكر أي خصوصية أخرى.</para>
+<para
+><emphasis
+>يرجى عدم إيداع الملفات أبدًا في فرع (BRANCH) فقد يؤدي ذلك إلى كسر اللعبة.</emphasis
+></para>
+</step>
+</procedure>
+<para
+>شكرًا جزيلًا على مساهمتك!</para>
+</sect1>
+
+<sect1 id="internal">
+<title
+>ما يُخزَّن بواسطة الشنق وأين</title>
+<para
+>عند الحصول على لغة جديدة عبر أيقونة <inlinemediaobject
+><imageobject
+><imagedata fileref="get-hot-new-stuff.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guiicon
+>تنزيل ملفات لغة جديدة</guiicon
+>، تُخزَّن بيانات اللغة الجديدة في <filename class="directory"
+>$XDG_DATA_HOME/share/apps/kvtml/</filename
+> في مجلد رمز اللغة. تُخزَّن أيضًا أسماء مجلدات اللغات المتاحة في ملف إعدادات الشنق في <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>. </para>
+<para
+>اسم المزود (أي عنوان موقع الويب لتنزيل اللغات الجديدة) يُخزَّن في <filename
+>$XDG_DATA_DIRS/share/apps/khangman/khangmanrc</filename
+>. </para>
+<para
+>اللغة الإنجليزية (المبدئية) ولغة المستخدم من حزمة (حزم) i18n الخاصة به (إن وجدت) تُخزَّنان في <filename class="directory"
+>$XDG_DATA_DIRS/share/apps/kvtml</filename
+>. </para>
+<para
+>في ملف الإعدادات، المُخزَّن لكل مستخدم في <filename
+>$XDG_DATA_HOME/share/config/khangmanrc</filename
+>، تُحفظ جميع إعدادات اللعبة مثل الخلفية، آخر فئة تم لعبها، ... بالإضافة إلى الملفات التي نُزِّلت من حوار <guilabel
+>احصل على أشياء جديدة ساخنة!</guilabel
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>الحقوق والترخيص</title>
+
+<para
+>الشنق </para>
+<para
+>حقوق البرنامج 2001-2007 &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+<para
+>المساهمون: <itemizedlist>
+<listitem
+><para
+>رسومات لعبة الرجل المشنوق: رينو بلانشار <email
+>kisukuma@chez.com</email
+></para
+> </listitem>
+<listitem
+><para
+>الأصوات: لودوفيك غروسار <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+> </listitem>
+<listitem
+><para
+>المشرف السابق: &Primoz.Anzur; &Primoz.Anzur.mail;</para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات سويدية، مساعدة في الترميز، صور شفافة وإصلاحات i18n: ستيفان أسرهال <email
+>stefan.asserhall@telia.com </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات إسبانية: eXParTaKus <email
+>expartakus@expartakus.com </email
+></para
+> </listitem>
+<listitem
+><para
+>تلميحات بيانات إسبانية: رافائيل بيكار <email
+>rafael.beccar@kdemail.net </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات دنماركية: إريك كيير بيدرسن <email
+>erik@mpim-bonn.mpg.de </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات فنلندية: نيكو ليمان <email
+>niko.lewman@edu.hel.fi </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات برتغالية برازيلية: جواو سباستياو دي أوليفيرا بوينو <email
+>gwidion@mpc.com.br </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات كتالونية: أنتوني بيلا <email
+>bella5@teleline.es </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات إيطالية: جيوفاني فينتوري <email
+>jumpyj@tiscali.it </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات هولندية: رينس <email
+>rinse@kde.nl </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات برتغالية: بيدرو مورايس <email
+>morais@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات صربية (سيريلية ولاتينية): تشوسلاف إيليتش <email
+>chaslav@sezampro.yu </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات سلوفينية: يوري ريبينك <email
+>jlp@holodeck1.com </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات تشيكية: لوكاش تينكل <email
+>lukas@kde.org </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات طاجيكية: روجر كوفاكس <email
+>rkovacs@khujand.org </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات نرويجية (بوكمول): تورغر أوغه سينيس <email
+>torg-a-s@online.no </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات مجرية: تاماس سانتو <email
+>tszanto@mol.hu </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات نرويجية (نينوشك): غوتي هفوسليف كفالنيس <email
+>gaute@verdsveven.com </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات تركية: محمد أوزل <email
+>mehmet_ozel2003@hotmail.com </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات بلغارية: رادوستين رادنيف <email
+>radnev@yahoo.com </email
+></para
+> </listitem>
+<listitem
+><para
+>ملفات بيانات أيرلندية (غيلية): كيفن باتريك سكانيل <email
+>scannell@slu.edu </email
+></para
+> </listitem>
+<listitem
+><para
+>مساعدة برمجية: روبرت غوغولوك <email
+>robert.gogolok@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>مساعدة برمجية: بنيامين ماير <email
+>ben@meyerhome.net</email
+></para
+> </listitem>
+<listitem
+><para
+>إصلاحات شيفرة: لوبوس لوناك <email
+>l.lunak@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>إصلاحات شيفرة: ألبرت أستالس سيد <email
+>albert.astals.cid@kde.org</email
+></para
+> </listitem>
+<listitem
+><para
+>دراسة قابلية الاستخدام: سيليست بول <email
+>seele@obso1337.org</email
+></para
+> </listitem>
+</itemizedlist>
+</para>
+
+<para
+>حقوق نشر التوثيق 2001-2007 لـ &Anne-Marie.Mahfouf; &Anne-Marie.Mahfouf.mail; </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
