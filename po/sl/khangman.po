@@ -1,6 +1,6 @@
 # Translation of khangman.po to Slovenian
 # Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: khangman.po 1741105 2026-07-11 01:27:58Z scripty $
+# $Id$
 # $Source$
 #
 # Gregor Rakar <gregor.rakar@kiss.si>, 2002, 2003, 2004.
