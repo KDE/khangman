@@ -1,5 +1,5 @@
 # translation of khangman.po to
-# Version: $Revision: 1741105 $
+# Version: $Revision$
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Piotr Szymański <djurban@linuxpl.org>, 2002.
 # Marcin Garski <mgarski@post.pl>, 2003, 2004, 2005.
